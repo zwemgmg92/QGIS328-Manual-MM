@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>17.1. Raster ဂုဏ်သတ္တိများပြ Dialog (Raster Properties Dialog) &mdash; QGIS Documentation  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/qgis_docs.css?v=3fdf4c33" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/qgis_logo.ico"/>
+    <link rel="canonical" href="https://docs.qgis.org/latest/en/docs/user_manual/working_with_raster/raster_properties.html"/>
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../../_static/copybutton.js?v=f281be69"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="17.2. Raster များအား ဆန်းစစ်လေ့လာခြင်း" href="raster_analysis.html" />
+    <link rel="prev" title="17. Raster Data နှင့် အလုပ်လုပ်ခြင်း" href="index.html" />
+  <meta name="description" content="QGIS 3.28 documentation: 17.1. Raster ဂုဏ်သတ္တိများပြ Dialog (Raster Properties Dialog)">
+</head>
+
+<body class="wy-body-for-nav">
+
+  <nav class="release_status_topbar">
+  </nav>
+
+   
+
+ 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+   
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            QGIS Documentation
+              <img src="../../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                3.28
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+   <a href= "../../../genindex.html">Index</a>
+ 
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">အသုံးပြုသူများအတွက်</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../preamble/preamble.html">1. စကားချီး (Preamble)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/foreword.html">2. အမှာစာ (Foreword)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/conventions.html">3. အသုံးအနှုန်းများ (Conventions)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/features.html">4. အသွင်အပြင်များ (Features)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/getting_started.html">5. စတင်အသုံးပြုခြင်း (Getting Started)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/project_files.html">6. Project Files များနှင့် အလုပ်လုပ်ခြင်း (Working with Project Files)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/qgis_gui.html">7. QGIS ၏အစိတ်အပိုင်းများ (QGIS GUI)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/browser.html">8. ဒေတာများရှာဖွေကြည့်ရှုနိုင်သည့်နေရာ (The Browser panel)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/qgis_configuration.html">9. QGIS ပြင်ဆင်သတ်မှတ်ခြင်း/အခင်းအကျင်း (QGIS Configuration)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_projections/working_with_projections.html">10. မြေပုံအရိပ်ချစနစ်များ နှင့် အလုပ်လုပ်ခြင်း (Working with Projections)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../map_views/index.html">11. မြေပုံများအား ပုံဖော်ကြည့်ရှုခြင်း (Visualizing Maps)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/general_tools.html">12. အထွေ‌ထွေ‌သုံးကိရိယာများ (General Tools)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../expressions/index.html">13. Expression များဖြင့် အဆင့်မြှင့်တင်ဆောင်ရွက်ခြင်း (Level up with Expressions)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../style_library/index.html">14. The Style Library (Style နှင့်ပတ်သက်သည်များ ထားရှိရာနေရာ)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../managing_data_source/index.html">15. ဒေတာအရင်းအမြစ်များအား စီမံခန့်ခွဲခြင်း (Managing Data Source)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_vector/index.html">16. Vector data များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">17. Raster Data နှင့် အလုပ်လုပ်ခြင်း</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">17.1. Raster ဂုဏ်သတ္တိများပြ Dialog (Raster Properties Dialog)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#information-properties">17.1.1. သတင်းအချက်အလက်ဆိုင်ရာ ဂုဏ်သတ္တိများ (Information Properties)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#source-properties">17.1.2. မူလရင်းမြစ်၏ ဂုဏ်သတ္တိများ (Source Properties)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#symbology-properties">17.1.3. သင်္ကေတ ဂုဏ်သတ္တိများ (Symbology Properties)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#band-rendering-band-rendering">17.1.3.1. Band rendering (Band များကို Rendering ပြုလုပ်ခြင်း)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#layer-layer-rendering">17.1.3.2. Layer ပုံဖော်ပြသခြင်း (Layer Rendering)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pixel-resolution-resampling">17.1.3.3. pixel အရွယ်အစားကို ပြင်ဆင်ပြီး resolution ပြောင်းလဲခြင်း (Resampling)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#transparency-properties">17.1.4. ဖောက်ထွင်းမြင် ဂုဏ်သတ္တိများ (Transparency Properties)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#histogram-properties">17.1.5. ကြိမ်နှုန်းပြဂရပ်၏ ဂုဏ်သတ္တိများ (Histogram Properties)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rendering-properties">17.1.6. ပုံဖော်ပြသခြင်းဆိုင်ရာ ဂုဏ်သတ္တိများ (Rendering Properties)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#temporal-properties">17.1.7. အချိန်ကာလဆိုင်ရာ ဂုဏ်သတ္တိများ (Temporal Properties)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#elevation-properties">17.1.8. မြေပြင်အနိမ့်အမြင့်ဆိုင်ရာ ဂုဏ်သတ္တိများ (Elevation Properties)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pyramids-properties">17.1.9. ပိရမစ်လွှာဂုဏ်သတ္တိများ (Pyramids Properties)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#metadata-metadata-properties">17.1.10. Metadata ဂုဏ်သတ္တိများ (Metadata Properties)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#legend-properties">17.1.11. မြေပုံရည်ညွှန်းချက်ဂုဏ်သတ္တိများ (Legend Properties)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#qgis-qgis-server-properties">17.1.12. QGIS ဆာဗာဆိုင်ရာ ဂုဏ်သတ္တိများ (QGIS Server Properties)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="raster_analysis.html">17.2. Raster များအား ဆန်းစစ်လေ့လာခြင်း</a></li>
+<li class="toctree-l2"><a class="reference internal" href="georeferencer.html">17.3. မြေပုံမြေပြင်မှတ်ပုံတင်ရာ (Georeferencer)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_mesh/mesh_properties.html">18. Working with Mesh Data (Mesh Data များနှင့် အလုပ်လုပ်ခြင်း)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_vector_tiles/vector_tiles_properties.html">19. Vector Tiles များနှင့်အလုပ်လုပ်ခြင်း (Working with Vector Tiles)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_point_clouds/point_clouds.html">20. Point Cloud များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../print_composer/index.html">21. မြေပုံအချောသပ်ပြင်ဆင်ခြင်း (Laying out the maps)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_ogc/ogc_client_support.html">22. OGC / ISO protocol များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_gps/index.html">23. GPS Data များနှင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../auth_system/auth_overview.html">24. အထောက်အထားစီစစ်ခြင်းအကြောင်းအကျဉ်း (Authentication System Overview)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../auth_system/auth_workflows.html">25. အသုံးပြုသူ အထောက်အထားစစ်ဆေးခြင်း လုပ်ငန်းအဆင့်များ (User Authentication Workflows)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../auth_system/auth_considerations.html">26. လုံခြုံရေးအတွက်စဉ်းစားရန်အချက်များ (Security Considerations)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../grass_integration/grass_integration.html">27. GRASS GIS နှင့်ပေါင်းစပ်အသုံးပြုခြင်း (GRASS GIS Integration)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing/index.html">28. QGIS processing framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing_algs/index.html">29. Processing ဆိုင်ရာ ထောက်ပံ့ပေးသူများနှင့် Algorithm များ (Processing providers and algorithms)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/plugins.html">30. QGIS Plugin များ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/core_plugins/index.html">31. QGIS ပင်မ Plugin များကို အသုံးပြုခြင်း (Using QGIS Core Plugins)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/python_console.html">32. QGIS တွင် Python code များရေးသားရန်နေရာ (QGIS Python console)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/help_and_support.html">33. အကူအညီနှင့်အထောက်အပံ့ (Help and Support)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/contributors.html">34. ပါဝင်အားဖြည့်သူများ (Contributors)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendices/index.html">35. နောက်ဆက်တွဲများ (Appendices)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../literature_web/literature_and_web_references.html">36. စာတမ်းများနှင့် Website ကိုးကားချက်များ (Literature and Web References)</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">QGIS Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">&lt;no title&gt;</a></li>
+          <li class="breadcrumb-item"><a href="index.html"><span class="section-number">17. </span>Raster Data နှင့် အလုပ်လုပ်ခြင်း</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">17.1. </span>Raster ဂုဏ်သတ္တိများပြ Dialog (Raster Properties Dialog)</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/qgis/QGIS-Documentation/blob/master/docs/user_manual/working_with_raster/raster_properties.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="index.html" class="btn btn-neutral float-left" title="17. Raster Data နှင့် အလုပ်လုပ်ခြင်း" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="raster_analysis.html" class="btn btn-neutral float-right" title="17.2. Raster များအား ဆန်းစစ်လေ့လာခြင်း" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <blockquote>
+<div></div></blockquote>
+<section id="raster-dialog-raster-properties-dialog">
+<span id="raster-properties-dialog"></span><span id="index-0"></span><h1><span class="section-number">17.1. </span>Raster ဂုဏ်သတ္တိများပြ Dialog (Raster Properties Dialog)<a class="headerlink" href="#raster-dialog-raster-properties-dialog" title="Link to this heading"></a></h1>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#information-properties" id="id21">သတင်းအချက်အလက်ဆိုင်ရာ ဂုဏ်သတ္တိများ (Information Properties)</a></p></li>
+<li><p><a class="reference internal" href="#source-properties" id="id22">မူလရင်းမြစ်၏ ဂုဏ်သတ္တိများ (Source Properties)</a></p></li>
+<li><p><a class="reference internal" href="#symbology-properties" id="id23">သင်္ကေတ ဂုဏ်သတ္တိများ (Symbology Properties)</a></p>
+<ul>
+<li><p><a class="reference internal" href="#band-rendering-band-rendering" id="id24">Band rendering (Band များကို Rendering ပြုလုပ်ခြင်း)</a></p>
+<ul>
+<li><p><a class="reference internal" href="#band-multiband-color" id="id25">Band မျိုးစုံပြအရောင် (Multiband color)</a></p></li>
+<li><p><a class="reference internal" href="#paletted-unique-values" id="id26">တစ်ခုတစ်ရောင် (Paletted/Unique values)</a></p></li>
+<li><p><a class="reference internal" href="#band-singleband-gray" id="id27">မီးခိုးရောင်များဖြင့်ပြသသော band တစ်ခု (Singleband gray)</a></p></li>
+<li><p><a class="reference internal" href="#band-singleband-pseudocolor" id="id28">အ‌ရောင်တုဖြင့်ပြသသော band တစ်ခု (Singleband pseudocolor)</a></p></li>
+<li><p><a class="reference internal" href="#hillshade" id="id29">တောင်အရိပ် (Hillshade)</a></p></li>
+<li><p><a class="reference internal" href="#contours" id="id30">ကွန်တိုများ (Contours)</a></p></li>
+<li><p><a class="reference internal" href="#setting-the-min-and-max-values" id="id31">အနည်းဆုံးနှင့် အများဆုံးတန်ဖိုးများ သတ်မှတ်ခြင်း (Setting the min and max values)</a></p></li>
+<li><p><a class="reference internal" href="#color-ramp-shader-color-ramp-shader-classification" id="id32">Color ramp shader အတန်းအစားခွဲခြားခြင်း (Color ramp shader classification)</a></p></li>
+<li><p><a class="reference internal" href="#raster-customize-raster-legend" id="id33">Raster ရည်ညွှန်းချက်များကို ပြင်ဆင်ခြင်း (Customize raster legend)</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#layer-layer-rendering" id="id34">Layer ပုံဖော်ပြသခြင်း (Layer Rendering)</a></p></li>
+<li><p><a class="reference internal" href="#pixel-resolution-resampling" id="id35">pixel အရွယ်အစားကို ပြင်ဆင်ပြီး resolution ပြောင်းလဲခြင်း (Resampling)</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#transparency-properties" id="id36">ဖောက်ထွင်းမြင် ဂုဏ်သတ္တိများ (Transparency Properties)</a></p></li>
+<li><p><a class="reference internal" href="#histogram-properties" id="id37">ကြိမ်နှုန်းပြဂရပ်၏ ဂုဏ်သတ္တိများ (Histogram Properties)</a></p></li>
+<li><p><a class="reference internal" href="#rendering-properties" id="id38">ပုံဖော်ပြသခြင်းဆိုင်ရာ ဂုဏ်သတ္တိများ (Rendering Properties)</a></p></li>
+<li><p><a class="reference internal" href="#temporal-properties" id="id39">အချိန်ကာလဆိုင်ရာ ဂုဏ်သတ္တိများ (Temporal Properties)</a></p></li>
+<li><p><a class="reference internal" href="#elevation-properties" id="id40">မြေပြင်အနိမ့်အမြင့်ဆိုင်ရာ ဂုဏ်သတ္တိများ (Elevation Properties)</a></p></li>
+<li><p><a class="reference internal" href="#pyramids-properties" id="id41">ပိရမစ်လွှာဂုဏ်သတ္တိများ (Pyramids Properties)</a></p></li>
+<li><p><a class="reference internal" href="#metadata-metadata-properties" id="id42">Metadata ဂုဏ်သတ္တိများ (Metadata Properties)</a></p></li>
+<li><p><a class="reference internal" href="#legend-properties" id="id43">မြေပုံရည်ညွှန်းချက်ဂုဏ်သတ္တိများ (Legend Properties)</a></p></li>
+<li><p><a class="reference internal" href="#qgis-qgis-server-properties" id="id44">QGIS ဆာဗာဆိုင်ရာ ဂုဏ်သတ္တိများ (QGIS Server Properties)</a></p></li>
+</ul>
+</nav>
+<p>Raster layer တစ်ခုအတွက် property များကို ကြည့်ရန်နှင့် သတ်မှတ်ပေးရန်အတွက် မြေပုံရည်ညွှန်းချက်ထဲရှိ layer name ပေါ်တွင် double click နှိပ်ပါ သို့မဟုတ် layer name ပေါ်ကို right-click နှိပ်ပြီး ပေါ်လာသော menu မှ <span class="guilabel">Properties</span> ကိုရွေးပါ။ ထိုသို့ နှိပ်လိုက်ပါက <span class="guilabel">Raster Layer Properties</span> dialog ပွင့်လာပါမည်။</p>
+<p>Dialog ထဲတွင် tab များစွာရှိပါသည်-</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="../../../_images/metadata.png"><img alt="metadata" src="../../../_images/metadata.png" style="width: 1.5em;" /></a> <a class="reference internal" href="#raster-information"><span class="std std-ref">Information</span></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/system.png"><img alt="system" src="../../../_images/system.png" style="width: 1.5em;" /></a> <a class="reference internal" href="#raster-sourcetab"><span class="std std-ref">Source</span></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/symbology.png"><img alt="symbology" src="../../../_images/symbology.png" style="width: 2em;" /></a> <a class="reference internal" href="#raster-symbology"><span class="std std-ref">Symbology</span></a><sup>[1]</sup></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../../../_images/transparency.png"><img alt="transparency" src="../../../_images/transparency.png" style="width: 1.5em;" /></a> <a class="reference internal" href="#raster-transparency"><span class="std std-ref">Transparency</span></a><sup>[1]</sup></p></td>
+<td><p><a class="reference internal" href="../../../_images/rasterHistogram.png"><img alt="rasterHistogram" src="../../../_images/rasterHistogram.png" style="width: 1.5em;" /></a> <a class="reference internal" href="#raster-histogram"><span class="std std-ref">Histogram</span></a><sup>[1]</sup></p></td>
+<td><p><a class="reference internal" href="../../../_images/rendering.png"><img alt="rendering" src="../../../_images/rendering.png" style="width: 1.5em;" /></a> <a class="reference internal" href="#raster-rendering"><span class="std std-ref">Rendering</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../../../_images/temporal.png"><img alt="temporal" src="../../../_images/temporal.png" style="width: 1.5em;" /></a> <a class="reference internal" href="#raster-temporal"><span class="std std-ref">Temporal</span></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/elevationscale.png"><img alt="elevationscale" src="../../../_images/elevationscale.png" style="width: 1.5em;" /></a> <a class="reference internal" href="#raster-elevation"><span class="std std-ref">Elevation</span></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/pyramids.png"><img alt="pyramids" src="../../../_images/pyramids.png" style="width: 1.5em;" /></a> <a class="reference internal" href="#raster-pyramids"><span class="std std-ref">Pyramids</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../../../_images/editmetadata.png"><img alt="editMetadata" src="../../../_images/editmetadata.png" style="width: 1.2em;" /></a> <a class="reference internal" href="#raster-metadata"><span class="std std-ref">Metadata</span></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/legend.png"><img alt="legend" src="../../../_images/legend.png" style="width: 1.2em;" /></a> <a class="reference internal" href="#raster-server"><span class="std std-ref">Legend</span></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/overlay.png"><img alt="overlay" src="../../../_images/overlay.png" style="width: 1.5em;" /></a> <a class="reference internal" href="#raster-server"><span class="std std-ref">QGIS Server</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../plugins/plugins.html#plugins"><span class="std std-ref">External plugins</span></a><sup>[2]</sup> tabs</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><sup>[1]</sup> <a class="reference internal" href="../introduction/general_tools.html#layer-styling-panel"><span class="std std-ref">Layer styling panel</span></a> တွင်လည်းရရှိနိုင်ပါသည်။</p>
+<p><sup>[2]</sup> :ref:` အပြင်မှထည့်သွင်းထားသည့် plugins &lt;plugins&gt;` တွေကိုလည်း ဤ dialog တွင် tab တွေထည့်ထားလို့ရပါသည်။ ဤစာအုပ်ထဲမှာတော့ အဆိုပါအကြောင်းအရာတွေ ထည့်ရေးမထားပါဘူး။ ၎င်းတို့၏ သီးသန့်စာတမ်းများကို ကိုးကားပါ။</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><strong>Live update rendering</strong></p>
+<p><a class="reference internal" href="../introduction/general_tools.html#layer-styling-panel"><span class="std std-ref">Layer အပြင်အဆင်ရင်ပြုလုပ်ရန်နေရာ (Layer Styling Panel)</span></a> က Layer properties dialog ရဲ့ အသုံးများသည့် feature များကို ထောက်ပံ့ပေးပြီး layer စတိုင်များပြင်ဆင်ခြင်းကို ပိုမိုမြန်ဆန်စေရုံမကဘဲ map canvas ထဲကအပြောင်းအလဲများကို ကြည့်ရှုရာတွင် အသုံးဝင်သည့် widget တစ်ခုဖြစ်ပါသည်။</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>ထည့်မြှုပ်ထားသော layer များ (embedded layers) (<a class="reference internal" href="../introduction/general_tools.html#nesting-projects"><span class="std std-ref">ပြင်ပ project များမှ layer များကို ထည့်သွင်းခြင်း (Embedding layers from external projects)</span></a> တွင်ကြည့်ပါ) ၏ property များဖြစ်သည့် symbology ၊ label ၊ actions ၊ default values ၊ forms များကို
+မူရင်း project file ကနေ ဆွဲထုတ်သည့်အတွက် လုပ်ဆောင်နေစဉ် ရပ်တန့်သွားမှုများ မဖြစ်ပေါ်စေရန် ထို layer များအတွက် layer properties dialog ကို အသုံးမပြုနိုင်ပါ။</p>
+</div>
+<section id="information-properties">
+<span id="raster-information"></span><h2><a class="toc-backref" href="#id21" role="doc-backlink"><span class="section-number">17.1.1. </span>သတင်းအချက်အလက်ဆိုင်ရာ ဂုဏ်သတ္တိများ (Information Properties)</a><a class="headerlink" href="#information-properties" title="Link to this heading"></a></h2>
+<p><a class="reference internal" href="../../../_images/metadata.png"><img alt="metadata" src="../../../_images/metadata.png" style="width: 1.5em;" /></a> <span class="guilabel">Information</span> သည် ဖတ်ရှုရုံအတွက်သာဖြစ်ပြီး လက်ရှိ layer ရဲ့ metadata နှင့် အကျဉ်းချုပ်သတင်းအချက်အလက်ကို အမြန်ကြည့်ရှုနိုင်သည့် စိတ်ဝင်စားစရာနေရာတစ်ခုဖြစ်ပါသည်။
+ကြည့်ရှုနိုင်သော သတင်းအချက်လက်များမှာ -</p>
+<ul class="simple">
+<li><p>Project ထဲရှိနာမည် ၊ file များသိမ်းထားသည့်လမ်းကြောင်း ၊ auxiliary file (တွဲဖက်ဖိုင်) များစာရင်း ၊ နောက်ဆုံးသိမ်းဆည်းခဲ့သော အချိန်နှင့်အရွယ်အစား၊ data ဖန်တီးသူ စသည့် အခြေခံအချက်လက်များ၊</p></li>
+<li><p>Data ဖန်တီးသူရဲ့ ထည့်သွင်းခဲ့တဲ့ အချက်အလက်ပေါ်မူတည်ပြီး အကျယ်အဝန်း၊ အကျယ်နှင့်အမြင့်၊ data အမျိုးအစားများ၊ GDAL driver နှင့် band များ၏ ကိန်းဂဏန်းများ၊</p></li>
+<li><p>Coordinate Reference System - နာမည်၊ ယူနစ်များ၊ နည်းလမ်း၊ တိကျမှု၊ အညွှန်း (ကိန်းဂဏန်း သို့မဟုတ် ကွဲပြားမှုများ)</p></li>
+<li><p>Layer proprties မှ ဖတ်ရှုနိုင်သည့် data အမျိုးအစား၊ အကျယ်အဝန်း၊ အကျယ်/အမြင့်၊ ချုံ့ထားမှု၊ pixel အရွယ်အစား၊ band များရဲ့ ကိန်းဂဏန်းများ၊ column များအရေအတွက်၊ raster ရဲ့ row (အတန်း)များနှင့် no-data တန်ဖိုးများ၊</p></li>
+<li><p><a class="reference internal" href="#raster-metadata"><span class="std std-ref">filled metadata</span></a> ကနေရယူထားသည့် အသုံးပြုနိုင်စွမ်း၊ အကျယ်အဝန်း၊ ချိတ်ဆက်မှုများ၊ အဆက်အသွယ်လိပ်စာများ၊ သမိုင်းကြောင်းများ တို့ဖြစ်ပါသည်။</p></li>
+</ul>
+</section>
+<section id="source-properties">
+<span id="raster-sourcetab"></span><h2><a class="toc-backref" href="#id22" role="doc-backlink"><span class="section-number">17.1.2. </span>မူလရင်းမြစ်၏ ဂုဏ်သတ္တိများ (Source Properties)</a><a class="headerlink" href="#source-properties" title="Link to this heading"></a></h2>
+<p><a class="reference internal" href="../../../_images/system.png"><img alt="system" src="../../../_images/system.png" style="width: 1.5em;" /></a> <span class="guilabel">Source</span> tab သည် ရွေးချယ်ထားသော raster ရဲ့ အခြေခံသတင်းအချက်လက်များကို ဖော်ပြပေးပါသည်။ ဖော်ပြပေးသော အချက်အလက်များမှာ-</p>
+<ul class="simple">
+<li><p><span class="guilabel">Layers Panel</span> ထဲတွင် ပြသပေးသော <span class="guilabel">Layer name</span></p></li>
+<li><p><span class="guilabel">Coordinate Reference System</span> သည် layer ရဲ့ <a class="reference internal" href="../working_with_projections/working_with_projections.html#layer-crs"><span class="std std-ref">Coordinate Reference System (CRS)</span></a> ကိုဖော်ပြပေးပါသည်။ Drop-down စာရင်းတွင်ပေါ်နေသည့် မကြာသေးမီက သုံးထားသော CRS ကိုရွေးချယ်ခြင်း သို့မဟုတ် <a class="reference internal" href="../../../_images/mActionSetProjection.png"><img alt="setProjection" src="../../../_images/mActionSetProjection.png" style="width: 1.5em;" /></a><sup>Select CRS</sup> ကိုနှိပ်ခြင်းဖြင့် layer ရဲ့ CRS ကိုပြောင်းလဲနိုင်ပါသည်။ (<a class="reference internal" href="../working_with_projections/working_with_projections.html#crs-selector"><span class="std std-ref">ကိုသြဒိနိတ်ရည်ညွှန်းစနစ်ရွေးချယ်ရာ (Coordinate Reference System Selector)</span></a> တွင်ကြည့်ပါ)
+Layer ရဲ့ CRS မှားနေသည့်အခါ သို့မဟုတ် သတ်မှတ်မထားသည့်အခါမှသာ ဤနည်းလမ်းကိုအသုံးပြုပါ။ Data ကို reproject ပြန်လုပ်လိုပါက Processing မှ reprojection algorithm အသုံးပြုပါ သို့မဟုတ် <a class="reference internal" href="../managing_data_source/create_layers.html#general-saveas"><span class="std std-ref">Save it as new dataset (Dataset အသစ်တစ်ခုအဖြစ်သိမ်းဆည်းခြင်း)</span></a> ကိုအသုံးပြုပါ။</p></li>
+</ul>
+<figure class="align-center" id="id1">
+<span id="figure-raster-properties"></span><img alt="../../../_images/rasterPropertiesDialog.png" src="../../../_images/rasterPropertiesDialog.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 17.1 </span><span class="caption-text">Raster Layer Properties - Source Dialog</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="symbology-properties">
+<span id="raster-symbology"></span><span id="index-1"></span><h2><a class="toc-backref" href="#id23" role="doc-backlink"><span class="section-number">17.1.3. </span>သင်္ကေတ ဂုဏ်သတ္တိများ (Symbology Properties)</a><a class="headerlink" href="#symbology-properties" title="Link to this heading"></a></h2>
+<p>Raster layer ၏ symbology tab တွင် မတူညီသည့် အပိုင်း ၃ ပိုင်းရှိပါသည်-</p>
+<ul class="simple">
+<li><p>အသုံးပြုမည့် render (အရောင်ချယ်ခြင်း၊ အမြင်ပြင်ဆင်ခြင်းများ) အမျိုးအစားကို ထိန်းချုပ်ရန်အတွက် <span class="guilabel">Band rendering</span></p></li>
+<li><p>Render data ပေါ်တွင် effect များထည့်ရန်အတွက် <span class="guilabel">Layer rendering</span></p></li>
+<li><p>မြေပုံပေါ်တွင် rendering လုပ်ခြင်းကို အကောင်းဆုံးဖြစ်စေရန်အတွက် <span class="guilabel">Resampling</span> နည်းလမ်းများ</p></li>
+</ul>
+<section id="band-rendering-band-rendering">
+<h3><a class="toc-backref" href="#id24" role="doc-backlink"><span class="section-number">17.1.3.1. </span>Band rendering (Band များကို Rendering ပြုလုပ်ခြင်း)</a><a class="headerlink" href="#band-rendering-band-rendering" title="Link to this heading"></a></h3>
+<p>QGIS တွင် <span class="guilabel">Render types</span> (Render အမျိုးအစား) အမျိုးမျိုးရှိပါသည်။ အသုံးပြုမည့် data အမျိုးအစားနှင့် မီးမောင်းထိုးပြချင်သော သတင်းအချက်အလက်ပေါ်မူတည်ပြီး renderer အမျိုးအစားကို ရွေးချယ်နိုင်ပါသည်။</p>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="#multiband-color"><span class="std std-ref">Multiband color</span></a> - File တွင် များပြားသော band များပါဝင်လျှင် (ဥပမာ - band အများကြီးပါသော ဂြိုလ်တုဓာတ်ပုံ)</p></li>
+<li><p><a class="reference internal" href="#paletted"><span class="std std-ref">Paletted/Unique values</span></a> - Indexed palette တစ်ခုဖြင့် band တစ်ခုတည်းပါသော file များအတွက် (ဥပမာ - digital topographic မြေပုံများ) သို့မဟုတ် raster layer များ rendering လုပ်ရန်အတွက် palette များကို ယေဘုယျအသုံးပြုခြင်းအတွက်</p></li>
+<li><p><a class="reference internal" href="#singleband-gray"><span class="std std-ref">Singleband gray</span></a> - ဓာတ်ပုံရဲ့ band တစ်ခုတည်းကို မီးခိုးရောင်အဖြစ် ပြသပေးပါသည်။ File သည် band အများကြီးလည်း မပါသလို paletted လည်းမဟုတ်လျှင် QGIS က ဤ render နည်းကို အသုံးပြုပါသည်။ (ဥပမာ - မြေမျက်နှာသွင်ပြင် အနိမ့်အမြင့်များပြသောမြေပုံ)</p></li>
+<li><p><a class="reference internal" href="#label-colormaptab"><span class="std std-ref">Singleband pseudocolor</span></a> - တစ်ဆက်တည်းဖြစ်နေသည့် palette (continuous palette) သို့မဟုတ် အ‌ရောင်မြေပုံများအတွက် ဤ renderer ကို အသုံးပြုနိုင်ပါသည်။ (ဥပမာ - ပင်လယ်ရေမျက်နှာပြင် အနိမ့်အမြင့်ပြ မြေပုံ)</p></li>
+<li><p><a class="reference internal" href="#hillshade-renderer"><span class="std std-ref">Hillshade</span></a> - Band တစ်ခုမှ hillshade ဖန်တီးသည့်အခါ အသုံးပြုပါသည်။</p></li>
+<li><p><a class="reference internal" href="#raster-contours"><span class="std std-ref">Contours</span></a> - Raster band တစ်ခုအတွက် ကွန်တိုများ (အနိမ့်အမြင့်ပြမျဉ်းများ) ကို on the fly (အလျှင်အမြန်/ချက်ချင်း) ဖန်တီးသည့်အခါတွင် အသုံးပြုပါသည်။</p></li>
+</ol>
+<section id="band-multiband-color">
+<span id="multiband-color"></span><h4><a class="toc-backref" href="#id25" role="doc-backlink">Band မျိုးစုံပြအရောင် (Multiband color)</a><a class="headerlink" href="#band-multiband-color" title="Link to this heading"></a></h4>
+<p>Band မျိုးစုံဖြင့် အရောင်စုံမြေပုံပြင်ဆင်ခြင်းတွင် ဓာတ်ပုံမှ band ၃ ခုကို ရွေးချယ်ပြီး အနီ၊ အစိမ်း သို့မဟုတ် အပြာ အဖြစ် အသုံးပြုပါသည်။ Raster ၏ band တစ်ခုချင်းဆီအတွက် <span class="guilabel">Min</span> နှင့် <span class="guilabel">Max</span> တန်ဖိုးများကို အလိုလျောက် တွက်ထုတ်ပြီး သင့်တော်သော အရောင်များကိုထည့်ပေးပါသည်။ တန်ဖိုးများကို <a class="reference internal" href="#minmaxvalues"><span class="std std-ref">Min/Max Value Settings</span></a> အပိုင်းတွင် ထိန်းချုပ်နိုင်ပါသည်။</p>
+<p><span class="guilabel">အရောင်ကွဲပြားထင်ရှားမှုမြှင့်တင်ခြင်း (Contrast enhancement)</span> ကိုလည်းအသုံးပြုနိုင်ပါသေးသည်။ နည်းလမ်းများမှာ -
+‘ဘာမှမလုပ်ဘဲအရှိအတိုင်းထားခြင်း (No enhancement)’ ၊ ‘အနည်းဆုံးနှင့်အများဆုံးတန်ဖိုးများပေါ်မူတည်ပြီး ဖြန့်ထုတ်ခြင်း (Stretch to MinMax)’ ၊ ‘ဖြန့်ထုတ်ပြီးနောက် အနည်းဆုံးနှင့်အများဆုံးတန်ဖိုးများကိုဖြတ်ထုတ်ခြင်း (Stretch and clip to MinMax)’ နှင့် ‘အနည်းဆုံးအများဆုံးတန်ဖိုးများကိုဖြတ်ထုတ်ခြင်း (Clip to min max)’ တို့ဖြစ်ပါသည်။</p>
+<div class="admonition note" id="index-2">
+<p class="admonition-title">Note</p>
+<p><strong>အရောင်ကွဲပြားထင်ရှားမှုမြှင့်တင်ခြင်း (Contrast enhancement)</strong></p>
+<p>GRASS raster များကိုထည့်သောအခါ QGIS က အ‌ရောင်ကွဲပြားမှုမြှင့်တင်ခြင်းအတွက် <em>Stretch to min max</em> ကို အလိုလျောက် အသုံးပြုပါလိမ့်မည်။</p>
+</div>
+<figure class="align-center" id="id2">
+<span id="figure-raster-multiband"></span><img alt="../../../_images/rasterMultibandColor.png" src="../../../_images/rasterMultibandColor.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 17.2 </span><span class="caption-text">Raster Symbology - Multiband color rendering (Multiband color rendering ပြုလုပ်ခြင်း)</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><strong>Band မျိုးစုံပါသော raster တစ်ခုရဲ့ band တစ်ခုတည်းကို ကြည့်ရှုခြင်း (Viewing a Single Band of a Multiband Raster)</strong></p>
+<p>Band မျိုးစုံပါသော raster တစ်ခုရဲ့ band တစ်ခုတည်းကို (ဥပမာ - အနီရောင်) ကြည့်လိုလျှင် အစိမ်းနှင့်အပြာ band ကို <span class="guilabel">Not Set</span> ကိုထားရမည်လို့ ထင်ကောင်းထင်ပါလိမ့်မည်။
+သို့သော် အဖြစ်သင့်ဆုံးနည်းလမ်းသည် ဓာတ်ပုံကို <a class="reference internal" href="#singleband-gray"><span class="std std-ref">Singleband gray</span></a> သို့ သတ်မှတ်လိုက်ပြီး အနီရောင် band ကို <span class="guilabel">Gray band</span> အဖြစ်ထားလိုက်ခြင်း ဖြစ်ပါသည်။</p>
+</div>
+</section>
+<section id="paletted-unique-values">
+<span id="paletted"></span><h4><a class="toc-backref" href="#id26" role="doc-backlink">တစ်ခုတစ်ရောင် (Paletted/Unique values)</a><a class="headerlink" href="#paletted-unique-values" title="Link to this heading"></a></h4>
+<p>အရောင်ဇယားပါဝင်သော band တစ်ခုတည်းဖြစ်သည့် ဓာတ်ပုံများကို ပြသသော ပုံမှန်နည်းလမ်းဖြစ်ပါသည်။ ဤပုံများတွင် pixel တန်ဖိုးတစ်ခုချင်းစီတိုင်းကို အရောင်သတ်မှတ်ပေးပါသည်။ ဓာတ်ပုံကို စထည့်လိုက်တာနှင့် ကျပန်းအရောင်တွဲစပ်မှုကို အလိုလျောက်ထည့်ပေးပါသည်။</p>
+<p>ဤနည်းလမ်းကို raster band အမျိုးအစားအားလုံးအတွက် အသုံးပြုနိုင်ပြီး raster တန်ဖိုးတစ်ခုကို အရောင်တစ်မျိုးသတ်မှတ်ပေးပါသည်။</p>
+<p>အရောင်ပြောင်းလဲလိုလျှင် အရောင်ပေါ်တွင် double-click နှိပ်လိုက်သည်နှင့် <span class="guilabel">အရောင်ရွေးချယ်ပါ (Select color)</span> ဆိုတဲ့ dialog ပေါ်လာပါမည်။</p>
+<p>ဘယ်အရောင်က ဘာအမျိုးအစား ဖြစ်ပါသည်ဆိုသည့် အညွှန်းကိုလည်း သတ်မှတ်ပေးလို့ရပါသည်။ သတ်မှတ်ပေးထားသော အညွှန်းသည် raster layer ရဲ့ ရည်ညွှန်းချက်တွင် ပေါ်နေပါလိမ့်မည်။</p>
+<p>အရောင်ဇယားအတွင်းရှိ ရွေးချယ်ထားသည့် row များပေါ်တွင် right-click နှိပ်လိုက်သည့်အခါ menu တစ်ခုပေါ်လာပါလိမ့်မည်-</p>
+<ul class="simple">
+<li><p><span class="guilabel">Change Color…</span> (ရွေးချယ်ထားသောအရာကို အရောင်ပြောင်းလဲပါ)</p></li>
+<li><p><span class="guilabel">Change Opacity…</span> (ရွေးချယ်ထားသောအရာကို ဖောက်ထွင်းမြင်နိုင်မှုပြောင်းလဲပါ)</p></li>
+<li><p><span class="guilabel">Change Label…</span> (ရွေးချယ်ထားသောအရာကို အညွှန်းပြောင်းလဲပါ)</p></li>
+</ul>
+<figure class="align-center" id="id3">
+<span id="figure-raster-paletted-unique"></span><img alt="../../../_images/rasterPalettedUniqueValue.png" src="../../../_images/rasterPalettedUniqueValue.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 17.3 </span><span class="caption-text">Raster သင်္ကေတဆိုင်ရာ - Paletted unique value rendering</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>အရောင်မြေပုံ (color map) ၏ ညာဘက်အောက်က <span class="guilabel">…</span> (<sup>Advanced options</sup>) နှိပ်လိုက်ပါက pulldown menu တွင် သိမ်းထားသော file ကို color map ထဲသို့ထည့်ခြင်း (<span class="guilabel">Load Color Map from File…</span>) နှင့် Color map ကို file အဖြစ်သိမ်းထားခြင်း (<span class="guilabel">Export Color Map to File…</span>) နှင့် GIS ထဲက layer တစ်ခုဆီကနေ class များကို ထည့်သွင်းခြင်း (<span class="guilabel">Load Classes from Layer</span>) တို့ လုပ်ဆောင်နိုင်ပါသည်။</p>
+</section>
+<section id="band-singleband-gray">
+<span id="singleband-gray"></span><h4><a class="toc-backref" href="#id27" role="doc-backlink">မီးခိုးရောင်များဖြင့်ပြသသော band တစ်ခု (Singleband gray)</a><a class="headerlink" href="#band-singleband-gray" title="Link to this heading"></a></h4>
+<p>ဤ rendering နည်းလမ်းသည် <span class="guilabel">Color gradient</span> - ‘အမဲကနေအဖြူ’ သို့မဟုတ် ‘အဖြုကနေအမဲ’ ဖြင့် band တစ်မျိုးတည်းကို အသုံးပြုပါသည်။
+<a class="reference internal" href="#minmaxvalues"><span class="std std-ref">Min/Max Value Settings (အနည်းဆုံး/အများဆုံး)</span></a> ထဲတွင် အရောင်များအတွက် (<span class="guilabel">Min (အနည်းဆုံး)</span> and <span class="guilabel">Max (အများဆုံး)</span>) တန်ဖိုးများ ပြောင်းလဲနိုင်ပါသည်။</p>
+<p><span class="guilabel">Contrast enhancement (အရောင်ကွဲပြားထင်ရှားမှုမြှင့်တင်ခြင်း)</span> နည်းလမ်းကိုလည်း အသုံးပြုလို့ရပါသည်။ နည်းလမ်းများမှာ -
+‘ဘာမှမလုပ်ဘဲအရှိအတိုင်းထားခြင်း (No enhancement)’ ၊ ‘အနည်းဆုံးနှင့်အများဆုံးတန်ဖိုးများပေါ်မူတည်ပြီး ဖြန့်ထုတ်ခြင်း (Stretch to MinMax)’ ၊ ‘ဖြန့်ထုတ်ပြီးနောက် အနည်းဆုံးနှင့်အများဆုံးတန်ဖိုးများကိုဖြတ်ထုတ်ခြင်း (Stretch and clip to MinMax)’ နှင့် ‘အနည်းဆုံးအများဆုံးတန်ဖိုးများကိုဖြတ်ထုတ်ခြင်း (Clip to min max)’ တို့ဖြစ်ပါသည်။</p>
+<figure class="align-center" id="id4">
+<span id="figure-raster-gray"></span><img alt="../../../_images/rasterSingleBandGray.png" src="../../../_images/rasterSingleBandGray.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 17.4 </span><span class="caption-text">Raster သင်္ကေတဆိုင်ရာ - Singleband gray rendering</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>ရွေးချယ်ထားသည့် color gradient (အရောင်အဆင့်ဆင့်) ပေါ်မူတည်ပြီး pixel များကို အရောင်သတ်မှတ်ပေးခြင်းဖြစ်ပြီး layer ရဲ့ ရည်ညွှန်းချက်တွင် (<span class="guilabel">Layers</span> panel ထဲနှင့် layout <a class="reference internal" href="../print_composer/composer_items/composer_legend.html#layout-legend-item"><span class="std std-ref">legend
+item</span></a> ထဲ) တစ်ဆက်တည်းဖြစ်နေသည့် color ramp (အရောင်အစုအဖွဲ့) ဖြင့် ပြသပါသည်။ Setting များကိုပြင်ဆင်လိုလျှင် <span class="guilabel">Legend settings…</span> ကိုနှိပ်ပါ။ <a class="reference internal" href="#raster-legend-settings"><span class="std std-ref">Raster ရည်ညွှန်းချက်များကို ပြင်ဆင်ခြင်း (Customize raster legend)</span></a> တွင်အသေးစိတ်ဖတ်ရှုနိုင်ပါသည်။</p>
+</section>
+<section id="band-singleband-pseudocolor">
+<span id="label-colormaptab"></span><span id="index-3"></span><h4><a class="toc-backref" href="#id28" role="doc-backlink">အ‌ရောင်တုဖြင့်ပြသသော band တစ်ခု (Singleband pseudocolor)</a><a class="headerlink" href="#band-singleband-pseudocolor" title="Link to this heading"></a></h4>
+<p>တစ်ဆက်တည်းဖြစ်နေသည့်အရောင်အစဉ် (continuous palette) ပါဝင်ပြီး band တစ်ခုတည်းပါရှိသည့် file များအတွက် rendering option တစ်ခုဖြစ်ပါသည်။ Multiband raster တစ်ခု၏ band တစ်ခုအတွက် color map များဖန်တီးရာတွင်လည်း အသုံးပြုနိုင်ပါသည်။</p>
+<figure class="align-center" id="id5">
+<span id="figure-raster-pseudocolor"></span><img alt="../../../_images/rasterSingleBandPseudocolor.png" src="../../../_images/rasterSingleBandPseudocolor.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 17.5 </span><span class="caption-text">Raster သင်္ကေတဆိုင်ရာ - Singleband pseudocolor rendering</span><a class="headerlink" href="#id5" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Layer တစ်ခု၏ band နှင့် <a class="reference internal" href="#minmaxvalues"><span class="std std-ref">values range (တန်ဖိုးအတိုင်းအတာ)</span></a> အသုံးပြုပြီး အတန်းအစား (classes) များအတွင်း pixel များအတွက် ကိုယ်စားပြုအရောင်များကို interpolate (ဖြည့်စွက်ထည့်သွင်းခြင်း) နှင့် သတ်မှတ်ခြင်းများကို လုပ်ဆောင်နိုင်ပါသည်။ <a class="reference internal" href="#color-ramp-shader"><span class="std std-ref">Color ramp shader အတန်းအစားခွဲခြားခြင်း (Color ramp shader classification)</span></a> တွင်ထပ်မံဖတ်ရှုနိုင်ပါသည်။</p>
+<p>ရွေးချယ်ထားသည့် color ramp ပေါ်မူတည်ပြီး pixel များကို အရောင်သတ်မှတ်ပေးခြင်းဖြစ်ပြီး layer ရဲ့ ရည်ညွှန်းချက်တွင် (<span class="guilabel">Layers</span> panel ထဲနှင့် layout <a class="reference internal" href="../print_composer/composer_items/composer_legend.html#layout-legend-item"><span class="std std-ref">legend
+item</span></a> ထဲ) တစ်ဆက်တည်းဖြစ်နေသည့် color ramp ဖြင့် ပြသပါသည်။ Setting များကိုပြင်ဆင်လိုလျှင် <span class="guilabel">Legend settings…</span> ကိုနှိပ်ပါ။ <a class="reference internal" href="#raster-legend-settings"><span class="std std-ref">Raster ရည်ညွှန်းချက်များကို ပြင်ဆင်ခြင်း (Customize raster legend)</span></a> တွင်အသေးစိတ်ဖတ်ရှုနိုင်ပါသည်။</p>
+</section>
+<section id="hillshade">
+<span id="hillshade-renderer"></span><span id="index-4"></span><h4><a class="toc-backref" href="#id29" role="doc-backlink">တောင်အရိပ် (Hillshade)</a><a class="headerlink" href="#hillshade" title="Link to this heading"></a></h4>
+<p>Hillshading (တောင်အရိပ်များထည့်ခြင်း) ကိုအသုံးပြုပြီး raster layer ၏ band တစ်ခုကို rendering ပြုလုပ်ပေးပါသည်။</p>
+<figure class="align-center" id="id6">
+<span id="figure-raster-hillshade"></span><img alt="../../../_images/rasterHillshade.png" src="../../../_images/rasterHillshade.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 17.6 </span><span class="caption-text">Raster သင်္ကေတဆိုင်ရာ - Hillshade rendering</span><a class="headerlink" href="#id6" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>ရွေးချယ်စရာနည်းလမ်းများမှာ -</p>
+<ul class="simple">
+<li><p><span class="guilabel">Band</span> - Raster band ကို အသုံးပြုခြင်း။</p></li>
+<li><p><span class="guilabel">Altitude</span> - အလင်းရောင်အရင်းအမြစ်၏အမြင့်ထောင့် (ပုံမှန်ဆိုလျှင် <code class="docutils literal notranslate"><span class="pre">၄၅°</span></code> ဖြစ်ပါသည်)။</p></li>
+<li><p><span class="guilabel">Azimuth</span> - အလင်းရောင်အရင်းအမြစ်၏ မြောက်အရပ်မှလက်ယာရစ်တိုင်း၍ ရလာသော ထောင့် (Azimuth) (ပုံမှန်ဆိုလျှင် <code class="docutils literal notranslate"><span class="pre">၃၁၅°</span></code> အနောက်မြောက်ထောင့် ဖြစ်ပါသည်)။</p></li>
+<li><p><span class="guilabel">Z Factor</span> - Raster ရဲ့မူရင်းအမြင့်တန်ဖိုးများကို ဆတိုးမြှောက်ပေးသော တန်ဖိုးဖြစ်သည် (ပုံမှန်ဆိုလျှင် ၁ ဖြစ်သည်၊ မြေမျက်နှာသွင်ပြင်က ပြင်ညီအရမ်းဆန်နေလျှင် ၁ ထက်ပိုကြီးသော ဂဏန်းကို အသုံးပြုသင့်ပါသည်)။</p></li>
+<li><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">Multidirectional</span> - အရပ်မျက်နှာဘက်ပေါင်းစုံမှ တောင်အရိပ်ဖန်တီးခြင်းတွင် အသုံးပြုပါသည် (ပုံမှန်ဆိုလျှင် ၎င်းလုပ်ဆောင်ချက်ကို ပိတ်ထားပါသည်)။</p></li>
+</ul>
+</section>
+<section id="contours">
+<span id="raster-contours"></span><h4><a class="toc-backref" href="#id30" role="doc-backlink">ကွန်တိုများ (Contours)</a><a class="headerlink" href="#contours" title="Link to this heading"></a></h4>
+<p>ဤ renderer ကို မူရင်း raster band မှ တွက်ချက်ပြီး ကွန်တိုမျဉ်းများ ဖန်တီးရာတွင် အသုံးပြုပါသည်။</p>
+<figure class="align-center" id="id7">
+<span id="figure-raster-contours"></span><img alt="../../../_images/rasterContours.png" src="../../../_images/rasterContours.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 17.7 </span><span class="caption-text">Raster Symbology - Contours rendering (ကွန်တိုမျဉ်းများ Rendering ပြုလုပ်ခြင်း)</span><a class="headerlink" href="#id7" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>ရွေးချယ်စရာနည်းလမ်းများမှာ -</p>
+<ul>
+<li><p><span class="guilabel">Input band</span> - အသုံးပြုမည့် Raster band၊</p></li>
+<li><p><span class="guilabel">Contour interval</span> - ကပ်လျှက်ရှိသောကွန်တိုမျဉ်း နှစ်ခုကြား အကွာအဝေး၊</p></li>
+<li><p><span class="guilabel">Contour symbol</span> - ကွန်တိုမျဉ်း များအတွက် အသုံးပြုရန် <a class="reference internal" href="../style_library/symbol_selector.html#vector-line-symbols"><span class="std std-ref">symbol</span></a> (သင်္ကေတ)၊</p></li>
+<li><p><span class="guilabel">Index contour interval</span> - ကပ်လျှက်ရှိသော <strong>index contours</strong> နှစ်ခုကြား အကွာအဝေး။ Index cotours ဆိုသည်မှာ ရှာဖွေရ/ဖတ်ရလွယ်ကူစေရန် ပိုပြီးထင်ရှားအောင် အခြားကွန်တိုမျဉ်းများထက် အရောင်ပိုထင်းထားပြီး အမြင့်တန်ဖိုးကိုလည်း မျဥ်းပေါ်မှာ ရေးသားဖော်ပြထားပါသည်။</p></li>
+<li><p><span class="guilabel">Index contour symbol</span> - Index contour lines များအတွက် အသုံးပြုသော symbol ၊</p></li>
+<li><p><span class="guilabel">Input downscaling</span> - အသုံးပြုမည့် data ဘယ်လောက်ထိ ပမာဏလျှော့ချမလဲဆိုသည့်တန်ဖိုး ဖြစ်ပါသည်။ (ပုံမှန်အားဖြင့် <code class="docutils literal notranslate"><span class="pre">4.0</span></code> ဖြစ်ပါသည်)</p>
+<p>ဥပမာအားဖြင့် အသုံးပြုသော raster နှင့် ထွက်လာမည့် raster အရွယ်အစားကို အတူတူထားပြီး ကွန်တိုမျဉ်းများကို ဖန်တီးမည်ဆိုလျှင် ကွန်တိုမျဉ်းတွေ အများကြီးရလာမှာဖြစ်ပြီး အရမ်းကိုပြွတ်သိပ်နေမည်ဖြစ်ပါသည်။ ဤသို့ ပြွတ်သိပ်နေမှု မဖြစ်စေရန် မူရင်း raster ကို ကြည်လင်ပြတ်သားမှု (resolution) လျော့ချပြီး အသုံးပြုရလွယ်ကူအောင်လုပ်တဲ့ တန်ဖိုးကို “downscale” factor ဟုခေါ်ပါသည်။ အကျယ် 1000 x 500 ရှိတဲ့ raster ပုံကို downscale တန်ဖိုး ၁၀ အသုံးပြုမည်ဆိုလျှင် မူရင်း raster ကို 100 x 50 အနေနဲ့ပဲအသုံးပြုမှာဖြစ်ပါသည်။ Downscale ဂဏန်းတန်ဖိုး ပိုကြီးလေလေ ကွန်တူမျဉ်းများ လျော့နည်းသွားပြီး ကိုင်တွယ်ရတာ ပိုလွယ်ကူလေလေ ဖြစ်ပါသည် (သို့သော် အားနည်းချက်အနေဖြင့် တချို့အသေးစိတ်တန်ဖိုးများ ပျောက်ကွယ်သွားပါမည်)။</p>
+</li>
+</ul>
+</section>
+<section id="setting-the-min-and-max-values">
+<span id="minmaxvalues"></span><h4><a class="toc-backref" href="#id31" role="doc-backlink">အနည်းဆုံးနှင့် အများဆုံးတန်ဖိုးများ သတ်မှတ်ခြင်း (Setting the min and max values)</a><a class="headerlink" href="#setting-the-min-and-max-values" title="Link to this heading"></a></h4>
+<p>ပုံမှန်အားဖြင့် QGIS သည် raster band အားလုံး၏ <span class="guilabel">အနည်းဆုံး</span> နှင့် <span class="guilabel">အများဆုံး</span> တန်ဖိုးများကို တွက်ထုတ်ပေးပါသည်။ အရမ်းနိမ့်လွန်း/မြင့်လွန်းသော တန်ဖိုးများသည် raster ကို ပုံဖော်ပြသခြင်း လုပ်ဆောင်သည့်နေရာတွင် အမှားများ၊ အခက်အခဲများ ဖြစ်စေနိုင်ပါသည်။ <span class="guilabel">Min/Max Value Settings</span> ကိုအသုံးပြုပြီး ပုံဖော်ပြသခြင်းကို လွယ်ကူအောင်လုပ်နိုင်ပါသည်။</p>
+<figure class="align-center" id="id8">
+<span id="figure-raster-minmaxvalues"></span><img alt="../../../_images/rasterMinMaxValues.png" src="../../../_images/rasterMinMaxValues.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 17.8 </span><span class="caption-text">Raster Symbology - အနည်းဆုံး နှင့် အများဆုံး တန်ဖိုးများ Settings</span><a class="headerlink" href="#id8" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>ရွေးချယ်စရာနည်းလမ်းများမှာ -</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../../../_images/radiobuttonoff.png"><img alt="radioButtonOff" src="../../../_images/radiobuttonoff.png" style="width: 1.5em;" /></a> <span class="guilabel">User defined</span> (အသုံးပြုသူမှသတ်မှတ်သော) - Band များ၏ မူရင်း <span class="guilabel">အနည်းဆုံး</span> နှင့် <span class="guilabel">အများဆုံး</span> တန်ဖိုးများကို ပြင်ဆင်ရေးသားနိုင်ပါသည်။</p></li>
+<li><p><a class="reference internal" href="../../../_images/radiobuttonoff.png"><img alt="radioButtonOff" src="../../../_images/radiobuttonoff.png" style="width: 1.5em;" /></a> <span class="guilabel">Cumulative count cut</span> (အစုအရေအတွက်အရဖြတ်တောက်ခြင်း) - အစွန်းရောက်တန်ဖိုးများ (outliers) ကို ဖျက်ပေးသည်။ စံသတ်မှတ်ထားသည့် တန်ဖိုးအတိုင်းအတာမှာ <code class="docutils literal notranslate"><span class="pre">၂%</span></code> မှ <code class="docutils literal notranslate"><span class="pre">၉၈%</span></code> ထိဖြစ်ပြီး လိုအပ်သလိုလည်း ပြင်ဆင်နိုင်ပါသည်။</p></li>
+<li><p><a class="reference internal" href="../../../_images/radiobuttonon.png"><img alt="radioButtonOn" src="../../../_images/radiobuttonon.png" style="width: 1.5em;" /></a> <span class="guilabel">Min / max</span> (အနည်းဆုံး/အများဆုံး) - ဓာတ်ပုံ၏ band တွင် ပါဝင်လာသည့် တန်ဖိုးအတိုင်းအတာတစ်ခုလုံးကို အသုံးပြုပါသည်။</p></li>
+<li><p><a class="reference internal" href="../../../_images/radiobuttonoff.png"><img alt="radioButtonOff" src="../../../_images/radiobuttonoff.png" style="width: 1.5em;" /></a> <span class="guilabel">Mean +/- standard deviation x</span> (ပျမ်းမျှစံသွေဖယ်ကိန်း) - စံသွေဖယ်မှု သို့မဟုတ် များစွာသော စံသွေဖယ်မှု များအတွင်းကျရောက်သော တန်ဖိုးများကိုသာ အသုံးပြုသော အရောင်ဇယား တစ်ခုကိုဖန်တီးပေးပါသည်။
+Raster rendering ကို ထိခိုက်နိုင်သော ပုံမှန်မဟုတ်သည့် ကြီးမားသောတန်ဖိုးများရှိသည့် cell တစ်ခု သို့မဟုတ် နှစ်ခုကို ပါဝင်နေသည့်အခါ ဒီနည်းလမ်းသည် အသုံးဝင်ပါသည်။</p></li>
+</ul>
+<p>Band များရဲ့ အနည်းဆုံးနှင့် အများဆုံးတန်ဖိုးများကို တွက်ချက်ခြင်းများသည် အောက်ပါတို့ကို အခြေခံပါသည်-</p>
+<ul class="simple">
+<li><p><span class="guilabel">Statistics extent (Statistics အကျယ်အဝန်း)</span> - <span class="guilabel">Whole raster (Raster တစ်ခုလုံး)</span> ၊ <span class="guilabel">Current canvas (လက်ရှိမြင်နေရသော canvas အကျယ်)</span> သို့မဟုတ် <span class="guilabel">Updated canvas (အသစ်နေရာရွှေ့လိုက်သည့် canvas အကျယ်)</span> တို့အတွက် အသုံးပြုနိုင်ပါသည်။
+<span class="guilabel">Updated canvas (အသစ်နေရာရွှေ့လိုက်သည့် canvas အကျယ်)</span> ဆိုသည်မှာ rendering အတွက် အသုံးပြုသော အနည်းဆုံး/အများဆုံး တန်ဖိုးများသည် canvas ရဲ့ အကျယ်အဝန်းအတိုင်း ပြောင်းလဲနေခြင်းကို ဆိုလိုပါသည်။</p></li>
+<li><p><span class="guilabel">Accuracy (တိကျမှု)</span> - <span class="guilabel">ခန့်မှန်း (ပိုမြန်)</span> သို့မဟုတ် <span class="guilabel">အရှိအတိုင်း (ပိုနှေး)</span> ဖြစ်နိုင်ပါသည်။</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>တချို့ setting များအတွက် အမှန်တကယ်ရှိသည့် အနည်းဆုံး/အများဆုံး တန်ဖိုးများကို ဖော်ပြရန် layer properties dialog မှ <span class="guilabel">Apply</span> ကို နှိပ်ပေးရန် လိုအပ်ပါသည်။</p>
+</div>
+</section>
+<section id="color-ramp-shader-color-ramp-shader-classification">
+<span id="color-ramp-shader"></span><h4><a class="toc-backref" href="#id32" role="doc-backlink">Color ramp shader အတန်းအစားခွဲခြားခြင်း (Color ramp shader classification)</a><a class="headerlink" href="#color-ramp-shader-color-ramp-shader-classification" title="Link to this heading"></a></h4>
+<p>Scalar dataset (raster သို့မဟုတ် mesh contour) များကို အတန်းအစားခွဲခြားခြင်းနှင့် ကိုယ်စားပြုခြင်းများအတွက် ဒီနည်းလမ်းကို အသုံးပြုလို့ရပါသည်။
+<a class="reference internal" href="../style_library/style_manager.html#color-ramp"><span class="std std-ref">color ramp</span></a> တစ်ခုကို အတန်းအစား (classes) အရေအတွက်နှင့် တွဲပေးလိုက်လျှင် အတန်းအစားအရေအတွက်အတိုင်း သင့်တော်သော မြေပုံတစ်ခု ဖန်တီးပေးပါသည်။
+တန်ဖိုးအတိုင်းအတာများနှင့် အတန်းအစားခွဲခြားခြင်းနည်းလမ်း (classification mode) ပေါ်မူတည်ပြီး အရောင်တစ်ခုချင်းဆီကို စီစဉ်ပြီးထည့်သွားပါမည်။
+ထို့နောက် အတန်းအစားပေါ်မူတည်ပြီး scalar dataset element များကို အရောင်သတ်မှတ်ပေးပါသည်။</p>
+<figure class="align-center" id="id9">
+<span id="figure-raster-colorrampshader"></span><img alt="../../../_images/color_ramp_shader.png" src="../../../_images/color_ramp_shader.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 17.9 </span><span class="caption-text">Color ramp shader ဖြင့် dataset တစ်ခုကို အတန်းအစားခွဲခြားခြင်း</span><a class="headerlink" href="#id9" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ol class="arabic">
+<li><p><span class="guilabel">အနည်းဆုံး</span> နှင့် <span class="guilabel">အများဆုံး</span> တန်ဖိုးများကို သတ်မှတ်ပေးရမည်ဖြစ်ပြီး အတန်းအစားများရဲ့ အကျယ်တန်ဖိုးများတွက်ထုတ်ရာတွင်အသုံးပြုပါသည်။
+ပုံမှန်အားဖြင့် QGIS သည် ၎င်းတန်ဖိုးများကို dataset မှ တွက်ထုတ်ပေးပါသည်၊ သို့သော် စိတ်ကြိုက်ပြင်ဆင် သတ်မှတ်လို့ရပါသည်။</p></li>
+<li><p>Scalar element များကို ဘယ်လိုအ‌ရောင်သတ်မှတ်ပေးမည်ဆိုသည်ကို <span class="guilabel">Interpolation</span> (ရှိပြီးသားတန်ဖိုးများကိုအသုံးပြု၍ တန်ဖိုးမရှိသေးသည့်အရာများအတွက်ဖော်ထုတ်ခြင်း) ထည့်သွင်းမှုက သတ်မှတ်ပေးပါသည်-</p>
+<ul class="simple">
+<li><p><span class="guilabel">Discrete</span> (<span class="guilabel">Value</span> column ရဲ့ခေါင်းစည်းမှာပေါ်နေတဲ့ <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code> သင်္ကေတတစ်ခု) - တန်းတူ သို့မဟုတ် အမြင့်ဆုံးတန်ဖိုး ပါဝင်သည့် အနီးစပ်ဆုံး အရောင်မြေပုံ (color map) မှ အရောင်ကို အသုံးပြုပါသည်။</p></li>
+<li><p><span class="guilabel">Linear</span> - Pixel တန်ဖိုး၏ အထက်နှင့်အောက်မှာရှိသည့် color map entry များကို အဖြောင့်အတိုင်း (linearly) interpolate ပြုလုပ်ပြီး အရောင်သတ်မှတ်ပေးပါသည်။ ဆိုလိုသည်မှာ dataset တစ်ခုစီတိုင်းသည် သီးခြားအရောင်တစ်မျိုးရှိခြင်း ဖြစ်ပါသည်။</p></li>
+<li><p><span class="guilabel">Exact</span> - (<span class="guilabel">Value</span> column ရဲ့ခေါင်းစည်းမှာပေါ်နေတဲ့ <code class="docutils literal notranslate"><span class="pre">=</span></code> သင်္ကေတတစ်ခု) - color map entry တန်ဖိုးများနှင့် တစ်ထပ်တည်းတူညီတဲ့ pixel များကိုသာ အရောင်သတ်မှတ်ပေးပါသည်။ တခြား pixel များကို rendering လုပ်မည်မဟုတ်ပါ။</p></li>
+</ul>
+</li>
+<li><p><span class="guilabel">Color ramp</span> widget သည် dataset အတွက် သတ်မှတ်မည့် color ramp ကို ရွေးချယ်ရာတွင်လွယ်ကူအောင်ပြုလုပ်ပေးပါသည်။
+<a class="reference internal" href="../introduction/general_tools.html#color-ramp-widget"><span class="std std-ref">Color ramp widget</span></a> ပုံစံအတိုင်း အသစ်တစ်ခုကိုဖန်တီးနိုင်သလို လက်ရှိရွေးချယ်ထားသည်ကိုလည်း တည်းဖြတ်ပြင်ဆင်ပြီး သိမ်းဆည်းထားနိုင်ပါသည်။
+Color ramp ၏ နာမည်ကို configuration ထဲတွင် သိမ်းဆည်းပေးထားပါသည်။</p></li>
+<li><p>The <span class="guilabel">Label unit suffix</span> သည် ရည်ညွှန်းချက်တွင် တန်ဖိုး၏နောက်မှ label တစ်ခုထည့်ပေးပါသည်။ <span class="guilabel">Label precision</span> ဖြင့် label ‌ပြသရာတွင် ဒဿမ ဂဏန်းအရေအတွက်ကို ထိန်းချုပ်နိုင်ပါသည်။</p></li>
+<li><p>Classification <span class="guilabel">Mode</span> (အတန်းအစားခွဲခြားခြင်းနည်းလမ်း) သည် အတန်းအစားများအတွက် တန်ဖိုးများကို မည်သို့ခွဲဝေပိုင်းခြားမလဲဆိုသည်ကို လွယ်ကူအောင် ကူညီပေးပါသည်-</p>
+<ul class="simple">
+<li><p><span class="guilabel">Equal interval</span> (တူညီသည့်အပိုင်းအခြား) - အတန်းအစားများတွင် တူညီသည့် ပမာဏရှိစေရန် အကန့်အသတ်တန်ဖိုးများဖြင့် <span class="guilabel">Number of classes (အတန်းအစားအရေအတွက်)</span> ကို သတ်မှတ်ပေးပါသည်။</p></li>
+<li><p><span class="guilabel">Continuous</span> (တဆက်တစပ်တည်း) - အတန်းအစားအရေအတွက်နှင့် အရောင်များကို color ramp stops (color ramp အဖြတ်များ) မှ ရယူပါသည်။
+တန်ဖိုးကန့်သတ်ချက်များကို color map တွင်ရှိသည့် stops (အဖြတ်များ) ပေါ်မူတည်ပြီး သတ်မှတ်ပါသည်။</p></li>
+<li><p><span class="guilabel">Quantile</span> (ပမာဏအလိုက်) - အတန်းအစားများတွင် တူညီသည့် element အရေအတွက်ရှိစေရန် အကန့်အသတ်တန်ဖိုးများဖြင့် <span class="guilabel">Number of classes</span> (အတန်းအစားအရေအတွက်) ကို သတ်မှတ်ပေးပါသည်။
+<a class="reference internal" href="../working_with_mesh/mesh_properties.html#mesh-symbology-contours"><span class="std std-ref">mesh layers</span></a> များတွင် အသုံးပြုနိုင်မည်မဟုတ်ပါ။</p></li>
+</ul>
+</li>
+<li><p>ထို့နောက် <span class="guilabel">Classify</span> (အတန်းအစားခွဲခြင်း) သို့မဟုတ် အတန်းအစားများကိုညှိနှိုင်းပြင်ဆင်ခြင်း လုပ်ဆောင်နိုင်ပါသည်-</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../../../_images/symbologyAdd.png"><img alt="symbologyAdd" src="../../../_images/symbologyAdd.png" style="width: 1.5em;" /></a> <sup>Add values manually</sup> (တန်ဖိုးများ ရိုက်ထည့်ခြင်း) ဖြင့် ဇယားထဲကို တန်ဖိုးတစ်ခုထည့်သွင်းနိုင်ပါသည်။</p></li>
+<li><p><a class="reference internal" href="../../../_images/symbologyRemove.png"><img alt="symbologyRemove" src="../../../_images/symbologyRemove.png" style="width: 1.5em;" /></a> <sup>Remove selected row</sup> (ရွေးချယ်ထားသော row အားဖျက်ခြင်း) ဖြင့် ဇယားမှရွေးချယ်ထားသော တန်ဖိုးများကိုဖျက်နိုင်ပါသည်။</p></li>
+<li><p><span class="guilabel">Value</span> column ကို double click နှိပ်ပြီး အတန်းအစားတန်ဖိုးကို ပြင်ဆင်နိုင်ပါသည်။</p></li>
+<li><p><span class="guilabel">Color</span> column ကို double click နှိပ်ပြီး <span class="guilabel">Change color</span> (အရောင်ပြောင်းလဲခြင်း) dialog ကိုဖွင့်ပါ။ ထို့နောက် ထိုတန်ဖိုးအတွက် ကြိုက်နှစ်သက်ရာအရောင်ကို ရွေးချယ်နိုင်ပါသည်။</p></li>
+<li><p><span class="guilabel">Label</span> column ကို double click နှိပ်ပြီး အတန်းအစား၏ အညွှန်းကိုပြင်ဆင်နိုင်ပါသည်။ သို့သော် Idenfity feature tool ကို အသုံးပြုသောအခါ ပြင်လိုက်သည့် တန်ဖိုးကို ပြသနေလိမ့်မည်မဟုတ်ပါ။</p></li>
+<li><p>အရောင်မြေပုံ (color map) ထဲရှိ ရွေးချယ်ထားသည့် row များပေါ်တွင် right-click နှိပ်လိုက်လျှင် ထိုရွေးချယ်ထားသည်များအတွက် <span class="guilabel">Change Color…</span> (အရောင်ပြောင်းလဲရန်) နှင့် <span class="guilabel">Change Opacity…</span> (အလင်းဖောက်နိုင်မှုပြောင်းလဲရန်) menu တစ်ခုပေါ်လာမည် ဖြစ်ပါသည်။</p></li>
+</ul>
+<p>ရှိနေပြီးသား color table တစ်ခုကိုထည့်သွင်းရန် <a class="reference internal" href="../../../_images/mActionFileOpen.png"><img alt="fileOpen" src="../../../_images/mActionFileOpen.png" style="width: 1.5em;" /></a> <sup>Load color map from file</sup> သို့မဟုတ် နောက်မှအသုံးပြုနိုင်ရန် color table တစ်ခုကိုသိမ်းဆည်းရန်အတွက် <a class="reference internal" href="../../../_images/mActionFileSaveAs.png"><img alt="fileSaveAs" src="../../../_images/mActionFileSaveAs.png" style="width: 1.5em;" /></a> <sup>Export color map to file</sup> ခလုတ်များကို အသုံးပြုနိုင်ပါသည်။</p>
+</li>
+<li><p>Linear (မျဥ်းဖြောင့်အတိုင်း) <span class="guilabel">Interpolation</span> ဖြင့် အောက်ပါတို့ကိုလည်း စိတ်ကြိုက်ပြင်ဆင်နိုင်ပါသည်-</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">Clip out of range values</span> - ပုံမှန်အားဖြင့် linear နည်းလမ်းသည် ပထမဆုံးအတန်းအစား (နောက်ဆုံးအတန်းအစားအထိ) အရောင်ကို သတ်မှတ်ထားသည့် <span class="guilabel">Min</span> တန်ဖိုး (သတ်မှတ်ထားသည့် <span class="guilabel">Max</span> တန်ဖိုးအထိ) အောက် နည်းသည့် တန်ဖိုးများအတွက် သတ်မှတ်ပေးပါသည်။ ဤတန်ဖိုးများကို အသုံးပြုပြီး rendering မလုပ်လိုလျှင် ဤ setting ကို စမ်းသုံးကြည့်ပါ။</p></li>
+<li><p><span class="guilabel">Legend settings</span> - <span class="guilabel">Layers</span> panel နှင့် layout <a class="reference internal" href="../print_composer/composer_items/composer_legend.html#layout-legend-item"><span class="std std-ref">legend item</span></a> ထဲတွင် ဖော်ပြရန်။ <a class="reference internal" href="#raster-legend-settings"><span class="std std-ref">Raster ရည်ညွှန်းချက်များကို ပြင်ဆင်ခြင်း (Customize raster legend)</span></a> တွင် အသေးစိတ်ကြည့်ရှိနိုင်ပါသည်။</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="raster-customize-raster-legend">
+<span id="raster-legend-settings"></span><h4><a class="toc-backref" href="#id33" role="doc-backlink">Raster ရည်ညွှန်းချက်များကို ပြင်ဆင်ခြင်း (Customize raster legend)</a><a class="headerlink" href="#raster-customize-raster-legend" title="Link to this heading"></a></h4>
+<p>Raster တစ်ခု သို့မဟုတ် mesh layer တစ်ခုကို color ramp တစ်ခု သတ်မှတ်ပေးသည့်အခါ ဘယ်အရောင်က ဘာကိုဆိုလိုသလဲ ဆိုသည်ကိုရှင်းပြရန် legend (ရည်ညွှန်းချက်) တစ်ခု ပြသရန်လိုအပ်ပါသည်။
+ပုံမှန်အားဖြင့် QGIS သည် <span class="guilabel">Layers</span> panel နှင့် layout <a class="reference internal" href="../print_composer/composer_items/composer_legend.html#layout-legend-item"><span class="std std-ref">legend item</span></a> ထဲတွင် အနည်းဆုံး/အများဆုံး တန်ဖိုးများဖြင့် တစ်ဆက်တည်းဖြစ်နေသည့် color ramp တစ်ခုဖြင့် ပြသပေးပါသည်။
+ထိုမူရင်းပြသချက်ကို မကြိုက်လျှင် classification widget ထဲရှိ <span class="guilabel">Legend settings</span> မှာ စိတ်ကြိုက်ပြင်ဆင်နိုင်ပါသည်။</p>
+<figure class="align-center" id="id10">
+<span id="figure-raster-legend-settings"></span><img alt="../../../_images/raster_legend_settings.png" src="../../../_images/raster_legend_settings.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 17.10 </span><span class="caption-text">Raster ရည်ညွှန်းချက်တစ်ခုကို ပြင်ဆင်ခြင်း</span><a class="headerlink" href="#id10" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>ဤ dialog ထဲတွင် <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a><span class="guilabel">Use continuous legend</span> ကို အမှန်ခြစ်ပြီး ဆက်တိုက်ရည်ညွှန်းချက်များကို အသုံးပြုလို့ရပါသည်။
+အမှန်ခြစ် ဖြုတ်ထားလျှင် မတူညီသောအတန်းအစားများနှင့်သက်ဆိုင်သည့် သီးခြားအရောင်များဖြင့် ဖော်ပြပေးပါသည်။
+<a class="reference internal" href="#singleband-gray"><span class="std std-ref">singleband gray</span></a> ဖြစ်သည့် raster symbology အတွက် ဤနည်းလမ်းကို အသုံးပြု၍မရနိုင်ပါ။</p>
+<p><span class="guilabel">Use continuous legend</span> ကိုအမှန်ခြစ်ထားလျှင် ရည်ညွှန်းချက်၏ label (အညွှန်း) များတင်မက layout properties (အပြင်အဆင်ဆိုင်ရာ) ကိုပါ စိတ်ကြိုက်ပြင်ဆင်လို့ရနိုင်ပါသည်။</p>
+<p><strong>Labels (အညွှန်းများ)</strong></p>
+<ul class="simple">
+<li><p>Label များတွင် <span class="guilabel">Prefix (ရှိပြီးသားစာလုံးကို ရှေ့မှစာလုံးထပ်ဖြည့်ခြင်း)</span> နှင့် <span class="guilabel">Suffix (ရှိပြီးသားစာလုံးကို နောက်မှစာလုံးထပ်ဖြည့်ခြင်း)</span> ထည့်ခြင်း</p></li>
+<li><p>Legend တွင် <span class="guilabel">အနည်းဆုံး</span> နှင့် <span class="guilabel">အများဆုံး</span> တန်ဖိုးများ ပြရန် ပြင်ဆင်ခြင်း</p></li>
+<li><p><span class="guilabel">Number format (ကိန်းဂဏန်း format)</span> များ <a class="reference internal" href="../introduction/general_tools.html#number-formatting"><span class="std std-ref">Customize (ပြင်ဆင်ခြင်း)</span></a> ပြုလုပ်ခြင်း</p></li>
+<li><p>Print layout legend (မြေပုံအပြင်အဆင်ထဲရှိ ရည်ညွှန်းချက်) တွင်အသုံးပြုရန် <span class="guilabel">Text format (စာသား format)</span> များ <a class="reference internal" href="../style_library/label_settings.html#text-format"><span class="std std-ref">Customize (ပြင်ဆင်ခြင်း)</span></a> ပြုလုပ်ခြင်း</p></li>
+</ul>
+<p><strong>Layout (မြေပုံအပြင်အဆင်)</strong></p>
+<ul class="simple">
+<li><p>Legend color ramp ၏ <span class="guilabel">Orientation (မျက်နှာမူရာ)</span> ကို ထိန်းချုပ်ခြင်း၊ <strong>Vertical (ဒေါင်လိုက်)</strong> သို့မဟုတ် <strong>Horizontal (ရေပြင်ညီ)</strong> အတိုင်းဖြစ်နိုင်ပါသည်။</p></li>
+<li><p>မျက်နှာမူရာပေါ်မူတည်ပြီး တန်ဖိုးများ၏ <span class="guilabel">Direction (လားရာ)</span> ကိုထိန်းချုပ်ပါသည်-</p>
+<ul>
+<li><p>ဒေါင်လိုက်ဖြစ်လျှင် <strong>အပေါ်ဘက်တွင် အများဆုံးတန်ဖိုး</strong> သို့မဟုတ် <strong>အပေါ်ဘက်တွင် အနည်းဆုံးတန်ဖိုး</strong> ကို ပြသနိုင်ပါသည်။</p></li>
+<li><p>ရေပြင်ညီဖြစ်လျှင် <strong>ညာဘက်တွင် အများဆုံးတန်ဖိုး</strong> သို့မဟုတ် <strong>ညာဘက်တွင် အနည်းဆုံးတန်ဖိုး</strong> ကို ပြသနိုင်ပါသည်။</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section id="layer-layer-rendering">
+<h3><a class="toc-backref" href="#id34" role="doc-backlink"><span class="section-number">17.1.3.2. </span>Layer ပုံဖော်ပြသခြင်း (Layer Rendering)</a><a class="headerlink" href="#layer-layer-rendering" title="Link to this heading"></a></h3>
+<p>Raster file တစ်ခုလုံးစာအတွက် အထူးပုံဖော်ပြသပြင်ဆင်ခြင်း အထူးပြုလုပ်ချက်များ (special rendering effects) ကိုရရှိနိုင်ရန် Layer band များကို အသုံးပြုလိုက်သည့် symbology အမျိုးအစားပေါ်တွင်လုပ်ဆောင်နိုင်ပါသည်-</p>
+<ul class="simple">
+<li><p>Blending modes (ပေါင်းစပ်နည်းလမ်းများ) ထဲရှိ တစ်မျိုးမျိုးကို အသုံးပြုပါ (<a class="reference internal" href="../introduction/general_tools.html#blend-modes"><span class="std std-ref">ရောစပ်ခြင်းနည်းလမ်းများ (Blending Modes)</span></a> တွင်ကြည့်ပါ)။</p></li>
+<li><p>အရောင်များ၏ <span class="guilabel">Brightness (အလင်းအမှောင်)</span> ၊ <span class="guilabel">Saturation (အရောင်တောက်ပမှုပမာဏ)</span> ၊ <span class="guilabel">Gamma (အလင်းတန်ဖိုး)</span> နှင့် <span class="guilabel">Contrast (အရောင်ကွဲပြားထင်ရှားမှု)</span> ကို စိတ်ကြိုက်ပြင်ဆင်ပါ။</p></li>
+<li><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a><span class="guilabel">Invert colors (ပြောင်းပြန်အရောင်များ)</span> ကို အမှန်ခြစ်ခြင်းဖြင့် layer ကို ဆန့်ကျင်ဘက်အရောင်များဖြင့် rendering လုပ်ဆောင်ပါမည်။ ဥပမာ - အကျုံးမဝင်သည့် OpenStreetMap tile များကို အနက်ရောင် (dark mode) အဖြစ်ပြောင်းလဲခြင်းတွင်အသုံးဝင်ပါသည်။</p></li>
+<li><p><span class="guilabel">Grayscale (မီးခိုးရောင် )</span> option သို့ ‘By lightness’ ၊ ‘By luminosity’ သို့မဟုတ် ‘By average’ တစ်နည်းနည်းကို အသုံးပြု၍ ပြောင်းပါ။</p></li>
+<li><p><span class="guilabel">Colorize (အ‌ရောင်ထည့်ခြင်း)</span> ပြုလုပ်ပါ၊ ထို့နောက် အရောင်ဇယားထဲရှိ <span class="guilabel">Hue (အရောင်အဆင်း)</span> ၏ <span class="guilabel">Strength (ပြင်းအား)</span> ကို ချိန်ညှိပါ။</p></li>
+</ul>
+<p>Layer rendering တွင် ပြုလုပ်ခဲ့သည့် အပြောင်းအလဲများအားလုံးကို ဖယ်ရှားရန် <span class="guilabel">Reset</span> ကို နှိပ်ပါ။</p>
+<figure class="align-center" id="id11">
+<span id="figure-raster-resampling"></span><img alt="../../../_images/rasterRenderAndResampling.png" src="../../../_images/rasterRenderAndResampling.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 17.11 </span><span class="caption-text">Raster သင်္ကေတဆိုင်ရာ - Layer ပုံဖော်ပြသခြင်းနှင့် and Resampling setting များ</span><a class="headerlink" href="#id11" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="pixel-resolution-resampling">
+<h3><a class="toc-backref" href="#id35" role="doc-backlink"><span class="section-number">17.1.3.3. </span>pixel အရွယ်အစားကို ပြင်ဆင်ပြီး resolution ပြောင်းလဲခြင်း (Resampling)</a><a class="headerlink" href="#pixel-resolution-resampling" title="Link to this heading"></a></h3>
+<p>ဓာတ်ပုံကို ချဲ့ကြည့်၊ ချုံကြည့်သည့်အခါမျိုးတွင် <span class="guilabel">Resampling</span> သည် သက်ရောက်မှုများ ရှိပါသည်။ Resampling နည်းလမ်းများသည် မြေပုံရဲ့အသွင်အပြင်ကို အကောင်းဆုံးဖြစ်အောင် ပြင်ဆင်ပေးနိုင်ပါသည်။
+၎င်းနည်းလမ်းများသည် ဘူမိဗေဒဆိုင်ရာ ပြောင်းလဲမှုများ (Geomeric transformation) မှတစ်ဆင့် gray value matrix အသစ်တစ်ခုကို တွက်ချက်ပေးပါသည်။</p>
+<p>‘Nearest neighbour’ နည်းလမ်းကိုအသုံးပြုလျှင် ချဲ့ကြည့်သည့်အခါ မြေပုံသည် pixelated structure ကို ရရှိမှာဖြစ်ပါသည်။
+ထင်ရှားပြတ်သားနေသည့် အစွန်းများကို ဝါးတားတားဖြစ်သွားအောင် ပြုလုပ်သည့် ‘Bilinear’ သို့မဟုတ် ‘Cubic’ နည်းလမ်းကို အသုံးပြုပြီး ဤအသွင်အပြင်ကို ကောင်းမွန်စေနိုင်ပါသည်။
+ထိုသို့ပြင်လိုက်လျှင် ဓာတ်ပုံသည် ကြည့်ရတာပိုအဆင်ပြေချောမွေ့သွားပါသည်။ ဥပမာ - Digital topographic raster မြေပုံများတွင် ဤနည်းလမ်းကို အသုံးပြုနိုင်ပါသည်။</p>
+<p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">Early resampling</span> ကို အမှန်ခြစ်ထားလျှင် မူရင်းဓာတ်ပုံ၏ resolution ကို သိသောအဆင့်တွင် raster randering တွက်ချက်လို့ရပါသည်။
+ထို့အပြင် QGIS custom styling (စိတ်ကြိုက် style များပြင်ဆင်ခြင်း) ဖြင့် ပိုကောင်းသည့် zoom ချဲ့ကြည့်ခြင်း မျိုးရရှိစေပါသည်။
+<a class="reference internal" href="../managing_data_source/opening_data.html#interpretation"><span class="std std-ref">interpretation method (အဓိပ္ပါယ်ဖော်ခြင်းနည်းလမ်း)</span></a> ကို အသုံးပြုပြီး ထည့်သွင်းထားသည့် tile raster များအတွက် အမှန်တကယ် အဆင်ပြေစေပါသည်။</p>
+</section>
+</section>
+<section id="transparency-properties">
+<span id="raster-transparency"></span><span id="index-5"></span><h2><a class="toc-backref" href="#id36" role="doc-backlink"><span class="section-number">17.1.4. </span>ဖောက်ထွင်းမြင် ဂုဏ်သတ္တိများ (Transparency Properties)</a><a class="headerlink" href="#transparency-properties" title="Link to this heading"></a></h2>
+<p><a class="reference internal" href="../../../_images/transparency.png"><img alt="transparency" src="../../../_images/transparency.png" style="width: 1.5em;" /></a> Raster layer တစ်ခုအတွက် transparency level (ဖောက်ထွင်းမြင်ရမှုအဆင့်အတန်း) ကို သတ်မှတ်ရန် QGIS က လုပ်ဆောင်ပေးနိုင်ပါသည်။</p>
+<p>ထပ်ထားသည့် layer များရှိလျှင် ယခုလက်ရှိအသုံးပြုနေသော အပေါ်ဆုံး raster layer ကိုဖောက်ထွင်းပြီး အောက်ရှိ layer ကို ဘယ်လောက်ပမာဏအထိ မြင်ရနိုင်မည်ကို သတ်မှတ်ရန်အတွက်
+<span class="guilabel">Global opacity</span> ကိုအသုံးပြုနိုင်ပါသည်။ Layer များထပ်ထားသည့်အခါ ဤနည်းလမ်းသည် အလွန်အသုံးဝင်ပါသည်။
+(ဥပမာ - Shaded relief map (မြေမျက်နှာသွင်ပြင် အနိမ့်အမြင့်များပြသောမြေပုံ) တစ်ခုပေါ်တွင် classified (အတန်းအစားခွဲထားသော) raster map တစ်ခု ထပ်ထားသောအခါ)
+ဤသို့ လုပ်ဆောင်ခြင်းသည် မြေပုံကို ပိုမိုပြီး သုံးဘက်မြင် ဆန်ဆန်ဖြစ်စေပါသည်။ Raster ၏ အလင်းဖောက်ထွင်းနိုင်မှု (opacity) သည် data-defined (တန်ဖိုးဖြင့်သတ်မှတ်ခြင်း) ဖြစ်နိုင်ပြီး
+အခြား layer ၏ မြင်နိုင်မှု၊ အချိန်နှင့်ဆိုင်သော ပြောင်းလဲနိုင်သည့်အရာများ၊ atlas (မြေပုံပေါင်းချုပ်) တစ်ခု၏ မတူညီသောစာမျက်နှာများ ပေါ်မူတည်ပြီး ပြောင်းလဲနိုင်ပါသည်။</p>
+<figure class="align-center" id="id12">
+<span id="figure-raster-transparency"></span><img alt="../../../_images/rasterTransparency.png" src="../../../_images/rasterTransparency.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 17.12 </span><span class="caption-text">Raster ဖောက်ထွင်းမြင်ရမှု</span><a class="headerlink" href="#id12" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">No data value</span> ကို အမှန်ခြစ်ထားလျှင် မူရင်း no data value များ (သို့မဟုတ် သတ်မှတ်ထားသည်များ) ကို rendering တွင် ထည့်သွင်းမစဉ်းစားပါ။ ထို့အပြင် raster မှာ မမြင်ချင်သည့် တန်ဖိုး (ဥပမာ - ၂၅၅) ကို <span class="guilabel">Additional no data value</span> အတွင်း ထည့်ရိုက်ပြီး အရောင်ဖျောက်ထားပြီး ကြည့်လို့ရပါသည်။
+No data value များအတွက် မူရင်းပြပေးသည့် အလင်းဖောက် (အရောင်ဖျောက်ကြည့်ခြင်း) အစား စိတ်ကြိုက်အရောင်တစ်ခု ထည့်သုံးလိုလျှင် <span class="guilabel">Display no data as</span> တွင် အရောင်ရွေးချယ်လို့ရပါသည်။</p>
+<p>ဖောက်ထွင်းမြင်ရမှုကို စိတ်ကြိုက်ပြင်ဆင်နိုင်သည့် နည်းလမ်းကို <span class="guilabel">Custom transparency options (ဖောက်ထွင်းမြင်ရမှု စိတ်ကြိုက်ပြင်ဆင်ခြင်း)</span> အပိုင်းတွင်တွေ့နိုင်ပါသည်-</p>
+<ul>
+<li><p>Band တစ်ခုလုံးကို ဖောက်ထွင်းကြည့်ရှုနိုင်အောင် <span class="guilabel">Transparency band</span> ကို အသုံးပြုပါ။</p></li>
+<li><p>သက်ဆိုင်ရာ transparency level များအလိုက် ဖောက်ထွင်းမြင်ရမှုများ လုပ်ဆောင်မည့် pixel များရဲ့စာရင်းတစ်ခု ပြုလုပ်ပါ-</p>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="../../../_images/symbologyAdd.png"><img alt="symbologyAdd" src="../../../_images/symbologyAdd.png" style="width: 1.5em;" /></a> <sup>Add values manually (တန်ဖိုးများကိုရိုက်ထည့်ခြင်း)</sup> ခလုတ်ကိုနှိပ်ပါ။ Pixel စာရင်းတွင် row (အတန်း) အသစ်တစ်ခုပေါ်လာပါလိမ့်မည်။</p></li>
+<li><p>Pixel ရဲ့ <strong>အနီ</strong> ၊ <strong>အစိမ်း</strong> နှင့် <strong>အပြာ</strong> တန်ဖိုးများကို ရိုက်ထည့်ပါ၊ ထို့နောက် <strong>Percent Transparent (ဖောက်ထွင်းမြင်ရမှု ရာခိုင်နှုန်း)</strong> ကို ချိန်ညှိပါ။</p></li>
+<li><p>နောက်တစ်နည်းမှာ <a class="reference internal" href="../../../_images/mActionContextHelp.png"><img alt="contextHelp" src="../../../_images/mActionContextHelp.png" style="width: 1.5em;" /></a> <sup>Add values from display</sup> ခလုတ်ကိုနှိပ်ပြီး raster မှ pixel တန်ဖိုးများကို တိုက်ရိုက်ရယူနိုင်ပါသည်။ ထို့နောက် ဖောက်ထွင်းမြင်ရမှု တန်ဖိုးကို ရိုက်ထည့်ပါ။</p></li>
+<li><p>စိတ်ကြိုက်ဖောက်ထွင်းမြင်ရမှု အတွက် တခြားတန်ဖိုးများကို သုံးလိုလျှင် အထက်ပါအဆင့်များအတိုင်း ထပ်မံလုပ်ဆောင်ပါ။</p></li>
+<li><p><span class="guilabel">Apply</span> ခလုတ်ကို နှိပ်ပြီး ရလာသော မြေပုံကို ကြည့်ရှုပါ။</p></li>
+</ol>
+<p>တွေ့ရသည့်အတိုင်း ဖောက်ထွင်းမြင်ရမှုကို စိတ်ကြိုက်ပြင်ဆင်ခြင်းသည် အလွန်လွယ်ကူပါသည်။ သို့သော် လုပ်ဆောင်ရသည့်အဆင့်များ များပြားနိုင်ပါသည်။
+ထို့ကြောင့် ထပ်ခါထပ်ခါ မလုပ်ရစေရန် လုပ်ထားပြီးသား transparency list ကိုသိမ်းဆည်းထားရန်အတွက် <a class="reference internal" href="../../../_images/mActionFileSave.png"><img alt="fileSave" src="../../../_images/mActionFileSave.png" style="width: 1.5em;" /></a> <sup>Export to file</sup> ခလုတ်ကိုအသုံးပြုနိုင်ပါသည်။
+<a class="reference internal" href="../../../_images/mActionFileOpen.png"><img alt="fileOpen" src="../../../_images/mActionFileOpen.png" style="width: 1.5em;" /></a> <sup>Import from file</sup> ခလုတ်သည် သိမ်းဆည်းထားသည့် transparency setting ကိုထည့်သွင်းနိုင်ပြီး လက်ရှိ raster layer တွင်အသုံးပြုနိုင်ပါသည်။</p>
+</li>
+</ul>
+</section>
+<section id="histogram-properties">
+<span id="raster-histogram"></span><span id="index-6"></span><h2><a class="toc-backref" href="#id37" role="doc-backlink"><span class="section-number">17.1.5. </span>ကြိမ်နှုန်းပြဂရပ်၏ ဂုဏ်သတ္တိများ (Histogram Properties)</a><a class="headerlink" href="#histogram-properties" title="Link to this heading"></a></h2>
+<p><a class="reference internal" href="../../../_images/rasterHistogram.png"><img alt="rasterHistogram" src="../../../_images/rasterHistogram.png" style="width: 1.5em;" /></a> <span class="guilabel">Histogram</span> tab ကိုအသုံးပြုပြီး raster ထဲရှိ တန်ဖိုးများ၏ ပြန့်နှံ့မှုကို ကြည့်ရှုနိုင်ပါသည်။ <span class="guilabel">Compute Histogram</span> ခလုတ်ကိုနှိပ်ပြီး histogram ကိုဖန်တီးနိုင်ပါသည်။
+<a class="reference internal" href="../../../_images/mActionFileSave.png"><img alt="fileSave" src="../../../_images/mActionFileSave.png" style="width: 1.5em;" /></a> ခလုတ်ကိုနှိပ်ပြီး histogram ကို ဓာတ်ပုံအဖြစ်သိမ်းဆည်းနိုင်ပါသည်။</p>
+<p>Histogram ၏ အောက်ခြေတွင် drop-down menu မှတဆင့် raster band တစ်ခုကိုရွေးချယ်နိုင်ပြီး ၎င်းအတွက် အနည်းဆုံး/အများဆုံး style သတ်မှတ်နိုင်ပါသည်။ (<span class="guilabel">Set min/max style for</span>)
+<a class="reference internal" href="../../../_images/mAction.png"><img alt="actionRun" src="../../../_images/mAction.png" style="width: 1.5em;" /></a> <span class="guilabel">Prefs/Actions</span> drop-down menu သည် histogram ကို စိတ်ကြိုက်ပြင်ဆင်ရန် အဆင့်မြင့်ရွေးချယ်မှုများပိုမိုလုပ်ဆောင်နိုင်ပါသည်-</p>
+<ul class="simple">
+<li><p><span class="guilabel">Visibility</span> ကိုအသုံးပြုပြီး band တစ်ခုချင်းဆီအတွက် histogram များကြည့်ရှုနိုင်ပါသည်။ <a class="reference internal" href="../../../_images/radiobuttonoff.png"><img alt="radioButtonOff" src="../../../_images/radiobuttonoff.png" style="width: 1.5em;" /></a> <span class="guilabel">Show selected band</span> ကို ရွေးချယ်ထားရန် လိုအပ်ပါလိမ့်မည်။</p></li>
+<li><p><span class="guilabel">Min/max options</span> သည်  ‘Always show min/max markers’ (အနည်းဆုံး/အများဆုံး အမှတ်သားများကိုပြသခြင်း) ၊ ‘Zoom to min/max’ (အနည်းဆုံး/အများဆုံး များကို zoom ဆွဲကြည့်ခြင်း) နှင့် ‘Update style to min/max’ (အနည်းဆုံး/အများဆုံး အတိုင်း style ကိုပြင်ဆင်ခြင်း) များကို လုပ်ဆောင်ပေးပါသည်။</p></li>
+<li><p>Band (များ) ၏ အနည်းဆုံး/အများဆုံး တန်ဖိုးများကို ပြောင်းလဲပြီးနောက် ‘မူရင်းအတိုင်းပြန်ထားချင်သည့်အခါ’ သို့မဟုတ် ‘histogram ကို ပြန်တွက်ထုတ်ချင်သည့်အခါ’ <span class="guilabel">Actions</span> ကို အသုံးပြုနိုင်ပါသည်။</p></li>
+</ul>
+<figure class="align-center" id="id13">
+<span id="figure-raster-histogram"></span><img alt="../../../_images/rasterHistogram1.png" src="../../../_images/rasterHistogram1.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 17.13 </span><span class="caption-text">Raster Histogram (Raster ကြိမ်နှုန်းပြဂရပ်)</span><a class="headerlink" href="#id13" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="rendering-properties">
+<span id="raster-rendering"></span><span id="index-7"></span><h2><a class="toc-backref" href="#id38" role="doc-backlink"><span class="section-number">17.1.6. </span>ပုံဖော်ပြသခြင်းဆိုင်ရာ ဂုဏ်သတ္တိများ (Rendering Properties)</a><a class="headerlink" href="#rendering-properties" title="Link to this heading"></a></h2>
+<p><a class="reference internal" href="../../../_images/rendering.png"><img alt="rendering" src="../../../_images/rendering.png" style="width: 1.5em;" /></a> <span class="guilabel">Rendering</span> tab တွင် အောက်ပါတို့ကို လုပ်ဆောင်နိုင်ပါသည်-</p>
+<ul>
+<li><p>Layer အတွက် <span class="guilabel">Scale dependent visibility (စကေးပေါ်မူတည်ပြီး မြင်ရနိုင်စွမ်း)</span> ကိုသတ်မှတ်နိုင်ပါသည်။ <span class="guilabel">Maximum (inclusive) - အများဆုံး (ဤတန်ဖိုးအောက်ဆိုလျှင်မြင်ရခြင်း)</span> နှင့် :guilabel:` Minimum (exclusive) - အနည်းဆုံး (ဤတန်ဖိုးအောက်ဆိုလျှင်မမြင်ရခြင်း)` တို့ကိုသတ်မှတ်ပေးပြီး ဘယ်လောက်စကေးအတွင်းသာ layer များကို မြင်နိုင်ရမည်ဆိုသည်ကို သတ်မှတ်ပေးနိုင်ပါသည်။
+သတ်မှတ်ပေးထားသည့် အတိုင်းအတာအတွင်း မဝင်သည့်အခါ မြေပုံပေါ်တွင် ပေါ်လာမည်မဟုတ်ပါ။ <a class="reference internal" href="../../../_images/mActionMapIdentification.png"><img alt="mapIdentification" src="../../../_images/mActionMapIdentification.png" style="width: 1.5em;" /></a> <sup>Set to current canvas scale</sup> ခလုတ်ကို နှိပ်ပြီး ယခုလက်ရှိ map canvas စကေးကို အသုံးပြုနိုင်ပါသည်။
+ထပ်မံကြည့်ရှုလိုသည်များအတွက် <a class="reference internal" href="../introduction/general_tools.html#label-scaledepend"><span class="std std-ref">မြင်ရနိုင်စွမ်း စကေး ရွေးချယ်ချယ်ရာ (Visibility Scale Selector)</span></a> တွင်ကြည့်ရှုပါ။</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><span class="guilabel">Layers</span> panel ထဲရှိ layer တစ်ခုပေါ်တွင် right-click နှိပ်ပြီး ပေါ်လာသည့် menu တွင် <span class="guilabel">Set Layer Scale Visibility</span> ကိုရွေးချယ်ပြီး layer တစ်ခုဟာ မည်သည့်စကေးတွင် မြင်ရနိုင်မည်ဆိုသည်ကို သတ်မှတ်ပေးလို့ရနိုင်ပါသည်။</p>
+</div>
+</li>
+<li><p><span class="guilabel">Refresh layer at interval (seconds)</span> (သတ်မှတ်ထားသည့် အချိန်စက္ကန့်အပိုင်းအခြား၌ layer refresh ပြုလုပ်ခြင်း) ကိုအသုံးပြုပြီး layer တစ်ခုချင်းအတွက် အချိန်ဘယ်လောက်အကြာတွင် အလိုလျှောက် refresh လုပ်ပေးမည်ဆိုသည်ကို သတ်မှတ်ပေးထားလို့ရပါသည်။
+Layer တစ်ခုထက်ပိုပြီး auto update interval သတ်မှတ်ချက်ပြုလုပ်ထားလျှင် ကြိမ်ဖန်များစွာ refresh ပြုလုပ်ခြင်းကို ရှောင်ရှားရန်အတွက် canvas update ပြုလုပ်ခြင်းကို ဆိုင်းငံ့ထားမည်ဖြစ်ပါသည်။</p></li>
+</ul>
+<figure class="align-center" id="id14">
+<span id="figure-raster-rendering"></span><img alt="../../../_images/rasterRendering.png" src="../../../_images/rasterRendering.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 17.14 </span><span class="caption-text">Raster Rendering ဆိုင်ရာ ဂုဏ်သတ္တိများ</span><a class="headerlink" href="#id14" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="temporal-properties">
+<span id="raster-temporal"></span><span id="index-8"></span><h2><a class="toc-backref" href="#id39" role="doc-backlink"><span class="section-number">17.1.7. </span>အချိန်ကာလဆိုင်ရာ ဂုဏ်သတ္တိများ (Temporal Properties)</a><a class="headerlink" href="#temporal-properties" title="Link to this heading"></a></h2>
+<p><a class="reference internal" href="../../../_images/temporal.png"><img alt="temporal" src="../../../_images/temporal.png" style="width: 1.5em;" /></a> <span class="guilabel">Temporal</span> tab ကိုအသုံးပြုပြီး layer ၏ rendering ကို အချိန်နှင့်အမျှ ထိန်းချုပ်ခြင်းများလုပ်ဆောင်နိုင်ပါသည်။
+ထိုသို့သော dynamic rendering မျိုးကို map canvas ပေါ်တွင်ရရှိနိုင်စေရန် <a class="reference internal" href="../map_views/map_view.html#maptimecontrol"><span class="std std-ref">temporal navigation</span></a> ကိုလိုအပ်မည်ဖြစ်ပါသည်။</p>
+<figure class="align-center" id="id15">
+<span id="figure-raster-temporal"></span><img alt="../../../_images/rasterTemporal.png" src="../../../_images/rasterTemporal.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 17.15 </span><span class="caption-text">Raster ၏ အချိန်နှင့်ပတ်သက်သော ဂုဏ်သတ္တိများ</span><a class="headerlink" href="#id15" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">Dynamic Temporal Control</span> ကို အမှန်ခြစ်ထားလိုက်ပြီး အောက်ပါထဲမှမည်သည့်အရာဖြင့် layer redraw လုပ်သင့်သည်ကို သတ်မှတ်ပါ-</p>
+<ul class="simple">
+<li><p><span class="guilabel">Automatic</span> (အလိုအလျောက်) - အချိန်နှင့်ပတ်သက်သော data များပါလျှင် rendering ကို အသုံးပြုနေသည့် data ကထိန်းချုပ်ပါသည်။ ဥပမာ - WMS-T layer များ သို့မဟုတ် PostGIS raster များအတွက် အသုံးဝင်ပါသည်။</p>
+</li>
+<li><p><span class="guilabel">Fixed time range</span> (သတ်မှတ်အချိန်အတွင်း) - Animation (လှုပ်ရှားပုံရိပ်) အချိန်သည် <span class="guilabel">Start date (စရက်)</span> နှင့် <span class="guilabel">End date (ဆုံးရက်)</span> အတွင်းရှိမှသာ raster layer ကို ပြသပေးပါသည်။</p></li>
+<li><p><span class="guilabel">Redraw layer only</span> (layer ကိုသာ redraw လုပ်ခြင်း) - Animation frame အသစ်တစ်ခုစီတိုင်းမှာ layer ကို ပြန်ဆွဲပါသည်။
+Rendering setting များအတွက် time-based expression တန်ဖိုးများကို အသုံးပြုမှသာ ဤနည်းလမ်းဟာ အသုံးဝင်ပါသည်။
+(ဥပမာ - Raster layer တစ်ခုကို မှိန်သွားစေရန်အတွက် data-defined renderer opacity)</p></li>
+</ul>
+</section>
+<section id="elevation-properties">
+<span id="raster-elevation"></span><span id="index-9"></span><h2><a class="toc-backref" href="#id40" role="doc-backlink"><span class="section-number">17.1.8. </span>မြေပြင်အနိမ့်အမြင့်ဆိုင်ရာ ဂုဏ်သတ္တိများ (Elevation Properties)</a><a class="headerlink" href="#elevation-properties" title="Link to this heading"></a></h2>
+<p><a class="reference internal" href="../../../_images/elevationscale.png"><img alt="elevationscale" src="../../../_images/elevationscale.png" style="width: 1.5em;" /></a> <span class="guilabel">Elevation</span> tab ကိုအသုံးပြုပြီး <a class="reference internal" href="../map_views/3d_map_view.html#label-3dmapview"><span class="std std-ref">3D map view (သုံးဘက်မြင်မြေပုံမြင်ကွင်း)</span></a> တစ်ခုထဲတွင် layer ၏ အနိမ့်အမြင့် property များနှင့် <a class="reference internal" href="../map_views/elevation_profile.html#label-elevation-profile-view"><span class="std std-ref">profile tool charts</span></a> ထဲရှိ ပုံပန်းသွင်ပြင်ကို ထိန်းချုပ်နိုင်ပါသည်။
+အောက်ပါတို့ကို သတ်မှတ်ပေးနိုင်ပါသည်-</p>
+<figure class="align-center" id="id16">
+<span id="figure-raster-elevation"></span><img alt="../../../_images/rasterElevation.png" src="../../../_images/rasterElevation.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 17.16 </span><span class="caption-text">Raster ၏ မြေမျက်နှာသွင်ပြင်အနိမ့်အမြင့်ဆိုင်ရာ ဂုဏ်သတ္တိများ</span><a class="headerlink" href="#id16" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ul class="simple">
+<li><p><a class="reference internal" href="../../../_images/unchecked.png"><img alt="unchecked" src="../../../_images/unchecked.png" style="width: 1.3em;" /></a> <span class="guilabel">Represents Elevation Surface</span> တွင် Raster layer သည် မျက်နှာပြင်အမြင့် (ဥပမာ - DEM) တစ်ခုကို ကိုယ်စားပြုသလား နှင့် pixel တန်ဖိုးများကို မြေမျက်နှာပြင်အနိမ့်အမြင့် အဖြစ် ဘာသာပြန်သင့်သလား ဆိုသည်ကို လုပ်ဆောင်နိုင်ပါသည်။ Raster တစ်ခုကို <a class="reference internal" href="../map_views/elevation_profile.html#label-elevation-profile-view"><span class="std std-ref">elevation profile view</span></a> ဖြင့်ကြည့်လိုလျှင် ဤ option ကို အမှန်ခြစ်ပါ။ <span class="guilabel">Band</span> တန်ဖိုးကိုလည်းဖြည့်ထားရန်လိုအပ်ပါသည်။ ထို့နောက် <span class="guilabel">Scale</span> factor တစ်ခုနှင့် <span class="guilabel">Offset</span> တစ်ခုထည့်သွင်းအသုံးပြုနိုင်ပါသည်။</p></li>
+<li><p><span class="guilabel">Profile Chart Appearance</span> သည် profile chart တစ်ခုရေးဆွဲသည့်အခါ raster elevation ၏ rendering <span class="guilabel">Style</span> ကို ထိန်းချုပ်ပေးပါသည်။ အောက်ပါအတိုင်းသတ်မှတ်နိုင်ပါသည်-</p>
+<ul>
+<li><p><a class="reference internal" href="../style_library/symbol_selector.html#vector-line-symbols"><span class="std std-ref">line style</span></a> တစ်ခုအသုံးပြုထားသည့် profile <span class="guilabel">Line</span> တစ်ခု</p></li>
+<li><p><span class="guilabel">Fill below</span> လုပ်ထားသည့် မျက်နှာပြင်တစ်ခုနှင့် သက်ဆိုင်ရာ <a class="reference internal" href="../style_library/symbol_selector.html#vector-fill-symbols"><span class="std std-ref">fill style</span></a> တစ်ခုတို့ဖြစ်ပါသည်။</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="pyramids-properties">
+<span id="raster-pyramids"></span><span id="index-10"></span><h2><a class="toc-backref" href="#id41" role="doc-backlink"><span class="section-number">17.1.9. </span>ပိရမစ်လွှာဂုဏ်သတ္တိများ (Pyramids Properties)</a><a class="headerlink" href="#pyramids-properties" title="Link to this heading"></a></h2>
+<p>QGIS တွင် ကြည်လင်ပြတ်သားသည့် (high resolution) ဓာတ်ပုံများကို ရွှေ့ပြီးကြည့်လျှင် နှေးကွေးနိုင်ပါသည်။
+ထို့ကြောင့် ကြည်လင်ပြတ်သားမှု နိမ့်သော data မိတ္တူများ (ပိရမစ်များ) ဖန်တီးပြီး အသုံးပြုခြင်းသည် လုပ်ဆောင်မှုသိသိသာသာမြန်ဆန်လာတာကို တွေ့ရပါသည်။
+အဘယ်ကြောင့်ဆိုသော် ကိုယ်အသုံးပြုနေသည့် zoom level ပေါ်မူတည်ပြီး အသင့်တော်ဆုံး ကြည်လင်ပြတ်သားမှုကို ရွေးချယ်အသုံးပြုခြင်းကြောင့်ဖြစ်ပါသည်။
+(ဆိုလိုသည်မှာ ဧရိယာအကျယ်ကြီးကို ခြုံငုံကြည့်လိုလျှင် resolution အရမ်းအကောင်းကြီးမလိုသောကြောင့် resolution ချပြီးကြည့်လိုက်သည့်အခါ ပုံရဲ့ file အရွယ်အစားသေးသွားတာကြောင့် နေရာရွှေ့ရတာ ပိုမြန်ဆန်သွားခြင်း ဖြစ်ပါသည်။)</p>
+<p>ပိရမစ် ဖန်တီးရန်အတွက် မူရင်း data သိမ်းဆည်းထားသည့်နေရာတွင် data ကို ပြင်ဆင်ပိုင်ခွင့် (‌ရေးနိုင်တဲ့ အခွင့်အရေး) ရှိရန် လိုအပ်ပါသည်။</p>
+<p><span class="guilabel">Resolutions</span> စာရင်းမှ ဖန်တီးလိုသည့် ပိရမစ် level အတွက် resolution ကို click လုပ်ပြီး ရွေးချယ်ပါ။</p>
+<p><span class="guilabel">Overview format</span> drop-down menu မှတဆင့် <strong>Internal (လုပ်ခွင့်ပေးမှသာ)</strong> ကိုရွေးထားလျှင် QGIS သည် ပိရမစ်ကို မူရင်းဖိုင်ထဲတွင်ထည့်ပြီး ဖန်တီးပေးပါသည်။</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>ပိရမစ်များ ဖန်တီးလိုက်ခြင်းသည် မူရင်း data ကိုအမြဲတမ်းပြောင်းလဲလိုက်ခြင်းဖြစ်ပြီး တစ်ခါဖန်တီးလိုက်သည်နှင့် ပြန်ဖျက်လို့ မရနိုင်တော့ပါ။
+အကယ်၍ မူရင်း data ကိုမပျက်စီးစေဘဲ သိမ်းဆည်းထားချင်လျှင် ပိရမစ် မဖန်တီးခင် မူရင်း data ကို မိတ္တူပွားထားပါ။</p>
+</div>
+<p><strong>External</strong> နှင့် <strong>External (Erdas Imagine)</strong> ကို ရွေးထားလျှင် မူရင်း raster file နှင့်နာမည်တူပြီး <code class="file docutils literal notranslate"><span class="pre">.ovr</span></code> extension ဖြင့် file အသစ်တစ်ခုကို မူရင်း folder မှာ ဖန်တီးပေးပါသည်။</p>
+<p>ပိရမစ် တွက်ထုတ်ခြင်းအတွက် <span class="guilabel">Resampling methods</span> အမျိုးမျိုးကို အသုံးပြုလို့ရပါသည်-</p>
+<ul class="simple">
+<li><p>Nearest Neighbour</p></li>
+<li><p>Average</p></li>
+<li><p>Gauss</p></li>
+<li><p>Cubic</p></li>
+<li><p>Cubic Spline</p></li>
+<li><p>Laczos</p></li>
+<li><p>Mode</p></li>
+<li><p>None</p></li>
+</ul>
+<p>နောက်ဆုံးအနေနဲ့ ပိရမစ် စပြီးဖန်တီးရန် <span class="guilabel">Build Pyramids</span> ကို နှိပ်ပါ။</p>
+<figure class="align-center" id="id17">
+<span id="figure-raster-pyramids"></span><img alt="../../../_images/rasterPyramids.png" src="../../../_images/rasterPyramids.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 17.17 </span><span class="caption-text">Raster ပိရမစ်များ ဖန်တီးခြင်း</span><a class="headerlink" href="#id17" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="metadata-metadata-properties">
+<span id="raster-metadata"></span><span id="index-11"></span><h2><a class="toc-backref" href="#id42" role="doc-backlink"><span class="section-number">17.1.10. </span>Metadata ဂုဏ်သတ္တိများ (Metadata Properties)</a><a class="headerlink" href="#metadata-metadata-properties" title="Link to this heading"></a></h2>
+<p><a class="reference internal" href="../../../_images/editmetadata.png"><img alt="editMetadata" src="../../../_images/editmetadata.png" style="width: 1.2em;" /></a> <span class="guilabel">Metadata</span> tab တွင် ဖန်တီးလိုက်သည့် layer နှင့်ပတ်သက်သော metadata (ဥပမာ - projection၊ ဖန်တီးသူ၊ ဖန်တီးခဲ့သောရက်စွဲ) တို့ကို ဖန်တီးနိုင်သလို တည်းဖြတ်ပြင်ဆင်လို့ ရပါသည်။
+ပိုမိုသိရှိလိုပါက <a class="reference internal" href="../introduction/general_tools.html#metadatamenu"><span class="std std-ref">Data နှင့်ဆိုင်သည့်အချက်အလက် (Metadata)</span></a> တွင် ဖတ်ရှုနိုင်ပါသည်။</p>
+<figure class="align-center" id="id18">
+<span id="figure-raster-metadata"></span><img alt="../../../_images/rasterMetadata.png" src="../../../_images/rasterMetadata.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 17.18 </span><span class="caption-text">Raster Metadata</span><a class="headerlink" href="#id18" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="legend-properties">
+<span id="raster-legend"></span><span id="index-12"></span><h2><a class="toc-backref" href="#id43" role="doc-backlink"><span class="section-number">17.1.11. </span>မြေပုံရည်ညွှန်းချက်ဂုဏ်သတ္တိများ (Legend Properties)</a><a class="headerlink" href="#legend-properties" title="Link to this heading"></a></h2>
+<p><a class="reference internal" href="../../../_images/legend.png"><img alt="legend" src="../../../_images/legend.png" style="width: 1.2em;" /></a> <span class="guilabel">Legend</span> tab တွင် <a class="reference internal" href="../introduction/general_tools.html#label-legend"><span class="std std-ref">Layers panel</span></a> နှင့် <a class="reference internal" href="../print_composer/composer_items/composer_legend.html#layout-legend-item"><span class="std std-ref">print layout legend</span></a> တို့အတွက် ပိုပြီးအဆင့်မြင့်သည့် setting များပါဝင်ပါသည်။ ၎င်းတို့မှာ -</p>
+<ul>
+<li><p>Layer တွင်အသုံးပြုလိုက်သော symbology ပေါ်မူတည်ပြီး legend ထဲတွင် ထည့်သွင်းစရာများကောင်းများနေနိုင်ပါသည်။ ပေါ်နေသည့်အရာအားလုံးသည် အသုံးဝင်ချင်မှ ဝင်ပါလိမ့်မည်။
+<span class="guilabel">Legend placeholder image</span> သည် အစားထိုးရန်အတွက် <a class="reference internal" href="../introduction/general_tools.html#embedded-file-selector"><span class="std std-ref">select an image (ဓာတ်ပုံတစ်ခုရွေးချယ်ခြင်း)</span></a> ပြုလုပ်နိုင်ပြီး <span class="guilabel">Layers</span> panel နှင့် မြေပုံထုတ်ဖို့ပြင်ဆင်ထားသည့်နေရာရှိ legend တွင်လည်း ဖော်ပြပေးနိုင်ပါသည်။</p></li>
+<li><p><a class="reference internal" href="../../../_images/legend.png"><img alt="legend" src="../../../_images/legend.png" style="width: 1.2em;" /></a> <span class="guilabel">Embedded widgets in Legend</span> သည် Layers panel ရှိ layer တွေအများကြီးထဲတွင် embed (ထည့်မြှုပ်ထား) လုပ်ထားနိုင်သည့် စာရင်းတစ်ခုကို ဖန်တီးပေးပါသည်။
+Layer များတွင်မကြာခဏ လုပ်လေ့ရှိသော လုပ်ဆောင်ချက်များ (ဖောက်ထွင်းမြင်ရမှု၊ စစ်ထုတ်ခြင်း၊ ရွေးထုတ်ခြင်း၊ style နှင့် တခြားအရာများ) ကို လွယ်လွယ်ကူကူ မြန်မြန်ဆန်ဆန် လုပ်ဆောင်နိုင်ရန်အတွက် ဖြစ်ပါသည်။</p>
+<p>ပုံမှန်အားဖြင့် QGIS တွင် ဖောက်ထွင်းမြင်ရမှု (transparency) widget ပါဝင်ပေမယ့် layer များတွင် အသုံးပြုလိုသော လုပ်ဆောင်ချက်များအတွက် ကိုယ်ပိုင် widget များဖြင့် အသုံးပြုနိုင်ရန် plugin များ ထပ်ဖြည့်သွင်းလို့ရပါသည်။</p>
+</li>
+</ul>
+<figure class="align-center" id="id19">
+<span id="figure-raster-legend"></span><img alt="../../../_images/rasterLegend.png" src="../../../_images/rasterLegend.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 17.19 </span><span class="caption-text">Raster ရည်ညွှန်းချက်</span><a class="headerlink" href="#id19" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="qgis-qgis-server-properties">
+<span id="raster-server"></span><span id="index-13"></span><h2><a class="toc-backref" href="#id44" role="doc-backlink"><span class="section-number">17.1.12. </span>QGIS ဆာဗာဆိုင်ရာ ဂုဏ်သတ္တိများ (QGIS Server Properties)</a><a class="headerlink" href="#qgis-qgis-server-properties" title="Link to this heading"></a></h2>
+<p><a class="reference internal" href="../../../_images/overlay.png"><img alt="overlay" src="../../../_images/overlay.png" style="width: 1.5em;" /></a> <span class="guilabel">QGIS Server</span> tab တွင် <span class="xref std std-ref">QGIS Server</span> ပေါ်တွင် အများပြည်သူအသုံးပြုနိုင်ရန် ဖြန့်ဝေပေးထားသည့် data များ၏ setting ကို ပြင်ဆင်နိုင်ပါသည်။ ပြင်ဆင်မှုများနှင့် ပတ်သက်သည်များမှာ-</p>
+<ul class="simple">
+<li><p><span class="guilabel">Description</span> သည် <span class="guilabel">Short name (အတိုကောက်နာမည်)</span> ၊ <span class="guilabel">Title (ခေါင်းစဉ်)</span> ၊ <span class="guilabel">Summary (အနှစ်ချုပ်)</span> ၊ <span class="guilabel">List of Keywords (Keyword များစာရင်း)</span> နှင့် <code class="docutils literal notranslate"><span class="pre">text/html</span></code>၊ <code class="docutils literal notranslate"><span class="pre">text/plain</span></code> သို့မဟုတ် <code class="docutils literal notranslate"><span class="pre">application/pdf</span></code> <span class="guilabel">Type (အမျိုးအစား)</span> များဖြစ်နိုင်သည့် <span class="guilabel">Data URL (Data ရဲ့ မူရင်းသိမ်းဆည်းထားသောနေရာ)</span> တို့လို အချက်အလက်များကို ဖော်ပြပေးပါသည်။</p></li>
+<li><p><span class="guilabel">Attribution</span> တွင် data ဖန်တီးသူကို ဖော်ပြရန် <span class="guilabel">Title</span> နှင့် <span class="guilabel">Data URL</span> များပါဝင်ပါသည်။</p></li>
+<li><p><span class="guilabel">Metadata URL</span> တွင် <code class="docutils literal notranslate"><span class="pre">FGDC</span></code> သို့မဟုတ် <code class="docutils literal notranslate"><span class="pre">TC211</span></code> <span class="guilabel">Type</span> ဖြစ်နိုင်သော metadata များအတွက်  <code class="docutils literal notranslate"><span class="pre">text/plain</span></code> သို့မဟုတ် <code class="docutils literal notranslate"><span class="pre">text/xml</span></code> <span class="guilabel">Format</span> ဖြင့် <span class="guilabel">URL</span> စာရင်းတစ်ခု ပါဝင်ပါသည်။</p></li>
+<li><p><span class="guilabel">Legend URL</span> တွင် <code class="docutils literal notranslate"><span class="pre">image/png</span></code> သို့မဟုတ် <code class="docutils literal notranslate"><span class="pre">image/jpeg</span></code> <span class="guilabel">Format</span> ဖြင့် legend အတွက် <span class="guilabel">URL</span> တစ်ခု ပါဝင်ပါသည်။</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Server တွင် ဖြန့်ဝေလိုသည့် raster layer သည် web service တစ်ခုမှ ပံ့ပိုးပြီးသားဖြစ်နေလျှင် setting များအတွက် တခြား <a class="reference internal" href="../working_with_ogc/ogc_client_support.html#wms-server-properties"><span class="std std-ref">properties</span></a> များကို လုပ်ဆောင်နိုင်ပါသည်။</p>
+</div>
+<figure class="align-center" id="id20">
+<span id="figure-raster-server"></span><img alt="../../../_images/rasterServer.png" src="../../../_images/rasterServer.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 17.20 </span><span class="caption-text">Raster Properties ထဲရှိ QGIS Server</span><a class="headerlink" href="#id20" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="17. Raster Data နှင့် အလုပ်လုပ်ခြင်း" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="raster_analysis.html" class="btn btn-neutral float-right" title="17.2. Raster များအား ဆန်းစစ်လေ့လာခြင်း" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2002-now, QGIS project.
+      <span class="lastupdated">Last updated on 2024 May 13, 16:23 +0700.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- Transifex follows a particular logic to build target pages:
+Expected French translation link for https://docs.qgis.org/3.28/en/docs/user_manual/print_composer/overview_composer.html
+would return https://app.transifex.com/qgis/qgis-documentation/translate/#fr/aa6d8bc653526d38b295ca94bf8eee5e
+with the md5 value of "github#qgis/QGIS-Documentation#release_3.28#locale/en/LC_MESSAGES/docs/user_manual/print_composer/overview_composer.po"-->
+<!--Make sure that mismatching language codes between Transifex and Sphinx are converted-->
+
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-info-circle"> QGIS Documentation </span>
+      v: 3.28
+      <span class="fa fa-caret-down"></span>
+    </span>
+
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Languages</dt>
+        
+          <dd><a href="https://docs.qgis.org/3.28/en/docs/user_manual/working_with_raster/raster_properties.html">en</a></dd>
+        
+      </dl>
+
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/user_manual/working_with_raster/raster_properties.html">testing</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/latest/en/docs/user_manual/working_with_raster/raster_properties.html">latest</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.28/en/docs/user_manual/working_with_raster/raster_properties.html">3.28</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.22/en/docs/user_manual/working_with_raster/raster_properties.html">3.22</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.16/en/docs/user_manual/working_with_raster/raster_properties.html">3.16</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.10/en/docs/user_manual/working_with_raster/raster_properties.html">3.10</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.4/en/docs/user_manual/working_with_raster/raster_properties.html">3.4</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/2.18/en/docs/user_manual/working_with_raster/raster_properties.html">2.18</a></dd>
+        
+      </dl>
+
+       
+       <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="https://docs.qgis.org/3.28/pdf">PDF</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.28/zip">HTML</a></dd>
+        
+      </dl>
+      
+
+      
+       
+      <dl>
+        <dt>Contribute to Docs</dt>
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/edit/master/docs/user_manual/working_with_raster/raster_properties.rst" target="_blank" rel="noopener noreferrer">Edit on GitHub</a>
+          </dd>
+          
+          
+          <dd>
+            <a href="https://app.transifex.com/qgis/qgis-documentation/translate/#en/cb6721e3c48a6f7217df1240ab4adc92" target="_blank" rel="noopener noreferrer">Translate Page</a>
+          </dd>
+          
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/issues" target="_blank" rel="noopener noreferrer">Report Issue</a>
+          </dd>
+      </dl>
+      
+
+      <dl>
+        <dt>On QGIS Project</dt>
+          <dd>
+            <a href="https://qgis.org/en" target="_blank" rel="noopener noreferrer">Home</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/api/3.28" target="_blank" rel="noopener noreferrer">C++ API</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/pyqgis/3.28" target="_blank" rel="noopener noreferrer">PyQGIS API</a>
+          </dd>
+          <dd>
+            <a href="https://github.com/qgis/QGIS/tree/release-3_28" target="_blank" rel="noopener noreferrer">Source</a>
+          </dd>
+      </dl>
+
+    </div>
+  </div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

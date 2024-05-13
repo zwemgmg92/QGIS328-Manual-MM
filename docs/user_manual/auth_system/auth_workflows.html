@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>25. အသုံးပြုသူ အထောက်အထားစစ်ဆေးခြင်း လုပ်ငန်းအဆင့်များ (User Authentication Workflows) &mdash; QGIS Documentation  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/qgis_docs.css?v=3fdf4c33" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/qgis_logo.ico"/>
+    <link rel="canonical" href="https://docs.qgis.org/latest/en/docs/user_manual/auth_system/auth_workflows.html"/>
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../../_static/copybutton.js?v=f281be69"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="26. လုံခြုံရေးအတွက်စဉ်းစားရန်အချက်များ (Security Considerations)" href="auth_considerations.html" />
+    <link rel="prev" title="24. အထောက်အထားစီစစ်ခြင်းအကြောင်းအကျဉ်း (Authentication System Overview)" href="auth_overview.html" />
+  <meta name="description" content="QGIS 3.28 documentation: 25. အသုံးပြုသူ အထောက်အထားစစ်ဆေးခြင်း လုပ်ငန်းအဆင့်များ (User Authentication Workflows)">
+</head>
+
+<body class="wy-body-for-nav">
+
+  <nav class="release_status_topbar">
+  </nav>
+
+   
+
+ 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+   
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            QGIS Documentation
+              <img src="../../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                3.28
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+   <a href= "../../../genindex.html">Index</a>
+ 
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">အသုံးပြုသူများအတွက်</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../preamble/preamble.html">1. စကားချီး (Preamble)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/foreword.html">2. အမှာစာ (Foreword)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/conventions.html">3. အသုံးအနှုန်းများ (Conventions)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/features.html">4. အသွင်အပြင်များ (Features)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/getting_started.html">5. စတင်အသုံးပြုခြင်း (Getting Started)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/project_files.html">6. Project Files များနှင့် အလုပ်လုပ်ခြင်း (Working with Project Files)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/qgis_gui.html">7. QGIS ၏အစိတ်အပိုင်းများ (QGIS GUI)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/browser.html">8. ဒေတာများရှာဖွေကြည့်ရှုနိုင်သည့်နေရာ (The Browser panel)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/qgis_configuration.html">9. QGIS ပြင်ဆင်သတ်မှတ်ခြင်း/အခင်းအကျင်း (QGIS Configuration)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_projections/working_with_projections.html">10. မြေပုံအရိပ်ချစနစ်များ နှင့် အလုပ်လုပ်ခြင်း (Working with Projections)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../map_views/index.html">11. မြေပုံများအား ပုံဖော်ကြည့်ရှုခြင်း (Visualizing Maps)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/general_tools.html">12. အထွေ‌ထွေ‌သုံးကိရိယာများ (General Tools)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../expressions/index.html">13. Expression များဖြင့် အဆင့်မြှင့်တင်ဆောင်ရွက်ခြင်း (Level up with Expressions)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../style_library/index.html">14. The Style Library (Style နှင့်ပတ်သက်သည်များ ထားရှိရာနေရာ)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../managing_data_source/index.html">15. ဒေတာအရင်းအမြစ်များအား စီမံခန့်ခွဲခြင်း (Managing Data Source)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_vector/index.html">16. Vector data များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_raster/index.html">17. Raster Data နှင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_mesh/mesh_properties.html">18. Working with Mesh Data (Mesh Data များနှင့် အလုပ်လုပ်ခြင်း)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_vector_tiles/vector_tiles_properties.html">19. Vector Tiles များနှင့်အလုပ်လုပ်ခြင်း (Working with Vector Tiles)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_point_clouds/point_clouds.html">20. Point Cloud များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../print_composer/index.html">21. မြေပုံအချောသပ်ပြင်ဆင်ခြင်း (Laying out the maps)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_ogc/ogc_client_support.html">22. OGC / ISO protocol များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_gps/index.html">23. GPS Data များနှင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="auth_overview.html">24. အထောက်အထားစီစစ်ခြင်းအကြောင်းအကျဉ်း (Authentication System Overview)</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">25. အသုံးပြုသူ အထောက်အထားစစ်ဆေးခြင်း လုပ်ငန်းအဆင့်များ (User Authentication Workflows)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#http-s-http-s-authentication">25.1. HTTP(S) စနစ်တွင် အထောက်အထား စစ်ဆေးမှု (HTTP(S) authentication )</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#database-database-authentication">25.2. Database တွင် အထောက်အထားစစ်ဆေးခြင်း (Database authentication)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pki-pki-authentication">25.3. PKI စစ်ဆေးခြင်း (PKI authentication)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#authorities">25.3.1. အခွင့်အာဏာများ (Authorities)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#identities">25.3.2. အထောက်အထားများ (Identities)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#layer-handling-bad-layers">25.4. layerအညံ့များကိုကိုင်တွယ်ခြင်း (Handling bad layers)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id-changing-authentication-config-id">25.5. အထောက်အထားစီစစ်မည့် ID အားပြောင်းလဲခြင်း (Changing authentication config ID)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#qgis-qgis-server-support">25.6. QGIS ဆာဗာ အကူအညီ (QGIS Server support)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ssl-server-ssl-server-exceptions">25.7. SSL server ခြွင်းချက်များ (SSL server exceptions)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="auth_considerations.html">26. လုံခြုံရေးအတွက်စဉ်းစားရန်အချက်များ (Security Considerations)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../grass_integration/grass_integration.html">27. GRASS GIS နှင့်ပေါင်းစပ်အသုံးပြုခြင်း (GRASS GIS Integration)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing/index.html">28. QGIS processing framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing_algs/index.html">29. Processing ဆိုင်ရာ ထောက်ပံ့ပေးသူများနှင့် Algorithm များ (Processing providers and algorithms)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/plugins.html">30. QGIS Plugin များ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/core_plugins/index.html">31. QGIS ပင်မ Plugin များကို အသုံးပြုခြင်း (Using QGIS Core Plugins)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/python_console.html">32. QGIS တွင် Python code များရေးသားရန်နေရာ (QGIS Python console)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/help_and_support.html">33. အကူအညီနှင့်အထောက်အပံ့ (Help and Support)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/contributors.html">34. ပါဝင်အားဖြည့်သူများ (Contributors)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendices/index.html">35. နောက်ဆက်တွဲများ (Appendices)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../literature_web/literature_and_web_references.html">36. စာတမ်းများနှင့် Website ကိုးကားချက်များ (Literature and Web References)</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">QGIS Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">&lt;no title&gt;</a></li>
+          <li class="breadcrumb-item"><a href="index.html">&lt;no title&gt;</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">25. </span>အသုံးပြုသူ အထောက်အထားစစ်ဆေးခြင်း လုပ်ငန်းအဆင့်များ (User Authentication Workflows)</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/qgis/QGIS-Documentation/blob/master/docs/user_manual/auth_system/auth_workflows.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="auth_overview.html" class="btn btn-neutral float-left" title="24. အထောက်အထားစီစစ်ခြင်းအကြောင်းအကျဉ်း (Authentication System Overview)" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="auth_considerations.html" class="btn btn-neutral float-right" title="26. လုံခြုံရေးအတွက်စဉ်းစားရန်အချက်များ (Security Considerations)" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <blockquote>
+<div></div></blockquote>
+<section id="user-authentication-workflows">
+<span id="authentication-workflow"></span><h1><span class="section-number">25. </span>အသုံးပြုသူ အထောက်အထားစစ်ဆေးခြင်း လုပ်ငန်းအဆင့်များ (User Authentication Workflows)<a class="headerlink" href="#user-authentication-workflows" title="Link to this heading"></a></h1>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#http-s-http-s-authentication" id="id22">HTTP(S) စနစ်တွင် အထောက်အထား စစ်ဆေးမှု (HTTP(S) authentication )</a></p></li>
+<li><p><a class="reference internal" href="#database-database-authentication" id="id23">Database တွင် အထောက်အထားစစ်ဆေးခြင်း (Database authentication)</a></p></li>
+<li><p><a class="reference internal" href="#pki-pki-authentication" id="id24">PKI စစ်ဆေးခြင်း (PKI authentication)</a></p>
+<ul>
+<li><p><a class="reference internal" href="#authorities" id="id25">အခွင့်အာဏာများ (Authorities)</a></p></li>
+<li><p><a class="reference internal" href="#identities" id="id26">အထောက်အထားများ (Identities)</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#layer-handling-bad-layers" id="id27">layerအညံ့များကိုကိုင်တွယ်ခြင်း (Handling bad layers)</a></p></li>
+<li><p><a class="reference internal" href="#id-changing-authentication-config-id" id="id28">အထောက်အထားစီစစ်မည့် ID အားပြောင်းလဲခြင်း (Changing authentication config ID)</a></p></li>
+<li><p><a class="reference internal" href="#qgis-qgis-server-support" id="id29">QGIS ဆာဗာ အကူအညီ (QGIS Server support)</a></p></li>
+<li><p><a class="reference internal" href="#ssl-server-ssl-server-exceptions" id="id30">SSL server ခြွင်းချက်များ (SSL server exceptions)</a></p></li>
+</ul>
+</nav>
+<figure class="align-center" id="id1">
+<span id="figure-authusage"></span><img alt="../../../_images/auth-user-usage.png" src="../../../_images/auth-user-usage.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 25.1 </span><span class="caption-text">ယေဘုယျ အသုံးပြုသူ လုပ်ငန်းစဉ်</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<section id="http-s-http-s-authentication">
+<h2><a class="toc-backref" href="#id22" role="doc-backlink"><span class="section-number">25.1. </span>HTTP(S) စနစ်တွင် အထောက်အထား စစ်ဆေးမှု (HTTP(S) authentication )</a><a class="headerlink" href="#http-s-http-s-authentication" title="Link to this heading"></a></h2>
+<p>အရင်းအမြစ်များနှင့် ချိတ်ဆက်မှုအတွက် အသုံးအများဆုံးနည်းလမ်းများထဲမှ တစ်ခုမှာ web mapping servers များကဲ့သို့ HTTP(S) မှတစ်ဆင့်သွားရခြင်း ဖြစ်ပြီး အများအားဖြင့် ထိုချိတ်ဆက်မှုအမျိုးအစားများအတွက် authentication method (စစ်မှန်ကြောင်းအသိအမှတ်ပြုခြင်းနည်းလမ်း) plugin များသည် အလုပ်ဖြစ်ပါသည်။ ဤ plugin များဖြင့် HTTP request object (တောင်းဆိုမှုအရာဝတ္တု) သို့ ဝင်ရောက် ကြည့်ရှုနိုင်ပြီး တောင်းဆိုချက်သာမက ၎င်း၏ခေါင်းစီးများကိုပါ ကိုင်တွယ်နိုင်ပါသည်။ ၎င်းသည် အမျိုးမျိုးသော အင်တာနက်အခြေခံသည့် authentication ပုံစံများစွာကို ခွင့်ပြုသည်။ HTTP(S) မှတစ်ဆင့် စံ အသုံးပြုသူအမည်/စကားဝှက် authentication နည်းလမ်းအားအသုံးပြု၍ ချိတ်ဆက်သည့်အခါ ချိတ်ဆက်မှုအတွင်း HTTP BASIC authentication အား ကြိုးပမ်းမည်ဖြစ်သည်။</p>
+<figure class="align-center" id="id2">
+<span id="figure-auth-https"></span><img alt="../../../_images/auth-http-basic-wms.png" src="../../../_images/auth-http-basic-wms.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 25.2 </span><span class="caption-text">HTTP BASIC အတွက် WMS ချိတ်ဆက်မှုတစ်ခုအား ပြင်ဆင်သတ်မှတ်ခြင်း</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="database-database-authentication">
+<h2><a class="toc-backref" href="#id23" role="doc-backlink"><span class="section-number">25.2. </span>Database တွင် အထောက်အထားစစ်ဆေးခြင်း (Database authentication)</a><a class="headerlink" href="#database-database-authentication" title="Link to this heading"></a></h2>
+<p>Database အရင်းအမြစ်များနှင့်ချိတ်ဆက်ထားမှုများကို အများအားဖြင့် <code class="docutils literal notranslate"><span class="pre">key=value</span></code> အတွဲများအဖြစ်သိမ်းဆည်းပါသည်။ အကယ်၍ authentication configuration တစ်ခုအားအသုံးပြုနေခြင်း <em>မဟုတ်</em> ပါက အသုံးပြုသူအမည်များ နှင့် စကားဝှက်များကိုဖော်ထုတ်ပြသနေလိမ့်မည်။ authentication စနစ်ဖြင့် ပြင်ဆင်သတ်မှတ်လိုက်သောအခါ credential (အထောက်အထား) များကို <code class="docutils literal notranslate"><span class="pre">key=value</span></code> များဖြင့် ကိုယ်စားပြုဖော်ပြမည်ဖြစ်သည်။ (ဥပမာ <code class="docutils literal notranslate"><span class="pre">authfg=81t21b9</span></code>)</p>
+<figure class="align-center" id="id3">
+<span id="figure-auth-database"></span><img alt="../../../_images/auth-db-ssl-pki.png" src="../../../_images/auth-db-ssl-pki.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 25.3 </span><span class="caption-text">Postgres SSL-with-PKI ချိတ်ဆက်မှုအား ပြင်ဆင်သတ်မှတ်ခြင်း</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="pki-pki-authentication">
+<h2><a class="toc-backref" href="#id24" role="doc-backlink"><span class="section-number">25.3. </span>PKI စစ်ဆေးခြင်း (PKI authentication)</a><a class="headerlink" href="#pki-pki-authentication" title="Link to this heading"></a></h2>
+<p>Authentication စနစ်အတွင်းရှိ PKI (Public Key Infrastructure) အစိတ်အပိုင်းများကို ပြင်ဆင်သတ်မှတ်သောအခါတွင် ရွေးချယ်စရာအနေဖြင့် component များကို database သို့ importလုပ်ခြင်း သို့မဟုတ် ဖိုင်စနစ်တွင် သိမ်းဆည်းထားသော components ဖိုင်များကို reference (အကိုးအကား) လုပ်ခြင်းတို့ရှိပါသည်။ Reference လုပ်ခြင်းသည် ထိုသို့သော component များ မကြာခဏပြောင်းလဲလျှင် အသုံးဝင်နိုင်သလို system administrator မှ component များကို အစားထိုးမည့်နေရာတွင်လည်းအသုံးဝင်နိုင်ပါသည်။ ရွေးချယ်စရာတစ်မျိုးမဟုတ်တစ်မျိုးတွင် database အတွင်းရှိ private key များသို့ ဝင်ရောက်ရန်အတွက် လိုအပ်သော စကားဝှက်ကို သိမ်းဆည်းထားရန် လိုအပ်ပါမည်။</p>
+<figure class="align-center" id="id4">
+<span id="figure-auth-pki-config"></span><img alt="../../../_images/auth-pki-config.png" src="../../../_images/auth-pki-config.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 25.4 </span><span class="caption-text">PKI ပြင်ဆင်သတ်မှတ်ခြင်းလုပ်ငန်းစဉ်</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>QGIS <cite>Options</cite> dialog (<span class="menuselection">Settings ► Options</span>) မှ <span class="guilabel">Authentication</span> tab တွင် <span class="guilabel">Manage Certificates</span> ခလုတ်အား click နှိပ်ခြင်းဖြင့် <strong>Certificate Manager</strong> သို့ဝင်ရောက်နိုင်ပြီး ၎င်းအတွင်းရှိ သီးခြား editors များတွင် PKI component များအားလုံးကိုစီမံခန့်ခွဲနိုင်မည်ဖြစ်သည်။</p>
+<figure class="align-center" id="id5">
+<span id="figure-auth-pki-certif"></span><img alt="../../../_images/auth-open-Certificate-manager.png" src="../../../_images/auth-open-Certificate-manager.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 25.5 </span><span class="caption-text">Certificate Manager အားဖွင့်ခြင်း</span><a class="headerlink" href="#id5" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><span class="guilabel">Certificate Manager</span> ထဲတွင်  <strong>Identities</strong> ၊ <strong>Servers</strong> နှင့် <strong>Authorities</strong> တို့အတွက် editor (တည်းဖြတ်ပြင်ဆင်ရေးကိရိယာ) များရှိသည်။ ၎င်းတို့တစ်ခုချင်းစီအတွက် ကိုယ်ပိုင် tab များထဲတွင်ရှိပြီး အပေါ်ရှိ လုပ်ငန်းစဉ် ဇယားထဲတွင် ကြုံတွေ့ရမည့် ဝါစဉ်အတိုင်းဖော်ပြထားမည်ဖြစ်သည်။ လုပ်ငန်းစဉ်နှင့် ကျင့်သားရသွားသည်နှင့်တစ်ပြိုင်နက် မိမိအသုံးများသည့် editor များအတိုင်း tab order (ဝါစဉ်) အားစီထားပေးမည်ဖြစ်သည်။</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Authentication စနစ်တွင်ပြုလုပ်ထားသော အားလုံးသောပြောင်းလဲမှုများကို authentication database တွင် ချက်ချင်းသိမ်းဆည်းသောကြောင့် ပြောင်းလဲမှုမှန်သမျှအား <span class="guilabel">Options</span> dialog မှ <span class="guilabel">OK</span> ခလုတ်အား click နှိပ်၍ သိမ်းဆည်းရန် မလိုခြင်းသည် Options dialog ထဲရှိ အခြား setting များနှင့်မတူသည့် အချက်ဖြစ်သည်။</p>
+</div>
+<section id="authorities">
+<h3><a class="toc-backref" href="#id25" role="doc-backlink"><span class="section-number">25.3.1. </span>အခွင့်အာဏာများ (Authorities)</a><a class="headerlink" href="#authorities" title="Link to this heading"></a></h3>
+<p>QGIS <strong>Options</strong> dialog ၏ <strong>Authentication</strong> tab မှတစ်ဆင့် <strong>Certificate manager</strong> ထဲရှိ <strong>Authorities</strong> tab ကိုသွား၍ Certificate Authorities (CAs) များကိုစီမံခန့်ခွဲနိုင်သည်။</p>
+<p>အထက်ဖော်ပြပါ လုပ်ငန်းစဉ်တွင် ညွှန်းဆိုခဲ့သည့်အတိုင်း ပထမအဆင့်အနေဖြင့် CAs ဖိုင်တစ်ခုကို import သို့မဟုတ် reference လုပ်ရန်ဖြစ်သည်။ ဤအဆင့်သည် (optional) မလုပ်လျှင်လည်းရပြီး PKI trust chain သည် စီးပွားဖြစ် လက်မှတ်ရောင်းချသူထံမှ လက်မှတ်ကဲ့သို့ Operating System တွင် ထည့်သွင်းထားပြီးသော root CA များမှ စတင်ပါက ၎င်းအဆင့်မလိုအပ်နိုင်ပါ။ မိမိ၏ authenticating root CA သည် Operating System ၏ ယုံကြည်စိတ်ချရသည့် root CA များထဲတွင် မပါခဲ့လျှင် ၎င်းအား import လုပ်ရန် သို့မဟုတ် ၎င်း၏ဖိုင်စနစ် လမ်းကြောင်းအား ရည်ညွှန်းပေးရန်လိုအပ်ပါလိမ့်မည်။ (မသေချာလျှင် မိမိ system administrator အားဆက်သွယ်ပါ။ )</p>
+<figure class="align-center" id="id6">
+<span id="figure-auth-pki-editor"></span><img alt="../../../_images/auth-editor-authorities.png" src="../../../_images/auth-editor-authorities.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 25.6 </span><span class="caption-text">Authorities editor</span><a class="headerlink" href="#id6" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Operating System တွင် root CAs များသည် default အတိုင်းရှိနေမည်ဖြစ်သော်လည်း ၎င်းတို့၏ trust setting များသည် အလိုအလျောက်ဆက်ခံရရှိမည်မဟုတ်ပါ။ အထူးသဖြင့် OS root CA တို့၏မူဝါဒများအား ချိန်ညှိထားပြီးလျှင် certificate trust policy setting များအား စစ်ဆေးကြည့်သင့်ပါသည်။ သက်တမ်းကုန်ဆုံးသွားသည့် မည်သည့် certificate မဆို မယုံကြည်ရ ဟုသတ်မှတ်မည်ဖြစ်ပြီး ၎င်း၏ ယုံကြည်ရမှုမူဝါဒ ကို အစားထိုးရေးသားထားခြင်း မရှိသမျှ လုံခြုံစိတ်ချရသော ဆာဗာချိတ်ဆက်မှုများတွင် အသုံးပြုမည်မဟုတ်ပါ။ မည်သည့် certificate တစ်ခုအတွက်မဆို QGIS မှ ရှာဖွေတွေ့ရှိနိုင်သည့် trust chain ကိုကြည့်ရှုရန် ၎င်းအား ရွေးချယ်ပြီး <a class="reference internal" href="../../../_images/metadata.png"><img alt="metadata" src="../../../_images/metadata.png" style="width: 1.5em;" /></a> <sup>Show information for certificate</sup> ပေါ်တွင် click နှိပ်ပါ။</p>
+<figure class="align-center" id="id7">
+<span id="figure-auth-pki-info"></span><img alt="../../../_images/auth-authority-imported_cert-info-chain.png" src="../../../_images/auth-authority-imported_cert-info-chain.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 25.7 </span><span class="caption-text">Certificate အချက်အလက် dialog</span><a class="headerlink" href="#id7" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Chain အတွင်းတွင် ရွေးချယ်ထားသော မည်သည့် certificate အတွက်မဆို <span class="guilabel">Trust policy</span> <a class="reference internal" href="../../../_images/selectstring.png"><img alt="selectString" src="../../../_images/selectstring.png" style="width: 2.5em;" /></a> အားတည်းဖြတ်ပြင်ဆင်နိုင်သည်။ ရွေးချယ်ထားသော certification <em>တစ်ခုချင်း</em> အတွက် <a class="reference internal" href="../../../_images/mActionFileSave.png"><img alt="fileSave" src="../../../_images/mActionFileSave.png" style="width: 1.5em;" /></a><sup>Save certificate trust policy change to database</sup> ခလုတ်အား click မနှိပ်ပါက ၎င်းအတွက် မည်သည့် trust policy အပြောင်းအလဲကိုမျှ database ထဲတွင်သိမ်းဆည်းပေးမည်မဟုတ်ပါ။ Dialog အားပိတ်လိုက်ရုံဖြင့် policy အပြောင်းအလဲများကို သက်ရောက်စေမည် <strong>မဟုတ်</strong> ပါ။</p>
+<figure class="align-center" id="id8">
+<span id="figure-auth-pki-policy"></span><img alt="../../../_images/auth-authority-edit-trust_save-not-close.png" src="../../../_images/auth-authority-edit-trust_save-not-close.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 25.8 </span><span class="caption-text">Trust policy အပြောင်းအလဲများကို သိမ်းဆည်းခြင်း</span><a class="headerlink" href="#id8" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>လုံခြုံစိတ်ချရသော ချိတ်ဆက်မှုများအတွက် စစ်ထုတ်ထားသော ယုံကြည်စိတ်ချရသည့် CA များ (intermediate နှင့်  root certificates နှစ်မျိုးလုံး)ကို စစ်ဆေးနိုင်မည်ဖြစ်သကဲ့သို့ <a class="reference internal" href="../../../_images/mActionTransformSettings.png"><img alt="transformSettings" src="../../../_images/mActionTransformSettings.png" style="width: 1.5em;" /></a> <strong>Options</strong> ခလုတ်ပေါ်တွင် click နှိပ်ခြင်းဖြင့် default trust policy အား ပြောင်းလဲနိုင်မည်ဖြစ်သည်။</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Default trust policy အားပြောင်းလဲလိုက်ခြင်းသည် လုံခြုံစိတ်ချရသော connection များနှင့်ပတ်သက်၍ ပြဿနာများဖြစ်ပေါ်စေနိုင်သည်။</p>
+</div>
+<figure class="align-center" id="id9">
+<span id="figure-auth-pki-options"></span><img alt="../../../_images/auth-editor-authorities_utilities-menu.png" src="../../../_images/auth-editor-authorities_utilities-menu.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 25.9 </span><span class="caption-text">Authorities ရွေးချယ်စရာများ menu</span><a class="headerlink" href="#id9" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Certificate Authorities များကို import လုပ်နိုင်ပါသည် သို့မဟုတ် Certificate Authorities အများအပြားရှိသော ဖိုင်တစ်ခုမှ ဖိုင်စနစ်လမ်းကြောင်းကို သိမ်းဆည်းနိုင်သည် သို့မဟုတ် CAs တစ်ခုချင်းစီကို import ပြုလုပ်နိုင်ပါသည်။ CA chain certification များစွာပါသော ဖိုင်များအတွက် စံ PEM ပုံစံသည် ဖိုင်၏အောက်ခြေ၌ root cert ပါရှိပြီး အထက်တွင် လက်မှတ်ထိုးထားသော child certificate များအားလုံးပါရှိကာ ဖိုင်၏အစဘက်သို့ဦးတည်ပါသည်။</p>
+<p>CA certificate import dialog တွင် ဖိုင်အတွင်းရှိ CA certificate များအားလုံးကို တွေ့နိုင် (order ကိုထည့်သွင်းမစဉ်းစားပဲ) ပြီး ၎င်း dialog တွင် ကိုက်ညီမှုမရှိဟုယူဆသည့် certificate များကို import လုပ်ရန် ရွေးချယ်ခွင့်လည်းရှိသည် (အကယ်၍ ၎င်းတို့၏ trust policy အား အစားထိုးပြင်ဆင်ရေးသားလိုလျှင်)။ Trust policy အား အစားထိုးပြင်ဆင်ရေးသားခြင်းကို import လုပ်နေစဉ်အတွင်း ပြုလုပ်နိုင်သကဲ့သို့ နောက်ပိုင်းမှ <strong>Authorities</strong> editor အတွင်းတွင် ပြုလုပ်နိုင်သည်။</p>
+<figure class="align-center" id="id10">
+<span id="figure-auth-pki-import"></span><img alt="../../../_images/auth-authority-import.png" src="../../../_images/auth-authority-import.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 25.10 </span><span class="caption-text">Certificate များ ထည့်သွင်းခြင်း dialog</span><a class="headerlink" href="#id10" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>အကယ်၍ <span class="guilabel">PEM text</span> အကွက်ထဲသို့ certificate အချက်အလက်များကို paste လုပ်မည်ဆိုပါက encrypt လုပ်ထားသော certificate များကို ထောက်ပံ့ပေးမည်မဟုတ်ကြောင်းသတိပြုပါ။</p>
+</div>
+</section>
+<section id="identities">
+<h3><a class="toc-backref" href="#id26" role="doc-backlink"><span class="section-number">25.3.2. </span>အထောက်အထားများ (Identities)</a><a class="headerlink" href="#identities" title="Link to this heading"></a></h3>
+<p>QGIS <strong>Options</strong> dialog ၏  <strong>Authentication</strong> tab မှ <span class="guilabel">Certificate manager</span> သို့သွား၍ <span class="guilabel">Identities</span> tab မှတစ်ဆင့် client identity အစုများ (bundles) ကိုစီမံခန့်ခွဲနိုင်သည်။ Identity တစ်ခုသည် PKI-ရရှိသော ဝန်ဆောင်မှုအတွက် အထောက်အထားရှိကြောင်းကို အတည်ပြုပေးသည့်အရာတစ်ခုဖြစ်သည်။ ပုံမှန်အားဖြင့် ၎င်းတွင် client certificate တစ်ခုနှင့် private key သည် သီးခြားဖိုင်များအဖြစ် သို့မဟုတ် အစုလိုက်ဖိုင်တစ်ခုအဖြစ် ပေါင်းစပ်ပါဝင်သည်။ အစုလိုက်ဖိုင် သို့မဟုတ် private key များကို အများအားဖြင့် စကားဝှက်ဖြင့် ကာကွယ်ထားပါသည်။</p>
+<p>Certificate Authorities (CAs) တစ်ခုကို import လုပ်ပြီးနောက် မည်သည့် identity bundle များကိုမဆို authentication database ထဲသို့ import ပြုလုပ်နိုင်ပါသည်။ အကယ်၍ identity များကိုသိမ်းဆည်းခြင်းမပြုလိုပါက authentication configuration တစ်ခုချင်းစီအတွင်းတွင် ၎င်းတို့၏ component ဖိုင်စနစ် လမ်းကြောင်းများအားရည်ညွှန်းထားနိုင်သည်။</p>
+<figure class="align-center" id="id11">
+<span id="figure-auth-pki-identities"></span><img alt="../../../_images/auth-editor-identities.png" src="../../../_images/auth-editor-identities.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 25.11 </span><span class="caption-text">Identities editor</span><a class="headerlink" href="#id11" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Identity bundle တစ်ခုအား import လုပ်ရာတွင် စကားဝှက်ဖြင့် ကာကွယ်ထားခြင်းဖြစ်နိုင်သကဲ့သို့ မကာကွယ်ထားခြင်းလည်းဖြစ်နိုင်ပြီး trust chain တစ်ခုအားဖွဲ့စည်းသည့် CA certificate များပါဝင်နိုင်သည်။ Trust chain certification များကို ဤနေရာတွင် import လုပ်မည်မဟုတ်ဘဲ ၎င်းတို့ကို <span class="guilabel">Authorities</span> tab ၏အောက်တွင် သီးခြားစီ ထည့်နိုင်မည်ဖြစ်သည်။</p>
+<p>Import လုပ်ပြီးနောက် bundle ၏ certificate နှင့် private key ကို QGIS မာစတာစကားဝှက်ဖြင့် encrypt ပြုလုပ်ထားသော key ၏သိုလှောင်မှုနှင့်အတူ database တွင် သိမ်းဆည်းမည်ဖြစ်သည်။ နောက်ပိုင်းတွင် database မှ သိမ်းဆည်းထားသော bundle ကို အသုံးပြုသောအခါ မာစတာစကားဝှက်ကို ထည့်သွင်းရန်သာ လိုအပ်မည်ဖြစ်သည်။</p>
+<p>PEM/DER (.pem/.der) နှင့် PKCS#12 (.p12/.pfx) အစိတ်အပိုင်းများပါဝင်သော တစ်ကိုယ်ရည်သုံး (personal) identity bundle များကိုထောက်ပံ့ပေးပါသည်။ အကယ်၍ key တစ်ခု သို့မဟုတ်  bundle တစ်ခုအား စကားဝှက်ဖြင့်ကာကွယ်ထားပါက import မလုပ်မီ အစိတ်အပိုင်းအားအတည်ပြုရန်အတွက် စကားဝှက်လိုအပ်မည်ဖြစ်သည်။ အလားတူပင် bundle ထဲရှိ client certificate သည် မမှန်ကန်ပါက (ဥပမာအားဖြင့် ၎င်း၏ သက်တမ်းသည်အသက်မဝင်သေးလျှင် သို့မဟုတ် သက်တမ်းကျော်လွန်သွားလျှင်) bundle အား import လုပ်၍ရမည်မဟုတ်ပါ။</p>
+<figure class="align-center" id="id12">
+<span id="figure-auth-pki-identities-import"></span><img alt="../../../_images/auth-identity-import_paths.png" src="../../../_images/auth-identity-import_paths.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 25.12 </span><span class="caption-text">PEM/DER identit ထည့်သွင်းခြင်း</span><a class="headerlink" href="#id12" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id13">
+<span id="figure-auth-pki-identities-import-2"></span><img alt="../../../_images/auth-identity-import_bundle-valid.png" src="../../../_images/auth-identity-import_bundle-valid.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 25.13 </span><span class="caption-text">PKCS#12 identity ထည့်သွင်းခြင်း</span><a class="headerlink" href="#id13" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="layer-handling-bad-layers">
+<h2><a class="toc-backref" href="#id27" role="doc-backlink"><span class="section-number">25.4. </span>layerအညံ့များကိုကိုင်တွယ်ခြင်း (Handling bad layers)</a><a class="headerlink" href="#layer-handling-bad-layers" title="Link to this heading"></a></h2>
+<p>အခါအားလျော်စွာ project file တစ်ခုထဲရှိ သိမ်းဆည်းထားသော authentication configuration ID သည် လျော်ကန်မှုမရှိတော့သည်ကိုတွေ့ရနိုင်ပါသည်။ ဖြစ်နိုင်သည့်အကြောင်းအရင်းတစ်ခုမှာ လက်ရှိ authentication database သည် project ကိုနောက်ဆုံး သိမ်းဆည်းခဲ့စဉ်ကနှင့် မတူကွဲပြားနေသောကြောင့် သို့မဟုတ် credential များ ကွာဟနေမှုကြောင့်ဖြစ်နိုင်ပါသည်။ ထိုကဲ့သို့ ကြုံသောအခါ QGIS ကိုစတင်လိုက်သည်နှင့် <span class="guilabel">Handle bad layers</span> dialog ကိုတွေ့ရမည်ဖြစ်သည်။</p>
+<figure class="align-center" id="id14">
+<span id="figure-auth-pki-badlayers"></span><img alt="../../../_images/auth-handle-bad-layers.png" src="../../../_images/auth-handle-bad-layers.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 25.14 </span><span class="caption-text">Authentication ဖြင့် ကောင်းမွန်မှုမရှိသော layer များကို ကိုင်တွယ်ခြင်း</span><a class="headerlink" href="#id14" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>အကယ်၍ အချက်အလက်ရင်းမြစ်တစ်ခုတွင် ၎င်းနှင့်ဆက်စပ်နေသည့် authentication configuration ID တစ်ခုရှိနေပါက ၎င်းကို တည်းဖြတ်ပြင်ဆင်နိုင်လိမ့်မည်။ ထိုသို့ပြုလုပ်ခြင်းဖြင့် data အရင်းအမြစ် string (စာသား) အား အလိုအလျောက်တည်းဖြတ်ပြင်ဆင်သွားမည်ဖြစ်သည်။ Text editor တစ်ခုထဲတွင် project file အားဖွင့်၍ string အားတည်းဖြတ်ပြင်ဆင်ခြင်းနှင့် များစွာဆင်တူသည်။</p>
+<figure class="align-center" id="id15">
+<span id="figure-auth-pki-badlayers-edit"></span><img alt="../../../_images/auth-handle-bad-layers-edit.png" src="../../../_images/auth-handle-bad-layers-edit.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 25.15 </span><span class="caption-text">ကောင်းမွန်မှုမရှိသော layer ၏ authentication config ID ကို တည်းဖြတ်ပြင်ဆင်ခြင်း</span><a class="headerlink" href="#id15" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="id-changing-authentication-config-id">
+<h2><a class="toc-backref" href="#id28" role="doc-backlink"><span class="section-number">25.5. </span>အထောက်အထားစီစစ်မည့် ID အားပြောင်းလဲခြင်း (Changing authentication config ID)</a><a class="headerlink" href="#id-changing-authentication-config-id" title="Link to this heading"></a></h2>
+<p>အခါအားလျော်စွာ အရင်းအမြစ်တစ်ခုအား ဝင်ရောက်ကြည့်ရှုခြင်းနှင့် ဆက်စပ်နေသော authentication configuration ID ကို ပြောင်းလဲရန် လိုအပ်နိုင်ပါသည်။ ထိုသို့ပြောင်းလဲခြင်းသည် အောက်ပါအခြေအနေများတွင် အသုံးဝင်နိုင်ပါသည်-</p>
+<ul class="simple">
+<li><p><strong>အရင်းအမြစ်၏ auth config ID သည် ဆီလျော်မှုမရှိတော့ခြင်း</strong> - Authentication database များ ပြောင်းလဲသောအခါနှင့် အရင်းအမြစ်တစ်ခုနှင့် ဆက်စပ်ထားပြီးဖြစ်သည့် ID တွင် configuration အသစ်တစ်ခုကို <em>ချိန်ညှိ</em> ရန် လိုအပ်သောအခါမျိုးတွင် ဤအရာဖြစ်ပွားနိုင်ပါသည်။</p></li>
+<li><p><strong>Project file များအားမျှဝေသုံးထားခြင်း</strong> - Project များအား မျှဝေထားသော ဖိုင်ဆာဗာမှတဆင့် အခြားအသုံးပြုသူများနှင့် မျှဝေရန် စီစဉ်ထားပါက အရင်းအမြစ်နှင့် ဆက်စပ်သော စာလုံး-၇လုံးပါသည့် ကုဒ် (<strong>a-z</strong> နှင့်/သို့မဟုတ် <strong>0-9</strong> တို့ပါဝင်သော) အား <em>ကြိုတင်သတ်မှတ်</em> နိုင်သည်။ ထို့နောက် အသုံးပြုသူတစ်ယောက်ချင်းအနေဖြင့် ၎င်းတို့၏ အရင်းအမြစ် credential များအလိုက် သီးသန့် authentication configuration ID ကို ပြောင်းလဲနိုင်သည်။ Project အားဖွင့်လိုက်သောအခါ authentication database ထဲတွင် ID အား တွေ့ရမည်ဖြစ်သော်လည်း credential များသည် အသုံးပြုသူ တစ်ဦးချင်းစီအလိုက်ကွဲပြားနိုင်ပါသည်။</p></li>
+</ul>
+<figure class="align-center" id="id16">
+<span id="figure-auth-id"></span><img alt="../../../_images/auth-change-config-id.png" src="../../../_images/auth-change-config-id.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 25.16 </span><span class="caption-text">Layer တစ်ခု၏ authentication config ID အားပြောင်းလဲခြင်း (သော့ဖွင့်ထားသော အဝါရောင်စာသားအကွက်)</span><a class="headerlink" href="#id16" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Auth config ID အားပြောင်းလဲခြင်းကို အဆင့်မြင့်လုပ်ငန်းစဉ်တစ်ခုအဖြစ်ယူဆပြီး ၎င်းသည် အဘယ်ကြောင့် လိုအပ်ကြောင်း အပြည့်အဝ နားလည်မှသာ လုပ်ဆောင်သင့်ပါသည်။ ထိုအတွက်ကြောင့် ID ကိုတည်းဖြတ်ပြင်ဆင်ခြင်းမပြုမီ ID ၏စာသားအကွက်ကို ဖွင့်ရန် click နှိပ်ပေးရမည့် သော့ခလောက် ခလုတ်တစ်ခုရှိနေခြင်းဖြစ်သည်။</p>
+</div>
+</section>
+<section id="qgis-qgis-server-support">
+<h2><a class="toc-backref" href="#id29" role="doc-backlink"><span class="section-number">25.6. </span>QGIS ဆာဗာ အကူအညီ (QGIS Server support)</a><a class="headerlink" href="#qgis-qgis-server-support" title="Link to this heading"></a></h2>
+<p>QGIS server တွင် မြေပုံတစ်ခုအတွက် authentication configuration များပါရှိသော layer များဖြင့် project file တစ်ခုကို အခြေခံအနေဖြင့် အသုံးပြုသောအခါ အရင်းအမြစ်များကို loading လုပ်ရန်အတွက် QGIS အတွက် ထပ်မံလိုအပ်သော setup အဆင့် နှစ်ခု ရှိပါသည်-</p>
+<ul class="simple">
+<li><p>Authentication database အားဝင်ရောက်အသုံးပြုနိုင်ရန်လိုအပ်သည်</p></li>
+<li><p>Authentication database ၏ မာစတာစကားဝှက် အားရရှိရန်လိုအပ်သည်</p></li>
+</ul>
+<p>Authentication စနစ်ကို ထည့်သွင်းသောအခါ QGIS server သည် <code class="file docutils literal notranslate"><span class="pre">qgis-auth.db</span></code> file ကို ပွင့်လျက်ရှိသည့် <a class="reference internal" href="../introduction/qgis_configuration.html#user-profiles"><span class="std std-ref">user profile</span></a> ထဲတွင် သို့မဟုတ် <code class="docutils literal notranslate"><span class="pre">QGIS_AUTH_DB_DIR_PATH</span></code> environment variable မှသတ်မှတ်ထားသော ဖိုင်လမ်းကြောင်းတွင် ဖန်တီးပါလိမ့်မည် သို့မဟုတ် အသုံးပြုပါလိမ့်မည်။ Server ၏ အသုံးပြုသူတွင် HOME directory မရှိပါက server ၏အသုံးပြုသူမှ ဖတ်ခြင်း/ရေးသားပြင်ဆင်ခြင်း ပြုလုပ်နိုင်ပြီး web မှတစ်ဆင့် ဝင်ရောက်နိုင်သော လမ်းကြောင်းများအတွင်း မတည်ရှိသော လမ်းကြောင်း (directory) တစ်ခုကိုသတ်မှတ်ရန် environment variable ကိုအသုံးပြုပါ။</p>
+<p>မာစတာစကားဝှက်အား server သို့ပေးရန် server လုပ်ငန်းစဉ်များအသုံးပြုသူမှဖတ်နိုင်ပြီး <code class="docutils literal notranslate"><span class="pre">QGIS_AUTH_PASSWORD_FILE</span></code> environment variable အားအသုံးပြု၍သတ်မှတ်ထားသော ဖိုင်စနစ်ပေါ်ရှိလမ်းကြောင်းတစ်ခု၌ ဖိုင်၏ ပထမစာကြောင်းတွင် ၎င်းကို ရေးသားပါ။ File အား server ၏ လုပ်ငန်းစဉ်အသုံးပြုသူမှသာ ဖတ်၍ရနိုင်အောင်ကန့်သတ်ထားရန်နှင့် web မှတစ်ဆင့် ဝင်ရောက်နိုင်သော လမ်းကြောင်းများအတွင်း သိမ်းဆည်းမထားစေရန် သေချာအောင်ပြုလုပ်ပါ။</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>အသုံးပြုပြီးနောက် <code class="docutils literal notranslate"><span class="pre">QGIS_AUTH_PASSWORD_FILE</span></code> variable အား server ၏ environment မှချက်ချင်းဖယ်ရှားပစ်မည်ဖြစ်သည်။</p>
+</div>
+</section>
+<section id="ssl-server-ssl-server-exceptions">
+<h2><a class="toc-backref" href="#id30" role="doc-backlink"><span class="section-number">25.7. </span>SSL server ခြွင်းချက်များ (SSL server exceptions)</a><a class="headerlink" href="#ssl-server-ssl-server-exceptions" title="Link to this heading"></a></h2>
+<figure class="align-center" id="id17">
+<span id="figure-auth-server"></span><img alt="../../../_images/auth-ssl-config.png" src="../../../_images/auth-ssl-config.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 25.17 </span><span class="caption-text">SSL server ခြွင်းချက်</span><a class="headerlink" href="#id17" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>QGIS <strong>Options</strong> dialog ၏ <strong>Authentication</strong> အပိုင်းထဲရှိ <strong>Servers</strong> tab မှတစ်ဆင့် SSL server configuration များနှင့် ခြွင်းချက်များကို စီမံခန့်ခွဲနိုင်သည်။</p>
+<p>တစ်ခါတစ်ရံ SSL server တစ်ခုအား ချိတ်ဆက်သည့်အခါ SSL”handshake” သို့မဟုတ်  server ၏ certificate နှင့်ပတ်သက်သည့် ပြဿနာ များရှိတတ်ပါသည်။ ထိုပြဿနာများကို လျစ်လျူရှုနိုင်သကဲ့သို့ SSL server configuration တစ်ခုအား ခြွင်းချက်တစ်ခုအနေဖြင့်ဖန်တီးထားနိုင်သည်။ ဤအချက်သည် web browser များတွင် SSL အမှားအယွင်းများကို အစားထိုးလုပ်ဆောင်ပုံနှင့် ဆင်တူသော်လည်း ပိုမိုအကြမ်းဆန်သည့် ထိန်းချုပ်နိုင်မှုဖြင့် ရှိမည်ဖြစ်သည်။</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Server နှင့် client အကြားရှိ SSL setup တစ်ခုလုံးကို အပြည့်အဝနားမလည်လျှင် SSL server configuration တစ်ခုအားမဖန်တီးသင့်ပါ။ ထိုအစား ပြဿနာကို server administrator ထံသို့ သတင်းပို့ပါ။</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>အချို့သော PKI setup များသည် client များ၏အထောက်အထားများကိုအတည်ပြုရန် SSL server certificate အား အတည်ပြုရန်သုံးသော chain ကိုအသုံးပြုခြင်းထက် လုံးဝကွဲပြားသော CA trust chain ကိုအသုံးပြုပါသည်။ ထိုကဲ့သို့သော အခြေအနေများတွင် ချိတ်ဆက်ထားသောဆာဗာအတွက် ဖန်တီးထားသော မည်သည့် configuration မဆိုသည် client identity အတည်ပြုခြင်းဆိုင်ရာ ပြဿနာတစ်ခုကို ဖြေရှင်းနိုင်မည်မဟုတ်ဘဲ client identity အား ထုတ်ပေးသူ သို့မဟုတ် server administrator ကသာ ထိုပြဿနာအားဖြေရှင်းပေးနိုင်မည်ဖြစ်သည်။</p>
+</div>
+<p><a class="reference internal" href="../../../_images/symbologyAdd.png"><img alt="symbologyAdd" src="../../../_images/symbologyAdd.png" style="width: 1.5em;" /></a> ခလုတ်အား click နှိပ်ခြင်းဖြင့် SSL server configuration တစ်ခုအား ကြိုတင်ပြင်ဆင်သတ်မှတ်နိုင်ပါသည်။ အခြားနည်းမှာ ချိတ်ဆက်မှု တစ်ခုအတွင်း SSL အမှားအယွင်းတစ်ခုပေါ်ပေါက်လာသောအခါ configuration တစ်ခုကိုထည့်သွင်းနိုင်မည်ဖြစ်ပြီး <strong>SSL Error</strong> dialog တစ်ခုအားပြသထားမည်ဖြစ်သည် (၎င်း dialog တွင် ထိုအမှားအယွင်းအား ယာယီလျစ်လျူရှုရန် သို့မဟုတ် database ထဲသို့ သိမ်းဆည်းပြီး လျစ်လျူရှုရန် ရွေးချယ်နိုင်သည်)-</p>
+<figure class="align-center" id="id18">
+<span id="figure-auth-server-config"></span><img alt="../../../_images/auth-server-exception.png" src="../../../_images/auth-server-exception.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 25.18 </span><span class="caption-text">Configuration ကို ကိုယ်တိုင်ထည့်သွင်းခြင်း</span><a class="headerlink" href="#id18" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id19">
+<span id="figure-auth-server-error"></span><img alt="../../../_images/auth-server-error-add-exception.png" src="../../../_images/auth-server-error-add-exception.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 25.19 </span><span class="caption-text">SSL error ပေါ်ပေါက်နေစဉ်အတွင်း configuration ထည့်သွင်းခြင်း</span><a class="headerlink" href="#id19" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>SSL configuration တစ်ခုအား database ထဲတွင် သိမ်းဆည်းပြီးသည်နှင့် ၎င်းကို တည်းဖြတ်ပြင်ဆင်နိုင်သကဲ့သို့ ဖျက်ပစ်နိုင်ပါသည်။</p>
+<figure class="align-center" id="id20">
+<span id="figure-auth-server-ssl"></span><img alt="../../../_images/auth-editor-servers.png" src="../../../_images/auth-editor-servers.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 25.20 </span><span class="caption-text">ရှိနှင့်ပြီးသား SSL configuration</span><a class="headerlink" href="#id20" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id21">
+<span id="figure-auth-server-ssledit"></span><img alt="../../../_images/auth-server-edit.png" src="../../../_images/auth-server-edit.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 25.21 </span><span class="caption-text">ရှိနှင့်ပြီးသား SSL configuration တစ်ခုအားတည်းဖြတ်ပြင်ဆင်ခြင်း</span><a class="headerlink" href="#id21" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>အကယ်၍ SSL configuration တစ်ခုအား pre-configure (ကြိုတင်ပြင်ဆင်သတ်မှတ်ခြင်း) ပြုလုပ်လိုပြီး  import dialog သည် server ၏ connection အတွက် အလုပ်မလုပ်ပါက <strong>Python Console</strong> မှတစ်ဆင့်အောက်ပါ ကုဒ်အား run ၍ ချိတ်ဆက်မှုတစ်ခုကို မိမိကိုယ်တိုင် စတင်နိုင်မည်ဖြစ်သည်။ (<code class="docutils literal notranslate"><span class="pre">https://bugreports.qt-project.org</span></code> အား မိမိ server ၏ URL ဖြင့်အစားထိုးရမည်)-</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">qgis.PyQt.QtNetwork</span> <span class="kn">import</span> <span class="n">QNetworkRequest</span>
+<span class="kn">from</span> <span class="nn">qgis.PyQt.QtCore</span> <span class="kn">import</span> <span class="n">QUrl</span>
+<span class="kn">from</span> <span class="nn">qgis.core</span> <span class="kn">import</span> <span class="n">QgsNetworkAccessManager</span>
+
+<span class="n">req</span> <span class="o">=</span> <span class="n">QNetworkRequest</span><span class="p">(</span><span class="n">QUrl</span><span class="p">(</span><span class="s1">&#39;https://bugreports.qt-project.org&#39;</span><span class="p">))</span>
+<span class="n">reply</span> <span class="o">=</span> <span class="n">QgsNetworkAccessManager</span><span class="o">.</span><span class="n">instance</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">req</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>အမှားအယွင်းတစ်စုံတစ်ရာ ဖြစ်ပေါ်ပါက SSL error dialog ပေါ်လာမည်ဖြစ်ပြီး ၎င်းမှတစ်ဆင့်  configuration ကို database တွင်သိမ်းဆည်းရန် ရွေးချယ်နိုင်မည်ဖြစ်သည်။</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="auth_overview.html" class="btn btn-neutral float-left" title="24. အထောက်အထားစီစစ်ခြင်းအကြောင်းအကျဉ်း (Authentication System Overview)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="auth_considerations.html" class="btn btn-neutral float-right" title="26. လုံခြုံရေးအတွက်စဉ်းစားရန်အချက်များ (Security Considerations)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2002-now, QGIS project.
+      <span class="lastupdated">Last updated on 2024 May 13, 16:23 +0700.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- Transifex follows a particular logic to build target pages:
+Expected French translation link for https://docs.qgis.org/3.28/en/docs/user_manual/print_composer/overview_composer.html
+would return https://app.transifex.com/qgis/qgis-documentation/translate/#fr/aa6d8bc653526d38b295ca94bf8eee5e
+with the md5 value of "github#qgis/QGIS-Documentation#release_3.28#locale/en/LC_MESSAGES/docs/user_manual/print_composer/overview_composer.po"-->
+<!--Make sure that mismatching language codes between Transifex and Sphinx are converted-->
+
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-info-circle"> QGIS Documentation </span>
+      v: 3.28
+      <span class="fa fa-caret-down"></span>
+    </span>
+
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Languages</dt>
+        
+          <dd><a href="https://docs.qgis.org/3.28/en/docs/user_manual/auth_system/auth_workflows.html">en</a></dd>
+        
+      </dl>
+
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/user_manual/auth_system/auth_workflows.html">testing</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/latest/en/docs/user_manual/auth_system/auth_workflows.html">latest</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.28/en/docs/user_manual/auth_system/auth_workflows.html">3.28</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.22/en/docs/user_manual/auth_system/auth_workflows.html">3.22</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.16/en/docs/user_manual/auth_system/auth_workflows.html">3.16</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.10/en/docs/user_manual/auth_system/auth_workflows.html">3.10</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.4/en/docs/user_manual/auth_system/auth_workflows.html">3.4</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/2.18/en/docs/user_manual/auth_system/auth_workflows.html">2.18</a></dd>
+        
+      </dl>
+
+       
+       <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="https://docs.qgis.org/3.28/pdf">PDF</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.28/zip">HTML</a></dd>
+        
+      </dl>
+      
+
+      
+       
+      <dl>
+        <dt>Contribute to Docs</dt>
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/edit/master/docs/user_manual/auth_system/auth_workflows.rst" target="_blank" rel="noopener noreferrer">Edit on GitHub</a>
+          </dd>
+          
+          
+          <dd>
+            <a href="https://app.transifex.com/qgis/qgis-documentation/translate/#en/87619630e2411de529f66e015cf53c80" target="_blank" rel="noopener noreferrer">Translate Page</a>
+          </dd>
+          
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/issues" target="_blank" rel="noopener noreferrer">Report Issue</a>
+          </dd>
+      </dl>
+      
+
+      <dl>
+        <dt>On QGIS Project</dt>
+          <dd>
+            <a href="https://qgis.org/en" target="_blank" rel="noopener noreferrer">Home</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/api/3.28" target="_blank" rel="noopener noreferrer">C++ API</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/pyqgis/3.28" target="_blank" rel="noopener noreferrer">PyQGIS API</a>
+          </dd>
+          <dd>
+            <a href="https://github.com/qgis/QGIS/tree/release-3_28" target="_blank" rel="noopener noreferrer">Source</a>
+          </dd>
+      </dl>
+
+    </div>
+  </div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

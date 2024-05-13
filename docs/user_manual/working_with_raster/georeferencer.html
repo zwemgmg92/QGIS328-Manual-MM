@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>17.3. မြေပုံမြေပြင်မှတ်ပုံတင်ရာ (Georeferencer) &mdash; QGIS Documentation  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/qgis_docs.css?v=3fdf4c33" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/qgis_logo.ico"/>
+    <link rel="canonical" href="https://docs.qgis.org/latest/en/docs/user_manual/working_with_raster/georeferencer.html"/>
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../../_static/copybutton.js?v=f281be69"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="18. Working with Mesh Data (Mesh Data များနှင့် အလုပ်လုပ်ခြင်း)" href="../working_with_mesh/mesh_properties.html" />
+    <link rel="prev" title="17.2. Raster များအား ဆန်းစစ်လေ့လာခြင်း" href="raster_analysis.html" />
+  <meta name="description" content="QGIS 3.28 documentation: 17.3. မြေပုံမြေပြင်မှတ်ပုံတင်ရာ (Georeferencer)">
+</head>
+
+<body class="wy-body-for-nav">
+
+  <nav class="release_status_topbar">
+  </nav>
+
+   
+
+ 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+   
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            QGIS Documentation
+              <img src="../../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                3.28
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+   <a href= "../../../genindex.html">Index</a>
+ 
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">အသုံးပြုသူများအတွက်</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../preamble/preamble.html">1. စကားချီး (Preamble)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/foreword.html">2. အမှာစာ (Foreword)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/conventions.html">3. အသုံးအနှုန်းများ (Conventions)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/features.html">4. အသွင်အပြင်များ (Features)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/getting_started.html">5. စတင်အသုံးပြုခြင်း (Getting Started)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/project_files.html">6. Project Files များနှင့် အလုပ်လုပ်ခြင်း (Working with Project Files)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/qgis_gui.html">7. QGIS ၏အစိတ်အပိုင်းများ (QGIS GUI)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/browser.html">8. ဒေတာများရှာဖွေကြည့်ရှုနိုင်သည့်နေရာ (The Browser panel)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/qgis_configuration.html">9. QGIS ပြင်ဆင်သတ်မှတ်ခြင်း/အခင်းအကျင်း (QGIS Configuration)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_projections/working_with_projections.html">10. မြေပုံအရိပ်ချစနစ်များ နှင့် အလုပ်လုပ်ခြင်း (Working with Projections)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../map_views/index.html">11. မြေပုံများအား ပုံဖော်ကြည့်ရှုခြင်း (Visualizing Maps)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/general_tools.html">12. အထွေ‌ထွေ‌သုံးကိရိယာများ (General Tools)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../expressions/index.html">13. Expression များဖြင့် အဆင့်မြှင့်တင်ဆောင်ရွက်ခြင်း (Level up with Expressions)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../style_library/index.html">14. The Style Library (Style နှင့်ပတ်သက်သည်များ ထားရှိရာနေရာ)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../managing_data_source/index.html">15. ဒေတာအရင်းအမြစ်များအား စီမံခန့်ခွဲခြင်း (Managing Data Source)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_vector/index.html">16. Vector data များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">17. Raster Data နှင့် အလုပ်လုပ်ခြင်း</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="raster_properties.html">17.1. Raster ဂုဏ်သတ္တိများပြ Dialog (Raster Properties Dialog)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="raster_analysis.html">17.2. Raster များအား ဆန်းစစ်လေ့လာခြင်း</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">17.3. မြေပုံမြေပြင်မှတ်ပုံတင်ရာ (Georeferencer)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#usual-procedure">17.3.1. သာမန်လုပ်ရိုးလုပ်စဉ် (Usual procedure)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#gcps-entering-ground-control-points-gcp">17.3.1.1. မြေပြင်ထိန်းချုပ်မှတ်များ (GCPs) ထည့်သွင်းခြင်း (Entering ground control points (GCP))</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#transformation-setting-defining-the-transformation-settings">17.3.1.2. Transformation setting များ သတ်မှတ်ပေးခြင်း (Defining the transformation settings)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#raster-property-show-and-adapt-raster-properties">17.3.1.3. Raster property များပြသခြင်းနှင့် လက်ခကျင့်သုံးခြင်း (Show and adapt raster properties)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#georeferencer-configure-the-georeferencer">17.3.1.4. Georeferencer အား ပြင်ဆင်ခြင်း (Configure the georeferencer)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#transformation-running-the-transformation">17.3.1.5. Transformation ပြုလုပ်ခြင်း (Running the transformation)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_mesh/mesh_properties.html">18. Working with Mesh Data (Mesh Data များနှင့် အလုပ်လုပ်ခြင်း)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_vector_tiles/vector_tiles_properties.html">19. Vector Tiles များနှင့်အလုပ်လုပ်ခြင်း (Working with Vector Tiles)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_point_clouds/point_clouds.html">20. Point Cloud များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../print_composer/index.html">21. မြေပုံအချောသပ်ပြင်ဆင်ခြင်း (Laying out the maps)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_ogc/ogc_client_support.html">22. OGC / ISO protocol များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_gps/index.html">23. GPS Data များနှင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../auth_system/auth_overview.html">24. အထောက်အထားစီစစ်ခြင်းအကြောင်းအကျဉ်း (Authentication System Overview)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../auth_system/auth_workflows.html">25. အသုံးပြုသူ အထောက်အထားစစ်ဆေးခြင်း လုပ်ငန်းအဆင့်များ (User Authentication Workflows)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../auth_system/auth_considerations.html">26. လုံခြုံရေးအတွက်စဉ်းစားရန်အချက်များ (Security Considerations)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../grass_integration/grass_integration.html">27. GRASS GIS နှင့်ပေါင်းစပ်အသုံးပြုခြင်း (GRASS GIS Integration)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing/index.html">28. QGIS processing framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing_algs/index.html">29. Processing ဆိုင်ရာ ထောက်ပံ့ပေးသူများနှင့် Algorithm များ (Processing providers and algorithms)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/plugins.html">30. QGIS Plugin များ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/core_plugins/index.html">31. QGIS ပင်မ Plugin များကို အသုံးပြုခြင်း (Using QGIS Core Plugins)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/python_console.html">32. QGIS တွင် Python code များရေးသားရန်နေရာ (QGIS Python console)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/help_and_support.html">33. အကူအညီနှင့်အထောက်အပံ့ (Help and Support)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/contributors.html">34. ပါဝင်အားဖြည့်သူများ (Contributors)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendices/index.html">35. နောက်ဆက်တွဲများ (Appendices)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../literature_web/literature_and_web_references.html">36. စာတမ်းများနှင့် Website ကိုးကားချက်များ (Literature and Web References)</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">QGIS Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">&lt;no title&gt;</a></li>
+          <li class="breadcrumb-item"><a href="index.html"><span class="section-number">17. </span>Raster Data နှင့် အလုပ်လုပ်ခြင်း</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">17.3. </span>မြေပုံမြေပြင်မှတ်ပုံတင်ရာ (Georeferencer)</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/qgis/QGIS-Documentation/blob/master/docs/user_manual/working_with_raster/georeferencer.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="raster_analysis.html" class="btn btn-neutral float-left" title="17.2. Raster များအား ဆန်းစစ်လေ့လာခြင်း" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../working_with_mesh/mesh_properties.html" class="btn btn-neutral float-right" title="18. Working with Mesh Data (Mesh Data များနှင့် အလုပ်လုပ်ခြင်း)" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <blockquote>
+<div></div></blockquote>
+<section id="georeferencer">
+<span id="georef"></span><span id="index-0"></span><h1><span class="section-number">17.3. </span>မြေပုံမြေပြင်မှတ်ပုံတင်ရာ (Georeferencer)<a class="headerlink" href="#georeferencer" title="Link to this heading"></a></h1>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#usual-procedure" id="id4">သာမန်လုပ်ရိုးလုပ်စဉ် (Usual procedure)</a></p>
+<ul>
+<li><p><a class="reference internal" href="#gcps-entering-ground-control-points-gcp" id="id5">မြေပြင်ထိန်းချုပ်မှတ်များ (GCPs) ထည့်သွင်းခြင်း (Entering ground control points (GCP))</a></p></li>
+<li><p><a class="reference internal" href="#transformation-setting-defining-the-transformation-settings" id="id6">Transformation setting များ သတ်မှတ်ပေးခြင်း (Defining the transformation settings)</a></p>
+<ul>
+<li><p><a class="reference internal" href="#transformation-algorithm-available-transformation-algorithms" id="id7">အသုံးပြုနိုင်သော Transformation algorithm များ (Available Transformation algorithms)</a></p></li>
+<li><p><a class="reference internal" href="#resampling-define-the-resampling-method" id="id8">Resampling နည်းလမ်း သတ်မှတ်ခြင်း (Define the Resampling method)</a></p></li>
+<li><p><a class="reference internal" href="#define-the-transformation-settings-transformation-setting" id="id9">Define the transformation settings (Transformation setting များ သတ်မှတ်ခြင်း)</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#raster-property-show-and-adapt-raster-properties" id="id10">Raster property များပြသခြင်းနှင့် လက်ခကျင့်သုံးခြင်း (Show and adapt raster properties)</a></p></li>
+<li><p><a class="reference internal" href="#georeferencer-configure-the-georeferencer" id="id11">Georeferencer အား ပြင်ဆင်ခြင်း (Configure the georeferencer)</a></p></li>
+<li><p><a class="reference internal" href="#transformation-running-the-transformation" id="id12">Transformation ပြုလုပ်ခြင်း (Running the transformation)</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+<p><a class="reference internal" href="../../../_images/mGeorefRun.png"><img alt="georefRun" src="../../../_images/mGeorefRun.png" style="width: 1.5em;" /></a> Georeferencer ဆိုသည်မှာ layer များအတွက် world file (ဖိုင်အမျိုးစားတစ်မျိုး) များကို ဖန်တီးရန်အတွက် tool တစ်ခုဖြစ်ပါသည်။ ဤ tool ကိုအသုံးပြု၍
+GeoTiff ဖိုင်အသစ်တစ်ခုဖန်တီးခြင်း သို့မဟုတ် ရှိနေပြီးသား ဓာတ်ပုံကို world file တစ်ခုပေါင်းထည့်ခြင်းဖြင့် raster သို့မဟုတ် vector ဖိုင်များကို geographic သို့မဟုတ် projected coordinate system များ ထည့်ပေးပါသည်။ Layer တစ်ခုကို georeferencing ပြုလုပ်ရန် အခြေခံနည်းလမ်းမှာ coordinate များ၏
+တိကျသည့်တန်ဖိုးများကို အသုံးပြုပြီး layer ပေါ်တွင် point များထည့်ပေးခြင်း ဖြစ်ပါသည်။</p>
+<p><strong>Features</strong></p>
+<span id="index-1"></span><table class="longtable docutils align-default" id="table-georeferencer-tools">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Icon</p></th>
+<th class="head"><p>ရည်ရွယ်ချက်</p></th>
+<th class="head"><p>Icon</p></th>
+<th class="head"><p>ရည်ရွယ်ချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="../../../_images/mActionAddRasterLayer.png"><img alt="addRasterLayer" src="../../../_images/mActionAddRasterLayer.png" style="width: 1.5em;" /></a></p></td>
+<td><p>Raster ကိုဖွင့်ရန်</p></td>
+<td><p><a class="reference internal" href="../../../_images/mActionAddOgrLayer.png"><img alt="addOgrLayer" src="../../../_images/mActionAddOgrLayer.png" style="width: 1.5em;" /></a></p></td>
+<td><p>Vector ကိုဖွင့်ရန်</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../../../_images/mActionStart.png"><img alt="start" src="../../../_images/mActionStart.png" style="width: 1.5em;" /></a></p></td>
+<td><p>Georeferencing စတင်ပြုလုပ်ရန်</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../../../_images/mActionGDALScript.png"><img alt="gdalScript" src="../../../_images/mActionGDALScript.png" style="width: 1.5em;" /></a></p></td>
+<td><p>GDAL Script ထုတ်ပေးရန်</p></td>
+<td><p><a class="reference internal" href="../../../_images/mActionLoadGCPpoints.png"><img alt="loadGCPpoints" src="../../../_images/mActionLoadGCPpoints.png" style="width: 1.5em;" /></a></p></td>
+<td><p>GCP (မြေပြင်ထိန်းချုပ်မှတ်) Point များ ထည့်သွင်းရန်</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../../../_images/mActionSaveGCPpointsAs.png"><img alt="saveGCPPointsAs" src="../../../_images/mActionSaveGCPpointsAs.png" style="width: 1.5em;" /></a></p></td>
+<td><p>GCP (မြေပြင်ထိန်းချုပ်မှတ်) Point များကို … အနေဖြင့် သိမ်းဆည်းရန်</p></td>
+<td><p><a class="reference internal" href="../../../_images/mActionTransformSettings.png"><img alt="transformSettings" src="../../../_images/mActionTransformSettings.png" style="width: 1.5em;" /></a></p></td>
+<td><p>အသွင်ပြောင်းခြင်း setting များ</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../../../_images/mActionAddGCPPoint.png"><img alt="addGCPPoint" src="../../../_images/mActionAddGCPPoint.png" style="width: 1.5em;" /></a></p></td>
+<td><p>Point ပေါင်းထည့်ရန်</p></td>
+<td><p><a class="reference internal" href="../../../_images/mActionDeleteGCPPoint.png"><img alt="deleteGCPPoint" src="../../../_images/mActionDeleteGCPPoint.png" style="width: 1.5em;" /></a></p></td>
+<td><p>Point ကိုဖျက်ရန်</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../../../_images/mActionMoveGCPPoint.png"><img alt="moveGCPPoint" src="../../../_images/mActionMoveGCPPoint.png" style="width: 1.5em;" /></a></p></td>
+<td><p>GCP Point ကိုနေရာရွှေ့ရန်</p></td>
+<td><p><a class="reference internal" href="../../../_images/mActionPan.png"><img alt="pan" src="../../../_images/mActionPan.png" style="width: 1.5em;" /></a></p></td>
+<td><p>မြင်ကွင်းရွှေ့ကြည့်ရန်</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../../../_images/mActionZoomIn.png"><img alt="zoomIn" src="../../../_images/mActionZoomIn.png" style="width: 1.5em;" /></a></p></td>
+<td><p>မြင်ကွင်းချဲ့ကြည့်ရန်</p></td>
+<td><p><a class="reference internal" href="../../../_images/mActionZoomOut.png"><img alt="zoomOut" src="../../../_images/mActionZoomOut.png" style="width: 1.5em;" /></a></p></td>
+<td><p>မြင်ကွင်းချုံ့ကြည့်ရန်</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../../../_images/mActionZoomToLayer.png"><img alt="zoomToLayer" src="../../../_images/mActionZoomToLayer.png" style="width: 1.5em;" /></a></p></td>
+<td><p>Layer ကို zoom ချဲ့ကြည့်ရန်</p></td>
+<td><p><a class="reference internal" href="../../../_images/mActionZoomLast.png"><img alt="zoomLast" src="../../../_images/mActionZoomLast.png" style="width: 1.5em;" /></a></p></td>
+<td><p>နောက်ဆုံးအရာကို zoom ပြုလုပ်ရန်</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../../../_images/mActionZoomNext.png"><img alt="zoomNext" src="../../../_images/mActionZoomNext.png" style="width: 1.5em;" /></a></p></td>
+<td><p>နောက်ထပ်အရာတစ်ခုကို zoom ပြုလုပ်ရန်</p></td>
+<td><p><a class="reference internal" href="../../../_images/mActionLinkGeorefToQGis.png"><img alt="linkGeorefToQGis" src="../../../_images/mActionLinkGeorefToQGis.png" style="width: 2.5em;" /></a></p></td>
+<td><p>Georeferencer ကို QGIS နှင့်ချိတ်ဆက်ရန်</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../../../_images/mActionLinkQGisToGeoref.png"><img alt="linkQGisToGeoref" src="../../../_images/mActionLinkQGisToGeoref.png" style="width: 2.5em;" /></a></p></td>
+<td><p>QGIS ကို Georeferencer နှင့်ချိတ်ဆက်ရန်</p></td>
+<td><p><a class="reference internal" href="../../../_images/mActionFullHistogramStretch.png"><img alt="fullHistogramStretch" src="../../../_images/mActionFullHistogramStretch.png" style="width: 1.5em;" /></a></p></td>
+<td><p>ကြိမ်နှုန်းပြဂရပ် ဆွဲ့ဆန့်မှု အပြည့်အစုံ (Full histogram stretch)</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../../../_images/mActionLocalHistogramStretch.png"><img alt="localHistogramStretch" src="../../../_images/mActionLocalHistogramStretch.png" style="width: 1.5em;" /></a></p></td>
+<td><p>နေရာအလိုက် ကြိမ်နှုန်းပြဂရပ် ဆွဲ့ဆန့်မှု (Local histogram stretch)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Table Georeferencer - Georeferencer Tool များ</p>
+<section id="usual-procedure">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink"><span class="section-number">17.3.1. </span>သာမန်လုပ်ရိုးလုပ်စဉ် (Usual procedure)</a><a class="headerlink" href="#usual-procedure" title="Link to this heading"></a></h2>
+<p>ဓာတ်ပုံပေါ်ရှိ ရွေးချယ်ထားသည့် point တစ်ခုနှင့်သက်ဆိုင်သည့် X နှင့် Y ကိုဩဒိနိတ်များ (ဒီဂရီ၊ မိနစ်၊ စက္ကန့် သို့မဟုတ် ဒဿမ ဒီဂရီ သို့မဟုတ် projected လုပ်ထားသည့် ဒသမ မီတာ) ကိုထည့်သွင်းသည့်အခါ လုပ်ရိုးလုပ်စဉ် နှစ်မျိုးကို အသုံးပြုနိုင်ပါသည်-</p>
+<ul class="simple">
+<li><p>တခါတရံ ဓာတ်ပုံပေါ်တွင် တည်နေရာတန်ဖိုးများ ရေးထားသည့် ကြက်ခြေခတ်အမှတ်အသားများ ‌ဖော်ပြထားတတ်ပါသည်။ ထိုအခြေအနေတွင် တည်နေရာတန်ဖိုးများကို လက်ဖြင့်ရိုက်ထည့်နိုင်ပါသည်။</p></li>
+<li><p>Georeference ပြုလုပ်ထားပြီးသား layer များကို အသုံးပြုခြင်း။ ထို layer များသည် ကိုယ် georeference ပြုလုပ်ချင်သည့် ဓာတ်ပုံပေါ်ရှိ objects/feature များနှင့်တူညီသော objects/feature များပါဝင်ပြီး လိုချင်သည့် projection လည်းပါဝင်သည့် vector သို့မဟုတ် raster data များဖြစ်ပါသည်။ ဤနည်းလမ်းတွင် QGIS map canvas ထဲ ထည့်သွင်းထားသည့် georeference ပြုလုပ်ထားပြီးသား dataset ပေါ်ကို click နှိပ်ပြီး ကိုဩဒိနိတ်တန်ဖိုးများကို ထည့်သွင်းနိုင်ပါသည်။</p></li>
+</ul>
+<p>Georeferencing အတွက် သာမန်လုပ်ရိုးလုပ်စဉ်တွင် raster ပေါ်တွင် point များစွာရွေးချယ်ခြင်း၊ ၎င်းတို့၏ ကိုဩဒိနိတ်တန်ဖိုးများ သတ်မှတ်ပေးခြင်း၊
+သင့်လျော်သော Transformation အမျိုးအစားရွေးချယ်ပေးခြင်းတို့ ပါဝင်ပါသည်။ ထည့်သွင်းလိုက်သည့် parameter နှင့် data ပေါ်မှာမူတည်ပြီး Georeferencer က
+world file parameter များကို တွက်ထုတ်ပေးပါသည်။ ကိုဩဒိနိတ်တန်ဖိုး များများထည့်လေလေ ရလာသည့်ဓာတ်ပုံသည် ပိုပြီးတိကျမှန်ကန်လေလေဖြစ်ပါသည်။</p>
+<p>ပထမဆုံးအဆင့်အဖြစ် QGIS ကိုဖွင့်လိုက်ပြီး QGIS menu bar တွင်ပေါ်နေသည့် <span class="menuselection">Layer ►</span> <a class="reference internal" href="../../../_images/mGeorefRun.png"><img alt="georefRun" src="../../../_images/mGeorefRun.png" style="width: 1.5em;" /></a> <span class="menuselection">Georeferencer</span> ကို နှိပ်ပါ။ <a class="reference internal" href="#figure-georeferencer-dialog"><span class="std std-numref">Fig. 17.24</span></a> တွင် ပြထားသည့်အတိုင်း Georeferencer dialog ပေါ်လာပါလိမ့်မည်။</p>
+<p>ဤဥပမာအတွက် SDGS မှ Dakota တောင်ပိုင်း၏ topo မြေပုံတစ်ချပ်ကို အသုံးပြုထားပါသည်။ နောက်ပိုင်းတွင် ဤပုံကို GRASS <code class="file docutils literal notranslate"><span class="pre">spearfish60</span></code> တည်နေရာမှ data များနှင့် ယှဉ်တွဲပြီးကြည့်ရှုနိုင်ပါသည်။ Topo မြေပုံကို အောက်တွင်ပေးထားသော link မှတဆင့် download ရယူပါ။ <a class="reference external" href="https://grass.osgeo.org/sampledata/spearfish_toposheet.tar.gz">https://grass.osgeo.org/sampledata/spearfish_toposheet.tar.gz</a></p>
+<figure class="align-center" id="id1">
+<span id="figure-georeferencer-dialog"></span><img alt="../../../_images/georef.png" src="../../../_images/georef.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 17.24 </span><span class="caption-text">Georeferencer Dialog</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<section id="gcps-entering-ground-control-points-gcp">
+<span id="georeferencer-entering"></span><h3><a class="toc-backref" href="#id5" role="doc-backlink"><span class="section-number">17.3.1.1. </span>မြေပြင်ထိန်းချုပ်မှတ်များ (GCPs) ထည့်သွင်းခြင်း (Entering ground control points (GCP))</a><a class="headerlink" href="#gcps-entering-ground-control-points-gcp" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Reference မလုပ်ရသေးသည့် raster တစ်ခုကို georeference စလုပ်ရန်အတွက် <a class="reference internal" href="../../../_images/mActionAddRasterLayer.png"><img alt="addRasterLayer" src="../../../_images/mActionAddRasterLayer.png" style="width: 1.5em;" /></a> ခလုတ်ကို အသုံးပြုပါ။ Raster ကို dialog ၏ အဓိကလုပ်ဆောင်မည့် window တွင် ပြသနေမည်ဖြစ်သည်။ Raster ပေါ်လာသည်နှင့် reference point များစတင်ထည့်သွင်းနိုင်ပါသည်။</p></li>
+<li><p><a class="reference internal" href="#figure-georeferencer-add-points"><span class="std std-numref">Fig. 17.25</span></a> ပုံတွင်ပြထားသည့်အတိုင်း <a class="reference internal" href="../../../_images/mActionAddGCPPoint.png"><img alt="addGCPPoint" src="../../../_images/mActionAddGCPPoint.png" style="width: 1.5em;" /></a> <sup>Add Point</sup> ခလုတ်ကို အသုံးပြုပါ။
+အဓိကအလုပ်လုပ်သည့်နေရာတွင် point များထည့်ပြီး ကိုဩဒိနိတ်တန်ဖိုးများ ထည့်သွင်းပါ။ ဤလုပ်ငန်းစဉ်အတွက် အောက်ပါနည်းလမ်းများကို အသုံးပြုနိုင်ပါသည်-</p>
+<ul class="simple">
+<li><p>Raster ဓာတ်ပုံပေါ်တွင် point တစ်ခုထောက်ပြီး X နှင့် Y ကိုဩဒိနိတ်တန်ဖိုးများကို ရိုက်ထည့်ပါ။ ထို့နောက် point ၏ CRS (coordinate reference system) ကိုလည်း ရွေးချယ်ပါ။</p></li>
+<li><p>Raster ဓာတ်ပုံပေါ်တွင် point တစ်ခုထောက်ပြီး QGIS map canvas ထဲတွင်ပေါ်နေသည့် georeference ပြုလုပ်ထားပြီးသား မြေပုံပေါ်က X နှင့် Y ကိုဩဒိနိတ်တန်ဖိုးများကို ရယူရန် <a class="reference internal" href="../../../_images/pencil.png"><img alt="pencil" src="../../../_images/pencil.png" style="width: 1.5em;" /></a> <sup>From map canvas</sup> ခလုတ်ကို အသုံးပြုပါ။ CRS ကို အလိုအလျောက် သတ်မှတ်ပေးမည်ဖြစ်သည်။</p></li>
+</ul>
+</li>
+<li><p>Point များဆက်ထည့်ပါ။ အနည်းဆုံး point ၄ ခုထည့်ရမှာဖြစ်ပြီး များများပိုထည့်လျှင် ပိုကောင်းပါသည်။ GCP point များ နေရာချရန်အတွက် zoom လုပ်ခြင်း၊ နေရာရွှေ့ကြည့်ခြင်းများ လုပ်ဆောင်နိုင်ရန် တခြား tool များလည်း ရှိပါသေးသည်။</p></li>
+<li><p>Point များကိုပြင်ဆင်မှုများလုပ်ရန်လိုအပ်လျှင် <a class="reference internal" href="../../../_images/mActionMoveGCPPoint.png"><img alt="moveGCPPoint" src="../../../_images/mActionMoveGCPPoint.png" style="width: 1.5em;" /></a> tool ကို အသုံးပြုပြီး canvas ထဲတွင်သာမက georeferencing window ထဲတွင်ပါ နေရာရွှေ့ပြင်ဆင်နိုင်ပါသည်။</p></li>
+</ol>
+<figure class="align-center" id="id2">
+<span id="figure-georeferencer-add-points"></span><img alt="../../../_images/choose_points.png" src="../../../_images/choose_points.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 17.25 </span><span class="caption-text">Raster ဓာတ်ပုံကို point များထည့်သွင်းခြင်း</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>မြေပုံတွင် အသစ်ထည့်လိုက်သည့် point များကို သီးသန့် text file တစ်ခု (<code class="file docutils literal notranslate"><span class="pre">[filename].points</span></code>) အဖြစ် raster ဓာတ်ပုံနှင့်အတူရောပြီး သိမ်းဆည်းထားပါသည်။ နောက်ပိုင်း ကိုယ် georeferece လုပ်ထားသည့်ပုံကို ပြင်ဆင်ချင်သည့်အခါ ယခုသိမ်းထားသည့် file ကိုပြန်ဖွင့် (reload) ပြီး point များဖျက်ပစ်ခြင်း၊ အသစ်ထည့်ခြင်းများကို လုပ်ဆောင်နိုင်ပါသည်။ Point file ထဲတွင် <code class="docutils literal notranslate"><span class="pre">mapX,</span> <span class="pre">mapY,</span> <span class="pre">pixelX,</span> <span class="pre">pixelY</span></code> ပုံစံဖြင့် တန်ဖိုးများပါဝင်ပါသည်။ File များကို စီမံခန့်ခွဲရန် <a class="reference internal" href="../../../_images/mActionLoadGCPpoints.png"><img alt="loadGCPpoints" src="../../../_images/mActionLoadGCPpoints.png" style="width: 1.5em;" /></a> <sup>Load GCP points</sup> နှင့် <a class="reference internal" href="../../../_images/mActionSaveGCPpointsAs.png"><img alt="saveGCPPointsAs" src="../../../_images/mActionSaveGCPpointsAs.png" style="width: 1.5em;" /></a> <sup>Save GCP points as</sup> ခလုတ်များကို အသုံးပြုနိုင်ပါသည်။</p>
+</section>
+<section id="transformation-setting-defining-the-transformation-settings">
+<span id="georeferencer-transformation"></span><h3><a class="toc-backref" href="#id6" role="doc-backlink"><span class="section-number">17.3.1.2. </span>Transformation setting များ သတ်မှတ်ပေးခြင်း (Defining the transformation settings)</a><a class="headerlink" href="#transformation-setting-defining-the-transformation-settings" title="Link to this heading"></a></h3>
+<p>Raster ဓာတ်ပုံတွင် GCP များထည့်ပြီးနောက် georeferencing process အတွက် transformation setting များ သတ်မှတ်ပေးရန် လိုအပ်ပါသည်။</p>
+<figure class="align-center" id="id3">
+<span id="figure-georeferencer-transform"></span><img alt="../../../_images/transformation_settings.png" src="../../../_images/transformation_settings.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 17.26 </span><span class="caption-text">Georeferencer အတွက် transformation setting များသတ်မှတ်ပေးခြင်း</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<section id="transformation-algorithm-available-transformation-algorithms">
+<h4><a class="toc-backref" href="#id7" role="doc-backlink">အသုံးပြုနိုင်သော Transformation algorithm များ (Available Transformation algorithms)</a><a class="headerlink" href="#transformation-algorithm-available-transformation-algorithms" title="Link to this heading"></a></h4>
+<p>ကိုယ်အသုံးပြုမည့် data ၏ အရည်အသွေး၊ နောက်ဆုံးထွက်လာမည့်ပုံတွင် ကိုယ်လက်ခံနိုင်မယ့် ပုံမညီမညာတွန့်လိမ်မှု (geometric distortion) သဘာဝနှင့် ပမာဏ၊ GCP အရေအတွက်တို့ပေါ် မူတည်ပြီး အသုံးပြုလို့ရသည့် transformation algorithm အချို့ရှိပါသည်။</p>
+<p>ယခုလက်ရှိတွင် အောက်ပါ <span class="guilabel">Transformation types</span> (Transformation အမျိုးအစား) များကို အသုံးပြုလို့ရနိုင်ပါသည်-</p>
+<ul class="simple">
+<li><p><strong>Linear</strong> algorithm ကို world file တစ်ခုဖန်တီးရန်အတွက် အသုံးပြုပြီး ၎င်းသည် raster pixel ကို အမှန်တကယ် ပြောင်းလဲလိုက်ခြင်း မဟုတ်သည့်အတွက်ကြောင့် တခြား algorithm များနှင့် မတူကွဲပြားပါသည်။ ဤနည်းလမ်းသည် ဓာတ်ပုံကို နေရာမှန်အောင် လုပ်ပေးပြီး စကေးကိုလည်း တသမတ်တည်း ဖြစ်အောင် ထားပါသည်။ သို့သော် ဓာတ်ပုံလှည့်ခြင်း (နာရီလက်တံအတိုင်း/နာရီလက်တံဆန့်ကျင့်ဘက်) သို့မဟုတ် အခြားပြောင်းလဲမှုများ လုပ်ဆောင်ပေးနိုင်မည်မဟုတ်ပါ။ ကိုယ် georeference လုပ်မည့်ပုံသည် ကောင်းမွန်ညီညာသည့်ပုံဖြစ်ပြီး အသုံးပြုမည့် CRS ကိုလည်းသိလျှင် ဤနည်းလမ်းသည် အသင့်တော်ဆုံးဖြစ်ပါသည်။ အနည်းဆုံး GCP ၂ ခု လိုအပ်ပါသည်။</p></li>
+<li><p><strong>Helmert</strong> transformation တွင်လည်း ဓာတ်ပုံကို လှည့်နိုင်ပါသည်။ ကိုယ့်နေရာဒေသအတွက် လုပ်ထားသည့် raster ပုံကောင်းကောင်းတစ်ခု သို့မဟုတ် orthoretified လုပ်ထားသည့် ကောင်းကင်ဓာတ်ပုံ ဖြစ်သော်လည်း ကိုယ်အသုံးပြုမည့် CRS ၏ grid line များနှင့်မကိုက်ညီသဖြင့် ချိန်ညှိလိုသည့် အခါမျိုးတွင် ဤနည်းလမ်းသည် အသုံးဝင်ပါသည်။ အနည်းဆုံး GCP ၂ ခု လိုအပ်ပါသည်။</p></li>
+<li><p><strong>Polynomial 1</strong> algorithm သည် ပိုပြီး ယေဘုယျဆန်သည့် အပြိုင်ချိတ်ဆက်ထားသော transformation တစ်ခုကို လုပ်ဆောင်ပေးသလို ညီညီညာညာ လေးထောင့်ဆန်သည့် ပုံများတွင်လည်း ကောင်းမွန်ပါသည်။ မျဉ်းဖြောင့်များသည် အဖြောင့်အတိုင်းရှိပြီး (မျဉ်းဖြောင့်ပေါ်ရှိ point များသည် ထိုမျဉ်းပေါ်မှ သွေဖယ်မသွားခြင်းကို ဆိုလိုသည်) မျဉ်းပြိုင်များကလည်း ပြိုင်လျှက်ပဲရှိရပါမည်။ ဦးတည်ရာအမျိုးမျိုးတွင် pixel အရွယ်အစား မတူညီဘဲဖန်တီးထားသည့် မြေပုံများကို georeferencing ပြုလုပ်ရာတွင် ဤနည်းလမ်းသည် အသုံးဝင်ပါသည်။ အနည်းဆုံး GCP ၃ ခု လိုအပ်ပါသည်။</p></li>
+<li><p><strong>Polynomial</strong> algorithms 2-3 သည် အပြိုင်ချိတ်ဆက်ထားသည့် transformation ကို သုံးမည့်အစား ပိုပြီးယေဘုယျဆန်သည့် ဒုတိယနှင့် တတိယအဆင့် polynomial များကိုအသုံးပြုပါသည်။ ထို့ကြောင့် ဤနည်းလမ်းသည် ခုံးနေသည့် သို့မဟုတ် အခြား စနစ်တကျလိမ်ကောက်နေသည့် ပုံများကို ကိုင်တွယ်ဖြေရှင်းနိုင်ပါသည်။ ဥပမာ - ကွေးခုံးနေသည့် အစွန်းများပါဝင်သည့် ဓာတ်ပုံများ။ အနည်းဆုံး GCP ၆ မှ ၁၀ ခုထိ လိုအပ်ပါသည်။ ဓာတ်ပုံတစ်ခုလုံးတွင် ထောင့်အကျဉ်းအကျယ်များနှင့် စကေးတချို့ ပြောင်းလဲသွားနိုင်ပါသည်။ မျဉ်းဖြောင့်များ ကွေးသွားနိုင်သလို ဓာတ်ပုံ၏အစွန်းဘက်များ (သို့မဟုတ်) GCP နှင့်ဝေးသည့်နေရာများတွင် တွန့်လိမ်မှုများ ဖြစ်ပေါ်နိုင်ပါသည်။</p></li>
+<li><p><strong>Projective</strong> algorithm သည် မတူညီသည့်ပြင်ညီနှစ်ခုဖြစ်သော ဓာတ်ပုံနှင့် map canvas ကြားမှာ ဗဟို projection တစ်ခုကို ကိုယ်စားပြုသည့် transformation နည်းလမ်းများကို အသုံးပြုပြီး polynomial 1 ကို ယေဘုယျဆန်ဆန်နည်းလမ်းဖြင့် လုပ်‌ဆောင်ပေးပါသည်။ မျဉ်းဖြောင့်များသည် အဖြောင့်အတိုင်း ဆက်ရှိနေပေမယ့် အပြိုင်မျဉ်းများနှင့် စကေးတချို့သည် ဓာတ်ပုံ၏အခြေအနေပေါ် မူတည်ပြီးပြောင်းလဲသွားပါသည်။ ကောင်းမွန်သော မြေပုံဖြစ်ပေမယ့် ဓာတ်ပုံရိုက်သည့်အခါ တည့်တည့်ရိုက်ထားတာမဟုတ်ဘဲ ဘေးစောင်းအခြေအနေမှ ရိုက်ထားသောပုံများ သို့မဟုတ် ဘေးစောင်းအခြေအနေမှ ရိုက်ကူးထားသော ကောင်းကင်ဓာတ်ပုံများအတွက် ဤနည်းလမ်းသည် အသင့်တော်ဆုံးဖြစ်ပါသည်။ အနည်းဆုံး GCP ၄ ခု လိုအပ်ပါသည်။</p></li>
+<li><p>နောက်ဆုံးတစ်ခုမှာ <strong>Thin Plate Spline</strong> (TPS) algorithm ဖြစ်ပြီး အတတ်နိုင်ဆုံး မျက်နှာပြင်ခွက်နေ/ခုံးနေမှုကို လျော့ချထားသည့်မျက်နှာပြင်နှင့် GCP များကိုတွဲမိရန်အတွက် များစွာသော local polynomial များကို အသုံးပြုပြီး မြေပုံကိုလိုအပ်သလို ဆွဲယူချိန်ညှိခြင်းများ လုပ်ဆောင်ပါသည်။ GCP များကိုက်ညီရန် GCP နှင့်ဝေးနေသည့်နေရာများကို သင့်လျော်သလို ရွေ့လျားမှုများပြုလုပ်ပြီး မြေပုံကို ပိုမိုကောင်းမွန်စေရန် လုပ်ဆောင်ပေးပါသည်။ သို့သော် တတ်နိုင်သမျှ မူရင်းပုံသဏ္ဍာန်ပျက်မှု နည်းအောင် လုပ်ဆောင်ပေးပါသည်။ ပျက်နေသောပုံများ၊ သဏ္ဍာန်မမှန်သောပုံများ၊ အတန်သင့်မတိကျသောပုံများ နှင့် orthorectified ကောင်းကောင်းလုပ်မထားသော ကောင်းကင်ဓာတ်ပုံများကို georeferencing လုပ်ရန်အတွက် TPS နည်းလမ်းသည် အသင့်တော်ဆုံးဖြစ်ပါသည်။ ခန့်မှန်း georeferencing လုပ်ခြင်းနှင့် projection အမျိုးအစား (အခြား parameter များ) မသိသော မြေပုံများကို projection ပြန်လုပ်သည့်နေရာတွင်လည်း အသုံးဝင်ပါသည်။ သို့သော် ကိုယ့်မြေပုံပေါ်တွင် GCP ယူမည့်နေရာများကို တခြား georeferencing လုပ်ထားပြီးသားမြေပုံပေါ်တွင် ရှိနေပြီးသား feature များနှင့် ယှဉ်တွဲပေးရန်လိုအပ်ပါသည်။ အနည်းဆုံး GCP ၁၀ ခုလိုအပ်ပြီး များသောအားဖြင့် လိုချင်သည့်ပုံကောင်းတစ်ခုရရှိရန် ၁၀ ခုထက်ပိုသုံးရတတ်ပါသည်။</p></li>
+</ul>
+<p>TPS မှလွဲပြီး အထက်တွင်ဖော်ပြခဲ့သည့် algorithm များအားလုံးသည် အနည်းဆုံးလိုအပ်သော GCP အရေအတွက်ထက် ပိုပြီးထည့်သည့်အခါ parameter များ အလိုအလျောက်ပြောင်းလဲသွားပြီး overall residual error (အမှားအကြွင်းကျန်) အနည်းဆုံးဖြစ်အောင် လုပ်ဆောင်ပေးပါသည်။
+ဤနည်းလမ်းသည် regristration error များဖြစ်သည့် point ထောက်သောအခါ အနည်းငယ်လွဲချော်မှု၊ ကိုဩဒိနိတ်တန်ဖိုးထည့်သွင်းသည့်အခါ မှားယွင်းမှု နှင့် အခြား အသေးအမွှား ပုံပျက်နေမှုများ၏ နောက်ဆက်တွဲဆိုးကျိုးများကို အနည်းဆုံးဖြစ်အောင် လုပ်ဆောင်ပေးပါသည်။ အစားထိုးစရာ အခြား GCP များမရှိသောအခါ ၎င်းကဲ့သို့ အမှားများ သို့မဟုတ် ပုံပျက်နေခြင်းများက georeference လုပ်ထားသည့်ပုံများ၏ အစွန်ဘက်တွေမှာ တွန့်လိမ်မှုများ ဖြစ်စေနိုင်ပါသည်။ သို့သော် အနည်းဆုံးလိုအပ်သော GCP အရေအတွက်ထက် ပိုထည့်သည့်အခါ ထွက်လာသည့်ပုံတွင် ခန့်မှန်းပဲ ထည့်ပေးပါသည်။ နှိုင်းယှဉ်ကြည့်သည့်အခါ TPS က ထည့်လိုက်သည့် GCP များအားလုံးကို အတိအကျတွဲပေးသော်လည်း registration error များကြောင့် အနီးအနားရှိ GCP များအကြား  သိသိသာသာပုံပျက်မှုများ ဖြစ်စေနိုင်ပါသည်။</p>
+</section>
+<section id="resampling-define-the-resampling-method">
+<h4><a class="toc-backref" href="#id8" role="doc-backlink">Resampling နည်းလမ်း သတ်မှတ်ခြင်း (Define the Resampling method)</a><a class="headerlink" href="#resampling-define-the-resampling-method" title="Link to this heading"></a></h4>
+<p>ကိုယ်ရွေးချယ်သည့် resampling အမျိုးအစားသည် ထည့်သွင်းအသုံးပြုမည့် data နှင့် လုပ်ဆောင်မည့်အဓိကရည်ရွယ်ချက်ပေါ် မူတည်ပါသည်။ Raster ၏ ကိန်းဂဏန်းများကို မပြောင်းလဲလိုလျှင် ‘Nearest neighbour’ ကိုရွေးချယ်သင့်ပါသည်။ နှိုင်းယှဉ်ကြည့်လျှင် ‘cubic resampling’ သည် အမြင်အရ ပိုပြီးအဆင်ပြေချောမွေ့သည့် ဓာတ်ပုံကိုရစေပါသည်။</p>
+<p>Resamping နည်းလမ်း ၅ မျိုးရွေးချယ်နိုင်ပါသည်-</p>
+<ol class="arabic simple">
+<li><p>Nearest neighbour</p></li>
+<li><p>Linear</p></li>
+<li><p>Cubic</p></li>
+<li><p>Cubic Spline</p></li>
+<li><p>Lanczos</p></li>
+</ol>
+</section>
+<section id="define-the-transformation-settings-transformation-setting">
+<h4><a class="toc-backref" href="#id9" role="doc-backlink">Define the transformation settings (Transformation setting များ သတ်မှတ်ခြင်း)</a><a class="headerlink" href="#define-the-transformation-settings-transformation-setting" title="Link to this heading"></a></h4>
+<p>Georeference ပြုလုပ်ပြီးရရှိလာမည့် raster အတွက် သတ်မှတ်ပေးစရာ နည်းလမ်းများစွာရှိပါသည်။</p>
+<ul class="simple">
+<li><p>Linear tranformation အမျိုးအစားသည် raster ဓာတ်ပုံကို အမှန်တကယ်ပြောင်းလဲမည်မဟုတ်သည့်အတွက် ထိုနည်းကို အသုံးပြုမှသာ <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">Create world file</span> ကို အမှန်ခြစ်ပြီးရွေးချယ်လို့ရနိုင်ပါသည်။ ဤဖြစ်စဉ်တွင် world file အသစ်တစ်ခုကိုသာ ဖန်တီးပေးသည့်အတွက် <span class="guilabel">Output raster</span> field သည် activate ဖြစ်လာမည်မဟုတ်ပါ။</p></li>
+<li><p>အခြား transformation အမျိုးအစားများအားလုံးအတွက် <span class="guilabel">Output raster</span> တစ်ခုသတ်မှတ်ပေးရန်လိုအပ်ပါသည်။ ဘာမှမရွေးချယ်ပဲ ဒီအတိုင်းထားလျှင် မူရင်း folder ထဲတွင် ([filename]_modified) ဟုအမည်ပေးထားသည့် file အသစ်တစ်ခုအဖြစ် ဖန်တီးပြီး မူရင်း raster နှင့်အတူတူ သိမ်းထားပေးပါသည်။</p></li>
+<li><p>နောက်တစ်ဆင့်အနေဖြင့် ကိုယ် georeference လုပ်မည့် raster အတွက် <span class="guilabel">Target SRS</span> (Spatial Reference System) သတ်မှတ်ပေးရပါမည်။ (<a class="reference internal" href="../working_with_projections/working_with_projections.html#label-projections"><span class="std std-ref">မြေပုံအရိပ်ချစနစ်များ နှင့် အလုပ်လုပ်ခြင်း (Working with Projections)</span></a> တွင်ကြည့်ပါ)</p></li>
+<li><p>ဆန္ဒရှိလျှင် <strong>pdf မြေပုံတစ်ခုထုတ်</strong> နိုင်သလို <strong>pdf report</strong> တစ်ခုလည်း ထုတ်ယူနိုင်ပါသည်။ Report ထဲတွင် အသုံးပြုခဲ့သည့် transformation parameter များ၊ residual များ၏ ဓာတ်ပုံတစ်ပုံ၊ GCP များနှင့် ၎င်းတို့၏ RMS (Root Mean Square) error များ စာရင်းတို့ ပါဝင်ပါသည်။</p></li>
+<li><p>ထို့အပြင် <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">Set Target Resolution</span> ကို အမှန်ခြစ်ရွေးချယ်ပြီး ouput raster အတွက် pixel resolution ကို သတ်မှတ်ပေးနိုင်ပါသည်။ မူရင်းပါရှိသည့် ရေပြင်ညီနှင့် ဒေါင်လိုက် resolution မှာ ၁ ဖြစ်သည်။</p></li>
+<li><p>Pixel တန်ဖိုး 0 ဖြစ်နေသောနေရာများကို ဘာမှမပေါ်ပဲ transparent အဖြစ်ထားလိုလျှင် <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">Use 0 for transparency when needed</span> ကို အမှန်ခြစ်ရွေးချယ်ထားလို့ရပါသည်။ နမူနာ toposheet တွင် အဖြူရောင် ဧရိယာအားလုံးသည် transparent ဖြစ်နေပါမည်။</p></li>
+<li><p>နောက်ဆုံးအဆင့်အနေဖြင့် <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">Load in QGIS when done</span> ကိုအမှန်ခြစ်ရွေးချယ်ထားလျှင် transformation လုပ်ပြီးသည်နှင့် ရလာသည့် raster သည် QGIS map canvas တွင် အလိုလိုပေါ်လာမည် ဖြစ်ပါသည်။</p></li>
+</ul>
+</section>
+</section>
+<section id="raster-property-show-and-adapt-raster-properties">
+<h3><a class="toc-backref" href="#id10" role="doc-backlink"><span class="section-number">17.3.1.3. </span>Raster property များပြသခြင်းနှင့် လက်ခကျင့်သုံးခြင်း (Show and adapt raster properties)</a><a class="headerlink" href="#raster-property-show-and-adapt-raster-properties" title="Link to this heading"></a></h3>
+<p>Georeference ပြုလုပ်ချင်သော raster ၏ <a class="reference internal" href="raster_properties.html#raster-properties-dialog"><span class="std std-ref">Layer properties</span></a> dialog ကိုဖွင့်ပြီး <span class="guilabel">Settings</span> ထဲရှိ <span class="guilabel">Raster properties</span> ကို နှိပ်လိုက်ပါ။</p>
+</section>
+<section id="georeferencer-configure-the-georeferencer">
+<span id="configure-georeferencer"></span><h3><a class="toc-backref" href="#id11" role="doc-backlink"><span class="section-number">17.3.1.4. </span>Georeferencer အား ပြင်ဆင်ခြင်း (Configure the georeferencer)</a><a class="headerlink" href="#georeferencer-configure-the-georeferencer" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>GCP ကိုဩဒိနိတ်တန်ဖိုးများနှင့် ၎င်းတို့၏ ID များကို ဖော်ပြထားမည်/ဖျောက်ထားမည် ကို သတ်မှတ်ပေးနိုင်ပါသည်။</p></li>
+<li><p>Residual units ၊ pixel နှင့် မြေပုံ ယူနစ်များကိုလည်း ရွေးချယ်နိုင်ပါသည်။</p></li>
+<li><p>PDF report အတွက် ဘယ်နှင့်ညာ အနားသတ်မျဉ်းကိုသတ်မှတ်ပေးနိုင်သလို PDF မြေပုံအတွက် စာရွက်အရွယ်အစားကိုလည်း သတ်မှတ်ပေးလို့ရပါသည်။</p></li>
+<li><p>နောက်ဆုံးအနေဖြင့် <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">Show Georeferencer window docked</span> ကိုလည်း အမှန်ခြစ်ပြီး activate လုပ်ထားလို့ရပါသည်။</p></li>
+</ul>
+</section>
+<section id="transformation-running-the-transformation">
+<span id="georeferencer-running"></span><h3><a class="toc-backref" href="#id12" role="doc-backlink"><span class="section-number">17.3.1.5. </span>Transformation ပြုလုပ်ခြင်း (Running the transformation)</a><a class="headerlink" href="#transformation-running-the-transformation" title="Link to this heading"></a></h3>
+<p>GCP များစု‌စည်းပြီး transformation setting များကို သတ်မှတ်ပြီးနောက် georeference လုပ်ထားသည့် raster အသစ်တစ်ခု ဖန်တီးရန် <a class="reference internal" href="../../../_images/mActionStart.png"><img alt="start" src="../../../_images/mActionStart.png" style="width: 1.5em;" /></a> <sup>Start georeferencing</sup>
+ခလုပ်ကိုနှိပ်ပါ။</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="raster_analysis.html" class="btn btn-neutral float-left" title="17.2. Raster များအား ဆန်းစစ်လေ့လာခြင်း" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../working_with_mesh/mesh_properties.html" class="btn btn-neutral float-right" title="18. Working with Mesh Data (Mesh Data များနှင့် အလုပ်လုပ်ခြင်း)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2002-now, QGIS project.
+      <span class="lastupdated">Last updated on 2024 May 13, 16:23 +0700.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- Transifex follows a particular logic to build target pages:
+Expected French translation link for https://docs.qgis.org/3.28/en/docs/user_manual/print_composer/overview_composer.html
+would return https://app.transifex.com/qgis/qgis-documentation/translate/#fr/aa6d8bc653526d38b295ca94bf8eee5e
+with the md5 value of "github#qgis/QGIS-Documentation#release_3.28#locale/en/LC_MESSAGES/docs/user_manual/print_composer/overview_composer.po"-->
+<!--Make sure that mismatching language codes between Transifex and Sphinx are converted-->
+
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-info-circle"> QGIS Documentation </span>
+      v: 3.28
+      <span class="fa fa-caret-down"></span>
+    </span>
+
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Languages</dt>
+        
+          <dd><a href="https://docs.qgis.org/3.28/en/docs/user_manual/working_with_raster/georeferencer.html">en</a></dd>
+        
+      </dl>
+
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/user_manual/working_with_raster/georeferencer.html">testing</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/latest/en/docs/user_manual/working_with_raster/georeferencer.html">latest</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.28/en/docs/user_manual/working_with_raster/georeferencer.html">3.28</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.22/en/docs/user_manual/working_with_raster/georeferencer.html">3.22</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.16/en/docs/user_manual/working_with_raster/georeferencer.html">3.16</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.10/en/docs/user_manual/working_with_raster/georeferencer.html">3.10</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.4/en/docs/user_manual/working_with_raster/georeferencer.html">3.4</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/2.18/en/docs/user_manual/working_with_raster/georeferencer.html">2.18</a></dd>
+        
+      </dl>
+
+       
+       <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="https://docs.qgis.org/3.28/pdf">PDF</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.28/zip">HTML</a></dd>
+        
+      </dl>
+      
+
+      
+       
+      <dl>
+        <dt>Contribute to Docs</dt>
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/edit/master/docs/user_manual/working_with_raster/georeferencer.rst" target="_blank" rel="noopener noreferrer">Edit on GitHub</a>
+          </dd>
+          
+          
+          <dd>
+            <a href="https://app.transifex.com/qgis/qgis-documentation/translate/#en/1ad78d77f660f87a8266630f6617bf17" target="_blank" rel="noopener noreferrer">Translate Page</a>
+          </dd>
+          
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/issues" target="_blank" rel="noopener noreferrer">Report Issue</a>
+          </dd>
+      </dl>
+      
+
+      <dl>
+        <dt>On QGIS Project</dt>
+          <dd>
+            <a href="https://qgis.org/en" target="_blank" rel="noopener noreferrer">Home</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/api/3.28" target="_blank" rel="noopener noreferrer">C++ API</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/pyqgis/3.28" target="_blank" rel="noopener noreferrer">PyQGIS API</a>
+          </dd>
+          <dd>
+            <a href="https://github.com/qgis/QGIS/tree/release-3_28" target="_blank" rel="noopener noreferrer">Source</a>
+          </dd>
+      </dl>
+
+    </div>
+  </div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

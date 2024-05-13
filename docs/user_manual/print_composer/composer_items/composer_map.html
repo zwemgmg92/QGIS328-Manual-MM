@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>21.2.2. မြေပုံထည့်ရန် (The Map Item) &mdash; QGIS Documentation  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/qgis_docs.css?v=3fdf4c33" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
+
+  
+    <link rel="shortcut icon" href="../../../../_static/qgis_logo.ico"/>
+    <link rel="canonical" href="https://docs.qgis.org/latest/en/docs/user_manual/print_composer/composer_items/composer_map.html"/>
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../../../_static/copybutton.js?v=f281be69"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../../../_static/togglebutton.js?v=4a39c7ea"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="21.2.3. ရုပ်ကြွမြေပုံ (The 3D Map Item)" href="composer_map3d.html" />
+    <link rel="prev" title="21.2.1. Layout Item တိုင်းတွင်ရှိသည့်ရွေးချယ်စရာများ (Layout Items Common Options)" href="composer_items_options.html" />
+  <meta name="description" content="QGIS 3.28 documentation: 21.2.2. မြေပုံထည့်ရန် (The Map Item)">
+</head>
+
+<body class="wy-body-for-nav">
+
+  <nav class="release_status_topbar">
+  </nav>
+
+   
+
+ 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+   
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            QGIS Documentation
+              <img src="../../../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                3.28
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+   <a href= "../../../../genindex.html">Index</a>
+ 
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">အသုံးပြုသူများအတွက်</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../preamble/preamble.html">1. စကားချီး (Preamble)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preamble/foreword.html">2. အမှာစာ (Foreword)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preamble/conventions.html">3. အသုံးအနှုန်းများ (Conventions)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preamble/features.html">4. အသွင်အပြင်များ (Features)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/getting_started.html">5. စတင်အသုံးပြုခြင်း (Getting Started)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/project_files.html">6. Project Files များနှင့် အလုပ်လုပ်ခြင်း (Working with Project Files)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/qgis_gui.html">7. QGIS ၏အစိတ်အပိုင်းများ (QGIS GUI)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/browser.html">8. ဒေတာများရှာဖွေကြည့်ရှုနိုင်သည့်နေရာ (The Browser panel)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/qgis_configuration.html">9. QGIS ပြင်ဆင်သတ်မှတ်ခြင်း/အခင်းအကျင်း (QGIS Configuration)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../working_with_projections/working_with_projections.html">10. မြေပုံအရိပ်ချစနစ်များ နှင့် အလုပ်လုပ်ခြင်း (Working with Projections)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../map_views/index.html">11. မြေပုံများအား ပုံဖော်ကြည့်ရှုခြင်း (Visualizing Maps)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/general_tools.html">12. အထွေ‌ထွေ‌သုံးကိရိယာများ (General Tools)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../expressions/index.html">13. Expression များဖြင့် အဆင့်မြှင့်တင်ဆောင်ရွက်ခြင်း (Level up with Expressions)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../style_library/index.html">14. The Style Library (Style နှင့်ပတ်သက်သည်များ ထားရှိရာနေရာ)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../managing_data_source/index.html">15. ဒေတာအရင်းအမြစ်များအား စီမံခန့်ခွဲခြင်း (Managing Data Source)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../working_with_vector/index.html">16. Vector data များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../working_with_raster/index.html">17. Raster Data နှင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../working_with_mesh/mesh_properties.html">18. Working with Mesh Data (Mesh Data များနှင့် အလုပ်လုပ်ခြင်း)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../working_with_vector_tiles/vector_tiles_properties.html">19. Vector Tiles များနှင့်အလုပ်လုပ်ခြင်း (Working with Vector Tiles)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../working_with_point_clouds/point_clouds.html">20. Point Cloud များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">21. မြေပုံအချောသပ်ပြင်ဆင်ခြင်း (Laying out the maps)</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../overview_composer.html">21.1. ပုံထုတ်အပြင်အဆင်ဆိုင်ရာ ခြုံငုံသုံးသပ်ချက် (Overview of the Print Layout)</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">21.2. အချောထုတ်မြေပုံ၏အစိတ်အပိုင်းများ (Layout items )</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="composer_items_options.html">21.2.1. Layout Item တိုင်းတွင်ရှိသည့်ရွေးချယ်စရာများ (Layout Items Common Options)</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">21.2.2. မြေပုံထည့်ရန် (The Map Item)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#the-toolbar">21.2.2.1. The Toolbar</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#main-properties">21.2.2.2. အဓိကဂုဏ်သတ္တိများ (Main properties)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#layer">21.2.2.3. Layer များ</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#extents">21.2.2.4. နယ်ပယ်အကျယ်အဝန်းများ (Extents)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#temporal-range">21.2.2.5. အချိန်ကာလဆိုင်ရာ ဂုဏ်သတ္တိများ (Temporal range)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#atlas-controlled-by-atlas">21.2.2.6. Atlas ဖြင့်ထိန်းချုပ်ထားသည် (Controlled by atlas)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#grids">21.2.2.7. ဂရစ်လိုင်းများ (Grids)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#overviews">21.2.2.8. ခြုံငုံပြမြေပုံများ (Overviews)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="composer_map3d.html">21.2.3. ရုပ်ကြွမြေပုံ (The 3D Map Item)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="composer_label.html">21.2.4. အညွှန်းစာ (The Label Item)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="composer_legend.html">21.2.5. မြေပုံရည်ညွှန်းချက် Item (The Legend Item)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="composer_scale_bar.html">21.2.6. စကေးဘား (The Scale Bar Item)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="composer_tables.html">21.2.7. ဇယားများ (The Table Items)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="composer_image.html">21.2.8. အမှတ်အသား၊ ရုပ်ပုံနှင့် မြောက်အရပ်ပြမြှား များ (The Marker,  Picture and North Arrow Items)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="layout_elevation_profile.html">21.2.9. မြေပြင်ဖြတ်ပိုင်းပုံပြ Item (The Elevation Profile Item)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="composer_html_frame.html">21.2.10. HTML အကွက် (The HTML Frame Item)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="composer_shapes.html">21.2.11. အရာဝတ္ထုများ (The Shape Items)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../create_output.html">21.3. ရလာဒ်တစ်ခု ဖန်တီးခြင်း (Creating an Output)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../create_reports.html">21.4. အစီရင်ခံစာတစ်ခုဖန်တီးခြင်း (Creating a Report)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../working_with_ogc/ogc_client_support.html">22. OGC / ISO protocol များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../working_with_gps/index.html">23. GPS Data များနှင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../auth_system/auth_overview.html">24. အထောက်အထားစီစစ်ခြင်းအကြောင်းအကျဉ်း (Authentication System Overview)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../auth_system/auth_workflows.html">25. အသုံးပြုသူ အထောက်အထားစစ်ဆေးခြင်း လုပ်ငန်းအဆင့်များ (User Authentication Workflows)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../auth_system/auth_considerations.html">26. လုံခြုံရေးအတွက်စဉ်းစားရန်အချက်များ (Security Considerations)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../grass_integration/grass_integration.html">27. GRASS GIS နှင့်ပေါင်းစပ်အသုံးပြုခြင်း (GRASS GIS Integration)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../processing/index.html">28. QGIS processing framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../processing_algs/index.html">29. Processing ဆိုင်ရာ ထောက်ပံ့ပေးသူများနှင့် Algorithm များ (Processing providers and algorithms)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../plugins/plugins.html">30. QGIS Plugin များ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../plugins/core_plugins/index.html">31. QGIS ပင်မ Plugin များကို အသုံးပြုခြင်း (Using QGIS Core Plugins)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../plugins/python_console.html">32. QGIS တွင် Python code များရေးသားရန်နေရာ (QGIS Python console)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preamble/help_and_support.html">33. အကူအညီနှင့်အထောက်အပံ့ (Help and Support)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preamble/contributors.html">34. ပါဝင်အားဖြည့်သူများ (Contributors)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendices/index.html">35. နောက်ဆက်တွဲများ (Appendices)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../literature_web/literature_and_web_references.html">36. စာတမ်းများနှင့် Website ကိုးကားချက်များ (Literature and Web References)</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">QGIS Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">&lt;no title&gt;</a></li>
+          <li class="breadcrumb-item"><a href="../index.html"><span class="section-number">21. </span>မြေပုံအချောသပ်ပြင်ဆင်ခြင်း (Laying out the maps)</a></li>
+          <li class="breadcrumb-item"><a href="index.html"><span class="section-number">21.2. </span>အချောထုတ်မြေပုံ၏အစိတ်အပိုင်းများ (Layout items )</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">21.2.2. </span>မြေပုံထည့်ရန် (The Map Item)</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/qgis/QGIS-Documentation/blob/master/docs/user_manual/print_composer/composer_items/composer_map.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="composer_items_options.html" class="btn btn-neutral float-left" title="21.2.1. Layout Item တိုင်းတွင်ရှိသည့်ရွေးချယ်စရာများ (Layout Items Common Options)" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="composer_map3d.html" class="btn btn-neutral float-right" title="21.2.3. ရုပ်ကြွမြေပုံ (The 3D Map Item)" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <blockquote>
+<div></div></blockquote>
+<section id="the-map-item">
+<span id="layout-map-item"></span><span id="index-0"></span><h1><span class="section-number">21.2.2. </span>မြေပုံထည့်ရန် (The Map Item)<a class="headerlink" href="#the-map-item" title="Link to this heading"></a></h1>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#the-toolbar" id="id10">The Toolbar</a></p></li>
+<li><p><a class="reference internal" href="#main-properties" id="id11">အဓိကဂုဏ်သတ္တိများ (Main properties)</a></p></li>
+<li><p><a class="reference internal" href="#layer" id="id12">Layer များ</a></p></li>
+<li><p><a class="reference internal" href="#extents" id="id13">နယ်ပယ်အကျယ်အဝန်းများ (Extents)</a></p></li>
+<li><p><a class="reference internal" href="#temporal-range" id="id14">အချိန်ကာလဆိုင်ရာ ဂုဏ်သတ္တိများ (Temporal range)</a></p></li>
+<li><p><a class="reference internal" href="#atlas-controlled-by-atlas" id="id15">Atlas ဖြင့်ထိန်းချုပ်ထားသည် (Controlled by atlas)</a></p></li>
+<li><p><a class="reference internal" href="#grids" id="id16">ဂရစ်လိုင်းများ (Grids)</a></p>
+<ul>
+<li><p><a class="reference internal" href="#grid-appearance" id="id17">ဂရစ်လိုင်းများ၏အသွင်အပြင် (Grid Appearance)</a></p></li>
+<li><p><a class="reference internal" href="#grid-frame" id="id18">ဂရစ်လိုင်းဘောင် (Grid Frame)</a></p></li>
+<li><p><a class="reference internal" href="#coordinates" id="id19">ကိုဩဒိနိတ်များ (Coordinates)</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#overviews" id="id20">ခြုံငုံပြမြေပုံများ (Overviews)</a></p></li>
+</ul>
+</nav>
+<p>မြေပုံ item သည် မြေပုံ canvas တွင် ဖန်တီးခဲ့သောမြေပုံကိုပြသပေးသည့် ပင်မ frame ဖြစ်သည်။ <a class="reference internal" href="composer_items_options.html#create-layout-item"><span class="std std-ref">Item များဖန်တီးခြင်းဆိုင်ရာညွှန်ကြားချက်များ</span></a> ကိုလိုက်နာ၍ <a class="reference internal" href="composer_items_options.html#interact-layout-item"><span class="std std-ref">Layout item များနှင့် အပြန်အလှန်လုပ်ဆောင်ခြင်း (Interacting with layout items)</span></a> တွင် ဖော်ပြထားသည့်နည်းလမ်းအတိုင်းကိုင်တွယ်နိုင်မည့် မြေပုံ item အသစ်တစ်ခုထည့်သွင်းရန် <a class="reference internal" href="../../../../_images/mActionAddMap.png"><img alt="addMap" src="../../../../_images/mActionAddMap.png" style="width: 1.5em;" /></a> <span class="guilabel">Add Map</span> tool ကိုအသုံးပြုပါ။</p>
+<p>Default အားဖြင့် မြေပုံ item အသစ်တစ်ခုသည် <a class="reference internal" href="../../map_views/map_view.html#label-mapview"><span class="std std-ref">မြေပုံ canvas</span></a> ၏ extent (နယ်ပယ်အကျယ်အဝန်း) နှင့် မြင်နိုင်သော layer များပါဝင်သော မြေပုံ canvas ၏ လက်ရှိ အခြေအနေကို ပြသပေးသည်။ ၎င်းကို <span class="guilabel">Item Properties</span> panel မှတစ်ဆင့် စိတ်ကြိုက်ပြင်ဆင်နိုင်သည်။ ဤ feature တွင် <a class="reference internal" href="composer_items_options.html#item-common-properties"><span class="std std-ref">item များ၏ဘုံဂုဏ်သတ္တိများ</span></a> အပြင် အောက်ပါလုပ်ဆောင်ချက်များပါရှိသည်-</p>
+<figure class="align-center" id="id1">
+<span id="figure-layout-map"></span><img alt="../../../../_images/map_mainproperties.png" src="../../../../_images/map_mainproperties.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 21.14 </span><span class="caption-text">မြေပုံ Item ဂုဏ်သတ္တိများ Panel</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<section id="the-toolbar">
+<h2><a class="toc-backref" href="#id10" role="doc-backlink"><span class="section-number">21.2.2.1. </span>The Toolbar</a><a class="headerlink" href="#the-toolbar" title="Link to this heading"></a></h2>
+<p>မြေပုံ၏ <span class="guilabel">Item Properties</span> panel တွင် အောက်ပါလုပ်ဆောင်ချက်များပါရှိသော toolbar တစ်ခုထည့်သွင်းထားသည်-</p>
+<ul>
+<li><p><a class="reference internal" href="../../../../_images/mActionRefresh.png"><img alt="refresh" src="../../../../_images/mActionRefresh.png" style="width: 1.5em;" /></a> <sup>Update map preview</sup> (မြေပုံ အကြိုကြည့်ရှုခြင်းအား update ပြုလုပ်ပါ)</p></li>
+<li><p><a class="reference internal" href="../../../../_images/mActionSetToCanvasExtent.png"><img alt="setToCanvasExtent" src="../../../../_images/mActionSetToCanvasExtent.png" style="width: 1.5em;" /></a> <sup>Set map canvas to match main canvas extent</sup> (အဓိက canvas extent နှင့်ကိုက်ညီစေရန် မြေပုံ canvas ကို သတ်မှတ်ပါ)</p></li>
+<li><p><a class="reference internal" href="../../../../_images/mActionViewExtentInCanvas.png"><img alt="viewExtentInCanvas" src="../../../../_images/mActionViewExtentInCanvas.png" style="width: 1.5em;" /></a> <sup>View current map extent in main canvas</sup> (အဓိက canvas ထဲတွင် လက်ရှိ မြေပုံ extent အား ကြည့်ရှုပါ)</p></li>
+<li><p><a class="reference internal" href="../../../../_images/mActionSetToCanvasScale.png"><img alt="setToCanvasScale" src="../../../../_images/mActionSetToCanvasScale.png" style="width: 1.5em;" /></a> <sup>Set map scale to match main canvas scale</sup> (အဓိက canvas စကေးနှင့်ကိုက်ညီစေရန် မြေပုံစကေးကို သတ်မှတ်ပါ)</p></li>
+<li><p><a class="reference internal" href="../../../../_images/mActionViewScaleInCanvas.png"><img alt="viewScaleInCanvas" src="../../../../_images/mActionViewScaleInCanvas.png" style="width: 1.5em;" /></a> <sup>Set main canvas to match current map scale</sup> (လက်ရှိမြေပုံစကေးနှင့်ကိုက်ညီစေရန် အဓိက canvas ကိုသတ်မှတ်ပါ)</p></li>
+<li><p><a class="reference internal" href="../../../../_images/mActionShowBookmarks.png"><img alt="showBookmarks" src="../../../../_images/mActionShowBookmarks.png" style="width: 1.5em;" /></a> <sup>Bookmarks</sup> - ရှိပြီးသား spatial bookmark တစ်ခုနှင့် ကိုက်ညီမှုရှိစေရန် မြေပုံ item extent ကို သတ်မှတ်ပါ။</p></li>
+<li><p><a class="reference internal" href="../../../../_images/mActionMoveItemContent.png"><img alt="moveItemContent" src="../../../../_images/mActionMoveItemContent.png" style="width: 1.5em;" /></a> <sup>Interactively edit map extent</sup> - မြေပုံ item အတွင်းတွင် ရွှေ့၍ မြင်ကွင်းချုံ့ခြင်း/ချဲ့ခြင်းများကို အပြန်အလှန်လုပ်ဆောင်ပေးပါသည်။</p></li>
+<li><p><a class="reference internal" href="../../../../_images/labelingSingle.png"><img alt="labelingSingle" src="../../../../_images/labelingSingle.png" style="width: 1.5em;" /></a> <sup>Labeling settings</sup> - Layout မြေပုံ item extent ထဲတွင် feature အညွှန်း၏ လုပ်ဆောင်ချက်များ (နေရာချထားမှု၊ မြင်နိုင်မှု…) ကို ကိုင်တွယ်နိုင်သည် -</p>
+<ul>
+<li><p><span class="guilabel">Margin from map edges</span> (မြေပုံအစွန်းများမှ margin) တစ်ခုအားသတ်မှတ်ပါ၊ အညွှန်းများကိုဖော်ပြခြင်းမပြုမည့် မြေပုံ item ၏ကန့်သတ်ချက်များမှ data ဖြင့်သတ်မှတ်ပေးနိုင်သောအကွာအဝေးတစ်ခု။</p></li>
+<li><p><a class="reference internal" href="../../../../_images/unchecked.png"><img alt="unchecked" src="../../../../_images/unchecked.png" style="width: 1.3em;" /></a> <span class="guilabel">Allow truncated labels on edges of map</span> - မြေပုံ item ၏ ခွင့်ပြုသော extent ထက်ကျော်လွန်၍ မြေပုံ၏ပြင်ပသို့တစ်စိတ်တစ်ပိုင်းကျရောက်နေသော အညွှန်းများ အားပြသခြင်းပြု/မပြု ထိန်းချုပ်ပေးပါသည်။ အမှန်ခြစ်ပေးခဲ့လျှင် ဤ အညွှန်းများကိုဖော်ပြပေးမည်ဖြစ်သည် (မြင်နိုင်သောနေရာအတွင်းတွင် အပြည့်အဝနေရာချထားရန် မဖြစ်နိုင်သောအခါ)။ အမှန်ခြစ်ဖြုတ်ထားခဲ့လျှင် တစ်စိတ်တစ်ပိုင်းသာမြင်ရသော အညွှန်းများကို ပြသမည်မဟုတ်ပါ၊</p></li>
+<li><p><span class="guilabel">Label blocking items</span>- အခြား layout item များ (စကေးဘားများ၊ မြောက်အရပ်ပြမြှားများ၊ ထည့်သွင်းထားသောမြေပုံများ ၊ အစရှိသဖြင့်) အား <strong>လက်ရှိရွေးချယ်ထားသော</strong> မြေပုံ item ထဲရှိ အညွှန်းများအတွက် ပိတ်ကွယ်နေသောအရာများ (blocker) အဖြစ် မှတ်ယူစေမည်ဖြစ်သည်။ ဤနည်းဖြင့် မည်သည့်မြေပုံအညွှန်းများကိုမဆို ၎င်းအရာများအောက်သို့ ရောက်မသွားစေရန်ကာကွယ်ပေးသည် - အညွှန်းတပ်သည့်စနစ်သည် သင့်တော်သည့်နေရာတွင် အဆိုပါအညွှန်းများအားနေရာချပေးခြင်း ဖြစ်စေနိုင်သလို ၎င်းတို့အားလုံးကို ပယ်ပစ်ခြင်းလည်း ဖြစ်စေနိုင်ပါသည်။</p>
+<p><span class="guilabel">Margin from map edges</span> တစ်ခုကို သတ်မှတ်ထားပါက အမှန်ခြစ်ထားသော layout item များမှ သတ်မှတ်ထားသောအကွာအဝေးထက်ပိုနီးသော နေရာတွင် မြေပုံအညွှန်းများကို နေရာချထားမည်မဟုတ်ပါ။</p>
+</li>
+<li><p><span class="guilabel">Show unplaced labels</span> - Layout မြေပုံထဲတွင်ပျောက်ဆုံးနေသော အညွှန်းများ (ဥပမာ- အခြားမြေပုံအညွှန်းများနှင့် ရောနှောနေခြင်းကြောင့် သို့မဟုတ်  အညွှန်းတပ်ရန်လုံလောက်သောနေရာမရှိခြင်းကြောင့်) ကို <a class="reference internal" href="../../working_with_vector/vector_properties.html#automated-placement"><span class="std std-ref">predefined color</span></a> (ကြိုတင်သတ်မှတ်ထားသောအရောင်) ဖြင့် ထင်ရှားအောင်ပြသ (highlight) ခြင်းဖြင့် ရှာဖွေရန်အသုံးပြုနိုင်မည်ဖြစ်သည်။</p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="../../../../_images/mAlgorithmClip.png"><img alt="clip" src="../../../../_images/mAlgorithmClip.png" style="width: 1.5em;" /></a> <sup>Clipping settings</sup> - မြေပုံ item အား atlas feature ၊ ပုံသဏ္ဍာန် (shape) နှင့် polygon item များဖြင့် တိဖြတ် (clip) စေနိုင်ပါသည်-</p>
+<ul>
+<li><p><a class="reference internal" href="../../../../_images/checkbox.png"><img alt="checkbox" src="../../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">Clip to atlas feature</span> - လက်ရှိ <a class="reference internal" href="../create_output.html#atlas-generation"><span class="std std-ref">atlas feature</span></a> ဖြင့် layout မြေပုံ item အား အလိုအလျောက် တိဖြတ် (clip) ပေးမည်ဖြစ်ပါသည်။</p>
+<p>ရရှိနိုင်သည့်မြေပုံ တိဖြတ်ခြင်းနည်းလမ်းများမှာ-</p>
+<ul class="simple">
+<li><p><span class="guilabel">Clip During Render Only</span> - Painter အခြေခံသော တိဖြတ်ခြင်း (clip) တစ်ခုကိုအသုံးပြုသည့်အတွက် atlas feature အပြင်ဘက်ရှိ vector feature များ၏အပိုင်းများကို မြင်ရမည်မဟုတ်ပါ။</p></li>
+<li><p><span class="guilabel">Clip Feature Before Render</span> - Feature ကို ပုံဖော်ပြသခြင်းမပြုမီ တိဖြတ်ခြင်း (clip) ပြုလုပ်ပေးပါသည်။ ထို့ကြောင့် atlas feature ၏ပြင်ပတွင်တစ်စိတ်တစ်ပိုင်းကျရောက်နေသော feature များ၏နယ်နိမိတ်များကို atlas feature ၏နယ်နိမိတ်ပေါ်တွင် မြင်နေရဦးမည်ဖြစ်သည်။</p></li>
+<li><p><span class="guilabel">Render Intersecting Features Unchanged</span> - လက်ရှိ atlas feature နှင့်ထိဖြတ်နေသည့် feature အားလုံး၏ ဂျီဩမေတြီကို တိဖြတ်ခြင်းမပြုဘဲ feature များအားလုံးကို ပုံဖော်ပြသပေးမည်ဖြစ်သည်။</p></li>
+</ul>
+<p><a class="reference internal" href="../../../../_images/checkbox.png"><img alt="checkbox" src="../../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">Force labels inside atlas feature</span> တွင်အမှန်ခြစ်ပေးထားနိုင်သည်။ Atlas feature ဖြင့် <a class="reference internal" href="../../../../_images/radiobuttonoff.png"><img alt="radioButtonOff" src="../../../../_images/radiobuttonoff.png" style="width: 1.5em;" /></a> <span class="guilabel">Clip all layers</span> (layer အားလုံးအားတိဖြတ်ခြင်း) မလုပ်လိုလျှင် <a class="reference internal" href="../../../../_images/radiobuttonon.png"><img alt="radioButtonOn" src="../../../../_images/radiobuttonon.png" style="width: 1.5em;" /></a> <span class="guilabel">Clip selected layers</span> (ရွေးချယ်ထားသော layer များအား တိဖြတ်ခြင်း) ကိုအသုံးပြုနိုင်သည်။</p>
+</li>
+<li><p><a class="reference internal" href="../../../../_images/checkbox.png"><img alt="checkbox" src="../../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">Clip to item</span> - Print layout မှ <a class="reference internal" href="composer_shapes.html#layout-basic-shape-item"><span class="std std-ref">shape</span></a> တစ်ခု သို့မဟုတ် <a class="reference internal" href="composer_shapes.html#layout-node-based-shape-item"><span class="std std-ref">polygon</span></a> item ကိုအသုံးပြု၍ မြေပုံ item ၏ပုံသဏ္ဍာန်ကိုပြောင်းလဲနိုင်သည်။ ဤရွေးချယ်မှုကိုအသုံးပြုထားသောအခါ combobox ထဲတွင် ရွေးချယ်ထားသော ပုံသဏ္ဍာန်အတိုင်း မြေပုံကိုအလိုအလျောက် တိဖြတ်သွားမည်ဖြစ်သည်။ တစ်ဖန် အထက်တွင်ဖော်ပြခဲ့သော တိဖြတ်ခြင်းနည်းလမ်းများကိုအသုံးပြုနိုင်ပြီး အညွှန်းများကို တိဖြတ်ထားသော ပုံသဏ္ဍာန်အတွင်းတွင်သာ ပြသစေနိုင်ပါသည်။</p>
+<figure class="align-center" id="id2">
+<span id="figure-layout-mapclipitem"></span><img alt="../../../../_images/map_cliptoitem.gif" src="../../../../_images/map_cliptoitem.gif" />
+<figcaption>
+<p><span class="caption-number">Fig. 21.15 </span><span class="caption-text">Layout မြေပုံ item တစ်ခုအား ပုံသဏ္ဍာန်များဖြင့် တိဖြတ်ခြင်း</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="main-properties">
+<span id="layout-main-properties"></span><h2><a class="toc-backref" href="#id11" role="doc-backlink"><span class="section-number">21.2.2.2. </span>အဓိကဂုဏ်သတ္တိများ (Main properties)</a><a class="headerlink" href="#main-properties" title="Link to this heading"></a></h2>
+<p>မြေပုံ၏ <span class="guilabel">Item Properties</span> panel မှ <span class="guilabel">Main properties</span> အုပ်စု (<a class="reference internal" href="#figure-layout-map"><span class="std std-numref">Fig. 21.14</span></a> ကိုကြည့်ပါ) တွင်ရရှိနိုင်သော ရွေးချယ်စရာများမှာ -</p>
+<ul class="simple">
+<li><p>မြေပုံ canvas ထဲရှိ မြင်ကွင်းတွင် အပြောင်းအလဲများပြုလုပ်လိုက်လျှင် မြေပုံအား update ပြုလုပ်၍ ပုံဖော်ပြသရန် <span class="guilabel">Update Preview</span> ခလုတ်ကို အသုံးပြုပါ။ အများအားဖြင့်  အပြောင်းအလဲများကို မြေပုံပေါ်တွင် အလိုအလျောက် update ပြုလုပ်ပေးသည်ကိုသတိပြုပါ။</p></li>
+<li><p>မြေပုံ item ၏စကေးကို ကိုယ်တိုင်သတ်မှတ်ရန် <span class="guilabel">Scale</span> ၊</p></li>
+<li><p>မြေပုံ item အကြောင်းအရာများကို ဒီဂရီဖြင့် နာရီလက်တံအတိုင်း လှည့်ပေးသည့် <span class="guilabel">Map rotation</span> (မြေပုံအလှည့်)။ မြေပုံ canvas အား လှည့်သည့်အတိုင်း တုပထားခြင်းဖြစ်သည်။</p></li>
+<li><p>မြေပုံ item အကြောင်းအရာကိုပြသရန် မည်သည့် <a class="reference internal" href="../../working_with_projections/working_with_projections.html#crs-selector"><span class="std std-ref">CRS</span></a> ကိုမဆိုရွေးချယ်နိုင်သည့် <span class="guilabel">CRS</span>။ ၎င်းသည် default အားဖြင့် <code class="docutils literal notranslate"><span class="pre">Use</span> <span class="pre">project</span> <span class="pre">CRS</span></code> ဖြစ်သည်။</p></li>
+<li><p>ပင်မမြေပုံ canvas တွင် နေရာချထားသော <a class="reference internal" href="../../map_views/map_view.html#sec-annotations"><span class="std std-ref">annotations (မှတ်စာများ)</span></a> များကို print layout ထဲတွင်ပြသပေးသည့် <a class="reference internal" href="../../../../_images/checkbox.png"><img alt="checkbox" src="../../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">Draw map canvas items</span> ။</p></li>
+</ul>
+</section>
+<section id="layer">
+<span id="layout-layers"></span><h2><a class="toc-backref" href="#id12" role="doc-backlink"><span class="section-number">21.2.2.3. </span>Layer များ</a><a class="headerlink" href="#layer" title="Link to this heading"></a></h2>
+<p>Default အားဖြင့် မြေပုံ item ၏အသွင်အပြင်သည် မြေပုံ canvas ပေါ်တွင်မြင်ရသည်နှင့် ချိန်သားကိုက်ထားခြင်းဖြစ်သည်။ ဆိုလိုသည်မှာ <span class="guilabel">Layers Panel</span> ထဲတွင် layer များ၏မြင်နိုင်မှုအားပြောင်းလဲခြင်း သို့မဟုတ် ၎င်းတို့၏ style များကိုပြင်ဆင်ပြောင်းလဲလိုက်ခြင်းဖြင့် မြေပုံ item ပေါ်တွင်အလိုအလျောက်ပြောင်းလဲပြီးသားဖြစ်သွားပါမည်။ အခြား item များကဲ့သို့ပင် စကေးအမျိုးမျိုးနှင့် အမျိုးမျိုးသော ဧရိယာများ၊ layer များပေါင်းစပ်ခြင်း အစရှိသည့် မြောက်များစွာသော မြေပုံ item များကို print layout တစ်ခုထဲသို့ ထည့်သွင်းလိုပါက synchronization (ချိန်သားကိုက်ခြင်း) ကိုရပ်တန့်ထားရန်လိုအပ်ပါသည်။ ထိုသို့ပြုလုပ်နိုင်ရန်  <span class="guilabel">Layers</span> ဂုဏ်သတ္တိများအုပ်စုကိုသုံးနိုင်သည် (<a class="reference internal" href="#figure-layout-map-layers"><span class="std std-numref">Fig. 21.16</span></a> ကိုကြည့်ပါ)။</p>
+<figure class="align-center" id="id3">
+<span id="figure-layout-map-layers"></span><img alt="../../../../_images/map_layers.png" src="../../../../_images/map_layers.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 21.16 </span><span class="caption-text">မြေပုံ Layer များ အုပ်စု</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>မြေပုံ item အား ရှိပြီးသား <a class="reference internal" href="../../introduction/general_tools.html#map-themes"><span class="std std-ref">map theme (မြေပုံအပြင်အဆင်)</span></a> တစ်ခုအတိုင်း ထားရှိလိုပါက <a class="reference internal" href="../../../../_images/checkbox.png"><img alt="checkbox" src="../../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">Follow map theme</span> ကိုအမှန်ခြစ်၍ drop-down စာရင်းမှလိုချင်သည့် မြေပုံအပြင်အဆင် ကိုရွေးချယ်နိုင်သည်။ ပင်မ QGIS window ရှိ အပြင်အဆင်တွင် ပြုလုပ်လိုက်သော ပြောင်းလဲမှုမှန်သမျှ (အပြင်အဆင်အား အစားထိုးသည့်လုပ်ဆောင်ချက်အားအသုံးပြုခြင်း)သည် မြေပုံ item တွင် အလိုအလျောက် သက်ရောက်မည်ဖြစ်သည်။ Map theme တစ်ခုအားရွေးချယ်လိုက်သောအခါ <span class="guilabel">Follow map theme</span> သည် layer များ၏ style များ (သင်္ကေတများ၊ အညွှန်းများ၊ ရုပ်ပုံကားချပ်များ) ကိုပါ update လုပ်လိုက်မည်ဖြစ်သောကြောင့် <span class="guilabel">Lock styles for layers</span> option သည် ပိတ်သွားမည်ဖြစ်သည်။</p>
+<p>လက်ရှိမြေပုံ canvas ပေါ်တွင်မြင်ရသည့်အတိုင်း မြေပုံ item တစ်ခုတွင်ပြသထားသည့် layer များကို lock ပြုလုပ်ရန် <a class="reference internal" href="../../../../_images/checkbox.png"><img alt="checkbox" src="../../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">Lock layers</span> ကိုအမှန်ခြစ်ပေးပါ။ ဤ option အားဖွင့်ထားသောအခါ QGIS ၏ ပင်မ window တွင်ရှိသော layer ၏ မြင်ရနိုင်မှုအပေါ် ပြောင်းလဲမှုမှန်သမျှသည် layout မြေပုံ item အားသက်ရောက်မှုရှိမည်မဟုတ်ပါ။ သို့သော် lock ပြုလုပ်ထားသည့် layer များ၏ style နှင့် အညွှန်းများ QGIS ၏ပင်မ window အတိုင်း update လုပ်နေဆဲဖြစ်မည်။ ထိုသို့ မဖြစ်စေရန် <span class="guilabel">Lock styles for layers</span> ကိုအသုံးပြုနိုင်ပါသည်။</p>
+<p>လက်ရှိမြေပုံ canvas ကို အသုံးပြုခြင်းအစား ရှိပြီးသား မြေပုံအပြင်အဆင်တစ်ခု၏ layer များဖြင့် မြေပုံ item ၏ layer များကို lock ပြုလုပ်နိုင်ပါသည်- <a class="reference internal" href="../../../../_images/mActionShowPresets.png"><img alt="showPresets" src="../../../../_images/mActionShowPresets.png" style="width: 1.5em;" /></a> <sup>Set layer list from a map theme</sup> drop-down ခလုတ်မှ မြေပုံအပြင်အဆင်တစ်ခုကိုရွေးချယ်ပြီး <a class="reference internal" href="../../../../_images/checkbox.png"><img alt="checkbox" src="../../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">Lock layers</span> ကိုအမှန်ခြစ်ပါ။ အခြားမြေပုံအပြင်အဆင်တစ်ခုကိုမရွေးချယ်မီ သို့မဟုတ် <a class="reference internal" href="../../../../_images/checkbox.png"><img alt="checkbox" src="../../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">Lock layers</span> option တွင် အမှန်ခြစ်မဖြုတ်မီအထိ မြေပုံအပြင်အဆင်ထဲတွင် မြင်တွေ့ရနိုင်သော layer အစုလိုက်ကို မြေပုံ item အတွက် အသုံးပြုသွားမည်ဖြစ်သည်။ ထို့နောက် <span class="guilabel">Navigation</span> toolbar မှ <a class="reference internal" href="../../../../_images/mActionRefresh.png"><img alt="refresh" src="../../../../_images/mActionRefresh.png" style="width: 1.5em;" /></a> <sup>Refresh view</sup> ခလုတ်ကိုသုံး၍ဖြစ်စေ အပေါ်တွင်တွေ့ရသော <span class="guilabel">Update Preview</span> ခလုတ်ကိုသုံး၍ဖြစ်စေ မြင်ကွင်းအား update လုပ်ရန် လိုအပ်ပါသည်။</p>
+<p><span class="guilabel">Follow map theme</span> option နှင့်မတူညီသည့်အချက်မှာ <span class="guilabel">Lock layers</span> option ကိုဖွင့်ထားပြီး မြေပုံအပြင်အဆင်တစ်ခုတွင် သတ်မှတ်လျှင် QGIS ၏ပင်မ window ထဲတွင် မြေပုံအပြင်အဆင်သည် update ဖြစ်သွားသည့်တိုင် (အပြင်အဆင်အား အစားထိုးသည့်လုပ်ဆောင်ချက်အားအသုံးပြုခြင်း) မြေပုံ item ထဲမှ layer များကို update လုပ်မည်မဟုတ်ကြောင်းသတိပြုရမည်ဖြစ်သည်။</p>
+<p>Option ၏ဘေးရှိ <a class="reference internal" href="../../../../_images/mIconDataDefine.png"><img alt="dataDefine" src="../../../../_images/mIconDataDefine.png" style="width: 1.5em;" /></a> သင်္ကေတအားအသုံးပြုခြင်းဖြင့် မြေပုံ item ထဲရှိ lock ပြုလုပ်ထားသော layer များကို <a class="reference internal" href="../../introduction/general_tools.html#data-defined"><span class="std std-ref">data-defined</span></a> (Data ဖြင့်သတ်မှတ်) လုပ်ထားနိုင်သည်။ အသုံးပြုသောအခါ ၎င်းသည် drop-down စာရင်းတွင် သတ်မှတ်ထားသော ရွေးချယ်မှုကို အစားထိုးလုပ်ဆောင်သွားမည်ဖြစ်သည်။ Layer များ၏စာရင်းကို <code class="docutils literal notranslate"><span class="pre">|</span></code> သင်္ကေတများဖြင့်ပိုင်းခြားပေးထားရန်လိုအပ်သည်။ အောက်ပါဥပမာသည် <code class="docutils literal notranslate"><span class="pre">layer</span> <span class="pre">1</span></code> နှင့် <code class="docutils literal notranslate"><span class="pre">layer</span> <span class="pre">2</span></code> များကိုသာအသုံးပြုစေရန် မြေပုံ item အား lock ပြုလုပ်ခြင်းကို ပြသထားပါသည်-</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">concat</span> <span class="p">(</span><span class="s1">&#39;layer 1&#39;</span><span class="p">,</span> <span class="s1">&#39;|&#39;</span><span class="p">,</span> <span class="s1">&#39;layer 2&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="extents">
+<h2><a class="toc-backref" href="#id13" role="doc-backlink"><span class="section-number">21.2.2.4. </span>နယ်ပယ်အကျယ်အဝန်းများ (Extents)</a><a class="headerlink" href="#extents" title="Link to this heading"></a></h2>
+<p>မြေပုံ item ဂုဏ်သတ္တိများ panel ၏ <span class="guilabel">Extents</span> အုပ်စုတွင် အောက်ပါလုပ်ဆောင်ချက်များပါဝင်ပါသည် (<a class="reference internal" href="#figure-layout-map-extents"><span class="std std-numref">Fig. 21.17</span></a> ကိုကြည့်ပါ)-</p>
+<figure class="align-center" id="id4">
+<span id="figure-layout-map-extents"></span><img alt="../../../../_images/map_extents.png" src="../../../../_images/map_extents.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 21.17 </span><span class="caption-text">မြေပုံနယ်ပယ်အကျယ်အဝန်းများအုပ်စု</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><strong>Extents</strong> ဧရိယာသည် မြေပုံ item ထဲတွင်ပြသထားသောဧရိယာ၏ <code class="docutils literal notranslate"><span class="pre">X</span></code> နှင့် <code class="docutils literal notranslate"><span class="pre">Y</span></code> ကိုဩဒိနိတ်များကိုပြသပေးသည်။ အဆိုပါ ကိုဩဒိနိတ်တန်ဖိုးများ တစ်ခုချင်းစီကို အစားထိုး၍ ပြသထားသည့် မြေပုံ canvas ပေါ်မှ ဧရိယာ နှင့်/သို့မဟုတ် မြေပုံ item ၏အရွယ်အစားကို ပြုပြင်ပြောင်းလဲနိုင်သည်။ Extent အား မြေပုံ item panel ၏ထိပ်တွင်ရှိသော အောက်ပါ tool များကိုအသုံးပြုခြင်းဖြင့်လည်း ပြုပြင်ပြောင်းလဲနိုင်သည်-</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../../../../_images/mActionSetToCanvasExtent.png"><img alt="setToCanvasExtent" src="../../../../_images/mActionSetToCanvasExtent.png" style="width: 1.5em;" /></a> <sup>Set map canvas to match main canvas extent</sup> (အဓိက canvas extent နှင့်ကိုက်ညီစေရန် မြေပုံ canvas ကို သတ်မှတ်ပါ)</p></li>
+<li><p><a class="reference internal" href="../../../../_images/mActionSetToCanvasScale.png"><img alt="setToCanvasScale" src="../../../../_images/mActionSetToCanvasScale.png" style="width: 1.5em;" /></a> <sup>Set map scale to match main canvas scale</sup> (အဓိက canvas စကေးနှင့်ကိုက်ညီစေရန် မြေပုံစကေးကို သတ်မှတ်ပါ)</p></li>
+</ul>
+<p><a class="reference internal" href="../../../../_images/mActionMoveItemContent.png"><img alt="moveItemContent" src="../../../../_images/mActionMoveItemContent.png" style="width: 1.5em;" /></a> <sup>Move item content</sup> tool အားအသုံးပြုခြင်းဖြင့် မြေပုံ item တစ်ခုအား ပြောင်းလဲနိုင်သည်- မြေပုံ item အတွင်း click နှိပ်၍ ဖိဆွဲကာ ရွှေ့ခြင်းဖြင့် စကေးကိုမပြောင်းလဲစေပဲ ၎င်း၏လက်ရှိမြင်ကွင်းကိုပြောင်းလဲနိုင်သည်။ <a class="reference internal" href="../../../../_images/mActionMoveItemContent.png"><img alt="moveItemContent" src="../../../../_images/mActionMoveItemContent.png" style="width: 1.5em;" /></a> tool အားဖွင့်ထားပြီး မောက်စ်ဘီးလုံး ဖြင့် မြင်ကွင်းချုံ့ခြင်း သို့မဟုတ် ချဲ့ခြင်းပြုလုပ်ကာ ပြထားသောမြေပုံ၏ စကေးကို ပြောင်းလဲနိုင်သည်။ <kbd class="kbd docutils literal notranslate">Ctrl</kbd> ခလုတ်ဖြင့် တွဲ၍လုပ်ဆောင်သောအခါ ချောမွေ့သော မြင်ကွင်းချုံ့ချဲ့မှုကို ရရှိနိုင်သည်။</p>
+</section>
+<section id="temporal-range">
+<span id="mapitem-temporalrange"></span><span id="index-1"></span><h2><a class="toc-backref" href="#id14" role="doc-backlink"><span class="section-number">21.2.2.5. </span>အချိန်ကာလဆိုင်ရာ ဂုဏ်သတ္တိများ (Temporal range)</a><a class="headerlink" href="#temporal-range" title="Link to this heading"></a></h2>
+<p>မြေပုံ item ဂုဏ်သတ္တိများ panel ၏ <span class="guilabel">Temporal range</span> အုပ်စုတွင်  အချိန်အပိုင်းအခြားပေါ်မူတည်၍ မြေပုံ item ထဲရှိ layer များအားပုံဖော်ပြသခြင်းကို ထိန်းချုပ်နိုင်သော option များရှိပါသည်။ <span class="guilabel">Start</span> (စချိန်) နှင့် <span class="guilabel">End</span> (ဆုံးချိန်) ရက်စွဲများဖြင့် သတ်မှတ်ထားသောအချိန်အပိုင်းအခြားအတွင်း ကျရောက်သော  အချိန်ဆိုင်ရာဂုဏ်သတ္တိများရှိသည့် layer များကိုသာ မြေပုံ item ထဲတွင်ပြသမည်ဖြစ်သည်။</p>
+<p>သက်ဆိုင်ရာ ဒေတာသတ်မှတ်ထားသော widget များဖြင့် အချိန်အပိုင်းအခြားကို dynamic (ပြောင်းလဲနေ) ဖြစ်နေစေရန် လုပ်ဆောင်နိုင်ပြီး အချိန်နှင့်သက်ဆိုင်သော <a class="reference internal" href="../create_output.html#atlas-generation"><span class="std std-ref">atlases (မြေပုံစီးရီး)</span></a> များကို ရလာဒ် ထုတ်ပေးနိုင်ပါသည်၊ ဥပမာ- တည်နေရာဆိုင်ရာအကျယ်အဝန်းကို ပုံသေသတ်မှတ်ထားပြီး ပါဝင်သောအကြောင်းအရာများသည် အချိန်အပေါ်မူတည်၍ ပြောင်းလဲနေသည့် automated (အလိုအလျောက်ဖြစ်သော) မြေပုံများ။ ဥပမာအားဖြင့်- အချိန်အပိုင်းအခြားများကို ကိုယ်စားပြုသော အစနှင့် အဆုံး အတွဲလိုက် field များနှင့် row အရေအတွက်များပါဝင်သော csv file တစ်ခုအား coverage layer အဖြစ် အသုံးပြုခြင်းသည် မြေပုံ item ဂုဏ်သတ္တိများရှိ Temporal range (အချိန်အပိုင်းအခြား) နှင့် control by atlas (atlas မှထိန်းချုပ်ခြင်း) နှစ်ခုစလုံးကို ပွင့်စေပြီး atlas export ပြုလုပ်နိုင်မည်ဖြစ်သည်။</p>
+</section>
+<section id="atlas-controlled-by-atlas">
+<span id="controlled-atlas"></span><span id="index-2"></span><h2><a class="toc-backref" href="#id15" role="doc-backlink"><span class="section-number">21.2.2.6. </span>Atlas ဖြင့်ထိန်းချုပ်ထားသည် (Controlled by atlas)</a><a class="headerlink" href="#atlas-controlled-by-atlas" title="Link to this heading"></a></h2>
+<p>Print layout ထဲတွင် <a class="reference internal" href="../create_output.html#atlas-generation"><span class="std std-ref">atlas</span></a> တစ်ခုကိုဖွင့်ထားမှသာ <a class="reference internal" href="../../../../_images/checkbox.png"><img alt="checkbox" src="../../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">Controlled by atlas</span> အုပ်စုဂုဏ်သတ္တိများအား အသုံးပြုနိုင်မည်ဖြစ်သည်။ မြေပုံ item ကို altas ဖြင့် ထိန်းချုပ်လိုက်လျှင် ဤ option ကို အမှန်ခြစ်ပါ။ Coverage layer တွင် ထပ်ခါထပ်ခါပြုလုပ် (iterate) သောအခါ မြေပုံ item extent သည် အောက်ပါတို့ပေါ်မူတည်၍ atlas feature သို့ ရွေ့သွား/မြင်ကျယ်ချဲ့သွားမည်ဖြစ်သည်-</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../../../../_images/radiobuttonon.png"><img alt="radioButtonOn" src="../../../../_images/radiobuttonon.png" style="width: 1.5em;" /></a> <span class="guilabel">Margin around features</span> - Feature ကို အကောင်းဆုံး စကေး၌ မြင်ကွင်းချဲ့ခြင်းပြုလုပ်ပေးပြီး မြေပုံ item အကျယ် သို့မဟုတ် အမြင့်၏ ရာခိုင်နှုန်းတစ်ခုကို ကိုယ်စားပြုသော အနားသတ် (margin) တစ်ခုကို feature တစ်ခုချင်းစီ၏ပတ်လည်တွင် ထားရှိပေးမည်ဖြစ်သည်။ အနားသတ် သည် feature အားလုံးအတွက်တူညီနိုင်သကဲ့သို့ <a class="reference internal" href="../../introduction/general_tools.html#data-defined"><span class="std std-ref">variable သတ်မှတ်ထား</span></a> သည်လည်းဖြစ်နိုင်သည်၊ ဥပမာ- မြေပုံစကေးပေါ်တွင်မူတည်နေခြင်းမျိုးဖြစ်သည်။</p></li>
+<li><p><a class="reference internal" href="../../../../_images/radiobuttonoff.png"><img alt="radioButtonOff" src="../../../../_images/radiobuttonoff.png" style="width: 1.5em;" /></a> <span class="guilabel">Predefined scale (best fit)</span> - Atlas feature နှင့်အကောင်းဆုံးကိုက်ညီသည့် project ၏ <a class="reference internal" href="../../introduction/qgis_configuration.html#predefinedscales"><span class="std std-ref">ကြိုတင်သတ်မှတ်ထားသော စကေး</span></a> ၌ feature ကို မြင်ကွင်းချဲ့ခြင်းပြုလုပ်ပေးမည်ဖြစ်သည်။</p></li>
+<li><p><a class="reference internal" href="../../../../_images/radiobuttonoff.png"><img alt="radioButtonOff" src="../../../../_images/radiobuttonoff.png" style="width: 1.5em;" /></a> <span class="guilabel">Fixed scale</span>- မြေပုံ item ၏ စကေးကိုမပြောင်းလဲစေပဲ atlas feature များကို တစ်ခုမှအခြားတစ်ခုသို့ ကူးပြောင်းသွားစေသည်။ ၎င်းသည် အရွယ်အစားတူညီသော feature များနှင့်အလုပ်လုပ်လျှင်ဖြစ်စေ (ဥပမာ- gridတစ်ခု) သို့မဟုတ် atlas feature များအကြားတွင် အရွယ်အစားကွာခြားချက်အား ထင်ရှားစေလိုလျှင်ဖြစ်စေ အသုံးဝင်သည်။</p></li>
+</ul>
+</section>
+<section id="grids">
+<span id="index-3"></span><h2><a class="toc-backref" href="#id16" role="doc-backlink"><span class="section-number">21.2.2.7. </span>ဂရစ်လိုင်းများ (Grids)</a><a class="headerlink" href="#grids" title="Link to this heading"></a></h2>
+<p>Grid များကိုအသုံးပြု၍ မြေပုံပေါ်တွင် ၎င်း၏ extent သို့မဟုတ် ကိုဩဒိနိတ်များနှင့်ပတ်သက်သော အချက်အလက်များကို မြေပုံ item ၏ projection ဖြင့်ဖြစ်စေ အခြားမတူညီသည့် projection ဖြင့်ဖြစ်စေ ထည့်သွင်းနိုင်သည်။ <span class="guilabel">Grids</span> အုပ်စုဖြင့် မြေပုံ item တစ်ခုထဲသို့မြောက်များစွာသော grid များထည့်သွင်းနိုင်သည်။</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../../../../_images/symbologyAdd.png"><img alt="symbologyAdd" src="../../../../_images/symbologyAdd.png" style="width: 1.5em;" /></a> နှင့် <a class="reference internal" href="../../../../_images/symbologyRemove.png"><img alt="symbologyRemove" src="../../../../_images/symbologyRemove.png" style="width: 1.5em;" /></a> ခလုတ်များဖြင့် ရွေးချယ်ထားသော grid တစ်ခုကို ထည့်သွင်းခြင်း သို့မဟုတ် ဖယ်ရှားခြင်းပြုလုပ်နိုင်သည်။</p></li>
+<li><p><a class="reference internal" href="../../../../_images/mActionArrowUp.png"><img alt="arrowUp" src="../../../../_images/mActionArrowUp.png" style="width: 1.5em;" /></a> နှင့်|arrowDown| ခလုတ်များဖြင့် စာရင်းထဲရှိ grid တစ်ခုကို အပေါ် အောက် ရွှေ့နိုင်သည်၊ ထို့ကြောင့် မြေပုံပေါ်တွင် grid တစ်ခုအား အခြား တစ်ခု၏ အပေါ် သို့မဟုတ် အောက်သို့ရွှေ့နိုင်ပါသည်။</p></li>
+</ul>
+<p>ထည့်သွင်းလိုက်သော grid ပေါ်တွင် click နှစ်ချက်နှိပ်၍ ၎င်းအား အမည်ပြန်ပေးနိုင်သည်။</p>
+<figure class="align-center" id="id5">
+<span id="figure-layout-map-grid"></span><img alt="../../../../_images/map_grids.png" src="../../../../_images/map_grids.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 21.18 </span><span class="caption-text">မြေပုံ Grid များ Dialog</span><a class="headerlink" href="#id5" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Grid တစ်ခုကိုပြောင်းလဲရန်အတွက် ၎င်းအားရွေး၍ <span class="guilabel">Modify Grid…</span> ခလုတ်ကိုနှိပ်ပြီး <span class="guilabel">Map Grid Properties</span> panel အားဖွင့်ကာ ၎င်း၏ပြင်ဆင်သတ်မှတ်ခြင်းဆိုင်ရာ option များသို့ ဝင်ရောက်ပါ။</p>
+<section id="grid-appearance">
+<h3><a class="toc-backref" href="#id17" role="doc-backlink">ဂရစ်လိုင်းများ၏အသွင်အပြင် (Grid Appearance)</a><a class="headerlink" href="#grid-appearance" title="Link to this heading"></a></h3>
+<p>မြေပုံ item ပေါ်တွင် grid ပေါ်လာစေရန် <span class="guilabel">Map Grid Properties</span> panel ထဲမှ <a class="reference internal" href="../../../../_images/checkbox.png"><img alt="checkbox" src="../../../../_images/checkbox.png" style="width: 1.3em;" /></a><span class="guilabel">Grid enabled</span> ကိုအမှန်ခြစ်ပါ။</p>
+<p>Grid များ၏ အမျိုးအစားအနေဖြင့် အောက်ပါတို့ကို သုံးရန်သတ်မှတ်နိုင်သည်-</p>
+<ul class="simple">
+<li><p><em>Solid</em> - Grid ဘောင်တစ်လျှောက် မျဉ်းတစ်ကြောင်းကိုပြပေးသည်။ <span class="guilabel">Line style</span> အား <a class="reference internal" href="../../introduction/general_tools.html#color-selector"><span class="std std-ref">အရောင်</span></a> နှင့် <a class="reference internal" href="../../style_library/symbol_selector.html#symbol-selector"><span class="std std-ref">သင်္ကေတ</span></a> ရွေးချယ်ပေးသည့်အရာ  widget များသုံး၍ စိတ်ကြိုက်ပြင်ဆင်နိုင်သည်၊</p></li>
+<li><p><em>Cross</em> - Grid လိုင်းများဆုံသည့်နေရာများတွင် <span class="guilabel">Line style</span> နှင့် <span class="guilabel">Cross width</span> သတ်မှတ်နိုင်သည့် segment (မျဉ်းပိုင်း) တစ်ခုကိုပြပေးသည်၊</p></li>
+<li><p><em>Markers</em>- Grid လိုင်းများဆုံသည့်နေရာများတွင် စိတ်ကြိုက်ပြင်ဆင်နိုင်သော အမှတ်အသားသင်္ကေတများကိုသာ ပြပေးသည်၊</p></li>
+<li><p>သို့မဟုတ် <em>Frame နှင့် annotation များသာ</em>။</p></li>
+</ul>
+<p>Grid အမျိုးအစားအပြင် အောက်ပါတို့ကိုသတ်မှတ်နိုင်ပါသည်-</p>
+<ul class="simple">
+<li><p>Grid ၏ <span class="guilabel">CRS</span>။ ၎င်းအားမပြောင်းလျှင် မြေပုံ၏ CRS (Coordinate Reference System)အတိုင်းသတ်မှတ်မည်ဖြစ်သည်။ <span class="guilabel">Change</span> ခလုတ် ဖြင့် အခြားမတူညီသည့် CRS ကိုသတ်မှတ်နိုင်သည်။ အခြားတစ်ခုကို သတ်မှတ်ပြီးနောက် default သို့ပြန်လည်ပြောင်းလဲလိုပါက CRS ရွေးချယ်ခြင်း dialog ထဲရှိ <span class="guilabel">Predefined Coordinate Reference Systems</span> အောက်မှ အုပ်စုခေါင်းစီး တစ်ခုခုကိုရွေးလိုက်ခြင်းဖြင့် ပြုလုပ်နိုင်သည်။ (ဥပမာ- <strong>Geographic Coordinate System</strong>)</p></li>
+<li><p>Grid အကိုးအကား များအတွက် သုံးရန် <span class="guilabel">Interval</span> (ကြားအကွာအဝေး) အမျိုးအစား။ ရရှိနိုင်သောရွေးချယ်စရာများမှာ <code class="docutils literal notranslate"><span class="pre">မြေပုံယူနစ်</span></code> ၊ <code class="docutils literal notranslate"><span class="pre">အံကိုက်ဖြစ်သော</span> <span class="pre">Segment</span> <span class="pre">အကျယ်</span></code> ၊ <code class="docutils literal notranslate"><span class="pre">မီလီမီတာ</span></code> သို့မဟုတ် <code class="docutils literal notranslate"><span class="pre">စင်တီမီတာ</span></code> တို့ဖြစ်ပါသည်-</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">Fit</span> <span class="pre">Segment</span> <span class="pre">Width</span></code> ကိုရွေးချယ်ခြင်းသည် မြေပုံ extent အပေါ်အခြေခံ၍ grid interval ကို အလိုအလျောက်ဆုံးဖြတ်ပေးမည်ဖြစ်ပြီး သေသပ်လှပသော interval ရရှိစေမည်ဖြစ်သည်။ ရွေးချယ်သောအခါ <code class="docutils literal notranslate"><span class="pre">Minimum</span></code> နှင့် <code class="docutils literal notranslate"><span class="pre">Maximum</span></code> interval များကိုသတ်မှတ်နိုင်သည်။</p></li>
+<li><p>အခြားရွေးချယ်စရာများမှာ ကပ်လျက် grid အကိုးအကား နှစ်ခုကြားအကွာအဝေးအား <code class="docutils literal notranslate"><span class="pre">X</span></code> နှင့် <code class="docutils literal notranslate"><span class="pre">Y</span></code> ဦးတည်ရာများဖြင့် သတ်မှတ်နိုင်သည်။</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">X</span></code> နှင့်/သို့မဟုတ် <code class="docutils literal notranslate"><span class="pre">Y</span></code> ဦးတည်ရာဖြင့် မြေပုံ item အစွန်းများမှ <span class="guilabel">Offset</span> (အရွေ့)</p></li>
+<li><p>ကိုက်ညီမှုရှိသည့်အခါ အသုံးပြုနိုင်မည့် grid ၏ <span class="guilabel">Blend mode</span> (ရောစပ်ခြင်းနည်းလမ်း) (<a class="reference internal" href="../../introduction/general_tools.html#blend-modes"><span class="std std-ref">ရောစပ်ခြင်းနည်းလမ်းများ (Blending Modes)</span></a> ကိုကြည့်ပါ)</p></li>
+</ul>
+<figure class="align-center" id="id6">
+<span id="figure-layout-map-grid-draw"></span><img alt="../../../../_images/map_grid_appearance.png" src="../../../../_images/map_grid_appearance.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 21.19 </span><span class="caption-text">Grid အသွင်အပြင် Dialog</span><a class="headerlink" href="#id6" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="grid-frame">
+<h3><a class="toc-backref" href="#id18" role="doc-backlink">ဂရစ်လိုင်းဘောင် (Grid Frame)</a><a class="headerlink" href="#grid-frame" title="Link to this heading"></a></h3>
+<p>မြေပုံထည့်သွင်းထားရှိမည့် ဘောင်အတွက် style သတ်မှတ်ရန် ရွေးချယ်စရာအမျိုးမျိုးရှိပြီး အောက်ပါတို့ကိုအသုံးပြုနိုင်ပါသည်- <code class="docutils literal notranslate"><span class="pre">No</span> <span class="pre">Frame</span></code> ၊ <code class="docutils literal notranslate"><span class="pre">Zebra</span></code> ၊ <code class="docutils literal notranslate"><span class="pre">Zebra</span> <span class="pre">(nautical)</span></code>၊ <code class="docutils literal notranslate"><span class="pre">Interior</span> <span class="pre">ticks</span></code> ၊ <code class="docutils literal notranslate"><span class="pre">Exterior</span> <span class="pre">ticks</span></code>၊ <code class="docutils literal notranslate"><span class="pre">Interior</span> <span class="pre">and</span> <span class="pre">Exterior</span> <span class="pre">ticks</span></code>၊ <code class="docutils literal notranslate"><span class="pre">Line</span> <span class="pre">border</span></code> နှင့် <code class="docutils literal notranslate"><span class="pre">Line</span> <span class="pre">border</span> <span class="pre">(nautical)</span></code>။</p>
+<p>ထို့အပြင်အချို့နေရာများတွင် <span class="guilabel">Frame size (ဘောင်အရွယ်အစား)</span> ၊ <span class="guilabel">Frame margin (ဘောင်အနားသတ်)</span> တစ်ခု၊ သက်ဆိုင်ရာအရောင်ဖြင့် <span class="guilabel">Frame line thickness (ဘောင်လိုင်းအထူ)</span> နှင့် <span class="guilabel">Frame fill colors (ဘောင်အဖြည့်အရောင်)</span> တို့ကိုပါသတ်မှတ်နိုင်ပါမည်။</p>
+<p>လှည့်ထားသော မြေပုံများ သို့မဟုတ် projection ပြောင်းထားသော grid များနှင့် အလုပ်လုပ်သည့်အခါ အပိုင်းခွဲရာ၌ <code class="docutils literal notranslate"><span class="pre">Latitude/Y</span> <span class="pre">only</span></code> နှင့် <code class="docutils literal notranslate"><span class="pre">Longitude/X</span> <span class="pre">only</span></code> တန်ဖိုးများကို အသုံးပြုခြင်းဖြင့် တစ်ဘက်စီတွင် လတ္တီကျု/Y နှင့် လောင်ဂျီကျု/X ကိုဩဒိနိတ်များ ရောနှောပြသခြင်းကို ရှောင်ရှားနိုင်သည်။ Grid frame ၏ တစ်ဖက်တစ်ချက်စီတွင် မြင်နိုင်စေရန် သို့မဟုတ် မမြင်နိုင်စေရန် ကိုလည်း ရွေးချယ်သတ်မှတ်နိုင်ပါသည်။</p>
+<figure class="align-center" id="id7">
+<span id="figure-layout-map-frame"></span><img alt="../../../../_images/map_grid_frame.png" src="../../../../_images/map_grid_frame.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 21.20 </span><span class="caption-text">Grid ဘောင် Dialog</span><a class="headerlink" href="#id7" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="coordinates">
+<h3><a class="toc-backref" href="#id19" role="doc-backlink">ကိုဩဒိနိတ်များ (Coordinates)</a><a class="headerlink" href="#coordinates" title="Link to this heading"></a></h3>
+<p><a class="reference internal" href="../../../../_images/checkbox.png"><img alt="checkbox" src="../../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">Draw coordinates</span> တွင်အမှန်ခြစ်ခြင်းဖြင့် မြေပုံဘောင်တွင် ကိုဩဒိနိတ်များ ထည့်သွင်းနိုင်သည်။ မှတ်စာ (annotation) ကိန်းဂဏန်း format များကို ရွေးချယ်နိုင်ပါသည်၊ ရွေးချယ်စရာများမှာ ဒဿမကိန်းများမှဒီဂရီများအထိ၊ မိနစ်များနှငိ့စက္ကန့်များ၊ နောက်ဆက်တွဲများပါ/မပါ၊ တန်းညီ/မညီ နှင့် Expression dialog အားအသုံးပြု၍ စိတ်ကြိုက် format တစ်ခု စသည်တို့ဖြစ်ကြပါသည်။</p>
+<p>ဖော်ပြလိုသည့်မှတ်စာများကိုရွေးချယ်နိုင်သည်။ ရွေးချယ်စရာများမှာ- အားလုံးကိုပြရန်၊  လတ္တီကျုများသာပြရန်၊ လောင်ဂျီကျု များသာပြရန် သို့မဟုတ် မည်သည့်အရာမျှမပြရန်တို့ဖြစ်သည်။ ၎င်းသည် မြေပုံကိုလှည့်ထားသောအခါတွင် အသုံးဝင်မည်ဖြစ်သည်။ မြေပုံဘောင်၏ အတွင်းတွင်ဖြစ်စေ အပြင်တွင်ဖြစ်စေ မှတ်စာများကိုထားရှိနိုင်သည်။ မှတ်စာများ၏ဦးတည်ရာအား အလျားလိုက်ဖြစ်စေ၊ ဒေါင်လိုက် ငယ်စဉ်ကြီးလိုက်ဖြစ်စေ၊ ဒေါင်လိုက် ကြီးစဉ်ငယ်လိုက် ဖြစ်စေ သတ်မှတ်နိုင်သည်။</p>
+<p>နောက်ဆုံးအနေနှင့် မှတ်စာတွင် အသုံးပြုမည့် စာလုံးဖောင့်၊ စာလုံးဖောင့်အရောင်၊ မြေပုံဘောင်မှအကွာအဝေးနှင့် ရေးဆွဲထားသော ကိုဩဒိနိတ်များအတွက် ဂဏန်းတိကျမှုများကိုပါ သတ်မှတ်နိုင်မည်ဖြစ်သည်။</p>
+<figure class="align-center" id="id8">
+<span id="figure-layout-map-coord"></span><img alt="../../../../_images/map_grid_draw_coordinates.png" src="../../../../_images/map_grid_draw_coordinates.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 21.21 </span><span class="caption-text">Grid Draw ကိုဩဒိနိတ်များ dialog</span><a class="headerlink" href="#id8" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="overviews">
+<span id="index-4"></span><h2><a class="toc-backref" href="#id20" role="doc-backlink"><span class="section-number">21.2.2.8. </span>ခြုံငုံပြမြေပုံများ (Overviews)</a><a class="headerlink" href="#overviews" title="Link to this heading"></a></h2>
+<p>တစ်ခါတစ်ရံတွင် print layout ထဲ၌ မြေပုံများတစ်ခုထက်မကရှိနေနိုင်ပြီး မြေပုံ item တစ်ခု၏လေ့လာမှုဧရိယာ (study area) ကို အခြားမြေပုံ item တစ်ခုပေါ်တွင် တည်နေရာပြသလိုသည့်အခါများရှိတတ်ပါသည်။ ၎င်းသည် ဒုတိယမြေပုံပေါ်တွင်ပြသထားသော ပိုကြီးမားသည့်ပထဝီဝင်အနေအထားနှင့် ဆက်နွယ်သော ဧရိယာကို မြေပုံကြည့်ရှုသူများ ဖော်ထုတ်နိုင်စေရန် အဆင်ပြေသည့် ဥပမာတစ်ခုဖြစ်ပါသည်။</p>
+<p>မြေပုံ panel ၏ <span class="guilabel">Overviews</span> အုပ်စုဖြင့် မတူညီသော မြေပုံ extent နှစ်ခုကြားတွင် ချိတ်ဆက်မှုတစ်ခုဖန်တီးနိုင်ပြီး ၎င်းတွင်အောက်ပါလုပ်ဆောင်ချက်များပါဝင်သည်-</p>
+<figure class="align-center" id="id9">
+<span id="figure-layout-map-overview"></span><img alt="../../../../_images/map_overview.png" src="../../../../_images/map_overview.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 21.22 </span><span class="caption-text">မြေပုံ ခြုံငုံပြသမှုများ အုပ်စု</span><a class="headerlink" href="#id9" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Overview တစ်ခုအားဖန်တီးရန် အခြားမြေပုံ item တစ်ခု၏ extent ကိုတင်၍ ပြသလိုသည့် မြေပုံ item ကိုရွေးချယ်၍ <span class="guilabel">Item Properties</span> panel ထဲရှိ <span class="guilabel">Overviews</span> ကိုအကျယ်ဖြန့်ပါ။ ထို့နောက် <a class="reference internal" href="../../../../_images/symbologyAdd.png"><img alt="symbologyAdd" src="../../../../_images/symbologyAdd.png" style="width: 1.5em;" /></a> ခလုတ်ကိုနှိပ်၍ Overview တစ်ခုကိုထည့်သွင်းပါ။</p>
+<p>ပထမဆုံးအနေနှင့် ဤ overview အား ‘Overview 1’ ဟုအမည်ပေးထားပါမည် (<a class="reference internal" href="#figure-layout-map-overview"><span class="std std-numref">Fig. 21.22</span></a> ကိုကြည့်ပါ)။ ၎င်းအား-</p>
+<ul class="simple">
+<li><p>Click နှစ်ချက်နှိပ်၍ အမည်ပြန်ပေးနိုင်သည်။</p></li>
+<li><p><a class="reference internal" href="../../../../_images/symbologyAdd.png"><img alt="symbologyAdd" src="../../../../_images/symbologyAdd.png" style="width: 1.5em;" /></a> နှင့် <a class="reference internal" href="../../../../_images/symbologyRemove.png"><img alt="symbologyRemove" src="../../../../_images/symbologyRemove.png" style="width: 1.5em;" /></a> ခလုတ်များဖြင့် overview များထည့်နိုင်သကဲ့သို့ ဖယ်ရှားနိုင်သည်။</p></li>
+<li><p><a class="reference internal" href="../../../../_images/mActionArrowUp.png"><img alt="arrowUp" src="../../../../_images/mActionArrowUp.png" style="width: 1.5em;" /></a> နှင့် <a class="reference internal" href="../../../../_images/mActionArrowDown.png"><img alt="arrowDown" src="../../../../_images/mActionArrowDown.png" style="width: 1.5em;" /></a> ခလုတ်များဖြင့် စာရင်းထဲတွင် overview အား မြေပုံ item ထဲရှိ အခြား overview များ၏ အထက် သို့မဟုတ် အောက်တွင် ထားခြင်းဖြင့် အပေါ်အောက်ရွှေ့နိုင်သည်။ (တူညီသော <a class="reference internal" href="#overview-stack-position"><span class="std std-ref">stack position</span></a> တွင်ရှိနေသောအခါ)</p></li>
+</ul>
+<p>ထို့နောက် စာရင်းထဲရှိ overview item အားရွေးချယ်၍ ရွေးချယ်ထားသော မြေပုံ frame ပေါ်တွင် overview ရေးဆွဲရန် <span class="guilabel">Draw “&lt;name_overview&gt;” overview</span> ကိုအမှန်ခြစ်ပါ။ ၎င်းကိုအောက်ပါတို့ဖြင့် စိတ်ကြိုက်ပြင်ဆင်နိုင်သည်-</p>
+<ul class="simple">
+<li><p><span class="guilabel">Map frame</span> သည် လက်ရှိ မြေပုံ item ပေါ်တွင်ပြသမည့် extent ပါရှိသော မြေပုံ item ကိုရွေးချယ်ပေးသည်။</p></li>
+<li><p><span class="guilabel">Frame Style</span> သည် overview frame ကိုပုံဖော်ပြသရန် <a class="reference internal" href="../../style_library/symbol_selector.html#symbol-selector"><span class="std std-ref">သင်္ကေတဂုဏ်သတ္တိများ</span></a> ကို အသုံးပြုပါသည်။</p></li>
+<li><p><span class="guilabel">Blending mode</span> သည် အမျိုးမျိုးသော transparency (အလင်းဖောက်နှုန်း) ရောစပ်မှုနည်းလမ်းများကို သတ်မှတ်စေနိုင်ပါသည်။</p></li>
+<li><p><a class="reference internal" href="../../../../_images/checkbox.png"><img alt="checkbox" src="../../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">Invert overview</span> အမှန်ခြစ်ပေးထားသောအခါ မြေပုံ extent ၏ပတ်လည်တွင် mask (အဖုံးအကာ) တစ်ခုဖန်တီးပေးမည်ဖြစ်ပြီး- အကိုးအကားပြုထားသော မြေပုံ extent များကို ရှင်းလင်းစွာ ပြသပေးမည်ဖြစ်သည်။ မြေပုံ၏ကျန်ရှိသောအပိုင်းများကို ဘောင်တွင်ဖြည့်ထားသောအရောင်ဖြင့် ရောစပ်၍ ပြသပေးမည်ဖြစ်သည် (အဖြည့်အရောင် တစ်ခုကို သုံးထားလျှင်)</p></li>
+<li><p><a class="reference internal" href="../../../../_images/checkbox.png"><img alt="checkbox" src="../../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">Center on overview</span> သည် overview frame အားမြေပုံ၏အလယ်ဗဟိုတွင်ရှိနေစေရန် မြေပုံပါအကြောင်းအရာများကို ချိန်ညှိပေးသည်။
+overview မြောက်များစွာရှိစေကာမူ မြေပုံ၏အလယ်ဗဟိုတွင်  overviewတစ်ခုကိုသာလျှင်တင်ထားနိုင်မည်ဖြစ်သည်။</p></li>
+</ul>
+<ul class="simple" id="overview-stack-position">
+<li><p><span class="guilabel">Position</span> ဖြင့် မြေပုံ item ၏ layer အစုအထပ်ထဲတွင် overview အားထားရှိမည့်နေရာကို အတိအကျသတ်မှတ်နိုင်သည်။ ဥပမာ- အခြားနောက်ခံ layer များအပေါ်တွင် ရေးဆွဲရသော လမ်းများကဲ့သို့ အချို့ feature layer များအောက်တွင် overview extent အား ရေးဆွဲစေခြင်းဖြစ်ပါသည်။ ရရှိနိုင်သောရွေးချယ်စရာများမှာ-</p>
+<ul>
+<li><p><span class="guilabel">Below map</span> (မြေပုံအောက်တွင်)</p></li>
+<li><p><span class="guilabel">Below map layer</span> နှင့် <span class="guilabel">Above map layer</span> - Overview frame အား layer တစ်ခု၏ ဂျီဩမေတြီများအောက်နှင့်အပေါ်တ္ငင်အသီးသီးထားရှိပေးသည်။ Layer အား:guilabel:<cite>Stacking layer</cite> option ထဲတွင် ရွေးချယ်ခြင်းဖြစ်သည်။</p></li>
+<li><p><span class="guilabel">Below map labels</span>- မြေပုံ item ထဲတွင်အညွှန်းများအား feature ဂျီဩမေတြီများ၏အပေါ်တွင်အမြဲသတ်မှတ်ထားရှိပါက overview frame ကိုဂျီဩမေတြီအားလုံး၏အပေါ်နှင့် အညွှန်းများ၏အောက်တွင် ထားရှိပေးသည်။</p></li>
+<li><p><span class="guilabel">Above map labels</span> - Overview frame ကိုမြေပုံ item ထဲရှိ ဂျီဩမေတြီများ နှင့် အညွှန်းများအားလုံး၏အပေါ်တွင်ထားရှိပေးသည်။</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="composer_items_options.html" class="btn btn-neutral float-left" title="21.2.1. Layout Item တိုင်းတွင်ရှိသည့်ရွေးချယ်စရာများ (Layout Items Common Options)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="composer_map3d.html" class="btn btn-neutral float-right" title="21.2.3. ရုပ်ကြွမြေပုံ (The 3D Map Item)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2002-now, QGIS project.
+      <span class="lastupdated">Last updated on 2024 May 13, 16:23 +0700.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- Transifex follows a particular logic to build target pages:
+Expected French translation link for https://docs.qgis.org/3.28/en/docs/user_manual/print_composer/overview_composer.html
+would return https://app.transifex.com/qgis/qgis-documentation/translate/#fr/aa6d8bc653526d38b295ca94bf8eee5e
+with the md5 value of "github#qgis/QGIS-Documentation#release_3.28#locale/en/LC_MESSAGES/docs/user_manual/print_composer/overview_composer.po"-->
+<!--Make sure that mismatching language codes between Transifex and Sphinx are converted-->
+
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-info-circle"> QGIS Documentation </span>
+      v: 3.28
+      <span class="fa fa-caret-down"></span>
+    </span>
+
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Languages</dt>
+        
+          <dd><a href="https://docs.qgis.org/3.28/en/docs/user_manual/print_composer/composer_items/composer_map.html">en</a></dd>
+        
+      </dl>
+
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/user_manual/print_composer/composer_items/composer_map.html">testing</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/latest/en/docs/user_manual/print_composer/composer_items/composer_map.html">latest</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.28/en/docs/user_manual/print_composer/composer_items/composer_map.html">3.28</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.22/en/docs/user_manual/print_composer/composer_items/composer_map.html">3.22</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.16/en/docs/user_manual/print_composer/composer_items/composer_map.html">3.16</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.10/en/docs/user_manual/print_composer/composer_items/composer_map.html">3.10</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.4/en/docs/user_manual/print_composer/composer_items/composer_map.html">3.4</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/2.18/en/docs/user_manual/print_composer/composer_items/composer_map.html">2.18</a></dd>
+        
+      </dl>
+
+       
+       <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="https://docs.qgis.org/3.28/pdf">PDF</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.28/zip">HTML</a></dd>
+        
+      </dl>
+      
+
+      
+       
+      <dl>
+        <dt>Contribute to Docs</dt>
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/edit/master/docs/user_manual/print_composer/composer_items/composer_map.rst" target="_blank" rel="noopener noreferrer">Edit on GitHub</a>
+          </dd>
+          
+          
+          <dd>
+            <a href="https://app.transifex.com/qgis/qgis-documentation/translate/#en/cc85b8a79014904694d46a3a98514fb8" target="_blank" rel="noopener noreferrer">Translate Page</a>
+          </dd>
+          
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/issues" target="_blank" rel="noopener noreferrer">Report Issue</a>
+          </dd>
+      </dl>
+      
+
+      <dl>
+        <dt>On QGIS Project</dt>
+          <dd>
+            <a href="https://qgis.org/en" target="_blank" rel="noopener noreferrer">Home</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/api/3.28" target="_blank" rel="noopener noreferrer">C++ API</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/pyqgis/3.28" target="_blank" rel="noopener noreferrer">PyQGIS API</a>
+          </dd>
+          <dd>
+            <a href="https://github.com/qgis/QGIS/tree/release-3_28" target="_blank" rel="noopener noreferrer">Source</a>
+          </dd>
+      </dl>
+
+    </div>
+  </div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

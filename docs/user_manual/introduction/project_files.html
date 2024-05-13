@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>6. Project Files များနှင့် အလုပ်လုပ်ခြင်း (Working with Project Files) &mdash; QGIS Documentation  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/qgis_docs.css?v=3fdf4c33" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/qgis_logo.ico"/>
+    <link rel="canonical" href="https://docs.qgis.org/latest/en/docs/user_manual/introduction/project_files.html"/>
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../../_static/copybutton.js?v=f281be69"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="7. QGIS ၏အစိတ်အပိုင်းများ (QGIS GUI)" href="qgis_gui.html" />
+    <link rel="prev" title="5. စတင်အသုံးပြုခြင်း (Getting Started)" href="getting_started.html" />
+  <meta name="description" content="QGIS 3.28 documentation: 6. Project Files များနှင့် အလုပ်လုပ်ခြင်း (Working with Project Files)">
+</head>
+
+<body class="wy-body-for-nav">
+
+  <nav class="release_status_topbar">
+  </nav>
+
+   
+
+ 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+   
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            QGIS Documentation
+              <img src="../../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                3.28
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+   <a href= "../../../genindex.html">Index</a>
+ 
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">အသုံးပြုသူများအတွက်</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../preamble/preamble.html">1. စကားချီး (Preamble)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/foreword.html">2. အမှာစာ (Foreword)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/conventions.html">3. အသုံးအနှုန်းများ (Conventions)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/features.html">4. အသွင်အပြင်များ (Features)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">5. စတင်အသုံးပြုခြင်း (Getting Started)</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">6. Project Files များနှင့် အလုပ်လုပ်ခြင်း (Working with Project Files)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#qgis-project-introducing-qgis-projects">6.1. QGIS Project များအကြောင်းမိတ်ဆက်ခြင်း (Introducing QGIS projects)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#handling-broken-file-paths">6.2. ဖိုင်လမ်းကြောင်းအပျက်များကိုဖြေရှင်းခြင်း (Handling broken file paths)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#generating-output">6.3. ရလာဒ်များထုတ်ခြင်း (Generating output)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="qgis_gui.html">7. QGIS ၏အစိတ်အပိုင်းများ (QGIS GUI)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="browser.html">8. ဒေတာများရှာဖွေကြည့်ရှုနိုင်သည့်နေရာ (The Browser panel)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qgis_configuration.html">9. QGIS ပြင်ဆင်သတ်မှတ်ခြင်း/အခင်းအကျင်း (QGIS Configuration)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_projections/working_with_projections.html">10. မြေပုံအရိပ်ချစနစ်များ နှင့် အလုပ်လုပ်ခြင်း (Working with Projections)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../map_views/index.html">11. မြေပုံများအား ပုံဖော်ကြည့်ရှုခြင်း (Visualizing Maps)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="general_tools.html">12. အထွေ‌ထွေ‌သုံးကိရိယာများ (General Tools)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../expressions/index.html">13. Expression များဖြင့် အဆင့်မြှင့်တင်ဆောင်ရွက်ခြင်း (Level up with Expressions)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../style_library/index.html">14. The Style Library (Style နှင့်ပတ်သက်သည်များ ထားရှိရာနေရာ)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../managing_data_source/index.html">15. ဒေတာအရင်းအမြစ်များအား စီမံခန့်ခွဲခြင်း (Managing Data Source)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_vector/index.html">16. Vector data များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_raster/index.html">17. Raster Data နှင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_mesh/mesh_properties.html">18. Working with Mesh Data (Mesh Data များနှင့် အလုပ်လုပ်ခြင်း)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_vector_tiles/vector_tiles_properties.html">19. Vector Tiles များနှင့်အလုပ်လုပ်ခြင်း (Working with Vector Tiles)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_point_clouds/point_clouds.html">20. Point Cloud များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../print_composer/index.html">21. မြေပုံအချောသပ်ပြင်ဆင်ခြင်း (Laying out the maps)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_ogc/ogc_client_support.html">22. OGC / ISO protocol များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_gps/index.html">23. GPS Data များနှင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../auth_system/auth_overview.html">24. အထောက်အထားစီစစ်ခြင်းအကြောင်းအကျဉ်း (Authentication System Overview)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../auth_system/auth_workflows.html">25. အသုံးပြုသူ အထောက်အထားစစ်ဆေးခြင်း လုပ်ငန်းအဆင့်များ (User Authentication Workflows)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../auth_system/auth_considerations.html">26. လုံခြုံရေးအတွက်စဉ်းစားရန်အချက်များ (Security Considerations)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../grass_integration/grass_integration.html">27. GRASS GIS နှင့်ပေါင်းစပ်အသုံးပြုခြင်း (GRASS GIS Integration)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing/index.html">28. QGIS processing framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing_algs/index.html">29. Processing ဆိုင်ရာ ထောက်ပံ့ပေးသူများနှင့် Algorithm များ (Processing providers and algorithms)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/plugins.html">30. QGIS Plugin များ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/core_plugins/index.html">31. QGIS ပင်မ Plugin များကို အသုံးပြုခြင်း (Using QGIS Core Plugins)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/python_console.html">32. QGIS တွင် Python code များရေးသားရန်နေရာ (QGIS Python console)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/help_and_support.html">33. အကူအညီနှင့်အထောက်အပံ့ (Help and Support)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/contributors.html">34. ပါဝင်အားဖြည့်သူများ (Contributors)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendices/index.html">35. နောက်ဆက်တွဲများ (Appendices)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../literature_web/literature_and_web_references.html">36. စာတမ်းများနှင့် Website ကိုးကားချက်များ (Literature and Web References)</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">QGIS Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">&lt;no title&gt;</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">6. </span>Project Files များနှင့် အလုပ်လုပ်ခြင်း (Working with Project Files)</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/qgis/QGIS-Documentation/blob/master/docs/user_manual/introduction/project_files.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="getting_started.html" class="btn btn-neutral float-left" title="5. စတင်အသုံးပြုခြင်း (Getting Started)" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="qgis_gui.html" class="btn btn-neutral float-right" title="7. QGIS ၏အစိတ်အပိုင်းများ (QGIS GUI)" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <blockquote>
+<div></div></blockquote>
+<section id="project-files-working-with-project-files">
+<span id="project-files"></span><span id="index-0"></span><h1><span class="section-number">6. </span>Project Files များနှင့် အလုပ်လုပ်ခြင်း (Working with Project Files)<a class="headerlink" href="#project-files-working-with-project-files" title="Link to this heading"></a></h1>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#qgis-project-introducing-qgis-projects" id="id2">QGIS Project များအကြောင်းမိတ်ဆက်ခြင်း (Introducing QGIS projects)</a></p></li>
+<li><p><a class="reference internal" href="#handling-broken-file-paths" id="id3">ဖိုင်လမ်းကြောင်းအပျက်များကိုဖြေရှင်းခြင်း (Handling broken file paths)</a></p></li>
+<li><p><a class="reference internal" href="#generating-output" id="id4">ရလာဒ်များထုတ်ခြင်း (Generating output)</a></p></li>
+</ul>
+</nav>
+<section id="qgis-project-introducing-qgis-projects">
+<span id="sec-projects"></span><span id="index-1"></span><h2><a class="toc-backref" href="#id2" role="doc-backlink"><span class="section-number">6.1. </span>QGIS Project များအကြောင်းမိတ်ဆက်ခြင်း (Introducing QGIS projects)</a><a class="headerlink" href="#qgis-project-introducing-qgis-projects" title="Link to this heading"></a></h2>
+<p>QGIS တွင် လုပ်ငန်းဆောင်တာတစ်ခုခုဆောင်ရွက်နေသည့်အခြေအနေအား Project ဟုခေါ်ပြီး တစ်ကြိမ်တွင်
+Project တစ်ခုတည်းကိုသာ လုပ်ဆောင်နိုင်သည်။ Setting တစ်ခုသည် Project တစ်ခုအတွက် သီးသန့်ဖြစ်နိုင်သလို Project အသစ်များအတွက် Application တစ်ခုလုံးအတွက် မူရင်း Setting များလည်းဖြစ်နိုင်ပါသည်။ (<a class="reference internal" href="qgis_configuration.html#gui-options"><span class="std std-ref">ရွေးချယ်စရာများ (Options)</span></a> အခန်းတွင်
+အသေးစိတ်ကြည့်ရှုနိုင်သည်။) QGIS တွင် Menu Options ၌ ပါဝင်သည့် <span class="menuselection">Project ►</span> <a class="reference internal" href="../../../_images/mActionFileSave.png"><img alt="fileSave" src="../../../_images/mActionFileSave.png" style="width: 1.5em;" /></a> <span class="menuselection">Save</span> သို့မဟုတ်
+<span class="menuselection">Project ►</span> <a class="reference internal" href="../../../_images/mActionFileSaveAs.png"><img alt="fileSaveAs" src="../../../_images/mActionFileSaveAs.png" style="width: 1.5em;" /></a> <span class="menuselection">Save As…</span> သို့ဝင်ရောက်၍     မိမိ လုပ်ဆောင်ထားသော လုပ်ငန်းအခြေအနေအား
+<a class="reference internal" href="../appendices/qgis_file_formats.html#qgisprojectfile"><span class="std std-ref">QGIS project file</span></a> တစ်ခုအဖြစ် သိမ်းဆည်းနိုင်သည်။</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>မိမိလုပ်ဆောင်ထားသော Project ကို ထပ်မံပြောင်းလဲပြင်ဆင်မှုများ ပြုလုပ်ပါက title bar တွင် <code class="docutils literal notranslate"><span class="pre">*</span></code> သင်္ကေတ
+ပေါ်လာမည်ဖြစ်ပြီး ပုံမှန်အားဖြင့် အဆိုပါ ပြောင်းလဲပြင်ဆင်မှုများကို သိမ်းဆည်းလိုခြင်း ရှိ/မရှိ ကို QGIS မှ မေးမြန်းပါလိမ့်မည်။
+အဆိုပါလုပ်ဆောင်ချက်ကို <span class="menuselection">Settings ► Options ► General</span> Setting အောက်ရှိ
+<a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">Prompt to save project and data source changes when required</span> တွင် ထိန်းချုပ်ပြင်ဆင်နိုင်ပါသည်။</p>
+</div>
+<p>ယခင် လုပ်ဆောင်ထားပြီးဖြစ်သော project များကို QGIS တွင် ပြန်ဖွင့်လိုလျှင် Browser panel ကို အသုံးပြုနိုင်သကဲ့သို့
+<span class="menuselection">Project ►</span> <a class="reference internal" href="../../../_images/mActionFileOpen.png"><img alt="fileOpen" src="../../../_images/mActionFileOpen.png" style="width: 1.5em;" /></a> <span class="menuselection">Open…</span> ၊
+<span class="menuselection">Project ► New from template</span> သို့မဟုတ်
+<span class="menuselection">Project ► Open Recent ►</span> လမ်းကြောင်းများမှ တဆင့် ဝင်ရောက်၍လည်း ဖွင့်နိုင်သည်။</p>
+<p>QGIS ကို စတင်ဖွင့်လိုက်ပါက Screenshot များ၊ နာမည်များ နှင့် ဖိုင်လမ်းကြောင်းများပါဝင်သည့် <span class="guilabel">Project Templates</span> များနှင့်
+<span class="guilabel">Recent Projects</span> (လတ်တလော လုပ်ဆောင်ခဲ့သည့် Project များ) list များကို Project အရေအတွက် (၁၀) ခုအထိ ဖော်ပြထားပါသည်။
+<span class="guilabel">Recent Projects</span> သည် လတ်တလောအသုံးပြုခဲ့သော Project များကို ပြန်လည်လုပ်ဆောင်ရာတွင် အလွန်အသုံးဝင်သည်။ Project ဖိုင် သို့မဟုတ် Project template ကို  double-click နှိပ်၍ ဖွင့်နိုင်ပြီး
+Entry ကို right-click နှိပ်လိုက်ပါက <span class="guilabel">Pin to List</span> ၊ <span class="guilabel">Open Directory…</span> သို့မဟုတ် <span class="guilabel">Remove from List</span> ဟူ၍
+အခြားရွေးချယ်စရာများလည်း ပေါ်လာမည်ဖြစ်သည်။ Layer တစ်ခုကို ထည့်သွင်းလိုက်ခြင်းဖြင့်လည်း Project အသစ်တစ်ခုကို အလိုအလျောက် ဖန်တီးနိုင်ပါသည်။ ထို့နောက်တွင် ဖော်ပြနေသည့် list များသည် ပျောက်ကွယ်သွားမည်ဖြစ်ပြီး map canvas ပေါ်သို့ ရောက်ရှိသွားမည်ဖြစ်ပါသည်။</p>
+<p>လုပ်ဆောင်နေသော Project ကို ပိတ်၍ Project အသစ်တစ်ခုစတင်လိုလျှင် <span class="menuselection">Project ►</span> <a class="reference internal" href="../../../_images/mActionFileNew.png"><img alt="fileNew" src="../../../_images/mActionFileNew.png" style="width: 1.5em;" /></a> <span class="menuselection">New</span> နှိပ်၍
+စတင်နိုင်ပါသည်။ ဤသို့လုပ်ဆောင်ခြင်းဖြင့် လုပ်ဆောင်နေသော Project အား နောက်ဆုံးသိမ်းဆည်းထားသည့်ပုံစံအတိုင်း သိမ်းဆည်းသွားမည်ဖြစ်သည်။</p>
+<p>Project အသစ်တစ်ခုကို စတင်သောအခါ ၎င်းဖိုင်ကို အမည်တစ်ခု သတ်မှတ်၍ မသိမ်းဆည်းမီအချိန် အထိ project ၏ title bar တွင်
+<code class="docutils literal notranslate"><span class="pre">Untitled</span> <span class="pre">Project</span></code> ဟု တွေ့မြင်ရမည်ဖြစ်သည်။</p>
+<figure class="align-center" id="id1">
+<span id="figure-new-project"></span><img alt="../../../_images/new_project.png" src="../../../_images/new_project.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 6.1 </span><span class="caption-text">QGIS တွင် project အသစ်တစ်ခုကိုစတင်ခြင်း</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Project file တစ်ခုအတွင်း သိမ်းဆည်းထားသော အချက်အလက်များတွင် အောက်ပါတို့ပါဝင်သည်-</p>
+<ul class="simple">
+<li><p>ထည့်သွင်းထားသော layer များ</p></li>
+<li><p>Query (သီးသန့်ခွဲထုတ်ကြည့်ရှုခြင်း) ပြုလုပ်နိုင်သော layer များ</p></li>
+<li><p>သင်္ကေတနှင့် ပုံစံများပါဝင်သော Layer properties များ</p></li>
+<li><p>Layer နှင့်ပတ်သက်သော အကြောင်းအရာမှတ်စုများ</p></li>
+<li><p>2D နှင့် 3D မြေပုံမြင်ကွင်းများ</p></li>
+<li><p>Map view တစ်ခုချင်းစီအတွက် ပုံရိပ်ချစနစ်များ</p></li>
+<li><p>Map တစ်ခုချင်းစီအတွက် နောက်ဆုံးကြည့်ခဲ့သော extent (မြေပုံ၏နယ်ပယ်အကျယ်အဝန်း)</p></li>
+<li><p>Print ထုတ်ယူနိုင်သည့် Layouts အခင်းအကျင်းပုံစံများ</p></li>
+<li><p>Setting များပါဝင်သော Print ထုတ်ယူနိုင်သည့် layout ၏ အစိတ်အပိုင်းများ</p></li>
+<li><p>Print layout altas setting များ</p></li>
+<li><p>Digitize ပြုလုပ်နိုင်သည့် setting များ</p></li>
+<li><p>Table relation များ (ဇယားချိတ်ဆက်မှုများ)</p></li>
+<li><p>Project Macro များ</p></li>
+<li><p>Project ၏ မူရင်းပုံစံများ</p></li>
+<li><p>Plugins (အထူးလုပ်ဆောင်ချက်) setting များ</p></li>
+<li><p>Project properties ရှိ OWS setting tab မှ QGIS Server setting များ</p></li>
+<li><p>DB Manager တွင် သိမ်းဆည်းထားသော query များ</p></li>
+</ul>
+<p>QGIS တွင် project ဖိုင်ကို XML ဖိုင်အမျိုးအစားဖြင့် သိမ်းဆည်းပြီး ထိုဖိုင်ကိုဖွင့်နိုင်သည့် QGIS မဟုတ်သော
+အခြားနေရာတွင်လည်း ပြင်ဆင်တည်းဖြတ်နိုင်မည်ဖြစ်သည်။ (<a class="reference internal" href="../appendices/qgis_file_formats.html#qgisprojectfile"><span class="std std-ref">QGS/QGZ - QGIS project file ပုံစံ</span></a> တွင် အ‌သေးစိတ်ကြည့်နိုင်ပါသည်)
+Project file format များကို အကြိမ်ကြိမ် update ပြုလုပ်ကြပါသည်။ ယခင် QGIS version အဟောင်းများမှ
+project ဖိုင်များသည် နောက်ပိုင်းထွက်ပေါ်လာသော version အသစ်များတွင် ကိုက်ညီမှု ရှိနိုင်မည်မဟုတ်ပါ။</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>ပုံမှန်အားဖြင့် version မတူညီမှုကို သတိပေးချက်ကို တွေ့မြင်ရမည်ဖြစ်ပါသည်။ ၎င်းသတိပေးချက်ကို
+<span class="menuselection">Settings ► Options</span> ရှိ <span class="guilabel">General</span> tab မှ
+(<a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">Warn when opening a project file saved with an older version of QGIS</span>)
+ကို အမှန်ခြစ်ပြုလုပ်၍ ဖွင့်ထားနိုင်ပါသည်။</p>
+</div>
+<p>QGIS တွင် project ဖိုင်တစ်ခု ကို <code class="docutils literal notranslate"><span class="pre">.qgs</span></code> အဖြစ် သိမ်းဆည်းလိုက်တိုင်း တူညီသည့်ဖိုင်သိမ်းဆည်းရာလမ်းကြောင်းတစ်ခုတည်းတွင်
+backup file တစ်ခုကို <code class="docutils literal notranslate"><span class="pre">.qgs~</span></code> ဖိုင်အမျိုးအစားဖြင့် အလိုအလျောက်သိမ်းဆည်းပြီးဖြစ်သည်။ QGIS Project အတွက်  သိမ်းဆည်းသည့်ဖိုင်အမျိုးအစားမှာ <code class="docutils literal notranslate"><span class="pre">.qgs</span></code> ဖြစ်သော်လည်း QGIS မှ သိမ်းဆည်းသည့်အခါတိုင်းတွင်
+ပုံမှန်အားဖြင့်  <code class="docutils literal notranslate"><span class="pre">.qgz</span></code> format ဖြင့်  ဖိုင်အရွယ်အစားချုံ့၍ သိမ်းဆည်းသည်။ <code class="docutils literal notranslate"><span class="pre">.qgz</span></code> format ဖြင့် ဖိုင်အရွယ်အစားချုံ့၍
+သိမ်းဆည်းထားသည့် (zip archive) တွင် <code class="docutils literal notranslate"><span class="pre">.qgs</span></code> ဖိုင်နှင့်အတူ <a class="reference internal" href="../working_with_vector/vector_properties.html#vector-auxiliary-storage"><span class="std std-ref">auxiliary data</span></a>
+အတွက် ၎င်းနှင့်ဆက်စပ်လျက်ရှိသော SQLite database (<code class="docutils literal notranslate"><span class="pre">.qgd</span></code>) များပါ တွဲလျက်ပါဝင်သည်။ ထိုဖိုင်အားလုံးကို <code class="docutils literal notranslate"><span class="pre">.qgz</span></code> ဖိုင်အား
+unzip ပြုလုပ်၍ ရယူနိုင်ပါသည်။</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><a class="reference internal" href="../working_with_vector/vector_properties.html#vector-auxiliary-storage"><span class="std std-ref">အရန် database ဂုဏ်သတ္တိများ (Auxiliary Storage Properties)</span></a> လုပ်ဆောင်ချက်သည် zip ပြုလုပ်ထားသော project ဖိုင်တွင် လိုအပ်သည့်
+auxiliary data (အကူဒေတာများ) ကိုပါ တပါတည်း ထည့်သွင်းသိမ်းဆည်းစေနိုင်သောကြောင့် လွန်စွာအသုံးဝင်သော လုပ်ဆောင်ချက်တစ်ခုဖြစ်ပါသည်။</p>
+</div>
+<p id="saveprojecttodb">အောက်ဖော်ပြပါ menu item များ အသုံးပြု၍ Project ဖိုင်များကို PostgreSQL ၊ GeoPackage သို့မဟုတ်
+Oracle databaseများမှ သိမ်းဆည်းနိုင်/ ပြန်လည် ထုတ်ယူ အသုံးပြုခြင်းများ ဆောင်ရွက်နိုင်ပါသည်-</p>
+<ul class="simple">
+<li><p><span class="menuselection">Project ► Open from</span></p></li>
+<li><p><span class="menuselection">Project ► Save to</span></p></li>
+</ul>
+<p>ထို Menu item နှစ်ခုလုံးတွင် Project အား ထပ်မံသိမ်းဆည်းနိုင်သော နေရာများဖြစ်သည့် PostgreSQL၊ GeoPackage နှင့် Oracle များတွင်
+ချိတ်ဆက်သိမ်းဆည်းနိုင်ရန် Menu အခွဲများပါရှိသည်။ ထို Menu item များကို click နှိပ်လိုက်လျှင် GeoPackage ၊ PostgreSQL ၊  schema ၊ Oracle ချိတ်ဆက်မှုများနှင့်
+Project အား ချိတ်ဆက်နိုင်သည့်အပြင် အသုံးပြုသူနှင့် Project ကိုလည်း ချိတ်ဆက်နိုင်မည်ဖြစ်သည်။</p>
+<p>GeoPackage ၊ PostgreSQL သို့မဟုတ် Oracle တို့တွင် သိမ်းဆည်းထားသော Project များကို QGIS browser panel မှ ဖွင့်၍လည်းကောင်း၊
+အဆိုပါဖိုင်များကို double-click နှိပ်၍ လည်းကောင်း၊ map canvas ပေါ်သို့ ဖိဆွဲယူ၍လည်းကောင်း QGIS တွင် ထည့်သွင်းအသုံးပြုနိုင်ပါသည်။</p>
+</section>
+<section id="handling-broken-file-paths">
+<span id="handle-broken-paths"></span><h2><a class="toc-backref" href="#id3" role="doc-backlink"><span class="section-number">6.2. </span>ဖိုင်လမ်းကြောင်းအပျက်များကိုဖြေရှင်းခြင်း (Handling broken file paths)</a><a class="headerlink" href="#handling-broken-file-paths" title="Link to this heading"></a></h2>
+<p>Project ဖိုင်တစ်ခုကို ဖွင့်လိုက်သည့်အခါ မူရင်းဖိုင်တည်နေရာများအား ပြောင်းလဲခြင်း၊ အမည်ပြောင်းခြင်းများနှင့်
+အချို့သော Service/Database များမရရှိနိုင်သည့်အခါမျိုးတွင် QGIS တွင် ဖွင့်မရသော data များ ပါဝင်လာတတ်သည်။
+ထို data များပါဝင်ပါက <span class="guilabel">Handle Unavailable Layers</span> ဟူသည့်  Dialog window တစ်ခုပေါ်လာပြီး
+ရှာမတွေ့သော Layer များကိုဖော်ပြမည်ဖြစ်သည်။ ထိုအခါ-</p>
+<ul>
+<li><p>Dialog window ရှိ <span class="guilabel">Datasource</span> field ကို Click နှစ်ချက်နှိပ်၍ Layer တစ်ခုချင်းစီ၏
+ဖိုင်သိမ်းဆည်းရာလမ်းကြောင်းကို ပြောင်းလဲပြင်ဆင်ပြီး <span class="guilabel">Apply changes</span> ကို နှိပ်ပါ။</p></li>
+<li><p>Row တစ်ခုကို Select လုပ်၍ ဖိုင်လမ်းကြောင်းအမှန်ကို ဖော်ပြရန်အတွက် <span class="guilabel">Browse</span> ကိုနှိပ်ပြီးနောက် <span class="guilabel">Apply changes</span> ကို နှိပ်ပါ။</p></li>
+<li><p>Folder များကို browse ပြုလုပ်ပြီး လွှဲမှားနေသော ဖိုင်လမ်းကြောင်းများကို အလိုအလျောက်ပြင်ဆင်ရန်အတွက် <span class="guilabel">Auto-Find</span> ကိုနှိပ်ပါ။
+သို့သော် ထိုသို့အလိုအလျောက်ရှာဖွေခြင်းသည် အချိန်အနည်းငယ်ကြာနိုင်သည်။ ရှာဖွေပြီးပါက  <span class="guilabel">Apply changes</span> ကို နှိပ်ပါ။</p></li>
+<li><p>ပေါ်လာသော message ကို လျစ်လှူရှုကာ လွှဲမှားနေသည့်ဖိုင်လမ်းကြောင်းများပါဝင်သည့် Project ကို <span class="guilabel">Keep Unavailable Layers</span> ကိုနှိပ်၍
+ဖွင့်ပါ။ ထိုအခါ Layer များသည် <span class="guilabel">Layers</span> panel တွင် ပေါ်လာမည်ဖြစ်သော်လည်း
+<span class="guilabel">Layers</span> panel အတွင်းရှိ layer ၏ဘေးရှိ <a class="reference internal" href="../../../_images/mIndicatorBadLayer.png"><img alt="indicatorBadLayer" src="../../../_images/mIndicatorBadLayer.png" style="width: 1.5em;" /></a> <sup>Unavailable layer!</sup> icon ကို နှိပ်၍ဖြစ်စေ
+Layer ၏ Context menu ရှိ <span class="guilabel">Repair Data Source…</span> ကိုနှိပ်၍ဖြစ်စေ ဖိုင်လမ်းကြောင်းအမှန်ကို
+မပြောင်းမချင်း မည်သည့်ဒေတာမှ ပါဝင်မည်မဟုတ်ပါ။</p>
+<p><span class="guilabel">Repair Data Source…</span>  tool ကို သုံး၍ ဖိုင်လမ်းကြောင်းတစ်ခုအား ပြင်ဆင်ပြီးပါက
+QGIS သည် မှားယွင်းနေသည့်ဖိုင်လမ်းကြောင်းများအားလုံးကို scan ဖတ်ပေးပြီး ပြင်ဆင်ပြီးသည့်ဖိုင်လမ်းကြောင်းနှင့်အတူတူဖြစ်သည့် အခြားသော data များကိုပါ အလိုအလျောက်ပြင်ဆင်ပေးပါမည်။</p>
+</li>
+<li><p>ထိုဖိုင်လမ်းကြောင်းလွှဲမှားနေသာ Layer များကို အလုပ်လုပ်နေသော Project အတွင်းမှ
+<a class="reference internal" href="../../../_images/mActionDeleteSelected.png"><img alt="deleteSelected" src="../../../_images/mActionDeleteSelected.png" style="width: 1.5em;" /></a> <span class="guilabel">Remove Unavailable Layers</span> မှတဆင့် ဖယ်ရှားနိုင်သည်။</p></li>
+</ul>
+<p><a class="reference internal" href="qgis_configuration.html#skipbadlayers"><span class="std std-ref">--skipbadlayers</span></a> option ကို သုံး၍ QGIS အား Command line မှ ဖွင့်သောအခါ Project ဖွင့်ဖွင့်ချင်း၌
+ပေါ်လာတတ်သည့် <span class="guilabel">Handle Unavailable Layers</span> dialog window ကို ကျော်လွှားနိုင်ပေလိမ့်မည်။</p>
+</section>
+<section id="generating-output">
+<span id="sec-output"></span><h2><a class="toc-backref" href="#id4" role="doc-backlink"><span class="section-number">6.3. </span>ရလာဒ်များထုတ်ခြင်း (Generating output)</a><a class="headerlink" href="#generating-output" title="Link to this heading"></a></h2>
+<p id="index-2">QGIS မှ Output များ ထုတ်ရန် နည်းလမ်းများစွာရှိရာ Project ဖိုင်သိမ်းဆည်းခြင်းအကြောင်းကို
+<a class="reference internal" href="#sec-projects"><span class="std std-ref">QGIS Project များအကြောင်းမိတ်ဆက်ခြင်း (Introducing QGIS projects)</span></a> တွင် ဆွေးနွေးပြီးဖြစ်သည်။ Output ထုတ်ရန် အခြားနည်းလမ်းများမှာ အောက်ပါအတိုင်းဖြစ်သည်-</p>
+<ul class="simple">
+<li><p>ရုပ်ပုံများဖန်တီးခြင်း - ရုပ်ပုံများ ထုတ်ယူနိုင်ရန်  <span class="menuselection">Project ► Import/Export ►</span> <a class="reference internal" href="../../../_images/mActionSaveMapAsImage.png"><img alt="saveMapAsImage" src="../../../_images/mActionSaveMapAsImage.png" style="width: 1.5em;" /></a> <span class="menuselection">Export Map to Image…</span> မှတဆင့်
+Map Canvas အား ဓာတ်ပုံအဖြစ် ပြောင်းလဲထုတ်ယူနိုင်ပြီး မိမိကြိုက်နှစ်သက်သော စကေး (Scale)၊
+အရွယ်အစားနှင့် ကြည်လင်ပြတ်သားမှု (Resolution) ကို PNG ၊ JPG ၊ TIFF အစရှိသော Format များအနက် ကြိုက်နှစ်သက်ရာ ရုပ်ပုံ Format ကို
+ရွေး၍ ထုတ်နိုင်သည်။ ထိုရုပ်ပုံတွင် ပထဝီဝင်ဆိုင်ရာအချက်အလက်များ ပါဝင်စေလိုလျှင် <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">Append georeference information (embedded or via world file)</span>
+ကို အမှန်ခြစ်ပြုလုပ်၍ ထုတ်နိုင်သည်။ (မြေပုံထုတ်ယူခြင်းအတွက် <a class="reference internal" href="../map_views/map_view.html#exportingmapcanvas"><span class="std std-ref">မြေပုံမြင်ကွင်း အား export ပြုလုပ်ခြင်း (Exporting the map view)</span></a> တွင် အ‌သေးစိတ်လေ့လာနိုင်ပါသည်)</p></li>
+<li><p>PDF ဖိုင်အဖြစ် ပြောင်းလဲထုတ်ယူခြင်း - Map Canvas အား  PDF ဖိုင်အဖြစ် ပြောင်းလဲထုတ်ယူရန်
+<span class="menuselection">Project ► Import/Export ► Export Map to PDF…</span> အတိုင်း အလွယ်တကူ ထုတ်ယူနိုင်ပြီး
+မိမိကြိုက်နှစ်သက်သော စကေး (Scale)၊ အရွယ်အစားနှင့် ကြည်လင်ပြတ်သားမှု (Resolution)ကို Simplication နှင့်
+Georeferencing ကဲ့သို့သော အခြား Setting များနှင့်အတူ ရွေးချယ်၍ ပြောင်းလဲထုတ်ယူနိုင်သည်။ (မြေပုံထုတ်ယူခြင်းအတွက်
+<a class="reference internal" href="../map_views/map_view.html#exportingmapcanvas"><span class="std std-ref">မြေပုံမြင်ကွင်း အား export ပြုလုပ်ခြင်း (Exporting the map view)</span></a> တွင် အ‌သေးစိတ်လေ့လာနိုင်ပါသည်)</p></li>
+<li><p>DXF ဖိုင်အဖြစ် ပြောင်းလဲထုတ်ယူခြင်း - Project ကို DXF ဖိုင်အဖြစ် ပြောင်းလဲထုတ်ယူလိုလျှင်
+<span class="menuselection">Project ► Import/Export ► Export Project to DXF…</span> အတိုင်း ပြုလုပ်ပါက
+Dialog window တစ်ခုပေါ်လာမည်ဖြစ်ပြီး ထို dialog တွင် ကြိုက်နှစ်သက်ရာ ‘Symbology mode’ ၊ ‘Symbology scale’ နှင့်
+vector layers တို့ကို ရွေးချယ်၍  DXF ဖိုင်အဖြစ် ထုတ်ယူနိုင်မည်ဖြစ်သည်။ ‘Symbology mode’ တွင် QGIS မှ ရရှိနိုင်သည့် symbol (သင်္ကေတ) များကို မှန်ကန်တိကျစွာ ထုတ်ယူနိုင်သည်။ (DXF ဖိုင်အသစ်ဖန်တီးခြင်း အခန်းကို <a class="reference internal" href="../managing_data_source/create_layers.html#create-dxf-files"><span class="std std-ref">DXF files အသစ်များ ဖန်တီးခြင်း</span></a> တွင် အသေးစိတ်လေ့လာနိုင်ပါသည်)</p></li>
+<li><p>မြေပုံဒီဇိုင်းများရေးဆွဲခြင်း - Project မြေပုံများအား စိတ်ကြိုက်ပြင်ဆင်ရေးဆွဲနိုင်ရန်
+<span class="menuselection">Project ►</span> <a class="reference internal" href="../../../_images/mActionNewLayout.png"><img alt="newLayout" src="../../../_images/mActionNewLayout.png" style="width: 1.5em;" /></a> <span class="menuselection">New Print Layout…</span> အတိုင်းဝင်လိုက်ပါက
+Dialog window တစ်ခုပေါ်လာမည်ဖြစ်ပြီး ထို dialog တွင် လက်ရှိ မြေပုံမြင်ကွင်းကို ပြင်ဆင်ရေးဆွဲခြင်း၊ print ထုတ်ခြင်းများပြုလုပ်နိုင်ပါသည်။
+(မြေပုံများပြင်ဆင်ရေးဆွဲခြင်းအခန်းကို <a class="reference internal" href="../print_composer/index.html#label-printlayout"><span class="std std-ref">မြေပုံအချောသပ်ပြင်ဆင်ခြင်း (Laying out the maps)</span></a> တွင် အ‌သေးစိတ်လေ့လာနိုင်ပါသည်)</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="getting_started.html" class="btn btn-neutral float-left" title="5. စတင်အသုံးပြုခြင်း (Getting Started)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="qgis_gui.html" class="btn btn-neutral float-right" title="7. QGIS ၏အစိတ်အပိုင်းများ (QGIS GUI)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2002-now, QGIS project.
+      <span class="lastupdated">Last updated on 2024 May 13, 16:23 +0700.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- Transifex follows a particular logic to build target pages:
+Expected French translation link for https://docs.qgis.org/3.28/en/docs/user_manual/print_composer/overview_composer.html
+would return https://app.transifex.com/qgis/qgis-documentation/translate/#fr/aa6d8bc653526d38b295ca94bf8eee5e
+with the md5 value of "github#qgis/QGIS-Documentation#release_3.28#locale/en/LC_MESSAGES/docs/user_manual/print_composer/overview_composer.po"-->
+<!--Make sure that mismatching language codes between Transifex and Sphinx are converted-->
+
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-info-circle"> QGIS Documentation </span>
+      v: 3.28
+      <span class="fa fa-caret-down"></span>
+    </span>
+
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Languages</dt>
+        
+          <dd><a href="https://docs.qgis.org/3.28/en/docs/user_manual/introduction/project_files.html">en</a></dd>
+        
+      </dl>
+
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/user_manual/introduction/project_files.html">testing</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/latest/en/docs/user_manual/introduction/project_files.html">latest</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.28/en/docs/user_manual/introduction/project_files.html">3.28</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.22/en/docs/user_manual/introduction/project_files.html">3.22</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.16/en/docs/user_manual/introduction/project_files.html">3.16</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.10/en/docs/user_manual/introduction/project_files.html">3.10</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.4/en/docs/user_manual/introduction/project_files.html">3.4</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/2.18/en/docs/user_manual/introduction/project_files.html">2.18</a></dd>
+        
+      </dl>
+
+       
+       <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="https://docs.qgis.org/3.28/pdf">PDF</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.28/zip">HTML</a></dd>
+        
+      </dl>
+      
+
+      
+       
+      <dl>
+        <dt>Contribute to Docs</dt>
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/edit/master/docs/user_manual/introduction/project_files.rst" target="_blank" rel="noopener noreferrer">Edit on GitHub</a>
+          </dd>
+          
+          
+          <dd>
+            <a href="https://app.transifex.com/qgis/qgis-documentation/translate/#en/794cdc88c3adc2660796184453667113" target="_blank" rel="noopener noreferrer">Translate Page</a>
+          </dd>
+          
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/issues" target="_blank" rel="noopener noreferrer">Report Issue</a>
+          </dd>
+      </dl>
+      
+
+      <dl>
+        <dt>On QGIS Project</dt>
+          <dd>
+            <a href="https://qgis.org/en" target="_blank" rel="noopener noreferrer">Home</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/api/3.28" target="_blank" rel="noopener noreferrer">C++ API</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/pyqgis/3.28" target="_blank" rel="noopener noreferrer">PyQGIS API</a>
+          </dd>
+          <dd>
+            <a href="https://github.com/qgis/QGIS/tree/release-3_28" target="_blank" rel="noopener noreferrer">Source</a>
+          </dd>
+      </dl>
+
+    </div>
+  </div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

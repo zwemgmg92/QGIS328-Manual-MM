@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>4. အသွင်အပြင်များ (Features) &mdash; QGIS Documentation  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/qgis_docs.css?v=3fdf4c33" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/qgis_logo.ico"/>
+    <link rel="canonical" href="https://docs.qgis.org/latest/en/docs/user_manual/preamble/features.html"/>
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../../_static/copybutton.js?v=f281be69"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="5. စတင်အသုံးပြုခြင်း (Getting Started)" href="../introduction/getting_started.html" />
+    <link rel="prev" title="3. အသုံးအနှုန်းများ (Conventions)" href="conventions.html" />
+  <meta name="description" content="QGIS 3.28 documentation: 4. အသွင်အပြင်များ (Features)">
+</head>
+
+<body class="wy-body-for-nav">
+
+  <nav class="release_status_topbar">
+  </nav>
+
+   
+
+ 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+   
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            QGIS Documentation
+              <img src="../../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                3.28
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+   <a href= "../../../genindex.html">Index</a>
+ 
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">အသုံးပြုသူများအတွက်</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="preamble.html">1. စကားချီး (Preamble)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="foreword.html">2. အမှာစာ (Foreword)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conventions.html">3. အသုံးအနှုန်းများ (Conventions)</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">4. အသွင်အပြင်များ (Features)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#view-data">4.1. ဒေတာများအား ကြည့်ရှုခြင်း (View data)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#data-explore-data-and-compose-maps">4.2. Data များကိုလေ့လာခြင်းနှင့် မြေပုံများပြုလုပ်ခြင်း (Explore data and compose maps)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#data-create-edit-manage-and-export-data">4.3. Data များကို ဖန်တီးခြင်း၊ တည်းဖြတ်ပြင်ဆင်ခြင်း၊ စီမံခြင်းနှင့် ထုတ်ယူခြင်း (Create, edit, manage and export data)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#analyze-data">4.4. ဒေတာများကိုခွဲခြမ်းစိတ်ဖြာခြင်း (Analyze data)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#publish-maps-on-the-internet">4.5. အင်တာနက်ပေါ်တွင်မြေပုံများထုတ်ဝေဖြန့်ဖြူးခြင်း (Publish maps on the Internet)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#plugin-qgis-extend-qgis-functionality-through-plugins">4.6. Plugin များသုံး၍QGIS ၏ လုပ်ဆောင်နိုင်စွမ်းကိုတိုးမြှင့်ခြင်း (Extend QGIS functionality through plugins)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#plugin-core-plugins">4.6.1. ပင်မ plugin များ (Core Plugins)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#python-plugin-external-python-plugins">4.6.2. ပြင်ပ Python Plugin များ (External Python plugins)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#python-python-console">4.7. Python ကုဒ်ဖြင့်ရေးသားခိုင်းစေရန်နေရာ (Python Console)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#known-issues">4.8. ကြုံတွေ့သည့် ပြဿနာများ (Known Issues)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#number-of-open-files-limitation">4.8.1. ဖွင့်ခွင့်ပြုသည့် ဖိုင်အရေအတွက်ကန့်သတ်ချက်များ (Number of open files limitation)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/getting_started.html">5. စတင်အသုံးပြုခြင်း (Getting Started)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/project_files.html">6. Project Files များနှင့် အလုပ်လုပ်ခြင်း (Working with Project Files)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/qgis_gui.html">7. QGIS ၏အစိတ်အပိုင်းများ (QGIS GUI)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/browser.html">8. ဒေတာများရှာဖွေကြည့်ရှုနိုင်သည့်နေရာ (The Browser panel)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/qgis_configuration.html">9. QGIS ပြင်ဆင်သတ်မှတ်ခြင်း/အခင်းအကျင်း (QGIS Configuration)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_projections/working_with_projections.html">10. မြေပုံအရိပ်ချစနစ်များ နှင့် အလုပ်လုပ်ခြင်း (Working with Projections)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../map_views/index.html">11. မြေပုံများအား ပုံဖော်ကြည့်ရှုခြင်း (Visualizing Maps)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/general_tools.html">12. အထွေ‌ထွေ‌သုံးကိရိယာများ (General Tools)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../expressions/index.html">13. Expression များဖြင့် အဆင့်မြှင့်တင်ဆောင်ရွက်ခြင်း (Level up with Expressions)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../style_library/index.html">14. The Style Library (Style နှင့်ပတ်သက်သည်များ ထားရှိရာနေရာ)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../managing_data_source/index.html">15. ဒေတာအရင်းအမြစ်များအား စီမံခန့်ခွဲခြင်း (Managing Data Source)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_vector/index.html">16. Vector data များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_raster/index.html">17. Raster Data နှင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_mesh/mesh_properties.html">18. Working with Mesh Data (Mesh Data များနှင့် အလုပ်လုပ်ခြင်း)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_vector_tiles/vector_tiles_properties.html">19. Vector Tiles များနှင့်အလုပ်လုပ်ခြင်း (Working with Vector Tiles)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_point_clouds/point_clouds.html">20. Point Cloud များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../print_composer/index.html">21. မြေပုံအချောသပ်ပြင်ဆင်ခြင်း (Laying out the maps)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_ogc/ogc_client_support.html">22. OGC / ISO protocol များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_gps/index.html">23. GPS Data များနှင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../auth_system/auth_overview.html">24. အထောက်အထားစီစစ်ခြင်းအကြောင်းအကျဉ်း (Authentication System Overview)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../auth_system/auth_workflows.html">25. အသုံးပြုသူ အထောက်အထားစစ်ဆေးခြင်း လုပ်ငန်းအဆင့်များ (User Authentication Workflows)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../auth_system/auth_considerations.html">26. လုံခြုံရေးအတွက်စဉ်းစားရန်အချက်များ (Security Considerations)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../grass_integration/grass_integration.html">27. GRASS GIS နှင့်ပေါင်းစပ်အသုံးပြုခြင်း (GRASS GIS Integration)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing/index.html">28. QGIS processing framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing_algs/index.html">29. Processing ဆိုင်ရာ ထောက်ပံ့ပေးသူများနှင့် Algorithm များ (Processing providers and algorithms)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/plugins.html">30. QGIS Plugin များ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/core_plugins/index.html">31. QGIS ပင်မ Plugin များကို အသုံးပြုခြင်း (Using QGIS Core Plugins)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/python_console.html">32. QGIS တွင် Python code များရေးသားရန်နေရာ (QGIS Python console)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="help_and_support.html">33. အကူအညီနှင့်အထောက်အပံ့ (Help and Support)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributors.html">34. ပါဝင်အားဖြည့်သူများ (Contributors)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendices/index.html">35. နောက်ဆက်တွဲများ (Appendices)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../literature_web/literature_and_web_references.html">36. စာတမ်းများနှင့် Website ကိုးကားချက်များ (Literature and Web References)</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">QGIS Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">&lt;no title&gt;</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">4. </span>အသွင်အပြင်များ (Features)</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/qgis/QGIS-Documentation/blob/master/docs/user_manual/preamble/features.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="conventions.html" class="btn btn-neutral float-left" title="3. အသုံးအနှုန်းများ (Conventions)" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../introduction/getting_started.html" class="btn btn-neutral float-right" title="5. စတင်အသုံးပြုခြင်း (Getting Started)" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <blockquote>
+<div></div></blockquote>
+<section id="features">
+<span id="qgis-documentation-features"></span><h1><span class="section-number">4. </span>အသွင်အပြင်များ (Features)<a class="headerlink" href="#features" title="Link to this heading"></a></h1>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#view-data" id="id1">ဒေတာများအား ကြည့်ရှုခြင်း (View data)</a></p></li>
+<li><p><a class="reference internal" href="#data-explore-data-and-compose-maps" id="id2">Data များကိုလေ့လာခြင်းနှင့် မြေပုံများပြုလုပ်ခြင်း (Explore data and compose maps)</a></p></li>
+<li><p><a class="reference internal" href="#data-create-edit-manage-and-export-data" id="id3">Data များကို ဖန်တီးခြင်း၊ တည်းဖြတ်ပြင်ဆင်ခြင်း၊ စီမံခြင်းနှင့် ထုတ်ယူခြင်း (Create, edit, manage and export data)</a></p></li>
+<li><p><a class="reference internal" href="#analyze-data" id="id4">ဒေတာများကိုခွဲခြမ်းစိတ်ဖြာခြင်း (Analyze data)</a></p></li>
+<li><p><a class="reference internal" href="#publish-maps-on-the-internet" id="id5">အင်တာနက်ပေါ်တွင်မြေပုံများထုတ်ဝေဖြန့်ဖြူးခြင်း (Publish maps on the Internet)</a></p></li>
+<li><p><a class="reference internal" href="#plugin-qgis-extend-qgis-functionality-through-plugins" id="id6">Plugin များသုံး၍QGIS ၏ လုပ်ဆောင်နိုင်စွမ်းကိုတိုးမြှင့်ခြင်း (Extend QGIS functionality through plugins)</a></p>
+<ul>
+<li><p><a class="reference internal" href="#plugin-core-plugins" id="id7">ပင်မ plugin များ (Core Plugins)</a></p></li>
+<li><p><a class="reference internal" href="#python-plugin-external-python-plugins" id="id8">ပြင်ပ Python Plugin များ (External Python plugins)</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#python-python-console" id="id9">Python ကုဒ်ဖြင့်ရေးသားခိုင်းစေရန်နေရာ (Python Console)</a></p></li>
+<li><p><a class="reference internal" href="#known-issues" id="id10">ကြုံတွေ့သည့် ပြဿနာများ (Known Issues)</a></p>
+<ul>
+<li><p><a class="reference internal" href="#number-of-open-files-limitation" id="id11">ဖွင့်ခွင့်ပြုသည့် ဖိုင်အရေအတွက်ကန့်သတ်ချက်များ (Number of open files limitation)</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+<p>QGIS ၏ အဓိက feature များနှင့် plugin များဖြင့် ပထဝီဝင်သတင်းအချက်အလက်စနစ် (GIS) လုပ်ဆောင်ချက်များစွာကိုဆောင်ရွက်နိုင်မည်ဖြစ်ပါသည်။
+Locator bar ထည့်သွင်းထားသောကြောင့် လုပ်ဆောင်ချက်များ (function) ၊ dataset များနှင့် အခြားအရာများကိုအလွယ်တကူရှာဖွေနိုင်ပါသည်။</p>
+<p>Feature များ နှင့် plugin များကို ယေဘူယျအနေဖြင့် အမျိုးအစား ၆မျိုးခွဲခြား၍ အောက်တွင်အကျဉ်းချုပ်ဖော်ပြထားပါသည်။
+အကျဉ်းချုပ်၏နောက်တွင် ပေါင်းစပ်ထားသော Python console အကြောင်းအား ပဏာမဖော်ပြထားပါသည်။</p>
+<section id="view-data">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink"><span class="section-number">4.1. </span>ဒေတာများအား ကြည့်ရှုခြင်း (View data)</a><a class="headerlink" href="#view-data" title="Link to this heading"></a></h2>
+<p>QGIS တွင် vector  data နှင့် raster data များကို (2D သို့မဟုတ် 3D) internal format (QGIS အတွင်းအသုံးပြုနိုင်သည့်ပုံစံ) သို့မဟုတ် common format (အသုံးများသောပုံစံ)  အဖြစ်ပြောင်းလဲရန်မလိုဘဲ
+နှစ်သက်ရာ format အမျိုးမျိူးနှင့် projection (ပုံရိပ်ချခြင်း) အမျိူးမျိူးတို့ဖြင့် ပေါင်းစပ်ကြည့်ရှုနိုင်ပါသည်။
+အသုံးပြုနိုင်သည့် format များမှာ-</p>
+<ul>
+<li><p>Spatially-enabled tables (တည်နေရာ၊ အကျယ်၊ အကွာအဝေးများပါဝင်သောဇယားများ)၊ PostGIS၊ SpatiaLite နှင့် MS SQL Spatial၊ Oracle Spatial ကဲ့သို့ database များမှ မြင်ကွင်းများနှင့်
+ထည့်သွင်းထားသည့် OGR (OpenGIS simple feature Reference) library မှထောက်ပံ့ပေးသော GeoPackage၊ ESRI Shapefile၊ MapInfo၊ SDTS၊ GML နှင့်အခြားအရာများစွာကဲ့သို့သော vector file များ။
+<a class="reference internal" href="../working_with_vector/index.html#label-workingvector"><span class="std std-ref">Vector data များဖြင့် အလုပ်လုပ်ခြင်း</span></a> section တွင်ကြည့်ပါ။</p></li>
+<li><p>ထည့်သွင်းထားသည့် GDAL (Geospatial Data Abstraction Library) library မှထောက်ပံ့ပေးသည့်
+GeoTIFF ၊ ERDAS IMG ၊ ArcInfo ၊ ASCII GRID ၊ JPEG ၊ PNG နှင့် အခြားများစွာသော အလားတူ Raster နှင့် imagery (ဓာတ်ပုံဆိုင်ရာ) format များ။
+<a class="reference internal" href="../working_with_raster/index.html#working-with-raster"><span class="std std-ref">Raster Data နှင့် အလုပ်လုပ်ခြင်း</span></a> section တွင်ကြည့်ပါ။</p></li>
+<li><p>Mesh data (TINs နှင့် ပုံမှန် grids များကိုထောက်ပံ့ပေးပါတယ်) <a class="reference internal" href="../working_with_mesh/mesh_properties.html#label-meshdata"><span class="std std-ref">Working with Mesh Data (Mesh Data များနှင့် အလုပ်လုပ်ခြင်း)</span></a> တွင်ကြည့်ပါ။</p></li>
+<li><p>Vector tiles (Vector အကွက်များ)</p></li>
+<li><p>GRASS raster ဖိုင်နှင့် GRASS databases မှ vector data  (တည်နေရာ/mapset)
+<a class="reference internal" href="../grass_integration/grass_integration.html#sec-grass"><span class="std std-ref">GRASS GIS နှင့်ပေါင်းစပ်အသုံးပြုခြင်း (GRASS GIS Integration)</span></a> section တွင်ကြည့်ပါ။</p></li>
+<li><p>WMS ၊ WMTS ၊ WCS ၊ WFS နှင့် WFS-T ကဲ့သို့သော OGC Web Services များမှ အွန်လိုင်း spatial data များ။
+<a class="reference internal" href="../working_with_ogc/ogc_client_support.html#working-with-ogc"><span class="std std-ref">OGC / ISO protocol များဖြင့် အလုပ်လုပ်ခြင်း</span></a> section တွင်ကြည့်ပါ။</p>
+<p>QGIS authentication infrastructure ၏အကူအညီဖြင့် web service များနှင့် အခြားရင်းမြစ်များအသုံးပြုရာတွင်လိုအပ်သော
+user name/password ၊ အသိအမှတ်ပြုလက်မှတ်များ (certificates) နှင့် key များကို စီမံနိုင်မည်ဖြစ်ပါသည်။</p>
+</li>
+<li><p>Spreadsheet များ (ODS / XLSX)</p></li>
+</ul>
+<p>Temporal (အချိန်နှင့်ပတ်သက်သည့်) data များလည်း အသုံးပြုနိုင်ပါသည်။</p>
+</section>
+<section id="data-explore-data-and-compose-maps">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink"><span class="section-number">4.2. </span>Data များကိုလေ့လာခြင်းနှင့် မြေပုံများပြုလုပ်ခြင်း (Explore data and compose maps)</a><a class="headerlink" href="#data-explore-data-and-compose-maps" title="Link to this heading"></a></h2>
+<p>အသုံးပြုရလွယ်ကူသည့် Graphical User Interface (အသုံးပြုတဲ့အချိန်မှာ မျက်နှာပြင်တွင်ပေါ်နေတဲ့ tool များနှင့် တခြားအရာများ မြင်ရမှုအခြေအနေ) ကိုအသုံးပြုထားသည့်အတွက်
+မြေပုံများအလွယ်တကူပြင်ဆင်ရေးဆွဲနိုင်မည်ဖြစ်ပြီး spatial data များကို အပြန်အလှန် စူးစမ်းရှာဖွေနိုင်မည်ဖြစ်ပါသည်။
+Graphical User Interface (GUI) ထဲတွင်ပါဝင်သည့် အသုံးဝင်သော tool များမှာ-</p>
+<ul class="simple">
+<li><p>QGIS browser (ဖိုင်များကို ခေါ်ယူအသုံးပြုနိုင်သည့် browser)</p></li>
+<li><p>On-the-fly reprojection</p></li>
+<li><p>2D and 3D map rendering (2D နှင့် 3D မြေပုံ render ပြုလုပ်ခြင်း)</p></li>
+<li><p>DB Manager (Database Manager)</p></li>
+<li><p>Print layout (Layout အမျိုးမျိုးနှင့် ပရင့်ထုတ်နိုင်ခြင်း)</p></li>
+<li><p>Report (အစီရင်ခံစာ)</p></li>
+<li><p>Overview panel (ခြုံငုံကြည့်ရှုနိုင်သည့် panel)</p></li>
+<li><p>Spatial bookmarks</p></li>
+<li><p>Annotation tools (မှတ်စာရေးသားသည့် tool များ)</p></li>
+<li><p>Identify/select features (features များကို ဖော်ထုတ်/ရွေးမှတ်ခြင်း)</p></li>
+<li><p>Edit/view/search attributes (Attributes များကို တည်းဖြတ်ပြင်ဆင်/ကြည့်ရှု/ရှာဖွေနိုင်ခြင်း)</p></li>
+<li><p>Data-defined feature labeling (Feature များအား အညွှန်းတပ်ခြင်း)</p></li>
+<li><p>Data-defined vector and raster symbology tools (အချက်အလက်များဖော်ပြသတ်မှတ်၍ vector နှင့် raster သင်္ကေတများပြသသည့် tool များ)</p></li>
+<li><p>Atlas map composition with graticule layers (Graticule layers များနှင့် မြေပုံစီးရီးများဖွဲ့စည်းရေးဆွဲခြင်း)</p></li>
+<li><p>North arrow, scale bar and copyright label for maps (မြေပုံများရေးဆွဲရာတွင် ထည့်သွင်းနိုင်မည့် မြောက်အရပ်ပြမြှား၊ စကေးနှင့် မူပိုင်ခွင့်စာသားများ)</p></li>
+<li><p>Support for saving and restoring projects (Project များကို သိမ်းဆည်းခြင်းနှင့် ပြန်လည်ရယူခြင်း)</p></li>
+</ul>
+</section>
+<section id="data-create-edit-manage-and-export-data">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink"><span class="section-number">4.3. </span>Data များကို ဖန်တီးခြင်း၊ တည်းဖြတ်ပြင်ဆင်ခြင်း၊ စီမံခြင်းနှင့် ထုတ်ယူခြင်း (Create, edit, manage and export data)</a><a class="headerlink" href="#data-create-edit-manage-and-export-data" title="Link to this heading"></a></h2>
+<p>Vector layer နှင့် raster layer များကို အမျိုးမျိုးသော ဖိုင် format ပုံစံများဖြင့် ဖန်တီးခြင်း၊ တည်းဖြတ်ပြင်ဆင်ခြင်း၊ စီမံခြင်းနှင့် ထုတ်ယူခြင်းများကို လုပ်ဆောင်နိုင်မည်ဖြစ်ပါသည်။
+QGIS တွင်ပါဝင်သည်များမှာ-</p>
+<ul class="simple">
+<li><p>Vector ဖိုင်များကို Digitizing (Basemap ကိုအခြေခံပြီး Point၊ Line၊ Polygon များရေးဆွဲခြင်း) လုပ်နိုင်သည့် tool များ ပါရှိခြင်း</p></li>
+<li><p>GRASS vector layer များနှင့် အမျိုးမျိုးသော ဖိုင် format များကို  ဖန်တီး၊ ပြင်ဆင်နိုင်စွမ်းရှိခြင်း</p></li>
+<li><p>Vector ဖိုင် များနှင့် image များအား geocode ပြုလုပ်နိုင်မည့် Georeferencer tool ပါရှိခြင်း</p></li>
+<li><p>GPX formatကို ထည့်သွင်းခြင်းနှင့် ထုတ်ယူခြင်း ပြုလုပ်နိုင်ပြီး  အခြား GPS formatများအား  GPX အဖြစ်သို့ပြောင်းလဲပေးနိုင်သော သို့မဟုတ် GPS ယူနစ်တစ်ခုသို့ တိုက်ရိုက် down/upload ပြုလုပ်နိုင်သည့် GPS toolများပါရှိခြင်း (Linux တွင် usb အား  GPS ကိရိယာများစာရင်းတွင်ထည့်သွင်းပြီးသားဖြစ်ပါသည်)</p></li>
+<li><p>OpenStreetMap (OSM) မှ data များကို  visualize လုပ်ရန်နှင့် ပြင်ဆင်တည်းဖြတ်နိုင်ရန် ထောက်ပံ့ပေးခြင်း</p></li>
+<li><p>DB Manager plugin ၏ အကူအညီဖြင့် ဖိုင်များမှတစ်ဆင့် spatial database tables များအားဖန်တီးနိုင်စွမ်းရှိခြင်း</p></li>
+<li><p>Spatial database tables များကို ကိုင်တွယ်ဆောင်ရွက်ရသည်မှာ ပိုမိုအဆင်ပြေလွယ်ကူလာခြင်း</p></li>
+<li><p>Vector attribute table များ စီမံဆောင်ရွက်နိုင်ရန်အတွက် tool များ ပါရှိခြင်း</p></li>
+<li><p>Screenshots များကို georeferenced images ဖိုင်များအဖြစ် သိမ်းဆည်းနိုင်ခြင်း</p></li>
+<li><p>စွမ်းဆောင်ရည်တိုးမြှင့်ထားသည့် DXF-Export tool ဖြင့် style များနှင့် plugin များကို Computer Aided Design (CAD) နှင့်တူသောလုပ်ဆောင်ချက်များ (functions) ရရှိစေရန် export လုပ်နိုင်ခြင်း</p></li>
+</ul>
+</section>
+<section id="analyze-data">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink"><span class="section-number">4.4. </span>ဒေတာများကိုခွဲခြမ်းစိတ်ဖြာခြင်း (Analyze data)</a><a class="headerlink" href="#analyze-data" title="Link to this heading"></a></h2>
+<p>QGIS ကိုအသုံးပြုခြင်းဖြင့် spatial database များနှင့် OGR library မှထောက်ပံ့ပေးသည့် spatial data များကို analysis ပြုလုပ်နိုင်မှာဖြစ်ပါသည်။
+လက်ရှိတွင် QGIS ဖြင့် vector analysis ၊ raster analysis ၊ sampling ၊ geoprocessing ၊ geometry နှင့် database management စသည်တို့ကိုဆောင်ရွက်နိုင်ပါသည်။
+QGIS တွင်ပေါင်းစပ်ထားသည့် analysis modules ၄၀၀ ကျော် ပါဝင်သည့် GRASS tools တို့ကြောင့်  GRASS ၏လုပ်ဆောင်နိုင်စွမ်း အပြည့်အဝရရှိမည်ဖြစ်ပါသည်။ (<a class="reference internal" href="../grass_integration/grass_integration.html#sec-grass"><span class="std std-ref">GRASS GIS နှင့်ပေါင်းစပ်အသုံးပြုခြင်း (GRASS GIS Integration)</span></a> section တွင်ကြည့်ပါ)
+သို့မဟုတ် QGIS တွင်ပါရှိသည့် စွမ်းဆောင်ရည်မြင့်သော geospatial analysis framework ဖြစ်သည့် Processing plugin ကိုသုံးကာ နဂိုပါရှိပြီးသား algorithms (native algorithms)
+နှင့် GDAL ၊ SAGA ၊ GRASS ၊ OTB ၊ R တို့ကဲ့သို့ ပြင်ပ algorithm များ (third-party algorithms) ကို ရယူအသုံးပြုနိုင်မှာဖြစ်ပါသည်။ (<a class="reference internal" href="../processing/intro.html#sec-processing-intro"><span class="std std-ref">မိတ်ဆက် (Introduction)</span></a> section  တွင်ကြည့်ပါ)</p>
+<p>ခွဲခြမ်းစိတ်ဖြာခြင်းလုပ်ငန်းစဉ်များ (Analyze functions) အားလုံးသည် နောက်ကွယ် (background) တွင် run (လုပ်ဆောင်) နေမည်ဖြစ်ပါသည်။ ထို့ကြောင့် Analyze ပြုလုပ်မှု မပြီးသေးခင်မှာလည်း မိမိ၏လုပ်လက်စ project ကို ဆက်လက်ဆောင်ရွက်နေနိုင်မည်ဖြစ်ပါသည်။</p>
+<p>Graphical modeller သည် လုပ်ဆောင်ချက်များ (functions) ကိုပေါင်းစည်းခြင်းနှင့်ချိတ်ဆက်ခြင်းများဆောင်ရွက်ပြီး
+သူ့အလိုလိုဆောင်ရွက်သည့် graphical environment တစ်ခုအတွင်း ပြီးပြည့်စုံသည့် workflow တစ်ခုလုပ်ဆောင်ပေးပါသည်။</p>
+</section>
+<section id="publish-maps-on-the-internet">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink"><span class="section-number">4.5. </span>အင်တာနက်ပေါ်တွင်မြေပုံများထုတ်ဝေဖြန့်ဖြူးခြင်း (Publish maps on the Internet)</a><a class="headerlink" href="#publish-maps-on-the-internet" title="Link to this heading"></a></h2>
+<p>QGIS ကို  WMS ၊ WMTS ၊ WMS-C ၊ WFS ၊ OAPIF နှင့် WFS-T client များအဖြစ်အသုံးပြုနိုင်ပါသည်။ (<a class="reference internal" href="../working_with_ogc/ogc_client_support.html#working-with-ogc"><span class="std std-ref">OGC / ISO protocol များဖြင့် အလုပ်လုပ်ခြင်း</span></a> section တွင်ကြည့်ပါ) QGIS server (see <span class="xref std std-ref">QGIS-Server-manual</span> တွင်ကြည့်ပါ) ကိုသုံးခြင်းဖြင့် data များကိုအင်တာနက်ပေါ်တွင် WMS ၊ WCS ၊ WFS နှင့် OAPIF protocol များမှ တဆင့် publish လုပ်နိုင်ပါသည်။</p>
+</section>
+<section id="plugin-qgis-extend-qgis-functionality-through-plugins">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink"><span class="section-number">4.6. </span>Plugin များသုံး၍QGIS ၏ လုပ်ဆောင်နိုင်စွမ်းကိုတိုးမြှင့်ခြင်း (Extend QGIS functionality through plugins)</a><a class="headerlink" href="#plugin-qgis-extend-qgis-functionality-through-plugins" title="Link to this heading"></a></h2>
+<p>Plugin များဖန်တီးရာတွင် အသုံးပြုနိုင်သည့် plugin architecture နှင့်  library များကို QGIS တွင် လိုအပ်သလို လိုက်လျောညီထွေအသုံးချနိုင်ပါသည်။
+C++ သို့မဟုတ် Python ကိုသုံး၍ applications အသစ်များကိုပင်လျှင် ဖန်တီးနိုင်ပါသေးသည်။</p>
+<section id="plugin-core-plugins">
+<h3><a class="toc-backref" href="#id7" role="doc-backlink"><span class="section-number">4.6.1. </span>ပင်မ plugin များ (Core Plugins)</a><a class="headerlink" href="#plugin-core-plugins" title="Link to this heading"></a></h3>
+<p>အဓိက plugin များအနေနှင့် အောက်ပါတို့ပါဝင်ပါသည်-</p>
+<ol class="arabic simple">
+<li><p>DB Manager (ဖလှယ်ရန်၊ တည်းဖြတ်ရန် နှင့်  layer များနှင့်  tables မှ/သို့ databases များကိုကြည့်ရှုရန်၊ execute SQL queries များကိုလုပ်ဆောင်ရန်)</p></li>
+<li><p>Geometry Checker (ဂျီဩမေတြီ အမှားများကိုစစ်ပေးရန်)</p></li>
+<li><p>Georeferencer GDAL (GDAL အသုံးပြု၍ raster များထဲသို့ projection အချက်အလက်များထည့်သွင်းနိုင်ရန်)</p></li>
+<li><p>GPS Tools (GPS data များနှင့်ပတ်သက်ပြီး လုပ်ဆောင်ရန်)</p></li>
+<li><p>GRASS (GRASS GIS နှင့်ပေါင်းစပ်ပေးရန်)</p></li>
+<li><p>MetaSearch Catalogue Client (Web (CSW) စံနှုန်းအတွက် OGC Catalog Service အားအထောက်အပံ့ပေးသော metadata catalog service များနှင့်အပြန်အလှန် ချိတ်ဆက်ဆောင်ရွက်နိုင်ရန်)</p></li>
+<li><p>Offline Editing (Database များကိုအသုံးပြု၍ ပြင်ဆင်တည်းဖြတ်ခြင်းနှင့် synchronize လုပ်ခြင်းတို့ကို Offline ဖြင့်ဆောင်ရွက်နိုင်ရန်)</p></li>
+<li><p>Processing (QGIS အတွက် processing framework မှ spatial data များ ထုတ်ပေးနိုင်ရန်)</p></li>
+<li><p>Topology Checker (Vector layer များတွင် topological အမှားများကိုရှာဖွေရန်)</p></li>
+</ol>
+</section>
+<section id="python-plugin-external-python-plugins">
+<h3><a class="toc-backref" href="#id8" role="doc-backlink"><span class="section-number">4.6.2. </span>ပြင်ပ Python Plugin များ (External Python plugins)</a><a class="headerlink" href="#python-plugin-external-python-plugins" title="Link to this heading"></a></h3>
+<p>QGIS တွင် Community မှ ပံ့ပိုးနေသည့် ပြင်ပ Python Plugin များအရေအတွက်မှာ တဖြည်းဖြည်းနှင့်တိုးလာပြီဖြစ်ပါသည်။
+ထို plugins များကို Official Plugins Repository တွင်ရရှိနိုင်ပြီး Python Plugin Installer အသုံးပြု၍ အလွယ်တကူထည့်သွင်းနိုင်ပါသည်။
+<a class="reference internal" href="../plugins/plugins.html#managing-plugins"><span class="std std-ref">The Plugins Dialog</span></a> section တွင်ကြည့်ပါ။</p>
+</section>
+</section>
+<section id="python-python-console">
+<h2><a class="toc-backref" href="#id9" role="doc-backlink"><span class="section-number">4.7. </span>Python ကုဒ်ဖြင့်ရေးသားခိုင်းစေရန်နေရာ (Python Console)</a><a class="headerlink" href="#python-python-console" title="Link to this heading"></a></h2>
+<p>QGIS တွင် script ရေးရန်အတွက် <span class="menuselection">Plugins► Python Console</span> မှတစ်ဆင့် Python console ကိုဖွင့်၍အသုံးပြုနိုင်ပါသည်။</p>
+<p>Python console သည် non-modal utility window အဖြစ်ပွင့်လာမည်ဖြစ်ပါသည်။
+၎င်းသည် <a class="reference external" href="https://qgis.org/pyqgis/3.28/gui/QgisInterface.html#qgis.gui.QgisInterface" title="(in QGIS Python API v3.28)"><code class="xref py py-class docutils literal notranslate"><span class="pre">QgisInterface</span></code></a> ၏ ဥပမာတစ်ခုဖြစ်သည့် <code class="xref py py-data docutils literal notranslate"><span class="pre">qgis.utils.iface</span></code> variable မှတဆင့် QGIS environment နှင့်ချိတ်ဆက်နိုင်မည်ဖြစ်ပါသည်။
+ဤ interface သည်  QGIS application ၏အစိတ်အပိုင်းများဖြစ်သော မြေပုံမြင်ကွင်း ၊ menu များ ၊ toolbar များ အစရှိသည်တို့နှင့်ချိတ်ဆက်ပေးပါသည်။
+Script ဖန်တီးရေးသားပြီးသည့်အခါ  ထို Script ကို QGIS window ထဲသို့  drag and drop ဖြင့်ဆွဲထည့်လိုက်ပါက လုပ်ဆောင်ချက်များ အလိုအလျောက် ဆောင်ရွက်ပြီးဖြစ်သွားပါလိမ့်မည်။</p>
+<p>Python console သုံး၍ အလုပ်လုပ်ခြင်းနှင့်ပတ်သက်၍ဖြစ်စေ၊ QGIS plugins များနှင့် applications များကို ပရိုဂရမ်ရေးသားခြင်းနှင့်ပတ်သက်၍ဖြစ်စေ
+အချက်အလက်များကိုပိုမိုသိရှိလိုပါက <a class="reference internal" href="../plugins/python_console.html#console"><span class="std std-ref">QGIS တွင် Python code များရေးသားရန်နေရာ (QGIS Python console)</span></a> နှင့် <span class="xref std std-ref">PyQGIS-Developer-Cookbook</span> တွင်မှီငြမ်းလေ့လာနိုင်ပါသည်။</p>
+</section>
+<section id="known-issues">
+<h2><a class="toc-backref" href="#id10" role="doc-backlink"><span class="section-number">4.8. </span>ကြုံတွေ့သည့် ပြဿနာများ (Known Issues)</a><a class="headerlink" href="#known-issues" title="Link to this heading"></a></h2>
+<section id="number-of-open-files-limitation">
+<h3><a class="toc-backref" href="#id11" role="doc-backlink"><span class="section-number">4.8.1. </span>ဖွင့်ခွင့်ပြုသည့် ဖိုင်အရေအတွက်ကန့်သတ်ချက်များ (Number of open files limitation)</a><a class="headerlink" href="#number-of-open-files-limitation" title="Link to this heading"></a></h3>
+<p>QGIS project အကြီးစားတစ်ခုကို ဖွင့်ကြည့်ကြမည်ဆိုပါစို့၊ ထို project တွင် ပါဝင်သော layers (အလွှာ) အားလုံးသည် error (အမှား) ကင်း၍ အဆင်ပြေမှန်ကန်ကြောင်းသေချာသော်လည်း
+အချို့ layer များမှာ error ဖြစ်နေလျှင် ယခုပြဿနာကိုရင်ဆိုင်နေရခြင်းဖြစ်ကောင်းဖြစ်နိုင်ပါသည်။
+Linux နှင့်အလားတူ Operating System များတွင် လုပ်ငန်းစဉ်တစ်ခုချင်းအနေနှင့် ဆက်တိုက်ဖွင့်နိုင်သော ဖိုင်အရေအတွက်ကို ကန့်သတ်ထားပါသည်။
+အလားတူပင် Resource များကိုလဲ လုပ်ငန်းစဉ်အလိုက် ကန့်သတ်ထားပါသည်။ လုပ်ငန်းစဉ်အသစ်တစ်ခုကိုဖွင့်လှစ်ဆောင်ရွက်သည့်အခါ ၎င်းသည် မူလလုပ်ငန်းစဉ်မှ Resource အရေအတွက်ကန့်သတ်ချက်များ အတိုင်းထပ်တူရယူပါသည်။
+Linux တွင်ပါဝင်သော <code class="docutils literal notranslate"><span class="pre">ulimit</span></code> command သည် shell built-in command အမျိုးအစားဖြစ်၍ လက်ရှိ shell process ၏ ကန့်သတ်ချက်များကိုပြောင်းလဲပေးနိုင်ပါသည်။
+ပြောင်းလဲလိုက်သော ကန့်သတ်ချက်အသစ်ကို လုပ်ငန်းစဉ်အသစ်များ (child processes) မှ ရရှိသွားမည်ဖြစ်ပါသည်။</p>
+<p>လက်ရှိ ulimit အချက်အလက်များအားလုံးကို အောက်ပါအတိုင်း ရိုက်ထည့်ခြင်းအားဖြင့်တွေ့ရှိနိုင်ပါသည်-</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">ulimit</span><span class="w"> </span>-aS
+</pre></div>
+</div>
+<p>လက်ရှိခွင့်ပြုထားသော လုပ်ငန်းစဉ်တစ်ခုချင်းအလိုက် ဖွင့်ထားနိုင်သည့်ဖိုင်အရေအတွက်ကို console တစ်ခုပေါ်တွင် အောက်ပါ command ကိုရိုက်ထည့်ခြင်းအားဖြင့်သိရှိနိုင်ပါသည်-</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">ulimit</span><span class="w"> </span>-Sn
+</pre></div>
+</div>
+<p><strong>လက်ရှိလုပ်ဆောင်ဆဲပရောဂျက်</strong> တစ်ခုအတွက်  ကန့်သတ်ချက်များကိုပြောင်းလဲလိုလျှင် ယခုကဲ့သို့ command ကိုသုံးနိုင်ပါသည်-</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">ulimit</span><span class="w"> </span>-Sn<span class="w"> </span><span class="c1">#number_of_allowed_open_files</span>
+$<span class="w"> </span><span class="nb">ulimit</span><span class="w"> </span>-Sn
+$<span class="w"> </span>qgis
+</pre></div>
+</div>
+<p>အခြားတစ်ခုအနေဖြင့် <code class="docutils literal notranslate"><span class="pre">prlimit</span></code> ဆိုသည့် utility အသစ်ကိုသုံးနိုင်ပါသည်။
+ပိုမိုသိရှိလိုပါက <a class="reference external" href="https://manpages.ubuntu.com/manpages/latest/man1/prlimit.1.html">https://manpages.ubuntu.com/manpages/latest/man1/prlimit.1.html</a> တွင်သွားရောက်ကြည့်ရှုနိုင်ပါသည်။</p>
+<p><strong>အမြဲတမ်းအတွက်ပြောင်းလဲပြင်ဆင်ထားလိုလျှင်</strong></p>
+<p>Linux system အများစုတွင် login ဝင်သည့်အခါ system မှ အသုံးပြုနိုင်မည့် resource အရေအတွက်ကိုကန့်သတ်ထားပါသည်။
+ထိုကန့်သတ်ချက်များကို <code class="docutils literal notranslate"><span class="pre">pam_limits</span></code> ဟူသည့် module ဖြင့်စီမံခြင်းဖြစ်ပါသည်။
+ကန့်သတ်ချက်များအတွက် setting များကိုအဓိက ဖိုင်နှစ်ခုဖြစ်သော <code class="file docutils literal notranslate"><span class="pre">/etc/security/limits.conf</span></code> နှင့် <code class="file docutils literal notranslate"><span class="pre">/etc/security/limits.d/*.conf</span></code> ထဲတွင်သတ်မှတ်ထားပါသည်။
+ကန့်သတ်ချက်များကိုပြင်ဆင်လိုသည့်အခါ  root privilege ကဲ့သို့သော အထူးခွင့်ပြုချက် လိုအပ်မှာဖြစ်ပါသည်။ (sudoမှတစ်ဆင့်လည်းပြုလုပ်နိုင်ပါသည်)
+သတိပြုရမည့်တစ်ခုမှာ မိမိပြောင်းလဲပြင်ဆင်လိုက်သည့် အရေအတွက် ကန့်သတ်ချက်မှန်သမျှသည် ချက်ချင်း ပြောင်းလဲသွားမည်မဟုတ်ဘဲ logout လုပ်ပြီး နောက် login တစ်ဖန်ပြန်ဝင်မှသာပြောင်းလဲသွားပါမည်။</p>
+<p>အချက်အလက်များအားပိုမိုသိရှိလိုပါက-</p>
+<p><a class="reference external" href="https://www.cyberciti.biz/faq/linux-increase-the-maximum-number-of-open-files/">https://www.cyberciti.biz/faq/linux-increase-the-maximum-number-of-open-files/</a>
+<a class="reference external" href="https://linuxaria.com/article/open-files-in-linux">https://linuxaria.com/article/open-files-in-linux</a> တို့တွင်ကြည့်ရှုလေ့လာနိုင်ပါသည်။</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="conventions.html" class="btn btn-neutral float-left" title="3. အသုံးအနှုန်းများ (Conventions)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../introduction/getting_started.html" class="btn btn-neutral float-right" title="5. စတင်အသုံးပြုခြင်း (Getting Started)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2002-now, QGIS project.
+      <span class="lastupdated">Last updated on 2024 May 13, 16:23 +0700.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- Transifex follows a particular logic to build target pages:
+Expected French translation link for https://docs.qgis.org/3.28/en/docs/user_manual/print_composer/overview_composer.html
+would return https://app.transifex.com/qgis/qgis-documentation/translate/#fr/aa6d8bc653526d38b295ca94bf8eee5e
+with the md5 value of "github#qgis/QGIS-Documentation#release_3.28#locale/en/LC_MESSAGES/docs/user_manual/print_composer/overview_composer.po"-->
+<!--Make sure that mismatching language codes between Transifex and Sphinx are converted-->
+
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-info-circle"> QGIS Documentation </span>
+      v: 3.28
+      <span class="fa fa-caret-down"></span>
+    </span>
+
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Languages</dt>
+        
+          <dd><a href="https://docs.qgis.org/3.28/en/docs/user_manual/preamble/features.html">en</a></dd>
+        
+      </dl>
+
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/user_manual/preamble/features.html">testing</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/latest/en/docs/user_manual/preamble/features.html">latest</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.28/en/docs/user_manual/preamble/features.html">3.28</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.22/en/docs/user_manual/preamble/features.html">3.22</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.16/en/docs/user_manual/preamble/features.html">3.16</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.10/en/docs/user_manual/preamble/features.html">3.10</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.4/en/docs/user_manual/preamble/features.html">3.4</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/2.18/en/docs/user_manual/preamble/features.html">2.18</a></dd>
+        
+      </dl>
+
+       
+       <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="https://docs.qgis.org/3.28/pdf">PDF</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.28/zip">HTML</a></dd>
+        
+      </dl>
+      
+
+      
+       
+      <dl>
+        <dt>Contribute to Docs</dt>
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/edit/master/docs/user_manual/preamble/features.rst" target="_blank" rel="noopener noreferrer">Edit on GitHub</a>
+          </dd>
+          
+          
+          <dd>
+            <a href="https://app.transifex.com/qgis/qgis-documentation/translate/#en/c4a3d7f1787e324f156061e031e1c11f" target="_blank" rel="noopener noreferrer">Translate Page</a>
+          </dd>
+          
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/issues" target="_blank" rel="noopener noreferrer">Report Issue</a>
+          </dd>
+      </dl>
+      
+
+      <dl>
+        <dt>On QGIS Project</dt>
+          <dd>
+            <a href="https://qgis.org/en" target="_blank" rel="noopener noreferrer">Home</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/api/3.28" target="_blank" rel="noopener noreferrer">C++ API</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/pyqgis/3.28" target="_blank" rel="noopener noreferrer">PyQGIS API</a>
+          </dd>
+          <dd>
+            <a href="https://github.com/qgis/QGIS/tree/release-3_28" target="_blank" rel="noopener noreferrer">Source</a>
+          </dd>
+      </dl>
+
+    </div>
+  </div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

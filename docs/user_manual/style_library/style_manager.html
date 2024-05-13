@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>14.1. Style များစီမံခန့်ခွဲရာ (Style Manager) &mdash; QGIS Documentation  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/qgis_docs.css?v=3fdf4c33" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/qgis_logo.ico"/>
+    <link rel="canonical" href="https://docs.qgis.org/latest/en/docs/user_manual/style_library/style_manager.html"/>
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../../_static/copybutton.js?v=f281be69"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="14.2. သင်္ကေတရွေးချယ်သည့်အရာ (The Symbol Seclector)" href="symbol_selector.html" />
+    <link rel="prev" title="14. The Style Library (Style နှင့်ပတ်သက်သည်များ ထားရှိရာနေရာ)" href="index.html" />
+  <meta name="description" content="QGIS 3.28 documentation: 14.1. Style များစီမံခန့်ခွဲရာ (Style Manager)">
+</head>
+
+<body class="wy-body-for-nav">
+
+  <nav class="release_status_topbar">
+  </nav>
+
+   
+
+ 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+   
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            QGIS Documentation
+              <img src="../../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                3.28
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+   <a href= "../../../genindex.html">Index</a>
+ 
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">အသုံးပြုသူများအတွက်</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../preamble/preamble.html">1. စကားချီး (Preamble)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/foreword.html">2. အမှာစာ (Foreword)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/conventions.html">3. အသုံးအနှုန်းများ (Conventions)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/features.html">4. အသွင်အပြင်များ (Features)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/getting_started.html">5. စတင်အသုံးပြုခြင်း (Getting Started)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/project_files.html">6. Project Files များနှင့် အလုပ်လုပ်ခြင်း (Working with Project Files)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/qgis_gui.html">7. QGIS ၏အစိတ်အပိုင်းများ (QGIS GUI)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/browser.html">8. ဒေတာများရှာဖွေကြည့်ရှုနိုင်သည့်နေရာ (The Browser panel)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/qgis_configuration.html">9. QGIS ပြင်ဆင်သတ်မှတ်ခြင်း/အခင်းအကျင်း (QGIS Configuration)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_projections/working_with_projections.html">10. မြေပုံအရိပ်ချစနစ်များ နှင့် အလုပ်လုပ်ခြင်း (Working with Projections)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../map_views/index.html">11. မြေပုံများအား ပုံဖော်ကြည့်ရှုခြင်း (Visualizing Maps)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/general_tools.html">12. အထွေ‌ထွေ‌သုံးကိရိယာများ (General Tools)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../expressions/index.html">13. Expression များဖြင့် အဆင့်မြှင့်တင်ဆောင်ရွက်ခြင်း (Level up with Expressions)</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">14. The Style Library (Style နှင့်ပတ်သက်သည်များ ထားရှိရာနေရာ)</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">14.1. Style များစီမံခန့်ခွဲရာ (Style Manager)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#style-dialog-style-manager-dialog">14.1.1. Style များ စီမံခန့်ခွဲရာ dialog (Style Manager dialog)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#style-items-organizing-style-items">14.1.1.1. Style items များ စီစဉ်ဖွဲ့စည်းခြင်း (Organizing style items)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#item-adding-editing-or-removing-an-item">14.1.1.2. Item တစ်ခုကို ထည့်ခြင်း၊ ပြင်ခြင်း သို့မဟုတ် ဖယ်ရှားခြင်း (Adding, editing or removing an item)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#style-item-sharing-style-items">14.1.1.3. Style item များကို မျှဝေခြင်း (Sharing style items)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#setting-a-color-ramp">14.1.2. ရောင်စဉ်တွဲ တစ်ခုပြုလုပ်ခြင်း (Setting a Color Ramp)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#creating-a-legend-patch-shape">14.1.3. မြေပုံအညွှန်းသုံးပုံတစ်ခု ဖန်တီးခြင်း (Creating a Legend Patch Shape)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="symbol_selector.html">14.2. သင်္ကေတရွေးချယ်သည့်အရာ (The Symbol Seclector)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="label_settings.html">14.3. အညွှန်းစာတစ်ခု သတ်မှတ်ခြင်း (Setting a label)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3d_symbols.html">14.4. ရုပ်ကြွသင်္ကေတများ ဖန်တီးခြင်း (Creating 3D Symbols)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../managing_data_source/index.html">15. ဒေတာအရင်းအမြစ်များအား စီမံခန့်ခွဲခြင်း (Managing Data Source)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_vector/index.html">16. Vector data များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_raster/index.html">17. Raster Data နှင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_mesh/mesh_properties.html">18. Working with Mesh Data (Mesh Data များနှင့် အလုပ်လုပ်ခြင်း)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_vector_tiles/vector_tiles_properties.html">19. Vector Tiles များနှင့်အလုပ်လုပ်ခြင်း (Working with Vector Tiles)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_point_clouds/point_clouds.html">20. Point Cloud များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../print_composer/index.html">21. မြေပုံအချောသပ်ပြင်ဆင်ခြင်း (Laying out the maps)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_ogc/ogc_client_support.html">22. OGC / ISO protocol များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_gps/index.html">23. GPS Data များနှင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../auth_system/auth_overview.html">24. အထောက်အထားစီစစ်ခြင်းအကြောင်းအကျဉ်း (Authentication System Overview)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../auth_system/auth_workflows.html">25. အသုံးပြုသူ အထောက်အထားစစ်ဆေးခြင်း လုပ်ငန်းအဆင့်များ (User Authentication Workflows)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../auth_system/auth_considerations.html">26. လုံခြုံရေးအတွက်စဉ်းစားရန်အချက်များ (Security Considerations)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../grass_integration/grass_integration.html">27. GRASS GIS နှင့်ပေါင်းစပ်အသုံးပြုခြင်း (GRASS GIS Integration)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing/index.html">28. QGIS processing framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing_algs/index.html">29. Processing ဆိုင်ရာ ထောက်ပံ့ပေးသူများနှင့် Algorithm များ (Processing providers and algorithms)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/plugins.html">30. QGIS Plugin များ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/core_plugins/index.html">31. QGIS ပင်မ Plugin များကို အသုံးပြုခြင်း (Using QGIS Core Plugins)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/python_console.html">32. QGIS တွင် Python code များရေးသားရန်နေရာ (QGIS Python console)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/help_and_support.html">33. အကူအညီနှင့်အထောက်အပံ့ (Help and Support)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/contributors.html">34. ပါဝင်အားဖြည့်သူများ (Contributors)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendices/index.html">35. နောက်ဆက်တွဲများ (Appendices)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../literature_web/literature_and_web_references.html">36. စာတမ်းများနှင့် Website ကိုးကားချက်များ (Literature and Web References)</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">QGIS Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">&lt;no title&gt;</a></li>
+          <li class="breadcrumb-item"><a href="index.html"><span class="section-number">14. </span>The Style Library (Style နှင့်ပတ်သက်သည်များ ထားရှိရာနေရာ)</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">14.1. </span>Style များစီမံခန့်ခွဲရာ (Style Manager)</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/qgis/QGIS-Documentation/blob/master/docs/user_manual/style_library/style_manager.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="index.html" class="btn btn-neutral float-left" title="14. The Style Library (Style နှင့်ပတ်သက်သည်များ ထားရှိရာနေရာ)" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="symbol_selector.html" class="btn btn-neutral float-right" title="14.2. သင်္ကေတရွေးချယ်သည့်အရာ (The Symbol Seclector)" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <blockquote>
+<div></div></blockquote>
+<section id="style-style-manager">
+<span id="vector-style-manager"></span><span id="index-0"></span><h1><span class="section-number">14.1. </span>Style များစီမံခန့်ခွဲရာ (Style Manager)<a class="headerlink" href="#style-style-manager" title="Link to this heading"></a></h1>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#style-dialog-style-manager-dialog" id="id10">Style များ စီမံခန့်ခွဲရာ dialog (Style Manager dialog)</a></p>
+<ul>
+<li><p><a class="reference internal" href="#style-items-organizing-style-items" id="id11">Style items များ စီစဉ်ဖွဲ့စည်းခြင်း (Organizing style items)</a></p></li>
+<li><p><a class="reference internal" href="#item-adding-editing-or-removing-an-item" id="id12">Item တစ်ခုကို ထည့်ခြင်း၊ ပြင်ခြင်း သို့မဟုတ် ဖယ်ရှားခြင်း (Adding, editing or removing an item)</a></p></li>
+<li><p><a class="reference internal" href="#style-item-sharing-style-items" id="id13">Style item များကို မျှဝေခြင်း (Sharing style items)</a></p>
+<ul>
+<li><p><a class="reference internal" href="#item-export-exporting-items" id="id14">Item များကို Export ပြုလုပ်ခြင်း (Exporting items)</a></p></li>
+<li><p><a class="reference internal" href="#item-importing-items" id="id15">Item များကို ထည့်သွင်းခြင်း (Importing items)</a></p></li>
+<li><p><a class="reference internal" href="#browser-panel-using-the-browser-panel" id="id16">Browser panel ကို အသုံးပြုခြင်း (Using the Browser panel)</a></p></li>
+<li><p><a class="reference internal" href="#online-using-the-online-repository" id="id17">Online သိုလှောင်ခန်းများကို အသုံးပြုခြင်း (Using the online repository)</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#setting-a-color-ramp" id="id18">ရောင်စဉ်တွဲ တစ်ခုပြုလုပ်ခြင်း (Setting a Color Ramp)</a></p></li>
+<li><p><a class="reference internal" href="#creating-a-legend-patch-shape" id="id19">မြေပုံအညွှန်းသုံးပုံတစ်ခု ဖန်တီးခြင်း (Creating a Legend Patch Shape)</a></p></li>
+</ul>
+</nav>
+<section id="style-dialog-style-manager-dialog">
+<h2><a class="toc-backref" href="#id10" role="doc-backlink"><span class="section-number">14.1.1. </span>Style များ စီမံခန့်ခွဲရာ dialog (Style Manager dialog)</a><a class="headerlink" href="#style-dialog-style-manager-dialog" title="Link to this heading"></a></h2>
+<p><span class="guilabel">Style Manager</span> သည် ယေဘူယျ style item များကို စီမံခန့်ခွဲနိုင်ပြီး ဖန်တီးနိုင်သည့် နေရာလည်း ဖြစ်သည်။ ၄င်းတို့သည် feature များ၊ layer များ သို့မဟုတ်
+print layout များကို symbolize (သင်္ကေတပြုလုပ်) လုပ်နိုင်သည့် သင်္ကေတများ၊ color ramp (ရောင်စဉ်တန်း) များ၊ text format များ သို့မဟုတ် label setting များဖြစ်ကြသည်။ ၄င်းတို့ကို အသုံးပြုသူပရိုဖိုင်
+<a class="reference internal" href="../introduction/qgis_configuration.html#user-profiles"><span class="std std-ref">user profile</span></a> အောက်တွင်ရှိသည့် <code class="file docutils literal notranslate"><span class="pre">symbology-style.db</span></code> database တွင် သိုလှောင်ထားပြီး ထို profile တွင် ဖွင့်ထားသည့် project file များအားလုံးကို မျှ‌‌‌ဝေထားသည်။
+<span class="guilabel">Style Manager</span> dialog ၏ export/import လုပ်ဆောင်နိုင်မှုကြောင့် style item များကို တခြားတွင်လည်း မျှဝေပြီး အသုံးပြုနိုင်သည်။</p>
+<p>Modeless dialog ကို အောက်ဖော်ပြပါတခုခုနှင့် ဖွင့်နိုင်ပါသည်-</p>
+<ul class="simple">
+<li><p><span class="menuselection">Settings ►</span> မှ <a class="reference internal" href="../../../_images/mActionStyleManager.png"><img alt="styleManager" src="../../../_images/mActionStyleManager.png" style="width: 1.5em;" /></a> <span class="menuselection">Style
+Manager…</span> ကို ဖွင့်ပါ။</p></li>
+<li><p>Project toolbar မှ <a class="reference internal" href="../../../_images/mActionStyleManager.png"><img alt="styleManager" src="../../../_images/mActionStyleManager.png" style="width: 1.5em;" /></a> <sup>Style Manager</sup> ခလုတ်ကို နှိပ်ပါ။</p></li>
+<li><p>သို့မဟုတ် vector တစ်ခု၏ <span class="menuselection">Layer Properties ►</span> menu (<a class="reference internal" href="symbol_selector.html#symbol-selector"><span class="std std-ref">သင်္ကေတတစ်ခုအား ပြင်ဆင်နေစဉ်</span></a> သို့မဟုတ် <a class="reference internal" href="label_settings.html#showlabels"><span class="std std-ref">စာသားတစ်ခုအား format ပြုလုပ်နေစဉ်</span></a>) မှ <a class="reference internal" href="../../../_images/mActionStyleManager.png"><img alt="styleManager" src="../../../_images/mActionStyleManager.png" style="width: 1.5em;" /></a> <sup>Style Manager</sup> ခလုတ်ကို နှိပ်ပါ။</p></li>
+</ul>
+<figure class="align-center" id="id1">
+<span id="figure-style-manager"></span><img alt="../../../_images/stylemanager.png" src="../../../_images/stylemanager.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 14.1 </span><span class="caption-text">Style Manager</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<section id="style-items-organizing-style-items">
+<span id="group-symbols"></span><span id="index-1"></span><h3><a class="toc-backref" href="#id11" role="doc-backlink"><span class="section-number">14.1.1.1. </span>Style items များ စီစဉ်ဖွဲ့စည်းခြင်း (Organizing style items)</a><a class="headerlink" href="#style-items-organizing-style-items" title="Link to this heading"></a></h3>
+<p><span class="guilabel">Style Manager</span> dialog သည် tab များဖြင့် ဖွဲ့စည်းထားသည့် item များကို အစမ်းကြည့်ရှုရန် ၄င်း၏ အလယ်ဗဟိုတွင် frame တစ်ခုအဖြစ် ပြသထားသည်။</p>
+<ul class="simple">
+<li><p><span class="guilabel">All</span> သည် point၊ linear၊ surface သင်္ကေတများ နှင့် label (အညွှန်း) setting များအပြင် ကြိုတင်သတ်မှတ်ထားသည့် color ramp (ရောင်စဉ်တန်း) များနှင့် text format များကိုလည်း စုစည်းထားသည်။</p></li>
+<li><p><a class="reference internal" href="../../../_images/mIconPointLayer.png"><img alt="pointLayer" src="../../../_images/mIconPointLayer.png" style="width: 1.5em;" /></a> <span class="guilabel">Marker</span> သည် point သင်္ကေတများအတွက် ဖြစ်သည်။</p></li>
+<li><p><a class="reference internal" href="../../../_images/mIconLineLayer.png"><img alt="lineLayer" src="../../../_images/mIconLineLayer.png" style="width: 1.5em;" /></a> <span class="guilabel">Line</span> သည် linear သင်္ကေတများအတွက် ဖြစ်သည်။</p></li>
+<li><p><a class="reference internal" href="../../../_images/mIconPolygonLayer.png"><img alt="polygonLayer" src="../../../_images/mIconPolygonLayer.png" style="width: 1.5em;" /></a> <span class="guilabel">Fill</span> သည် surface သင်္ကေတများအတွက် ဖြစ်သည်။</p></li>
+<li><p><img alt="color" src="../../../_images/color.png" /> <span class="guilabel">Color ramp</span></p></li>
+<li><p><a class="reference internal" href="../../../_images/text.png"><img alt="text" src="../../../_images/text.png" style="width: 1.5em;" /></a> <span class="guilabel">Text format</span> သည် စာလုံးဖောင့်၊ အရောင်၊ buffer များ၊ အရိပ်များနှင့် စာသားများ၏ နောက်ခံများ (ဆိုလိုသည်မှာ layout များတွင် label setting အားလုံးကို format ပြုလုပ်ခြင်းဖြစ်သည်။)
+<a class="reference internal" href="label_settings.html#text-format"><span class="std std-ref">text formats</span></a>  များကို ပြင်ဆင်ဆောင်ရွက်ရန် ဖြစ်သည်။</p></li>
+<li><p><a class="reference internal" href="../../../_images/labelingSingle.png"><img alt="labelingSingle" src="../../../_images/labelingSingle.png" style="width: 1.5em;" /></a> <span class="guilabel">Label settings</span> သည် text format များနှင့် label placement၊ priority၊ callout များနှင့် rendering ကဲ့သို့ label setting ပါဝင်သည့် <a class="reference internal" href="label_settings.html#showlabels"><span class="std std-ref">label settings</span></a> များကို ပြင်ဆင်ဆောင်ရွက်ရန် ဖြစ်သည်။</p></li>
+<li><p><a class="reference internal" href="../../../_images/legend.png"><img alt="legend" src="../../../_images/legend.png" style="width: 1.2em;" /></a> <span class="guilabel">Legend Patch Shapes</span> သည် <span class="guilabel">Marker</span>၊ <span class="guilabel">Line</span> နှင့် <span class="guilabel">Fill</span> ဂျီဩမေတြီများပါဝင်သည့် စိတ်ကြိုက် legend patch shape များကို ပြင်ဆင်ဆောင်ရွက်ရန် ဖြစ်သည်။</p></li>
+<li><p><a class="reference internal" href="../../../_images/3d.png"><img alt="3d" src="../../../_images/3d.png" style="width: 1.5em;" /></a> <span class="guilabel">3D Symbols</span> သည် <a class="reference internal" href="../map_views/3d_map_view.html#label-3dmapview"><span class="std std-ref">3D Map view</span></a> တွင် feature များကို render ပြုလုပ်ရန်အတွက် <a class="reference internal" href="3d_symbols.html#dsymbols"><span class="std std-ref">3D properties</span></a> (extrusion ၊ shading ၊ altitude ၊ …) သင်္ကေတများကို configure (သတ်မှတ်ပြင်ဆင်) ပြုလုပ်ရန်ဖြစ်သည်။</p></li>
+</ul>
+<p>Style များကို ညာဘက်အောက်ခြေရှိ <a class="reference internal" href="../../../_images/mActionIconView.png"><img alt="iconView" src="../../../_images/mActionIconView.png" style="width: 1.5em;" /></a> <span class="guilabel">Icon View</span> သို့မဟုတ်
+<a class="reference internal" href="../../../_images/mActionOpenTable.png"><img alt="openTable" src="../../../_images/mActionOpenTable.png" style="width: 1.5em;" /></a> <span class="guilabel">List View</span> တွင် ပြုလုပ်နိုင်သည်။ View နှစ်ခုစလုံးတွင် tooltip သည် style ဥပမာများကို ပြသထားသည်။
+Icon များ၏ ဘယ်ဘက်မှာရှိသည့် thumbnail size slider သည် သင်္ကေတများကို အကောင်းဆုံး ကြည့်ရှုဖို့ရန်အတွက် dialog တွင် actual
+thumbnail size များကို ချိန်ညှိနိုင်ပါသည်။</p>
+<p>Item တစ်ခုချင်းစီအတွက် ဘယ်ဘက် panel ရှိ စာရင်းတွင် element များကို မတူညီသည့် အမျိုးအစားများအဖြစ် ပြုလုပ်နိုင်သည်။</p>
+<ul class="simple">
+<li><p><strong>Favorites</strong> သည် item တစ်ခုကို configure ပြုလုပ်သည့်အချိန်တွင် ပုံသေပြသသည်။ ၄င်းသည် item များ၏ extensible (ဖြန့်ထုတ်နိုင်သော) set တစ်ခုအဖြစ်လည်း ပြသသည်။</p></li>
+<li><p><strong>All</strong> သည် active ဖြစ်နေသည့် အမျိုးအစားများအတွက် ရရှိနိုင်သည့် item များအားလုံးကို စာရင်းပြုလုပ်ထားသည်။</p></li>
+<li><p><strong>Tags</strong> သည် item များကို သတ်မှတ်ရန် အသုံးပြုနိုင်သည့် label စာရင်းကို ပြသသည်။
+Item တစ်ခုသည် တစ်ကြိမ်ထက် ပိုပြီး tag ပြုလုပ်နိုင်သည်။ List ထဲရှိ tag တစ်ခုကို ရွေးချယ်ပြီး ၄င်းနှင့်သက်ဆိုင်သည့် item များကိုသာ ပြသရန် tag များကို update ပြုလုပ်ပေးသည်။
+Item များကို attach လုပ်နိုင်ရန်အတွက် tag တစ်ခုဖန်တီးရန် <span class="guilabel">Add Tag…</span> ခလုတ်ကို နှိပ်ပါ။ သို့မဟုတ် မည်သည့် tag အကြောင်းအရာဆိုင်ရာ menu မှ <a class="reference internal" href="../../../_images/symbologyAdd.png"><img alt="symbologyAdd" src="../../../_images/symbologyAdd.png" style="width: 1.5em;" /></a> <span class="guilabel">Add Tag…</span> ကိုရွေးပါ။</p></li>
+<li><p><strong>Smart Group</strong> သည် conditions (သတ်မှတ်အခြေအနေများ) နှင့်အညီ ၄င်း၏ သင်္ကေတများကို  dynamically ရယူသည်။ (ဥပမာအနေဖြင့် <a class="reference internal" href="#figure-smart-group"><span class="std std-numref">Fig. 14.2</span></a> ကို ကြည့်ပါ)။
+Smart group များကို ဖန်းတီးရန် <span class="guilabel">Add Smart Group…</span> ခလုတ်ကို နှိပ်ပါ။ dialog box မှာ ရွေးချယ်ရန် item များကို filter လုပ်ရန်အတွက် expression တစ်ခုကို ပြုလုပ်နိုင်သည်။
+(သီးသန့် tag တစ်ခု၊ နာမည် string တစ်ခု စသည်တို့ပါဝင်သည်)။ အခြေအနေ(များ) နှင့်ကိုက်ညီသည့် သင်္ကေတများ၊ color ramp များ၊ text format များ သို့မဟုတ် label setting များကို smart group ထဲသို့ အလိုအလျောက် ထည့်သွင်းပေးသည်။</p></li>
+</ul>
+<figure class="align-center" id="id2">
+<span id="figure-smart-group"></span><img alt="../../../_images/create_smartgroup.png" src="../../../_images/create_smartgroup.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 14.2 </span><span class="caption-text">Smart Group တစ်ခု ဖန်တီးခြင်း</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Tag များ နှင့် smart group များသည် အပြန်အလှန်ဆက်နွယ်မှု မရှိပါ။ ၄င်းတို့သည် style element များကို စုစည်းနိုင်သော မတူညီသည့် နည်းလမ်းနှစ်မျိုးဖြစ်သည်။
+Smart group များသည် ထည့်သွင်းကန့်သတ်ချက်ပေါ် မူတည်ပြီးတော့ ၄င်းတို့၏ item များကို အလိုအလျောက်ရယူပြီး tag များကို အသုံးပြုသူက ကိုယ်တိုင်ထည့်ပေးရသည်။
+ထိုအမျိုးအစားတစ်ခုခုကို edit ပြုလုပ်ရန် အောက်ပါအတိုင်း ပြုလုပ်နိုင်သည်-</p>
+<ul class="simple">
+<li><p>Item များကို ရွေးပါ။ right-click နှိပ်ပြီး <span class="menuselection">Add to Tag ►</span> ကို ရွေးပါ။ ထို့နောက် tag name ရွေးပါ သို့မဟုတ် tag အသစ်တစ်ခုဖန်တီးပါ။</p></li>
+<li><p>Tag ကို ရွေးပြီး <span class="menuselection">Modify group… ► Attach Selected Tag to Symbols</span> ကို နှိပ်ပါ။ item တစ်ခုချင်းစီ၏ဘေးတွင် ရွေးချယ်နိုင်သည့် check box ပေါ်လာပါမည်။
+ရွေးချယ်ပြီးသည့်အခါ <span class="menuselection">Modify group… ► Finish Tagging</span> ကို နှိပ်ပါ။</p></li>
+<li><p>Smart group ကို ရွေးပြီး <span class="menuselection">Modify group… ► Edit smart group…</span>  ကို နှိပ်ပါ။ ထို့နောက် <span class="guilabel">Smart Group Editor</span> dialog တွင် configure ပြုလုပ်ပါ။ ၄င်း option ကို smart group ၏ အကြောင်းအရာဆိုင်ရာ menu ထဲမှလည်း ပြုလုပ်နိုင်သည်။</p></li>
+</ul>
+<p>Tag တစ်ခု သို့မဟုတ် smart group ကို ဖယ်ရှားရန် ၄င်းပေါ်မှာ right-click နှိပ်ပြီး <a class="reference internal" href="../../../_images/symbologyRemove.png"><img alt="symbologyRemove" src="../../../_images/symbologyRemove.png" style="width: 1.5em;" /></a>
+<span class="guilabel">Remove</span> ခလုတ်ကို နှိပ်ပါ။ category ထဲတွင် group လုပ်ထားသည့် item များကို မဖျက်ပါ။</p>
+</section>
+<section id="item-adding-editing-or-removing-an-item">
+<h3><a class="toc-backref" href="#id12" role="doc-backlink"><span class="section-number">14.1.1.2. </span>Item တစ်ခုကို ထည့်ခြင်း၊ ပြင်ခြင်း သို့မဟုတ် ဖယ်ရှားခြင်း (Adding, editing or removing an item)</a><a class="headerlink" href="#item-adding-editing-or-removing-an-item" title="Link to this heading"></a></h3>
+<p>အပေါ်တွင် မြင်တွေ့ရသည့်အတိုင်း active ဖြစ်နေသော အမျိုးအစားများ (tag ၊ smart group ၊ favorites…) ပေါ်မူတည်ပြီး style element များကို ဖော်ပြထားသည်။ Tab တစ်ခု ဖွင့်ပြီး အောက်ပါအတိုင်း ပြုလုပ်နိုင်သည်-</p>
+<ul class="simple">
+<li><p>Item အသစ်များထည့်သွင်းခြင်း - <a class="reference internal" href="../../../_images/symbologyAdd.png"><img alt="symbologyAdd" src="../../../_images/symbologyAdd.png" style="width: 1.5em;" /></a> <sup>Add item</sup> ခလုတ်ကို နှိပ်ပြီး
+<a class="reference internal" href="symbol_selector.html#symbol-selector"><span class="std std-ref">symbols</span></a> ၊ <a class="reference internal" href="#color-ramp"><span class="std std-ref">color ramps</span></a> သို့မဟုတ် <a class="reference internal" href="label_settings.html#showlabels"><span class="std std-ref">text format and label</span></a> builder description ကို configure ပြုလုပ်ပါ။</p></li>
+<li><p>ရှိပြီးသား item တစ်ခုကို Modify ပြုလုပ်ခြင်း - Item တစ်ခုကို ရွေးပြီး <a class="reference internal" href="../../../_images/symbologyEdit.png"><img alt="symbologyEdit" src="../../../_images/symbologyEdit.png" style="width: 1.5em;" /></a> <sup>Edit item</sup> ခလုတ်ကို နှိပ်ပါ။ ထို့နောက် item အသစ်ထည့်သွင်းခြင်းကဲ့သို့ configure ပြုလုပ်ပါ။</p></li>
+<li><p>ရှိပြီးသား item များကို delete (ဖျက်ခြင်း) လုပ်ခြင်း - Element တစ်ခု delete လုပ်ရန်အတွက် delete လုပ်လိုသည့် element ကို ရွေးပြီး <a class="reference internal" href="../../../_images/symbologyRemove.png"><img alt="symbologyRemove" src="../../../_images/symbologyRemove.png" style="width: 1.5em;" /></a> <sup>Remove item</sup> နှိပ်ပါ။ (right-click နှိပ်ပြီးလည်း ပြုလုပ်နိုင်သည်) Item သည် local database မှ ဖယ်ရှားသွားလိမ့်မည်။</p></li>
+</ul>
+<p><span class="guilabel">All</span> tab သည် item အမျိုးမျိုးကို ရွေးချယ်နိုင်သည်။</p>
+<p>ရွေးချယ်ထားသော item ပေါ်တွင် Right-click နှိပ်ခြင်းဖြင့် လုပ်ဆောင်နိုင်သည်များမှာ-</p>
+<ul class="simple">
+<li><p><span class="guilabel">Add to Favorites</span> (Favorite များထဲသို့ ပေါင်းထည့်ခြင်း)၊</p></li>
+<li><p><span class="guilabel">Remove from Favorites</span> (Favorite များထဲမှ ဖယ်ရှားခြင်း)၊</p></li>
+<li><p><span class="menuselection">Add to Tag ►</span> နှင့် သင့်လျော်သော tag ကို ရွေးပါ။ သို့မဟုတ် အသစ်တစ်ခု ဖန်တီးပါ။ ရှိပြီးသား tag များကို စစ်ဆေးပါ။</p></li>
+<li><p><span class="guilabel">Clear Tags</span> - Tag ထဲရှိ သင်္ကေတများကို ဖယ်ထုတ်ခြင်း</p></li>
+<li><p><span class="guilabel">Remove Item(s)</span> (Item များအား ဖယ်ရှားခြင်း)</p></li>
+<li><p><span class="guilabel">Edit Item</span> - Edit ပြုလုပ်လိုသည့် item တစ်ခုပေါ်တွင် right-click နှိပ်ပါ။</p></li>
+<li><p><span class="guilabel">Copy Item</span> (Item ကို ကူးယူခြင်း)</p></li>
+<li><p><span class="guilabel">Paste Item …</span> - style manager ထဲမှ category တစ်ခုခုထဲတွင် သို့မဟုတ် QGIS ထဲရှိ တစ်နေရာရာတွင် (symbols သို့မဟုတ် color buttons ) paste လုပ်ပါ။</p></li>
+<li><p><span class="guilabel">Export Selected Symbol(s) as PNG…</span> (သင်္ကေတများအတွက်သာ ဖြစ်သည်။)</p></li>
+<li><p><span class="guilabel">Export Selected Symbol(s) as SVG…</span> (သင်္ကေတများအတွက်သာ ဖြစ်သည်။)</p></li>
+</ul>
+</section>
+<section id="style-item-sharing-style-items">
+<span id="share-symbols"></span><h3><a class="toc-backref" href="#id13" role="doc-backlink"><span class="section-number">14.1.1.3. </span>Style item များကို မျှဝေခြင်း (Sharing style items)</a><a class="headerlink" href="#style-item-sharing-style-items" title="Link to this heading"></a></h3>
+<p>Style Manager dialog ၏ ဘယ်ဘက်အောက်ခြေတွင်ရှိသည့် <a class="reference internal" href="../../../_images/mActionSharing.png"><img alt="sharing" src="../../../_images/mActionSharing.png" style="width: 1.5em;" /></a> <span class="guilabel">Import/Export</span> tool သည် symbolများ၊ color ramp များ၊ text
+format များနှင့် label setting များကို share ပြုလုပ်နိုင်သည်။ ထိုလုပ်ဆောင်မှုများကို item များပေါ်တွင် right click နှိပ်ပြီးလည်း ပြုလုပ်နိုင်သည်။</p>
+<section id="item-export-exporting-items">
+<h4><a class="toc-backref" href="#id14" role="doc-backlink">Item များကို Export ပြုလုပ်ခြင်း (Exporting items)</a><a class="headerlink" href="#item-export-exporting-items" title="Link to this heading"></a></h4>
+<p>Item များကို <code class="file docutils literal notranslate"><span class="pre">.XML</span></code> ဖိုင်အဖြစ် export ပြုလုပ်နိုင်သည်။</p>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="../../../_images/mActionSharing.png"><img alt="sharing" src="../../../_images/mActionSharing.png" style="width: 1.5em;" /></a> <span class="guilabel">Import/Export</span> drop-down menu ထဲရှိ
+<a class="reference internal" href="../../../_images/mActionFileSave.png"><img alt="fileSave" src="../../../_images/mActionFileSave.png" style="width: 1.5em;" /></a> <span class="guilabel">Export Item(s)…</span> ကို ရွေးပါ။</p></li>
+<li><p>Export ပြုလုပ်လိုသော item များကို ရွေးချယ်ရာတွင် mouse ဖြင့်သော်လည်းကောင်း၊ tag တစ်ခုကို ရွေးချယ်၍သော်လည်းကောင်း သို့မဟုတ် ရှိပြီးသား group တစ်ခုချင်းအလိုက်လည်း ပြုလုပ်နိုင်သည်။</p></li>
+<li><p>ရွေးချယ်ပြီးပါက <span class="guilabel">Export</span> ကို နှိပ်ပါ။ ဖိုင် သိမ်းဆည်းမည့် နေရာကို ပြပါလိမ့်မည်။ ရွေးချယ်ထားသည့် item များပါဝင်သော XML format တစ်ခုကို ရရှိပါမည်။
+ဤ ဖိုင်ကို တစ်ခြားအသုံးပြုသူ၏ style library တွင် ထည့်သွင်းအသုံးပြုနိုင်သည်။</p></li>
+</ol>
+<figure class="align-center" id="id3">
+<span id="figure-symbol-export"></span><img alt="../../../_images/export_styles.png" src="../../../_images/export_styles.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 14.3 </span><span class="caption-text">Style item များကို Export ပြုလုပ်ခြင်း</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>သင်္ကေတများကို  ရွေးချယ်ပြီး <code class="file docutils literal notranslate"><span class="pre">.PNG</span></code> သို့မဟုတ် <code class="file docutils literal notranslate"><span class="pre">.SVG</span></code> ဖိုင်အဖြစ် export ပြုလုပ်နိုင်သည်။ <code class="file docutils literal notranslate"><span class="pre">.PNG</span></code> သို့မဟုတ် <code class="file docutils literal notranslate"><span class="pre">.SVG</span></code> export ပြုလုပ်ခြင်းသည် (ဖိုင် နှစ်ခုစလုံးသည် အခြား style item အမျိုးအစားများအတွက် မရရှိနိုင်ပါ) ပေးထားသည့် folder ထဲမှာပဲ ရွေးချယ်ထားသည့် သင်္ကေတ တစ်ခုစီအတွက် ဖိုင်တစ်ခု ဖန်တီးပေးခြင်းဖြစ်သည်။
+SVG folder ကို တခြား အသုံးပြုသူမှ <span class="menuselection">Settings ► Options ►System</span> menu ထဲတွင်ရှိသည့် <span class="guilabel">SVG paths</span> တွင် ထည့်သွင်းပြီး သင်္ကေတ များကိုတိုက်ရိုက်အသုံးပြုနိုင်သည်။</p>
+</section>
+<section id="item-importing-items">
+<span id="import-style-items"></span><h4><a class="toc-backref" href="#id15" role="doc-backlink">Item များကို ထည့်သွင်းခြင်း (Importing items)</a><a class="headerlink" href="#item-importing-items" title="Link to this heading"></a></h4>
+<p>Item အသစ်များကို import လုပ်ခြင်းဖြင့် style library ကို ထပ်တိုးနိုင်သည်။</p>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="../../../_images/mActionSharing.png"><img alt="sharing" src="../../../_images/mActionSharing.png" style="width: 1.5em;" /></a> <span class="guilabel">Import/Export</span> drop-down menu ကိုနှိပ်ပြီး ဘယ်ဘက်အောက်ခြေရှိ
+<a class="reference internal" href="../../../_images/mActionFileOpen.png"><img alt="fileOpen" src="../../../_images/mActionFileOpen.png" style="width: 1.5em;" /></a> <span class="guilabel">Import Item(s)</span> ကို ရွေးပါ။</p></li>
+<li><p>Dialog အသစ်တွင်  style item များ၏ source ကို ညွှန်ပြပါ။ (၄င်းသည် disk ပေါ်ရှိ
+<code class="file docutils literal notranslate"><span class="pre">.xml</span></code> ဖိုင် သို့မဟုတ် url ဖိုင် ဖြစ်နိုင်သည်။)</p></li>
+<li><p>Import လုပ်မည့် item များကို <a class="reference internal" href="../../../_images/unchecked.png"><img alt="unchecked" src="../../../_images/unchecked.png" style="width: 1.3em;" /></a> <span class="guilabel">Add to favorites</span> ထဲထည့်သွင်းရန် အမှန်ခြစ် ဖြုတ်ခြင်းရှိမရှိ ရွေးချယ်ပါ။</p></li>
+<li><p>Import လုပ်ထားသည့် item များနှင့် ဆက်စပ်နေသည့် tag များကို ရှောင်ရှားရန် <a class="reference internal" href="../../../_images/unchecked.png"><img alt="unchecked" src="../../../_images/unchecked.png" style="width: 1.3em;" /></a> <span class="guilabel">Do not import embedded tags</span> ကို အမှန်ခြစ်ပါ။</p></li>
+<li><p>Item အသစ်များကို အသုံးပြုရန် <span class="guilabel">Additional tag(s)</span> ကို နာမည်ပေးပါ။</p></li>
+<li><p>Library သို့ ထည့်သွင်းလိုသည့် သင်္ကေတများကို preview မှ ရွေးပါ။</p></li>
+<li><p><span class="guilabel">Import</span> ကို နှိပ်ပါ။</p></li>
+</ol>
+<figure class="align-center" id="id4">
+<span id="figure-symbol-import"></span><img alt="../../../_images/import_styles.png" src="../../../_images/import_styles.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 14.4 </span><span class="caption-text">Style item များကို import ပြုလုပ်ခြင်း</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="browser-panel-using-the-browser-panel">
+<span id="index-2"></span><h4><a class="toc-backref" href="#id16" role="doc-backlink">Browser panel ကို အသုံးပြုခြင်း (Using the Browser panel)</a><a class="headerlink" href="#browser-panel-using-the-browser-panel" title="Link to this heading"></a></h4>
+<p>အသုံးပြုသူပရိုဖိုင်၏ style database ထဲသို့ item style များကို <span class="guilabel">Browser</span> panel မှ တိုက်ရိုက် import ပြုလုပ်နိုင်သည်။</p>
+<ol class="arabic simple">
+<li><p>Browser ထဲမှ <code class="file docutils literal notranslate"><span class="pre">.xml</span></code> style ဖိုင်ကို ရွေးပါ။</p></li>
+<li><p>Map canvas ထဲသို့ Drag-and-drop ဆွဲပါ သို့မဟုတ် right-click နှိပ်ပြီး
+<span class="guilabel">Import Style…</span> ကို ရွေးပါ။</p></li>
+<li><p><a class="reference internal" href="#import-style-items"><span class="std std-ref">Item များကို ထည့်သွင်းခြင်း (Importing items)</span></a> အတိုင်း <span class="guilabel">Import Items</span> dialog ကို ဖြည့်ပါ။</p></li>
+<li><p><span class="guilabel">Import</span> နှိပ်ပြီး ရွေးချယ်ထားသော style item များကို
+style database ထဲသို့ ထည့်သွင်းပါ။</p></li>
+</ol>
+<p>Browser တွင်ရှိသည့် style ဖိုင်ကို double-click ပြုလုပ်လိုက်လျှင် ဖိုင်ထဲမှ item များကိုပြသသည့်
+<span class="guilabel">Style Manager</span> dialog ပွင့်လာမည်။ ၄င်းတို့ကို ရွေးချယ်ပြီး active ဖြစ်နေသော style
+database ထဲသို့ import ပြုလုပ်ရန် <span class="guilabel">Copy to Default Style…</span> ကို နှိပ်ပါ။ ၄င်း item များအတွက် tag များသတ်မှတ်နိုင်သည်။ ၄င်း item များကို right-click နှိပ်ပြီး
+<span class="guilabel">Open Style…</span> command အသုံးပြုခြင်းဖြင့်လည်း ရနိုင်သည်။</p>
+<figure class="align-center" id="id5">
+<span id="figure-symbol-open"></span><img alt="../../../_images/open_style_file.png" src="../../../_images/open_style_file.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 14.5 </span><span class="caption-text">Style items ဖိုင်ကို ဖွင့်ခြင်း</span><a class="headerlink" href="#id5" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Dialog သည် သင်္ကေတတစ်ခုချင်းစီကို <code class="file docutils literal notranslate"><span class="pre">.PNG</span></code> or <code class="file docutils literal notranslate"><span class="pre">.SVG</span></code> ဖိုင်များအဖြစ် ထုတ်ပေးနိုင်သည်။</p>
+</section>
+<section id="online-using-the-online-repository">
+<h4><a class="toc-backref" href="#id17" role="doc-backlink">Online သိုလှောင်ခန်းများကို အသုံးပြုခြင်း (Using the online repository)</a><a class="headerlink" href="#online-using-the-online-repository" title="Link to this heading"></a></h4>
+<p>QGIS သည် QGIS အသုံးပြုသူများ share ထားသော style များ စုစည်းထားသည့် repository တစ်ခု ထားရှိပါသည်။ Style များကို <a class="reference external" href="https://plugins.qgis.org/styles">https://plugins.qgis.org/styles</a> တွင် ရရှိနိုင်ပြီး
+<span class="guilabel">Style Manager</span> dialog မှ အောက်ခြေတွင် ရှိသည့်  <a class="reference internal" href="../../../_images/search.png"><img alt="search" src="../../../_images/search.png" style="width: 1.5em;" /></a>
+<span class="guilabel">Browse Online Styles</span> ခလုတ်ကို နှိပ်ခြင်းဖြင့်လည်း ရရှိနိုင်သည်။</p>
+<p>Repository ထဲတွင် အောက်ပါတို့ကို ပြုလုပ်နိုင်သည်-</p>
+<ol class="arabic simple">
+<li><p>အမျိုးအစား သို့မဟုတ် နာမည်ပေါ် အခြေခံပြီး style item များကို ရှာပါ။</p></li>
+<li><p>Style ဖိုင်ကို download ပြုလုပ်ပြီး ၄င်းဖိုင်ကို unzip ပြုလုပ်ပါ။</p></li>
+<li><p>အထက်တွင် ဖော်ပြထားသည့် import နည်းလမ်းများကို အသုံးပြုပြီး <code class="file docutils literal notranslate"><span class="pre">.xml</span></code> ဖိုင်ကို QGIS ၏ style database ထဲသို့ ထည့်သွင်းပါ။</p></li>
+</ol>
+</section>
+</section>
+</section>
+<section id="setting-a-color-ramp">
+<span id="color-ramp"></span><h2><a class="toc-backref" href="#id18" role="doc-backlink"><span class="section-number">14.1.2. </span>ရောင်စဉ်တွဲ တစ်ခုပြုလုပ်ခြင်း (Setting a Color Ramp)</a><a class="headerlink" href="#setting-a-color-ramp" title="Link to this heading"></a></h2>
+<p id="index-3"><span class="guilabel">Style Manager</span> dialog ထဲရှိ color ramp tab သည် ဘယ်ဘက် panel မှ
+ရွေးချယ်ထားသည့် အမျိုးအစားပေါ်မူတည်ပြီး color ramp အမျိုးမျိုးကို ကြည့်ရှုနိုင်သည်။</p>
+<p>Custom color ramp တစ်ခု ဖန်တီးရန် color ramp tab ကို activate ပြုလုပ်ပြီး
+<a class="reference internal" href="../../../_images/symbologyAdd.png"><img alt="symbologyAdd" src="../../../_images/symbologyAdd.png" style="width: 1.5em;" /></a> <sup>Add item</sup> ခလုတ်ကို click လုပ်ပါ။ ၄င်းတွင် color ramp အမျိုးအစားရွေးချယ်ရန် drop-down list ပြသထားသည်။</p>
+<ul>
+<li><p><span class="guilabel">Gradient</span> သည် အစ အရောင် နှင့် အဆုံးသတ် အရောင် ကို ပေးပြီး <strong>continuous (တစ်ဆက်တည်းဖြစ်သော)</strong> သို့မဟုတ် <strong>discrete (သီးခြားလိုက် ဖြစ်သော)</strong> ဖြစ်နိုင်သည့် color ramp တစ်ခု ထုတ်ပေးသည်။
+Ramp preview ကို double-click နှိပ်ပြီး အလိုရှိသည့် intermediate (ကြား) အရောင်များကို ထည့်နိုင်သည်။
+Color stop indicator (အရောင်အဖြတ်ညွှန်းကိန်း) ကို click နှိပ်ပြီး <span class="guilabel">Gradient stop</span> အောက်တွင် ပြုလုပ်နိုင်သည်များမှာ-</p>
+<ul class="simple">
+<li><p>Color ramp အစမှ <span class="guilabel">Relative position</span> ကို adjust လုပ်ပါ။
+Indicator ကို mouse ဖြင့် ဆွဲခြင်း သို့မဟုတ် arrow key များကို နှိပ်ပြီး ပြုလုပ်နိုင်သည်။
+(ကြီးကြီးမားမားရွှေ့ရန် arrow key ကို <kbd class="kbd docutils literal notranslate">Shift</kbd> key ဖြင့် တွဲပြီးသုံးနိုင်သည်)</p></li>
+<li><p>Color များကြား interpolate ပြုလုပ်လိုသည့်အခါ အသုံးပြုရန် color model ကို သတ်မှတ်ပါ။
+၄င်းသည် <span class="guilabel">RGB</span> ၊ <span class="guilabel">HSL</span> သို့မဟုတ် <span class="guilabel">HSV</span> ဖြစ်သည်။
+အချို့အခြေအနေများတွင် desaturated mid tone များကို ရှောင်နိုင်သောကြောင့် ပိုမို၍ကြည့်ကောင်းသည့် gradient များကို ရရှိနိုင်သည်။</p></li>
+<li><p><span class="guilabel">HSL</span> သို့မဟုတ် <span class="guilabel">HSV</span> color သတ်မှတ်ချက်၏ <strong>Hue</strong> အစိတ်အပိုင်းအတွက် interpolation ပြုလုပ်ခြင်း၏ ဦးတည်ချက်ကို
+<span class="guilabel">Clockwise</span> သို့မဟုတ် <span class="guilabel">Counterclockwise</span> ဖြင့် သတ်မှတ်နိုင်သည်။</p></li>
+<li><p><a class="reference internal" href="../introduction/general_tools.html#color-selector"><span class="std std-ref">color properties</span></a> ကို သတ်မှတ်ပါ။</p></li>
+<li><p><span class="guilabel">Delete stop</span> သို့မဟုတ် <kbd class="kbd docutils literal notranslate">DEL</kbd> နှိပ်၍ အရောင်ကို ဖယ်ရှားပါ။</p></li>
+</ul>
+<p><span class="guilabel">Plots</span> group သည် color ramp (ရောင်စဉ်တန်း) များကို ဒီဇိုင်းဆွဲရန်၊ အရောင် stop များ၏ တည်နေရာ သို့မဟုတ် opacity (အလင်းပိတ်နှုန်း) နှင့် HSL
+အစိတ်အပိုင်းများ ပြောင်းလဲရန်အတွက် တခြား graphical နည်းလမ်းကို ပံ့ပိုးပေးသည်။</p>
+<figure class="align-center" id="id6">
+<span id="figure-color-custom-ramp"></span><img alt="../../../_images/customColorRampGradient.png" src="../../../_images/customColorRampGradient.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 14.6 </span><span class="caption-text">Stops (အဖြတ်) အများအပြားပါဝင်သည့် စိတ်ကြိုက်ပြင်ဆင်ထားသော gradient color ramp ဥပမာ</span><a class="headerlink" href="#id6" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>Color spot တွင် အရောင် တခုကို gradient ramp preview ပေါ်သို့ ဆွဲထည့်ခြင်းသည် အရောင် stop အသစ်တခုကို ထပ်တိုးစေသည်။</p>
+</div>
+</li>
+<li><p><span class="guilabel">Color presets</span> - အသုံးပြုသူမှ ရွေးချယ်ထားသော color list ပါဝင်သည့် color ramp (ရောင်စဉ်တန်း) အသစ်တစ်ခုကို ဖန်တီးနိုင်သည်။</p></li>
+<li><p><span class="guilabel">Random</span> - <span class="guilabel">Hue</span> ၊ <span class="guilabel">Saturation</span> ၊ <span class="guilabel">Value</span> ၊ <span class="guilabel">Opacity</span>
+နှင့် အရောင်များစွာ (<span class="guilabel">Classes</span>) အတွက် တန်ဖိုးများပေါ် မူတည်ပြီး ကျပန်းအရောင် အစုကို ဖန်တီးပေးသည်။</p></li>
+<li><p><span class="guilabel">Catalog: ColorBrewer</span> - Ramp တွင် color အရေအတွက်ကို customize လုပ်နိုင်မည့် ကြိုတင်သတ်မှတ်ထားသည့် discrete color gradient အစုံဖြင့် လုပ်ဆောင်နိုင်သည်။</p></li>
+<li><p>သို့မဟုတ် <span class="guilabel">Catalog: cpt-city</span> - <span class="guilabel">save as standard gradient</span> ပြုလုပ်ပြီး color gradient များ၏ catalog တစ်ခုလုံးသို့ အသုံးပြုနိုင်သည့် အရာတစ်ခုဖြစ်သည်။
+cpt-city option သည် ‘out of the box’ ပါဝင်သည့် themes ရာပေါင်းများစွာ ပါရှိသော dialog အသစ်တစ်ခုကို ဖွင့်ပေးသည်။</p></li>
+</ul>
+<figure class="align-center" id="id7">
+<span id="figure-color-cpt-city"></span><img alt="../../../_images/cpt-cityColorRamps.png" src="../../../_images/cpt-cityColorRamps.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 14.7 </span><span class="caption-text">Color ramp ရာပေါင်းများစွာပါရှိသည့် cpt-city dialog</span><a class="headerlink" href="#id7" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="creating-a-legend-patch-shape">
+<span id="legend-patch"></span><h2><a class="toc-backref" href="#id19" role="doc-backlink"><span class="section-number">14.1.3. </span>မြေပုံအညွှန်းသုံးပုံတစ်ခု ဖန်တီးခြင်း (Creating a Legend Patch Shape)</a><a class="headerlink" href="#creating-a-legend-patch-shape" title="Link to this heading"></a></h2>
+<p>Legend Patch Shape အသစ်တစ်ခုဖန်တီးရန် <span class="guilabel">Legend Patch Shapes</span> tab ကို activate ပြုလုပ်ပြီး
+<a class="reference internal" href="../../../_images/symbologyAdd.png"><img alt="symbologyAdd" src="../../../_images/symbologyAdd.png" style="width: 1.5em;" /></a> <sup>Add item</sup> ခလုတ်ကို click နှိပ်ပါ။
+အောက်ပါ ဂျီဩမေတြီ အမျိုးအစားများကို ရွေးနိုင်သည့် drop-down list ပေါ်လာမည်ဖြစ်သည်-</p>
+<ul class="simple">
+<li><p><span class="guilabel">Marker Legend Patch Shape…</span> - point ဂျီဩမေတြီ များဖြင့် အသုံးပြုရန်။</p></li>
+<li><p><span class="guilabel">Line Legend Patch Shape…</span> - line ဂျီဩမေတြီ များဖြင့် အသုံးပြုရန်။</p></li>
+<li><p><span class="guilabel">Fill Legend Patch Shape…</span> - polygon ဂျီဩမေတြီ များဖြင့် အသုံးပြုရန်။</p></li>
+</ul>
+<p>ရွေးချယ်စရာ သုံးခုစလုံးသည် တူညီသည့် dialog ကို ပြသပါလိမ့်မည်။</p>
+<figure class="align-center" id="id8">
+<span id="figure-legend-patch"></span><img alt="../../../_images/createLegendPatchShape.png" src="../../../_images/createLegendPatchShape.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 14.8 </span><span class="caption-text">Legend Patch Shape တစ်ခု ဖန်တီးခြင်း</span><a class="headerlink" href="#id8" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>ရွေးချယ်ထားသည့် ဂျီဩမေတြီ အမျိုးအစားနှင့် ပတ်သက်ပြီး shape အမျိုးအစား နှင့် ပြသထားသည့် legend patch shape သည် ကွဲပြားပါလိမ့်မည်။ အောက်ပါရွေးချယ်မှုများ ရရှိပါလိမ့်မည်-</p>
+<ul class="simple">
+<li><p><span class="guilabel">Shape</span> - Legend patch shape ၏ shape ကို WKT string အဖြစ် သတ်မှတ်ပါ။
+Single နှင့် multipart ဂျီဩမေတြီ များ အသုံးပြုနိုင်သော်လည်း GeometryCollection မရှိပါ။</p></li>
+<li><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">Preserve aspect ratio</span></p></li>
+<li><p>tag များဖြင့် filter လုပ်ထားသည့် ရရှိသော legend patch shape များ၏ <a class="reference internal" href="../../../_images/mActionIconView.png"><img alt="iconView" src="../../../_images/mActionIconView.png" style="width: 1.5em;" /></a> <span class="guilabel">Icon View</span> သို့မဟုတ် <a class="reference internal" href="../../../_images/mActionOpenTable.png"><img alt="openTable" src="../../../_images/mActionOpenTable.png" style="width: 1.5em;" /></a> <span class="guilabel">List View</span></p></li>
+</ul>
+<p>Shape အသစ်ကို သတ်မှတ်ပြီးသောအခါ <span class="guilabel">Save Legend Patch Shape…</span> သို့မဟုတ် <span class="guilabel">OK</span> ကိုနှိပ်ပါ။ ထိုနှစ်ခုစလုံး သည် dialog တစ်ခုတည်းကို ဦးတည်သွားပါလိမ့်မည်။</p>
+<figure class="align-center" id="id9">
+<span id="figure-safe-legend-patch"></span><img alt="../../../_images/safeLegendPatchShape.png" src="../../../_images/safeLegendPatchShape.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 14.9 </span><span class="caption-text">Legend Patch Shape အသစ်တစ်ခုကို သိမ်းဆည်းခြင်း</span><a class="headerlink" href="#id9" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Shape ကို ဖော်ပြရန် နာမည်၊ tag များ ရွေးချယ်ပြီး favourite ထဲသို့ ထည့်ထားနိုင်သည်။</p>
+<p><span class="guilabel">Save…</span> ကို နှိပ်လျှင် shape သည် list ထဲသို့ ထည့်သွင်းပြီးသားဖြစ်ပြီး
+Shape အသစ်များကို ဆက်လက်ဖန်တီးရန်  <span class="guilabel">New Legend Patch Shape</span> dialog သို့ ပြန်လည်ရောက်ရှိသွားမည်ဖြစ်သည်။</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="14. The Style Library (Style နှင့်ပတ်သက်သည်များ ထားရှိရာနေရာ)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="symbol_selector.html" class="btn btn-neutral float-right" title="14.2. သင်္ကေတရွေးချယ်သည့်အရာ (The Symbol Seclector)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2002-now, QGIS project.
+      <span class="lastupdated">Last updated on 2024 May 13, 16:23 +0700.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- Transifex follows a particular logic to build target pages:
+Expected French translation link for https://docs.qgis.org/3.28/en/docs/user_manual/print_composer/overview_composer.html
+would return https://app.transifex.com/qgis/qgis-documentation/translate/#fr/aa6d8bc653526d38b295ca94bf8eee5e
+with the md5 value of "github#qgis/QGIS-Documentation#release_3.28#locale/en/LC_MESSAGES/docs/user_manual/print_composer/overview_composer.po"-->
+<!--Make sure that mismatching language codes between Transifex and Sphinx are converted-->
+
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-info-circle"> QGIS Documentation </span>
+      v: 3.28
+      <span class="fa fa-caret-down"></span>
+    </span>
+
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Languages</dt>
+        
+          <dd><a href="https://docs.qgis.org/3.28/en/docs/user_manual/style_library/style_manager.html">en</a></dd>
+        
+      </dl>
+
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/user_manual/style_library/style_manager.html">testing</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/latest/en/docs/user_manual/style_library/style_manager.html">latest</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.28/en/docs/user_manual/style_library/style_manager.html">3.28</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.22/en/docs/user_manual/style_library/style_manager.html">3.22</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.16/en/docs/user_manual/style_library/style_manager.html">3.16</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.10/en/docs/user_manual/style_library/style_manager.html">3.10</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.4/en/docs/user_manual/style_library/style_manager.html">3.4</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/2.18/en/docs/user_manual/style_library/style_manager.html">2.18</a></dd>
+        
+      </dl>
+
+       
+       <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="https://docs.qgis.org/3.28/pdf">PDF</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.28/zip">HTML</a></dd>
+        
+      </dl>
+      
+
+      
+       
+      <dl>
+        <dt>Contribute to Docs</dt>
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/edit/master/docs/user_manual/style_library/style_manager.rst" target="_blank" rel="noopener noreferrer">Edit on GitHub</a>
+          </dd>
+          
+          
+          <dd>
+            <a href="https://app.transifex.com/qgis/qgis-documentation/translate/#en/4c16cf970d2ca1b6243f5947a06ec900" target="_blank" rel="noopener noreferrer">Translate Page</a>
+          </dd>
+          
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/issues" target="_blank" rel="noopener noreferrer">Report Issue</a>
+          </dd>
+      </dl>
+      
+
+      <dl>
+        <dt>On QGIS Project</dt>
+          <dd>
+            <a href="https://qgis.org/en" target="_blank" rel="noopener noreferrer">Home</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/api/3.28" target="_blank" rel="noopener noreferrer">C++ API</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/pyqgis/3.28" target="_blank" rel="noopener noreferrer">PyQGIS API</a>
+          </dd>
+          <dd>
+            <a href="https://github.com/qgis/QGIS/tree/release-3_28" target="_blank" rel="noopener noreferrer">Source</a>
+          </dd>
+      </dl>
+
+    </div>
+  </div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

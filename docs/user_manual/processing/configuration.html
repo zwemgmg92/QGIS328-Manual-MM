@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>28.2. Processing Framework ကို ပြင်ဆင်သတ်မှတ်ခြင်း (Configuring the Processing Framework) &mdash; QGIS Documentation  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/qgis_docs.css?v=3fdf4c33" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/qgis_logo.ico"/>
+    <link rel="canonical" href="https://docs.qgis.org/latest/en/docs/user_manual/processing/configuration.html"/>
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../../_static/copybutton.js?v=f281be69"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="28.3. ကိရိယာများအစု (The Toolbox)" href="toolbox.html" />
+    <link rel="prev" title="28.1. မိတ်ဆက် (Introduction)" href="intro.html" />
+  <meta name="description" content="QGIS 3.28 documentation: 28.2. Processing Framework ကို ပြင်ဆင်သတ်မှတ်ခြင်း (Configuring the Processing Framework)">
+</head>
+
+<body class="wy-body-for-nav">
+
+  <nav class="release_status_topbar">
+  </nav>
+
+   
+
+ 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+   
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            QGIS Documentation
+              <img src="../../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                3.28
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+   <a href= "../../../genindex.html">Index</a>
+ 
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">အသုံးပြုသူများအတွက်</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../preamble/preamble.html">1. စကားချီး (Preamble)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/foreword.html">2. အမှာစာ (Foreword)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/conventions.html">3. အသုံးအနှုန်းများ (Conventions)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/features.html">4. အသွင်အပြင်များ (Features)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/getting_started.html">5. စတင်အသုံးပြုခြင်း (Getting Started)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/project_files.html">6. Project Files များနှင့် အလုပ်လုပ်ခြင်း (Working with Project Files)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/qgis_gui.html">7. QGIS ၏အစိတ်အပိုင်းများ (QGIS GUI)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/browser.html">8. ဒေတာများရှာဖွေကြည့်ရှုနိုင်သည့်နေရာ (The Browser panel)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/qgis_configuration.html">9. QGIS ပြင်ဆင်သတ်မှတ်ခြင်း/အခင်းအကျင်း (QGIS Configuration)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_projections/working_with_projections.html">10. မြေပုံအရိပ်ချစနစ်များ နှင့် အလုပ်လုပ်ခြင်း (Working with Projections)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../map_views/index.html">11. မြေပုံများအား ပုံဖော်ကြည့်ရှုခြင်း (Visualizing Maps)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/general_tools.html">12. အထွေ‌ထွေ‌သုံးကိရိယာများ (General Tools)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../expressions/index.html">13. Expression များဖြင့် အဆင့်မြှင့်တင်ဆောင်ရွက်ခြင်း (Level up with Expressions)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../style_library/index.html">14. The Style Library (Style နှင့်ပတ်သက်သည်များ ထားရှိရာနေရာ)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../managing_data_source/index.html">15. ဒေတာအရင်းအမြစ်များအား စီမံခန့်ခွဲခြင်း (Managing Data Source)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_vector/index.html">16. Vector data များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_raster/index.html">17. Raster Data နှင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_mesh/mesh_properties.html">18. Working with Mesh Data (Mesh Data များနှင့် အလုပ်လုပ်ခြင်း)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_vector_tiles/vector_tiles_properties.html">19. Vector Tiles များနှင့်အလုပ်လုပ်ခြင်း (Working with Vector Tiles)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_point_clouds/point_clouds.html">20. Point Cloud များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../print_composer/index.html">21. မြေပုံအချောသပ်ပြင်ဆင်ခြင်း (Laying out the maps)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_ogc/ogc_client_support.html">22. OGC / ISO protocol များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_gps/index.html">23. GPS Data များနှင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../auth_system/auth_overview.html">24. အထောက်အထားစီစစ်ခြင်းအကြောင်းအကျဉ်း (Authentication System Overview)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../auth_system/auth_workflows.html">25. အသုံးပြုသူ အထောက်အထားစစ်ဆေးခြင်း လုပ်ငန်းအဆင့်များ (User Authentication Workflows)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../auth_system/auth_considerations.html">26. လုံခြုံရေးအတွက်စဉ်းစားရန်အချက်များ (Security Considerations)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../grass_integration/grass_integration.html">27. GRASS GIS နှင့်ပေါင်းစပ်အသုံးပြုခြင်း (GRASS GIS Integration)</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">28. QGIS processing framework</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="intro.html">28.1. မိတ်ဆက် (Introduction)</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">28.2. Processing Framework ကို ပြင်ဆင်သတ်မှတ်ခြင်း (Configuring the Processing Framework)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#processing-general-settings">28.2.1. အထွေထွေ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#menus">28.2.2. Menus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#model-script-models-and-scripts">28.2.3. Model များ Script များ (Models and Scripts)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#providers">28.2.4. ပံ့ပိုးထောက်ပံ့ပေးသူများ (Providers)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html">28.3. ကိရိယာများအစု (The Toolbox)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="history.html">28.4. ရှေတွင်လုပ်ခဲ့သည့်အဆင့်များကို စီမံခန့်ခွဲရာနေရာ (The history manager)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modeler.html">28.5. Model design ပြုလုပ်ရာနေရာ (The model designer)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="batch.html">28.6. လုပ်ဆောင်ချက်များ အပြိုင်ပြုလုပ်ရန်နေရာ (The batch processing interface)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="console.html">28.7. Console တွင် processing algorithm များကို အသုံးပြုခြင်း</a></li>
+<li class="toctree-l2"><a class="reference internal" href="standalone.html">28.8. Command line မှ processing ပြုလုပ်ခြင်း</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scripts.html">28.9. Processing algorithm အသစ်များကို Python script များအဖြစ် ရေးသားခြင်း</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3rdParty.html">28.10. ပြင်ပ application များကို ပြင်ဆင်သတ်မှတ်ခြင်း (Configuring external applications)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../processing_algs/index.html">29. Processing ဆိုင်ရာ ထောက်ပံ့ပေးသူများနှင့် Algorithm များ (Processing providers and algorithms)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/plugins.html">30. QGIS Plugin များ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/core_plugins/index.html">31. QGIS ပင်မ Plugin များကို အသုံးပြုခြင်း (Using QGIS Core Plugins)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/python_console.html">32. QGIS တွင် Python code များရေးသားရန်နေရာ (QGIS Python console)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/help_and_support.html">33. အကူအညီနှင့်အထောက်အပံ့ (Help and Support)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/contributors.html">34. ပါဝင်အားဖြည့်သူများ (Contributors)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendices/index.html">35. နောက်ဆက်တွဲများ (Appendices)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../literature_web/literature_and_web_references.html">36. စာတမ်းများနှင့် Website ကိုးကားချက်များ (Literature and Web References)</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">QGIS Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">&lt;no title&gt;</a></li>
+          <li class="breadcrumb-item"><a href="index.html"><span class="section-number">28. </span>QGIS processing framework</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">28.2. </span>Processing Framework ကို ပြင်ဆင်သတ်မှတ်ခြင်း (Configuring the Processing Framework)</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/qgis/QGIS-Documentation/blob/master/docs/user_manual/processing/configuration.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="intro.html" class="btn btn-neutral float-left" title="28.1. မိတ်ဆက် (Introduction)" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="toolbox.html" class="btn btn-neutral float-right" title="28.3. ကိရိယာများအစု (The Toolbox)" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <blockquote>
+<div></div></blockquote>
+<section id="processing-framework-configuring-the-processing-framework">
+<span id="processing-options"></span><h1><span class="section-number">28.2. </span>Processing Framework ကို ပြင်ဆင်သတ်မှတ်ခြင်း (Configuring the Processing Framework)<a class="headerlink" href="#processing-framework-configuring-the-processing-framework" title="Link to this heading"></a></h1>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#processing-general-settings" id="id3">အထွေထွေ</a></p></li>
+<li><p><a class="reference internal" href="#menus" id="id4">Menus</a></p></li>
+<li><p><a class="reference internal" href="#model-script-models-and-scripts" id="id5">Model များ Script များ (Models and Scripts)</a></p></li>
+<li><p><a class="reference internal" href="#providers" id="id6">ပံ့ပိုးထောက်ပံ့ပေးသူများ (Providers)</a></p></li>
+</ul>
+</nav>
+<p>Processing Options menu (<span class="menuselection">Settings► Options ►`|processingAlgorithm| :guilabel:`Processing</span> tab) တွင် algorithm များ မည်သို့အလုပ်လုပ်ဆောင်မည်ကို ပြင်ဆင်သတ်မှတ်နိုင်ပါသည်။ ပြင်ဆင်သတ်မှတ်ခြင်းအတွက် parameter များကို dialog ၏ ဘယ်ဘက်တွင်ရွေးချယ်နိုင်သော သီးခြားခွဲထားသည့် block များတွင် တည်ဆောက်ထားပါသည်။</p>
+<section id="processing-general-settings">
+<span id="id1"></span><h2><a class="toc-backref" href="#id3" role="doc-backlink"><span class="section-number">28.2.1. </span>အထွေထွေ</a><a class="headerlink" href="#processing-general-settings" title="Link to this heading"></a></h2>
+<p><span class="guilabel">General</span> block တွင် algorithm dialog ၊ ထည့်သွင်းအသုံးပြုသောအချက်အလက် သို့မဟုတ် ရလာဒ် parameter များ မည်သို့လုပ်ဆောင်သင့်သည်ကို ထိန်းချုပ်ရန် မူရင်း setting များပါဝင်ပါသည်။ သို့သော် တချို့သော setting များကို <a class="reference internal" href="toolbox.html#alg-override-setting"><span class="std std-ref">algorithm run</span></a> တစ်ခုချင်းစီ သို့မဟုတ် <a class="reference internal" href="toolbox.html#alg-parameter-types"><span class="std std-ref">individual parameters (parameter တစ်ခုချင်းစီ)</span></a> အတွက် algorithm level တွင် ပြင်ဆင်ရေးသားနိုင်ပါသည်။</p>
+<ul>
+<li><p><span class="guilabel">ထွက်လာမည့် raster layer ၏ မူရင်း extension</span> မှာ <code class="docutils literal notranslate"><span class="pre">tif</span></code> ဖြစ်ပါသည်။</p></li>
+<li><p><span class="guilabel">ထွက်လာမည့် vector layer ၏ မူရင်း extension</span> မှာ <code class="docutils literal notranslate"><span class="pre">gpkg</span></code> ဖြစ်ပါသည်။</p></li>
+<li><p>Algorithm ကိုစေခိုင်းလုပ်ဆောင်သောအခါ <span class="guilabel">ဆီလျော်မှုမရှိသော feature များကို ရွေးချယ်စစ်ထုတ်ခြင်း</span>-</p>
+<ul class="simple">
+<li><p><span class="guilabel">ရွေးချယ်စစ်ထုတ်မှု မလုပ်ခြင်း (ပိုမိုကောင်းမွန်သောလုပ်ဆောင်မှု)</span> - Feature များအားလုံး (ဆီလျော်မှုရှိသော နှင့် ဆီလျော်မှုမရှိသော geometry များ) ကိုလုပ်ဆောင်ပါသည်၊ သို့သော် geometry ဆီလျော်မှုမရှိခြင်းသည် လုပ်ငန်းဆောင်တာများကို မည်သို့အကျိုးသက်ရောက်စေမည် ဆိုသည်ပေါ်မူတည်ပြီး ရလာဒ်များတွင် အမှားများပါဝင်နိုင်ပါသည်။</p></li>
+<li><p><span class="guilabel">ဆီလျော်မှုမရှိသော geometry များပါဝင်သော feature များကို ကျော်ပစ်ခြင်း</span>၊ dataset ၏အစုအဖွဲ့တစ်ခု (ဆီလျော်မှုရှိသော geometry feature များ) ကိုသာ လုပ်ဆောင်ပေးခြင်းကိုဆိုလိုပါသည်။</p></li>
+<li><p><span class="guilabel">Geometry တစ်ခုသည် ဆီလျော်မှုမရှိသောအခါ algorithm စေခိုင်းလုပ်ဆောင်ခြင်းကို ရပ်တန့်ခြင်း</span> - Layer တစ်ခုလုံးကို algorithm ကလုပ်ဆောင်စေလိုလျှင် ဆီလျော်မှုမရှိသော geometry များကိုရှာဖွေပြီး ပြင်ဆင်ရန်လိုအပ်ပါသည်။ <a class="reference internal" href="../processing_algs/qgis/vectorgeometry.html#qgischeckvalidity"><span class="std std-ref">အရည်အသွေးစစ်ဆေးခြင်း (Check validity)</span></a> သို့မဟုတ် <a class="reference internal" href="../processing_algs/qgis/vectorgeometry.html#qgisfixgeometries"><span class="std std-ref">ဂျီဩမေတြီများကိုပြင်ခြင်း (Fix geometries)</span></a> ကဲ့သို့ algorithm များကို အသုံးပြုပြီး ရှာဖွေပြင်ဆင်နိုင်ပါသည်။</p></li>
+</ul>
+<p><span class="guilabel">ဆီလျော်မှုမရှိသော feature များကို ရွေးချယ်စစ်ထုတ်ခြင်း</span> setting ကို algorithm လုပ်ဆောင်နေချိန်တွင် ထည့်သွင်းအသုံးပြုသော အချက်အလက်တစ်ခုချင်းစီပေါ်တွင် ပြင်ဆင်ရေးသားနိုင်ပါသည်။</p>
+</li>
+<li><p><span class="guilabel">Algorithm လုပ်ဆောင်ပြီးနောက် dialog ကိုဆက်ဖွင့်ထားခြင်း</span> - Algorithm ကိုစေခိုင်းလုပ်ဆောင်ခြင်း ပြီးဆုံးသွားပြီး ရလာဒ် layer များကို QGIS ထဲသို့ခေါ်ယူထည့်သွင်းလိုက်သည်နှင့် algorithm dialog သည် ပိတ်သွားမည်ဖြစ်ပါသည်။ ၎င်းကိုဆက်ဖွင့်ထားစေလိုလျှင် (algorithm ကို မတူသောအခြား parameter များဖြင့် ထပ်မံလုပ်ဆောင်ရန် သို့မဟုတ် log tab တွင်ရေးသားထားသော ထွက်လာသည့်ရလာဒ်ကို ပိုကောင်းအောင် စစ်ဆေးရန်) ဤ option ကို အမှန်ခြစ်ခြစ်ပါ။</p></li>
+<li><p><span class="guilabel">Max Threads (အများဆုံး Threads)</span></p></li>
+<li><p>ယာယီမဟုတ်သော ရလာဒ်များအတွက် <span class="guilabel">Output folder</span> - Processing မှရရှိလာမည့် ရလာဒ်များကိုသိမ်းဆည်းရန်နေရာ (folder) လမ်းကြောင်း ကိုသတ်မှတ်ပေးမထားလျှင် ယခု folder ထဲတွင် ၎င်းတို့ကို သိမ်းဆည်းပေးပါမည်။ မူရင်းနေရာမှာ လက်ရှိအသုံးပြုနေသည့် <a class="reference internal" href="../introduction/qgis_configuration.html#user-profiles"><span class="std std-ref">user profile</span></a> အောက်ရှိ <code class="file docutils literal notranslate"><span class="pre">processing/outputs</span></code> ဖြစ်ပါသည်။</p></li>
+<li><p><span class="guilabel">Override temporary output folder path (ယာယီရလာဒ်များ foler လမ်းကြောင်းကိုပြင်ဆင်ရေးသားခြင်း)</span> - ပုံမှန်အားဖြင့် ယာယီရလာဒ်များကို ကွန်ပျူတာထဲရှိ <code class="file docutils literal notranslate"><span class="pre">tmp</span></code> folder ထဲတွင် သိမ်းဆည်းပါသည်။ ယခုနည်းလမ်းကိုအသုံးပြုခြင်းဖြင့် အခြားနေရာတွင်သိမ်းဆည်းနိုင်ပါသည်။</p></li>
+<li><p><span class="guilabel">Pre-execution script</span> (စေခိုင်းလုပ်ဆောင်ခြင်းမတိုင်မီ Script) and <span class="guilabel">Post-execution script</span> (စေခိုင်းလုပ်ဆောင်ခြင်းအပြီး Script)။ ၎င်း parameter များသည် processing scripting လုပ်ဆောင်ချက် (functionality) များကို အသုံးပြု၍ရေးထားသော script များပါဝင်သည့် file များသို့ ညွှန်ပြပေးပါသည်။ ထို processing scripting functionality များသည် scripting နှင့် console အကြောင်းပါဝင်သောကဏ္ဍတွင် ရှင်းပြထားသည့်အတိုင်းဖြစ်သည်။</p></li>
+<li><p><span class="guilabel">Prefer output filename for layer names (layer အမည်များအတွက် ရလာဒ် file နာမည်ကို ဦးစားပေးခြင်း)</span>။ Algorithm မှဖန်တီးပေးသော ရလာဒ် layer တစ်ခုချင်းစီ၏ နာမည်ကို algorithm မှပင် ကိုယ်တိုင်အမည်ပေးပါသည်။ အချို့သောကိစ္စများတွင် မည်သည့် ထည့်သွင်း layer ပဲအသုံးပြုသည်ဖြစ်စေ တူညီသောရလာဒ်အမည်ကို တသတ်မတည်း အသုံးပြုတတ်ပါသည်။ အခြားကိစ္စရပ်များတွင် ထည့်သွင်းအသုံးပြုသော layer ၏အမည် သို့မဟုတ် algorithm ကို လုပ်ဆောင်ရန် အသုံးပြုသော parameter အချို့ပေါ်ကို မူတည်ပြီး အမည်ပေးပါသည်။ ဤ checkbox ကိုအမှန်ခြစ် ခြစ်ထားလျှင် ရလာဒ် file မှ အမည်ကိုယူပြီးအသုံးပြုပါသည်။ ရလာဒ် file ကို ယာယီ file အဖြစ်သိမ်းဆည်းလျှင် ရှိနေပြီးသား အခြားသော file နာမည်များနှင့် မတူစေရန် ရှည်လျားပြီးအဓိပ္ပါယ်မရှိသောအမည်ကို အသုံးပြုတတ်ပါသည်။</p></li>
+<li><p><span class="guilabel">Results group name (ရလာဒ်များ၏ အုပ်စုအမည်)</span>။ <span class="guilabel">Layers</span> panel ထဲရှိ အုပ်စုတစ်ခုထဲတွင် processing ရလာဒ် layer များအားလုံးကို ပါဝင်စေလိုလျှင် ၎င်း parameter အတွက် အုပ်စုနာမည်တစ်ခုကို သတ်မှတ်ပေးပါ။ အုပ်စုက ရှိပြီးသားလည်းဖြစ်နိုင်သလို မရှိသေးတာလည်း ဖြစ်နိုင်ပါသည်။ QGIS သည် ရလာဒ် layer များအားလုံးကို ထိုအုပ်စုထဲသို့ ထည့်ပေးပါသည်။ ပုံမှန်အားဖြင့် ၎င်း parameter သည် ဘာမှမရှိဖြစ်နေတတ်ပြီး algorithm တစ်ခုကို လုပ်ဆောင်သောအခါ အသုံးပြုသော item ပေါ်မူတည်ပြီး ရလာဒ် layer များအားလုံးကို <span class="guilabel">Layers</span> panel ထဲရှိ နေရာအမျိုးမျိုးသို့ ပေါင်းထည့်ပေးပါသည်။ Algorithm dialog ထဲရှိ <span class="guilabel">Open output file after running algorithm</span> ကို အမှန်ခြစ်ခြစ်ထားမှသာလျှင် ရလာဒ် layer များကို <span class="guilabel">Layers</span> panel ထဲသို့ ထည့်သွင်းမည်ဖြစ်သည်။</p></li>
+<li><p><span class="guilabel">Show algorithms with known issues (ပြဿနာများရှိနေသော algorithm များကိုဖော်ပြခြင်း)</span> - ပုံမှန်အားဖြင့် QGIS သည် ပျက်စီးနေသော alogrithm များကို ပြသခြင်းမပြုပါ (များသောအားဖြင့် third-pary provider များမှ ဖြစ်တတ်ပါသည်)။ ဤ tool ကိုအမှန်ခြစ် ခြစ်ထားလျှင် ပြဿနာရှိနေသော algorithm များကို Processing toolbox ထဲတွင် သတိပေးသင်္ကေတတစ်ခုဖြင့် မည်သည့်ပြဿနာများ ရှိနေသည်ကို ဖော်ပြပေးပါသည်။ မိမိကြုံတွေ့ရသော ပြဿနာများအတွက် အသုံးပြုနိုင်ပါသည်။</p></li>
+<li><p><span class="guilabel">Show feature count for output vector layers (ရလာဒ် vector layer များအတွက် feature အရေအတွက်ကိုပြသခြင်း)</span>။ အချို့သော data format များအတွက် feature အရေအတွက်ကို တွက်ချက်ခြင်းသည် အချိန်များစွာကြာတတ်သောကြောင့် ဤ tool ကို ပုံမှန်အားဖြင့် ပိတ်ထားပါသည်။</p></li>
+<li><p><span class="guilabel">Layer CRS သတ်မှတ်ချက်ကို ရွေးချယ်ထားသော box များထဲတွင် ပြသခြင်း</span></p></li>
+<li><p><span class="guilabel">အသုံးပြုလို့မရသော provider များရှိသောအခါ သတိပေးစာသားတစ်ခုခုဖြင့် ပြသခြင်း</span></p></li>
+<li><p><span class="guilabel">Line layer များအတွက် style</span>၊ <span class="guilabel">Point layer များအတွက် style</span>၊ <span class="guilabel">Polygon layer များအတွက် style</span> နှင့် <span class="guilabel">Raster layer များအတွက် style</span> ကို ရလာဒ် layer များအတွက် ပုံမှန် ပုံဖော်ပြသခြင်း setting အတွက် အသုံးပြုပါသည် (Processing algorithm များမှ ဖန်တီးထားသော layer များ)။ QGIS ကိုအသုံးပြုပြီး အသုံးပြုလိုသော style ကိုဖန်တီးပြီး file တစ်ခုအဖြစ်သိမ်းထားပါ။ ထို့နောက် algorithm များမှ အသုံးပြုနိုင်စေရန် setting များထဲတွင် ထို file ကိုသိမ်းထားသောနေရာကိုညွှန်းပေးပါ။ Processing ဖြင့် layer တစ်ခုကိုခေါ်ယူပြီး QGIS canvas တွင်ထည့်သွင်းအသုံးပြုသောအခါ ၎င်း style ကိုအသုံးပြုပြီး ပုံဖော်ပြသမည်ဖြစ်ပါသည်။</p>
+<p>Algorithm တစ်ခုချင်းစီနှင့် ၎င်း၏ထွက်လာသော ရလာဒ်များထဲမှ တစ်ခုချင်းစီအတွက် ပုံဖော်ပြသခြင်း style များကို ပြင်ဆင်နိုင်ပါသည်။ Toolbox ထဲရှိ algorithm အမည်ပေါ်တွင် right-click နှိပ်ပြီး <span class="guilabel">Edit rendering styles for outputs (ရလာဒ်များအတွက် ပုံဖော်ပြသခြင်း style များကို ပြင်ဆင်ခြင်း)</span> ကိုရွေးချယ်ပါ။ အောက်တွင်ဖော်ပြထားသော dialog ပုံစံမျိုး တစ်ခုပွင့်လာပါလိမ့်မည်။</p>
+<figure class="align-center" id="id2">
+<span id="figure-rendering-styles"></span><img alt="../../../_images/rendering_styles.png" src="../../../_images/rendering_styles.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 28.5 </span><span class="caption-text">ပုံဖော်ပြသခြင်း style များ</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>ထွက်လာသော ရလာဒ်တစ်ခုချင်းစီအတွက်အသုံးပြုလိုသော style file (<code class="file docutils literal notranslate"><span class="pre">.qml</span></code>) ကိုရွေးချယ်ပြီး <span class="guilabel">OK</span> ကိုနှိပ်ပါ။</p>
+</li>
+<li><p><span class="guilabel">Warn before executing if parameter CRS’s do not match (parameter CRS’s များမကိုက်ညီလျှင် စေခိုင်းလုပ်ဆောင်ခြင်းမတိုင်မီ သတိပေးပါ)</span> - ပုံမှန်အားဖြင့် QGIS မူရင်း algorithm များ (<a class="reference internal" href="../../../_images/menu.png"><img alt="menu" src="../../../_images/menu.png" style="width: 1.5em;" /></a> <span class="menuselection">Menus ► QGIS (native C++)</span> group အောက်တွင် စာရင်းပြုစုထားသော algorithm များကိုဆိုလိုသည်) သည် စေခိုင်းလုပ်ဆောင်ခြင်း မတိုင်မီ ထည့်သွင်းအသုံးပြုသော layer များကို ပထမဆုံးတစ်ခု၏ CRS နှင့် projection တူအောင် ပြုလုပ်ပေးပါသည်။ ထည့်သွင်းအသုံးပြုသော CRS မတူသောအခါ reprojection လုပ်ဆောင်မပေးသော အခြား tool များဆီမှ သတိပေးမှု တက်လာစေရန် ဤ option ကို အမှန်ခြစ်ခြစ်ပါ။ Third-party provider များမပါဝင်ပါ။</p></li>
+</ul>
+</section>
+<section id="menus">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink"><span class="section-number">28.2.2. </span>Menus</a><a class="headerlink" href="#menus" title="Link to this heading"></a></h2>
+<p><a class="reference internal" href="../../../_images/menu.png"><img alt="menu" src="../../../_images/menu.png" style="width: 1.5em;" /></a> <span class="guilabel">Menus</span> block သည် algorithm ၊ script သို့မဟုတ် model (မူရင်းအတိုင်းပါသော သို့မဟုတ် plugin များဖြင့်ထည့်ထားသော) များကို ၎င်းတို့အတွက်သီးသန့်အသုံးပြုထားသော menu သို့မဟုတ် toolbar (processing toolbox နှင့်အတူ) မှတဆင့် အသုံးပြုနိုင်ရန် လုပ်သင့်/မလုပ်သင့်ကို ထိန်းချုပ်ပေးပါသည်။ Provider တစ်ခုချင်းစီ၏ item တစ်ခုချင်းစီအတွက် အောက်ပါတို့ကိုလုပ်ဆောင်နိုင်ပါသည် -</p>
+<ul class="simple">
+<li><p><span class="guilabel">Add button in toolbar (Toolbar ထဲတွင် ခလုတ်ထည့်သွင်းခြင်း)</span> သည် <span class="guilabel">Processing Algorithms</span> toolbar ထဲတွင် ခလုတ်ကို အသုံးပြုနိုင်စေပါသည်။</p></li>
+<li><p>Algorithm ကို <span class="guilabel">Icon</span> တစ်ခုသတ်မှတ်ပေးခြင်း။</p></li>
+<li><p><span class="guilabel">Menu path</span> တစ်ခုသတ်မှတ်ပေးခြင်း - ရှိပြီးသား သို့မဟုတ် ကိုယ်တိုင်ဖန်တီးထားသော menu မှတဆင့် algorithm ကိုအသုံးပြုနိုင်မည်ဖြစ်သည်။ ဥပမာ- <code class="docutils literal notranslate"><span class="pre">Vect&amp;or/MyTopAlgorithms</span></code>။</p></li>
+</ul>
+<p>ပြောင်းလဲထားသော setting များကိုအသက်ဝင်စေရန် QGIS ကို ပိတ်ပြီး ပြန်ဖွင့်ပါ။ ပြောင်းလဲခဲ့သောအရာများကို <span class="guilabel">Reset to defaults (မူရင်းအတိုင်းပြန်ထားခြင်း)</span> အချိန်မရွေး မူရင်းအတိုင်းပြန်ပြောင်းနိုင်ပါသည်။</p>
+</section>
+<section id="model-script-models-and-scripts">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink"><span class="section-number">28.2.3. </span>Model များ Script များ (Models and Scripts)</a><a class="headerlink" href="#model-script-models-and-scripts" title="Link to this heading"></a></h2>
+<p><a class="reference internal" href="../../../_images/processingModel.png"><img alt="processingModel" src="../../../_images/processingModel.png" style="width: 1.5em;" /></a> <span class="guilabel">Models</span> နှင့် <a class="reference internal" href="../../../_images/mIconPythonFile.png"><img alt="pythonFile" src="../../../_images/mIconPythonFile.png" style="width: 1.5em;" /></a> <span class="guilabel">Scripts</span> block များထဲတွင် သိမ်းဆည်းရန် default folder တစ်ခုကိုသတ်မှတ်ပေးနိုင်ပြီး model များနှင့် script များကို သက်ဆိုင်ရာတွင် သွားရောက်ရှာဖွေနိုင်ပါသည်။</p>
+</section>
+<section id="providers">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink"><span class="section-number">28.2.4. </span>ပံ့ပိုးထောက်ပံ့ပေးသူများ (Providers)</a><a class="headerlink" href="#providers" title="Link to this heading"></a></h2>
+<p>Algorithm <a class="reference internal" href="../../../_images/processingAlgorithm.png"><img alt="processingAlgorithm" src="../../../_images/processingAlgorithm.png" style="width: 1.5em;" /></a> <span class="guilabel">Provider</span> များအတွက်လည်း block တစ်ခုရှိပါသည်။ ထည့်သွင်းထားသော Provider များမှ ၎င်းတို့၏ setting များကို ဖော်ပြသောနေရာဖြစ်ပါသည်။ ဥပမာ- မူရင်းအတိုင်းပါသော provider များသည် ၎င်းတို့၏ algorithm များကို toolbox တွင် ပေါ်/မပေါ် ဆိုသည်ကို ဆုံးဖြတ်ပေးသော <span class="guilabel">Activate</span> item တစ်ခုပါဝင်ပါသည်။ အချို့သော algorithm provider များသည် သီးခြား algorithm provider များကို ခြုံငုံမိသောအခါ ရှင်းပြပေးမည့် ကိုယ်ပိုင် ပြင်ဆင်သတ်မှတ်ခြင်း item များပါရှိပါသည်။</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="intro.html" class="btn btn-neutral float-left" title="28.1. မိတ်ဆက် (Introduction)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="toolbox.html" class="btn btn-neutral float-right" title="28.3. ကိရိယာများအစု (The Toolbox)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2002-now, QGIS project.
+      <span class="lastupdated">Last updated on 2024 May 13, 16:23 +0700.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- Transifex follows a particular logic to build target pages:
+Expected French translation link for https://docs.qgis.org/3.28/en/docs/user_manual/print_composer/overview_composer.html
+would return https://app.transifex.com/qgis/qgis-documentation/translate/#fr/aa6d8bc653526d38b295ca94bf8eee5e
+with the md5 value of "github#qgis/QGIS-Documentation#release_3.28#locale/en/LC_MESSAGES/docs/user_manual/print_composer/overview_composer.po"-->
+<!--Make sure that mismatching language codes between Transifex and Sphinx are converted-->
+
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-info-circle"> QGIS Documentation </span>
+      v: 3.28
+      <span class="fa fa-caret-down"></span>
+    </span>
+
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Languages</dt>
+        
+          <dd><a href="https://docs.qgis.org/3.28/en/docs/user_manual/processing/configuration.html">en</a></dd>
+        
+      </dl>
+
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/user_manual/processing/configuration.html">testing</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/latest/en/docs/user_manual/processing/configuration.html">latest</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.28/en/docs/user_manual/processing/configuration.html">3.28</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.22/en/docs/user_manual/processing/configuration.html">3.22</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.16/en/docs/user_manual/processing/configuration.html">3.16</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.10/en/docs/user_manual/processing/configuration.html">3.10</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.4/en/docs/user_manual/processing/configuration.html">3.4</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/2.18/en/docs/user_manual/processing/configuration.html">2.18</a></dd>
+        
+      </dl>
+
+       
+       <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="https://docs.qgis.org/3.28/pdf">PDF</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.28/zip">HTML</a></dd>
+        
+      </dl>
+      
+
+      
+       
+      <dl>
+        <dt>Contribute to Docs</dt>
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/edit/master/docs/user_manual/processing/configuration.rst" target="_blank" rel="noopener noreferrer">Edit on GitHub</a>
+          </dd>
+          
+          
+          <dd>
+            <a href="https://app.transifex.com/qgis/qgis-documentation/translate/#en/df83f56e45c56b1a42612eebfd3cfa9d" target="_blank" rel="noopener noreferrer">Translate Page</a>
+          </dd>
+          
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/issues" target="_blank" rel="noopener noreferrer">Report Issue</a>
+          </dd>
+      </dl>
+      
+
+      <dl>
+        <dt>On QGIS Project</dt>
+          <dd>
+            <a href="https://qgis.org/en" target="_blank" rel="noopener noreferrer">Home</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/api/3.28" target="_blank" rel="noopener noreferrer">C++ API</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/pyqgis/3.28" target="_blank" rel="noopener noreferrer">PyQGIS API</a>
+          </dd>
+          <dd>
+            <a href="https://github.com/qgis/QGIS/tree/release-3_28" target="_blank" rel="noopener noreferrer">Source</a>
+          </dd>
+      </dl>
+
+    </div>
+  </div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

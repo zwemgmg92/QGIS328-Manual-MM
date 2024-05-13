@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>28.5. Model design ပြုလုပ်ရာနေရာ (The model designer) &mdash; QGIS Documentation  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/qgis_docs.css?v=3fdf4c33" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/qgis_logo.ico"/>
+    <link rel="canonical" href="https://docs.qgis.org/latest/en/docs/user_manual/processing/modeler.html"/>
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../../_static/copybutton.js?v=f281be69"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="28.6. လုပ်ဆောင်ချက်များ အပြိုင်ပြုလုပ်ရန်နေရာ (The batch processing interface)" href="batch.html" />
+    <link rel="prev" title="28.4. ရှေတွင်လုပ်ခဲ့သည့်အဆင့်များကို စီမံခန့်ခွဲရာနေရာ (The history manager)" href="history.html" />
+  <meta name="description" content="QGIS 3.28 documentation: 28.5. Model design ပြုလုပ်ရာနေရာ (The model designer)">
+</head>
+
+<body class="wy-body-for-nav">
+
+  <nav class="release_status_topbar">
+  </nav>
+
+   
+
+ 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+   
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            QGIS Documentation
+              <img src="../../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                3.28
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+   <a href= "../../../genindex.html">Index</a>
+ 
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">အသုံးပြုသူများအတွက်</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../preamble/preamble.html">1. စကားချီး (Preamble)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/foreword.html">2. အမှာစာ (Foreword)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/conventions.html">3. အသုံးအနှုန်းများ (Conventions)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/features.html">4. အသွင်အပြင်များ (Features)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/getting_started.html">5. စတင်အသုံးပြုခြင်း (Getting Started)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/project_files.html">6. Project Files များနှင့် အလုပ်လုပ်ခြင်း (Working with Project Files)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/qgis_gui.html">7. QGIS ၏အစိတ်အပိုင်းများ (QGIS GUI)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/browser.html">8. ဒေတာများရှာဖွေကြည့်ရှုနိုင်သည့်နေရာ (The Browser panel)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/qgis_configuration.html">9. QGIS ပြင်ဆင်သတ်မှတ်ခြင်း/အခင်းအကျင်း (QGIS Configuration)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_projections/working_with_projections.html">10. မြေပုံအရိပ်ချစနစ်များ နှင့် အလုပ်လုပ်ခြင်း (Working with Projections)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../map_views/index.html">11. မြေပုံများအား ပုံဖော်ကြည့်ရှုခြင်း (Visualizing Maps)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/general_tools.html">12. အထွေ‌ထွေ‌သုံးကိရိယာများ (General Tools)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../expressions/index.html">13. Expression များဖြင့် အဆင့်မြှင့်တင်ဆောင်ရွက်ခြင်း (Level up with Expressions)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../style_library/index.html">14. The Style Library (Style နှင့်ပတ်သက်သည်များ ထားရှိရာနေရာ)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../managing_data_source/index.html">15. ဒေတာအရင်းအမြစ်များအား စီမံခန့်ခွဲခြင်း (Managing Data Source)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_vector/index.html">16. Vector data များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_raster/index.html">17. Raster Data နှင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_mesh/mesh_properties.html">18. Working with Mesh Data (Mesh Data များနှင့် အလုပ်လုပ်ခြင်း)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_vector_tiles/vector_tiles_properties.html">19. Vector Tiles များနှင့်အလုပ်လုပ်ခြင်း (Working with Vector Tiles)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_point_clouds/point_clouds.html">20. Point Cloud များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../print_composer/index.html">21. မြေပုံအချောသပ်ပြင်ဆင်ခြင်း (Laying out the maps)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_ogc/ogc_client_support.html">22. OGC / ISO protocol များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_gps/index.html">23. GPS Data များနှင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../auth_system/auth_overview.html">24. အထောက်အထားစီစစ်ခြင်းအကြောင်းအကျဉ်း (Authentication System Overview)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../auth_system/auth_workflows.html">25. အသုံးပြုသူ အထောက်အထားစစ်ဆေးခြင်း လုပ်ငန်းအဆင့်များ (User Authentication Workflows)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../auth_system/auth_considerations.html">26. လုံခြုံရေးအတွက်စဉ်းစားရန်အချက်များ (Security Considerations)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../grass_integration/grass_integration.html">27. GRASS GIS နှင့်ပေါင်းစပ်အသုံးပြုခြင်း (GRASS GIS Integration)</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">28. QGIS processing framework</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="intro.html">28.1. မိတ်ဆက် (Introduction)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html">28.2. Processing Framework ကို ပြင်ဆင်သတ်မှတ်ခြင်း (Configuring the Processing Framework)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html">28.3. ကိရိယာများအစု (The Toolbox)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="history.html">28.4. ရှေတွင်လုပ်ခဲ့သည့်အဆင့်များကို စီမံခန့်ခွဲရာနေရာ (The history manager)</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">28.5. Model design ပြုလုပ်ရာနေရာ (The model designer)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#model-designer-the-model-designer-interface">28.5.1. Model designer ၏ အသွင်အပြင်များ (The model designer interface)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#model-menu">28.5.1.1. Model menu</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#menu-edit-menu">28.5.1.2. တည်းဖြတ်ပြင်ဆင်ခြင်း Menu (Edit menu)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#view-menu">28.5.1.3. View menu</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#panel">28.5.1.4. Panel များ</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#algorithm">28.5.1.5. ပါရှိသော algorithm များအကြောင်း</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#model">28.5.2. Model တစ်ခု ဖန်တီးခြင်း</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#definition-of-inputs">28.5.2.1. ထည့်သွင်းအသုံးပြုသော အချက်အလက်များကို သတ်မှတ်ခြင်း (Definition of inputs)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#workflow-definition-of-the-workflow">28.5.2.2. Workflow သတ်မှတ်ချက် (Definition of the workflow)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#model-documenting-your-model">28.5.2.3. Model ကိုမှတ်တမ်းတင်ခြင်း (Documenting your model)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#model-saving-and-loading-models">28.5.3. Model များ သိမ်းဆည်းခြင်းနှင့် ခေါ်ယူထည့်သွင်းခြင်း (Saving and loading models)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#model-saving-models">28.5.3.1. Model များကိုသိမ်းဆည်းခြင်း (Saving models)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#model-python-script-exporting-a-model-as-a-python-script">28.5.3.2. Model ကို Python script တစ်ခုအဖြစ်ထုတ်ယူခြင်း (Exporting a model as a Python script)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#model-exporting-a-model-as-an-image">28.5.3.3. Model ကို  ပုံတစ်ခုအဖြစ်ထုတ်ယူခြင်း (Exporting a model as an image)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#model-editing-a-model">28.5.4. Model တစ်ခုကို တည်းဖြတ်ပြင်ဆင်ခြင်း (Editing a model)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="batch.html">28.6. လုပ်ဆောင်ချက်များ အပြိုင်ပြုလုပ်ရန်နေရာ (The batch processing interface)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="console.html">28.7. Console တွင် processing algorithm များကို အသုံးပြုခြင်း</a></li>
+<li class="toctree-l2"><a class="reference internal" href="standalone.html">28.8. Command line မှ processing ပြုလုပ်ခြင်း</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scripts.html">28.9. Processing algorithm အသစ်များကို Python script များအဖြစ် ရေးသားခြင်း</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3rdParty.html">28.10. ပြင်ပ application များကို ပြင်ဆင်သတ်မှတ်ခြင်း (Configuring external applications)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../processing_algs/index.html">29. Processing ဆိုင်ရာ ထောက်ပံ့ပေးသူများနှင့် Algorithm များ (Processing providers and algorithms)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/plugins.html">30. QGIS Plugin များ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/core_plugins/index.html">31. QGIS ပင်မ Plugin များကို အသုံးပြုခြင်း (Using QGIS Core Plugins)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/python_console.html">32. QGIS တွင် Python code များရေးသားရန်နေရာ (QGIS Python console)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/help_and_support.html">33. အကူအညီနှင့်အထောက်အပံ့ (Help and Support)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/contributors.html">34. ပါဝင်အားဖြည့်သူများ (Contributors)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendices/index.html">35. နောက်ဆက်တွဲများ (Appendices)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../literature_web/literature_and_web_references.html">36. စာတမ်းများနှင့် Website ကိုးကားချက်များ (Literature and Web References)</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">QGIS Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">&lt;no title&gt;</a></li>
+          <li class="breadcrumb-item"><a href="index.html"><span class="section-number">28. </span>QGIS processing framework</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">28.5. </span>Model design ပြုလုပ်ရာနေရာ (The model designer)</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/qgis/QGIS-Documentation/blob/master/docs/user_manual/processing/modeler.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="history.html" class="btn btn-neutral float-left" title="28.4. ရှေတွင်လုပ်ခဲ့သည့်အဆင့်များကို စီမံခန့်ခွဲရာနေရာ (The history manager)" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="batch.html" class="btn btn-neutral float-right" title="28.6. လုပ်ဆောင်ချက်များ အပြိုင်ပြုလုပ်ရန်နေရာ (The batch processing interface)" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <blockquote>
+<div></div></blockquote>
+<section id="model-design-the-model-designer">
+<span id="processing-modeler"></span><h1><span class="section-number">28.5. </span>Model design ပြုလုပ်ရာနေရာ (The model designer)<a class="headerlink" href="#model-design-the-model-designer" title="Link to this heading"></a></h1>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#model-designer-the-model-designer-interface" id="id16">Model designer ၏ အသွင်အပြင်များ (The model designer interface)</a></p>
+<ul>
+<li><p><a class="reference internal" href="#model-menu" id="id17">Model menu</a></p></li>
+<li><p><a class="reference internal" href="#menu-edit-menu" id="id18">တည်းဖြတ်ပြင်ဆင်ခြင်း Menu (Edit menu)</a></p></li>
+<li><p><a class="reference internal" href="#view-menu" id="id19">View menu</a></p></li>
+<li><p><a class="reference internal" href="#panel" id="id20">Panel များ</a></p></li>
+<li><p><a class="reference internal" href="#algorithm" id="id21">ပါရှိသော algorithm များအကြောင်း</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#model" id="id22">Model တစ်ခု ဖန်တီးခြင်း</a></p>
+<ul>
+<li><p><a class="reference internal" href="#definition-of-inputs" id="id23">ထည့်သွင်းအသုံးပြုသော အချက်အလက်များကို သတ်မှတ်ခြင်း (Definition of inputs)</a></p></li>
+<li><p><a class="reference internal" href="#workflow-definition-of-the-workflow" id="id24">Workflow သတ်မှတ်ချက် (Definition of the workflow)</a></p></li>
+<li><p><a class="reference internal" href="#model-documenting-your-model" id="id25">Model ကိုမှတ်တမ်းတင်ခြင်း (Documenting your model)</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#model-saving-and-loading-models" id="id26">Model များ သိမ်းဆည်းခြင်းနှင့် ခေါ်ယူထည့်သွင်းခြင်း (Saving and loading models)</a></p>
+<ul>
+<li><p><a class="reference internal" href="#model-saving-models" id="id27">Model များကိုသိမ်းဆည်းခြင်း (Saving models)</a></p></li>
+<li><p><a class="reference internal" href="#model-python-script-exporting-a-model-as-a-python-script" id="id28">Model ကို Python script တစ်ခုအဖြစ်ထုတ်ယူခြင်း (Exporting a model as a Python script)</a></p></li>
+<li><p><a class="reference internal" href="#model-exporting-a-model-as-an-image" id="id29">Model ကို  ပုံတစ်ခုအဖြစ်ထုတ်ယူခြင်း (Exporting a model as an image)</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#model-editing-a-model" id="id30">Model တစ်ခုကို တည်းဖြတ်ပြင်ဆင်ခြင်း (Editing a model)</a></p></li>
+</ul>
+</nav>
+<p><em>Model designer</em> သည် ရိုးရှင်း၍ အသုံးပြုရလွယ်သော interface တစ်ခုကိုအသုံးပြုပြီး ရှုပ်ထွေးသော model များကိုတည်ဆောက်နိုင်ပါသည်။ GIS နှင့်အလုပ်လုပ်သောအခါ လေ့လာဆန်းစစ်ခြင်းများသည် အများသောအားဖြင့် တစ်ခုတည်းသီးသန့် လုပ်ဆောင်ရခြင်းမဟုတ်ဘဲ လုပ်ငန်းများစွာနှင့် ပူးတွဲလုပ်ဆောင်ရခြင်းများဖြစ်ပါသည်။ များစွာသောလုပ်ငန်း အဆင့်ဆင့်များကို တစ်ခုတည်းဖြစ်အောင်ပေါင်းပေးနိုင်သော model designer ကိုအသုံးပြုခြင်းဖြင့် ထည့်သွင်းအသုံးပြုသော အချက်အလက်အမျိုးမျိုးကို နောက်ပိုင်းတွင် အလွယ်တကူ စေခိုင်းလုပ်ဆောင်စေနိုင်ပါသည်။ အဆင့်များနှင့် မတူညီသော algorithm များ ဘယ်လောက်များများ ပါဝင်သည်ဖြစ်စေ model တစ်ခုကို algorithm တစ်ခုတည်းအဖြစ် စေခိုင်းလုပ်ဆောင်ပေးတာကြောင့် အချိန်ကုန် လူပင်ပန်း သက်သာစေပါသည်။</p>
+<p>Model designer ကို Processing menu (<span class="menuselection">Processing ► Model Designer</span>) မှဖွင့်နိုင်ပါသည်။</p>
+<section id="model-designer-the-model-designer-interface">
+<h2><a class="toc-backref" href="#id16" role="doc-backlink"><span class="section-number">28.5.1. </span>Model designer ၏ အသွင်အပြင်များ (The model designer interface)</a><a class="headerlink" href="#model-designer-the-model-designer-interface" title="Link to this heading"></a></h2>
+<figure class="align-center" id="id1">
+<span id="figure-modeler"></span><img alt="../../../_images/modeler_canvas.png" src="../../../_images/modeler_canvas.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 28.18 </span><span class="caption-text">Model designer</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>၎င်း၏ အဓိကအပိုင်းတွင် modeler ၏ ဖွဲ့စည်းမှုနှင့် modeler အား ကိုယ်စားပြုသည့် workflow ကိုပြင်ဆင်တည်ဆောက်နိုင်သော working canvas (အလုပ်လုပ်သောနေရာ) တစ်ခုရှိပါသည်။</p>
+<p>Dialog ၏အပေါ်ဘက်တွင် menu အမျိုးမျိုးနှင့် <span class="guilabel">Navigation</span> toolbar တို့မှ များစွာသော tool များကိုခေါ်ယူအသုံးပြုနိုင်ပါသည်။</p>
+<section id="model-menu">
+<h3><a class="toc-backref" href="#id17" role="doc-backlink"><span class="section-number">28.5.1.1. </span>Model menu</a><a class="headerlink" href="#model-menu" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.3%" />
+<col style="width: 12.1%" />
+<col style="width: 12.1%" />
+<col style="width: 50.5%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>ဖြတ်လမ်းနည်း</p></th>
+<th class="head"><p>Navigation Toolbar</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="../../../_images/mIconSuccess.png"><img alt="success" src="../../../_images/mIconSuccess.png" style="width: 1em;" /></a> <span class="guilabel">Validate Model (Model ကို အတည်ပြုခြင်း)</span></p></td>
+<td></td>
+<td></td>
+<td><p>Model ထဲတွင် ထည့်သွင်းအသုံးပြုသော algorithm များနှင့် ထည့်သွင်းအသုံးပြုသော အချက်အလက်များ ရှိ/မရှိကို စစ်ဆေးပေးပါသည်။ Model ကို အသုံးမပြုမီ စစ်ဆေးခြင်းက အဆင်ပြေစေပါသည်။</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../../../_images/mActionPlay.png"><img alt="play" src="../../../_images/mActionPlay.png" style="width: 1.5em;" /></a> <span class="guilabel">Run Model…</span> (Model ကိုလုပ်ဆောင်ခြင်း)</p></td>
+<td><p><kbd class="kbd docutils literal notranslate">F5</kbd></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p>Model ကိုစေခိုင်းလုပ်ဆောင်ပေးပါသည်။</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="guilabel">Reorder Model Inputs…</span> (Model ထည့်သွင်းထားမှုကို ပြန်လည်စီစဉ်ခြင်း)</p></td>
+<td></td>
+<td></td>
+<td><p>Algorithm dialog ထဲတွင် အသုံးပြုသူကို ပြသမည့် input များ၏အစီအစဉ်ကို သတ်မှတ်ပေးပါသည်။</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="guilabel">Reorder Output Layers…</span> (ရလာဒ် layer များကို ပြန်လည်စီစဉ်ခြင်း)</p></td>
+<td></td>
+<td></td>
+<td><p>ထွက်လာမည့် ရလာဒ်ကို project ထဲသို့ထည့်သွင်းသောအခါ model မှ ထွက်လာမည့် ရလာဒ်ကိုမဖြစ်မနေအသုံးပြုရမည့် သီးသန့်အစီအစဉ်တစ်ခုကို သတ်မှတ်ပေးပါသည်။</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../../../_images/mActionFileOpen.png"><img alt="fileOpen" src="../../../_images/mActionFileOpen.png" style="width: 1.5em;" /></a> <span class="guilabel">Open Model…</span> (Model ကိုဖွင့်ပါ)</p></td>
+<td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">Ctrl</kbd>+<kbd class="kbd docutils literal notranslate">O</kbd></kbd></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p>တည်းဖြတ်ပြင်ဆင်ရန် သို့မဟုတ် စေခိုင်းလုပ်ဆောင်ရန် <code class="file docutils literal notranslate"><span class="pre">.model3</span></code> file ကိုဖွင့်ပေးပါသည်။</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../../../_images/mActionFileSave.png"><img alt="fileSave" src="../../../_images/mActionFileSave.png" style="width: 1.5em;" /></a> <span class="guilabel">Save Model</span> (Model ကိုသိမ်းဆည်းပါ)</p></td>
+<td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">Ctrl</kbd>+<kbd class="kbd docutils literal notranslate">S</kbd></kbd></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p>Model ကို ကွန်ပျူတာထဲတွင် <code class="file docutils literal notranslate"><span class="pre">.model3</span></code> file တစ်ခုအဖြစ်သိမ်းဆည်းပေးပါသည်။</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../../../_images/mActionFileSaveAs.png"><img alt="fileSaveAs" src="../../../_images/mActionFileSaveAs.png" style="width: 1.5em;" /></a> <span class="guilabel">Save Model as…</span> (Model ကို တစ်ခုခုအဖြစ် သိမ်းဆည်းပါ)</p></td>
+<td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">Ctrl</kbd>+<kbd class="kbd docutils literal notranslate">Shift</kbd>+<kbd class="kbd docutils literal notranslate">S</kbd></kbd></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p>Model ကို ကွန်ပျူတာထဲတွင် <code class="file docutils literal notranslate"><span class="pre">.model3</span></code> file အသစ်တစ်ခုအဖြစ်သိမ်းဆည်းပေးပါသည်။</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../../../_images/mActionFileSave.png"><img alt="fileSave" src="../../../_images/mActionFileSave.png" style="width: 1.5em;" /></a> <span class="guilabel">Save Model in project</span> (Model ကို project ထဲတွင်သိမ်းဆည်းပါ)</p></td>
+<td></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p>Model ကို project file ထဲတွင် ထည့်မြှပ်ထားခြင်းသည် project file ကိုမျှဝေသောအခါ model ပါ ပါသွားသောကြောင့် အခြားသူများလည်း အသုံးပြုနိုင်ပါသည်။</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../../../_images/mActionHelpContents.png"><img alt="helpContents" src="../../../_images/mActionHelpContents.png" style="width: 1.5em;" /></a> <span class="guilabel">Edit Model Help…</span> (Model တည်းဖြတ်ပြင်ဆင်ခြင်းအတွက် အကူအညီရယူရန်)</p></td>
+<td></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p>Model၊ algorithm များ၊ parameter များ၊ ထွက်လာမည့်ရလာဒ်များ၊ ဖန်တီးသူနှင့် version များအကြောင်းကို မှတ်တမ်းပြုစုရန် interface ဖြစ်ပါသည်။</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="menuselection">Export ►</span> (ထုတ်ယူပါ)</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../../../_images/mActionSaveMapAsImage.png"><img alt="saveMapAsImage" src="../../../_images/mActionSaveMapAsImage.png" style="width: 1.5em;" /></a> <span class="menuselection">► Export as Image…</span> (ဓာတ်ပုံအဖြစ်ထုတ်ယူပါ)</p></td>
+<td></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p>Model ၏ graphical design ကို ဓာတ်ပုံ file format (သရုပ်ပြခြင်းအတွက်) အဖြစ်သိမ်းဆည်းပေးပါသည်။</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../../../_images/mActionSaveAsPDF.png"><img alt="saveAsPDF" src="../../../_images/mActionSaveAsPDF.png" style="width: 1.5em;" /></a><span class="menuselection">► Export as PDF…</span> (PDF အဖြစ်ထုတ်ယူပါ)</p></td>
+<td></td>
+<td></td>
+<td><p>Model ၏ graphical design ကို <code class="file docutils literal notranslate"><span class="pre">PDF</span></code> file format (သရုပ်ပြခြင်းအတွက်) အဖြစ်သိမ်းဆည်းပေးပါသည်။</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../../../_images/mActionSaveAsSVG.png"><img alt="saveAsSVG" src="../../../_images/mActionSaveAsSVG.png" style="width: 1.5em;" /></a><span class="menuselection">► Export as SVG…</span> (SVG အဖြစ်ထုတ်ယူပါ)</p></td>
+<td></td>
+<td></td>
+<td><p>Model ၏ graphical design ကို <code class="file docutils literal notranslate"><span class="pre">SVG</span></code> file format (သရုပ်ပြခြင်းအတွက်) အဖြစ်သိမ်းဆည်းပေးပါသည်။</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../../../_images/mActionFileSave.png"><img alt="fileSave" src="../../../_images/mActionFileSave.png" style="width: 1.5em;" /></a><span class="menuselection">► Export as Script Algorithm…</span> (Script Algorithm အဖြစ်ထုတ်ယူပါ)</p></td>
+<td></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p>Model ၏ လမ်းညွှန်များပါဝင်သော python script file ကိုထုတ်ပေးပါသည်။</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="menu-edit-menu">
+<h3><a class="toc-backref" href="#id18" role="doc-backlink"><span class="section-number">28.5.1.2. </span>တည်းဖြတ်ပြင်ဆင်ခြင်း Menu (Edit menu)</a><a class="headerlink" href="#menu-edit-menu" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.3%" />
+<col style="width: 12.1%" />
+<col style="width: 12.1%" />
+<col style="width: 50.5%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>ဖြတ်လမ်းနည်း</p></th>
+<th class="head"><p>Navigation Toolbar</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="../../../_images/mActionSelectAll.png"><img alt="selectAll" src="../../../_images/mActionSelectAll.png" style="width: 1.5em;" /></a> <span class="guilabel">Select All</span> (အားလုံးကိုရွေးချယ်ပါ)</p></td>
+<td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">Ctrl</kbd>+<kbd class="kbd docutils literal notranslate">A</kbd></kbd></p></td>
+<td></td>
+<td><p>Designer ထဲရှိ model component များအားလုံးကိုရွေးချယ်ပေးပါသည်။</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="guilabel">Snap selected components to Grid</span> (ရွေးချယ်ထားသော component များကို grid ဆီသို့ ဆွဲကပ်ပါ)</p></td>
+<td></td>
+<td></td>
+<td><p>Element များကို grid ဆီသို့ဆွဲကပ်ပြီး ညီညာအောင် ပြုလုပ်ပေးပါသည်။</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../../../_images/mActionRedo.png"><img alt="redo" src="../../../_images/mActionRedo.png" style="width: 1.5em;" /></a> <span class="guilabel">Redo (ပြန်လည်လုပ်ဆောင်ခြင်း)</span></p></td>
+<td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">Ctrl</kbd>+<kbd class="kbd docutils literal notranslate">Y</kbd></kbd></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p>နောက်ဆုံးမကြိုက်လို့ ပယ်ဖျက်ခဲ့သောလုပ်ဆောင်ချက်ကို ပြန်လည်ရယူခြင်း။ <span class="guilabel">Undo/Redo</span> panel တွင်ကြည့်ပါ။</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../../../_images/mActionUndo.png"><img alt="undo" src="../../../_images/mActionUndo.png" style="width: 1.5em;" /></a> <span class="guilabel">Undo (မလုပ်တော့ပါ)</span></p></td>
+<td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">Ctrl</kbd>+<kbd class="kbd docutils literal notranslate">Z</kbd></kbd></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p>နောက်ဆုံးလုပ်ခဲ့သော အပြောင်းအလဲကို ပယ်ဖျက်ခြင်း။ <span class="guilabel">Undo/Redo</span> panel တွင်ကြည့်ပါ။</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../../../_images/mActionEditCut.png"><img alt="editCut" src="../../../_images/mActionEditCut.png" style="width: 1.5em;" /></a> <span class="guilabel">Cut</span></p></td>
+<td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">Ctrl</kbd>+<kbd class="kbd docutils literal notranslate">X</kbd></kbd></p></td>
+<td></td>
+<td><p>Model မှ Component များ၏ရွေးချယ်ထားမှုကို ရွှေ့ပြောင်းပေးပါသည်။</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../../../_images/mActionEditCopy.png"><img alt="editCopy" src="../../../_images/mActionEditCopy.png" style="width: 1.5em;" /></a> <span class="guilabel">Copy</span></p></td>
+<td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">Ctrl</kbd>+<kbd class="kbd docutils literal notranslate">C</kbd></kbd></p></td>
+<td></td>
+<td><p>Model မှ Component များ၏ရွေးချယ်ထားမှုကို မိတ္တူပွားပေးပါသည်။။</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../../../_images/mActionEditPaste.png"><img alt="editPaste" src="../../../_images/mActionEditPaste.png" style="width: 1.5em;" /></a> <span class="guilabel">Paste</span></p></td>
+<td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">Ctrl</kbd>+<kbd class="kbd docutils literal notranslate">V</kbd></kbd></p></td>
+<td></td>
+<td><p>Model တစ်ခုမှ တူညီသော model အတွင်း သို့မဟုတ် အခြား model တစ်ခုသို့ ရွှေ့ပြောင်းထားသော သို့မဟုတ် ကူးယူထားသော ရွေးချယ်မှုအစိတ်အပိုင်းများကို နေရာချပေးပါသည်။ ရွေးချယ်ထားသောအစိတ်အပိုင်းများသည် ၎င်းတို့၏မူလဂုဏ်သတ္တိများနှင့်မှတ်ချက်များကို ဆက်လက်ထားရှိမည်ဖြစ်သည်။</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../../../_images/mActionDeleteSelected.png"><img alt="deleteSelected" src="../../../_images/mActionDeleteSelected.png" style="width: 1.5em;" /></a> <span class="guilabel">Delete selected components</span> (ရွေးချယ်ထားသော အစိတ်အပိုင်းများကို ဖျက်ပစ်ခြင်း)</p></td>
+<td><p><kbd class="kbd docutils literal notranslate">Del</kbd></p></td>
+<td></td>
+<td><p>Model မှ အစိတ်အပိုင်းတစ်ခုကို ဖယ်ထုတ်ခြင်း။</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="guilabel">Add Group Box</span> (အုပ်စု box ထည့်ခြင်း)</p></td>
+<td></td>
+<td></td>
+<td><p>ဆက်စပ်သော အစိတ်အပိုင်းများကို မြင်သာစွာအုပ်စုဖွဲ့ရန် ၎င်းတို့၏ နောက်ခံတွင် box တစ်ခုထည့်ထားခြင်း။ ကြီးမားသော Model များတွင် workflow ကို ရှင်းရှင်းလင်းလင်းရှိစေရန် အသုံးပြုနိုင်ပါသည်။</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="view-menu">
+<h3><a class="toc-backref" href="#id19" role="doc-backlink"><span class="section-number">28.5.1.3. </span>View menu</a><a class="headerlink" href="#view-menu" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.3%" />
+<col style="width: 12.1%" />
+<col style="width: 12.1%" />
+<col style="width: 50.5%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>ဖြတ်လမ်းနည်း</p></th>
+<th class="head"><p>Navigation Toolbar</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="menuselection">Zoom To ►</span> (သို့ ချဲ့ကြည့်ခြင်း)</p></td>
+<td></td>
+<td></td>
+<td><p>ရွေးချယ်ထားသော အုပ်စု၏အကျယ်အဝန်းအတိုင်း ချဲ့ကြည့်ခြင်း။</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../../../_images/mActionZoomIn.png"><img alt="zoomIn" src="../../../_images/mActionZoomIn.png" style="width: 1.5em;" /></a> <span class="guilabel">Zoom In</span> (ချဲ့ကြည့်ခြင်း)</p></td>
+<td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">Ctrl</kbd>+<kbd class="kbd docutils literal notranslate">+</kbd></kbd></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../../../_images/mActionZoomOut.png"><img alt="zoomOut" src="../../../_images/mActionZoomOut.png" style="width: 1.5em;" /></a> <span class="guilabel">Zoom Out</span> (ချုံ့ကြည့်ခြင်း)</p></td>
+<td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">Ctrl</kbd>+<kbd class="kbd docutils literal notranslate">-</kbd></kbd></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../../../_images/mActionZoomActual.png"><img alt="zoomActual" src="../../../_images/mActionZoomActual.png" style="width: 1.5em;" /></a> <span class="guilabel">Zoom to 100%</span> (ရာနှုန်းပြည့် မြင်ကွင်းကို ချဲ့ကြည့်ခြင်း)</p></td>
+<td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">Ctrl</kbd>+<kbd class="kbd docutils literal notranslate">1</kbd></kbd></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../../../_images/mActionZoomFullExtent.png"><img alt="zoomFullExtent" src="../../../_images/mActionZoomFullExtent.png" style="width: 1.5em;" /></a> <span class="guilabel">Zoom Full</span> (အပြည့်ချဲ့ကြည့်ခြင်း)</p></td>
+<td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">Ctrl</kbd>+<kbd class="kbd docutils literal notranslate">0</kbd></kbd></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p>Designer ၏လက်ရှိ canvas တွင်ရှိနေသော အစိတ်အပိုင်းများအားလုံးကို ပြသပေးပါသည်။</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">Show Comments</span> (Comment များကိုပြသခြင်း)</p></td>
+<td></td>
+<td></td>
+<td><p>Algorithm တိုင်း သို့မဟုတ် model desinger ထဲတွင်ထည့်သွင်းအသုံးပြုသော အချက်အလက်များနှင့် ဆက်စပ်သော မှတ်ချက်များကို ပြသပေးပါသည်။</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../../../_images/unchecked.png"><img alt="unchecked" src="../../../_images/unchecked.png" style="width: 1.3em;" /></a> <span class="guilabel">Enable Snapping</span> (ဆွဲကပ်ခြင်းကို ဖွင့်ပေးခြင်း)</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../../../_images/unchecked.png"><img alt="unchecked" src="../../../_images/unchecked.png" style="width: 1.3em;" /></a> <span class="guilabel">Toggle Panel Visibility</span> (Panel မြင်ရနိုင်ခြင်းကို အဖွင့်အပိတ်လုပ်ခြင်း)</p></td>
+<td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">Ctrl</kbd>+<kbd class="kbd docutils literal notranslate">Tab</kbd></kbd></p></td>
+<td></td>
+<td><p>Designer ထဲရှိ <a class="reference internal" href="#modelerpanels"><span class="std std-ref">panels</span></a> (ဘောင်ကွက်များ) ကို အဖွင့်၊ အပိတ် လုပ်ဆောင်ပေးပါသည်။</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="panel">
+<span id="modelerpanels"></span><h3><a class="toc-backref" href="#id20" role="doc-backlink"><span class="section-number">28.5.1.4. </span>Panel များ</a><a class="headerlink" href="#panel" title="Link to this heading"></a></h3>
+<p>Window ၏ဘယ်ဘက်အခြမ်းသည် model တွင် element အသစ်များထည့်ပေါင်းခြင်းအတွက် အသုံးပြုနိုင်သော panel ၅ ခုရှိသည့် section ဖြစ်ပါသည်-</p>
+<ol class="arabic simple">
+<li><p><span class="guilabel">Model Properties</span> - Model ၏အမည် (မဖြစ်မနေလိုအပ်ပါသည်) နှင့် <a class="reference internal" href="toolbox.html#processing-toolbox"><span class="std std-ref">Processing Toolbox</span></a> ထဲတွင်ဖော်ပြမည့် အုပ်စု တို့ကိုသတ်မှတ်ပါ။</p></li>
+<li><p><span class="guilabel">Inputs</span> - Model ကိုပုံဖော်နိုင်သော <a class="reference internal" href="#processing-inputs"><span class="std std-ref">input parameters</span></a> များအားလုံး</p></li>
+<li><p><span class="guilabel">Algorithms</span> - အသုံးပြုနိုင်သော <a class="reference internal" href="../processing_algs/index.html#processing-algs"><span class="std std-ref">Processing algorithms</span></a> များ</p></li>
+<li><p><span class="guilabel">Variables</span> - Model များတွင် တမူထူးခြားပြီး ၎င်းတို့သာအသုံးပြုနိုင်သော <a class="reference internal" href="../introduction/general_tools.html#general-tools-variables"><span class="std std-ref">variables</span></a> များပါဝင်နိုင်ပါသည်။ ၎င်း variable များကို model အတွင်း အသုံးပြုသော မည်သည့် expression နှင့်မဆို အသုံးပြုနိုင်ပါသည်။ ၎င်းတို့သည် model တစ်ခုအတွင်းရှိ algorithm များကိုထိန်းချုပ်ခြင်း နှင့် variable တစ်ခုကိုပြောင်းလဲခြင်းဖြင့် model ၏ aspect များစွာကိုထိန်းချုပ်ခြင်း တို့အတွက် အသုံးဝင်ပါသည်။ Variable များကို <span class="guilabel">Variables</span> panel ထဲတွင် ကြည့်နိုင်ပြီး မွမ်းမံပြင်ဆင်နိုင်ပါသည်။</p></li>
+<li><p><span class="guilabel">Undo History</span> - Modeler ထဲတွင်ဖြစ်ပျက်ခဲ့သော အရာအားလုံးကို ဤ panel ထဲတွင်မှတ်တမ်းတင်ထားပြီး အမှားလုပ်မိသောအရာများကို ပယ်ဖျက်ရန်အတွက် လွယ်ကူစေပါသည်။</p></li>
+</ol>
+</section>
+<section id="algorithm">
+<h3><a class="toc-backref" href="#id21" role="doc-backlink"><span class="section-number">28.5.1.5. </span>ပါရှိသော algorithm များအကြောင်း</a><a class="headerlink" href="#algorithm" title="Link to this heading"></a></h3>
+<p>Model တစ်ခုကို ဒီဇိုင်းဆွဲသောအခါ toolbox မှ စေခိုင်းလုပ်ဆောင်နိုင်သော တချို့သော algorithm များသည် အသုံးပြုနိုင်သော algorithm များစာရင်းတွင် ပေါ်နေမည်မဟုတ်ပါ။ Model တစ်ခုထဲတွင် ပါဝင်စေရန် algorithm တစ်ခုသည် မှန်ကန်သော ဝေါဟာရ (semantic) ရှိရပါမည်။ Algorithm သည် ထိုကဲ့သို့ ကောင်းကောင်းမွန်မွန်သတ်မှတ်ထားသော ဝေါဟာရ (semantic) မရှိလျှင် (ဥပမာ - output layer များအရေအတွက်ကို ကြိုတင်မသိနိုင်ခြင်း) ၎င်းကို model  တစ်ခုထဲတွင်အသုံးမပြုနိုင်သလို modeler dialog ထဲတွင် တွေ့နိုင်သော algorithm စာရင်းတွင်လည်း ပေါ်နေမည် မဟုတ်ပါ။ တနည်းအားဖြင့် အချို့သော algorithm များသည် modeler အတွက် သီးသန့်များဖြစ်ကြပါသည်။ ထို algorithm များသည် ‘Modeler Tools’ အုပ်စုထဲတွင် ရှိပါသည်။</p>
+</section>
+</section>
+<section id="model">
+<h2><a class="toc-backref" href="#id22" role="doc-backlink"><span class="section-number">28.5.2. </span>Model တစ်ခု ဖန်တီးခြင်း</a><a class="headerlink" href="#model" title="Link to this heading"></a></h2>
+<p>Model တစ်ခုဖန်တီးခြင်းတွင် အခြေခံအဆင့် နှစ်ဆင့်ပါဝင်ပါသည် -</p>
+<ol class="arabic simple">
+<li><p><em>မဖြစ်မနေလိုအပ်သော input များသတ်မှတ်ခြင်း</em>။ ထို input များကို parameter window တွင် ပေါင်းထည့်ပေးမည်ဖြစ်သည်၊ သို့မှသာ အသုံးပြုသူများသည် model ကိုစေခိုင်းလုပ်ဆောင်သောအခါ တန်ဖိုးများကို သတ်မှတ်နိုင်မည်ဖြစ်သည်။ Model ကိုယ်တိုင်ပင် algorithm တစ်ခုဖြစ်သည်။ ထို့ကြောင့် Processing framework ထဲတွင် အသုံးပြုနိုင်သော algorithm များအားလုံးအတွက်ကဲ့သို့ parameter window ကိုအလိုအလျှောက် ဖန်တီးပေးပါသည်။</p></li>
+<li><p><em>Workflow သတ်မှတ်ခြင်း</em>။ Model ၏ input data များကို အသုံးပြုပြီး algorithm များထည့်ပေါင်းခြင်းနှင့် သတ်မှတ်ထားသည့် input များ သို့မဟုတ် model ထဲရှိ အခြား algorithm များမှထုတ်ပေးသော output များကို မည်သို့အသုံးချမည်ကိုရွေးချယ်ခြင်းအားဖြင့် workflow ကို သတ်မှတ်ပါသည်။</p></li>
+</ol>
+<section id="definition-of-inputs">
+<span id="processing-inputs"></span><h3><a class="toc-backref" href="#id23" role="doc-backlink"><span class="section-number">28.5.2.1. </span>ထည့်သွင်းအသုံးပြုသော အချက်အလက်များကို သတ်မှတ်ခြင်း (Definition of inputs)</a><a class="headerlink" href="#definition-of-inputs" title="Link to this heading"></a></h3>
+<p>ပထမဆုံးလုပ်ဆောင်ရမည့်အဆင့်မှာ model အတွက် input များကို သတ်မှတ်ပေးရန်ဖြစ်ပါသည်။ Modeler window ၏ ဘယ်ဘက်ခြမ်းထဲက <span class="guilabel">Inputs</span> panel တွင် အောက်ပါ element များတွေ့ရပါမည်-</p>
+<table class="longtable docutils align-default" id="id2">
+<caption><span class="caption-number">Table 28.1 </span><span class="caption-text">Model တည်ဆောက်ခြင်းအတွက် parameter အမျိုးအစားများ၏ စာရင်း</span><a class="headerlink" href="#id2" title="Link to this table"></a></caption>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingParameterAnnotationLayer.html#qgis.core.QgsProcessingParameterAnnotationLayer" title="(in QGIS Python API v3.28)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Annotation</span> <span class="pre">Layer</span></code></a></p></td>
+<td><p><a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingParameterAuthConfig.html#qgis.core.QgsProcessingParameterAuthConfig" title="(in QGIS Python API v3.28)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Authentication</span> <span class="pre">Configuration</span></code></a></p></td>
+<td><p><a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingParameterBoolean.html#qgis.core.QgsProcessingParameterBoolean" title="(in QGIS Python API v3.28)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Boolean</span></code></a></p></td>
+<td><p><a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingParameterColor.html#qgis.core.QgsProcessingParameterColor" title="(in QGIS Python API v3.28)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Color</span></code></a></p></td>
+<td><p><a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingParameterProviderConnection.html#qgis.core.QgsProcessingParameterProviderConnection" title="(in QGIS Python API v3.28)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Connection</span> <span class="pre">Name</span></code></a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingParameterCoordinateOperation.html#qgis.core.QgsProcessingParameterCoordinateOperation" title="(in QGIS Python API v3.28)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Coordinate</span> <span class="pre">Operation</span></code></a></p></td>
+<td><p><a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingParameterCrs.html#qgis.core.QgsProcessingParameterCrs" title="(in QGIS Python API v3.28)"><code class="xref py py-class docutils literal notranslate"><span class="pre">CRS</span></code></a></p></td>
+<td><p><a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingParameterDatabaseSchema.html#qgis.core.QgsProcessingParameterDatabaseSchema" title="(in QGIS Python API v3.28)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Database</span> <span class="pre">Schema</span></code></a></p></td>
+<td><p><a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingParameterDatabaseTable.html#qgis.core.QgsProcessingParameterDatabaseTable" title="(in QGIS Python API v3.28)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Database</span> <span class="pre">Table</span></code></a></p></td>
+<td><p><a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingParameterDateTime.html#qgis.core.QgsProcessingParameterDateTime" title="(in QGIS Python API v3.28)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Datetime</span></code></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingParameterDistance.html#qgis.core.QgsProcessingParameterDistance" title="(in QGIS Python API v3.28)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Distance</span></code></a></p></td>
+<td><p><a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingParameterDuration.html#qgis.core.QgsProcessingParameterDuration" title="(in QGIS Python API v3.28)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Duration</span></code></a></p></td>
+<td><p><a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingParameterDxfLayers.html#qgis.core.QgsProcessingParameterDxfLayers" title="(in QGIS Python API v3.28)"><code class="xref py py-class docutils literal notranslate"><span class="pre">DXF</span> <span class="pre">Layers</span></code></a></p></td>
+<td><p><a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingParameterEnum.html#qgis.core.QgsProcessingParameterEnum" title="(in QGIS Python API v3.28)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></a></p></td>
+<td><p><a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingParameterExpression.html#qgis.core.QgsProcessingParameterExpression" title="(in QGIS Python API v3.28)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Expression</span></code></a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingParameterExtent.html#qgis.core.QgsProcessingParameterExtent" title="(in QGIS Python API v3.28)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Extent</span></code></a></p></td>
+<td><p><a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingParameterAggregate.html#qgis.core.QgsProcessingParameterAggregate" title="(in QGIS Python API v3.28)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Field</span> <span class="pre">Aggregates</span></code></a></p></td>
+<td><p><a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingParameterFieldMapping.html#qgis.core.QgsProcessingParameterFieldMapping" title="(in QGIS Python API v3.28)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Fields</span> <span class="pre">Mapper</span></code></a></p></td>
+<td><p><a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingParameterFile.html#qgis.core.QgsProcessingParameterFile" title="(in QGIS Python API v3.28)"><code class="xref py py-class docutils literal notranslate"><span class="pre">File/Folder</span></code></a></p></td>
+<td><p><a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingParameterGeometry.html#qgis.core.QgsProcessingParameterGeometry" title="(in QGIS Python API v3.28)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Geometry</span></code></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingParameterMapLayer.html#qgis.core.QgsProcessingParameterMapLayer" title="(in QGIS Python API v3.28)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Map</span> <span class="pre">Layer</span></code></a></p></td>
+<td><p><a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingParameterMapTheme.html#qgis.core.QgsProcessingParameterMapTheme" title="(in QGIS Python API v3.28)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Map</span> <span class="pre">Theme</span></code></a></p></td>
+<td><p><a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingParameterMatrix.html#qgis.core.QgsProcessingParameterMatrix" title="(in QGIS Python API v3.28)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Matrix</span></code></a></p></td>
+<td><p><a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingParameterMeshDatasetGroups.html#qgis.core.QgsProcessingParameterMeshDatasetGroups" title="(in QGIS Python API v3.28)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Mesh</span> <span class="pre">Dataset</span> <span class="pre">Groups</span></code></a></p></td>
+<td><p><a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingParameterMeshDatasetTime.html#qgis.core.QgsProcessingParameterMeshDatasetTime" title="(in QGIS Python API v3.28)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Mesh</span> <span class="pre">Dataset</span> <span class="pre">Time</span></code></a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingParameterMeshLayer.html#qgis.core.QgsProcessingParameterMeshLayer" title="(in QGIS Python API v3.28)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Mesh</span> <span class="pre">Layer</span></code></a></p></td>
+<td><p><a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingParameterMultipleLayers.html#qgis.core.QgsProcessingParameterMultipleLayers" title="(in QGIS Python API v3.28)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Multiple</span> <span class="pre">Input</span></code></a></p></td>
+<td><p><a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingParameterNumber.html#qgis.core.QgsProcessingParameterNumber" title="(in QGIS Python API v3.28)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Number</span></code></a></p></td>
+<td><p><a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingParameterPoint.html#qgis.core.QgsProcessingParameterPoint" title="(in QGIS Python API v3.28)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Point</span></code></a></p></td>
+<td><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Point</span> <span class="pre">Cloud</span> <span class="pre">Attribute</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingParameterPointCloudLayer.html#qgis.core.QgsProcessingParameterPointCloudLayer" title="(in QGIS Python API v3.28)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Point</span> <span class="pre">Cloud</span> <span class="pre">Layer</span></code></a></p></td>
+<td><p><a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingParameterLayout.html#qgis.core.QgsProcessingParameterLayout" title="(in QGIS Python API v3.28)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Print</span> <span class="pre">Layout</span></code></a></p></td>
+<td><p><a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingParameterLayoutItem.html#qgis.core.QgsProcessingParameterLayoutItem" title="(in QGIS Python API v3.28)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Print</span> <span class="pre">Layout</span> <span class="pre">Item</span></code></a></p></td>
+<td><p><a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingParameterRange.html#qgis.core.QgsProcessingParameterRange" title="(in QGIS Python API v3.28)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Range</span></code></a></p></td>
+<td><p><a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingParameterBand.html#qgis.core.QgsProcessingParameterBand" title="(in QGIS Python API v3.28)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Raster</span> <span class="pre">Band</span></code></a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingParameterRasterLayer.html#qgis.core.QgsProcessingParameterRasterLayer" title="(in QGIS Python API v3.28)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Raster</span> <span class="pre">Layer</span></code></a></p></td>
+<td><p><a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingParameterScale.html#qgis.core.QgsProcessingParameterScale" title="(in QGIS Python API v3.28)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Scale</span></code></a></p></td>
+<td><p><a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingParameterString.html#qgis.core.QgsProcessingParameterString" title="(in QGIS Python API v3.28)"><code class="xref py py-class docutils literal notranslate"><span class="pre">String</span></code></a></p></td>
+<td><p><a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingParameterTinInputLayers.html#qgis.core.QgsProcessingParameterTinInputLayers" title="(in QGIS Python API v3.28)"><code class="xref py py-class docutils literal notranslate"><span class="pre">TIN</span> <span class="pre">Creation</span> <span class="pre">Layers</span></code></a></p></td>
+<td><p><a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingParameterFeatureSource.html#qgis.core.QgsProcessingParameterFeatureSource" title="(in QGIS Python API v3.28)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Vector</span> <span class="pre">Features</span></code></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingParameterField.html#qgis.core.QgsProcessingParameterField" title="(in QGIS Python API v3.28)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Vector</span> <span class="pre">Field</span></code></a></p></td>
+<td><p><a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingParameterVectorLayer.html#qgis.core.QgsProcessingParameterVectorLayer" title="(in QGIS Python API v3.28)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Vector</span> <span class="pre">Layer</span></code></a></p></td>
+<td><p><a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingParameterVectorTileWriterLayers.html#qgis.core.QgsProcessingParameterVectorTileWriterLayers" title="(in QGIS Python API v3.28)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Vector</span> <span class="pre">Tile</span> <span class="pre">Writer</span> <span class="pre">Layers</span></code></a></p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Input များပေါ်တွင် mouse ကိုတင်ထားလျှင် ထပ်ဆောင်းအချက်အလက်များကို tooltip (ယာယီပေါ်လာသော စာသား box) ဖြင့် ဖော်ပြပေးပါလိမ့်မည်။</p>
+</div>
+<p>Element တစ်ခုပေါ်တွင် double-click နှိပ်သောအခါ ၎င်း၏ ဝိသေသလက္ခဏာများကို သတ်မှတ်ပေးနိုင်သော dialog တစ်ခုပေါ်လာပါမည်။ Parameter ပေါ်တွင်မူတည်ပြီး dialog သည် အနည်းဆုံး element တစ်ခုပါဝင်ပါလိမ့်မည် (model ကိုစေခိုင်းလုပ်ဆောင်သောအခါ အသုံးပြုသူများ မြင်ရမည့် ရှင်းလင်းဖော်ပြချက်ဖြစ်ပါသည်)။ ဥပမာ- ဂဏန်းတန်ဖိုးတစ်ခုကို ထည့်လျှင် အောက်ပါပုံတွင်ပြထားသည့်အတိုင်း parameter ၏ရှင်းလင်းဖော်ပြချက်အပြင် မူရင်းတန်ဖိုးတစ်ခု နှင့် ဆီလျော်သောတန်ဖိုးအပိုင်းအခြားကို သတ်မှတ်ပေးရမည်ဖြစ်ပါသည်။</p>
+<figure class="align-center" id="id3">
+<span id="figure-model-parameter"></span><img alt="../../../_images/models_parameters.png" src="../../../_images/models_parameters.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 28.19 </span><span class="caption-text">Model Parameter များသတ်မှတ်ခြင်း</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <code class="docutils literal notranslate"><span class="pre">Mandatory</span></code> option ကိုအမှန်ခြစ်ခြင်းဖြင့် မိမိ၏ model အတွက် input ကို မဖြစ်မနေထည့်သွင်းရမည့်အရာအဖြစ် သတ်မှတ်နိုင်ပြီး <a class="reference internal" href="../../../_images/unchecked.png"><img alt="unchecked" src="../../../_images/unchecked.png" style="width: 1.3em;" /></a> <code class="docutils literal notranslate"><span class="pre">Advanced</span></code> ကိုအမှန်ခြစ် ခြစ်ထားလျှင် input များကို <code class="docutils literal notranslate"><span class="pre">Advanced</span></code> section အတွင်း ရှိစေရန် သတ်မှတ်နိုင်ပါသည်။ Model တွင် parameter များစွာရှိနေပြီး အချို့သည် အရေးမကြီးသော်လည်း ၎င်းတို့ကို ရွေးချယ်လိုသောအခါ ဤနည်းလမ်းသည် အသုံးဝင်ပါသည်။</p>
+<p>ပေါင်းထည့်ထားသော input တစ်ခုချင်းစီအတွက် model canvas တွင် element အသစ်တစ်ခုကို ထည့်သွင်းပေးပါသည်။</p>
+<figure class="align-center" id="id4">
+<span id="figure-model-parameter-canvas"></span><img alt="../../../_images/models_parameters2.png" src="../../../_images/models_parameters2.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 28.20 </span><span class="caption-text">Model Parameter များ</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>စာရင်းမှ input အမျိုးအစားကို model canvas ထဲ ထားချင်သောနေရာတွင် ဆွဲယူထည့်ပြီးနေရာချခြင်းဖြင့်လည်း input များကို ထည့်သွင်းနိုင်ပါသည်။ ရှိနေပြီးသား input တစ်ခု၏ parameter တစ်ခုကို ပြောင်းလဲလိုလျှင် ၎င်းကို double-click နှိပ်လိုက်ပါက တူညီသော dialog ပေါ်လာပါလိမ့်မည်။</p>
+<p>အခြား model ထဲတွင် model တစ်ခုကိုအသုံးပြုသာအခါ လိုအပ်သော input များနှင့် output များကို canvas ထဲတွင်ပြသပေးပါလိမ့်မည်။</p>
+</section>
+<section id="workflow-definition-of-the-workflow">
+<h3><a class="toc-backref" href="#id24" role="doc-backlink"><span class="section-number">28.5.2.2. </span>Workflow သတ်မှတ်ချက် (Definition of the workflow)</a><a class="headerlink" href="#workflow-definition-of-the-workflow" title="Link to this heading"></a></h3>
+<p>အောက်ပါဥပမာတွင် input နှစ်ခုနှင့် algorithm နှစ်ခုကို ထည့်သွင်းအသုံးပြုပါမည်။ ဤ model ၏ရည်ရွယ်ချက်မှာ <code class="docutils literal notranslate"><span class="pre">Drape</span></code> algorithm ကိုအသုံးပြုပြီး DEM raster layer တစ်ခုမှ မြေမျက်နှာအနိမ့်အမြင့်တန်ဖိုးများကို line layer တစ်ခုသို့ ကူးထည့်ရန်နှင့် <code class="docutils literal notranslate"><span class="pre">Climb</span> <span class="pre">Along</span> <span class="pre">Line</span></code> algorithm ကိုအသုံးပြုပြီး line layer ၏ စုစုပေါင်း တိုးလာမှု (ascent) ကိုတွက်ချက်ရန် ဖြစ်ပါသည်။</p>
+<p><span class="guilabel">Inputs</span> tab ထဲတွင် line အတွက် <code class="docutils literal notranslate"><span class="pre">Vector</span> <span class="pre">Layer</span></code> နှင့် DEM အတွက် <code class="docutils literal notranslate"><span class="pre">Raster</span> <span class="pre">Layer</span></code> အနေဖြင့် input နှစ်မျိုးကို ရွေးချယ်ပါ။ Workflow ထဲသို့ algorithm များကို ပေါင်းထည့်နိုင်ပြီ ဖြစ်သည်။</p>
+<p>Algorithm များကို <span class="guilabel">Algorithms</span> panel တွင်တွေ့ရမည်ဖြစ်ပြီး ၎င်းတို့ကိုလည်း Processing toolbox ထဲတွင်အုပ်စုဖွဲ့ထားသကဲ့သို့ ပုံစံတူ လုပ်ထားပါသည်။</p>
+<figure class="align-center" id="id5">
+<span id="figure-model-parameter-inputs"></span><img alt="../../../_images/models_parameters3.png" src="../../../_images/models_parameters3.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 28.21 </span><span class="caption-text">Model Input များ</span><a class="headerlink" href="#id5" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Model တစ်ခုသို့ algorithm တစ်ခုပေါင်းထည့်ရန်အတွက် အခြား input များကဲ့သို့ ၎င်း၏အမည်ကို double-click နှိပ်ပါ သို့မဟုတ် ၎င်းကိုဆွဲထည့်ပါ။ Input များအတွက် algorithm ၏ ရှင်းလင်းဖော်ပြချက်ကို ပြင်ဆင်ရေးသားနိုင်ပြီး comment တစ်ခုထည့်သွင်းနိုင်ပါသည်။ Algorithm တစ်ခုထည့်သွင်းသောအခါ စေခိုင်းလုပ်ဆောင်မှု panel တစ်ခု ပေါ်လာမည်ဖြစ်ပြီး ၎င်း panel တွင် toolbox မှ algorithm ကိုစေခိုင်းလုပ်ဆောင်သောအခါ ပေါ်လာသည့်အရာနှင့်ဆင်တူသော အကြောင်းအရာတစ်ခုပါရှိပါသည်။ အောက်ပါဓာတ်ပုံသည် <code class="docutils literal notranslate"><span class="pre">Drape</span> <span class="pre">(set</span> <span class="pre">Z</span> <span class="pre">value</span> <span class="pre">from</span> <span class="pre">raster)</span></code> နှင့် <code class="docutils literal notranslate"><span class="pre">Climb</span> <span class="pre">along</span> <span class="pre">line</span></code> algorithm dialog နှစ်ခုလုံးကို ပြသပေးပါသည်။</p>
+<figure class="align-center" id="id6">
+<span id="figure-model-parameter-alg"></span><img alt="../../../_images/models_parameters4.png" src="../../../_images/models_parameters4.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 28.22 </span><span class="caption-text">Model Algorithm parameter များ</span><a class="headerlink" href="#id6" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>မြင်တွေ့ရသည့်အတိုင်း ကွဲပြားမှုအချို့တော့ ရှိပါသည်။ Parameter တစ်ခုချင်းစီတွင် workflow လုပ်ဆောင်နေစဉ် မည်သို့လုပ်ဆောင်မည်ကို ထိန်းချုပ်နိုင်သော drop-down menu တစ်ခုရှိပါသည်-</p>
+<ul>
+<li><p><a class="reference internal" href="../../../_images/mIconFieldInteger.png"><img alt="fieldInteger" src="../../../_images/mIconFieldInteger.png" style="width: 1.5em;" /></a> <sup>Value</sup> - Parameter တွင် အငြိမ် (static) တန်ဖိုးတစ်ခု သတ်မှတ်ပေးနိုင်ပါသည်။ Parameter အမျိုးအစားပေါ် မူတည်ပြီး widget ကိုအသုံးပြုပြီး ဂဏန်းတစ်ခု (<code class="docutils literal notranslate"><span class="pre">5.0</span></code>)၊ စာသားတစ်ခု (<code class="docutils literal notranslate"><span class="pre">mytext</span></code>) ထည့်သွင်းခြင်း၊ QGIS project သို့မဟုတ် folder တစ်ခုမှ ခေါ်ယူထည့်သွင်းထားသည့် layer (များ) ကိုရွေးချယ်ခြင်း၊ စာရင်းတစ်ခုမှ item များကို ရွေးချယ်ခြင်းများကို လုပ်ဆောင်နိုင်ပါသည်။</p></li>
+<li><p><a class="reference internal" href="../../../_images/mIconExpression.png"><img alt="expression" src="../../../_images/mIconExpression.png" style="width: 1.5em;" /></a> <sup>Pre-calculated Value</sup> - <a class="reference internal" href="../expressions/expression.html#vector-expressions"><span class="std std-ref">Expression Builder</span></a> dialog ကိုပွင့်စေပြီး parameter ကိုဖြည့်သွင်းရန် expression တစ်ခုကိုသတ်မှတ်ပေးနိုင်ပါသည်။ အခြား layer ၏စာရင်းအင်းကိန်းဂဏန်းအချို့ဖြင့် model input များကို <strong>variables</strong> အဖြစ်အသုံးပြုနိုင်ပြီး Expression Builder ၏ ရှာဖွေခြင်း (search) dialog ၏အပေါ်ဘက်တွင် စာရင်းပြုစုထားပါသည်။ Algorithm အခွဲ (Child algorithm) ကို စေခိုင်းမလုပ်ဆောင်မီ expression ကို တစ်ကြိမ်အကဲဖြတ်မည်ဖြစ်ပြီး ထို algroithm ကို စေခိုင်းလုပ်ဆောင်စဉ်တွင် အသုံးပြုပါသည်။</p></li>
+<li><p><a class="reference internal" href="../../../_images/processingModel.png"><img alt="processingModel" src="../../../_images/processingModel.png" style="width: 1.5em;" /></a> <sup>Model Input</sup> - Model ကိုပေါင်းထည့်သော input ကို parameter အဖြစ်အသုံးပြုနိုင်ပါသည်။ Click နှိပ်လိုက်သည်နှင့် parameter အတွက်သင့်တော်သော input များ အားလုံးကို စာရင်းပြုစုပေးပါသည်။</p></li>
+<li><p><a class="reference internal" href="../../../_images/processingAlgorithm.png"><img alt="processingAlgorithm" src="../../../_images/processingAlgorithm.png" style="width: 1.5em;" /></a> <sup>Algorithm Output</sup> - အခြား algorithm မှထွက်လာမည့် output ကို လက်ရှိ algorithm ၏ input တစ်ခုအဖြစ် အသုံးပြုနိုင်ပါသည်။ Model input များအဖြစ် parameter အတွက်သင့်တော်သော input အားလုံးကို စာရင်းပြုစုပေးပါလိမ့်မည်။</p></li>
+<li><p>The <strong>output parameter</strong> also has the above options in its drop-down menu:</p></li>
+<li><p><strong>Output parameter</strong> တွင်လည်း ၎င်း၏ drop-down menu ထဲ၌ အထက်တွင်ဖော်ပြခဲ့သော ရွေးချယ်စရာနည်းလမ်းများ ရှိပါသည်-</p>
+<ul class="simple">
+<li><p>Child algorithm များအတွက် မပြောင်းလဲသော (static) output များကိုထည့်ပေါင်းခြင်း။ ဥပမာ- child algorithm ၏ output တစ်ခုကို ကြိုတင်သတ်မှတ်ထားသော geopackage သို့မဟုတ် postgres layer တစ်ခုတွင်အမြဲတမ်းသိမ်းဆည်းခြင်း။</p></li>
+<li><p>Child algorithm များအတွက် expression ကိုအခြေခံသော output တန်ဖိုးများကို အသုံးပြုခြင်း။ ဥပမာ- လုပ်ဆောင်သောနေ့စွဲကို အသုံးပြုပြီး file အမည်ကိုအလိုအလျှောက်ဖန်တီးပြီး ၎င်း file ထဲတွင် output များကို သိမ်းဆည်းခြင်း။</p></li>
+<li><p>Model input တစ်ခုကို အသုံးပြုခြင်း။ ဥပမာ- Output file တစ်ခုသို့မဟုတ် folder တစ်ခု ကိုသတ်မှတ်ရန် <em>File/Folder</em> model input။</p></li>
+<li><p>အခြား algorithm output ကိုအသုံးပြုခြင်း။ ဥပမာ- <em>Create directory</em> algorithm (<em>Modeler tools</em> မှ) ၏ output။</p></li>
+<li><p>ထပ်ပေါင်း <a class="reference internal" href="../../../_images/mIconModelOutput.png"><img alt="modelOutput" src="../../../_images/mIconModelOutput.png" style="width: 1.5em;" /></a> <sup>Model Output</sup> နည်းလမ်းတစ်ခုသည် algorithm ၏ output ကို model ထဲတွင် အသုံးပြုနိုင်အောင် လုပ်ဆောင်ပေးပါသည်။ Algorithm မှဖန်တီးပေးသော layer ကို အခြား algorithm တွင် input အဖြစ်သာ အသုံးပြုမည်ဆိုလျှင် ၎င်းစာသား box ကိုတည်းဖြတ်ပြင်ဆင်မှုမလုပ်ပါနှင့်။</p></li>
+</ul>
+<p>အေက်ပါပုံတွင် <code class="docutils literal notranslate"><span class="pre">Model</span> <span class="pre">Input</span></code> နှင့် ယာယီ output layer အဖြစ်သတ်မှတ်ထားသော input parameter နှစ်မျိုးကို တွေ့မြင်ရမည်ဖြစ်သည်-</p>
+<figure class="align-center" id="id7">
+<img alt="../../../_images/models_parameters5.png" src="../../../_images/models_parameters5.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 28.23 </span><span class="caption-text">Algorithm Input နှင့် Output parameter များ</span><a class="headerlink" href="#id7" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</li>
+</ul>
+<p>Algorithm ကို toolbox မှခေါ်ယူအသုံးပြုသောအခါ မရရှိနိုင်သော <span class="guilabel">Dependencies</span> ဟုခေါ်သည့် အခြား parameter တစ်ခုကိုလည်း တွေ့ရမည်ဖြစ်ပါသည်။ Algorithm တစ်ခုကို ယခုလက်ရှိ alogrithm ၏ <em>parent</em> အဖြစ် သတ်မှတ်ခြင်းဖြင့် algorithm များကိုစေခိုင်းလုပ်ဆောင်မည့် အစီအစဉ်ကို သတ်မှတ်နိုင်စေရန် ဤ parameter မှလုပ်ဆောင်ပေးပါသည်။ ၎င်းသည် လက်ရှိ algorithm ကိုမလုပ်ဆောင်မီ <em>parent</em> algorithm ကိုတွန်းအားပေး စေခိုင်းလုပ်ဆောင်ပါလိမ့်မည်။</p>
+<p>ရှေ့တွင်လုပ်ဆောင်ခဲ့သော algorithm ၏ output ကို မိမိ algorithm ၏ input အဖြစ် အသုံးပြုသောအခါ ၎င်းသည် ရှေ့တွင်လုပ်ဆောင်ခဲ့သော algorithm ကို လက်ရှိတစ်ခု၏ parent အဖြစ်အကြွင်းမဲ့သတ်မှတ်ပါသည် (modeler canvas ထဲတွင် သက်ဆိုင်ရာ မြှားကိုနေရာချထည့်သွင်းပေးပါသည်)။ သို့သော် အချို့ကိစ္စများတွင် algorithm တစ်ခုသည် ၎င်းမှထွက်လာသော မည်သည့် output ကိုမှ အသုံးမပြုလျှင်တောင် ၎င်း algorithm သည် အခြားတစ်ခုပေါ်တွင် မှီခိုနေနိုင်ပါသည် (ဥပမာ SQL sentence ကို PostGIS database ပေါ်တွင်စေခိုင်းလုပ်ဆောင်သော algorithm တစ်ခုနှင့် layer တစ်ခုကို ထိုတူညီသော database ထဲသို့ ထည့်သွင်းပေးသောအခြားတစ်ခု)။ ထိုသို့သောအခါမျိုးတွင် <em>Dependencies</em> parameter ထဲတွင် ရှေ့တွင်လုပ်ဆောင်ခဲ့သော algorithm ကိုရွေးချယ်ပါ၊ ၎င်းတို့ကို မှန်ကန်သော အစီအစဉ်ဖြင့် စေခိုင်းလုပ်ဆောင်စေပါလိမ့်မည်။</p>
+<p>Parameter များအားလုံးကို ဆီလျော်သော တန်ဖိုးများသတ်မှတ်ပြီးသည်နှင့် <span class="guilabel">OK</span> ကိုနှိပ်ခြင်းဖြင့် algorithm ကို canvas ထဲတွင် ထည့်သွင်းပေးပါလိမ့်မည်။ ၎င်းသည် algorithm အတွက် input များအဖြစ် အသုံးပြုသော object များကို ထောက်ပံ့ပေးထားသော canvas ထဲရှိ element များ (algorithm များ သို့မဟုတ် input များ) နှင့် ချိတ်ဆက်သွားပါလိမ့်မည်။</p>
+<p><a class="reference internal" href="../../../_images/mActionSelect.png"><img alt="select" src="../../../_images/mActionSelect.png" style="width: 1.5em;" /></a> <sup>Select/Move Item</sup> tool ကိုအသုံးပြုပြီး canvas ပေါ်တွင် element များကို ဖိဆွဲရွှေ့ပြီး စိတ်ကြိုက်နေရာချထားနိုင်ပါသည်။ Model ကို ပိုပြီး ရှင်းရှင်းလင်းလင်းဖြစ်စေရန် ဤနည်းလမ်းသည် အသုံးဝင်ပါသည်။ Element များ၏အနားများကို ချဲ့ကားခြင်း၊ ချုံ့ခြင်းဖြင့် ၎င်းတို့၏ အရွယ်အစားကိုလည်း ပြောင်းလဲနိုင်ပါသည်။ Input သို့မဟုတ် algorithm ၏ရှင်းလင်းဖော်ပြချက်သည် ရှည်နေလျှင် ၎င်းသည် အသုံးဝင်ပါသည်။ <span class="menuselection">View ► Enable snapping</span> ကိုအမှန်ခြစ် ခြစ်ထားလျှင် item များကိုအရွယ်အစားပြောင်းလဲခြင်းနှင့် နေရာချထားခြင်းများကို virtual grid တွင် တွဲကပ်ထားနိုင်ပြီး အမြင်အရ ကောင်းစွာဖွဲ့စည်းထားသော algorithm ဒီဇိုင်းတစ်ခု ဖြစ်စေပါသည်။</p>
+<p>Element များအကြား ချိတ်ဆက်မှု (link) များကို အလိုအလျှောက် update ပြုလုပ်ပေးပြီး algorithm တစ်ခုချင်းစီ၏ အပေါ်ဘက်နှင့် အောက်ခြေတွင် <code class="docutils literal notranslate"><span class="pre">+</span></code> ခလုတ်ကိုတွေ့နိုင်ပါသည်။ ထိုခလုတ်ကိုနှိပ်လျှင် အမြန်ခြုံငုံကြည့်ရှုနိုင်ရန်အတွက် algorithm ၏ input များနှင့် output များအားလုံးကို စာရင်းပြုစုပေးပါလိမ့်မည်။</p>
+<figure class="align-center" id="id8">
+<span id="figure-model-model"></span><img alt="../../../_images/models_model.png" src="../../../_images/models_model.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 28.24 </span><span class="caption-text">ပြီးပြည့်စုံသော model တစ်ခု</span><a class="headerlink" href="#id8" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><span class="menuselection">Edit ► Add Group Box</span> tool ကိုအသုံးပြုပြီး canvas တွင် ဖိဆွဲရွှေ့နိုင်သော <em>box</em> တစ်ခုကို ထည့်သွင်းနိုင်ပါသည်။ ကြီးမားသော Model များတွင် modeler canvas ထဲ၌ ဆက်စပ် element များကိုအုပ်စုဖွဲ့ရန်နှင့် workflow ကိုရှင်းရှင်းလင်းလင်း ဖြစ်စေရန် ဤ feature သည် အလွန်အသုံးဝင်ပါသည်။ ဥပမာအားဖြင့် အောက်ပါ နမူနာထဲရှိ input များအားလုံးကို အုပ်စုဖွဲ့ပြပါမည်-</p>
+<figure class="align-center" id="id9">
+<img alt="../../../_images/model_group_box.png" src="../../../_images/model_group_box.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 28.25 </span><span class="caption-text">Model Group Box</span><a class="headerlink" href="#id9" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Box များ၏အမည်နှင့် အရောင်ကိုပြောင်းလဲနိုင်ပါသည်။ အုပ်စုဖြစ်နေသော box များသည် <span class="menuselection">View ► Zoom To ►</span> tool ဖြင့်တွဲဖက်အသုံးပြုသောအခါ အလွန်အသုံးဝင်ပြီး model ၏ သီးသန့်အစိတ်အပိုင်းတစ်ခုအထိ zoom ဆွဲကြည့်နိုင်ပါသည်။ Mouse ၏ဘီးကို အသုံးပြုပြီးလည်း zoom အချုံ့၊ အချဲ့လုပ်ဆောင်နိုင်ပါသည်။</p>
+<p>Input များ၏ အစီအစဉ် (order) နှင့် အဓိက dialog ထဲတွင် ၎င်းတို့ကို မည်သို့စာရင်းပြုစုထားသည်ကို ပြောင်းလဲချင်သောအခါများ ရှိနိုင်ပါလိမ့်မည်။ <code class="docutils literal notranslate"><span class="pre">Input</span></code> panel ၏အောက်ခြေတွင် <code class="docutils literal notranslate"><span class="pre">Reorder</span> <span class="pre">Model</span> <span class="pre">Inputs...</span></code> ခလုတ်ရှိပါသည်။ ၎င်းကိုနှိပ်လျှင် input များ၏ အစီအစဉ်ကို ပြောင်းလဲနိုင်သော dialog အသစ်တစ်ခုပွင့်လာပါမည်-</p>
+<figure class="align-center" id="id10">
+<img alt="../../../_images/model_reorder_inputs.png" src="../../../_images/model_reorder_inputs.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 28.26 </span><span class="caption-text">Model input များ၏အစီအစဉ်ကို ပြန်လည်သတ်မှတ်ခြင်း</span><a class="headerlink" href="#id10" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>ရလာဒ်များကို project ထဲသို့ထည့်သွင်းသောအခါ model မှ output များကို အသုံးပြုရမည့် သီးသန့်အစီအစဉ်တစ်ခုကိုလည်း သတ်မှတ်ပေးနိုင်ပါသည်။ ထိုသို့သတ်မှတ်ခြင်းသည် vector layer output ကို raster layer output ပေါ်တွင် ထားခြင်း သို့မဟုတ် point layer ကို polygon layer ပေါ်တွင်ထားခြင်းကဲ့သို့သော model တစ်ခုကိုလုပ်ဆောင်သောအခါ layer များကို canvas ထဲတွင် ယုတ္တိရှိရှိ စီစဉ်ခြင်းဖြစ်အောင် model ဖန်တီးသူကို အထောက်အကူပြုပါသည်။ Model ဖန်တီးသူသည် အုပ်စုအသစ်ဖန်တီးခြင်း သို့မဟုတ် ရှိနေပြီးသားအုပ်စုထဲသို့ထည့်သွင်းခြင်းဖြင့် layer ဖွဲ့စည်းပုံအတွင်း output များကို အလိုအလျှောက်အုပ်စုဖွဲ့စေရန် output များအတွက် “အုပ်စုအမည်” ကိုလည်း သတ်မှတ်ပေးနိုင်ပါသည်။ <code class="docutils literal notranslate"><span class="pre">Model</span></code> menu ထဲတွင် <code class="docutils literal notranslate"><span class="pre">Reorder</span> <span class="pre">Output</span> <span class="pre">Layers...</span></code> ရှိပြီး ၎င်းကိုနှိပ်လျှင် output layer များ၏ အစီအစဉ်ကို ပြောင်းလဲပေးနိုင်သော dialog အသစ်တစ်ခုပေါ်လာမည်ဖြစ်သည်-</p>
+<figure class="align-center" id="id11">
+<img alt="../../../_images/model_reorder_output_layers.png" src="../../../_images/model_reorder_output_layers.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 28.27 </span><span class="caption-text">Output layer များ၏အစီအစဉ်ကို ပြန်လည်သတ်မှတ်ခြင်း</span><a class="headerlink" href="#id11" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Modeler ထဲတွင်ရှိသော input များ သို့မဟုတ် algorithm များတွင် comment (မှတ်ချက်) များလည်း ထည့်ရေးနိုင်ပါသည်။ ၎င်းကို Item ၏ <span class="guilabel">Comment</span> tab တွင်ဝင်ရောက်ပြီးလုပ်နိုင်သလို right-click နှိပ်ပြီးလည်း လုပ်ဆောင်နိုင်ပါသည်။ ထို tab ထဲမှာပင် model comment တစ်ခုချင်းစီအတွက် အရောင်ကို စိတ်ကြိုက်သတ်မှတ်ပေးနိုင်ပါသည်။ Comment များကို modeler canvas ထဲတွင်သာ မြင်နိုင်ပြီး နောက်ဆုံးရလာမည့် algorithm dialog ထဲတွင် မြင်နိုင်မည်မဟုတ်ပါ။ <span class="menuselection">View ► Show Comments</span> ကိုပိတ်ထားပြီး ၎င်းတို့ကို ဖျောက်ထားနိုင်ပါသည်။</p>
+<p><a class="reference internal" href="../../../_images/mActionStart.png"><img alt="start" src="../../../_images/mActionStart.png" style="width: 1.5em;" /></a> <sup>Run model</sup> ခလုတ်ကိုနှိပ်ပြီး algorithm ကိုမည်သည့်အချိန်တွင်မဆို လုပ်ဆောင်နိုင်ပါသည်။ Model တစ်ခုကိုစေခိုင်းလုပ်ဆောင်ရန် အတွက် editor ကိုအသုံးပြုသောအခါ မူရင်းမဟုတ်သော (non-default) မည်သည့်တန်ဖိုးများမဆို input များထဲတွင် သိမ်းဆည်းပေးမည်ဖြစ်ပါသည်။ ဆိုလိုသည်မှာ model ကို နောင်တချိန်၌ editor မှ  စေခိုင်းလုပ်ဆောင်ခြင်းသည် နောက်ပိုင်းလုပ်ဆောင်မည့် လုပ်ငန်းများတွင် ထိုတန်ဖိုးများကို dialog ထဲတွင် ကြိုတင်ထည့်သွင်းထားပေးမည်ဖြစ်သည်။</p>
+<p>Algorithm ကို toolbox မှအသုံးပြုရန်အတွက် toolbox ၏ မာတိကာကို refresh လုပ်စေရန်အတွက် ၎င်းကိုအရင်သိမ်းဆည်းထားပြီး modeler dialog ကိုပိတ်ပေးရပါမည်။</p>
+</section>
+<section id="model-documenting-your-model">
+<h3><a class="toc-backref" href="#id25" role="doc-backlink"><span class="section-number">28.5.2.3. </span>Model ကိုမှတ်တမ်းတင်ခြင်း (Documenting your model)</a><a class="headerlink" href="#model-documenting-your-model" title="Link to this heading"></a></h3>
+<p>Model ကိုမှတ်တမ်းပြုစုရေးသားထားရန် လိုအပ်ပြီး ၎င်းကို modeler ထဲတွင်လုပ်ဆောင်နိုင်ပါသည်။ <a class="reference internal" href="../../../_images/mActionEditHelpContent.png"><img alt="editHelpContent" src="../../../_images/mActionEditHelpContent.png" style="width: 1.5em;" /></a><sup>Edit model help</sup> ခလုတ်ကိုနှိပ်ပါ၊ ပုံထဲတွင်ဖော်ပြထားသကဲ့သို့ dialog တစ်ခုပွင့်လာပါမည်။</p>
+<figure class="align-center" id="id12">
+<span id="figure-help-edition"></span><img alt="../../../_images/help_edition.png" src="../../../_images/help_edition.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 28.28 </span><span class="caption-text">Editing Help (တည်းဖြတ်ပြင်ဆင်ခြင်း အကူအညီ)</span><a class="headerlink" href="#id12" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>ညာဘက်ခြမ်းတွင် Model ၏အထွေထွေရှင်းလင်းဖော်ပြချက် သို့မဟုတ် model ဖန်တီးထားသူအကြောင်းကဲ့သို့သော အခြားသောအချက်အလက်များနှင့်အတူ algorithm ၏ input parameter များနှင့် output များ၏ ရှင်းလင်းဖော်ပြချက်ကိုအသုံးပြုပြီး ဖန်တီးထားသော ရိုးရှင်းသည့် HTML စာမျက်နှာ တစ်ခုရှိပါသည်။ Model အသုံးပြုနည်းကိုရှင်းပြသော ကိုယ်ပိုင်ဥပမာများကိုထည့်သွင်းနိုင်သော ဥပမာ section တစ်ခုလည်းရှိပါသည်။ အကူအညီ editor ကိုပထမဆုံးအကြိမ် ဖွင့်သောအခါ ထိုရှင်းလင်းဖော်ပြချက်များအားလုံးသည် ဗလာဖြစ်နေပါမည်၊ သို့သော် dialog ၏ဘယ်ဘက်တွင်ရှိသော element များကိုအသုံးပြုပြီး ၎င်းတို့ကို တည်းဖြတ်ပြင်ဆင်နိုင်ပါသည်။ အပေါ်ဘက်တွင်ရှိသော element ကိုရွေးချယ်ပါ၊ ထို့နောက် အောက်တွင်ရှိသော text box ထဲတွင် ၎င်း၏ရှင်းလင်းဖော်ပြချက်ကို ရေးသားပါ။</p>
+<p>Model အကူအညီကို model ၏အစိတ်အပိုင်းတစ်ခုအဖြစ် သိမ်းဆည်းထားပေးမည်ဖြစ်သည်။</p>
+</section>
+</section>
+<section id="model-saving-and-loading-models">
+<h2><a class="toc-backref" href="#id26" role="doc-backlink"><span class="section-number">28.5.3. </span>Model များ သိမ်းဆည်းခြင်းနှင့် ခေါ်ယူထည့်သွင်းခြင်း (Saving and loading models)</a><a class="headerlink" href="#model-saving-and-loading-models" title="Link to this heading"></a></h2>
+<section id="model-saving-models">
+<h3><a class="toc-backref" href="#id27" role="doc-backlink"><span class="section-number">28.5.3.1. </span>Model များကိုသိမ်းဆည်းခြင်း (Saving models)</a><a class="headerlink" href="#model-saving-models" title="Link to this heading"></a></h3>
+<p>ယခုလက်ရှိလုပ်ဆောင်နေသော model ကိုသိမ်းဆည်းရန်အတွက် <a class="reference internal" href="../../../_images/mActionFileSave.png"><img alt="fileSave" src="../../../_images/mActionFileSave.png" style="width: 1.5em;" /></a><sup>Save model</sup> ခလုတ်ကိုနှိပ်ပြီး ရှေ့တွင်သိမ်းဆည်းခဲ့သော model ကိုဖွင့်ရန်အတွက် <a class="reference internal" href="../../../_images/mActionFileOpen.png"><img alt="fileOpen" src="../../../_images/mActionFileOpen.png" style="width: 1.5em;" /></a><sup>Open Model</sup> ခလုတ်ကိုနှိပ်ပါ။ Model များကို <code class="file docutils literal notranslate"><span class="pre">.model3</span></code> extension ဖြင့်သိမ်းဆည်းပါသည်။ Model ကို modeler window မှသိမ်းဆည်းပြီးသွားလျှင် သိမ်းဆည်းမည့် file အမည်ကို ထပ်ထည့်ခိုင်းမည်မဟုတ်ပါ။ Model နှင့်ဆက်စပ်သော file တစ်ခုရှိနေပြီးသားဖြစ်သောကြောင့် နောက်ပိုင်းသိမ်းဆည်းမှုများအတွက် ထို file ကိုအသုံးပြုမည်ဖြစ်ပါသည်။</p>
+<p>Model တစ်ခုကိုမသိမ်းဆည်းမီ window ၏အပေါ်ဘက်ရှိ text box များထဲတွင် ၎င်းအတွက် အမည်တစ်ခု သို့မဟုတ် အုပ်စုတစ်ခု ထည့်ပေးရပါမည်။</p>
+<p><code class="file docutils literal notranslate"><span class="pre">Models</span></code> folder (model ကိုသိမ်းဆည်းရန်အတွက် file အမည်မေးသော မူရင်း folder) ထဲတွင်သိမ်းဆည်းခဲ့သော model များသည် သက်ဆိုင်ရာ အခွဲများထဲရှိ toolbox ထဲတွင်ပေါ်နေပါလိမ့်မည်။ Toolbox ကိုမှီငြမ်းအသုံးပြုသောအခါ <code class="file docutils literal notranslate"><span class="pre">.model3</span></code> extension ဖြင့် file များအတွက် <code class="file docutils literal notranslate"><span class="pre">models</span></code> folder တွင်ရှာဖွေပြီး ၎င်းတို့ပါဝင်သော model များကိုခေါ်ယူထည့်သွင်းပါသည်။ Model တစ်ခုသည် ၎င်းကိုယ်တိုင်ပင် algorithm ဖြစ်သောကြောင့် အခြား algorithm ကဲ့သို့ ၎င်းကို toolbox ထဲသို့ထည့်သွင်းနိုင်ပါသည်။</p>
+<p><a class="reference internal" href="../../../_images/mAddToProject.png"><img alt="addToProject" src="../../../_images/mAddToProject.png" style="width: 1.5em;" /></a><sup>Save model in project</sup> ခလုတ်ကိုအသုံးပြုပြီး model များကို project file ထဲတွင် သိမ်းဆည်းနိုင်ပါသည်။ ဤနည်းလမ်းကိုအသုံးပြုပြီး သိမ်းဆည်းခဲ့သော model များကို ကွန်ပျူတာထဲတွင် <code class="file docutils literal notranslate"><span class="pre">.model3</span></code> file များအဖြစ် ရေးသားသိမ်းဆည်းမည်မဟုတ်ပဲ project file ထဲတွင် ထည့်မြှုပ်ထားပါမည်။</p>
+<p>Project model များကို toolbox ၏ <a class="reference internal" href="../../../_images/mIconQgsProjectFile.png"><img alt="qgsProjectFile" src="../../../_images/mIconQgsProjectFile.png" style="width: 1.5em;" /></a><span class="guilabel">Project models</span> menu နှင့် <span class="menuselection">Project ► Models</span> menu item ထဲတွင်တွေ့ရပါမည်။</p>
+<p>Models folder ကို <span class="guilabel">Modeler</span> အုပ်စုအောက်ရှိ Processing ပြင်ဆင်သတ်မှတ်ခြင်း dialog မှ သတ်မှတ်ပေးနိင်ပါသည်။</p>
+<p><code class="file docutils literal notranslate"><span class="pre">Models</span></code> folder မှခေါ်ယူအသုံးပြုသော model များသည် toolbox မှာတင်မကပဲ modeler window ၏ <span class="guilabel">Algorithms</span> tab ထဲရှိ algorithm ဖွဲ့စည်းပုံထဲတွင်လည်း ပေါ်နေပါသည်။ အခြား algorithm များကဲ့သို့ပင် model တစ်ခုကို ပိုကြီးမားသော model တစ်ခု၏ အစိတ်အပိုင်းတစ်ခုအဖြစ် ပူးပေါင်းလုပ်ဆောင်နိုင်သည်ဟု ဆိုလိုပါသည်။</p>
+<p>Model များသည် <a class="reference internal" href="../managing_data_source/opening_data.html#browser-panel"><span class="std std-ref">Browser</span></a> panel တွင်ပေါ်နေမည်ဖြစ်ပြီး ထိုနေရာမှ စေခိုင်းလုပ်ဆောင်နိုင်ပါသည်။</p>
+</section>
+<section id="model-python-script-exporting-a-model-as-a-python-script">
+<h3><a class="toc-backref" href="#id28" role="doc-backlink"><span class="section-number">28.5.3.2. </span>Model ကို Python script တစ်ခုအဖြစ်ထုတ်ယူခြင်း (Exporting a model as a Python script)</a><a class="headerlink" href="#model-python-script-exporting-a-model-as-a-python-script" title="Link to this heading"></a></h3>
+<p>နောက်အခန်းတွင်တွေ့ရမည့်အတိုင်း Processing algorithm များကို QGIS Python console မှ ခေါ်ယူအသုံးပြုနိုင်ပြီး Python ကိုအသုံးပြုပြီး Processing algorithm အသစ်များကို ဖန်တီးနိုင်ပါသည်။ ထိုကဲ့သို့သော Python script ကို အမြန်ဖန်တီးရန်နည်းလမ်းမှာ model တစ်ခုဖန်တီးပြီး ၎င်းကို Python file အဖြစ်ထုတ်ယူခြင်း ဖြစ်ပါသည်။</p>
+<p>ထို့ကဲ့သို့လုပ်ဆောင်ရန် modeler canvas ထဲရှိ <a class="reference internal" href="../../../_images/mActionSaveAsPython.png"><img alt="saveAsPython" src="../../../_images/mActionSaveAsPython.png" style="width: 1.5em;" /></a><sup>Export as Script Algorithm…</sup> ကိုနှိပ်ပါ သို့မဟုတ် Processing Toolbox ထဲရှိ model ၏အမည်ပေါ်တွင် right click နှိပ်ပြီး <a class="reference internal" href="../../../_images/mActionSaveAsPython.png"><img alt="saveAsPython" src="../../../_images/mActionSaveAsPython.png" style="width: 1.5em;" /></a><sup>Export Model as Python Algorithm…</sup> ကိုရွေးချယ်ပါ။</p>
+</section>
+<section id="model-exporting-a-model-as-an-image">
+<h3><a class="toc-backref" href="#id29" role="doc-backlink"><span class="section-number">28.5.3.3. </span>Model ကို  ပုံတစ်ခုအဖြစ်ထုတ်ယူခြင်း (Exporting a model as an image)</a><a class="headerlink" href="#model-exporting-a-model-as-an-image" title="Link to this heading"></a></h3>
+<p><a class="reference internal" href="../../../_images/mActionSaveMapAsImage.png"><img alt="saveMapAsImage" src="../../../_images/mActionSaveMapAsImage.png" style="width: 1.5em;" /></a><sup>Export as image</sup>၊ <a class="reference internal" href="../../../_images/mActionSaveAsPDF.png"><img alt="saveAsPDF" src="../../../_images/mActionSaveAsPDF.png" style="width: 1.5em;" /></a><sup>Export as PDF</sup> သို့မဟုတ် <a class="reference internal" href="../../../_images/mActionSaveAsSVG.png"><img alt="saveAsSVG" src="../../../_images/mActionSaveAsSVG.png" style="width: 1.5em;" /></a><sup>Export as SVG</sup> ကိုနှိပ်ပြီး model တစ်ခုကို ဓာတ်ပုံ၊ SVG သို့မဟုတ် PDF အဖြစ်လည်းထုတ်ယူနိုင်ပါသည် (သရုပ်ဖော်ရန်အတွက်)</p>
+</section>
+</section>
+<section id="model-editing-a-model">
+<h2><a class="toc-backref" href="#id30" role="doc-backlink"><span class="section-number">28.5.4. </span>Model တစ်ခုကို တည်းဖြတ်ပြင်ဆင်ခြင်း (Editing a model)</a><a class="headerlink" href="#model-editing-a-model" title="Link to this heading"></a></h2>
+<p>Workflow နှင့်၊ algorithm များနှင့် model ကိုသတ်မှတ်ပေးသော input များကြား ချိတ်ဆက်မှုများကို ပြန်လည်သတ်မှတ်ခြင်းဖြင့် လက်ရှိဖန်တီးနေသော model ကိုတည်းဖြတ်ပြင်ဆင်နိုင်ပါသည်။</p>
+<p>Canvas ထဲရှိ algorithm တစ်ခု ပေါ်တွင် right-click နှိပ်လျှင် အောက်တွင်ဖော်ပြထားသလို menu တစ်ခုပေါ်လာပါမည် -</p>
+<figure class="align-center" id="id13">
+<span id="figure-model-right-click"></span><img alt="../../../_images/modeler_right_click.png" src="../../../_images/modeler_right_click.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 28.29 </span><span class="caption-text">Modeler Right Click နှိပ်ခြင်း</span><a class="headerlink" href="#id13" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><span class="guilabel">Remove</span> ကိုအသုံးပြုလျှင် ရွေးချယ်ထားသော algorithm ကိုဖယ်ထုတ်ပေးပါမည်။ Algorithm တစ်ခုကိုဖယ်ထုတ်ချင်လျှင် ၎င်းကိုမှီခိုပြီး လုပ်ဆောင်နေသော အခြား algorithm များမရှိမှသာ ဖယ်ထုတ်နိုင်ပါသည်။ ဆိုလိုသည်မှာ algorithm မှ output ကို တခြားတစ်ခုတွင် input အနေဖြင့် အသုံးမပြုမှသာ ဖယ်ထုတ်နိုင်ပါသည်။ အကယ်၍ အခြား algorithm များကမှီခိုပြီးလုပ်ဆောင်နေသော algorithm တစ်ခုကို ဖယ်ထုတ်မိလျှင် အောက်တွင်ပြထားသကဲ့သို့ သတိပေးစာသားတစ်ခု ပေါ်လာပါမည်-</p>
+<figure class="align-center" id="id14">
+<span id="figure-cannot-delete-alg"></span><img alt="../../../_images/cannot_delete_alg.png" src="../../../_images/cannot_delete_alg.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 28.30 </span><span class="caption-text">Algorithm ကိုမဖျက်နိုင်ခြင်း</span><a class="headerlink" href="#id14" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><span class="guilabel">Edit…</span> ကိုအသုံးပြုလျှင် algorithm ၏ parameter dialog တစ်ခုပေါ်လာပြီး input များနှင့် parameter တန်ဖိုးများကိုပြောင်းလဲနိုင်ပါသည်။ Model ထဲတွင်ရှိသော input element များအားလုံးတော့ အသုံးပြုနိုင်သည့် input များအဖြစ် ပေါ်နေမည် မဟုတ်ပါ။ Model ဖြင့်သတ်မှတ်ပေးထားသော workflow ထဲရှိ ပိုမိုအဆင့်မြင့်သော အဆင့်၌ ဖန်တီးထားသော layer သို့မဟုတ် တန်ဖိုးများသည် အချင်းချင်းပြန်လည်မှီခိုမှုများဖြစ်နေလျှင် အသုံးပြုနိုင်မည်မဟုတ်ပါ။</p>
+<p>တန်ဖိုးအသစ်များကိုရွေးချယ်ပြီး <span class="guilabel">OK</span> ကိုနှိပ်ပါ။ Model element များအကြားချိတ်ဆက်မှုများသည် modeler canvas ထဲတွင် အခြေအနေအရ ပြောင်းလဲသွားပါမည်။</p>
+<p><span class="guilabel">Add comment…</span> ကိုအသုံးပြုလျှင် လုပ်ဆောင်မှုကို ပိုမိုကောင်းမွန်အောင်ရှင်းလင်းဖော်ပြနိုင်ရန်အတွက် algorithm တွင် comment ထည့်ပေါင်းရေးသားနိုင်ပါသည်။</p>
+<p>Model တစ်ခု၏ algorithm အချို့ကို ပိတ်ထား (Deactivate) ပြီး တစ်စိတ်တစ်ပိုင်းပဲ စေခိုင်းအသုံးပြုနိုင်ပါသည်။ ထို့သို့လုပ်ဆောင်ရန်အတွက် Algorithm element ပေါ်တွင် right-click နှိပ်သောအခါ ပေါ်လာသည့် menu တွင် <span class="guilabel">Deactivate</span> ကိုရွေးချယ်ပါ။ ရွေးချယ်ထားသော algorithm နှင့် ၎င်းကိုမှီခိုနေသော model ထဲရှိအခြားအရာများအားလုံး အရောင်မှိန်သွားပြီး model ၏အစိတ်အပိုင်းတစ်ခုအဖြစ် လုပ်ဆောင်ပေးတော့မည် မဟုတ်ပါ။</p>
+<figure class="align-center" id="id15">
+<span id="figure-cannot-model-deactivate"></span><img alt="../../../_images/deactivated.png" src="../../../_images/deactivated.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 28.31 </span><span class="caption-text">ပိတ်ထားသော algorithm များဖြင့် model</span><a class="headerlink" href="#id15" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>ပိတ်ထားသော algorithm တစ်ခုပေါ်တွင် right-click နှိပ်သောအခါ ပြန်လည်အသုံးပြုနိုင်အောင် (reactive) လုပ်ဆောင်ပေးသော <span class="guilabel">Activate</span> menu ကိုတွေ့ရမည်ဖြစ်ပါသည်။</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="history.html" class="btn btn-neutral float-left" title="28.4. ရှေတွင်လုပ်ခဲ့သည့်အဆင့်များကို စီမံခန့်ခွဲရာနေရာ (The history manager)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="batch.html" class="btn btn-neutral float-right" title="28.6. လုပ်ဆောင်ချက်များ အပြိုင်ပြုလုပ်ရန်နေရာ (The batch processing interface)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2002-now, QGIS project.
+      <span class="lastupdated">Last updated on 2024 May 13, 16:23 +0700.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- Transifex follows a particular logic to build target pages:
+Expected French translation link for https://docs.qgis.org/3.28/en/docs/user_manual/print_composer/overview_composer.html
+would return https://app.transifex.com/qgis/qgis-documentation/translate/#fr/aa6d8bc653526d38b295ca94bf8eee5e
+with the md5 value of "github#qgis/QGIS-Documentation#release_3.28#locale/en/LC_MESSAGES/docs/user_manual/print_composer/overview_composer.po"-->
+<!--Make sure that mismatching language codes between Transifex and Sphinx are converted-->
+
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-info-circle"> QGIS Documentation </span>
+      v: 3.28
+      <span class="fa fa-caret-down"></span>
+    </span>
+
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Languages</dt>
+        
+          <dd><a href="https://docs.qgis.org/3.28/en/docs/user_manual/processing/modeler.html">en</a></dd>
+        
+      </dl>
+
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/user_manual/processing/modeler.html">testing</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/latest/en/docs/user_manual/processing/modeler.html">latest</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.28/en/docs/user_manual/processing/modeler.html">3.28</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.22/en/docs/user_manual/processing/modeler.html">3.22</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.16/en/docs/user_manual/processing/modeler.html">3.16</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.10/en/docs/user_manual/processing/modeler.html">3.10</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.4/en/docs/user_manual/processing/modeler.html">3.4</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/2.18/en/docs/user_manual/processing/modeler.html">2.18</a></dd>
+        
+      </dl>
+
+       
+       <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="https://docs.qgis.org/3.28/pdf">PDF</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.28/zip">HTML</a></dd>
+        
+      </dl>
+      
+
+      
+       
+      <dl>
+        <dt>Contribute to Docs</dt>
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/edit/master/docs/user_manual/processing/modeler.rst" target="_blank" rel="noopener noreferrer">Edit on GitHub</a>
+          </dd>
+          
+          
+          <dd>
+            <a href="https://app.transifex.com/qgis/qgis-documentation/translate/#en/8258c13f4739eddd9279d61ebfe3312b" target="_blank" rel="noopener noreferrer">Translate Page</a>
+          </dd>
+          
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/issues" target="_blank" rel="noopener noreferrer">Report Issue</a>
+          </dd>
+      </dl>
+      
+
+      <dl>
+        <dt>On QGIS Project</dt>
+          <dd>
+            <a href="https://qgis.org/en" target="_blank" rel="noopener noreferrer">Home</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/api/3.28" target="_blank" rel="noopener noreferrer">C++ API</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/pyqgis/3.28" target="_blank" rel="noopener noreferrer">PyQGIS API</a>
+          </dd>
+          <dd>
+            <a href="https://github.com/qgis/QGIS/tree/release-3_28" target="_blank" rel="noopener noreferrer">Source</a>
+          </dd>
+      </dl>
+
+    </div>
+  </div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

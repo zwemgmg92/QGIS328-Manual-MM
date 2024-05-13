@@ -1,0 +1,1190 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>15.1. Data ဖွင့်ခြင်း (Opening Data) &mdash; QGIS Documentation  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/qgis_docs.css?v=3fdf4c33" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/qgis_logo.ico"/>
+    <link rel="canonical" href="https://docs.qgis.org/latest/en/docs/user_manual/managing_data_source/opening_data.html"/>
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../../_static/copybutton.js?v=f281be69"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="15.2. Layer များဖန်တီးခြင်း (Creating Layers)" href="create_layers.html" />
+    <link rel="prev" title="15. ဒေတာအရင်းအမြစ်များအား စီမံခန့်ခွဲခြင်း (Managing Data Source)" href="index.html" />
+  <meta name="description" content="QGIS 3.28 documentation: 15.1. Data ဖွင့်ခြင်း (Opening Data)">
+</head>
+
+<body class="wy-body-for-nav">
+
+  <nav class="release_status_topbar">
+  </nav>
+
+   
+
+ 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+   
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            QGIS Documentation
+              <img src="../../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                3.28
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+   <a href= "../../../genindex.html">Index</a>
+ 
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">အသုံးပြုသူများအတွက်</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../preamble/preamble.html">1. စကားချီး (Preamble)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/foreword.html">2. အမှာစာ (Foreword)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/conventions.html">3. အသုံးအနှုန်းများ (Conventions)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/features.html">4. အသွင်အပြင်များ (Features)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/getting_started.html">5. စတင်အသုံးပြုခြင်း (Getting Started)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/project_files.html">6. Project Files များနှင့် အလုပ်လုပ်ခြင်း (Working with Project Files)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/qgis_gui.html">7. QGIS ၏အစိတ်အပိုင်းများ (QGIS GUI)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/browser.html">8. ဒေတာများရှာဖွေကြည့်ရှုနိုင်သည့်နေရာ (The Browser panel)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/qgis_configuration.html">9. QGIS ပြင်ဆင်သတ်မှတ်ခြင်း/အခင်းအကျင်း (QGIS Configuration)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_projections/working_with_projections.html">10. မြေပုံအရိပ်ချစနစ်များ နှင့် အလုပ်လုပ်ခြင်း (Working with Projections)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../map_views/index.html">11. မြေပုံများအား ပုံဖော်ကြည့်ရှုခြင်း (Visualizing Maps)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/general_tools.html">12. အထွေ‌ထွေ‌သုံးကိရိယာများ (General Tools)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../expressions/index.html">13. Expression များဖြင့် အဆင့်မြှင့်တင်ဆောင်ရွက်ခြင်း (Level up with Expressions)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../style_library/index.html">14. The Style Library (Style နှင့်ပတ်သက်သည်များ ထားရှိရာနေရာ)</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">15. ဒေတာအရင်းအမြစ်များအား စီမံခန့်ခွဲခြင်း (Managing Data Source)</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">15.1. Data ဖွင့်ခြင်း (Opening Data)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#the-browser-panel">15.1.1. ဒေတာများရှာဖွေကြည့်ရှုနိုင်သည့်နေရာ (The Browser panel)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#browser-exploring-the-interface">15.1.1.1. Browser ၏အစိတ်အပိုင်းများကိုလေ့လာခြင်း (Exploring the Interface)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#browser-items-interacting-with-the-browser-items">15.1.1.2. Browser items များနှင့်အပြန်အလှန် လုပ်ကိုင်ဆောင်ရွက်ခြင်း (Interacting with the Browser items)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#database-the-db-manager">15.1.2. Database များစီမံခန့်ခွဲရာ (The DB Manager)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#provider-provider-based-loading-tools">15.1.3. Provider နှင့်ဆိုင်သည့်ကိရိယာများ (Provider-based loading tools)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#layer-loading-a-layer-from-a-file">15.1.3.1. ဖိုင်တစ်ခုမှ layer တစ်ခုကို ထည့်သွင်းခြင်း (Loading a layer from a file)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mesh-layer-loading-a-mesh-layer">15.1.3.2. Mesh layer တစ်ခုကို ထည့်သွင်းခြင်း (Loading a mesh layer)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#importing-a-delimited-text-file-delimited-text-file-import">15.1.3.3. Importing a delimited text file (Delimited text file တစ်ခုကို import ပြုလုပ်ခြင်း)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dxf-dwg-file-importing-a-dxf-or-dwg-file">15.1.3.4. DXF သို့မဟုတ် DWG file တစ်ခုကို ထည့်သွင်းခြင်း (Importing a DXF or DWG file)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#openstreetmap-vector-import-importing-openstreetmap-vectors">15.1.3.5. OpenStreetMap Vector များကို import ပြုလုပ်ခြင်း (Importing OpenStreetMap Vectors)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#spatialite-layer-spatialite-layers">15.1.3.6. SpatiaLite layer များ (SpatiaLite Layers)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#global-positioning-system-gps">15.1.3.7. ကမ္ဘာလုံးဆိုင်ရာတည်နေရာပြစနစ် (Global Positioning System - GPS)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#grass-geographic-resources-analysis-support-system-grass-gis">15.1.3.8. GRASS (Geographic Resources Analysis Support System - GRASS GIS)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#database-database-related-tools">15.1.3.9. Database အတွက်ကိရိယာများ (Database related tools)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#layer-metadata-the-layer-metadata-search-panel">15.1.4. Layer Metadata များကို ရှာဖွေသည့်နေရာ (The Layer Metadata Search Panel)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#qgis-formats-qgis-custom-formats">15.1.5. QGIS ၏ စိတ်ကြိုက် formats များ (QGIS Custom formats)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#qlr-qgis-layer-definition-file">15.1.6. QLR - QGIS Layer Definition File</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#web-service-connecting-to-web-services">15.1.7. Web service များသို့ချိတ်ဆက်ခြင်း (Connecting to web services)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#vector-tiles-service-using-vector-tiles-services">15.1.7.1. Vector Tiles service များကိုအသုံးပြုခြင်း (Using Vector Tiles services)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#xyz-tile-service-using-xyz-tile-services">15.1.7.2. XYZ Tile service များကို အသုံးပြုခြင်း (Using XYZ Tile services)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#arcgis-rest-servers-using-arcgis-rest-servers">15.1.7.3. ArcGIS REST Servers များကို အသုံးပြုခြင်း (Using ArcGIS REST Servers)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="create_layers.html">15.2. Layer များဖန်တီးခြင်း (Creating Layers)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="supported_data.html">15.3. Data Format များနှင့် Field များကို လေ့လာခြင်း (Exploring Data Formats and Fields)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_vector/index.html">16. Vector data များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_raster/index.html">17. Raster Data နှင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_mesh/mesh_properties.html">18. Working with Mesh Data (Mesh Data များနှင့် အလုပ်လုပ်ခြင်း)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_vector_tiles/vector_tiles_properties.html">19. Vector Tiles များနှင့်အလုပ်လုပ်ခြင်း (Working with Vector Tiles)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_point_clouds/point_clouds.html">20. Point Cloud များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../print_composer/index.html">21. မြေပုံအချောသပ်ပြင်ဆင်ခြင်း (Laying out the maps)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_ogc/ogc_client_support.html">22. OGC / ISO protocol များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_gps/index.html">23. GPS Data များနှင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../auth_system/auth_overview.html">24. အထောက်အထားစီစစ်ခြင်းအကြောင်းအကျဉ်း (Authentication System Overview)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../auth_system/auth_workflows.html">25. အသုံးပြုသူ အထောက်အထားစစ်ဆေးခြင်း လုပ်ငန်းအဆင့်များ (User Authentication Workflows)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../auth_system/auth_considerations.html">26. လုံခြုံရေးအတွက်စဉ်းစားရန်အချက်များ (Security Considerations)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../grass_integration/grass_integration.html">27. GRASS GIS နှင့်ပေါင်းစပ်အသုံးပြုခြင်း (GRASS GIS Integration)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing/index.html">28. QGIS processing framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing_algs/index.html">29. Processing ဆိုင်ရာ ထောက်ပံ့ပေးသူများနှင့် Algorithm များ (Processing providers and algorithms)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/plugins.html">30. QGIS Plugin များ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/core_plugins/index.html">31. QGIS ပင်မ Plugin များကို အသုံးပြုခြင်း (Using QGIS Core Plugins)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/python_console.html">32. QGIS တွင် Python code များရေးသားရန်နေရာ (QGIS Python console)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/help_and_support.html">33. အကူအညီနှင့်အထောက်အပံ့ (Help and Support)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/contributors.html">34. ပါဝင်အားဖြည့်သူများ (Contributors)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendices/index.html">35. နောက်ဆက်တွဲများ (Appendices)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../literature_web/literature_and_web_references.html">36. စာတမ်းများနှင့် Website ကိုးကားချက်များ (Literature and Web References)</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">QGIS Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">&lt;no title&gt;</a></li>
+          <li class="breadcrumb-item"><a href="index.html"><span class="section-number">15. </span>ဒေတာအရင်းအမြစ်များအား စီမံခန့်ခွဲခြင်း (Managing Data Source)</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">15.1. </span>Data ဖွင့်ခြင်း (Opening Data)</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/qgis/QGIS-Documentation/blob/master/docs/user_manual/managing_data_source/opening_data.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="index.html" class="btn btn-neutral float-left" title="15. ဒေတာအရင်းအမြစ်များအား စီမံခန့်ခွဲခြင်း (Managing Data Source)" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="create_layers.html" class="btn btn-neutral float-right" title="15.2. Layer များဖန်တီးခြင်း (Creating Layers)" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <blockquote>
+<div></div></blockquote>
+<section id="data-opening-data">
+<span id="opening-data"></span><span id="index-2"></span><span id="index-1"></span><span id="index-0"></span><h1><span class="section-number">15.1. </span>Data ဖွင့်ခြင်း (Opening Data)<a class="headerlink" href="#data-opening-data" title="Link to this heading"></a></h1>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#the-browser-panel" id="id20">ဒေတာများရှာဖွေကြည့်ရှုနိုင်သည့်နေရာ (The Browser panel)</a></p>
+<ul>
+<li><p><a class="reference internal" href="#browser-exploring-the-interface" id="id21">Browser ၏အစိတ်အပိုင်းများကိုလေ့လာခြင်း (Exploring the Interface)</a></p></li>
+<li><p><a class="reference internal" href="#browser-items-interacting-with-the-browser-items" id="id22">Browser items များနှင့်အပြန်အလှန် လုပ်ကိုင်ဆောင်ရွက်ခြင်း (Interacting with the Browser items)</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#database-the-db-manager" id="id23">Database များစီမံခန့်ခွဲရာ (The DB Manager)</a></p></li>
+<li><p><a class="reference internal" href="#provider-provider-based-loading-tools" id="id24">Provider နှင့်ဆိုင်သည့်ကိရိယာများ (Provider-based loading tools)</a></p>
+<ul>
+<li><p><a class="reference internal" href="#layer-loading-a-layer-from-a-file" id="id25">ဖိုင်တစ်ခုမှ layer တစ်ခုကို ထည့်သွင်းခြင်း (Loading a layer from a file)</a></p></li>
+<li><p><a class="reference internal" href="#mesh-layer-loading-a-mesh-layer" id="id26">Mesh layer တစ်ခုကို ထည့်သွင်းခြင်း (Loading a mesh layer)</a></p></li>
+<li><p><a class="reference internal" href="#importing-a-delimited-text-file-delimited-text-file-import" id="id27">Importing a delimited text file (Delimited text file တစ်ခုကို import ပြုလုပ်ခြင်း)</a></p>
+<ul>
+<li><p><a class="reference internal" href="#file-format" id="id28">File format (ဖိုင်ပုံစံ)</a></p></li>
+<li><p><a class="reference internal" href="#records-and-fields" id="id29">မှတ်တမ်းများ နှင့် အချက်အလက်များ (Records and fields)</a></p></li>
+<li><p><a class="reference internal" href="#field-field-type-detection" id="id30">Field အမျိုးအစားရှာဖွေဖော်ထုတ်ခြင်း (Field type detection)</a></p></li>
+<li><p><a class="reference internal" href="#geometry-geometry-definition" id="id31">Geometry အဓိပ္ပာယ်ဖွင့်ဆိုချက် (Geometry definition)</a></p></li>
+<li><p><a class="reference internal" href="#layer-layer-settings" id="id32">Layer သတ်မှတ်ချက်များ (Layer settings)</a></p></li>
+<li><p><a class="reference internal" href="#sample-data" id="id33">နမူနာဒေတာ (Sample Data)</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#dxf-dwg-file-importing-a-dxf-or-dwg-file" id="id34">DXF သို့မဟုတ် DWG file တစ်ခုကို ထည့်သွင်းခြင်း (Importing a DXF or DWG file)</a></p></li>
+<li><p><a class="reference internal" href="#openstreetmap-vector-import-importing-openstreetmap-vectors" id="id35">OpenStreetMap Vector များကို import ပြုလုပ်ခြင်း (Importing OpenStreetMap Vectors)</a></p></li>
+<li><p><a class="reference internal" href="#spatialite-layer-spatialite-layers" id="id36">SpatiaLite layer များ (SpatiaLite Layers)</a></p></li>
+<li><p><a class="reference internal" href="#global-positioning-system-gps" id="id37">ကမ္ဘာလုံးဆိုင်ရာတည်နေရာပြစနစ် (Global Positioning System - GPS)</a></p></li>
+<li><p><a class="reference internal" href="#grass-geographic-resources-analysis-support-system-grass-gis" id="id38">GRASS (Geographic Resources Analysis Support System - GRASS GIS)</a></p></li>
+<li><p><a class="reference internal" href="#database-database-related-tools" id="id39">Database အတွက်ကိရိယာများ (Database related tools)</a></p>
+<ul>
+<li><p><a class="reference internal" href="#creating-a-stored-connection" id="id40">သိမ်းထားသည့် ချိတ်ဆက်မှုတစ်ခုကိုဖန်တီးခြင်း (Creating a stored Connection)</a></p></li>
+<li><p><a class="reference internal" href="#particular-connection-requirements" id="id41">သီးခြားချိတ်ဆက်မှုဆိုင်ရာလိုအပ်ချက်များ (Particular Connection requirements)</a></p>
+<ul>
+<li><p><a class="reference internal" href="#postgresql-postgresql-service-connection-file" id="id42">PostgreSQL ဝန်ဆောင်မှု အချိတ်အဆက်ဖိုင် (PostgreSQL Service connection file)</a></p></li>
+<li><p><a class="reference internal" href="#oracle-spatial-connecting-to-oracle-spatial" id="id43">Oracle Spatial သို့ချိတ်ဆက်ခြင်း (Connecting to Oracle Spatial)</a></p></li>
+<li><p><a class="reference internal" href="#ms-sql-server-connecting-to-ms-sql-server" id="id44">MS SQL Server သို့ချိတ်ဆက်ခြင်း (Connecting to MS SQL Server)</a></p></li>
+<li><p><a class="reference internal" href="#sap-hana-connecting-to-sap-hana" id="id45">SAP HANA သို့ချိတ်ဆက်ခြင်း (Connecting to SAP HANA)</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#database-layer-loading-a-database-layer" id="id46">Database Layer တစ်ခုကို ထည့်သွင်းခြင်း (Loading a Database Layer)</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#layer-metadata-the-layer-metadata-search-panel" id="id47">Layer Metadata များကို ရှာဖွေသည့်နေရာ (The Layer Metadata Search Panel)</a></p></li>
+<li><p><a class="reference internal" href="#qgis-formats-qgis-custom-formats" id="id48">QGIS ၏ စိတ်ကြိုက် formats များ (QGIS Custom formats)</a></p></li>
+<li><p><a class="reference internal" href="#qlr-qgis-layer-definition-file" id="id49">QLR - QGIS Layer Definition File</a></p></li>
+<li><p><a class="reference internal" href="#web-service-connecting-to-web-services" id="id50">Web service များသို့ချိတ်ဆက်ခြင်း (Connecting to web services)</a></p>
+<ul>
+<li><p><a class="reference internal" href="#vector-tiles-service-using-vector-tiles-services" id="id51">Vector Tiles service များကိုအသုံးပြုခြင်း (Using Vector Tiles services)</a></p></li>
+<li><p><a class="reference internal" href="#xyz-tile-service-using-xyz-tile-services" id="id52">XYZ Tile service များကို အသုံးပြုခြင်း (Using XYZ Tile services)</a></p></li>
+<li><p><a class="reference internal" href="#arcgis-rest-servers-using-arcgis-rest-servers" id="id53">ArcGIS REST Servers များကို အသုံးပြုခြင်း (Using ArcGIS REST Servers)</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+<p>Open Source Software ecosystem တစ်ခု၏ တစ်စိတ်တစ်ပိုင်းဖြစ်သည့်အားလျော်စွာ QGIS ကို formats အများစုအား ရေးသားရန်နှင့် ဖတ်ရှုရန် စွမ်းဆောင်ရည်များ (capabilities) ကို ပံ့ပိုးပေးသည့် ၎င်း၏ ကိုယ်ပိုင် providers (GIS addressing နှင့် mapping အတွက် data ကို ဖန်တီးရန်နှင့်စီမံခန့်ခွဲသည့် တစ်ဦးတစ်ယောက်၊ အဖွဲ့အစည်း သို့မဟုတ် အေဂျင်စီ) များနှင့်ပေါင်းစပ်၍ မတူညီသော libraries (ကြိုတင်စုစည်းထားသည့်ဖိုင်များ၊ ပြန်လည်အသုံးချနိုင်သည့်ဖိုင်များ၊ ပြုမူဆောင်ရွက်ချက် (function) များ ၊ script များ ၊ routine များနှင့် အခြားသောရင်းမြစ်များ စုစည်းထားသည့်နေရာ) များအပေါ်တွင် တည်ဆောက်ထားပါသည်။</p>
+<ul class="simple">
+<li><p>Vector data formats များတွင် GeoPackage ၊ GML ၊ GeoJSON ၊ GPX ၊ KML ၊ Comma Separated Values ၊ ESRI formats (Shapefile, Geodatabase…)၊ MapInfo နှင့် MicroStation file formats ၊ AutoCAD DWG/DXF ၊ GRASS နှင့်  နောက်ထပ်အခြားသော format များပါဝင်ပါသည်။ <a class="reference external" href="https://gdal.org/drivers/vector/index.html">supported vector formats</a>  စာရင်းအပြည့်အစုံကို ဖတ်ရှုပါ။</p></li>
+<li><p>Raster data formats များတွင် GeoTIFF ၊ JPEG ၊ ASCII Gridded XYZ ၊ MBTiles ၊ R or Idrisi rasters ၊ GDAL Virtual ၊ SRTM ၊ Sentinel Data ၊ ERDAS IMAGINE ၊ ArcInfo Binary Grid ၊ ArcInfo ASCII Grid နှင့် နောက်ထပ်အခြားသော format များပါဝင်ပါသည်။ <a class="reference external" href="https://gdal.org/drivers/vector/index.html">supported vector formats</a> စာရင်းအပြည့်အစုံကို ဖတ်ရှုပါ။</p></li>
+<li><p>Database formats များတွင် PostgreSQL/PostGIS ၊ SQLite/SpatiaLite ၊ Oracle ၊ MS SQL Server ၊ SAP HANA ၊ MySQL… တို့ပါဝင်ပါသည်။</p></li>
+<li><p>Web map နှင့် data services (WM(T)S ၊ WFS ၊ WCS ၊ CSW ၊ XYZ tiles ၊ ArcGIS services ၊ …) များကိုလည်း QGIS providers များမှ ကိုင်တွယ်ဆောင်ရွက်နိုင်ပါသည်။ ဤထဲမှအချို့၏ နောက်ထပ်အချက်အလက်များအတွက် <a class="reference internal" href="../working_with_ogc/ogc_client_support.html#working-with-ogc"><span class="std std-ref">OGC / ISO protocol များဖြင့် အလုပ်လုပ်ခြင်း</span></a> ကို ကြည့်ရှုပါ။</p></li>
+<li><p>Archived folder (မှတ်တမ်းအဖြစ်သိမ်းဆည်းထားသော folder များ) များမှ supported files (ပံ့ပိုးသည့်ဖိုင်များ) ကို ဖတ်ရှုနိုင်ပြီး QML files (<a class="reference internal" href="../appendices/qgis_file_formats.html#qgisstylefile"><span class="std std-ref">QML - QGIS Style File Format</span></a>) နှင့် virtual layers (advanced query တစ်ခု၏ရလဒ်အဖြစ် layer တစ်ခုကို သတ်မှတ်ရန်ခွင့်ပြုသည့် အထူး vector layer အမျိုးအစားတစ်ခု) နှင့် memory layers (memory layer တစ်ခုသည် အခြားသော vector layer ကဲ့သို့ပင်ဖြစ်သော်လည်း ၎င်းသည် disk အပေါ်တွင်မရှိဘဲ QGIS ကိုထွက်လိုက်သည်နှင့် ပျောက်ကွယ်သွားမည်ဖြစ်ပါသည်။) ကဲ့သို့သော QGIS native formats (QGIS ၏ မူလ format များ) များကို အသုံးပြုနိုင်ပါသည်။</p></li>
+</ul>
+<p>Vector format (၈၀) ကျော် နှင့် raster format (၁၄၀) ကျော်ကို <a class="reference external" href="https://gdal.org/">GDAL</a> နှင့် QGIS native providers (QGIS ၏ မူလပံ့ပိုးသူများ) များမှပံ့ပိုးပေးထားပါသည်။</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>စာရင်းပြုစုထားသည့် format များအားလုံးတိုင်း အကြောင်းအမျိုးမျိုးကြောင့် QGIS တွင် အလုပ်လုပ်နိုင်မည်မဟုတ်ပါ။ ဥပမာ - အချို့သည် ပြင်ပ proprietary libraries (stockholding proprietors နှင့် subscribers မှ ပံ့ပိုးပေးလေ့ရှိသော library) များလိုအပ်မည်ဖြစ်ပြီး သို့မဟုတ် အချို့သည် သင်အသုံးပြုလိုသော format ကို ပံ့ပိုးရန် သင့်ကွန်ပျူတာ OS တွင် GDAL/OGR ထည့်သွင်းတည်ဆောက်မှု (installation) မရှိပါက ၎င်းကို ထည့်သွင်းရန် လိုအပ်ပါသည်။ ရရှိနိုင်သည့် formats စာရင်းများကို ကြည့်ရန် command line  <code class="docutils literal notranslate"><span class="pre">ogrinfo</span> <span class="pre">--formats</span></code> (vector အတွက်) နှင့် <code class="docutils literal notranslate"><span class="pre">gdalinfo</span> <span class="pre">--formats</span></code> (raster အတွက်) ကို run (ဆောင်ရွက်) ပါ။ သို့မဟုတ် QGIS ထဲရှိ <span class="menuselection">Settings ► Options ► GDAL</span> menu ကို check ပြုလုပ်ပါ။</p>
+</div>
+<p id="datasourcemanager">QGIS တွင် data format အလိုက် dataset တစ်ခုကိုဖွင့်ရန် အမျိုးမျိုးသော tools များရှိပါသည်။
+၎င်းတို့ကို အဓိကအားဖြင့် <span class="menuselection">Layer ► Add Layer ►</span> menu သို့မဟုတ် <span class="guilabel">Manage Layers</span> toolbar (<span class="menuselection">View ► Toolbars</span> menu ကို ဖွင့်ခြင်းဖြင့်) မှရရှိနိုင်ပါသည်။
+သို့ရာတွင် ဤ tools များအားလုံးသည် unique dialog (သိသာထင်ရှားသည့်သီးခြားဒိုင်ယာလော့ခ်) <span class="guilabel">Data Source Manager</span> dialog တစ်ခုကိုညွှန်ပြပါသည်။ ၎င်းကို <span class="guilabel">Data Source Manager Toolbar</span> တွင် ရရှိနိုင်သည့်  <a class="reference internal" href="../../../_images/mActionDataSourceManager.png"><img alt="dataSourceManager" src="../../../_images/mActionDataSourceManager.png" style="width: 1.5em;" /></a><sup>Open Data Source Manager</sup> button ဖြင့် သို့မဟုတ် <kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">Ctrl</kbd>+<kbd class="kbd docutils literal notranslate">L</kbd></kbd> ကို နှိပ်ခြင်းဖြင့် ဖွင့်နိုင်ပါသည်။ <span class="guilabel">Data Source Manager</span> dialog (<a class="reference internal" href="#figure-datasource-manager"><span class="std std-numref">Fig. 15.1</span></a>) သည် QGIS မှ ပံ့ပိုးပေးထားသည့် web services သို့မဟုတ် database များအပြင် file-based data များကိုဖွင့်ရန် unified interface (မည်သည့် စခရင်အရွယ်အစား၊ စက်ပစ္စည်း သို့မဟုတ် orientation များအတွက် အကောင်းဆုံးသော  ကြည့်ရှုမှုနှင့်ပေါင်းစည်းဆောင်ရွက်မှုကိုပံ့ပိုးရန်အတွက် တုံ့ပြန်မှုရှိသည့် web design principles ကို အသုံးပြုသည့် interface။) တစ်ခုကို ပံ့ပိုးပေးပါသည်။</p>
+<figure class="align-center" id="id3">
+<span id="figure-datasource-manager"></span><img alt="../../../_images/datasource_manager.png" src="../../../_images/datasource_manager.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 15.1 </span><span class="caption-text">QGIS Data Source စီမံခန့်ခွဲမှုဆိုင်ရာ Dialog</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>ဤ အဓိက entry point အပြင် ချိတ်ဆက်ထားသည့် (connected) databases များကို ဆန်းစစ်လေ့လာရန် (analyze) နှင့်ကိုင်တွယ်ဆောင်ရွက်ရန် (manipulate) အထူးစွမ်းဆောင်ရည်များ (advanced capabilities) ကိုပံ့ပိုးပေးသည့် <span class="guilabel">DB Manager</span> plugin လည်းပါရှိပါသည်။
+DB Manager ၏ စွမ်းဆောင်ရည်များနှင့်ဆက်စပ်သည့် နောက်ထပ်အချက်အလက်များကို <a class="reference internal" href="../plugins/core_plugins/plugins_db_manager.html#dbmanager"><span class="std std-ref">Database စီမံခန့်ခွဲရာ Plugin (DB Manager Plugin)</span></a> တွေ့နိုင်ပါသည်။</p>
+<p>အမျိုးမျိုးသော data formats များကို ဖွင့်ရန်ကူညီနိုင်သည့် အခြားသော tools များ၊ native (မူရင်း) သို့မဟုတ် third-party (သီးခြား) plugins များရှိပါသည်။</p>
+<p>ဤအခန်းသည် data များကိုထည့်သွင်းရန်အတွက် QGIS မှ ပုံမှန်(default) ပံ့ပိုးထားသည့် tools များကိုသာ ဖော်ပြသွားမည်ဖြစ်ပါသည်။ ၎င်းသည် tab တစ်ခုချင်းစီကို ဖော်ပြခြင်းထက် <span class="guilabel">Data Source Manager</span> dialog အပေါ်တွင် အဓိကအလေးပေးသွားမည်ဖြစ်ပါသည်။ ၎င်းသည် data provider သို့မဟုတ် format specificities (format သတ်မှတ်ချက်များ) အပေါ်တွင် အခြေခံသည့် tool များကို ဖော်ထုတ်လေ့လာသွားမည်ဖြစ်ပါသည်။</p>
+<section id="the-browser-panel">
+<span id="browser-panel"></span><span id="index-3"></span><h2><a class="toc-backref" href="#id20" role="doc-backlink"><span class="section-number">15.1.1. </span>ဒေတာများရှာဖွေကြည့်ရှုနိုင်သည့်နေရာ (The Browser panel)</a><a class="headerlink" href="#the-browser-panel" title="Link to this heading"></a></h2>
+<p><span class="guilabel">Browser</span> သည် projects များထဲသို့ data များကို လွယ်ကူလျှင်မြန်စွာထည့်သွင်းနိုင်သည့် အဓိကနည်းလမ်းများထဲမှ တစ်ခုဖြစ်ပါသည်။ ၎င်းကို ဖော်ပြအတိုင်းရရှိနိုင်ပါသည်-</p>
+<ul class="simple">
+<li><p><span class="guilabel">Data Source Manager</span> tab တစ်ခု အဖြစ်၊ <a class="reference internal" href="../../../_images/mActionDataSourceManager.png"><img alt="dataSourceManager" src="../../../_images/mActionDataSourceManager.png" style="width: 1.5em;" /></a> <sup>Open Data Source Manager</sup> button (<kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">Ctrl</kbd>+<kbd class="kbd docutils literal notranslate">L</kbd></kbd>) ကို နှိပ်ခြင်းဖြင့် ဆောင်ရွက်နိုင်ပါသည်။</p></li>
+<li><p><span class="menuselection">View ► Panels</span> menu (သို့မဟုတ် <a class="reference internal" href="../../../_images/kde.png"><img alt="kde" src="../../../_images/kde.png" style="width: 1.5em;" /></a> <span class="menuselection">Settings ► Panels</span>)  မှ သို့မဟုတ် <kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">Ctrl</kbd>+<kbd class="kbd docutils literal notranslate">2</kbd></kbd> ကို နှိပ်ခြင်းဖြင့် ဖွင့်နိုင်သည့် QGIS panel တစ်ခုအဖြစ်။</p></li>
+</ul>
+<p>ကိစ္စရပ်နှစ်ခုလုံးတွင် <span class="guilabel">Browser</span> သည် layer ၏ အမျိုးအစား (raster ၊ vector ၊ table(ဇယား)) သို့မဟုတ် datasource format (plain သို့မဟုတ် compressed files ၊ databases ၊ web services) နှင့်မသက်ဆိုင်ဘဲ ဖိုင်စနစ်ထဲတွင် navigate  (တည်နေရာနှင့်တစ်နေရာမှတစ်နေရာသို့ သွားလာသည့်လမ်းကြောင်းများကို ထိန်းချုပ်ကိုင်တွယ်ခြင်း) ပြုလုပ်ခြင်းနှင့် geodata (GIS ဖြင့်အသုံးပြုနိုင်သည့် format တစ်ခုထဲတွင် သိမ်းဆည်းထားသော ပထဝီဝင်ဆိုင်ရာတည်နေရာများနှင့်စပ်လျဉ်းသည့် အချက်အလက်) အား စီမံခန့်ခွဲခြင်းကို ကူညီပါသည်။</p>
+<section id="browser-exploring-the-interface">
+<h3><a class="toc-backref" href="#id21" role="doc-backlink"><span class="section-number">15.1.1.1. </span>Browser ၏အစိတ်အပိုင်းများကိုလေ့လာခြင်း (Exploring the Interface)</a><a class="headerlink" href="#browser-exploring-the-interface" title="Link to this heading"></a></h3>
+<p>Browser panel ၏ ထိပ်ဘက်တွင် ဖော်ပြပါတို့ကို ဆောင်ရွက်ရန် ကူညီနိုင်သည့် buttons (ခလုတ်များ) အချို့ကို တွေ့နိုင်ပါသည်-</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../../../_images/mActionAddLayer.png"><img alt="addLayer" src="../../../_images/mActionAddLayer.png" style="width: 1.5em;" /></a> <sup>Add Selected Layers</sup> - Layer ၏ context menu (အသုံးပြုသူများမှ ဆောင်ရွက်လိုသည့် လုပ်ဆောင်ချက်များအတွက် shortcuts များပံ့ပိုးပေးထားသည့် pop-up menu တစ်ခု) မှ  <strong>Add selected layer(s)</strong> ကို ရွေးချယ်ခြင်းဖြင့် data ကို map canvas (မြေပုံရေးဆွဲမည့်နေရာ) ထဲသို့ ထည့်သွင်းနိုင်ပါသည်။</p></li>
+<li><p><a class="reference internal" href="../../../_images/mActionRefresh.png"><img alt="refresh" src="../../../_images/mActionRefresh.png" style="width: 1.5em;" /></a> <sup>Refresh</sup> - browser tree ကို refresh ပြုလုပ်ပါသည်။</p></li>
+<li><p>သီးသန့် data (specific data) များကို ရှာဖွေရန် <a class="reference internal" href="../../../_images/mActionFilterMap.png"><img alt="filterMap" src="../../../_images/mActionFilterMap.png" style="width: 1.5em;" /></a> <sup>Filter Browser</sup>။ ရှာဖွေမည့်စကားလုံး သို့မဟုတ် wildcards (<code class="docutils literal notranslate"><span class="pre">?</span></code> နှင့်/သို့မဟုတ် <code class="docutils literal notranslate"><span class="pre">*</span></code> ကာရိုက်တာများ (characters)) များကို ထည့်သွင်းပါ။ Browser သည်  အခြား data သို့မဟုတ် folders များကို ပြသသွားမည်မဟုတ်ဘဲ DB tables များ ၊ ဖိုင်အမည်များ သို့မဟုတ် folders များ နှင့်ကိုက်ညီမှုရှိသည့် လမ်းကြောင်းများ (paths) ကိုသာပြသရန် tree ကို စစ်ထုတ်သွားမည်ဖြစ်ပါသည်။ <a class="reference internal" href="#figure-browser-panels"><span class="std std-numref">Fig. 15.2</span></a> ထဲရှိ Browser Panel(2) နမူနာကို ကြည့်ရှုပါ။ နှိုင်းယှဉ်မှု (comparison) သည် case-sensitive (စာလုံးအကြီးအသေးအတိုင်း အတိအကျဖြစ်မှု)  ဖြစ်ကောင်းဖြစ်နိုင်သည် သို့မဟုတ် မဖြစ်နိုင်ပါ။ ၎င်းကိုဖော်ပြပါအတိုင်း သတ်မှတ်နိုင်ပါသည်-
+* <span class="guilabel">Normal</span> - ရှာဖွေသည့်စာသား (search text) ပါဝင်သည့် items များကိုပြသသည်။
+* <span class="guilabel">Wildcard(s)</span> - ရှာဖွေသည့်စာသား၏ တည်နေရာကို သတ်မှတ်ရန် <code class="docutils literal notranslate"><span class="pre">?</span></code> နှင့်/သို့မဟုတ် <code class="docutils literal notranslate"><span class="pre">*</span></code> ကာရိုက်တာများ (characters)ကို အသုံးပြု၍ ရှာဖွေမှုကိုချောမွေ့စေသည်။
+* <span class="guilabel">Regular expression</span></p></li>
+<li><p><a class="reference internal" href="../../../_images/mActionCollapseTree.png"><img alt="collapseTree" src="../../../_images/mActionCollapseTree.png" style="width: 1.5em;" /></a> <sup>Collapse All</sup> - Tree တစ်ခုလုံးကို Collapse (စုစည်း) ပြုလုပ်ခြင်း</p></li>
+<li><p><a class="reference internal" href="../../../_images/metadata.png"><img alt="metadata" src="../../../_images/metadata.png" style="width: 1.5em;" /></a> <sup>Enable/disable properties widget</sup> - ဖွင့်ထားသည့်အခါတွင် select ပြုလုပ်ထားသည့် item အတွက် metadata (အခြားသော data ၏ အချက်အလက်များကို ဖော်ပြသည့် data အစုအဝေး) များ ရှိနေပါက ၎င်းတို့ကို ဖော်ပြထားသော widget အသစ်တစ်ခုကို panel ၏ အောက်ခြေတွင် ထည့်သွင်းသွားမည်ဖြစ်ပါသည်။</p></li>
+</ul>
+<p><span class="guilabel">Browser</span> panel ထဲရှိ entries များကို အဆင့်အတန်းအလိုက် (hierarchically) ဖွဲ့စည်းထားပြီး top level (ထိပ်ပိုင်းအဆင့်) entries များစွာရှိပါသည်-</p>
+<ol class="arabic simple">
+<li><p><span class="guilabel">Favorites</span> - မကြာခဏအသုံးပြုသည့် locations (တည်နေရာများ) အတွက် shortcuts များကို ဤနေရာမှတဆင့် ထည့်သွင်းနိုင်ပါသည်။</p></li>
+<li><p><span class="guilabel">Spatial Bookmarks</span> - မကြာခဏ အသုံးပြုသည့် map extents (မြေပုံအတိုင်းအတာနယ်ပယ်) များကို သိမ်းဆည်းနိုင်သည့်နေရာဖြစ်ပါသည်။ (<a class="reference internal" href="../map_views/map_view.html#sec-bookmarks"><span class="std std-ref">မြေပုံ နယ်ပယ်အတိုင်းအတာပမာဏများကို bookmark ပြုလုပ်ခြင်း (Bookmarking extents on the map)</span></a> တွင် ကြည့်ပါ)</p></li>
+<li><p><span class="guilabel">Project Home</span> - Project နှင့်သက်ဆိုင်သည့် data (အများစု) ကိုသိမ်းဆည်းထားသည့် folder တစ်ခုကို လျင်မြန်စွာ access (ရယူသုံးစွဲ) ရရှိရန်အတွက်ဖြစ်ပါသည်။ ပုံမှန်တန်ဖိုး (default value) သည် project file တည်ရှိသည့် directory (လမ်းညွှန်) ဖြစ်ပါသည်။</p></li>
+<li><p>ဖိုင်စနစ်ထဲရှိ <span class="guilabel">Home</span> directory နှင့် filesystem root directory (hierarchy တစ်ခုထဲရှိ first or top-most directory)</p></li>
+<li><p>ချိတ်ဆက်ထားသည့် Local သို့မဟုတ် network drives များ။</p></li>
+<li><p>ထို့နောက် ပလက်ဖောင်း (platform) နှင့် underlying libraries (ရင်းခံ libraries) များအပေါ်မူတည်၍ number of container (နိုင်ငံတကာတွင် ကွန်တိန်နာများကို ခွဲခြားသတ်မှတ်ရန်အတွက် အသုံးပြုသည့် ဂဏန်းခုနစ်လုံးနှင့် စာလုံးလေးလုံးတို့၏ သီးသန့် အယ်လ်ဖာဂဏန်းများ ပေါင်းစပ်မှု)/ database အမျိုးအစားများ နှင့် service protocols (ဝန်ဆောင်မှုဆိုင်ရာကျင့်ဝတ်) များ ပါရှိပါသည်-</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../../../_images/mGeoPackage.png"><img alt="geoPackage" src="../../../_images/mGeoPackage.png" style="width: 1.5em;" /></a> <span class="guilabel">GeoPackage</span></p></li>
+<li><p><a class="reference internal" href="../../../_images/mIconSpatialite.png"><img alt="spatialite" src="../../../_images/mIconSpatialite.png" style="width: 1.5em;" /></a> <span class="guilabel">SpatiaLite</span></p></li>
+<li><p><a class="reference internal" href="../../../_images/mIconPostgis.png"><img alt="postgis" src="../../../_images/mIconPostgis.png" style="width: 1.5em;" /></a> <span class="guilabel">PostgreSQL</span></p></li>
+<li><p><a class="reference internal" href="../../../_images/mIconHana.png"><img alt="hana" src="../../../_images/mIconHana.png" style="width: 1.5em;" /></a> <span class="guilabel">SAP HANA</span></p></li>
+<li><p><a class="reference internal" href="../../../_images/mIconMssql.png"><img alt="mssql" src="../../../_images/mIconMssql.png" style="width: 1.5em;" /></a> <span class="guilabel">MS SQL Server</span></p></li>
+<li><p><a class="reference internal" href="../../../_images/mIconOracle.png"><img alt="oracle" src="../../../_images/mIconOracle.png" style="width: 1.5em;" /></a> <span class="guilabel">Oracle</span></p></li>
+<li><p><a class="reference internal" href="../../../_images/mIconWms.png"><img alt="wms" src="../../../_images/mIconWms.png" style="width: 1.5em;" /></a> <span class="guilabel">WMS/WMTS</span></p></li>
+<li><p><a class="reference internal" href="../../../_images/mIconVectorTileLayer.png"><img alt="vectorTileLayer" src="../../../_images/mIconVectorTileLayer.png" style="width: 1.5em;" /></a> <span class="guilabel">Vector Tiles</span></p></li>
+<li><p><a class="reference internal" href="../../../_images/mIconXyz.png"><img alt="xyz" src="../../../_images/mIconXyz.png" style="width: 1.5em;" /></a> <span class="guilabel">XYZ Tiles</span></p></li>
+<li><p><a class="reference internal" href="../../../_images/mIconWcs.png"><img alt="wcs" src="../../../_images/mIconWcs.png" style="width: 1.5em;" /></a> <span class="guilabel">WCS</span></p></li>
+<li><p><a class="reference internal" href="../../../_images/mIconWfs.png"><img alt="wfs" src="../../../_images/mIconWfs.png" style="width: 1.5em;" /></a> <span class="guilabel">WFS/OGC API-Features</span></p></li>
+<li><p><a class="reference internal" href="../../../_images/mIconAfs.png"><img alt="afs" src="../../../_images/mIconAfs.png" style="width: 1.5em;" /></a> <span class="guilabel">ArcGIS REST Server</span></p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="browser-items-interacting-with-the-browser-items">
+<h3><a class="toc-backref" href="#id22" role="doc-backlink"><span class="section-number">15.1.1.2. </span>Browser items များနှင့်အပြန်အလှန် လုပ်ကိုင်ဆောင်ရွက်ခြင်း (Interacting with the Browser items)</a><a class="headerlink" href="#browser-items-interacting-with-the-browser-items" title="Link to this heading"></a></h3>
+<p>Browser သည် browser မှ canvas အတွင်း နှင့် <span class="guilabel">Layers</span> panel အတွင်းသို့ ၊ <span class="guilabel">Layers</span> panel မှ browser ထဲရှိ layer containers (ဥပမာ- GeoPackage) များသို့နှင့် browser အတွင်းသို့ drag and drop (ဖိဆွဲ၍နေရာချခြင်း) ကို ပံ့ပိုးပေးပါသည်။</p>
+<p>Browser ထဲရှိ Project file items များကို အဆိုပါ project အတွင်းတွင် ပါရှိသည့် layer tree (groups များအပါအဝင်) ကို အပြည့်ပြသခြင်းနှင့်အတူ ချဲ့ထွင် (expand) နိုင်ပါသည်။ ၎င်းတို့ကို browser ထဲတွင် drag and drop (ဖိဆွဲ၍နေရာချခြင်း) (ဥပမာ- layer item တစ်ခုကို geopackage file တစ်ခုသို့ ကော်ပီကူးယူရန်) ပြုလုပ်နိုင်ရန် သို့မဟုတ် ၎င်းတို့ကို လက်ရှိ project ထဲသို့ drag and drop (ဖိဆွဲ၍နေရာချခြင်း) သို့မဟုတ် double click မှတဆင့် ထည့်သွင်းရန် project items များကို browser ထဲရှိ အခြားသော items များကဲ့သို့ပင် တူညီစွာလုပ်ဆောင်ပေးပါသည်။</p>
+<p><span class="guilabel">Browser</span> panel ထဲရှိ element (တစ်စုံတစ်ခု၏ အရေးပါသည့်အစိတ်အပိုင်း သို့မဟုတ် ဝိသေသလက္ခဏာ)
+တစ်ခု၏ context menu ကို ၎င်းအပေါ်တွင် right-clicking ပြုလုပ်ခြင်းဖြင့် ဖွင့်နိုင်ပါသည်။</p>
+<p>File system directory entries များအတွက် context menu သည် အောက်ပါတို့ကို ပံ့ပိုးပေးပါသည်-</p>
+<ul class="simple">
+<li><p><span class="menuselection">New ►</span> Select ပြုလုပ်ထားသည့် entry ထဲတွင် အောက်ပါတို့ကို ဖန်တီးရန်-
+* <span class="guilabel">Directory…</span>
+* <span class="guilabel">GeoPackage…</span>
+* <span class="guilabel">ShapeFile…</span></p></li>
+<li><p><span class="guilabel">Add as a Favorite`(Favourite တစ်ခုအဖြစ်ပေါင်းထည့်ခြင်း) - စိတ်ကြိုက် folders (favorite folders) များကို (:guilabel:`Rename favorite…</span>) အမည်ပြန်လည်ပြင်ဆင်နိုင်ပါသည်။ သို့မဟုတ် မည့်သည့်အချိန်တွင်မဆို (<span class="guilabel">Remove favorite</span>) ဖယ်ရှားနိုင်ပါသည်။</p></li>
+<li><p><span class="guilabel">Hide from Browser</span> (Browser မှ ဖျောက်ထားခြင်း) - ဖျောက်ထားသည့် folders များကို မြင်တွေ့နိုင်အောင် <span class="menuselection">Settings ► Options ► Data Sources ► Hidden browser paths</span> setting တွင် အဖွင့်အပိတ်ပြုလုပ်နိုင်ပါသည်။</p></li>
+<li><p><span class="guilabel">Fast Scan this Directory</span> (Directory ကို အမြန် scan လုပ်ခြင်း)</p></li>
+<li><p><span class="guilabel">Open Directory</span> (Directory ကို ဖွင့်ခြင်း)</p></li>
+<li><p><span class="guilabel">Open in Terminal</span> (Terminal အတွင်း ဖွင့်ခြင်း)</p></li>
+<li><p><span class="guilabel">Properties…</span> (ဂုဏ်သတ္တိများ)</p></li>
+<li><p><span class="guilabel">Directory Properties…</span> (Directory ဆိုင်ရာ ဂုဏ်သတ္တိများ)</p></li>
+</ul>
+<p>Project ထဲတွင် layer များအဖြစ် ဆောင်ရွက်နိုင်သည့် leaf entries များအတွက် context menu တွင် supporting entries (ပံ့ပိုးပေးထားသည့် entries) များပါရှိမည်ဖြစ်ပါသည်။
+ဥပမာ - non-database ၊ non-service-based vector ၊ raster နှင့် mesh data sources များအတွက်-
+* <span class="menuselection">Export Layer ► To File…</span> (Layer ကို file အဖြစ်သို့ export လုပ်ခြင်း)
+* <span class="guilabel">Add Layer to Project</span> (Project အတွင်းသို့ layer ထည့်သွင်းခြင်း)
+* <span class="guilabel">Layer Properties</span> (Layer ၏ ဂုဏ်သတ္တိများ)
+* <span class="menuselection">Manage ► Rename “&lt;name of file&gt;”…</span> သို့မဟုတ် <span class="guilabel">Delete “&lt;name of file&gt;”…</span> (File နာမည်များ အမည်ပြောင်းခြင်း သို့မဟုတ် ဖျက်ပစ်ခြင်း)
+* <span class="guilabel">Show in Files</span> (Files တွင် ပြသခြင်း)
+* <span class="guilabel">File Properties</span> (Files ၏ ဂုဏ်သတ္တိများ)</p>
+<p><span class="guilabel">Layer properties</span> entry ထဲတွင် အောက်ပါတို့ကို ရှာဖွေတွေ့ရှိနိုင်ပါသည် (Project ထဲသို့ layer များကို ထည့်သွင်းသည်နှင့်တစ်ပြိုင်နက် <a class="reference internal" href="../working_with_vector/vector_properties.html#vector-properties-dialog"><span class="std std-ref">vector</span></a> နှင့် <a class="reference internal" href="../working_with_raster/raster_properties.html#raster-properties-dialog"><span class="std std-ref">raster</span></a> layer properties များထဲတွင် တွေ့မြင်ရသည့်အရာများနှင့်ဆင်တူသည့်) -</p>
+<ul class="simple">
+<li><p>Layer အတွက် <span class="guilabel">Metadata</span>။ Metadata အုပ်စုများ - <span class="guilabel">Information from provider</span> (အကယ်၍ ဖြစ်နိုင်ပါက <span class="guilabel">Path</span> သည် အဆိုပါ ရင်းမြစ် (source) အတွက် hyperlink တစ်ခုဖြစ်မည်ဖြစ်ပါသည်)၊ <span class="guilabel">Identification</span> ၊ <span class="guilabel">Extent</span> ၊ <span class="guilabel">Access</span> ၊ <span class="guilabel">Fields</span> (vector layer များအတွက်) ၊ <span class="guilabel">Bands</span> (raster layer များအတွက်) ၊ <span class="guilabel">Contacts</span> ၊ <span class="guilabel">Links</span> (vector layer များအတွက်) ၊ <span class="guilabel">References</span> (raster layer များအတွက်) ၊ <span class="guilabel">History</span> ။</p></li>
+<li><p><span class="guilabel">Preview</span> panel တစ်ခု</p></li>
+<li><p>Vector sources (<span class="guilabel">Attributes</span> panel ထဲတွင် ) များအတွက် attribute table</p></li>
+</ul>
+<p><span class="guilabel">Browser</span> ကို အသုံးပြု၍ project ထဲသို့ layer တစ်ခုကို ထည့်သွင်းရန် -</p>
+<ol class="arabic">
+<li><p>အထက်တွင်ဖော်ပြထားသည့်အတိုင်း <span class="guilabel">Browser</span> ကို ဖွင့်ပါ။
+File system ၊ databases နှင့် web services များနှင့်အတူ browser tree တစ်ခုကို ပြသမည်ဖြစ်ပါသည်။ ၎င်းတို့မပေါ်လာခင်တွင် databases များနှင့်  web services များကို ချိတ်ဆက်ထားရန်လိုအပ်မည်ဖြစ်ပါသည်။ (သီးသန့်ကဏ္ဍများတွင်ကြည့်ပါ)</p></li>
+<li><p>စာရင်းထဲတွင် layer ကို ရှာဖွေပါ။</p></li>
+<li><p>Context menu ကိုအသုံးပြုပါ။ ၎င်း၏အမည်ကို double-click နှိပ်ပါ။ သို့မဟုတ် <a class="reference internal" href="../map_views/map_view.html#label-mapview"><span class="std std-ref">map canvas</span></a> ထဲသို့ drag-and-drop ပြုလုပ်ပါ။ Layer ကို လက်ရှိတွင် <a class="reference internal" href="../introduction/general_tools.html#label-legend"><span class="std std-ref">Layers panel</span></a> ထဲသို့ ထည့်သွင်းသွားမည်ဖြစ်ပြီး map canvas (မြေပုံရေးဆွဲသည့်နေရာ) အပေါ်တွင်ကြည့်ရှုနိုင်ပါသည်။</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><strong>QGIS project တစ်ခုကို browser မှ တိုက်ရိုက်ဖွင့်ပါ</strong></p>
+<p>QGIS project တစ်ခုကို ၎င်း၏အမည်အပေါ်တွင် double-clicking နှိပ်ခြင်း သို့မဟုတ် map canvas ထဲသို့ drag-and-drop ပြုလုပ်ခြင်းဖြင့် browser မှ တိုက်ရိုက်ဖွင့်နိုင်ပါသည်။</p>
+</div>
+</li>
+</ol>
+<p>File တစ်ခုကို ထည့်သွင်းလိုက်သည်နှင့်တစ်ပြိုင်နက် map navigation tools (မြေပုံ၏တည်နေရာနှင့် လမ်းကြောင်းများကို ထိန်းချုပ်သည့် ကိရိယာများ) များကို အသုံးပြု၍ ၎င်းနှင့်အနီးတဝိုက်ကို zoom (ချုံ့ခြင်း/ချဲ့ခြင်း) ပြုလုပ်နိုင်ပါသည်။ Layer တစ်ခု၏ style ကို ပြောင်းလဲပြင်ဆင်မှုများပြုလုပ်ရန် context menu မှ <span class="menuselection">Properties</span> ကို ရွေးချယ်ပြီး layer ၏ အမည်အပေါ်တွင်  double-clicking နှိပ်ခြင်း  သို့မဟုတ် legend (ရည်ညွှန်းချက်) ထဲရှိ အမည်ကို right-clicking ပြုလုပ်ခြင်းဖြင့် <span class="guilabel">Layer Properties</span> dialog ကို ဖွင့်ပါ။ Vector layer များအတွက် သင်္ကေတများသတ်မှတ်ခြင်းနှင့်သက်ဆိုင်သည့် နောက်ထပ်အချက်အလက်များအတွက် <a class="reference internal" href="../working_with_vector/vector_properties.html#vector-style-menu"><span class="std std-ref">သင်္ကေတ ဂုဏ်သတ္တိများ (Symbology Properties)</span></a> section ကို ကြည့်ပါ။</p>
+<p>Browser ထဲရှိ item တစ်ခုကို right-clicking ပြုလုပ်ခြင်းသည် အောက်ပါတို့ကို ကူညီမည်ဖြစ်ပါသည်-</p>
+<ul class="simple">
+<li><p>ဖိုင်တစ်ခု သို့မဟုတ် table (ဇယား) တစ်ခုအတွက်။ ၎င်း၏ metadata ကို ပြသပေးခြင်း သို့မဟုတ် ၎င်းကို project ထဲတွင်ဖွင့်ခြင်း လုပ်ဆောင်နိုင်ပါသည်။ Table များကို အမည်ပြန်လည်ပြင်ဆင်ခြင်း၊ ဖျက်ခြင်း သို့မဟုတ် ဖြတ်တောက်ခြင်း (truncated) ပြုလုပ်နိုင်သည်။</p></li>
+<li><p>Folder တစ်ခုအတွက် ၎င်းကို စိတ်ကြိုက်များ (favourites) ထဲတွင် bookmark (အမှတ်အသား) ပြုလုပ်ခြင်း သို့မဟုတ် browser tree ထဲမှ ၎င်းကိုဖျောက်ထားခြင်း လုပ်ဆောင်နိုင်ပါသည်။ မမြင်အောင်ဖျောက်ထားသည့် folders များကို <span class="menuselection">Settings ► Options ► Data Sources</span> tab  မှ စီမံခန့်ခွဲနိုင်ပါသည်။</p></li>
+<li><p><a class="reference internal" href="../map_views/map_view.html#sec-bookmarks"><span class="std std-ref">spatial bookmarks</span></a> ကိုစီမံခန့်ခွဲခြင်း - bookmarks များကို <code class="docutils literal notranslate"><span class="pre">XML</span></code> files များအဖြစ်သို့ ဖန်တီးပေးခြင်း၊ export နှင့် import ပြုလုပ်ခြင်းများ လုပ်ဆောင်ပေးနိုင်ပါသည်။</p></li>
+<li><p>Database တစ်ခု သို့မဟုတ် web service တစ်ခုသို့ ချိတ်ဆက်ရန် ချိတ်ဆက်မှု (connection) တစ်ခုဖန်တီးပေးပါသည်။</p></li>
+<li><p>Schema (အစီအစဉ်တစ်ခု သို့မဟုတ် သီအိုရီတစ်ခုကို မော်ဒယ်တစ်ခုသို့မဟုတ် outline တစ်ခုအဖြစ်ကိုယ်စားပြုဖော်ပြချက်) တစ်ခုကို ပြန်လည်ဆန်းသစ်ခြင်း (refresh) ပြုလုပ်ခြင်း၊ အမည်ပြန်လည်ပေးခြင်း သို့မဟုတ် ဖျက်ပစ်ခြင်းများ လုပ်ဆောင်ပေးနိုင်ပါသည်။</p></li>
+</ul>
+<p>File များကို databases ထဲသို့ import ပြုလုပ်ခြင်း သို့မဟုတ် schema/database တစ်ခုမှ အခြားတစ်ခုသို့ ရိုးရှင်းသည့် drag-and-drop ပြုလုပ်ခြင်းဖြင့် ဇယားများကို ကူးယူခြင်းများဆောင်ရွက်နိုင်သည်။ ဖိ၍ဆွဲနေစဉ် (dragging) အတွင်း  ကြာရှည်သည့် scrolling ပြုလုပ်ခြင်းကို ရှောင်ရှားရန် ဒုတိယ browser panel တစ်ခုရှိပါသည်။ File ကို select ပြုလုပ်ပြီး panel တစ်ခုမှ အခြားတစ်ခုသို့ drag-and-drop ပြုလုပ်ရုံသာဖြစ်ပါသည်။</p>
+<figure class="align-center" id="id4">
+<span id="figure-browser-panels"></span><img alt="../../../_images/browser_panels.png" src="../../../_images/browser_panels.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 15.2 </span><span class="caption-text">ဘေးချင်းကပ်လျက်ရှိသည့် QGIS Browser panel များ</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>** OS file browser မှ ရိုးရှင်းသည့် drag-and-drop ပြုလုပ်ခြင်းဖြင့် QGIS ထဲသို့ layers များကို ထည့်သွင်းပါ**</p>
+<p>Operating system file browser မှ :guilabel: <cite>Layers Panel</cite> ထဲသို့ သို့မဟုတ် map canvas ထဲသို့ drag-and-drop ပြုလုပ်ပြီး ဖိုင်(များ)ကို project ထဲသို့ ထည့်သွင်းနိုင်ပါသည်။</p>
+</div>
+</section>
+</section>
+<section id="database-the-db-manager">
+<span id="index-4"></span><h2><a class="toc-backref" href="#id23" role="doc-backlink"><span class="section-number">15.1.2. </span>Database များစီမံခန့်ခွဲရာ (The DB Manager)</a><a class="headerlink" href="#database-the-db-manager" title="Link to this heading"></a></h2>
+<p><span class="guilabel">DB Manager</span> plugin  သည် QGIS (PostGIS ၊ SpatiaLite ၊ GeoPackage ၊ Oracle Spatial ၊ MS SQL Server ၊ Virtual layers) မှ ပံ့ပိုးထားသည့် spatial database format များကို ပေါင်းစပ်မှုများပြုလုပ်ခြင်း (integrating) နှင့် စီမံခန့်ခွဲခြင်း (managing) များပြုလုပ်ခြင်းတို့အတွက် အခြား tool တစ်ခုဖြစ်ပါသည်။ ၎င်းကို <span class="menuselection">Plugins ► Manage and Install Plugins…</span> menu မှတဆင့် အသက်ဝင်လာအောင် (activate) ဆောင်ရွက်နိုင်ပါသည်။</p>
+<p><a class="reference internal" href="../../../_images/dbmanager.png"><img alt="dbManager" src="../../../_images/dbmanager.png" style="width: 1.5em;" /></a> <sup>DB Manager</sup> plugin သည် ဖော်ပြပါ features (တစ်စုံတစ်ခု၏ ထူးခြားသော အရည်အချင်း သို့မဟုတ် အသွင်အပြင်တစ်ခု) အမျိုးမျိုးကို ပံ့ပိုးပေးထားပါသည်-</p>
+<ul class="simple">
+<li><p>Database များနှင့်ချိတ်ဆက်ပြီး ၎င်းတို့၏ဖွဲ့စည်းတည်ဆောက်ထားရှိမှုပုံစံ (structure) နှင့် ပါဝင်သည့်အကြောင်းအရာများ (contents) ကို ပြသသည်။</p></li>
+<li><p>Database များ၏ table များကို ကြိုတင်ကြည့်ရှုခြင်း (preview) လုပ်ဆောင်နိုင်သည်။</p></li>
+<li><p>Double-clicking ပြုလုပ်ခြင်း သို့မဟုတ် drag-and-drop ပြုလုပ်ခြင်းဖြင့် map canvas ထဲသို့ layer များကို ထည့်သွင်းနိုင်သည်။</p></li>
+<li><p>QGIS Browser သို့မဟုတ် အခြားသော database မှ database တစ်ခုထဲသို့ layer များကို ထည့်သွင်းနိုင်သည်။</p></li>
+<li><p>SQL queries များကို ဖန်တီးပြီး ၎င်းတို့၏ ထွက်ရှိလာသည့် output ကို map canvas ထဲသို့ထည့်သွင်းနိုင်သည်။</p></li>
+<li><p><a class="reference internal" href="create_layers.html#vector-virtual-layers"><span class="std std-ref">virtual layer</span></a> များကိုဖန်တီးနိုင်သည်။</p></li>
+</ul>
+<p>DB Manager ၏ စွမ်းဆောင်ရည် (DB Manager capabilities) များနှင့်သက်ဆိုင်သည့် နောက်ထပ်အချက်အလက်များကို <a class="reference internal" href="../plugins/core_plugins/plugins_db_manager.html#dbmanager"><span class="std std-ref">Database စီမံခန့်ခွဲရာ Plugin (DB Manager Plugin)</span></a> ထဲတွင် ရှာဖွေတွေ့ရှိနိုင်ပါသည်။</p>
+<figure class="align-center" id="id5">
+<span id="figure-db-manager-bis"></span><img alt="../../../_images/db_manager.png" src="../../../_images/db_manager.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 15.3 </span><span class="caption-text">DB Manager dialog</span><a class="headerlink" href="#id5" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="provider-provider-based-loading-tools">
+<h2><a class="toc-backref" href="#id24" role="doc-backlink"><span class="section-number">15.1.3. </span>Provider နှင့်ဆိုင်သည့်ကိရိယာများ (Provider-based loading tools)</a><a class="headerlink" href="#provider-provider-based-loading-tools" title="Link to this heading"></a></h2>
+<p>Layers များ ထည့်သွင်းရန် QGIS မှ ပံ့ပိုးထားသည့် အဓိက tools များဖြစ်သော Browser Panel နှင့်  DB Manager များအပြင် data provider များနှင့်သက်ဆိုင်သည့် သီးခြား tools များကိုလည်း ရှာဖွေ့တွေ့ရှိနိုင်ပါသည်။</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><a class="reference internal" href="../plugins/plugins.html#plugins"><span class="std std-ref">External plugins</span></a> အချို့သည်လည်း QGIS ထဲတွင် သီးသန့် (specific) format files များကို ဖွင့်ရန် tools များကို ပံ့ပိုးပေးထားပါသည်။</p>
+</div>
+<section id="layer-loading-a-layer-from-a-file">
+<span id="loading-file"></span><span id="index-6"></span><span id="index-5"></span><h3><a class="toc-backref" href="#id25" role="doc-backlink"><span class="section-number">15.1.3.1. </span>ဖိုင်တစ်ခုမှ layer တစ်ခုကို ထည့်သွင်းခြင်း (Loading a layer from a file)</a><a class="headerlink" href="#layer-loading-a-layer-from-a-file" title="Link to this heading"></a></h3>
+<p>ဖိုင်တစ်ခုမှ layer တစ်ခုကို ထည့်သွင်းရန်-</p>
+<ol class="arabic">
+<li><p><span class="guilabel">Data Source Manager</span> dialog ထဲရှိ layer type tab ကိုဖွင့်ပါ။ ဆိုလိုသည်မှာ <a class="reference internal" href="../../../_images/mActionDataSourceManager.png"><img alt="dataSourceManager" src="../../../_images/mActionDataSourceManager.png" style="width: 1.5em;" /></a> <sup>Open Data Source Manager</sup> button (သို့မဟုတ် <kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">Ctrl</kbd>+<kbd class="kbd docutils literal notranslate">L</kbd></kbd> ကိုနှိပ်ပါ) ကို click နှိပ်ပြီး target tab ကို ဖွင့်ပါ။ သို့မဟုတ်-</p>
+<ul>
+<li><p>Vector data အတွက် (ဥပမာ- GML ၊ ESRI Shapefile ၊ Mapinfo and DXF layers) - <kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">Ctrl</kbd>+<kbd class="kbd docutils literal notranslate">Shift</kbd>+<kbd class="kbd docutils literal notranslate">V</kbd></kbd> ကိုနှိပ်ပါ။ <span class="menuselection">Layer ► Add Layer ►</span> <a class="reference internal" href="../../../_images/mActionAddOgrLayer.png"><img alt="addOgrLayer" src="../../../_images/mActionAddOgrLayer.png" style="width: 1.5em;" /></a> <span class="guilabel">Add Vector Layer</span> menu option ကို select ပြုလုပ်ပါ။ သို့မဟုတ် <a class="reference internal" href="../../../_images/mActionAddOgrLayer.png"><img alt="addOgrLayer" src="../../../_images/mActionAddOgrLayer.png" style="width: 1.5em;" /></a> <sup>Add Vector Layer</sup> toolbar button ကို click နှိပ်ပါ။</p>
+<figure class="align-center" id="id6">
+<span id="figure-vector-add"></span><img alt="../../../_images/addvectorlayerdialog.png" src="../../../_images/addvectorlayerdialog.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 15.4 </span><span class="caption-text">Vector Layer Dialog ထည့်သွင်းခြင်း</span><a class="headerlink" href="#id6" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Raster data အတွက် (ဥပမာ- GeoTiff ၊ MBTiles ၊ GRIdded Binary နှင့် DWG layers)- <kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">Ctrl</kbd>+<kbd class="kbd docutils literal notranslate">Shift</kbd>+<kbd class="kbd docutils literal notranslate">R</kbd></kbd> ကိုနှိပ်ပါ။ <span class="menuselection">Layer ► Add Layer ►`|addRasterLayer| :guilabel:`Add Raster Layer</span> menu option ကို select ပြုလုပ်ပါ။
+သို့မဟုတ် <a class="reference internal" href="../../../_images/mActionAddRasterLayer.png"><img alt="addRasterLayer" src="../../../_images/mActionAddRasterLayer.png" style="width: 1.5em;" /></a> <sup>Add Raster Layer</sup> toolbar button ကို click နှိပ်ပါ။</p>
+<figure class="align-center" id="id7">
+<span id="figure-raster-add"></span><img alt="../../../_images/addrasterlayerdialog.png" src="../../../_images/addrasterlayerdialog.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 15.5 </span><span class="caption-text">Raster Layer Dialog ထည့်သွင်းခြင်း</span><a class="headerlink" href="#id7" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="../../../_images/radiobuttonon.png"><img alt="radioButtonOn" src="../../../_images/radiobuttonon.png" style="width: 1.5em;" /></a> <span class="guilabel">File</span> source type ကို အမှန်ခြစ်ပါ။</p></li>
+<li><p><span class="guilabel">…</span> <sup>Browse</sup> button အပေါ်တွင် Click နှိပ်ပါ။</p></li>
+<li><p>File system ကို navigate (လမ်းညွှန်မှု) ပြုလုပ်ပြီး supported data source (ပံ့ပိုးပေးထားသည့် ဒေတာရင်းမြစ်) တစ်ခုကို ထည့်သွင်းပါ။ တစ်ချိန်တည်းတွင် တစ်ခုထက်ပိုသော layer များကို <kbd class="kbd docutils literal notranslate">Ctrl</kbd> key ကိုဖိထား၍ dialog ထဲရှိ multiple items များအပေါ်တွင် ကလစ်နှိပ်ခြင်းဖြင့်ဖြစ်စေ သို့မဟုတ် range (အပိုင်းအခြား) ထဲရှိ ပထမဆုံးနှင့်နောက်ဆုံး items များကို ကလစ်နှိပ်ထားပြီး items များ၏ range ကို ပြုလုပ်ရန်အတွက် <kbd class="kbd docutils literal notranslate">Shift</kbd> key  ကို ဖိထားခြင်းဖြင့်ဖြစ်စေ ထည့်သွင်းနိုင်ပါသည်။ ကောင်းစွာစမ်းသပ်ခြင်းခံထားရသည့် format များသာ formats filter တွင် ပေါ်လာမည်ဖြစ်ပါသည်။ အခြားသော format များအား <code class="docutils literal notranslate"><span class="pre">All</span> <span class="pre">files</span></code> (pull-down menu ထဲရှိ ထိပ်ဆုံး item) ကို select ပြုလုပ်ခြင်းဖြင့် ထည့်သွင်းနိုင်ပါသည်။</p></li>
+<li><p><span class="guilabel">Data Source Manager</span> dialog ထဲသို့ select ပြုလုပ်ထားသည့် ဖိုင်ကို ထည့်သွင်းရန် <span class="guilabel">Open</span> ကိုနှိပ်ပါ။</p>
+<figure class="align-center" id="id8">
+<span id="figure-vector-layer-open-options"></span><img alt="../../../_images/openoptionsvectorlayer.png" src="../../../_images/openoptionsvectorlayer.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 15.6 </span><span class="caption-text">Open options (ဖွင့်ရန်နည်းလမ်းများ) များနှင့်အတူ Shapefile တစ်ခုကိုထည့်သွင်းခြင်း</span><a class="headerlink" href="#id8" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>QGIS ထဲတွင် ဖိုင်ကို ထည့်ရန်နှင့် ၎င်းတို့ကို map view (မြေပုံမြင်ကွင်း) ထဲတွင် ပြသရန် <span class="guilabel">Add</span> ကို နှိပ်ပါ။ <a class="reference internal" href="#figure-vector-loaded"><span class="std std-numref">Fig. 15.7</span></a> သည် <code class="file docutils literal notranslate"><span class="pre">alaska.shp</span></code> file ကို ထည့်သွင်းပြီးနောက် QGIS ကို ပြသပါသည်။</p>
+<figure class="align-center" id="id9">
+<span id="figure-vector-loaded"></span><img alt="../../../_images/shapefileloaded.png" src="../../../_images/shapefileloaded.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 15.7 </span><span class="caption-text">Alaska ၏ Shapefile ထည့်သွင်းထားသည့် QGIS</span><a class="headerlink" href="#id9" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Vector နှင့် raster ဖိုင်များကို ထည့်သွင်းရန်အတွက် GDAL driver သည် open options (ဖွင့်ရန်နည်းလမ်းများ) များကို သတ်မှတ်ရန် လုပ်ဆောင်ပေးပါသည်။ ၎င်းကို ဖိုင်တစ်ခု select ပြုလုပ်ပြီးသည့်အခါတွင် ပြသမည်ဖြစ်ပါသည်။ နည်းလမ်း (Options) များကို <a class="reference external" href="https://gdal.org/drivers/vector/">https://gdal.org/drivers/vector/</a> ၊ <a class="reference external" href="https://gdal.org/drivers/raster">https://gdal.org/drivers/raster</a> တွင် အသေးစိတ်ဖော်ပြထားပြီး အကယ်၍ QGIS ထဲတွင် ဖိုင်တစ်ခုသည် select ပြုလုပ်ခြင်းခံရပါက hyperlink ပါဝင်သည့် စာသားတစ်ခုသည် select ပြုလုပ်ခြင်းခံရသည့် ဖိုင်အမျိုးအစား၏ documentation (မှတ်တမ်းမှတ်ရာ) ဆီသို့ တိုက်ရိုက်ရောက်ရှိသွားစေမည်ဖြစ်ပါသည်။</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>MapInfo (ဥပမာ- <code class="file docutils literal notranslate"><span class="pre">.tab</span></code>) သို့မဟုတ် Autocad (<code class="file docutils literal notranslate"><span class="pre">.dxf</span></code>) ကဲ့သို့သော အချို့ format များသည် မတူညီသည့် geometry အမျိုးအစားများကို ဖိုင်တစ်ခု (single file) တွင် ပေါင်းစပ်ခြင်း (mixing) ကို ခွင့်ပြုသောကြောင့် အဆိုပါ datasets များကို ထည့်သွင်းခြင်းသည် layer တစ်ခုစီအလိုက် geometry တစ်ခုရရှိစေရန်အလို့ငှာ အသုံးပြုမည့် geometries များကို select ပြုလုပ်ရန်အတွက် dialog တစ်ခုကို ပွင့်စေပါသည်။</p>
+</div>
+<p id="index-8"><span id="index-7"></span><a class="reference internal" href="../../../_images/mActionAddOgrLayer.png"><img alt="addOgrLayer" src="../../../_images/mActionAddOgrLayer.png" style="width: 1.5em;" /></a> <sup>Add Vector Layer</sup> နှင့် <a class="reference internal" href="../../../_images/mActionAddRasterLayer.png"><img alt="addRasterLayer" src="../../../_images/mActionAddRasterLayer.png" style="width: 1.5em;" /></a> <sup>Add Raster Layer</sup> tabs များသည် <span class="guilabel">File</span> ထက် source types များမှ layers များ ထည့်သွင်းခြင်းကို ခွင့်ပြုပါသည်-</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">ArcInfo</span> <span class="pre">Binary</span> <span class="pre">Coverage</span></code> ၊ <code class="docutils literal notranslate"><span class="pre">UK.</span> <span class="pre">National</span> <span class="pre">Transfer</span> <span class="pre">Format</span></code> ကဲ့သို့သော သီးသန့် vector formats အပြင် <code class="docutils literal notranslate"><span class="pre">US</span> <span class="pre">Census</span> <span class="pre">Bureau</span></code> ၏ raw TIGER format  သို့မဟုတ် <code class="docutils literal notranslate"><span class="pre">OpenfileGDB</span></code> များကို ထည့်သွင်းနိုင်ပါသည်။ ထိုသို့ဆောင်ရွက်ရန် <a class="reference internal" href="../../../_images/radiobuttonon.png"><img alt="radioButtonOn" src="../../../_images/radiobuttonon.png" style="width: 1.5em;" /></a> <span class="guilabel">Directory</span> ကို <span class="guilabel">Source type</span> အဖြစ် select ပြုလုပ်ပါ။ ဤဖြစ်ရပ်တွင် <span class="guilabel">…</span> <sup>Browse</sup> ကို နှိပ်ပြီးနောက် dialog ထဲတွင် directory တစ်ခုကို select ပြုလုပ်နိုင်ပါသည်။</p></li>
+<li><p><a class="reference internal" href="../../../_images/radiobuttonon.png"><img alt="radioButtonOn" src="../../../_images/radiobuttonon.png" style="width: 1.5em;" /></a> <span class="guilabel">Database</span> source အမျိုးအစား ဖြင့် လက်ရှိရှိနေသည့် database connection တစ်ခုကို select ပြုလုပ်ခြင်း သို့မဟုတ် select ပြုလုပ်ထားသည့် database အမျိုးအစားအတွက် database connection တစ်ခုကို ဖန်တီးခြင်း ဆောင်ရွက်နိုင်ပါသည်။ ဖြစ်နိုင်သည့် database အမျိုးအစားအချို့မှာ <code class="docutils literal notranslate"><span class="pre">ODBC</span></code> ၊ <code class="docutils literal notranslate"><span class="pre">Esri</span> <span class="pre">Personal</span> <span class="pre">Geodatabase</span></code> ၊ <code class="docutils literal notranslate"><span class="pre">MS</span> <span class="pre">SQL</span> <span class="pre">Server</span></code> အပြင် <code class="docutils literal notranslate"><span class="pre">PostgreSQL</span></code> သို့မဟုတ် <code class="docutils literal notranslate"><span class="pre">MySQL</span></code> တို့ဖြစ်ပါသည်။</p>
+<p><span class="guilabel">New</span> button ကို နှိပ်ခြင်းသည် <span class="guilabel">Create a New OGR Database Connection</span> dialog ကိုပွင့်စေပြီး ၎င်း၏ သတ်မှတ်ချက် (parameters) များသည် <a class="reference internal" href="#vector-create-stored-connection"><span class="std std-ref">သိမ်းထားသည့် ချိတ်ဆက်မှုတစ်ခုကိုဖန်တီးခြင်း (Creating a stored Connection)</span></a> ထဲတွင် ရှာဖွေတွေ့ရှိနိုင်သည်များထဲမှ ဖြစ်ပါသည်။ <span class="guilabel">Open</span> ကို နှိပ်ခြင်းသည် ရရှိနိုင်သည့် ဇယားများမှ select ပြုလုပ်ခြင်းကိုခွင့်ပြုမည်ဖြစ်ပါသည်။ ဥပမာ- PostGIS လုပ်ဆောင်နိုင်သော databases များ။</p>
+</li>
+<li><p><a class="reference internal" href="../../../_images/radiobuttonon.png"><img alt="radioButtonOn" src="../../../_images/radiobuttonon.png" style="width: 1.5em;" /></a> <span class="guilabel">Protocol: HTTP(S), cloud, etc.</span> source အမျိုးအစားသည် locally (ကွန်ပျူတာထဲတွင်သိမ်းဆည်းထားသည်) သို့မဟုတ် network တွင် သိမ်းဆည်းထားသည့် data (အများသူငှာကြည့်ရှုဝင်ရောက်ကြည့်ရှုသုံးစွဲနိုင်သည်(publicly accessible))  သို့မဟုတ် စီးပွားရေးလုပ်ငန်းသုံး cloud storage services များ၏ private buckets (Buckets များသည်ဒေတာများကို သိမ်းထားသည့် အခြေခံ containers များဖြစ်ပြီး Cloud Storage တွင် သိမ်းဆည်းသမျှအားလုံးသည် bucket တစ်ခုထဲတွင် ပါဝင်ရမည်ဖြစ်ပါသည်) များတွင် သိမ်းဆည်းထားသည့် data ကိုပွင့်စေပါသည်။ ပံ့ပိုးပေးထားသည့် protocol အမျိုးအစားများမှာ-</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">HTTP/HTTPS/FTP</span></code> ၊ <span class="guilabel">URI</span> တစ်ခုနှင့်အတူ၊ လိုအပ်ပါက <a class="reference internal" href="../auth_system/index.html#authentication-index"><span class="std std-ref">authentication</span></a> တစ်ခု။</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">AWS</span> <span class="pre">S3</span></code> ၊ <code class="docutils literal notranslate"><span class="pre">Google</span> <span class="pre">Cloud</span> <span class="pre">Storage</span></code> ၊ <code class="docutils literal notranslate"><span class="pre">Microsoft</span> <span class="pre">Azure</span> <span class="pre">Blob</span></code> ၊ <code class="docutils literal notranslate"><span class="pre">Alibaba</span> <span class="pre">OSS</span> <span class="pre">Cloud</span></code> ၊ <code class="docutils literal notranslate"><span class="pre">Open</span> <span class="pre">Stack</span> <span class="pre">Swift</span> <span class="pre">Storage</span></code> ကဲ့သို့သော Cloud storage။ <span class="guilabel">Bucket or container</span> နှင့် <span class="guilabel">Object key</span> များဖြည့်သွင်းရန်လိုအပ်ပါသည်။</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CouchDB</span></code> database အပေါ်တွင်အခြေခံထားသည့် သို့မဟုတ် <code class="docutils literal notranslate"><span class="pre">GeoJSON</span></code> သို့မဟုတ် <code class="docutils literal notranslate"><span class="pre">GEOJSON</span> <span class="pre">-</span> <span class="pre">Newline</span> <span class="pre">Delimited</span></code> format များကိုအသုံးပြုပြီး OGC <code class="docutils literal notranslate"><span class="pre">WFS</span> <span class="pre">3</span></code> (စမ်းသပ်ဆဲ) ကို ပံ့ပိုးပေးနေသည့် ဝန်ဆောင်မှု။ ရွေးချယ်နိုင်သော (optional) <a class="reference internal" href="../auth_system/index.html#authentication-index"><span class="std std-ref">authentication</span></a> နှင့်အတူ <span class="guilabel">URI</span> တစ်ခုလိုအပ်ပါသည်။</p></li>
+<li><p>Vector source အမျိုးအစားများအားလုံးအတွက် <span class="guilabel">Encoding</span> ကို သတ်မှတ်ရန် သို့မဟုတ် <span class="menuselection">Automatic ►</span> setting ကို အသုံးပြုရန် ဖြစ်ကောင်းဖြစ်နိုင်ပါသည်။</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="mesh-layer-loading-a-mesh-layer">
+<span id="mesh-loading"></span><h3><a class="toc-backref" href="#id26" role="doc-backlink"><span class="section-number">15.1.3.2. </span>Mesh layer တစ်ခုကို ထည့်သွင်းခြင်း (Loading a mesh layer)</a><a class="headerlink" href="#mesh-layer-loading-a-mesh-layer" title="Link to this heading"></a></h3>
+<p>Mesh တစ်ခုဆိုသည်မှာ ယာယီ (temporal) နှင့် အခြားသော (components) အစိတ်အပိုင်းများပါရှိသည့် ဖွဲ့စည်းမှုပုံစံနည်းစနစ်တကျမရှိသောဇယားကွက် (unstructured grid) တစ်ခုဖြစ်ပါသည်။ Spatial component ထဲတွင် 2D သို့မဟုတ် 3D space ထဲရှိ vertices (မျဉ်းအဆစ်များ) ၊ edges (အစွန်များ) နှင့် faces (မျက်နှာများ) များပါရှိသည့် အစုအဝေးတစ်ခုပါဝင်ပါသည်။ Mesh layer များနှင့်သက်ဆိုင်သည့် နောက်ထပ်အချက်အလက်များကို <a class="reference internal" href="../working_with_mesh/mesh_properties.html#label-meshdata"><span class="std std-ref">Working with Mesh Data (Mesh Data များနှင့် အလုပ်လုပ်ခြင်း)</span></a> တွင် ကြည့်ရှုနိုင်ပါသည်။</p>
+<p>Mesh layer တစ်ခုကို QGIS ထဲသို့ထည့်သွင်းရန်-</p>
+<ol class="arabic simple">
+<li><p><span class="menuselection">Layer ►</span> menu မှ ၎င်းကို select ပြုလုပ်ခြင်း သို့မဟုတ် <a class="reference internal" href="../../../_images/mActionDataSourceManager.png"><img alt="dataSourceManager" src="../../../_images/mActionDataSourceManager.png" style="width: 1.5em;" /></a> <sup>Open Data Source Manager</sup> button ကို click ပြုလုပ်ခြင်းဖြင့် <span class="menuselection">Data Source Manager</span> dialog ကို ဖွင့်ပါ။</p></li>
+<li><p>Left panel (ဘယ်ဘက်ဘောင်) အပေါ်ရှိ <a class="reference internal" href="../../../_images/mActionAddMeshLayer.png"><img alt="addMeshLayer" src="../../../_images/mActionAddMeshLayer.png" style="width: 1.5em;" /></a> <span class="guilabel">Mesh</span> tab ကို ဖွင့်ပါ။</p></li>
+<li><p>ဖိုင်ကို select ပြုလုပ်ရန်  <span class="guilabel">…</span> <sup>Browse</sup> ကို နှိပ်ပါ။
+<a class="reference internal" href="../working_with_mesh/mesh_properties.html#mesh-supported-formats"><span class="std std-ref">Various formats</span></a> များကို ပံ့ပိုးပေးထားပါသည်။</p></li>
+<li><p>ဖိုင်ကို select ပြုလုပ်ပြီး <span class="guilabel">Add</span> ကို နှိပ်ပါ။
+Layer ကို native mesh rendering (မူရင်း mesh ပုံဖော်ခြင်း) အသုံးပြုပြီး ထည့်သွင်းသွားမည်ဖြစ်ပါသည်။</p></li>
+<li><p>အကယ်၍ select ပြုလုပ်ထားသည့် ဖိုင်တွင် mesh layers များစွာ ပါဝင်နေပါက
+ထည့်သွင်းရန်အတွက် sublayer (layer အခွဲများ) များကို ရွေးချယ်ရန် dialog တစ်ခုဖြင့် သတိပေး (prompt) သွားမည်ဖြစ်ပါသည်။
+ရွေးချယ်ခြင်း (selection) ကိုပြုလုပ်ပြီး <span class="guilabel">OK</span> ကိုနှိပ်ပါ။ Layers များကို native mesh rendering အသုံးပြုပြီး ထည့်သွင်းသွားမည်ဖြစ်ပါသည်။ ၎င်းတို့ကို group(အုပ်စု) တစ်ခုထဲတွင်လည်း ထည့်သွင်းရန် ဖြစ်ကောင်းဖြစ်နိုင်ပါသည်။</p></li>
+</ol>
+<figure class="align-center" id="id10">
+<span id="figure-mesh-datasource-manager"></span><img alt="../../../_images/mesh_datasource_manager.png" src="../../../_images/mesh_datasource_manager.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 15.8 </span><span class="caption-text">Data Source Manager (ဒေတာများကိုစီမံခန့်ခွဲရာနေရာ) ထဲရှိ Mesh tab</span><a class="headerlink" href="#id10" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="importing-a-delimited-text-file-delimited-text-file-import">
+<span id="vector-loading-csv"></span><span id="index-9"></span><h3><a class="toc-backref" href="#id27" role="doc-backlink"><span class="section-number">15.1.3.3. </span>Importing a delimited text file (Delimited text file တစ်ခုကို import ပြုလုပ်ခြင်း)</a><a class="headerlink" href="#importing-a-delimited-text-file-delimited-text-file-import" title="Link to this heading"></a></h3>
+<p>(Delimited text file ဆိုသည်မှာ ၎င်းတွင် line တစ်ခုချင်းစီသည် စာအုပ်တစ်အုပ်၊ ကုမ္ပဏီတစ်ခု သို့မဟုတ် အခြားအရာတစ်ခုကို ကိုယ်စားပြုပြီး line တစ်ခုချင်းစီတွင် delimiter ဖြင့် ပိုင်းခြားထားသော fields များပါရှိသည့် data ကိုသိမ်းဆည်းရန် အသုံးပြုသည့် စာသားဖိုင်တစ်ခု ဖြစ်ပါသည်။)</p>
+<p>Delimited text files (ဥပမာ <code class="file docutils literal notranslate"><span class="pre">.txt</span></code> ၊ <code class="file docutils literal notranslate"><span class="pre">.csv</span></code> ၊ <code class="file docutils literal notranslate"><span class="pre">.dat</span></code> ၊ <code class="file docutils literal notranslate"><span class="pre">.wkt</span></code>) များကို အထက်တွင်ဖော်ပြထားသည့် tools (ကိရိယာတန်ဆာပလာများ) များအသုံးပြုပြီး ထည့်သွင်းနိုင်ပါသည်။ ဤနည်းအားဖြင့် ၎င်းတို့သည် ရိုးရှင်းသောဇယားများ (simple tables) အဖြစ်  ပေါ်လာမည်ဖြစ်သည်။ တစ်ခါတစ်ရံတွင် delimited text files များတွင် ပုံဖော်ပြသ (visualize) လိုသည့် coordinates / geometries များ ပါဝင်နိုင်ပါသည်။ ၎င်းသည် <a class="reference internal" href="../../../_images/mActionAddDelimitedTextLayer.png"><img alt="addDelimitedTextLayer" src="../../../_images/mActionAddDelimitedTextLayer.png" style="width: 1.5em;" /></a><span class="guilabel">Add Delimited Text Layer</span> ကို ဒီဇိုင်းရေးဆွဲထားရသည့် အချက်ပင်ဖြစ်သည်။</p>
+<ol class="arabic simple">
+<li><p><span class="guilabel">Data Source Manager</span> dialog ကိုဖွင့်ရန် <a class="reference internal" href="../../../_images/mActionDataSourceManager.png"><img alt="dataSourceManager" src="../../../_images/mActionDataSourceManager.png" style="width: 1.5em;" /></a> <sup>Open Data Source Manager</sup> icon ကို click နှိပ်ပါ။</p></li>
+<li><p><a class="reference internal" href="../../../_images/mActionAddDelimitedTextLayer.png"><img alt="addDelimitedTextLayer" src="../../../_images/mActionAddDelimitedTextLayer.png" style="width: 1.5em;" /></a> <span class="guilabel">Delimited Text</span> tab ကို ဖွင့်ပါ။</p></li>
+<li><p><span class="guilabel">…</span> <sup>Browse</sup> button ကိုနှိပ်ပြီး import ပြုလုပ်မည့် delimited text file (ဥပမာ- <code class="file docutils literal notranslate"><span class="pre">qgis_sample_data/csv/elevp.csv</span></code>) ကို Select ပြုလုပ်ပါ။</p></li>
+<li><p><span class="guilabel">Layer name</span> field ထဲတွင် project ထဲရှိ layer အတွက် အသုံးပြုမည့် အမည်ကို ထည့်သွင်းပံ့ပိုးပါ။ (ဥပမာ- <code class="file docutils literal notranslate"><span class="pre">Elevation</span></code>)</p></li>
+<li><p>Dataset ကို တွေ့ရှိရန်နှင့် လိုအပ်ချက်များကို ဖြည့်ဆည်းရန် အောက်တွင်ပြထားသည့်အတိုင်း setting များကို ပြင်ဆင်သတ်မှတ် (Configure) ပါ။</p></li>
+</ol>
+<figure class="align-center" id="id11">
+<span id="figure-delimited-text"></span><img alt="../../../_images/delimited_text_dialog.png" src="../../../_images/delimited_text_dialog.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 15.9 </span><span class="caption-text">Delimited Text Dialog</span><a class="headerlink" href="#id11" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<section id="file-format">
+<h4><a class="toc-backref" href="#id28" role="doc-backlink">File format (ဖိုင်ပုံစံ)</a><a class="headerlink" href="#file-format" title="Link to this heading"></a></h4>
+<p>ဖိုင်ကို select ပြုလုပ်ပြီးသည်နှင့်တပြိုင်နက် QGIS သည် fields နှင့် rows များကို သတ်မှတ်ပြီး လတ်တလောတွင် အများဆုံးအသုံးပြုထားသည့် delimiter(စာသားများကို ပိုင်းခြားသည့် တစ်ခုသို့မဟုတ် တစ်ခုထက်ပိုသည့် character) ဖြင့် ဖိုင်ကို ခွဲခြမ်းစိတ်ဖြာခြင်း (parse) ပြုလုပ်ရန် ကြိုးပမ်းမည်ဖြစ်ပါသည်။ QGIS အနေဖြင့် ဖိုင်ကို တိကျမှန်ကန်စွာခွဲခြမ်းစိတ်ဖြာနိုင်ရန်အတွက် မှန်ကန်သည့် delimiter ကို select ပြုလုပ်ရန်မှာ အလွန်ပင်အရေးကြီးပါသည်။ Delimiter တစ်ခုကို အောက်ပါတို့အကြားတွင် ရွေးချယ်ခြင်းဖြင့် သတ်မှတ်နိုင်ပါသည်-</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../../../_images/radiobuttonon.png"><img alt="radioButtonOn" src="../../../_images/radiobuttonon.png" style="width: 1.5em;" /></a><span class="guilabel">CSV (comma separated values)</span> comma character (,) ကို အသုံးပြုရန်။</p></li>
+<li><p><a class="reference internal" href="../../../_images/radiobuttonoff.png"><img alt="radioButtonOff" src="../../../_images/radiobuttonoff.png" style="width: 1.5em;" /></a><span class="guilabel">Regular expression delimiter</span> နှင့် <span class="guilabel">Expression</span> field ထဲတွင် စာသား (text) ကို ထည့်သွင်းပါ။ ဥပမာ- delimiter ကို tab သို့ပြောင်းလဲရန် <code class="docutils literal notranslate"><span class="pre">\t</span></code> ကို (၎င်းကို tab character အတွက် ပုံမှန်ဖော်ပြချက်များ (regular expressions) တွင်အသုံးပြုပါသည်) အသုံးပြုပါ။</p></li>
+<li><p><a class="reference internal" href="../../../_images/radiobuttonoff.png"><img alt="radioButtonOff" src="../../../_images/radiobuttonoff.png" style="width: 1.5em;" /></a><span class="guilabel">Custom delimiters</span> ၊ <code class="docutils literal notranslate"><span class="pre">comma</span></code> ၊ <code class="docutils literal notranslate"><span class="pre">space</span></code> ၊ <code class="docutils literal notranslate"><span class="pre">tab</span></code> ၊ <code class="docutils literal notranslate"><span class="pre">semicolon</span></code> ၊ …. ကဲ့သို့သော ကြိုတင်သတ်မှတ်ထားသည့် (predefined) delimiters များထဲမှ ရွေးချယ်ခြင်း</p></li>
+</ul>
+</section>
+<section id="records-and-fields">
+<h4><a class="toc-backref" href="#id29" role="doc-backlink">မှတ်တမ်းများ နှင့် အချက်အလက်များ (Records and fields)</a><a class="headerlink" href="#records-and-fields" title="Link to this heading"></a></h4>
+<p>Data recognition (Data recognition ဆိုသည်မှာ capture ပြုလုပ်လိုသည့် field များကို နေရာချထားပြီး ၎င်းတို့ကို character-based data များအဖြစ်သို့ပြောင်းလဲသည့်အဆင့်ဖြစ်ပါသည်) အတွက် အဆင်ပြေသည့် အခြားနည်းလမ်းများကို အသုံးပြုနိုင်ပါသည်-</p>
+<ul class="simple">
+<li><p><span class="guilabel">Number of header lines to discard</span> - ပထမဆုံး lines များသည် လိုင်းအလွတ်များ (blank lines) သို့မဟုတ် အခြားသော formatting များ ဖြစ်နေသည့်အတွက် Import ထဲတွင် ဖိုင်မှ ပထမဆုံး line များကို ရှောင်ရှားလိုသည့်အခါတွင် အဆင်ပြေစေပါသည်။</p></li>
+<li><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a><span class="guilabel">First record has field names</span> - ပထမဆုံး line ထဲရှိ တန်ဖိုးများ (values) ကို field names (field အမည်များ) များအဖြစ်သို့အသုံးပြုပါသည်။ ထိုသို့မဟုတ်ပါက QGIS သည် field အမည်များကို  <code class="docutils literal notranslate"><span class="pre">field_1</span></code>, <code class="docutils literal notranslate"><span class="pre">field_2</span></code>… စသည်ဖြင့် အသုံးပြုပါသည်။</p></li>
+<li><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a><span class="guilabel">Detect field types</span> - Field type (field အမျိုးအစား) ကို အလိုအလျောက်အသိအမှတ်ပြု (recognize) သည်။ အကယ်၍ uncheck ပြုလုပ်ထားပါက attributes အားလုံးကို text(စာသား) fields များအဖြစ် ပြုမှုဆောင်ရွက်မည်ဖြစ်သည်။</p></li>
+<li><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a><span class="guilabel">Decimal separator is comma</span> - Decimal separator (ဒဿမကိန်း အခွဲအခြား) ကို comma တစ်ခုဖြစ်စေရန် တွန်းအားပေးဖြစ်ပေါ်စေပါသည်။</p></li>
+<li><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a><span class="guilabel">Trim fields</span> - Field များမှ leading and trailing spaces (ဖိုင်တစ်ခုသို့မဟုတ် folder တစ်ခု၏ အမည်၏ အရှေ့နှင့်အနောက်ရှိ space character) များကို trim (မလိုအပ်သည်များကိုဖြတ်ထုတ်ခြင်း)  ပြုလုပ်ခြင်းကိုခွင့်ပြုသည်။</p></li>
+<li><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a><span class="guilabel">Discard empty fields</span> (လွတ်နေသော field များကို ဖယ်ထုတ်ခြင်း)</p></li>
+<li><p><span class="guilabel">Custom boolean literals</span> - Boolean values (TRUE သို့မဟုတ် FALSE ဆိုသည့်တန်ဖိုးအား ကိုယ်စားပြုဖော်ပြသည့်တန်ဖိုး) များအဖြစ်တွေ့ရှိရမည်ဖြစ်သည့် စိတ်ကြိုက် string (programming အသုံးပြုသည့် ဒေတာအမျိုးအစား၊ နံပါတ်များထက် စာသားကို ကိုယ်စားပြုရန် အသုံးပြုသည်) တစ်စုံကို ထည့်သွင်းခြင်းအား ခွင့်ပြုသည်။</p></li>
+</ul>
+</section>
+<section id="field-field-type-detection">
+<h4><a class="toc-backref" href="#id30" role="doc-backlink">Field အမျိုးအစားရှာဖွေဖော်ထုတ်ခြင်း (Field type detection)</a><a class="headerlink" href="#field-field-type-detection" title="Link to this heading"></a></h4>
+<p>QGIS သည် ရွေးချယ်နိုင်သော sidecar (ပင်မအက်ပလီကေးရှင်းနှင့်အတူယှဉ်တွဲရှိသည့် ဝန်ဆောင်မှုများ သို့မဟုတ် လုပ်ငန်းစဉ်များ) CSVT file (<a class="reference external" href="https://giswiki.hsr.ch/GeoCSV#CSVT_file_format_specification">GeoCSV specification</a> တွင်ကြည့်ပါ) ၏ အကြောင်းအရာများကို စစ်ဆေး (examining) ပြီး တန်ဖိုးအားလုံးသည် မည်သည့်အမှား (errors) မျိုးမျှမပါဝင်ဘဲ အမှန်တကယ်ပြောင်းလဲခြင်းပြုလုပ်နိုင်သည်ကို သေချာစေရန် ဖိုင်တစ်ခုလုံးကို scanning ပြုလုပ်ခြင်းဖြင့် field အမျိုးအစားများကို အလိုအလျောက်ရှာဖွေဖော်ထုတ်ရန် ကြိုးပမ်းမည်ဖြစ်သည်။ (အကယ်၍ <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a><span class="guilabel">Detect field types</span> ကို အမှန်ခြစ်ထားပါက) fall-back field (ပြန်လည်ရရှိသည့် field) အမျိုးအစားသည် စာသား (text) ဖြစ်ပါသည်။</p>
+<p>ရှာဖွေတွေ့ရှိသည့် field အမျိုးအစား သည် sample data preview table (နမူနာ data ကို ကြိုတင်ကြည့်ရှုနိုင်သည့်ဇယား) ထဲရှိ field အမည်အောက်တွင် ပေါ်လာမည်ဖြစ်ပြီး လိုအပ်ပါက ကိုယ်တိုင် (manually) ဖြင့် ပြောင်းလဲပြင်ဆင်မှုများပြုလုပ်နိုင်ပါသည်။</p>
+<p>အောက်ဖော်ပြပါ field အမျိုးအစားများကို ပံ့ပိုးပေးထားပါသည်-</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Boolean</span></code> - Boolean values (boolean တန်ဖိုးများ) အဖြစ်သို့ အဓိပ္ပာယ်ဖွင့်ဆိုထားသည့် case-insensitive (စာလုံးအကြီးအသေးအတိုင်း အတိအကျဖြစ်ရန်မလိုသော) literal couples (case-insensitive literal couples များအား code များကို ဖတ်ရှုရန်နှင့်စီမံခန့်ခွဲရာတွင်ပိုမိုအဆင်ပြေစေရန် programming languages များတွင် အသုံးပြုလေ့ရှိပါသည်။) များမှာ  <code class="docutils literal notranslate"><span class="pre">1</span></code>/ <code class="docutils literal notranslate"><span class="pre">0</span></code> ၊ <code class="docutils literal notranslate"><span class="pre">true</span></code>/ <code class="docutils literal notranslate"><span class="pre">false</span></code> ၊ <code class="docutils literal notranslate"><span class="pre">t</span></code>/ <code class="docutils literal notranslate"><span class="pre">f</span></code> ၊ <code class="docutils literal notranslate"><span class="pre">yes</span></code>/ <code class="docutils literal notranslate"><span class="pre">no</span></code> တို့ဖြစ်ပါသည်။</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Whole</span> <span class="pre">Number</span> <span class="pre">(integer)</span></code> (ကိန်းပြည့်)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Whole</span> <span class="pre">Number</span> <span class="pre">(integer</span> <span class="pre">-</span> <span class="pre">64</span> <span class="pre">bit)</span></code> (ကိန်းပြည့် - 64 bit)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Decimal</span> <span class="pre">Number</span></code> - ဒဿမနှစ်နေရာအထိ တိကျသော floating point number (ဒဿမအမှတ်များပါဝင်သည့် အပေါင်းသို့မဟုတ် အနုတ်ကိန်းပြည့်များ)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Date</span></code> (ရက်စွဲ)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Time</span></code> (အချိန်)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Date</span> <span class="pre">and</span> <span class="pre">Time</span></code> (ရက်စွဲနှင့်အချိန်)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Text</span></code> (စာသား)</p></li>
+</ul>
+</section>
+<section id="geometry-geometry-definition">
+<h4><a class="toc-backref" href="#id31" role="doc-backlink">Geometry အဓိပ္ပာယ်ဖွင့်ဆိုချက် (Geometry definition)</a><a class="headerlink" href="#geometry-geometry-definition" title="Link to this heading"></a></h4>
+<p>ဖိုင်ကို ခွဲခြမ်းစိတ်ဖြာသည်နှင့်တစ်ပြိုက်နက် <span class="guilabel">Geometry definition</span> ကို အောက်ပါများအဖြစ်သို့ သတ်မှတ်ပါ-</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../../../_images/radiobuttonon.png"><img alt="radioButtonOn" src="../../../_images/radiobuttonon.png" style="width: 1.5em;" /></a><span class="guilabel">Point coordinates</span> နှင့် အကယ်၍ layer သည် point geometry အမျိုးအစားဖြစ်ပြီး ထိုကဲ့သို့သော field များပါဝင်ပါက <span class="guilabel">X field</span> ၊ <span class="guilabel">Y field</span> ၊ <span class="guilabel">Z field`(3-dimensional data အတွက်) နှင့် :guilabel:`M field</span> (အတိုင်းအတာများကို တိုင်းတာရန်အတွက်) ကိုထည့်သွင်းပါ။ အကယ်၍ coordinates (ကိုဩဒိနိတ်များ) ကို degrees/minutes/seconds (ဒီဂရီများ/မိနစ်များ/စက္ကန့်များ) အဖြစ်သို့ သတ်မှတ်ထားပါက <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a><span class="guilabel">DMS coordinates</span> checkbox ကို activate (အသက်ဝင်အောင်ဆောင်ရွက်ခြင်း) ပြုလုပ်ပါ။ <a class="reference internal" href="../../../_images/mActionSetProjection.png"><img alt="setProjection" src="../../../_images/mActionSetProjection.png" style="width: 1.5em;" /></a><sup>Select CRS</sup> widget ကိုအသုံးပြု၍ သင့်လျော်သည့် <span class="guilabel">Geometry CRS</span> ကိုထည့်သွင်းပါ။</p></li>
+<li><p>Spatial information (Spatial information ဆိုသည်မှာ တည်နေရာ၊ လူများနှင့် လှုပ်ရှားမှုများအကြားရှိ ဒစ်ဂျစ်တယ်ချိတ်ဆက်မှုဖြစ်ပါသည်) ကို WKT အဖြစ်ကိုယ်စားပြုဖော်ပြထားပါက <a class="reference internal" href="../../../_images/radiobuttonon.png"><img alt="radioButtonOn" src="../../../_images/radiobuttonon.png" style="width: 1.5em;" /></a><span class="guilabel">Well known text (WKT)</span> option - WKT geometry ပါဝင်သည့် <span class="guilabel">Geometry field</span> ကို select ပြုလုပ်ပြီး သင့်လျော်သည့် <span class="guilabel">Geometry field</span> ကို ရွေးချယ်ပါ။ သို့မဟုတ် QGIS ကို ၎င်းအား အလိုအလျောက်ရှာဖွေတွေ့ရှိခြင်း (auto-detect) ဆောင်ရွက်ရန် ခွင့်ပြုပါ။
+<sup>Select CRS</sup> widget ကို အသုံးပြု၍ သင့်လျော်သည့် <span class="guilabel">Geometry CRS</span> ကိုအသုံးပြုပါ။</p></li>
+<li><p>အကယ်၍ ဖိုင်တွင် non-spatial data ပါဝင်ပါက <a class="reference internal" href="../../../_images/radiobuttonon.png"><img alt="radioButtonOn" src="../../../_images/radiobuttonon.png" style="width: 1.5em;" /></a> <span class="guilabel">No eometry (attribute only table)</span> ကို activate ပြုလုပ်ပါ။ ၎င်းကို ပုံမှန်ဇယား (ordinary table) တစ်ခုအဖြစ် ထည့်သွင်းသွားမည်ဖြစ်ပါသည်။</p></li>
+</ul>
+</section>
+<section id="layer-layer-settings">
+<h4><a class="toc-backref" href="#id32" role="doc-backlink">Layer သတ်မှတ်ချက်များ (Layer settings)</a><a class="headerlink" href="#layer-layer-settings" title="Link to this heading"></a></h4>
+<p>အပိုဆောင်းအနေဖြင့် အောက်ပါတို့ကိုဆောင်ရွက်နိုင်ပါသည်-</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a><span class="guilabel">Use spatial index</span> - Features များကို spatially selecting (spatial အရ ရွေးချယ်ခြင်း) ပြုလုပ်ခြင်းနှင့် ပြသခြင်း ဆိုင်ရာ စွမ်းဆောင်ရည် (performance) ကိုမြှင့်တင်ရန်။</p></li>
+<li><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a><span class="guilabel">Use subset index</span> - <a class="reference internal" href="../working_with_vector/vector_properties.html#vector-query-builder"><span class="std std-ref">subset filters</span></a> ၏ စွမ်းဆောင်ရည်(performance) ကိုမြှင့်တင်ရန် (layer properties များထဲတွင်သတ်မှတ်ထားသည့်အခါ)။</p></li>
+<li><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a><span class="guilabel">Watch file</span> - QGIS ကို အသုံးပြုနေစဉ်အတွင်း အခြားသော application များကြောင့် ဖိုင်တွင် အပြောင်းအလဲများဖြစ်ပွားသည်ကို စောင့်ကြည့်ရန်။</p></li>
+</ul>
+<p>အဆုံးတွင် map (မြေပုံ)ထဲသို့ layer ကိုထည့်သွင်းရန် <span class="guilabel">Add</span> ကို click  နှိပ်ပါ။
+နမူနာတွင် <code class="docutils literal notranslate"><span class="pre">Elevation</span></code> ဟုအမည်တွင်သည့် point layer တစ်ခုကို project ထဲသို့ ထည့်သွင်းပြီး QGIS ရှိ အခြားသော map layer (မြေပုံ layer) ကဲ့သို့ ပြုမူဆောင်ရွက်ပါ။
+ဤ layer သည် <code class="file docutils literal notranslate"><span class="pre">.csv</span></code> source file (၎င်းကို ချိတ်ဆက်ထားသည့်) ပေါ်ရှိ query တစ်ခု၏ ရလဒ်ဖြစ်ပြီး disk အပေါ်တွင် spatial layer တစ်ခုကို ရရှိရန် <a class="reference internal" href="create_layers.html#general-saveas"><span class="std std-ref">to be saved</span></a> ကို လိုအပ်မည်ဖြစ်ပါသည်။</p>
+</section>
+<section id="sample-data">
+<h4><a class="toc-backref" href="#id33" role="doc-backlink">နမူနာဒေတာ (Sample Data)</a><a class="headerlink" href="#sample-data" title="Link to this heading"></a></h4>
+<p>ခွဲခြမ်းစိတ်ဖြာခြင်းဆိုင်ရာဂုဏ်သတ္တိများ (parser properties) ကို သတ်မှတ်ထားပါက sample data preview (နမူနာဒေတာအားကြိုတင်ကြည့်ရှုခြင်း) သည် အသုံးပြုထားသည့် settings နှင့်အညီ update ပြုလုပ်မည်ဖြစ်ပါသည်။</p>
+<p>Sample Data Table (နမူနာဒေတာဇယား) တွင်လည်း အလိုအလျောက်ဆုံးဖြတ်သတ်မှတ်ထားသည့် column အမျိုးအစားများကို ပြန်လည်ပြင်ဆင်ရေးသား (override) နိုင်ပါသည်။</p>
+</section>
+</section>
+<section id="dxf-dwg-file-importing-a-dxf-or-dwg-file">
+<span id="import-dxfdwg"></span><h3><a class="toc-backref" href="#id34" role="doc-backlink"><span class="section-number">15.1.3.4. </span>DXF သို့မဟုတ် DWG file တစ်ခုကို ထည့်သွင်းခြင်း (Importing a DXF or DWG file)</a><a class="headerlink" href="#dxf-dwg-file-importing-a-dxf-or-dwg-file" title="Link to this heading"></a></h3>
+<p><code class="file docutils literal notranslate"><span class="pre">DXF</span></code> နှင့်  <code class="file docutils literal notranslate"><span class="pre">DWG</span></code> files များကို Browser Panel မှ ရိုးရှင်းသည့် drag-and-drop ပြုလုပ်ခြင်းဖြင့် QGIS ထဲသို့ ထည့်သွင်းနိုင်ပါသည်။ Project ထဲသို့ ထည့်သွင်းလိုသည့် sub-layers (layerအခွဲများ) များကို select ပြုလုပ်ရန် အသိပေးမည်ဖြစ်ပါသည်။ Layers များကို ကြုံရာ style properties (စတိုင်ဂုဏ်သတ္တိများ) များဖြင့် ထည့်သွင်းသွားမည်ဖြစ်ပါသည်။</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>အမျိုးမျိုးသော geometry အမျိုးအစားများ (point ၊ line နှင့်/သို့ polygon) ပါဝင်သော DXF files များအတွက် layer များ၏ အမည်ကို  <em>&lt;filename.dxf&gt; entities &lt;geometry type&gt;</em> အဖြစ် ထုတ်လုပ် (generate) သွားမည်ဖြစ်ပါသည်။</p>
+</div>
+<p>QGIS တွင် dxf/dwg ဖိုင်ဖွဲ့စည်းတည်ဆောက်ပုံနှင့် ၎င်း၏ သင်္ကေတများ (symbology) ကို သိမ်းထားရန်အတွက် သီးသန့် <span class="menuselection">Project ► Import/Export ► Import Layers from DWG/DXF…</span> tool ကို အသုံးပြုလိုမည်ဖြစ်ပါသည်။ ၎င်း tool သည် ဖော်ပြပါတို့ကို ခွင့်ပြုပေးပါသည်-</p>
+<ol class="arabic simple">
+<li><p>Drawing file (ပုံဆွဲသားထားသည့်ဖိုင်) မှ element များကို GeoPackage database တစ်ခုထဲသို့ import ပြုလုပ်ရန်။</p></li>
+<li><p>Import ပြုလုပ်ထားသည့် element များကို Project ထဲသို့ ထည့်သွင်းရန်။</p></li>
+</ol>
+<p><span class="guilabel">DWG/DXF Import</span> dialog တွင် drawing file (ပုံဆွဲသားထားသည့်ဖိုင်) ပါ အကြောင်းအရာများ (contents)ကို import ပြုလုပ်ရန်-</p>
+<ol class="arabic simple">
+<li><p><span class="guilabel">Source drawing</span> ၏ တည်နေရာကို ထည့်သွင်းပါ။ ဥပမာ- import ပြုလုပ်မည့် DWG/DXF drawing file</p></li>
+<li><p>Drawing file (ပုံဆွဲသားထားသည့်ဖိုင်) ထဲရှိ data ၏ coordinate reference system (ကိုဩဒိနိတ်စနစ်) ကို သတ်မှတ်ပါ။</p></li>
+<li><p><span class="guilabel">Target package</span> ၏ တည်နေရာကိုထည့်သွင်းပါ။ ဥပမာ- data ကို သိမ်းဆည်းမည့် GeoPackage file။ ရှိပြီးသားဖိုင်ကို ပံ့ပိုးထားပါက ၎င်းကို ပြန်လည်ပြင်ဆင်ရေးသားသွားမည်ဖြစ်ပါသည်။</p></li>
+<li><p>သီးသန့် combobox (ဆက်စပ် popup တစ်ခုပါရှိသည့် input widget တစ်ခု) နှင့်အတူ <code class="docutils literal notranslate"><span class="pre">blocks</span></code> များကို မည်သို့ import ပြုလုပ်မည်ကို ရွေးချယ်ပါ။-</p>
+<ul class="simple">
+<li><p><span class="guilabel">Expand Block Geometries</span> - Drawing file (ပုံဆွဲသားထားသည့်ဖိုင်) ထဲရှိ blocks များကို ပုံမှန် element များအဖြစ်သို့ import ပြုလုပ်သည်။</p></li>
+<li><p><span class="guilabel">Expand Block Geometries and Add Insert Points</span> - Drawing file (ပုံဆွဲသားထားသည့်ဖိုင်) ထဲရှိ blocks များကို ပုံမှန် element များအဖြစ်သို့ import ပြုလုပ်ပြီး insertion point (ဆုံမှတ်)  ကို point layer တစ်ခုအဖြစ်ထည့်သွင်းသည်။</p></li>
+<li><p><span class="guilabel">Add Only Insert Points</span> - Blocks insertion point (blocks ဆုံမှတ်များ) များကို point layer တစ်ခုအဖြစ်ထည့်သွင်းသည်။</p></li>
+</ul>
+</li>
+<li><p>Import ပြုလုပ်ထားသည့် layers များကို <code class="docutils literal notranslate"><span class="pre">curved</span></code> geometry အမျိုးအစားတစ်ခုအဖြစ်သို့ ဆောင်ရွက်ရန် <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">Use curves</span> ကို အမှန်ခြစ်ပါ။</p></li>
+<li><p>ဦးတည်ရာ GeoPackage file ထဲသို့ drawing (ပုံ) ကို import ပြုလုပ်ရန် <span class="guilabel">Import</span> button  ကို အသုံးပြုပါ။ GeoPackage database ကို drawing file (ပုံဆွဲသားထားသည့်ဖိုင်) ပါ အကြောင်းအရာများ(content) ဖြင့် အလိုအလျောက်ဖြည့်သွင်းသွားမည်ဖြစ်သည်။ ဖိုင်အရွယ်အစားအလိုက် အချိန်အနည်းငယ်ကြာမြင့်မည်ဖြစ်ပါသည်။</p></li>
+</ol>
+<p><code class="file docutils literal notranslate"><span class="pre">.dwg</span></code> သို့မဟုတ် <code class="file docutils literal notranslate"><span class="pre">.dxf</span></code> data ကို GeoPackage database ထဲသို့ import ပြုလုပ်ပြီးပါက dialog ၏ အောက်ပိုင်းတစ်ဝက်ရှိဘောင် (frame) ကို imported file (import ပြုလုပ်ထားသည့်ဖိုင်) မှ layers စာရင်း (list)ဖြင့် ဖြည့်သွင်းသွားမည်ဖြစ်ပါသည်။ ထိုနေရာတွင် QGIS project ထဲသို့ မည်သည့် layer များ ထည့်သွင်းမည်ကို select ပြုလုပ်နိုင်ပါသည်-</p>
+<ol class="arabic simple">
+<li><p>ထိပ်ဘက်တွင် project ထဲတွင် drawing files များကို အုပ်စုဖွဲ့ရန် <span class="guilabel">Group name</span> ကို သတ်မှတ်ပါ။ ပုံမှန်အားဖြင့် ၎င်းကို source (မူရင်း) drawing file ၏ ဖိုင်အမည်အဖြစ်သတ်မှတ်ထားပါသည်။</p></li>
+<li><p>Layer များကို ပြသရန် အမှန်ခြစ်ပါ။ Select ပြုလုပ်ထားသည့် layer တစ်ခုချင်းစီကို point (အမှတ်) ၊ line(မျဉ်း) ၊ label(အညွှန်း) နှင့် ဧရိယာ features များအတွက် vector layers များပါဝင်သော ad hoc group ထဲသို့ထည့်သွင်းမည်ဖြစ်ပါသည်။ Layer များ၏ စတိုင်သည် ၎င်းတို့အနေဖြင့် *CAD ထဲတွင် နဂိုရှိခဲ့သည့်မူလပုံစံအတိုင်း အလားတူရှိမည်ဖြစ်ပါသည်။</p></li>
+<li><p>စဖွင့်ဖွင့်ခြင်း layer ကို တွေ့မြင်သင့်သည်ဟု ယူဆပါက ရွေးချယ်ပါ။</p></li>
+<li><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">Merge layers</span> option ကို အမှန်ခြစ်ခြင်းသည် layers များအားလုံးကို single group တစ်ခုထဲတွင် ထားရှိသွားမည်ဖြစ်ပါသည်။</p></li>
+<li><p>QGIS ထဲတွင် layers များကို ဖွင့်ရန် <span class="guilabel">OK</span> ကိုနှိပ်ပါ။</p></li>
+</ol>
+<figure class="align-center" id="id12">
+<span id="figure-dwg-dxf-import"></span><img alt="../../../_images/dwg_dxf_import_dialog.png" src="../../../_images/dwg_dxf_import_dialog.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 15.10 </span><span class="caption-text">DWG/DXF files များအတွက် Import dialog</span><a class="headerlink" href="#id12" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="openstreetmap-vector-import-importing-openstreetmap-vectors">
+<span id="openstreetmap"></span><span id="index-10"></span><h3><a class="toc-backref" href="#id35" role="doc-backlink"><span class="section-number">15.1.3.5. </span>OpenStreetMap Vector များကို import ပြုလုပ်ခြင်း (Importing OpenStreetMap Vectors)</a><a class="headerlink" href="#openstreetmap-vector-import-importing-openstreetmap-vectors" title="Link to this heading"></a></h3>
+<p>နိုင်ငံအများအပြားတွင် ဒီဂျစ်တယ်လမ်းမြေပုံများ (digital road maps) ကဲ့သို့သော အခမဲ့ geodata များမရရှိနိုင်သည့်အတွက် OpenStreetMap project သည် လူသိများထင်ရှားပါသည်။ OSM project ၏ ရည်ရွယ်ချက်မှာ GPS data ၊ aerial photography (ကောင်းကင်ဓာတ်ပုံ) နှင့် local knowledge (ဒေသန္တရဗဟုသုတအချက်အလက်များ) များမှ အခမဲ့ပြင်ဆင်နိုင်သည့် ကမ္ဘာကြီး၏မြေပုံ (free editable map of the world) အား ဖန်တီးရန်ဖြစ်ပါသည်။ အဆိုပါရည်ရွယ်ချက်ကို ပံ့ပိုးရန် QGIS သည် OSM data အတွက် ပံ့ပိုးမှု (support) ကို ထောက်ပံ့ပေးထားပါသည်။</p>
+<p><span class="guilabel">Browser Panel</span> ကို အသုံးပြု၍ map canvas ထဲတွင် <code class="file docutils literal notranslate"><span class="pre">.osm</span></code> ဖိုင်တစ်ခုကို ထည့်သွင်းနိုင်ပါသည်။ အဆိုပါကိစ္စရပ်တွင် geometry အမျိုးအစားအပေါ်အခြေခံ၍ sublayer (layers အခွဲများ) များကို select ပြုလုပ်ရန် dialog တစ်ခုကို ရရှိမည်ဖြစ်ပါသည်။ ထည့်သွင်းထားသည့် layer များသည် <code class="file docutils literal notranslate"><span class="pre">.osm</span></code> file ထဲရှိ အဆိုပါ geometry အမျိုးအစား၏ data အားလုံးပါဝင်ပြီး <code class="file docutils literal notranslate"><span class="pre">osm</span></code> ဖိုင်ဒေတာဖွဲ့စည်းတည်ဆောက်မှုပုံစံကို သိမ်းဆည်းထားမည်ဖြစ်ပါသည်။</p>
+</section>
+<section id="spatialite-layer-spatialite-layers">
+<span id="label-spatialite"></span><span id="index-11"></span><h3><a class="toc-backref" href="#id36" role="doc-backlink"><span class="section-number">15.1.3.6. </span>SpatiaLite layer များ (SpatiaLite Layers)</a><a class="headerlink" href="#spatialite-layer-spatialite-layers" title="Link to this heading"></a></h3>
+<p><a class="reference internal" href="../../../_images/mActionAddSpatiaLiteLayer.png"><img alt="addSpatiaLiteLayer" src="../../../_images/mActionAddSpatiaLiteLayer.png" style="width: 1.5em;" /></a> ပထမဆုံးအကြိမ်အဖြစ် SpatiaLite database တစ်ခုမှ data ကို ထည့်သွင်းရာတွင်အောက်ပါတို့ဖြင့် စတင်ဆောင်ရွက်နိုင်ပါသည်။-</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../../../_images/mActionAddSpatiaLiteLayer.png"><img alt="addSpatiaLiteLayer" src="../../../_images/mActionAddSpatiaLiteLayer.png" style="width: 1.5em;" /></a> <sup>Add SpatiaLite Layer</sup> toolbar button ကို click ပြုလုပ်ခြင်း</p></li>
+<li><p><span class="menuselection">Layer ► Add Layer</span> menu မှ <a class="reference internal" href="../../../_images/mActionAddSpatiaLiteLayer.png"><img alt="addSpatiaLiteLayer" src="../../../_images/mActionAddSpatiaLiteLayer.png" style="width: 1.5em;" /></a> <span class="menuselection">Add SpatiaLite Layer…</span> option ကို select ပြုလုပ်ခြင်း</p></li>
+<li><p>သို့မဟုတ် <kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">Ctrl</kbd>+<kbd class="kbd docutils literal notranslate">Shift</kbd>+<kbd class="kbd docutils literal notranslate">L</kbd></kbd> ကို နှိပ်ခြင်း</p></li>
+</ul>
+<p>၎င်းသည် QGIS သို့ သိရှိပြီးသားဖြစ်သည့် SpatiaLite database တစ်ခုနှင့် ချိတ်ဆက်ရန် (drop-down menu မှ ရွေးချယ်ထားသည့်အရာ) သို့မဟုတ် database အသစ်တစ်ခုကို ချိတ်ဆက်မှုအသစ်တစ်ခု (new connection) ဖြင့် သတ်မှတ်ချိတ်ဆက်ရန် ခွင့်ပြုသည့် window တစ်ခုကို ပေါ်လာစေမည်ဖြစ်ပါသည်။ ချိတ်ဆက်မှုအသစ်တစ်ခု (new connection) ကို သတ်မှတ်ရန် <span class="guilabel">New</span> အပေါ်တွင် click နှိပ်ပြီး သင့်၏ SpatiaLite database ကို ညွှန်ပြရန် file browser ကို အသုံးပြုပါ။ ၎င်းသည် <code class="file docutils literal notranslate"><span class="pre">.sqlite</span></code> extension ဖြင့်ရှိသည့် ဖိုင်တစ်ခုဖြစ်ပါသည်။</p>
+<p>QGIS သည် SpatiaLite ထဲတွင် ပြန်လည်ပြင်ဆင်နိုင်သည့်မြင်ကွင်းများ (editable views) ကိုလည်းပံ့ပိုးပေးပါသည်။</p>
+</section>
+<section id="global-positioning-system-gps">
+<h3><a class="toc-backref" href="#id37" role="doc-backlink"><span class="section-number">15.1.3.7. </span>ကမ္ဘာလုံးဆိုင်ရာတည်နေရာပြစနစ် (Global Positioning System - GPS)</a><a class="headerlink" href="#global-positioning-system-gps" title="Link to this heading"></a></h3>
+<p>GPS data များကိုသိမ်းဆည်းရန် ဒါဇင်နှင့်ချီသည့် အမျိုးမျိုးသော file format များရှိပါသည်။ QGIS မှ အသုံးပြုသည့် format ကို GPX (GPS eXchange format) ဟုခေါ်ဆိုပြီး ၎င်းသည် တူညီသည့်ဖိုင်ထဲတွင် waypoints (လမ်းခရီးတစ်ခုတွင်ရပ်နားသည့်နေရာများ) ၊ routes (စမှတ်မှဆုံးမှတ်သို့ရောက်ရှိရန်သတ်မှတ်ထားသည့်လမ်းကြောင်းများ) နှင့် tracks (သွားသည့်ခရီးတလျှောက် မှတ်ထားသော လမ်းကြောင်းများ) များပါဝင်နိုင်သော စံသတ်မှတ်ထားသည့် interchange format တစ်ခုဖြစ်ပါသည်။</p>
+<p>GPX file ကို select ပြုလုပ်ရန် <span class="guilabel">…</span> <sup>Browse</sup> button ကို အသုံးပြုပါ။
+ထို့နောက် အဆိုပါ GPX file မှ ထည့်သွင်းလိုသည့် feature အမျိုးအစားများကို select ပြုလုပ်ရန် check boxes များကို အသုံးပြုပါ။
+Feature အမျိုးအစားတစ်ခုချင်းစီကို သီးခြား layer တစ်ခုထဲတွင် ထည့်သွင်းသွားမည်ဖြစ်ပါသည်။</p>
+<p>GPS data ကိုင်တွယ်ဆောင်ရွက်ပုံနှင့်စပ်လျဉ်း၍ နောက်ထပ်အကြောင်းအရာများကို <a class="reference internal" href="../working_with_gps/index.html#working-gps"><span class="std std-ref">GPS Data များနှင့် အလုပ်လုပ်ခြင်း</span></a> တွင်ကြည့်ရှုပါ။</p>
+<figure class="align-center" id="id13">
+<span id="figure-gps-datasource-manager"></span><img alt="../../../_images/gps_datasource.png" src="../../../_images/gps_datasource.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 15.11 </span><span class="caption-text">GPS Data ထည့်သွင်းခြင်း Dialog</span><a class="headerlink" href="#id13" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="grass-geographic-resources-analysis-support-system-grass-gis">
+<h3><a class="toc-backref" href="#id38" role="doc-backlink"><span class="section-number">15.1.3.8. </span>GRASS (Geographic Resources Analysis Support System - GRASS GIS)</a><a class="headerlink" href="#grass-geographic-resources-analysis-support-system-grass-gis" title="Link to this heading"></a></h3>
+<p>GRASS vector data များဖြင့် လုပ်ဆောင်ခြင်းကို <a class="reference internal" href="../grass_integration/grass_integration.html#sec-grass"><span class="std std-ref">GRASS GIS နှင့်ပေါင်းစပ်အသုံးပြုခြင်း (GRASS GIS Integration)</span></a> section တွင်ဖော်ပြထားပါသည်။</p>
+</section>
+<section id="database-database-related-tools">
+<span id="db-tools"></span><span id="index-12"></span><h3><a class="toc-backref" href="#id39" role="doc-backlink"><span class="section-number">15.1.3.9. </span>Database အတွက်ကိရိယာများ (Database related tools)</a><a class="headerlink" href="#database-database-related-tools" title="Link to this heading"></a></h3>
+<section id="creating-a-stored-connection">
+<span id="vector-create-stored-connection"></span><span id="index-13"></span><h4><a class="toc-backref" href="#id40" role="doc-backlink">သိမ်းထားသည့် ချိတ်ဆက်မှုတစ်ခုကိုဖန်တီးခြင်း (Creating a stored Connection)</a><a class="headerlink" href="#creating-a-stored-connection" title="Link to this heading"></a></h4>
+<p>QGIS မှ ပံ့ပိုးပေးသည့် database format တစ်ခုမှ tables (ဇယားများ) ကို ဖတ်ရှုရန်နှင့်ရေးသားရန် အဆိုပါ database နှင့် ချိတ်ဆက်မှု (connection) တစ်ခုကို ဖန်တီးရမည်ဖြစ်ပါသည်။ Database များကို ချိတ်ဆက်ရန်နှင့်အသုံးပြုရန် <a class="reference internal" href="#browser-panel"><span class="std std-ref">QGIS Browser Panel</span></a> သည် အရိုးရှင်းဆုံးနှင့် ထောက်ခံမှုအများဆုံးရရှိထားသည့် နည်းလမ်းတစ်ခုဖြစ်ပြီး QGIS သည် ၎င်းတို့ထဲမှ တစ်ခုချင်းစီသို့ ချိတ်ဆက်ရန်နှင့် ၎င်းတို့၏ဇယားများကို ထည့်သွင်းရန် အခြားသော tool (ကိရိယာတန်ဆာပလာများ) များကို ပံ့ပိုးပေးထားပါသည်။-</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../../../_images/mActionAddPostgisLayer.png"><img alt="addPostgisLayer" src="../../../_images/mActionAddPostgisLayer.png" style="width: 1.5em;" /></a> <span class="menuselection">Add PostGIS Layer…</span> သို့မဟုတ် <kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">Ctrl</kbd>+<kbd class="kbd docutils literal notranslate">Shift</kbd>+<kbd class="kbd docutils literal notranslate">D</kbd></kbd> နှိပ်ခြင်း၊</p></li>
+<li><p><a class="reference internal" href="../../../_images/mActionAddMssqlLayer.png"><img alt="addMssqlLayer" src="../../../_images/mActionAddMssqlLayer.png" style="width: 1.5em;" /></a> <span class="menuselection">Add MS SQL Server Layer</span></p></li>
+<li><p><a class="reference internal" href="../../../_images/mActionAddOracleLayer.png"><img alt="addOracleLayer" src="../../../_images/mActionAddOracleLayer.png" style="width: 1.5em;" /></a> <span class="menuselection">Add Oracle Spatial Layer…</span> သို့မဟုတ် <kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">Ctrl</kbd>+<kbd class="kbd docutils literal notranslate">Shift</kbd>+<kbd class="kbd docutils literal notranslate">O</kbd></kbd> နှိပ်ခြင်း၊</p></li>
+<li><p><a class="reference internal" href="../../../_images/mActionAddHanaLayer.png"><img alt="addHanaLayer" src="../../../_images/mActionAddHanaLayer.png" style="width: 1.5em;" /></a> <span class="menuselection">Add SAP HANA Spatial Layer…</span> သို့မဟုတ် <kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">Ctrl</kbd>+<kbd class="kbd docutils literal notranslate">Shift</kbd>+<kbd class="kbd docutils literal notranslate">G</kbd></kbd> နှိပ်ခြင်း၊</p></li>
+</ul>
+<p>ဖော်ပြပါ tools များကို <span class="guilabel">Manage Layers Toolbar</span> နှင့် <span class="menuselection">Layer ► Add Layer ►</span> menu မှ ဝင်ရောက်ကြည့်ရှုသုံးစွဲ (accessible) နိုင်ပါသည်။ SpatialLite database ကို ချိတ်ဆက်ခြင်းအကြောင်းကို <a class="reference internal" href="#label-spatialite"><span class="std std-ref">SpatiaLite layer များ (SpatiaLite Layers)</span></a> တွင် ဖော်ပြထားပါသည်။</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><strong>QGIS Browser Panel မှ database သို့ ချိတ်ဆက်မှု (connection) ဖန်တီးသည်</strong></p>
+<p>Browser tree ထဲရှိ သက်ဆိုင်ရာ database ကို Select ပြုလုပ်ခြင်း၊ right-clicking (ညာဘက်ကလစ်နှိပ်ခြင်း) ပြုလုပ်ခြင်းနှင့်  ချိတ်ဆက်မှု (connect) ကို ရွေးချယ်ခြင်းသည် database connection dialog (database ချိတ်ဆက်မှုဆိုင်ရာဒိုင်ယာလော့ခ်) ကို ပံ့ပိုးပေးမည်ဖြစ်ပါသည်။</p>
+</div>
+<p>Connection dialogs အများစုသည် PostgreSQL database tool ကို နမူနာအဖြစ်အသုံးပြုမည့် အောက်တွင်ဖော်ပြထားသော ဖြစ်လေ့ဖြစ်ထရှိသည့် အခြေခံသဘောတရား (common basis) ကို လိုက်နာပါသည်။ အခြားပံ့ပိုးသူများ (providers) အတွက် သီးသန့်အပိုဆောင်း setting များကို ဖော်ပြပါ သက်ဆိုင်ရာဖော်ပြချက်များတွင် တွေ့ရှိနိုင်ပါသည်-</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#create-ms-sql-server-connection"><span class="std std-ref">MS SQL Server သို့ချိတ်ဆက်ခြင်း (Connecting to MS SQL Server)</span></a> (MS SQL Server သို့ ချိတ်ဆက်ခြင်း)၊</p></li>
+<li><p><a class="reference internal" href="#create-oracle-connection"><span class="std std-ref">Oracle Spatial သို့ချိတ်ဆက်ခြင်း (Connecting to Oracle Spatial)</span></a> (Oracle Spatial သို့ ချိတ်ဆက်ခြင်း)၊</p></li>
+<li><p><a class="reference internal" href="#create-hana-connection"><span class="std std-ref">SAP HANA သို့ချိတ်ဆက်ခြင်း (Connecting to SAP HANA)</span></a> (SAP HANA သို့ ချိတ်ဆက်ခြင်း)</p></li>
+</ul>
+<p>PostGIS data source ကို ပထမဆုံးအကြိမ် စတင်အသုံးပြုသည့်အချိန်တွင် data များပါဝင်သည့် database တစ်ခုကို ချိတ်ဆက်မှု (connection) တစ်ခုဖန်တီးရမည်ဖြစ်ပါသည်။ အထက်ဖော်ပြပါ သက်ဆိုင်ရာ button (ခလုတ်) ကို နှိပ်ခြင်းသည် <span class="guilabel">Add PostGIS Table(s)</span> dialog ကို ပွင့်စေမည်ဖြစ်ပါသည်။ (<a class="reference internal" href="#figure-add-postgis-tables"><span class="std std-numref">Fig. 15.14</span></a> တွင် ကြည့်ပါ) Connection manager (ချိတ်ဆက်မှုကိုစီမံခန့်ခွဲမှုများပြုလုပ်သည့်နေရာ) ကို ဝင်ရောက်ကြည့်ရှုသုံးစွဲခွင့် (access) ရရှိရန် <span class="guilabel">Create a New PostGIS Connection</span> dialog ကို ပြသရန်အတွက် <span class="guilabel">New</span> button အပေါ်တွင် click နှိပ်ပါ။</p>
+<figure class="align-center" id="id14">
+<span id="figure-new-postgis-connection"></span><img alt="../../../_images/newpostgisconnection.png" src="../../../_images/newpostgisconnection.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 15.12 </span><span class="caption-text">PostGIS Connection အသစ်တစ်ခုကိုဖန်တီးသည့် Dialog</span><a class="headerlink" href="#id14" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>PostGIS ဆိုင်ရာ ချိတ်ဆက်မှုတစ်ခုအတွက် လိုအပ်သော သတ်မှတ်ချက်များ (parameters) ကို အောက်တွင်ဖော်ပြထားပါသည်။
+အခြားသော database အမျိုးအစားများအတွက် ကွာခြားချက်များကို <a class="reference internal" href="#db-requirements"><span class="std std-ref">သီးခြားချိတ်ဆက်မှုဆိုင်ရာလိုအပ်ချက်များ (Particular Connection requirements)</span></a> တွင်ကြည့်ရှုပါ။</p>
+<ul>
+<li><p><span class="guilabel">Name</span> - ဤချိတ်ဆက်မှုအတွက်အမည်တစ်ခု။ ၎င်းသည် <span class="guilabel">Database</span> နှင့် အတူတူပင်ဖြစ်နိုင်ပါသည်။</p></li>
+<li><p><span class="guilabel">Service</span> - hostname/port (database ဖြစ်ကောင်းဖြစ်နိုင်ပါသည်) သို့ နောက်တစ်မျိုးဖြင့်အသုံးပြုမည့် ဝန်ဆောင်မှုဆိုင်ရာသတ်မှတ်ချက် (Service parameter)။ ၎င်းကို <code class="file docutils literal notranslate"><span class="pre">pg_service.conf</span></code> တွင် သတ်မှတ်နိုင်ပါသည်။ အခြားသောအသေးစိတ်အချက်အလက်များအတွက် <a class="reference internal" href="#pg-service-file"><span class="std std-ref">PostgreSQL ဝန်ဆောင်မှု အချိတ်အဆက်ဖိုင် (PostgreSQL Service connection file)</span></a> section ကို ကြည့်ပါ။</p></li>
+<li><p><span class="guilabel">Host</span> - Database host ၏ အမည်။ ၎င်းသည် TCP/IP connection တစ်ခုကိုဖွင့်ရန် သို့မဟုတ် host သည် IP ကွန်ရက်တစ်ခုအတွင်း ဆက်သွယ်နိုင်မှုရှိမရှိ စမ်းသပ်ခြင်း (ping) ပြုလုပ်ရန် အသုံးပြုနိုင်သည့် resolvable host name (တစ်ခု သို့မဟုတ် တစ်ခုထက်ပိုသော IP addresses များကို ဖြေရှင်းနိုင်သော host အမည်) တစ်ခုဖြစ်ရမည်ဖြစ်ပါသည်။ အကယ်၍ database သည် QGIS ကဲ့သို့ တူညီသည့်ကွန်ပျူတာပေါ်တွင်ရှိပါက ဤနေရာတွင် <em>localhost</em> ကို ထည့်သွင်းပါ။</p></li>
+<li><p><span class="guilabel">Port</span> - PostgreSQL database server တွင် စာရင်းပြုစုထားသည့် Port နံပါတ်။ PostGIS အတွက် ပုံမှန် port မှာ <code class="docutils literal notranslate"><span class="pre">5432</span></code> ဖြစ်ပါသည်။</p></li>
+<li><p><span class="guilabel">Database</span> - Database ၏ အမည်။</p></li>
+<li><p><span class="guilabel">SSL mode</span> - SSL encryption setup။ ဖော်ပြပါနည်းလမ်းများကိုလည်းရရှိနိုင်ပါသည်-</p>
+<ul class="simple">
+<li><p><span class="guilabel">Prefer</span> (ပုံမှန်) - မိမိအနေဖြင့် encryption (ဒေတာများ ခိုးယူခံရခြင်း၊ ပြောင်းလဲခြင်း သို့မဟုတ်ထိခိုက်အောင်ပြုလုပ်ခံရခြင်းမှ ကာကွယ်ရန်အတွက် အသုံးပြုသည်) ကို အလေးမထားပါ။ သို့သော် အကယ်၍ server သည် ၎င်းကိုပံ့ပိုးပေးထားပါက encryption ၏ overhead (မူရင်းပက်ကေ့ခ်ျများထဲသို့ IPsec ကထပ်ထည့်ပေးထားသည့် အပိုဒေတာနှင့် processing) အတွက်ပေးရန် ဆန္ဒရှိပါသည်။</p></li>
+<li><p><span class="guilabel">Require</span> - မိမိ၏ ဒေတာများကို encrypt ပြုလုပ်လိုပြီး overhead ကိုလက်ခံပါသည်။ ကွန်ယက်သည် မိမိအလိုရှိသည့် server အား အမြဲချိတ်ဆက်မှုပြုလုပ်စေမည်ကို ယုံကြည်ပါသည်။</p></li>
+<li><p><span class="guilabel">Verify CA</span> - မိမိ၏ ဒေတာများကို encrypt ပြုလုပ်လိုပြီး overhead ကိုလက်ခံပါသည်။ မိမိအနေဖြင့် ကွန်ယက်သည် မိမိယုံကြည်ရသည့် server ကိုချိတ်ဆက်နေသည်ကို သေချာစေလိုပါသည်။</p></li>
+<li><p><span class="guilabel">Verify Full</span> - မိမိ၏ ဒေတာများကို encrypt ပြုလုပ်လိုပြီး overhead ကိုလက်ခံပါသည်။ မိမိအနေဖြင့် ကွန်ယက်သည် မိမိယုံကြည်ရသည့် server တစ်ခုကို ချိတ်ဆက်ထားပြီး ၎င်းသည် မိမိမှ သတ်မှတ်ထားသည့် server ဖြစ်သည်ကို သေချာစေလိုပါသည်။</p></li>
+<li><p><span class="guilabel">Allow</span> - မိမိအနေဖြင့် လုံခြုံရေး (security) ကို ဂရုမစိုက်ပါ။ သို့သော် server ကတောင်းဆိုပါက overhead ကို ပေးမည်ဖြစ်ပါသည်။</p></li>
+<li><p><span class="guilabel">Disable</span> - မိမိအနေဖြင့် လုံခြုံရေး (security) ကို ဂရုမစိုက်ပါ။ encryption ၏ overhead ကို ပေးရန်လည်း ဆန္ဒမရှိပါ။</p></li>
+</ul>
+</li>
+<li><p><span class="guilabel">Authentication</span>- အခြေခံအားဖြင့်။</p>
+<ul class="simple">
+<li><p><span class="guilabel">User name</span> - Database သို့ လော့ဂ်အင် (log in) ဝင်ရန်အသုံးပြုသည့် အသုံးပြုသူ၏အမည် (User name)</p></li>
+<li><p><span class="guilabel">Password</span> - Database သို့ ချိတ်ဆက်ရန် <em>Username</em> နှင့်အတူအသုံးပြုမည့် Password (စကားဝှက်)</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">User</span> <span class="pre">name</span></code> နှင့် <code class="docutils literal notranslate"><span class="pre">Password</span></code> သတ်မှတ်ချက်များကို တစ်ခုတည်းကိုဖြစ်စေ၊ နှစ်ခုလုံးကိုဖြစ်စေ သိမ်းဆည်းနိုင်ပါသည်။ ထိုသို့သိမ်းဆည်းပါက သင့်အနေဖြင့် ဤ database ကို ချိတ်ဆက်သည့်အချိန်တစ်ခုစီတိုင်းတွင် ၎င်းတို့ကို ပုံမှန် (default) အဖြစ်အသုံးပြုသွားမည်ဖြစ်ပါသည်။ အကယ်၍ သိမ်းဆည်းမထားပါက နောက် QGIS sessions တွင် database ကိုချိတ်ဆက်ရန်အတွက် လိုအပ်သည့်အထောက်အထားများ (credentials) ကို ပံ့ပိုးပေးရန် အသိပေးခြင်းခံရမည်ဖြစ်ပါသည်။ သင်ထည့်သွင်းလိုက်သည့် ချိတ်ဆက်မှုဆိုင်ရာသတ်မှတ်ချက်များ (connection parameters) ကို temporary(ယာယီ) internal cache (CPU Chip တွင်တည်ဆောက်ထားသော Memory bank တစ်ခု) ထဲတွင်သိမ်းဆည်းထားပြီး လက်ရှိ  QGIS session ကို အပြီးမသတ်သေးခင် (end) အချိန်အထိ တူညီသည့် database အတွက် username (အသုံးပြုသူအမည်)/password (စကားဝှက်) ကို တောင်းခံသည့်အခါတိုင်းတွင် ပြန်လည်ရောက်ရှိမည်ဖြစ်ပါသည်။</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><strong>QGIS အသုံးပြုသူဆိုင်ရာ Settings နှင့် လုံခြုံစိတ်ချရမှု</strong></p>
+<p><span class="guilabel">Authentication</span> tab ထဲတွင် <strong>username</strong> နှင့် <strong>password</strong> ကို သိမ်းဆည်းခြင်းသည် ကာကွယ်ထားခြင်းမရှိသည့် အထောက်အထားများ (credentials) ကို connection configuration (Diameter nodes များအကြား ယုံကြည်စိတ်ချရသည့် သယ်ယူပို့ဆောင်မှုများကို ပံ့ပိုးပေးသည့် ချိတ်ဆက်မှုတစ်ခု) ထဲတွင် သိမ်းဆည်းထားလိမ့်မည်ဖြစ်ပါသည်။ ဥပမာ- project ဖိုင်ကို အခြားသူနှင့် မျှဝေခြင်းပြုလုပ်သည့်အခါတွင် အဆိုပါ အထောက်အထားများကို မြင်နိုင်မည် (<strong>credentials will be visible</strong>) ဖြစ်ပါသည်။ ၎င်းအစား အထောက်အထားများ (credentials) ကို <em>Authentication configuration</em> (<span class="guilabel">Configurations</span> tab- အခြားသောအသေးစိတ်အချက်အလက်များအတွက် <span class="xref std std-ref">authentication_index</span> ကို ကြည့်ပါ) ထဲတွင် သိမ်းဆည်းရန် သို့မဟုတ် service connection file တစ်ခုထဲတွင် သိမ်းဆည်းရန် (နမူနာအနေဖြင့် <a class="reference internal" href="#pg-service-file"><span class="std std-ref">PostgreSQL ဝန်ဆောင်မှု အချိတ်အဆက်ဖိုင် (PostgreSQL Service connection file)</span></a> ကို ကြည့်ပါ။) အကြံပြုပါသည်။</p>
+</div>
+</li>
+<li><p><span class="guilabel">Authentication</span> ၊ ပြင်ဆင်သတ်မှတ်ခြင်းများ။ Authentication configuration (system ကို အသုံးပြုသူများအတွက် စစ်မှန်ကြောင်းအတည်ပြုမှုကိုဖန်တီးသတ်မှတ်ခြင်း) တစ်ခုကိုရွေးချယ်ပါ။ <a class="reference internal" href="../../../_images/symbologyAdd.png"><img alt="symbologyAdd" src="../../../_images/symbologyAdd.png" style="width: 1.5em;" /></a> button ကို အသုံးပြု၍ ပြင်ဆင်သတ်မှတ်ခြင်းများကို ထည့်သွင်းနိုင်ပါသည်။ ရွေးချယ်စရာများမှာ-</p>
+<ul class="simple">
+<li><p>Basic authentication (အခြေခံအားဖြင့် စစ်မှန်ကြောင်းအတည်ပြုမှု)</p></li>
+<li><p>PKI PKCS#12 authentication (PKI PKCS#12 စစ်မှန်ကြောင်းအတည်ပြုမှု)</p></li>
+<li><p>PKI paths authentication (PKI paths စစ်မှန်ကြောင်းအတည်ပြုမှု)</p></li>
+<li><p>PKI stored identity certificate (PKI သက်သေခံအထောက်အထားလက်မှတ်ကို သိမ်းဆည်းထားသည်)</p></li>
+</ul>
+</li>
+</ul>
+<p>Database အမျိုးအစားအလိုက် ဖော်ပြပါ checkbox များကို အသက်ဝင်အောင်ဆောင်ရွက်ခြင်း (activate) ပြုလုပ်နိုင်ပါသည်-</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">Only show layers in the layer registries</span> (layer စာရင်းသွင်းထားမှုများ (layer registries) ထဲရှိ layers များကိုသာပြသသည်။)</p></li>
+<li><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">Don’t resolve type of unrestricted columns (GEOMETRY)</span> (ကန့်သတ်မထားသော(unrestricted) ကော်လံအမျိုးအစားများကိုဖြေရှင်းခြင်းမပြုရန် (GEOMETRY))</p></li>
+<li><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">Only look in the ‘public’ schema</span> (Public schema ထဲတွင်သာ ကြည့်သည်။)</p></li>
+<li><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">Also list tables with no geometry</span> (Geometry မပါရှိသည့် ဇယားများကို စာရင်းပြုစုသည်။)</p></li>
+<li><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">Use estimated table metadata</span> (ခန့်မှန်းတွက်ချက်ထားသည့် table metadata ကို အသုံးပြုသည်။)</p></li>
+<li><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">Allow saving/loading QGIS projects in the database</span> (Database ထဲတွင် QGIS projects များကို သိမ်းဆည်းခြင်း/ထည့်သွင်းခြင်းများခွင့်ပြုသည်။) - အသေးစိတ်ကို <a class="reference internal" href="../introduction/project_files.html#saveprojecttodb"><span class="std std-ref">here</span></a> တွင် ကြည့်ရှုရန်</p></li>
+<li><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">Allow saving/loading QGIS layer metadata in the database</span> (database ထဲတွင် QGIS layer metadata များကို သိမ်းဆည်းခြင်း/ထည့်သွင်းခြင်းများခွင့်ပြုသည်) - အသေးစိတ်ကို <a class="reference internal" href="../introduction/general_tools.html#savemetadatatodb"><span class="std std-ref">ဤ</span></a> တွင် ကြည့်ရှုရန်။</p></li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><strong>လုပ်ငန်းဆောင်တာများ (operations) ကို မြန်ဆန်စေ (speed up) ရန် ခန့်မှန်းတွက်ချက်ထားသည့် table metadata ကို အသုံးပြုသည်</strong></p>
+<p>Layers များကို စတင်ဆောင်ရွက်သောအခါ၌ database ဇယားတွင် သိမ်းဆည်းထားသော geometries များ၏ ဝိသေသလက္ခဏာများ (characteristics)ကို သတ်မှတ်ရန် အမျိုးမျိုးသော queries များကို လိုအပ်မည်ဖြစ်ပါသည်။ <span class="guilabel">Use estimated table metadata</span> ကို အမှန်ခြစ်ထားပါက အဆိုပါ queries များသည် ဇယားတစ်ခုလုံးထက် row များ၏ နမူနာ sample တစ်ခုကိုသာ စစ်ဆေးပြီး table statistics(ကိန်းဂဏန်းများကို စနစ်တကျစီစဉ်၍ mass processess အချို့ကို ဖော်ပြပြီး စာရင်းအင်းဆိုင်ရာအချက်အလက်များကိုဖော်ပြရန် အသုံးပြုသည့်နည်းလမ်း) များကို အသုံးပြုပါသည်။ ၎င်းသည် ကြီးမားသည့် datasets များအပေါ် လုပ်ငန်းဆောင်တာများ (operations) လည်ပတ်ခြင်းကို မြန်ဆန်စေပါသည်။ သို့ရာတွင် layers များ၏ မှန်ကန်မှုမရှိသည့် ဝိသေသလက္ခဏာများကို (incorrect characterization) ရရှိစေနိုင်မည်ဖြစ်ပြီး (ဥပမာ- စစ်ထုတ်ထားသည့် layer များ၏ feature count (feature အရေအတွက်) ကို တိကျစွာဆုံးဖြတ်နိုင်ခြင်းရှိမည်မဟုတ်ပါ) အမှန်တကယ်တွင် ထူးခြားမှုရှိသည့် column များကို ထူးခြားခြင်းမရှိပါဟု ယူဆလိုက်ပါက ထူးဆန်းသည့် ပြုမှုဆောင်ရွက်မှုများ (behaviour) ကိုပင်ဖြစ်စေပါသည်။</p>
+</div>
+<p>သတ်မှတ်ချက်များနှင့် နည်းလမ်းများအားလုံးကို သတ်မှတ်ပြီးပါက ချိတ်ဆက်မှု (connection) အား <span class="guilabel">Test Connection</span> ကို click နှိပ်ခြင်းဖြင့် သို့မဟုတ် <span class="guilabel">OK</span> button ကို click နှိပ်ပြီး ၎င်းအား apply ပြုလုပ်ခြင်းဖြင့် စမ်းသပ်စစ်ဆေးနိုင်ပါသည်။ <span class="guilabel">Add PostGIS Table(s)</span> မှ <span class="guilabel">Connect</span> အပေါ်တွင် click နှိပ်ပါ။ Dialog ကို select ပြုလုပ်ထားသည့် database မှ ဇယားများဖြင့် ဖြည့်သွင်းသွားမည်ဖြစ်ပါသည်။ (<a class="reference internal" href="#figure-add-postgis-tables"><span class="std std-numref">Fig. 15.14</span></a> တွင် ပြသထားသကဲ့သို့)</p>
+</section>
+<section id="particular-connection-requirements">
+<span id="db-requirements"></span><h4><a class="toc-backref" href="#id41" role="doc-backlink">သီးခြားချိတ်ဆက်မှုဆိုင်ရာလိုအပ်ချက်များ (Particular Connection requirements)</a><a class="headerlink" href="#particular-connection-requirements" title="Link to this heading"></a></h4>
+<p>Database အမျိုးအစားများ၏ ထူးခြားမှုများ (particularities) ကြောင့် ထည့်သွင်းပံ့ပိုးပေးထားသည့် နည်းလမ်းများ (options) မှာလည်း တူညီမှုရှိမည်မဟုတ်ပါ။ Database specific options (Database ဆိုင်ရာ သီးခြားနည်းလမ်း) များကို အောက်တွင်ဖော်ပြထားပါသည်-</p>
+<section id="postgresql-postgresql-service-connection-file">
+<span id="pg-service-file"></span><h5><a class="toc-backref" href="#id42" role="doc-backlink">PostgreSQL ဝန်ဆောင်မှု အချိတ်အဆက်ဖိုင် (PostgreSQL Service connection file)</a><a class="headerlink" href="#postgresql-postgresql-service-connection-file" title="Link to this heading"></a></h5>
+<p>Service connection file သည် PostgreSQL connection parameters (PostgreSQL ချိတ်ဆက်မှုဆိုင်ရာသတ်မှတ်ချက်များ) ကို
+service name (၎င်း၏အမည်သည် “ . service “ ဖြင့်အဆုံးသတ်ပြီး system မှ ထိန်းချုပ်ကွပ်ကဲထားသည့် လုပ်ငန်းစဉ်တစ်ခု‌အကြောင်း encode ပြုလုပ်သည့် unit configuration file တစ်ခု) တစ်ခုနှင့် ဆက်စပ်မှုရှိစေရန် ခွင့်ပြုပါသည်။ Service name ကို နောက်ပိုင်းတွင် client မှ ပြန်လည်သတ်မှတ်နိုင်ပြီး သက်ဆိုင်ရာ ဆက်စပ် settings များကို အသုံးပြုသွားမည်ဖြစ်ပါသည်။</p>
+<p>၎င်းကို *nix systems (GNU/Linux ၊ macOS အစရှိသည်) အောက်တွင် <code class="file docutils literal notranslate"><span class="pre">.pg_service.conf</span></code> ဟုခေါ်ဆိုပြီး
+Windows များအပေါ်တွင် <code class="file docutils literal notranslate"><span class="pre">pg_service.conf</span></code>  ဟုခေါ်ဆိုပါသည်။</p>
+<p>Service file ကို အောက်ပါအတိုင်းတွေ့မြင်နိုင်ပါသည်-</p>
+<blockquote>
+<div><p>[water_service]
+host=192.168.0.45
+port=5433
+dbname=gisdb
+user=paul
+password=paulspass</p>
+<p>[wastewater_service]
+host=dbserver.com
+dbname=water
+user=waterpass</p>
+</div></blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>အထက်ဖော်ပြပါ နမူနာများတွင် service (၂) ခုရှိပါသည်- <code class="docutils literal notranslate"><span class="pre">water_service</span></code> နှင့် <code class="docutils literal notranslate"><span class="pre">wastewater_service</span></code> တို့ဖြစ်ပါသည်။ ချိတ်ဆက်လိုသည့် service ၏ အမည်ကို သတ်မှတ်ပေးရုံဖြင့် (ကွင်းပိတ်များမပါဘဲ) QGIS ၊ pgAdmin စသည်တို့မှ ချိတ်ဆက်ရန် ၎င်းတို့ကို အသုံးပြုနိုင်ပါသည်။ Service ကို <code class="docutils literal notranslate"><span class="pre">psql</span></code> နှင့်အတူ အသုံးပြုလိုပါက psql commands (အမိန့်ပေးစေခိုင်းမှုများ) ကို ဆောင်ရွက်ခြင်းမပြုမီတွင် <code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">PGSERVICE=water_service</span></code> ကဲ့သို့သော အချို့အရာများကို လုပ်ဆောင်ရန်လိုအပ်ပါသည်။</p>
+<p>PostgreSQL parameters များအားလုံးကို <a class="reference external" href="https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-PARAMKEYWORDS">ဤတွင်</a> တွေ့ရှိနိုင်ပါသည်။</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>အကယ်၍ passwords ကို service file ထဲတွင် သိမ်းဆည်းလိုခြင်းမရှိပါက <a class="reference external" href="https://www.postgresql.org/docs/current/libpq-pgpass.html">.pg_pass</a> နည်းလမ်းကို အသုံးပြုနိုင်ပါသည်။</p>
+</div>
+<p>*nix operating systems (GNU/Linux ၊ macOS အစရှိသည်) များတွင် <code class="file docutils literal notranslate"><span class="pre">.pg_service.conf</span></code> file ကို အသုံးပြုသူ (user) ၏
+home directory (system ၏ ပေးထားသည့် အသုံးပြုသူအတွက် ဖိုင်များ ပါဝင်သော multi-user operating system ရှိ ဖိုင်စနစ်လမ်းညွှန် တစ်ခု ဖြစ်သည်) ထဲတွင် သိမ်းဆည်းနိုင်ပြီး PostgreSQL clients များသည် ၎င်းကို အလိုအလျောက်သတိပြုမိမည်ဖြစ်ပါသည်။ ဥပမာ- အကယ်၍ logged user (အကောင့်ဝင်ထားသည့် အသုံးပြုသူ) သည် <code class="docutils literal notranslate"><span class="pre">web</span></code> ဖြစ်ပါက လုပ်ငန်းဆောင်တာများကို တိုက်ရိုက်ဆောင်ရွက်နိုင်ရန် (အခြားသော environment variables(ကွန်ပျူတာပေါ်တွင် လုပ်ဆောင်နေသည့် လုပ်ငန်းစဉ်များလုပ်ဆောင်ပုံအပေါ် သက်ရောက်မှုရှိနိုင်သည့် အသုံးပြုသူမှ သတ်မှတ်နိုင်သော တန်ဖိုးတစ်ခု) ကို သတ်မှတ်ခြင်းမရှိဘဲ) <code class="file docutils literal notranslate"><span class="pre">.pg_service.conf</span></code> ကို <code class="file docutils literal notranslate"><span class="pre">/home/web/</span></code> directory ထဲတွင် သိမ်းဆည်းမည်ဖြစ်ပါသည်။</p>
+<p>Service file ၏ တည်နေရာကို <code class="docutils literal notranslate"><span class="pre">PGSERVICEFILE</span></code> environment variable တစ်ခုကိုဖန်တီးခြင်းဖြင့် သတ်မှတ်နိုင်ပါသည်။ (ဥပမာ- <code class="docutils literal notranslate"><span class="pre">PGSERVICEFILE</span></code> variable (ကိန်းရှင်) ကို ယာယီသတ်မှတ်ရန် သင့် *nix OS အောက်ရှိ <code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">PGSERVICEFILE=/home/web/.pg_service.conf</span></code> command ကို run ပါ။)</p>
+<p>Service file ကို  <code class="docutils literal notranslate"><span class="pre">pg_config</span> <span class="pre">--sysconfdir</span></code> ထဲရှိ <code class="file docutils literal notranslate"><span class="pre">.pg_service.conf</span></code> ဖိုင်ကို ထားရှိခြင်း သို့မဟုတ် service file ပါဝင်သည့်  directory ကို သတ်မှတ်ရန် <code class="docutils literal notranslate"><span class="pre">PGSYSCONFDIR</span></code> environment variable ကို ထည့်သွင်းခြင်းဖြင့် system-wide (အသုံးပြုသူအားလုံး) ဖြစ်စေရန်ဆောင်ရွက်နိုင်ပါသည်။ အကယ်၍ service definitions သည် user file(အသုံးပြုသူမှဖန်တီးထားသည့်ဖိုင်)နှင့် system file (operating system သို့မဟုတ် device driver တစ်ခု၏အစိတ်အပိုင်းဖြစ်သည့် အရေးကြီးသည့်ဖိုင်) ထဲတွင် တူညီသည့်အမည်ဖြင့်ရှိနေပါက user file ကို ဦးစားပေးပါသည်။</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Windows များအောက်တွင် သတိပေးချက် (caveat) အချို့ရှိပါသည်-</p>
+<ul class="simple">
+<li><p>Service file ကို <code class="file docutils literal notranslate"><span class="pre">pg_service.conf</span></code> အဖြစ်သိမ်းဆည်းသင့်ပြီး <code class="file docutils literal notranslate"><span class="pre">.pg_service.conf</span></code> အဖြစ်မသိမ်းဆည်းသင့်ပါ။</p></li>
+<li><p>လုပ်ငန်းဆောင်တာများဆောင်ရွက်ရန် service file ကို Unix format ဖြင့် သိမ်းဆည်းသင့်ပါသည်။ ထိုသို့လုပ်ဆောင်ရန် နည်းလမ်းတစ်ခုမှာ ၎င်းကို <a class="reference external" href="https://notepad-plus-plus.org/">Notepad++</a>  နှင့် <span class="menuselection">Edit ► EOL Conversion ► UNIX Format ► File save</span> ဖြင့် ဖွင့်ခြင်းဖြစ်ပါသည်။</p></li>
+<li><p>Environmental variables (ကွန်ပျူတာပေါ်တွင် လုပ်ဆောင်နေသည့် လုပ်ငန်းစဉ်များလုပ်ဆောင်ပုံအပေါ် သက်ရောက်မှုရှိနိုင်သည့် အသုံးပြုသူမှ သတ်မှတ်နိုင်သော တန်ဖိုးတစ်ခု) များကို နည်းလမ်းများစွာဖြင့် ထည့်သွင်းနိုင်ပါသည်။ ယုံကြည်စိတ်ချရပြီး စမ်းသပ်ထားသည့်နည်းလမ်းတစ်ခုမှာ ဖိုင်လမ်းကြောင်း - ဥပမာ- <code class="file docutils literal notranslate"><span class="pre">C:\Users\John\pg_service.conf</span></code>  နှင့်အတူ  <code class="docutils literal notranslate"><span class="pre">PGSERVICEFILE</span></code> ကိုထည့်သွင်းသည့် <span class="menuselection">Control Panel ► System and Security ►System ► Advanced system settings ► Environment Variables</span>  ဖြစ်ပါသည်။</p></li>
+<li><p>Environment variable တစ်ခုကို ထည့်သွင်းပြီးပါက ကွန်ပျူတာကို restart လုပ်ရန်လိုအပ်မည်ဖြစ်ပါသည်။</p></li>
+</ul>
+</div>
+</section>
+<section id="oracle-spatial-connecting-to-oracle-spatial">
+<span id="create-oracle-connection"></span><h5><a class="toc-backref" href="#id43" role="doc-backlink">Oracle Spatial သို့ချိတ်ဆက်ခြင်း (Connecting to Oracle Spatial)</a><a class="headerlink" href="#oracle-spatial-connecting-to-oracle-spatial" title="Link to this heading"></a></h5>
+<p>Oracle Spatial ထဲရှိ spatial features များသည် အသုံးပြုသူကို Oracle database တစ်ခုအတွင်းတွင် native type (မူရင်းအမျိုးအစား) ဖြင့် ပထဝီဝင်နှင့်တည်နေရာဆိုင်ရာဒေတာအချက်အလက် (geographic and location data) များကို စီမံခန့်ခွဲရာတွင် ကူညီပါသည်။ <a class="reference internal" href="#vector-create-stored-connection"><span class="std std-ref">သိမ်းထားသည့် ချိတ်ဆက်မှုတစ်ခုကိုဖန်တီးခြင်း (Creating a stored Connection)</span></a> ထဲရှိ နည်းလမ်းအချို့အပြင် connection dialog (ရှိပြီးသား Server Connection Definition အတွက် ချိတ်ဆက်မှုဒေတာကို ဖန်တီးရန် သို့မဟုတ် ပြင်ဆင်ရန် အသုံးပြုသည့် dialog) သည် အောက်ဖော်ပြပါတို့ကို အဆိုပြုပါသည်-</p>
+<ul class="simple">
+<li><p><strong>Database</strong> - Oracle instance (Oracle instance တစ်ခုတွင် Oracle database ကို ဆောင်ရွက်စေသည့် shared memory structures နှင့် background processesများ ပါဝင်ပါသည်) ၏  SID သို့မဟုတ် SERVICE_NAME</p></li>
+<li><p><strong>Port</strong> - Oracle database server တွင် စာရင်းပြုစုဖော်ပြထားသည့် နံပါတ်။ ပုံမှန်နံပါတ် (defaultport) မှာ <code class="docutils literal notranslate"><span class="pre">1521</span></code> ဖြစ်ပါသည်။</p></li>
+<li><p><strong>Options</strong> - Oracle connection specific options (Oracle ချိတ်ဆက်မှု ဆိုင်ရာသီးသန့်နည်းလမ်းများ) (ဥပမာ OCI_ATTR_PREFETCH_ROWS ၊ OCI_ATTR_PREFETCH_MEMORY)။ Options string ၏ format မှာ semicolon ဖြင့်ပိုင်းခြားထားသည့် နည်းလမ်းများ၏အမည်စာရင်း (semicolon separated list of option names) သို့မဟုတ် option=value pairs; ဖြစ်ပါသည်။</p></li>
+<li><p><strong>Workspace</strong> - Workspace ပြောင်းလဲရန်</p></li>
+<li><p><strong>Schema</strong> - Data များကိုသိမ်းဆည်းထားသည့် Schema</p></li>
+</ul>
+<p>ရွေးချယ်လိုပါကရွေးချယ်နိုင်ပါသည်။ အောက်ပါ checkboxes များကို အသက်ဝင်အောင်ဆောင်ရွက်ခြင်း (activate) ပြုလုပ်နိုင်ပါသည်-</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">Only look in metadata table (Metadata table ထဲတွင်သာကြည့်ရန်)</span> - <code class="docutils literal notranslate"><span class="pre">all_sdo_geom_metadata</span></code> view ထဲရှိ ပြသထားသည့်ဇယား (displayed tables) များကို ကန့်သတ် (restrict) ပါသည်။ ၎င်းသည် spatial tables များအစပြုပြသမှု (initial display) ကို မြန်ဆန်စေပါသည်။</p></li>
+<li><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">Only look for user’s tables (User table များကိုသာရှာဖွေခြင်း)</span> - Spatial tables များကို ရှာဖွေရာတွင် အသုံးပြုသူမှပိုင်ဆိုင်သည့် tables (ဇယားများ) သို့ ရှာဖွေခြင်းအား ကန့်သတ်ပါသည်။</p></li>
+<li><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">Also list tables with no geometry (Geometry မပါသည့် table များစာရင်းပြုစုခြင်း)</span> - Default အနေဖြင့်  geometry မပါရှိသည့် table များကိုလည်း စာရင်းပြုစုသင့်သည်ကို ညွှန်ပြပါသည်။</p></li>
+<li><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">Use estimated table statistics for the layer metadata (Layer metadata အတွက် ခန့်မှန်း table ကိန်းဂဏန်းစာရင်းအင်း ကိုအသုံးပြုခြင်း)</span> - Layer ကို သတ်မှတ်သည့်အခါတွင် အမျိုးမျိုးသော metadata များကို Oracle table အတွက် လိုအပ်မည်ဖြစ်ပါသည်။ ၎င်းတွင် data ၏ table row count (ဇယားအတန်းအရေအတွက်) ၊ geometry type (geometry အမျိုးအစား) နှင့် spatial extents (နယ်ပယ်အတိုင်းအတာပမာဏ) ကဲ့သို့သော အချက်အလက်များပါဝင်ပါသည်။ အကယ်၍ table သည် rows အရေအတွက်များ အများအပြားပါဝင်ပါက အဆိုပါ metadata ကို ဆုံးဖြတ်ခြင်းသည် အချိန်ကုန်မည်ဖြစ်ပါသည်။ ဤနည်းလမ်းကို အသက်ဝင်အောင်ဆောင်ရွက်ခြင်း (activating) သည် ဖော်ပြပါ မြန်ဆန်သည့် table metadata ဆိုင်ရာ လုပ်ငန်းဆောင်တာများလည်ပတ်ခြင်း (table metadata operations) ကို ဆောင်ရွက်ပြီးဖြစ်မည်ဖြစ်ပါသည်။ Row count (ဇယားအတန်းအရေအတွက်) ကို <code class="docutils literal notranslate"><span class="pre">all_tables.num_rows</span></code> မှ ဆုံးဖြတ်ပါသည်။ အကယ်၍ layer filter (layer အား စစ်ထုတ်မှု) ပြုလုပ်ထားစေကာမူ Table extents (ဇယား၏နယ်ပယ်အတိုင်းအတာပမာဏ) ကို SDO_TUNE.EXTENTS_OF function ဖြင့် အမြဲဆုံးဖြတ်ပါသည်။ Table geometry ကို table ထဲရှိ ပထမဆုံး non-null geometry rows (၁၀၀) မှ ဆုံးဖြတ်ပါသည်။</p></li>
+<li><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">Only existing geometry types (တည်ရှိနေပြီးသား geometry အမျိုးအစားများသာ)</span> - လက်ရှိရှိနေသည့် geometry အမျိုးအစားများကိုသာ စာရင်းပြုစုမည်ဖြစ်ပြီး အခြားအမျိုးအစားများကို ထည့်သွင်းမည်မဟုတ်ပါ။</p></li>
+<li><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">Include additional geometry attributes (အခြားအပိုဆောင်း geometry attribute များ ပါဝင်စေခြင်း)</span></p></li>
+</ul>
+<div class="admonition tip" id="tip-oracle-spatial-layers">
+<p class="admonition-title">Tip</p>
+<p><strong>Oracle Spatial Layer များ</strong></p>
+<p>ပုံမှန်အားဖြင့် Oracle Spatial layer တစ်ခုကို <strong>USER_SDO_METADATA</strong> table ထဲတွင် entry တစ်ခုဖြင့် သတ်မှတ်ပါသည်။</p>
+<p>Selection ပြုလုပ်သည့် tools သည် ကောင်းစွာအလုပ်လုပ်သည်ကို သေချာမှုရှိစေရန် tables တွင် <strong>primary key</strong> တစ်ခုရှိရန်အကြံပြုအပ်ပါသည်။</p>
+</div>
+</section>
+<section id="ms-sql-server-connecting-to-ms-sql-server">
+<span id="create-ms-sql-server-connection"></span><h5><a class="toc-backref" href="#id44" role="doc-backlink">MS SQL Server သို့ချိတ်ဆက်ခြင်း (Connecting to MS SQL Server)</a><a class="headerlink" href="#ms-sql-server-connecting-to-ms-sql-server" title="Link to this heading"></a></h5>
+<p><a class="reference internal" href="#vector-create-stored-connection"><span class="std std-ref">သိမ်းထားသည့် ချိတ်ဆက်မှုတစ်ခုကိုဖန်တီးခြင်း (Creating a stored Connection)</span></a> ထဲရှိ နည်းလမ်းအချို့အပြင် MS SQL Server connection dialog အသစ်တစ်ခုကို ဖန်တီးခြင်းသည် <strong>Provider/DSN</strong> အမည်ကို ဖြည့်စွက်စေပါလိမ့်မည်ဖြစ်ပါသည်။ ရရှိနိုင်သည့် databases များကိုလည်းပြသနိုင်ပါသည်။</p>
+</section>
+<section id="sap-hana-connecting-to-sap-hana">
+<span id="create-hana-connection"></span><h5><a class="toc-backref" href="#id45" role="doc-backlink">SAP HANA သို့ချိတ်ဆက်ခြင်း (Connecting to SAP HANA)</a><a class="headerlink" href="#sap-hana-connecting-to-sap-hana" title="Link to this heading"></a></h5>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>SAP HANA Client ကိုလိုအပ်မည်ဖြစ်ပါသည်။ သင့်ပလက်ဖောင်းအတွက် SAP HANA Client ကို <a class="reference external" href="https://tools.hana.ondemand.com/#hanatools">SAP Development Tools website</a> မှ ဒေါင်းလုပ်ရယူနိုင်ပါသည်။</p>
+</div>
+<figure class="align-center" id="id15">
+<span id="figure-new-hana-connection"></span><img alt="../../../_images/newhanaconnection.png" src="../../../_images/newhanaconnection.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 15.13 </span><span class="caption-text">SAP HANA Connection Dialog အသစ်တစ်ခုကို ဖန်တီးခြင်း</span><a class="headerlink" href="#id15" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>ဖော်ပြပါသတ်မှတ်ချက်များကို ထည့်သွင်းနိုင်ပါသည်-</p>
+<ul class="simple">
+<li><p><span class="guilabel">Name</span> - ဤချိတ်ဆက်မှုအတွက် အမည်တစ်ခု</p></li>
+<li><p><span class="guilabel">Driver</span> <a class="reference internal" href="../../../_images/win.png"><img alt="win" src="../../../_images/win.png" style="width: 1em;" /></a> - HANA ODBC driver ၏ အမည်။ အကယ်၍ 64-bit QGIS ကို အသုံးပြုနေပါက ၎င်းသည် <code class="docutils literal notranslate"><span class="pre">HDBODBC</span></code> ဖြစ်ပြီး 32-bit QGIS ကို အသုံးပြုနေပါက <code class="docutils literal notranslate"><span class="pre">HDBODBC32</span></code> ဖြစ်ပါသည်။ သင့်လျော်သည့် driver ၏ အမည်ကို အလိုအလျောက်ထည့်သွင်းထားမည်ဖြစ်ပါသည်။</p></li>
+<li><p><span class="guilabel">Driver</span> <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a> <a class="reference internal" href="../../../_images/osx.png"><img alt="osx" src="../../../_images/osx.png" style="width: 1em;" /></a> - <code class="file docutils literal notranslate"><span class="pre">/etc/odbcinst.ini</span></code> ထဲတွင် စာရင်းသွင်းထားသည့် SAP HANA ODBC driver အောက်ရှိ အမည် သို့မဟုတ် SAP HANA ODBC driver ရှိရာ လမ်းကြောင်း (path) အပြည့်အစုံ။ ပုံမှန်အားဖြင့် SAP HANA Client installer သည် ODBC driver ကို  <code class="file docutils literal notranslate"><span class="pre">/usr/sap/hdbclient/libodbcHDB.so</span></code> ထဲသို့ ထည့်သွင်းတည်ဆောက်သွားမည်ဖြစ်ပါသည်။</p></li>
+<li><p><span class="guilabel">Host</span> - Database host ၏ အမည်</p></li>
+<li><p><span class="guilabel">Identifier</span> - Host အပေါ်တွင် ချိတ်ဆက်ရန် instance (physical or virtual server တစ်ခုအပေါ်တွင် လုပ်ဆောင်နေသည့် ဆော့ဖ်ဝဲတစ်ခု၏မိတ္တူတစ်ခု) တစ်ခုကို သတ်မှတ်သည်။ ၎င်းသည် <span class="guilabel">Instance Number</span> သို့မဟုတ် <span class="guilabel">Port Number</span> ဖြစ်နိုင်ပါသည်။ Instance Number တွင် ဂဏန်းနှစ်လုံး (two digits) ပါဝင်ပြီး နံပါတ်များသည်  1 မှ 65,535 ထိ အတွင်းရှိ range ထဲတွင်ရှိပါသည်။</p></li>
+<li><p><span class="guilabel">Mode</span> - SAP HANA instance များ run ပြုလုပ်မည့် mode ကို သတ်မှတ်သည်။ ဤ setting သည် <span class="guilabel">Identifier</span> ကို <span class="guilabel">Instance Number</span> အဖြစ်သို့ သတ်မှတ်ထားမှသာ ထည့်သွင်းစဉ်းစားလိမ့်မည်ဖြစ်သည်။ အကယ်၍ database သည် containers များစွာကို လက်ခံဆောင်ရွက် (host) ပေးပါက <span class="guilabel">Tenant database</span> တွင် ပေးထားသည့်အမည်ဖြင့် tenant (software instance များသို့ သီးသန့်အခွင့်ခံစားမှုများနှင့်အတူ common access ကို မျှဝေပြီး သုံးစွဲသည့် သုံးစွဲသူအုပ်စု) တစ်ခုသို့ ချိတ်ဆက်နိုင်မည် သို့မဟုတ် system database သို့ ချိတ်ဆက်နိုင်မည်ဖြစ်ပါသည်။</p></li>
+<li><p><span class="guilabel">Schema</span> - ဤသတ်မှတ်ချက်သည် စိတ်ကြိုက်ရွေးချယ်မှု (optional) ဖြစ်ပါသည်။ အကယ်၍ schema အမည်တစ်ခုကိုပေးထားပါက QGIS သည် အဆိုပါ schema ထဲရှိ data ကိုသာရှာဖွေမည်ဖြစ်ပါသည်။ အကယ်၍ ဤ field ကို ကွက်လပ်ထားခဲ့ပါက QGIS သည် data ကို schemas အားလုံးထဲတွင် ရှာဖွေမည်ဖြစ်ပါသည်။</p></li>
+<li><p><span class="menuselection">Authentication ► Basic</span>
+* <span class="guilabel">User name</span> - Database ကို ချိတ်ဆက်ရန် အသုံးပြုသူ၏အမည် (User name)
+* <span class="guilabel">Password</span> - Database ကို ချိတ်ဆက်ရန် စကားဝှက် (Password)</p></li>
+<li><p><span class="guilabel">SSL Settings</span>
+* <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">Enable TLS/SSL encryption</span> - TLS 1.1 - TLS1.2 encryption ကို ဖွင့်ပါ။ Server သည် ရရှိနိုင်သည်များထဲမှ အမြင့်ဆုံးကို ရွေးချယ်မည်ဖြစ်ပါသည်။
+* <span class="guilabel">Provider</span> - SSL communication အတွက် အသုံးပြုသည့် cryptographic library provider ကို သတ်မှတ်ပါသည်။ <span class="guilabel">sapcrypto</span> သည် ပလက်ဖောင်းအားလုံးတွင် ကောင်းစွာအလုပ်လုပ်သင့်ပါသည်။ <span class="guilabel">openssl</span> သည် <a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a> <a class="reference internal" href="../../../_images/osx.png"><img alt="osx" src="../../../_images/osx.png" style="width: 1em;" /></a> အပေါ်တွင် ၊ <span class="guilabel">mscrypto</span> သည် <a class="reference internal" href="../../../_images/win.png"><img alt="win" src="../../../_images/win.png" style="width: 1em;" /></a> အပေါ်တွင် ကောင်းစွာအလုပ်လုပ်သင့်ပါသည်။ <span class="guilabel">commoncrypto</span> သည် CommonCryptoLib ကို ထည့်သွင်းတည်ဆောက်ထားရန်လိုအပ်ပါသည်။
+* <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">Validate SSL certificate</span> - အကယ်၍ အမှန်ခြစ်ထားပါက <span class="guilabel">Trust store file with public key</span> ထဲတွင် ပေးထားသည့် truststore ကိုအသုံးပြုပြီး SSL certificate ကို အတည်ပြုမည် (validate) ဖြစ်ပါသည်။
+* <span class="guilabel">Override hostname in certificate</span> - Server ၏ အထောက်အထား (identity) ကို သက်သေပြရန် host အမည် ကို သတ်မှတ်သည်။ ဤနေရာတွင် သတ်မှတ်ထားသည့် host အမည်သည် ချိတ်ဆက်မှုကို တည်ဆောက်ထားသည့် host အမည်အစား server ၏ အထောက်အထား (identity) ကို သက်သေပြ (verify) ပါသည်။ အကယ်၍ <code class="docutils literal notranslate"><span class="pre">*</span></code> ကို host အမည် အဖြစ်သတ်မှတ်ပါက server ၏ host အမည် မှန်ကန်ကြောင်းအတည်ပြုနိုင်မည်မဟုတ်ပါ။ အခြားသော wildcard များကို ခွင့်ပြုထားခြင်းမရှိပါ။
+* <span class="guilabel">Keystore file with private key</span> - လက်ရှိတွင် လျစ်လျူရှုထားပါသည်။ ဤ သတ်မှတ်ချက်သည် နောင်တွင် user နှင့် password အစား အသိအမှတ်ပြုအထောက်အထား (certificate) မှတဆင့် မှန်ကန်ကြောင်းအတည်ပြုစစ်ဆေးခြင်း (authenticate) ကိုဆောင်ရွက်ရန်ခွင့်ပြုပါသည်။
+* <span class="guilabel">Trust store file with public key</span> - အကယ်၍ OpenSSL ကို အသုံးပြုနေပါက server ၏ public certificates များပါဝင်သည့် trust store file သို့ လမ်းကြောင်းကို သတ်မှတ်ပါသည်။ ယေဘုယျအားဖြင့် trust store တွင် root certificate သို့မဟုတ် server ၏ public certificate များကို လက်မှတ်ရေးထိုးထားသည့် အသိအမှတ်ပြုလက်မှတ်ဆိုင်ရာအာဏာပိုင်၏ အသိအမှတ်ပြုလက်မှတ် ပါဝင်ပါသည်။ အကယ်၍ cryptographic library CommonCryptoLib သို့မဟုတ် msCrypto ကို အသုံးပြုနေပါက ဤ property ကို အလွတ်ထားပါ။</p></li>
+<li><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">Only look for user’s tables</span> - အကယ်၍ အမှန်ခြစ်ထားပါက QGIS ရှာဖွေမှုများသည် database ကို ချိတ်ဆက်ထားပြီး အသုံးပြုသူမှ ပိုင်ဆိုင်ထားသည့် tables နှင့် views ကိုသာရှာဖွေမည်ဖြစ်ပါသည်။</p></li>
+<li><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">Also list tables with no geometries</span> - အကယ်၍ အမှန်ခြစ်ထားပါက QGIS ရှာဖွေမှုများသည် spatial column တစ်ခုမပါရှိသည့် tables နှင့် views ကိုပါရှာဖွေမည်ဖြစ်ပါသည်။</p></li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><strong>SAP HANA Cloud ကို ချိတ်ဆက်ခြင်း</strong></p>
+<p>SAP HANA Cloud instance တစ်ခုကို ချိတ်ဆက်လိုပါက များသောအားဖြင့် <span class="guilabel">Port Number</span> ကို <code class="docutils literal notranslate"><span class="pre">443</span></code> သို့ သတ်မှတ်ရမည်ဖြစ်ပြီး <span class="guilabel">Enable TLS/SSL encryption</span> ကို အမှန်ခြစ်ပြုလုပ်ရမည်ဖြစ်ပါသည်။</p>
+</div>
+</section>
+</section>
+<section id="database-layer-loading-a-database-layer">
+<span id="vector-loading-database"></span><h4><a class="toc-backref" href="#id46" role="doc-backlink">Database Layer တစ်ခုကို ထည့်သွင်းခြင်း (Loading a Database Layer)</a><a class="headerlink" href="#database-layer-loading-a-database-layer" title="Link to this heading"></a></h4>
+<p>Database တစ်ခုသို့ သတ်မှတ်ထားသည့် တစ်ခု သို့မဟုတ် တစ်ခုထက်ပိုသော ချိတ်ဆက်မှုများ (connections) များရှိပါက (<a class="reference internal" href="#vector-create-stored-connection"><span class="std std-ref">သိမ်းထားသည့် ချိတ်ဆက်မှုတစ်ခုကိုဖန်တီးခြင်း (Creating a stored Connection)</span></a> section ကိုကြည့်ရှုပါ) layer များကို ၎င်းမှ ထည့်သွင်းနိုင်ပါသည်။ အဆိုပါ data များသည် available ဖြစ်ရန် လိုအပ်ပါသည်။ Data ကို PostGIS database တစ်ခုထဲသို့ import ပြုလုပ်ခြင်းအပေါ် ဆွေးနွေးထားသည့် ဆွေးနွေးချက်တစ်ခုအတွက် <a class="reference internal" href="supported_data.html#vector-import-data-in-postgis"><span class="std std-ref">PostgreSQL ထဲသို့ Data ထည့်ခြင်း (Importing Data into PostgreSQL)</span></a> section ကိုကြည့်ပါ။</p>
+<p>Database တစ်ခုမှ layer တစ်ခုကို ထည့်သွင်းရန် အောက်ဖော်ပြပါအဆင့်များကို ဆောင်ရွက်နိုင်ပါသည်-</p>
+<ol class="arabic simple">
+<li><p>“Add &lt;database&gt; table(s)” dialog ကိုဖွင့်ပါ။ (<a class="reference internal" href="#vector-create-stored-connection"><span class="std std-ref">သိမ်းထားသည့် ချိတ်ဆက်မှုတစ်ခုကိုဖန်တီးခြင်း (Creating a stored Connection)</span></a> တွင်ကြည့်ပါ)</p></li>
+<li><p>Drop-down list မှ ချိတ်ဆက်မှု (connection) ကို ရွေးချယ်ပြီး <span class="guilabel">Connect</span> ကို ကလစ်နှိပ်ပါ။</p></li>
+<li><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">Also list tables with no geometry</span> ကို Select သို့မဟုတ် unselect ပြုလုပ်ပါ။</p></li>
+<li><p>ရွေးချယ်မှုအနေဖြင့် ရှာဖွေမှုနှင့် ကိုက်ညီသော table များစာရင်းကို လျှော့ချရန် <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">Search Options</span> အချို့ကို အသုံးပြုပါ။ ဤနည်းလမ်းကို  <span class="guilabel">Connect</span> button အား မနှိပ်မီတွင် သတ်မှတ်နိုင်ပါသည်။ ၎င်းသည် database များ ကူးပြောင်းခြင်း (database fetching) ကို မြန်ဆန်စေမည်ဖြစ်ပါသည်။</p></li>
+<li><p>ရရှိနိုင်သည့် layer များစာရင်းထဲတွင် ထည့်သွင်းလိုသည့် layer (များ) ကို ရှာဖွေပါ။</p></li>
+<li><p>၎င်းအပေါ်တွင် ကလစ်နှိပ်ခြင်းဖြင့် ၎င်းကို select ပြုလုပ်ပါ။ ကလစ်ပြုလုပ်နေစဉ်တွင် <kbd class="kbd docutils literal notranslate">Shift</kbd> သို့မဟုတ် <kbd class="kbd docutils literal notranslate">Ctrl</kbd> key ကို ဖိထားပြီး တစ်ခုထက်ပိုသော layer များ (multiple layers) ကို select ပြုလုပ်နိုင်ပါသည်။</p></li>
+<li><p>ရရှိနိုင်ပါက <span class="guilabel">Query Builder</span> dialog ကို စတင်ရန် (<a class="reference internal" href="../working_with_vector/vector_properties.html#vector-query-builder"><span class="std std-ref">Query တည်ဆောက်ရာ (Query Builder)</span></a> section တွင် ကြည့်ပါ) နှင့် select ပြုလုပ်ထားသည့် layer မှ မည်သည့် features များ ထည့်သွင်းမည်ကို သတ်မှတ်ရန် <span class="guilabel">Set Filter</span> button ကို အသုံးပြုပါ။(သို့မဟုတ် layer ကို ကလစ်နှစ်ချက်နှိပ်ခြင်း) Filter expression သည်  <code class="docutils literal notranslate"><span class="pre">sql</span></code> column ထဲတွင် ပေါ်လာမည်ဖြစ်ပါသည်။ ဤသတ်မှတ်ချက်ကို <span class="menuselection">Layer Properties ► General ► Provider Feature Filter</span> frame ထဲတွင် ဖယ်ရှားခြင်း (remove) သို့မဟုတ် ပြန်လည်ပြင်ဆင်ခြင်း (edit) ပြုလုပ်နိုင်ပါသည်။</p></li>
+<li><p>ပုံမှန်အားဖြင့် activate ပြုလုပ်ထားသည့် <code class="docutils literal notranslate"><span class="pre">Select</span> <span class="pre">at</span> <span class="pre">id</span></code> column ရှိ checkbox သည် attribute များမပါရှိဘဲ feature ids များကို ရရှိစေပြီး data များထည့်သွင်းခြင်းကို မြန်ဆန်စေပါသည်။</p></li>
+<li><p>Layer ကို map ထဲသို့ ထည့်သွင်းရန် <span class="guilabel">Add</span> button အပေါ်တွင် click နှိပ်ပါ။</p></li>
+</ol>
+<figure class="align-center" id="id16">
+<span id="figure-add-postgis-tables"></span><img alt="../../../_images/addpostgistables.png" src="../../../_images/addpostgistables.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 15.14 </span><span class="caption-text">PostGIS ဇယား(များ) ထည့်သွင်းခြင်း Dialog</span><a class="headerlink" href="#id16" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><strong>Database table(s) များ ထည့်သွင်းခြင်းကို မြန်ဆန်စေရန် Browser Panel ကိုအသုံးပြုပါ။</strong></p>
+<p><span class="guilabel">Data Source Manager</span> မှ DB tables (DB ဇယားများ) ကို ထည့်သွင်းခြင်းသည် QGIS အနေဖြင့် ဇယားတစ်ခုချင်းစီအတွက် statistics (စာရင်းဇယားများ) နှင့် properties (ဂုဏ်သတ္တိများ) (ဥပမာ- geometry အမျိုးအစားနှင့် field ၊ CRS ၊ features အရေအတွက်များ) ကို ကြိုတင်ကူးပြောင်း (fetches) ရသည့်အတွက် တစ်ခါတစ်ရံတွင် အချိန်ကုန် (time consuming) စေပါသည်။
+၎င်းကို ရှောင်ရှားရန် <a class="reference internal" href="#vector-create-stored-connection"><span class="std std-ref">the connection is set (ချိတ်ဆက်မှုသတ်မှတ်ခြင်း)</span></a> ကို ဆောင်ရွက်ပြီးသည်နှင့်တစ်ပြိုင်နက် database ဇယားများ ကို map canvas ထဲသို့ drag and drop ပြုလုပ်ပြီး ထည့်သွင်းရန်အတွက်
+<a class="reference internal" href="#browser-panel"><span class="std std-ref">Browser Panel</span></a> သို့မဟုတ် <a class="reference internal" href="../plugins/core_plugins/plugins_db_manager.html#dbmanager"><span class="std std-ref">DB Manager</span></a> ကို အသုံးပြုခြင်းသည် ပိုမိုကောင်းမွန်ပါသည်။</p>
+</div>
+</section>
+</section>
+</section>
+<section id="layer-metadata-the-layer-metadata-search-panel">
+<span id="layer-metadata-search-panel"></span><h2><a class="toc-backref" href="#id47" role="doc-backlink"><span class="section-number">15.1.4. </span>Layer Metadata များကို ရှာဖွေသည့်နေရာ (The Layer Metadata Search Panel)</a><a class="headerlink" href="#layer-metadata-the-layer-metadata-search-panel" title="Link to this heading"></a></h2>
+<p>Layer ၏ Metadata များကို ရှာဖွေသည့် Panel (The Layer Metadata Search Panel) သည် စာရင်းသွင်းထားသည့် metadata providers များထဲတွင် layers metadata များကို ရှာဖွေကြည့်ရှုခြင်း (browse) နှင့် ၎င်းတို့ကို project ထဲသို့ ထည့်သွင်းခြင်းကို ခွင့်ပြုပါသည်။</p>
+<p>စာရင်း (list) ကို စာသားဖြင့်၊ လက်ရှိ project ဖြင့်၊ map canvas (မြေပုံရေးဆွဲသည့်နေရာ) ၏ နယ်ပယ်အတိုင်းအတာပမာဏ (extent) ဖြင့်  စစ်ထုတ်နိုင်ပါသည်။</p>
+<p>Plugin များဖြင့် ထပ်မံချဲ့ထွင်နိုင်သည့် layer metadata provider system တစ်ခု မှတစ်ဆင့် Metadata ၏ ရင်းမြစ်များ (sources) ကို အကောင်အထည်ဖော်ရွက်ခြင်း ပြုလုပ်နိုင်ပါသည်။</p>
+<p>QGIS သည် metadata သိမ်းဆည်းသိုလှောင်မှု (storage) ကို ခွင့်ပြုသည့် ချိတ်ဆက်မှုများ (connections) မှ metadata ကို ပြန်လည်ရယူခြင်း (retrieve) ပြုလုပ်နိုင်ရန် out of the box layer metadata providers များကို ပံ့ပိုးပေးပါသည်။ (နောက်ထပ်အသေးစိတ်အချက်အလက်များကို <a class="reference internal" href="../introduction/general_tools.html#savemetadatatodb"><span class="std std-ref">save metadata to the database</span></a> တွင်ကြည့်ရှုရန်)</p>
+<figure class="align-center" id="id17">
+<img alt="../../../_images/layer_metadata_search_panel.png" src="../../../_images/layer_metadata_search_panel.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 15.15 </span><span class="caption-text">Layer ၏ Metadata များကို ရှာဖွေသည့် Panel</span><a class="headerlink" href="#id17" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="qgis-formats-qgis-custom-formats">
+<h2><a class="toc-backref" href="#id48" role="doc-backlink"><span class="section-number">15.1.5. </span>QGIS ၏ စိတ်ကြိုက် formats များ (QGIS Custom formats)</a><a class="headerlink" href="#qgis-formats-qgis-custom-formats" title="Link to this heading"></a></h2>
+<p>QGIS သည် ဖော်ပြပါ custom (စိတ်ကြိုက်) formats (၂) မျိုးကို အဆိုပြုပါသည်-</p>
+<ul class="simple">
+<li><p>Temporary Scratch Layer - Project နှင့် ချိတ်ဆက်ထားသည့် memory layer တစ်ခု (နောက်ထပ်အချက်အလက်များအတွက် <a class="reference internal" href="create_layers.html#vector-new-scratch-layer"><span class="std std-ref">Temporary Scratch Layer အသစ်တစ်ခု ဖန်တီးခြင်း</span></a> တွင်ကြည့်ရှုပါ။)</p></li>
+<li><p>Virtual Layers - အခြားသော layer (များ) အပေါ်ရှိ query တစ်ခုထံမှ ရရှိလာသည့် layer တစ်ခု (နောက်ထပ်အချက်အလက်များအတွက် <a class="reference internal" href="create_layers.html#vector-virtual-layers"><span class="std std-ref">Virtual layers များဖန်တီးခြင်း</span></a> တွင်ကြည့်ရှုပါ။)</p></li>
+</ul>
+</section>
+<section id="qlr-qgis-layer-definition-file">
+<span id="index-14"></span><h2><a class="toc-backref" href="#id49" role="doc-backlink"><span class="section-number">15.1.6. </span>QLR - QGIS Layer Definition File</a><a class="headerlink" href="#qlr-qgis-layer-definition-file" title="Link to this heading"></a></h2>
+<p>Layer definitions (layer အတွက် QGIS style information အပြင် layer data source ဆီသို့ ညွှန်ပြမှုပါဝင်သည့် XML file တစ်ခု) များကို layer context menu ထဲရှိ <span class="menuselection">Export ► Save As Layer Definition File…</span>  ကို အသုံးပြု၍
+<a class="reference internal" href="../appendices/qgis_file_formats.html#qgislayerdefinitionfile"><span class="std std-ref">Layer Definition File</span></a> (QLR - <code class="file docutils literal notranslate"><span class="pre">.qlr</span></code>) (Layer definition file ဆိုသည်မှာ layer တစ်ခုချင်းစီကို ပြင်ဆင်ထည့်သွင်းပြီး အခြားသူများနှင့်မျှဝေရန်၊ layer များ၏ color များ၊ symbol များနှင့် label များကို ဖန်တီးထားပြီး ပြင်ဆင်ထားသောဖိုင်တစ်ခုဖြစ်ပါသည်) တစ်ခုအဖြစ်သို့သိမ်းဆည်းနိုင်ပါသည်။</p>
+<p>QLR format သည် လုံးဝပြီးပြည့်စုံမှုရှိသည့် “complete” QGIS layers များကို အခြားသော QGIS အသုံးပြုသူများနှင့် မျှဝေနိုင်မည်ဖြစ်ပါသည်။ QLR files များတွင် data sources သို့ ချိတ်ဆက်ထားသည့် links များ နှင့် layer တစ်ခုကို ဆင်ယင်မှု(style) ပြုလုပ်ရန် လိုအပ်သည့် QGIS style information များ ပါဝင်ပါသည်။</p>
+<p>QLR files များကို Browser Panel ထဲတွင် ပြသထားပြီး Layers Panel ထဲသို့ layers များ (၎င်းတို့၏သိမ်းဆည်းထားသည့်စတိုင်များနှင့်အတူ) ကို ထည့်သွင်းရန် အသုံးပြုနိုင်ပါသည်။ System file manager (system file များကို စီမံခန့်ခွဲသည့်နေရာ) မှ map canvas ထဲသို့ QLR files များကို drag and drop လည်းပြုလုပ်နိုင်ပါသည်။</p>
+</section>
+<section id="web-service-connecting-to-web-services">
+<h2><a class="toc-backref" href="#id50" role="doc-backlink"><span class="section-number">15.1.7. </span>Web service များသို့ချိတ်ဆက်ခြင်း (Connecting to web services)</a><a class="headerlink" href="#web-service-connecting-to-web-services" title="Link to this heading"></a></h2>
+<p>QGIS ဖြင့် အမျိုးမျိုးသော OGC web services (WM(T)S ၊ WFS(-T) ၊ WCS ၊ CSW ၊ …) များကို ဝင်ရောက်ကြည့်ရှုသုံးစွဲခွင့် (access) ကို ရရှိနိုင်ပါသည်။ QGIS Server ကြောင့် အဆိုပါဝန်ဆောင်မှုများ (services) ကိုလည်း ဖြန့်ဝေ (publish) နိုင်ပါသည်။ <span class="xref std std-ref">QGIS-Server-manual</span> တွင် အဆိုပါ စွမ်းဆောင်ရည်များ (capabilities) ၏ ဖော်ပြချက်များ (descriptions) ပါဝင်ပါသည်။</p>
+<section id="vector-tiles-service-using-vector-tiles-services">
+<span id="vector-tiles"></span><span id="index-15"></span><h3><a class="toc-backref" href="#id51" role="doc-backlink"><span class="section-number">15.1.7.1. </span>Vector Tiles service များကိုအသုံးပြုခြင်း (Using Vector Tiles services)</a><a class="headerlink" href="#vector-tiles-service-using-vector-tiles-services" title="Link to this heading"></a></h3>
+<p>Vector Tile services (vector tiles များနှင့် vector tile style resources များကို ဝင်ရောက်အသုံးပြုခွင့်ပံ့ပိုးပေးပြီး သိမ်းဆည်းပေးသည့် data service အမျိုးအစားတစ်ခု) များကို <span class="guilabel">Data Source Manager</span> dialog ၏ <a class="reference internal" href="../../../_images/mActionAddVectorTileLayer.png"><img alt="addVectorTileLayer" src="../../../_images/mActionAddVectorTileLayer.png" style="width: 1.5em;" /></a> <span class="guilabel">Vector Tiles</span> tab သို့မဟုတ် <span class="guilabel">Browser</span> panel ထဲရှိ <span class="guilabel">Vector Tiles</span> entry ၏ contextual menu မှတစ်ဆင့် ထည့်သွင်းနိုင်ပါသည်။ Service များသည် <span class="guilabel">New Generic Connection…</span>  တစ်ခု သို့မဟုတ် <span class="guilabel">New ArcGIS Vector Tile Service Connection…</span> တစ်ခု ဖြစ်နိုင်ပါသည်။</p>
+<p>Service တစ်ခုကို ဖော်ပြပါတို့ကို ထည့်သွင်းခြင်းဖြင့် သတ်မှတ်နိုင်ပါသည်-</p>
+<ul>
+<li><p><span class="guilabel">Name</span> (နာမည်) တစ်ခု</p></li>
+<li><p>Generic services အတွက် <code class="docutils literal notranslate"><span class="pre">http://example.com/{z}/{x}/{y}.pbf</span></code> အမျိုးအစား၏ <span class="guilabel">URL</span> နှင့်
+ArcGIS အခြေပြု services များအတွက် <code class="docutils literal notranslate"><span class="pre">http://example.com/arcgis/rest/services/Layer/VectorTileServer</span></code>။ Service သည် tiles များကို  <code class="file docutils literal notranslate"><span class="pre">.pbf</span></code> format ဖြင့် ပံ့ပိုးပေးရမည်ဖြစ်ပါသည်။</p></li>
+<li><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a><span class="guilabel">Min. Zoom Level</span> နှင့်  <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a><span class="guilabel">Max. Zoom Level</span>
+Vector Tiles (web ပေါ်တွင် ကူးပြောင်းမှုများအတွက် ကြိုတင်သတ်မှတ်ထားသော အကြမ်းဖျင်းအားဖြင့် စတုရန်းပုံသဏ္ဍာန်ရှိသော “tiles” များအဖြစ်သို့ စုစည်းထားသည့် geographic data ပက်ကေ့ချ်များ) များသည် ပိရမစ်ပုံစံဖွဲ့စည်းတည်ဆောက်မှုရှိပါသည်။ ဤနည်းလမ်းများအား အသုံးပြုခြင်းဖြင့် tile pyramid မှ layers များကို တစ်ခုချင်းစီ ထုတ်လုပ် (generate) နိုင်သည့် အခွင့်အရေးရှိမည်ဖြစ်ပါသည်။ အဆိုပါ layer များကို QGIS ထဲတွင် Vector Tile ကို render ဆောင်ရွက်ရန်အတွက် နောက်ပိုင်းတွင် အသုံးပြုလိမ့်မည်ဖြစ်ပါသည်။</p>
+<p>Mercator projection အတွက် (OpenStreetMap Vector Tiles များမှ အသုံးပြုပါသည်) Zoom Level 0 သည် ကမ္ဘာကြီးတစ်ခုလုံးကို 1:500.000.000 စကေးအတိုင်းအတာဖြင့် ကိုယ်စားပြုဖော်ပြပါသည်။ Zoom Level 14 သည် ကမ္ဘာကြီးတစ်ခုလုံးကို 1:35.000 စကေးအတိုင်းအတာဖြင့် ကိုယ်စားပြုဖော်ပြပါသည်။</p>
+</li>
+<li><p><span class="guilabel">Style URL</span> - MapBox GL JSON style configuration တစ်ခုသို့ URL။ အကယ်၍ ပံ့ပိုးပေးထားပါက ချိတ်ဆက်မှု (connection) ရှိ layer များကို QGIS ထဲသို့ ထည့်သွင်းသည့်အခါတိုင်းတွင် အဆိုပါ style ကို အသုံးပြုမည်ဖြစ်ပါသည်။ Arcgis vector tile service connection များတွင် URL သည် server configuration တွင် သတ်မှတ်ထားသည့် default style configuration ကို ပြန်လည်ပြင်ဆင်ပါသည်။</p></li>
+<li><p>လိုအပ်ပါက <a class="reference internal" href="../auth_system/index.html#authentication-index"><span class="std std-ref">authentication</span></a> configuration</p></li>
+<li><p><span class="guilabel">Referer</span> တစ်ခု</p></li>
+</ul>
+<p><a class="reference internal" href="#figure-vector-tiles-maptilerplanet"><span class="std std-numref">Fig. 15.16</span></a> သည် MapTiler planet Vector Tiles service ပြင်ဆင်သတ်မှတ်ခြင်း dialog ကိုပြသသည်။</p>
+<figure class="align-center" id="id18">
+<span id="figure-vector-tiles-maptilerplanet"></span><img alt="../../../_images/vector_tiles_maptilerplanet.png" src="../../../_images/vector_tiles_maptilerplanet.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 15.16 </span><span class="caption-text">Vector Tiles - Maptiler Planet ပြင်ဆင်သတ်မှတ်ခြင်း</span><a class="headerlink" href="#id18" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Configuration များကို <span class="guilabel">Browser</span> panel ထဲရှိ ၎င်း၏ context menu မှတစ်ဆင့် သို့မဟုတ်
+<span class="guilabel">Data Source Manager</span> dialog ထဲရှိ <span class="guilabel">Vector Tiles</span> entry မှတစ်ဆင့် <code class="file docutils literal notranslate"><span class="pre">.XML</span></code> file (<span class="guilabel">Save Connections</span>) ထဲသို့ သိမ်းဆည်းနိုင်ပါသည်။ ထို့နည်းတူစွာပင် ၎င်းတို့ကို (<span class="guilabel">Load Connections</span>) ဖိုင်တစ်ခုမှ ထည့်သွင်းနိုင်ပါသည်။</p>
+<p>Vector tile service တစ်ခုသို့ ချိတ်ဆက်မှု (connection) တစ်ခုကို သတ်မှတ်ပြီးသည်နှင့်တစ်ပြိုက်နက် အောက်ပါတို့ကို ဆောင်ရွက်နိုင်ပါသည်-</p>
+<ul class="simple">
+<li><p>Vector tile connection settings ကို <span class="guilabel">Edit</span> ပြုလုပ်ခြင်း</p></li>
+<li><p>ချိတ်ဆက်မှု (connection) ကို <span class="guilabel">Remove</span> ပြုလုပ်ခြင်း</p></li>
+<li><p><span class="guilabel">Browser</span> panel မှ entry အပေါ်တွင် right-click ပြုလုပ်ပြီး အောက်ပါတို့ကိုလည်း ဆောင်ရွက်နိုင်ပါသည်-</p>
+<ul>
+<li><p><span class="guilabel">Add layer to project</span> - Double-click ပြုလုပ်ခြင်းသည် layer ကို ထည့်သွင်းမည်ဖြစ်ပါသည်။</p></li>
+<li><p><span class="guilabel">Layer Properties…</span> ကြည့်ရှုပြီး service မှ ပံ့ပိုးထားသည့် data ကို ကြိုတင်ကြည့်ရှုခြင်း (preview) နှင့် metadata သို့ ဝင်ရောက်ကြည့်ရှုသုံးစွဲခြင်း (access) တို့ကို ရယူပါ။ Project ထဲသို့ layer ကို ထည့်သွင်းသည့်အခါတွင် နောက်ထပ် setting များကို ရရှိမည်ဖြစ်ပါသည်။</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="xyz-tile-service-using-xyz-tile-services">
+<span id="xyz-tile"></span><span id="index-16"></span><h3><a class="toc-backref" href="#id52" role="doc-backlink"><span class="section-number">15.1.7.2. </span>XYZ Tile service များကို အသုံးပြုခြင်း (Using XYZ Tile services)</a><a class="headerlink" href="#xyz-tile-service-using-xyz-tile-services" title="Link to this heading"></a></h3>
+<p>XYZ Tile services များကို <span class="guilabel">Data Source Manager</span> dialog ၏ <a class="reference internal" href="../../../_images/mActionAddXyzLayer.png"><img alt="addXyzLayer" src="../../../_images/mActionAddXyzLayer.png" style="width: 1.5em;" /></a> <span class="guilabel">XYZ</span> tab မှတစ်ဆင့်
+သို့မဟုတ် <span class="guilabel">Browser</span> panel ထဲရှိ <span class="guilabel">XYZ Tiles</span> entry ၏ contextual menu မှတစ်ဆင့် ထည့်သွင်းနိုင်သည်။
+<span class="guilabel">New</span> (သက်ဆိုင်ရာ <span class="guilabel">New Connection</span>) ကို နှိပ်ပြီး အောက်ပါတို့ကို ထည့်သွင်းပါ-</p>
+<ul class="simple">
+<li><p><span class="guilabel">Name</span> (နာမည်) တစ်ခု</p></li>
+<li><p><span class="guilabel">URL</span></p></li>
+<li><p>လိုအပ်ပါက <a class="reference internal" href="../auth_system/index.html#authentication-index"><span class="std std-ref">authentication</span></a> configuration</p></li>
+<li><p><span class="guilabel">Min. Zoom level</span> နှင့် <span class="guilabel">Max. Zoom level</span> (အနိမ့်ဆုံး zoom level နှင့် အမြင့်ဆုံး zoom level)</p></li>
+<li><p><span class="guilabel">Referer</span> တစ်ခု</p></li>
+<li><p><span class="guilabel">Tile Resolution</span> - ဖြစ်နိုင်သောတန်ဖိုးများမှာ <span class="guilabel">Unknown (not scaled)</span> ၊ <span class="guilabel">Standard (256x256 / 96DPI)`နှင့် :guilabel:`High (512x512 / 192DPI)</span> တို့ဖြစ်ပါသည်။</p></li>
+</ul>
+<ul class="simple" id="interpretation">
+<li><p><span class="guilabel">Interpretation</span> - WMTS/XYZ raster datasets များကို ကြိုတင်သတ်မှတ်ထားသော encoding scheme တစ်ခုကို လိုက်နာသည့် single band float type (ရောင်စဉ်တစ်ခုသာပါဝင်ပြီး ဒဿမပွိုင့်များပါဝင်သည့် အပေါင်းသို့မဟုတ် အနုတ်ကိန်းပြည့်အမျိုးအစား) raster layer တစ်ခု အဖြစ်သို့ ပြောင်းလဲသည်။ ပံ့ပိုးပေးထားသည့် schemes များမှာ <span class="guilabel">Default</span> (မည်သည့်ပြောင်းလဲမှု(conversion) ကိုမှ ဆောင်ရွက်ထားခြင်းမရှိပါ)၊ <span class="guilabel">MapTiler Terrain RGB</span> နှင့် <span class="guilabel">Terrarium Terrain RGB</span> တို့ဖြစ်ပါသည်။ Select ပြုလုပ်ထားသည့် converter သည် pixel တစ်ခုချင်းစီအတွက် RGB source values (အနီရောင်၊ အစိမ်းနှင့် အပြာရောင်များ၏ ရင်းမြစ်များ၏တန်ဖိုးများ) များကို float values (ဒဿမပွိုင့်များပါဝင်သည့် အပေါင်းသို့မဟုတ် အနုတ်ကိန်းပြည့်များ) များအဖြစ်သို့ပြောင်းလဲမည်ဖြစ်သည်။ ထည့်သွင်းလိုက်သည်နှင့်တစ်ပြိုင်နက် layer သည် QGIS ၏ ပုံမှန် <a class="reference internal" href="../working_with_raster/raster_properties.html#raster-rendering"><span class="std std-ref">raster renderers</span></a> ကို အသုံးပြု၍ styling အတွက် အဆင်သင့်ဖြစ်နေသည့် single band floating point raster layer အဖြစ်ကိုယ်စားပြုဖော်ပြမည်ဖြစ်ပါသည်။</p></li>
+</ul>
+<p>ပုံမှန်အားဖြင့် QGIS သည် default အချို့နှင့် အဆင်သင့်အသုံးပြုနိုင် (ready-to-use) သည့် XYZ Tiles services များကို ပံ့ပိုးပေးထားပါသည်-</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../../../_images/mIconXyz.png"><img alt="xyz" src="../../../_images/mIconXyz.png" style="width: 1.5em;" /></a> <span class="guilabel">Mapzen Global Terrain</span> - Projects များအတွက် ကမ္ဘာလုံးဆိုင်ရာ DEM source များအား ချက်ချင်းဝင်ရောက်သုံးစွဲကြည့်ရှုခွင့်ကို ခွင့်ပြုသည်။ နောက်ထပ်အသေးစိတ်အချက်အလက်များနှင့် resources(အရင်းအမြစ်များ)ကို  <a class="reference external" href="https://registry.opendata.aws/terrain-tiles/">https://registry.opendata.aws/terrain-tiles/</a> တွင် ကြည့်ရှုပါ။</p></li>
+<li><p><a class="reference internal" href="../../../_images/mIconXyz.png"><img alt="xyz" src="../../../_images/mIconXyz.png" style="width: 1.5em;" /></a> <span class="guilabel">OpenStreetMap</span> - ကမ္ဘာကြီး၏ 2D မြေပုံကို ဝင်ရောက်သုံးစွဲကြည့်ရှုခွင့် (access) ရရှိရန်။ <a class="reference internal" href="#figure-xyz-tiles-openstreetmap"><span class="std std-numref">Fig. 15.17</span></a> သည် OpenStreetMap XYZ Tile service configuration ပါဝင်သည့် dialogကိုပြသပါသည်။</p></li>
+</ul>
+<figure class="align-center" id="id19">
+<span id="figure-xyz-tiles-openstreetmap"></span><img alt="../../../_images/xyz_tiles_dialog_osm.png" src="../../../_images/xyz_tiles_dialog_osm.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 15.17 </span><span class="caption-text">XYZ Tiles - OpenStreetMap ပြင်ဆင်သတ်မှတ်ခြင်း</span><a class="headerlink" href="#id19" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Configuration များကို <span class="guilabel">Browser</span> panel ထဲရှိ ၎င်း၏ context menu မှတစ်ဆင့် သို့မဟုတ်
+<span class="guilabel">Data Source Manager</span> dialog ထဲရှိ <span class="guilabel">XYZ Tiles`entry မှတစ်ဆင့် :file:</span>.XML` file (<span class="guilabel">Save Connections</span>) ထဲသို့ သိမ်းဆည်းနိုင်ပါသည်။ ထို့နည်းတူစွာပင် ၎င်းတို့ကို (<span class="guilabel">Load Connections</span>) ဖိုင်တစ်ခုမှထည့်သွင်းနိုင်ပါသည်။</p>
+<p>OpenStreetMap အတွက် XML file သည် အောက်ပါအတိုင်းဖြစ်ပါသည်-</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;!DOCTYPE connections&gt;</span>
+<span class="nt">&lt;qgsXYZTilesConnections</span><span class="w"> </span><span class="na">version=</span><span class="s">&quot;1.0&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;xyztiles</span><span class="w"> </span><span class="na">url=</span><span class="s">&quot;https://tile.openstreetmap.org/{z}/{x}/{y}.png&quot;</span>
+<span class="w">   </span><span class="na">zmin=</span><span class="s">&quot;0&quot;</span><span class="w"> </span><span class="na">zmax=</span><span class="s">&quot;19&quot;</span><span class="w"> </span><span class="na">tilePixelRatio=</span><span class="s">&quot;0&quot;</span><span class="w"> </span><span class="na">password=</span><span class="s">&quot;&quot;</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;OpenStreetMap&quot;</span>
+<span class="w">   </span><span class="na">username=</span><span class="s">&quot;&quot;</span><span class="w"> </span><span class="na">authcfg=</span><span class="s">&quot;&quot;</span><span class="w"> </span><span class="na">referer=</span><span class="s">&quot;&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/qgsXYZTilesConnections&gt;</span>
+</pre></div>
+</div>
+<p>XYZ tile service တစ်ခုသို့ ချိတ်ဆက်မှု (connection) တစ်ခုကို သတ်မှတ်ပြီးသည်နှင့်တစ်ပြိုက်နက် အောက်ပါတို့ကို ဆောင်ရွက်နိုင်ပါသည်-</p>
+<ul class="simple">
+<li><p>XYZ connection settings ကို <span class="guilabel">Edit</span> ပြုလုပ်ခြင်း</p></li>
+<li><p>Connection ကို <span class="guilabel">Remove</span> ပြုလုပ်ခြင်း</p></li>
+<li><p><span class="guilabel">Browser</span> panel - Entry အပေါ်တွင် right-click ပြုလုပ်ပြီး အောက်ပါတို့ကိုလည်း ဆောင်ရွက်နိုင်ပါသည်-</p>
+<ul>
+<li><p><span class="menuselection">Export layer… ► To File</span> - <a class="reference internal" href="create_layers.html#general-saveas"><span class="std std-ref">saving it as a raster (Raster တစ်ခုအနေဖြင့် သိမ်းဆည်းခြင်း)</span></a></p></li>
+<li><p><span class="guilabel">Add layer to project</span> - Double-click ပြုလုပ်ခြင်းသည် layer ကို ထည့်သွင်းမည်ဖြစ်ပါသည်။</p></li>
+<li><p><span class="guilabel">Layer Properties…</span> ကြည့်ရှုပြီး service မှ ပံ့ပိုးထားသည့် dataကို ကြိုတင်ကြည့်ရှုခြင်း (preview) နှင့်
+metadata သို့ ဝင်ရောက်သုံးစွဲခွင့်ရှိခြင်း (access) တို့ကို ရယူပါ။ Project ထဲသို့ layer ကို ထည့်သွင်းသည့်အခါတွင် နောက်ထပ် setting များကို ရရှိမည်ဖြစ်ပါသည်။</p></li>
+</ul>
+</li>
+</ul>
+<p>XYZ Tile services နမူနာများမှာ-</p>
+<ul class="simple">
+<li><p>OpenStreetMap Monochrome -
+<span class="guilabel">URL</span>: <code class="docutils literal notranslate"><span class="pre">http://tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png</span></code>,
+<span class="guilabel">Min. Zoom Level (အနိမ့်ဆုံး zoom level)</span>: 0, <span class="guilabel">Max. Zoom Level (အမြင့်ဆုံး zoom level)</span>: 19.</p></li>
+<li><p>Google Maps -
+<span class="guilabel">URL</span>: <code class="docutils literal notranslate"><span class="pre">https://mt1.google.com/vt/lyrs=m&amp;x={x}&amp;y={y}&amp;z={z}</span></code>,
+<span class="guilabel">Min. Zoom Level (အနိမ့်ဆုံး zoom level)</span>: 0, <span class="guilabel">Max. Zoom Level (အမြင့်ဆုံး zoom level)</span>: 19.</p></li>
+<li><p>Open Weather Map Temperature -
+<span class="guilabel">URL</span>: <code class="docutils literal notranslate"><span class="pre">http://tile.openweathermap.org/map/temp_new/{z}/{x}/{y}.png?appid={api_key}</span></code>
+<span class="guilabel">Min. Zoom Level (အနိမ့်ဆုံး zoom level)</span>: 0, <span class="guilabel">Max. Zoom Level (အမြင့်ဆုံး zoom level)</span>: 19.</p></li>
+</ul>
+</section>
+<section id="arcgis-rest-servers-using-arcgis-rest-servers">
+<span id="arcgis-rest"></span><span id="index-17"></span><h3><a class="toc-backref" href="#id53" role="doc-backlink"><span class="section-number">15.1.7.3. </span>ArcGIS REST Servers များကို အသုံးပြုခြင်း (Using ArcGIS REST Servers)</a><a class="headerlink" href="#arcgis-rest-servers-using-arcgis-rest-servers" title="Link to this heading"></a></h3>
+<p>ArcGIS REST Servers များကို <span class="guilabel">Data Source Manager</span> dialog ၏ <a class="reference internal" href="../../../_images/mActionAddAfsLayer.png"><img alt="addAfsLayer" src="../../../_images/mActionAddAfsLayer.png" style="width: 1.5em;" /></a> <span class="guilabel">ArcGIS REST Server</span> tab မှတစ်ဆင့် သို့မဟုတ် <span class="guilabel">Browser</span> panelထဲရှိ <span class="guilabel">ArcGIS REST Servers</span> entry ၏ contextual menu မှတစ်ဆင့် ထည့်သွင်းနိုင်ပါသည်။ <span class="guilabel">New</span> (သက်ဆိုင်ရာ <span class="guilabel">New Connection</span>) ကိုနှိပ်ပြီး ဖော်ပြပါတို့ကို ထည့်သွင်းပါ-</p>
+<ul class="simple">
+<li><p><span class="guilabel">Name</span> (နာမည်) တစ်ခု</p></li>
+<li><p><span class="guilabel">URL</span></p></li>
+<li><p><span class="guilabel">Community endpoint URL</span> တစ်ခု</p></li>
+<li><p><span class="guilabel">Content endpoint URL</span> တစ်ခု</p></li>
+<li><p>လိုအပ်ပါက <a class="reference internal" href="../auth_system/index.html#authentication-index"><span class="std std-ref">authentication</span></a> configuration</p></li>
+<li><p><span class="guilabel">Referer</span> တစ်ခု</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>သက်ဆိုင်ရာ Portal endpoint URLS set များပါရှိသည့် ArcGIS Feature Service connections များကို browser panel ထဲရှိ content groups (content များပါရှိသည့်အုပ်စုများ) များဖြင့် ရှာဖွေလေ့လာဖော်ထုတ်နိုင်ပါသည်။</p>
+<p>အကယ်၍ ချိတ်ဆက်မှု (connection) တစ်ခုတွင်  Portal endpoints set ပါရှိပါက browser ထဲရှိ ချိတ်ဆက်မှု(connection) အား ဖြန့်ချခြင်း(expanding) သည် ပုံမှန်ပြသလေ့ရှိသည့် services စာရင်းအပြည့်အစုံအစား “Groups(အုပ်စုများ)” နှင့် “Services(ဝန်ဆောင်မှုများ)” folder တစ်ခုကို ပြသမည်ဖြစ်ပါသည်။ Groups folder (အုပ်စုများပါရှိသည့် folder) ကို ဖြန့်ချခြင်း(expanding) သည် အသုံးပြုသူမှ အဖွဲ့ဝင်ဖြစ်နေသည့် content groups အားလုံး၏ စာရင်းကို ပြသမည်ဖြစ်ပြီး အဆိုပါ group နှင့် သက်ဆိုင်သည့် service items များကို ပြသရန် ၎င်းတို့ထဲမှ တစ်ခုချင်းစီကို ဖြန့်ချခြင်း(expanding) ပြုလုပ်နိုင်ပါသည်။</p>
+</div>
+<p>Configuration များကို <span class="guilabel">Data Source Manager</span> dialog ထဲရှိ <span class="guilabel">ArcGIS REST Server</span> entry မှတစ်ဆင့် <code class="file docutils literal notranslate"><span class="pre">.XML</span></code> file (<span class="guilabel">Save Connections</span>) ထဲသို့သိမ်းဆည်းနိုင်ပါသည်။ အလားတူပင် ၎င်းတို့ကို (<span class="guilabel">Load Connections</span>) ဖိုင်တစ်ခုမှ ထည့်သွင်းနိုင်ပါသည်။</p>
+<p>ArcGIS REST Server သို့ ချိတ်ဆက်မှု (connection) တစ်ခုကို သတ်မှတ်ပြီးသည်နှင့်တစ်ပြိုင်နက် ဖော်ပြပါတို့ကို ဆောင်ရွက်ရန်ဖြစ်နိုင်ပါသည်-</p>
+<ul class="simple">
+<li><p>ArcGIS REST Server connection settings ကို <span class="guilabel">Edit</span>  ပြုလုပ်သည်။</p></li>
+<li><p>ချိတ်ဆက်မှု (connection) ကို <span class="guilabel">Remove</span> (ဖယ်ရှား) ပြုလုပ်သည်။</p></li>
+<li><p>ချိတ်ဆက်မှု (connection) ကို <span class="guilabel">Refresh</span> ပြုလုပ်သည်။</p></li>
+<li><p>ရရှိနိုင်သည့် layers များအတွက် filter (စစ်ထုတ်ခြင်း) တစ်ခုကို အသုံးပြုသည်။</p></li>
+<li><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a><span class="guilabel">Only request features overlapping the current view extent (လက်ရှိမြင်ကွင်း extent နှင့် ထပ်နေသည့် feature များကိုသာ တောင်းဆိုခြင်း)</span> နည်းလမ်းနှင့်အတူ ရရှိနိုင်သည့် layer list တစ်ခုမှ ရွေးချယ်နိုင်သည်။</p></li>
+<li><p><span class="guilabel">Browser</span> panel မှ connection entry (ချိတ်ဆက်ခြင်းဆိုင်ရာ entry) အပေါ်တွင် right-click ပြုလုပ်ပြီး အောက်ပါတို့ကို ဆောင်ရွက်နိုင်ပါသည်-</p>
+<ul>
+<li><p><span class="guilabel">Refresh</span> ပြုလုပ်ခြင်း</p></li>
+<li><p><span class="guilabel">Edit connection…</span> ပြုလုပ်ခြင်း</p></li>
+<li><p><span class="guilabel">Remove connection…</span> ပြုလုပ်ခြင်း</p></li>
+<li><p><span class="guilabel">View Service Info</span> default web browser ကိုဖွင့်မည်ဖြစ်ပြီး Service Info (ဝန်ဆောင်မှုဆိုင်ရာအချက်အလက်) ကိုပြသမည်ဖြစ်ပါသည်။</p></li>
+</ul>
+</li>
+<li><p>Layer entry အပေါ်တွင် Right-click ပြုလုပ်ပြီး ဖော်ပြပါတို့ကိုဆောင်ရွက်နိုင်ပါသည်-</p>
+<ul>
+<li><p><span class="guilabel">View Service Info</span> - ၎င်းသည် default web browser ကိုဖွင့်မည်ဖြစ်ပြီး Service Info(ဝန်ဆောင်မှုဆိုင်ရာအချက်အလက်) ကိုပြသနိုင်ပါသည်။</p></li>
+<li><p><span class="menuselection">Export layer… ► To File</span> (Layer ကို file အဖြစ်သို့ export ပြုလုပ်ခြင်း)</p></li>
+<li><p><span class="guilabel">Add layer to project</span> - Double-click ဖြင့်လည်း layer ကို ထည့်သွင်းနိုင်မည်ဖြစ်ပါသည်။</p></li>
+<li><p><span class="guilabel">Layer Properties…</span> ကို ကြည့်ရှုပြီး metadata နှင့် service မှ ပံ့ပိုးထားသည့် data အား preview (ကြိုတင်ကြည့်ရှုခြင်း) ကို ဝင်ရောက်ကြည့်ရှုသုံးစွဲခွင့်ကိုရရှိပါသည်။ Project ထဲသို့ layer ကို ထည့်သွင်းပြီးသည့်အခါတွင် နောက်ထပ် settings များကို ရရှိနိုင်ပါသည်။</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="15. ဒေတာအရင်းအမြစ်များအား စီမံခန့်ခွဲခြင်း (Managing Data Source)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="create_layers.html" class="btn btn-neutral float-right" title="15.2. Layer များဖန်တီးခြင်း (Creating Layers)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2002-now, QGIS project.
+      <span class="lastupdated">Last updated on 2024 May 13, 16:23 +0700.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- Transifex follows a particular logic to build target pages:
+Expected French translation link for https://docs.qgis.org/3.28/en/docs/user_manual/print_composer/overview_composer.html
+would return https://app.transifex.com/qgis/qgis-documentation/translate/#fr/aa6d8bc653526d38b295ca94bf8eee5e
+with the md5 value of "github#qgis/QGIS-Documentation#release_3.28#locale/en/LC_MESSAGES/docs/user_manual/print_composer/overview_composer.po"-->
+<!--Make sure that mismatching language codes between Transifex and Sphinx are converted-->
+
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-info-circle"> QGIS Documentation </span>
+      v: 3.28
+      <span class="fa fa-caret-down"></span>
+    </span>
+
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Languages</dt>
+        
+          <dd><a href="https://docs.qgis.org/3.28/en/docs/user_manual/managing_data_source/opening_data.html">en</a></dd>
+        
+      </dl>
+
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/user_manual/managing_data_source/opening_data.html">testing</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/latest/en/docs/user_manual/managing_data_source/opening_data.html">latest</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.28/en/docs/user_manual/managing_data_source/opening_data.html">3.28</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.22/en/docs/user_manual/managing_data_source/opening_data.html">3.22</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.16/en/docs/user_manual/managing_data_source/opening_data.html">3.16</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.10/en/docs/user_manual/managing_data_source/opening_data.html">3.10</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.4/en/docs/user_manual/managing_data_source/opening_data.html">3.4</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/2.18/en/docs/user_manual/managing_data_source/opening_data.html">2.18</a></dd>
+        
+      </dl>
+
+       
+       <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="https://docs.qgis.org/3.28/pdf">PDF</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.28/zip">HTML</a></dd>
+        
+      </dl>
+      
+
+      
+       
+      <dl>
+        <dt>Contribute to Docs</dt>
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/edit/master/docs/user_manual/managing_data_source/opening_data.rst" target="_blank" rel="noopener noreferrer">Edit on GitHub</a>
+          </dd>
+          
+          
+          <dd>
+            <a href="https://app.transifex.com/qgis/qgis-documentation/translate/#en/9e8998ce0e3107e9f37964bac987f1ed" target="_blank" rel="noopener noreferrer">Translate Page</a>
+          </dd>
+          
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/issues" target="_blank" rel="noopener noreferrer">Report Issue</a>
+          </dd>
+      </dl>
+      
+
+      <dl>
+        <dt>On QGIS Project</dt>
+          <dd>
+            <a href="https://qgis.org/en" target="_blank" rel="noopener noreferrer">Home</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/api/3.28" target="_blank" rel="noopener noreferrer">C++ API</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/pyqgis/3.28" target="_blank" rel="noopener noreferrer">PyQGIS API</a>
+          </dd>
+          <dd>
+            <a href="https://github.com/qgis/QGIS/tree/release-3_28" target="_blank" rel="noopener noreferrer">Source</a>
+          </dd>
+      </dl>
+
+    </div>
+  </div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

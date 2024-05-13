@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>27. GRASS GIS နှင့်ပေါင်းစပ်အသုံးပြုခြင်း (GRASS GIS Integration) &mdash; QGIS Documentation  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/qgis_docs.css?v=3fdf4c33" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/qgis_logo.ico"/>
+    <link rel="canonical" href="https://docs.qgis.org/latest/en/docs/user_manual/grass_integration/grass_integration.html"/>
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../../_static/copybutton.js?v=f281be69"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="28. QGIS processing framework" href="../processing/index.html" />
+    <link rel="prev" title="26. လုံခြုံရေးအတွက်စဉ်းစားရန်အချက်များ (Security Considerations)" href="../auth_system/auth_considerations.html" />
+  <meta name="description" content="QGIS 3.28 documentation: 27. GRASS GIS နှင့်ပေါင်းစပ်အသုံးပြုခြင်း (GRASS GIS Integration)">
+</head>
+
+<body class="wy-body-for-nav">
+
+  <nav class="release_status_topbar">
+  </nav>
+
+   
+
+ 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+   
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            QGIS Documentation
+              <img src="../../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                3.28
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+   <a href= "../../../genindex.html">Index</a>
+ 
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">အသုံးပြုသူများအတွက်</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../preamble/preamble.html">1. စကားချီး (Preamble)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/foreword.html">2. အမှာစာ (Foreword)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/conventions.html">3. အသုံးအနှုန်းများ (Conventions)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/features.html">4. အသွင်အပြင်များ (Features)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/getting_started.html">5. စတင်အသုံးပြုခြင်း (Getting Started)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/project_files.html">6. Project Files များနှင့် အလုပ်လုပ်ခြင်း (Working with Project Files)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/qgis_gui.html">7. QGIS ၏အစိတ်အပိုင်းများ (QGIS GUI)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/browser.html">8. ဒေတာများရှာဖွေကြည့်ရှုနိုင်သည့်နေရာ (The Browser panel)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/qgis_configuration.html">9. QGIS ပြင်ဆင်သတ်မှတ်ခြင်း/အခင်းအကျင်း (QGIS Configuration)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_projections/working_with_projections.html">10. မြေပုံအရိပ်ချစနစ်များ နှင့် အလုပ်လုပ်ခြင်း (Working with Projections)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../map_views/index.html">11. မြေပုံများအား ပုံဖော်ကြည့်ရှုခြင်း (Visualizing Maps)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/general_tools.html">12. အထွေ‌ထွေ‌သုံးကိရိယာများ (General Tools)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../expressions/index.html">13. Expression များဖြင့် အဆင့်မြှင့်တင်ဆောင်ရွက်ခြင်း (Level up with Expressions)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../style_library/index.html">14. The Style Library (Style နှင့်ပတ်သက်သည်များ ထားရှိရာနေရာ)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../managing_data_source/index.html">15. ဒေတာအရင်းအမြစ်များအား စီမံခန့်ခွဲခြင်း (Managing Data Source)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_vector/index.html">16. Vector data များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_raster/index.html">17. Raster Data နှင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_mesh/mesh_properties.html">18. Working with Mesh Data (Mesh Data များနှင့် အလုပ်လုပ်ခြင်း)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_vector_tiles/vector_tiles_properties.html">19. Vector Tiles များနှင့်အလုပ်လုပ်ခြင်း (Working with Vector Tiles)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_point_clouds/point_clouds.html">20. Point Cloud များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../print_composer/index.html">21. မြေပုံအချောသပ်ပြင်ဆင်ခြင်း (Laying out the maps)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_ogc/ogc_client_support.html">22. OGC / ISO protocol များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_gps/index.html">23. GPS Data များနှင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../auth_system/auth_overview.html">24. အထောက်အထားစီစစ်ခြင်းအကြောင်းအကျဉ်း (Authentication System Overview)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../auth_system/auth_workflows.html">25. အသုံးပြုသူ အထောက်အထားစစ်ဆေးခြင်း လုပ်ငန်းအဆင့်များ (User Authentication Workflows)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../auth_system/auth_considerations.html">26. လုံခြုံရေးအတွက်စဉ်းစားရန်အချက်များ (Security Considerations)</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">27. GRASS GIS နှင့်ပေါင်းစပ်အသုံးပြုခြင်း (GRASS GIS Integration)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#dataset-demo-dataset">27.1. အစမ်းသရုပ်ပြ dataset (Demo dataset)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#grass-raster-vector-layer-loading-grass-raster-and-vector-layers">27.2. GRASS raster နှင့် vector layer များကို ထည့်သွင်းခြင်း (Loading GRASS raster and vector layers)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#grass-location-importing-data-into-a-grass-location-via-drag-and-drop">27.3. ဖိဆွဲချနည်းဖြင့် GRASS LOCATION ထဲသို့အချက်အလက်များ ထည့်သွင်းခြင်း (Importing data into a GRASS LOCATION via drag and drop)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#qgis-browser-grass-data-managing-grass-data-in-qgis-browser">27.4. QGIS Browser ဖြင့် GRASS Data များအားစီမံခန့်ခွဲခြင်း (Managing GRASS data in QGIS Browser)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#grass-grass-options">27.5. GRASS ၏ ရွေးချယ်စရာများ (GRASS Options)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#grass-plugin-starting-the-grass-plugin">27.6. GRASS plugin အားစတင်အသုံးပြုခြင်း (Starting the GRASS plugin)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#grass-mapset-opening-grass-mapset">27.7. GRASS mapset ကိုဖွင့်ခြင်း (Opening GRASS mapset)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#grass-location-mapset">27.8. GRASS LOCATION နှင့် MAPSET</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#grass-location-data-importing-data-into-a-grass-location">27.9. GRASS LOCATION တစ်ခုထဲသို့ Data များ ထည့်သွင်းခြင်း (Importing data into a GRASS LOCATION)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#grass-location-creating-a-new-grass-location">27.9.1. GRASS LOCATION အသစ်တစ်ခု ဖန်တီးခြင်း (Creating a new GRASS LOCATION)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mapset-adding-a-new-mapset">27.9.2. MAPSETအသစ်တစ်ခုထည့်သွင်းခြင်း (Adding a new MAPSET)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#the-grass-vector-data-model">27.10. The GRASS vector data model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#grass-vector-layer-creating-a-new-grass-vector-layer">27.11. GRASS vector layer အသစ်တစ်ခု ဖန်တီးခြင်း (Creating a new GRASS vector layer)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#grass-vector-layer-digitizing-and-editing-a-grass-vector-layer">27.12. GRASS vector layer တစ်ခုအား ရေးဆွဲခြင်းနှင့် တည်းဖြတ်ပြင်ဆင်ခြင်း (Digitizing and editing a GRASS vector layer)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#the-grass-region-tool">27.13. The GRASS region tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#the-grass-toolbox">27.14. The GRASS Toolbox</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#grass-module-working-with-grass-modules">27.14.1. GRASS module များနှင့်အလုပ်လုပ်ခြင်း (Working with GRASS modules)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#grass-module">27.14.2. GRASS module ဥပမာများ</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#creating-contour-lines">27.14.2.1. ကွန်တိုများဖန်တီးခြင်း (Creating contour lines)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#creating-a-hillshade-3-d-effect">27.14.2.2. ရုပ်ကြွတောင်အရိပ်အထူးပြုလုပ်ချက်တစ်ခုအားဖန်တီးခြင်း (Creating a Hillshade 3-D effect)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#vector-raster-raster-statistics-in-a-vector-map">27.14.2.3. Vector မြေပုံတစ်ခုထဲရှိ raster ကိန်းဂဏန်းအချက်အလက်များ (Raster statistics in a vector map)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#grass-toolbox-customizing-the-grass-toolbox">27.14.3. GRASS Toolbox အား ပြင်ဆင်ခြင်း (Customizing the GRASS Toolbox)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../processing/index.html">28. QGIS processing framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing_algs/index.html">29. Processing ဆိုင်ရာ ထောက်ပံ့ပေးသူများနှင့် Algorithm များ (Processing providers and algorithms)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/plugins.html">30. QGIS Plugin များ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/core_plugins/index.html">31. QGIS ပင်မ Plugin များကို အသုံးပြုခြင်း (Using QGIS Core Plugins)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/python_console.html">32. QGIS တွင် Python code များရေးသားရန်နေရာ (QGIS Python console)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/help_and_support.html">33. အကူအညီနှင့်အထောက်အပံ့ (Help and Support)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/contributors.html">34. ပါဝင်အားဖြည့်သူများ (Contributors)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendices/index.html">35. နောက်ဆက်တွဲများ (Appendices)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../literature_web/literature_and_web_references.html">36. စာတမ်းများနှင့် Website ကိုးကားချက်များ (Literature and Web References)</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">QGIS Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">&lt;no title&gt;</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">27. </span>GRASS GIS နှင့်ပေါင်းစပ်အသုံးပြုခြင်း (GRASS GIS Integration)</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/qgis/QGIS-Documentation/blob/master/docs/user_manual/grass_integration/grass_integration.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="../auth_system/auth_considerations.html" class="btn btn-neutral float-left" title="26. လုံခြုံရေးအတွက်စဉ်းစားရန်အချက်များ (Security Considerations)" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../processing/index.html" class="btn btn-neutral float-right" title="28. QGIS processing framework" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <blockquote>
+<div></div></blockquote>
+<section id="grass-gis-grass-gis-integration">
+<span id="sec-grass"></span><span id="index-0"></span><h1><span class="section-number">27. </span>GRASS GIS နှင့်ပေါင်းစပ်အသုံးပြုခြင်း (GRASS GIS Integration)<a class="headerlink" href="#grass-gis-grass-gis-integration" title="Link to this heading"></a></h1>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#dataset-demo-dataset" id="id10">အစမ်းသရုပ်ပြ dataset (Demo dataset)</a></p></li>
+<li><p><a class="reference internal" href="#grass-raster-vector-layer-loading-grass-raster-and-vector-layers" id="id11">GRASS raster နှင့် vector layer များကို ထည့်သွင်းခြင်း (Loading GRASS raster and vector layers)</a></p></li>
+<li><p><a class="reference internal" href="#grass-location-importing-data-into-a-grass-location-via-drag-and-drop" id="id12">ဖိဆွဲချနည်းဖြင့် GRASS LOCATION ထဲသို့အချက်အလက်များ ထည့်သွင်းခြင်း (Importing data into a GRASS LOCATION via drag and drop)</a></p></li>
+<li><p><a class="reference internal" href="#qgis-browser-grass-data-managing-grass-data-in-qgis-browser" id="id13">QGIS Browser ဖြင့် GRASS Data များအားစီမံခန့်ခွဲခြင်း (Managing GRASS data in QGIS Browser)</a></p></li>
+<li><p><a class="reference internal" href="#grass-grass-options" id="id14">GRASS ၏ ရွေးချယ်စရာများ (GRASS Options)</a></p></li>
+<li><p><a class="reference internal" href="#grass-plugin-starting-the-grass-plugin" id="id15">GRASS plugin အားစတင်အသုံးပြုခြင်း (Starting the GRASS plugin)</a></p></li>
+<li><p><a class="reference internal" href="#grass-mapset-opening-grass-mapset" id="id16">GRASS mapset ကိုဖွင့်ခြင်း (Opening GRASS mapset)</a></p></li>
+<li><p><a class="reference internal" href="#grass-location-mapset" id="id17">GRASS LOCATION နှင့် MAPSET</a></p></li>
+<li><p><a class="reference internal" href="#grass-location-data-importing-data-into-a-grass-location" id="id18">GRASS LOCATION တစ်ခုထဲသို့ Data များ ထည့်သွင်းခြင်း (Importing data into a GRASS LOCATION)</a></p>
+<ul>
+<li><p><a class="reference internal" href="#grass-location-creating-a-new-grass-location" id="id19">GRASS LOCATION အသစ်တစ်ခု ဖန်တီးခြင်း (Creating a new GRASS LOCATION)</a></p></li>
+<li><p><a class="reference internal" href="#mapset-adding-a-new-mapset" id="id20">MAPSETအသစ်တစ်ခုထည့်သွင်းခြင်း (Adding a new MAPSET)</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#the-grass-vector-data-model" id="id21">The GRASS vector data model</a></p></li>
+<li><p><a class="reference internal" href="#grass-vector-layer-creating-a-new-grass-vector-layer" id="id22">GRASS vector layer အသစ်တစ်ခု ဖန်တီးခြင်း (Creating a new GRASS vector layer)</a></p></li>
+<li><p><a class="reference internal" href="#grass-vector-layer-digitizing-and-editing-a-grass-vector-layer" id="id23">GRASS vector layer တစ်ခုအား ရေးဆွဲခြင်းနှင့် တည်းဖြတ်ပြင်ဆင်ခြင်း (Digitizing and editing a GRASS vector layer)</a></p></li>
+<li><p><a class="reference internal" href="#the-grass-region-tool" id="id24">The GRASS region tool</a></p></li>
+<li><p><a class="reference internal" href="#the-grass-toolbox" id="id25">The GRASS Toolbox</a></p>
+<ul>
+<li><p><a class="reference internal" href="#grass-module-working-with-grass-modules" id="id26">GRASS module များနှင့်အလုပ်လုပ်ခြင်း (Working with GRASS modules)</a></p></li>
+<li><p><a class="reference internal" href="#grass-module" id="id27">GRASS module ဥပမာများ</a></p>
+<ul>
+<li><p><a class="reference internal" href="#creating-contour-lines" id="id28">ကွန်တိုများဖန်တီးခြင်း (Creating contour lines)</a></p></li>
+<li><p><a class="reference internal" href="#creating-a-hillshade-3-d-effect" id="id29">ရုပ်ကြွတောင်အရိပ်အထူးပြုလုပ်ချက်တစ်ခုအားဖန်တီးခြင်း (Creating a Hillshade 3-D effect)</a></p></li>
+<li><p><a class="reference internal" href="#vector-raster-raster-statistics-in-a-vector-map" id="id30">Vector မြေပုံတစ်ခုထဲရှိ raster ကိန်းဂဏန်းအချက်အလက်များ (Raster statistics in a vector map)</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#grass-toolbox-customizing-the-grass-toolbox" id="id31">GRASS Toolbox အား ပြင်ဆင်ခြင်း (Customizing the GRASS Toolbox)</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+<p>QGIS တွင် GRASS နှင့် ပေါင်းစပ်အသုံးပြုခြင်းဖြင့် GRASS GIS database များနှင့် လုပ်ဆောင်နိုင်စွမ်းများကို ရယူအသုံးပြုနိုင်မည်ဖြစ်သည်။ (GRASS-PROJECT ကို <a class="reference internal" href="../literature_web/literature_and_web_references.html#literature-and-web"><span class="std std-ref">စာတမ်းများနှင့် Website ကိုးကားချက်များ (Literature and Web References)</span></a> တွင်ကြည့်ပါ)။ GRASS နှင့် ပေါင်းစပ်အသုံးပြုရာတွင်တွင် provider နှင့် plugin ဟူသည့်အပိုင်းနှစ်ပိုင်း ပါဝင်သည်။ Provider ဖြင့် GRASS raster နှင့် vector layer များကိုရှာဖွေခြင်း၊ စီမံခန့်ခွဲခြင်းနှင့် ပုံဖော်ပြသခြင်းတို့ကိုဆောင်ရွက်နိုင်သည်။ Plugin ကို GRASS တည်နေရာများနှင့် မြေပုံအသစ်များကို ဖန်တီးရန်၊ GRASS ဒေသကိုပြောင်းလဲရန်၊ vector အလွှာများကိုဖန်တီး၍တည်းဖြတ်ရန်နှင့် GRASS 2-D နှင့် 3-D ဒေတာများ ကိုခွဲခြမ်းစိတ်ဖြာရန် GRASS modules 400 ကျော်ဖြင့် အသုံးပြုနိုင်သည်။ ဤအပိုင်းတွင် provider နှင့် plugin လုပ်ဆောင်နိုင်စွမ်းများအကြောင်းကို မိတ်ဆက်ပေးမည်ဖြစ်ပြီး GRASS ဒေတာကို စီမံခန့်ခွဲခြင်းနှင့် ၎င်းဖြင့် အလုပ်လုပ်ခြင်းဆိုင်ရာ နမူနာအချို့ကို ပြသမည်ဖြစ်ပါသည်။</p>
+<p>Provider သည် GRASS version 6 နှင့် 7 ကို ထောက်ပံ့ပေးပြီး  plugin သည် (QGIS 2.12 မှစ၍) GRASS version 6 နှင့် 7 ကို ထောက်ပံ့ပေးသည်။ QGIS software ဖြန့်ဖြူးမှုများတွင်  GRASS 6 နှင့် GRASS 7 တစ်ခုချင်းစီအတွက် အသုံးပြုနိုင်သော provider/plugin များ ပါဝင်နိုင်သကဲ့သို့  version နှစ်မျိုးစလုံးအားထောက်ပံ့ပေးသည့် provider/plugin များ ပါဝင်နိုင်သည်။ (Binaries ဖိုင်များတွင် မတူကွဲပြားသည့်အမည်များ ရှိမည်)။ သို့သော် QGIS လုပ်ဆောင်နေစဉ်အချိန်တွင် provider/plugin version တစ်ခုကိုသာ အသုံးပြုနိုင်မည်ဖြစ်သည်။</p>
+<section id="dataset-demo-dataset">
+<h2><a class="toc-backref" href="#id10" role="doc-backlink"><span class="section-number">27.1. </span>အစမ်းသရုပ်ပြ dataset (Demo dataset)</a><a class="headerlink" href="#dataset-demo-dataset" title="Link to this heading"></a></h2>
+<p>ဥပမာတစ်ခုအနေနှင့် QGIS Alaska dataset ကိုအသုံးပြုပါမည်။ (<a class="reference internal" href="../introduction/getting_started.html#label-sampledata"><span class="std std-ref">နမူနာဒေတာများ ရယူခြင်း (Downloading sample data)</span></a> တွင်ကြည့်ပါ) ၎င်းတွင် vector အလွှာသုံးခုနှင့် မြေပြင်အနိမ့်အမြင့်ပြ raster မြေပုံတစ်ခုပါသည့် နမူနာ GRASS <code class="file docutils literal notranslate"><span class="pre">LOCATION</span></code> အသေးတစ်ခုပါရှိသည်။ Dataset အားသိမ်းဆည်းနိုင်ရန် <code class="file docutils literal notranslate"><span class="pre">grassdata</span></code> ဟုအမည်ပေးထားသည့် folder အသစ်တစ်ခုဖန်တီးပါ။ <a class="reference external" href="https://qgis.org/downloads/data/">https://qgis.org/downloads/data/</a>  မှတစ်ဆင့်  QGIS ‘Alaska’ dataset <code class="file docutils literal notranslate"><span class="pre">qgis_sample_data.zip</span></code> ဖိုင်အားဒေါင်းလုပ်ရယူ၍  <code class="file docutils literal notranslate"><span class="pre">grassdata</span></code> folder ထဲတွင် unzip ပြုလုပ်ပါ။</p>
+<p>နမူနာ GRASS <code class="file docutils literal notranslate"><span class="pre">LOCATIONs</span></code> များကိုပိုမိုကြည့်ရှုလိုပါက GRASS website ဖြစ်သည့် <a class="reference external" href="https://grass.osgeo.org/download/data/">https://grass.osgeo.org/download/data/</a>  သို့သွားရောက်ကြည့်ရှုနိုင်ပါသည်။</p>
+</section>
+<section id="grass-raster-vector-layer-loading-grass-raster-and-vector-layers">
+<span id="sec-load-grassdata"></span><h2><a class="toc-backref" href="#id11" role="doc-backlink"><span class="section-number">27.2. </span>GRASS raster နှင့် vector layer များကို ထည့်သွင်းခြင်း (Loading GRASS raster and vector layers)</a><a class="headerlink" href="#grass-raster-vector-layer-loading-grass-raster-and-vector-layers" title="Link to this heading"></a></h2>
+<p>QGIS တွင် provider အား ဖွင့်ထားပြီးသည့်အခါ GRASS တည်နေရာ ပါဝင်သော folder တစ်ခုချင်းစီ၏အောက်ရှိ browser tree ထဲတွင် GRASS <a class="reference internal" href="../../../_images/grasslogo.png"><img alt="grassLogo" src="../../../_images/grasslogo.png" style="width: 1.5em;" /></a> သင်္ကေတနှင့် တည်နေရာပြပုံအား ပြသနေသည်ကိုတွေ့ရမည်။ <code class="file docutils literal notranslate"><span class="pre">grassdata</span></code> folder ဆီသို့သွား၍ <code class="file docutils literal notranslate"><span class="pre">alaska</span></code> တည်နေရာ နှင့် <code class="file docutils literal notranslate"><span class="pre">demo</span></code> mapset တို့ကို ဖြန့်ပါ။</p>
+<p>GRASS ၏ raster နှင့် vector layer များကို ထည့်သွင်းလိုပါက Browser ထဲမှအခြား layer များကဲ့သို့ပင် layer ပေါ်တွင် ကလစ်နှစ်ချက်နှိပ်၍ဖြစ်စေ layer အား left click ဖြင့် ဖိဆွဲခဲ့၍ map canvas (မြေပုံမြင်ကွင်း) သို့မဟုတ် legend (ရည်ညွှန်းချက်) ပေါ်တွင်လွှတ်ချလိုက်ခြင်းဖြင့် ထည့်သွင်းနိုင်သည်။</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><strong>GRASS Data များ ထည့်သွင်းခြင်း</strong></p>
+<p>အကယ်၍ GRASS တည်နေရာပြပုံအား Browser ထဲတွင် မတွေ့ရှိပါက <span class="menuselection">Help ► About ► Providers</span> သို့သွား၍ GRASS vector provider အားထည့်သွင်းပြီးမပြီး စစ်ဆေးနိုင်ပါသည်။</p>
+</div>
+</section>
+<section id="grass-location-importing-data-into-a-grass-location-via-drag-and-drop">
+<span id="import-data-dnd"></span><h2><a class="toc-backref" href="#id12" role="doc-backlink"><span class="section-number">27.3. </span>ဖိဆွဲချနည်းဖြင့် GRASS LOCATION ထဲသို့အချက်အလက်များ ထည့်သွင်းခြင်း (Importing data into a GRASS LOCATION via drag and drop)</a><a class="headerlink" href="#grass-location-importing-data-into-a-grass-location-via-drag-and-drop" title="Link to this heading"></a></h2>
+<p>ဤအပိုင်းတွင် raster နှင့် vector အချက်အလက်များကို GRASS mapset တစ်ခုထဲသို့ import လုပ်နည်း ဥပမာအား ပြသထားပါသည်။</p>
+<ol class="arabic simple">
+<li><p>QGIS browser မှ အချက်အလက်များထည့်သွင်းလိုသည့် mapset ရှိရာသို့ ဦးတည်သွားလိုက်ပါ။</p></li>
+<li><p>Browser တွင် GRASS ထဲသို့ထည့်သွင်းလိုသည့် layer တစ်ခုကိုရှာဖွေပါ။
+အကယ်၍ browser tree ထဲတွင် source data များသည် mapset နှင့် ဝေးလွန်းနေလျင် ရှာဖွေရလွယ်စေရန် အခြား browser တစ်ခု (<span class="guilabel">Browser Panel (2)</span>) အား ထပ်မံဖွင့်နိုင်ပါသည်။</p></li>
+<li><p>Layer တစ်ခုအား left click ဖြင့် ဖိဆွဲခဲ့၍ ရည်ရွယ်ထားသည့် mapset ပေါ်တွင် လွှတ်ချပါ။
+အရွယ်အစားပိုမိုကြီးမားသော layer များအား import ရာတွင် အချိန်အချို့ကြာမြင့်မည်ဖြစ်သည်။
+Import လုပ်နေစဉ်အတွင်း လှုပ်ရှားနေသည့် <a class="reference internal" href="../../../_images/mIconImport.png"><img alt="import" src="../../../_images/mIconImport.png" style="width: 1.5em;" /></a> သင်္ကေတ အား layer အသစ်၏ရှေ့တွင်တွေ့မြင်ရမည်ဖြစ်ပြီး import လုပ်ခြင်းမပြီးဆုံးမီအထိ ထိုသင်္ကေတကို မြင်တွေ့နေရမည်ဖြစ်သည်။</p></li>
+</ol>
+<p>Raster အချက်အလက်များသည် မတူညီသော CRS (Coordinate Reference Systems) ဖြစ်နေလျှင် ၎င်းတို့ကို  <span class="guilabel">Approximate</span> (မြန်ဆန်သော) သို့မဟုတ် <span class="guilabel">Exact</span> (တိကျသော) ကူးပြောင်းခြင်းနည်းလမ်းတစ်ခုဖြင့် ကိုဩဒိနိတ်စနစ်နောက်တစ်ခုသို့ ကူးပြောင်းခြင်းအား ပြုလုပ်နိုင်သည်။ Raster အချက်အလက်အရင်းအမြစ် နှင့် ချိတ်ဆက်ထားသော လင့်ခ်တစ်ခုအား ဖန်တီးထားလျှင် (<code class="docutils literal notranslate"><span class="pre">r.external</span></code> ကိုအသုံးပြုပြီး) ထိုအချက်အလက်အရင်းအမြစ်များသည် တူညီသော CRS ရှိမည်ဖြစ်ပြီး format ကိုလည်း GDAL (Geospatial Data Abstraction Library) မှထောက်ပံ့ပေးလျှင် အချက်အလက်အရင်းအမြစ်မှ CRS ကို အသုံးပြုပါလိမ့်မည်။ ဤသို့ရွေးချယ်စရာများအား <a class="reference internal" href="#grass-options"><span class="std std-ref">GRASS ၏ ရွေးချယ်စရာများ (GRASS Options)</span></a> ထဲရှိ <span class="guilabel">Browser</span> tab ထဲတွင် သတ်မှတ်ချိန်ညှိနိုင်ပါသည်။</p>
+<p>အကယ်၍ raster အချက်အလက်အရင်းအမြစ်တစ်ခုတွင် bands (လှိုင်းအလွှာများ) သည် တစ်ခုထက်ပို၍ ရှိနေလျှင် layer တစ်ခုစီအတွက် GRASS မြေပုံ အသစ်တစ်ခုအား <strong>.&lt;band နံပါတ်&gt;</strong> နောက်ဆက်တွဲ ထည့်သွင်း၍ ဖန်တီးပေးမည်ဖြစ်ပြီး မြေပုံအားလုံးအား အုပ်စုတစ်စုအဖြစ် <a class="reference internal" href="../../../_images/mIconRasterGroup.png"><img alt="rasterGroup" src="../../../_images/mIconRasterGroup.png" style="width: 1.5em;" /></a> သင်္ကေတနှင့်အတူ ဖန်တီးမည်ဖြစ်မည်။ ပြင်ပ raster များအတွက် မတူညီသည့် သင်္ကေတ <a class="reference internal" href="../../../_images/mIconRasterLink.png"><img alt="rasterLink" src="../../../_images/mIconRasterLink.png" style="width: 1.5em;" /></a> တစ်ခုရှိပါလိမ့်မည်။</p>
+</section>
+<section id="qgis-browser-grass-data-managing-grass-data-in-qgis-browser">
+<span id="managing-grass-data"></span><h2><a class="toc-backref" href="#id13" role="doc-backlink"><span class="section-number">27.4. </span>QGIS Browser ဖြင့် GRASS Data များအားစီမံခန့်ခွဲခြင်း (Managing GRASS data in QGIS Browser)</a><a class="headerlink" href="#qgis-browser-grass-data-managing-grass-data-in-qgis-browser" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>မြေပုံများကိုကူးယူခြင်း - GRASS မြေပုံများကို တူညီသောတည်နေရာထဲရှိ mapset များကြားတွင် left click ဖြင့်ဖိဆွဲ၍ လွှတ်ချခြင်းဖြင့် (Drag and drop) ကူးယူနိုင်ပါသည်။</p></li>
+<li><p>မြေပုံများကိုဖျက်ခြင်း - GRASS မြေပုံတစ်ခုပေါ်တွင် Right click နှိပ်၍ context menu မှ <span class="guilabel">Delete</span> အားရွေးပါ။</p></li>
+<li><p>မြေပုံများကိုအမည်ပြောင်းခြင်း - GRASS မြေပုံတစ်ခုပေါ်တွင် Right click နှိပ်၍ context menu မှ <span class="guilabel">Rename</span> အားရွေးပါ။</p></li>
+</ul>
+</section>
+<section id="grass-grass-options">
+<span id="grass-options"></span><h2><a class="toc-backref" href="#id14" role="doc-backlink"><span class="section-number">27.5. </span>GRASS ၏ ရွေးချယ်စရာများ (GRASS Options)</a><a class="headerlink" href="#grass-grass-options" title="Link to this heading"></a></h2>
+<p>GRASS ၏ရွေးချယ်စရာများအား <span class="guilabel">GRASS Options</span> dialog ထဲတွင် သတ်မှတ်ချိန်ညှိနိုင်ပါသည်။ ထိုသို့ပြုလုပ်ရန်အတွက် browser ထဲရှိ location သို့မဟုတ် mapset ပေါ်တွင် right click နှိပ်၍   <span class="guilabel">GRASS Options</span> အားရွေးချယ်ပါ။</p>
+</section>
+<section id="grass-plugin-starting-the-grass-plugin">
+<span id="sec-starting-grass"></span><h2><a class="toc-backref" href="#id15" role="doc-backlink"><span class="section-number">27.6. </span>GRASS plugin အားစတင်အသုံးပြုခြင်း (Starting the GRASS plugin)</a><a class="headerlink" href="#grass-plugin-starting-the-grass-plugin" title="Link to this heading"></a></h2>
+<p>QGIS ထဲတွင် GRASS ၏လုပ်ဆောင်ချက်များကိုအသုံးပြုနိုင်ရန် Plugin Manager ကိုအသုံးပြု၍ GRASS plugin အားရွေးချယ်ကာ ထည့်သွင်းရပါမည်။ ထည့်သွင်းရန် menu သို့သွား၍ <span class="menuselection">Plugins ►</span> <a class="reference internal" href="../../../_images/mActionShowPluginManager.png"><img alt="showPluginManager" src="../../../_images/mActionShowPluginManager.png" style="width: 1.5em;" /></a> <span class="menuselection">Manage and Install Plugins…</span> မှတစ်ဆင့်  <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">GRASS</span> အားရွေးချယ်၍ <span class="guilabel">OK</span> အား click နှိပ်ပါ။</p>
+<p>GRASS plugin အားစတင်အသုံးပြုသည့်အခါ GRASS menu (<span class="menuselection">Plugins ► GRASS</span>) ထဲတွင်
+အောက်ပါအဓိက feature များအားတွေ့ရပါမည်-</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../../../_images/grass_open_mapset.png"><img alt="grassOpenMapset" src="../../../_images/grass_open_mapset.png" style="width: 1.5em;" /></a> <sup>Open Mapset</sup> (Mapset ကိုဖွင့်ခြင်း)</p></li>
+<li><p><a class="reference internal" href="../../../_images/grass_new_mapset.png"><img alt="grassNewMapset" src="../../../_images/grass_new_mapset.png" style="width: 1.5em;" /></a> <sup>New Mapset</sup> (Mapset အသစ်သတ်မှတ်ခြင်း)</p></li>
+<li><p><a class="reference internal" href="../../../_images/grass_close_mapset.png"><img alt="grassCloseMapset" src="../../../_images/grass_close_mapset.png" style="width: 1.5em;" /></a> <sup>Close Mapset</sup> (Mapset ကိုပိတ်ခြင်း)</p></li>
+<li><p><a class="reference internal" href="../../../_images/grass_tools.png"><img alt="grassTools" src="../../../_images/grass_tools.png" style="width: 1.5em;" /></a> <sup>Open GRASS Tools</sup> (GRASS Tools ကိုဖွင့်ခြင်း)</p></li>
+<li><p><a class="reference internal" href="../../../_images/grass_region.png"><img alt="grassRegion" src="../../../_images/grass_region.png" style="width: 1.5em;" /></a> <sup>Display Current GRASS Region</sup> (လက်ရှိ GRASS Region အားပြသခြင်း)</p></li>
+<li><p><a class="reference internal" href="../../../_images/general.png"><img alt="general" src="../../../_images/general.png" style="width: 1.5em;" /></a> <sup>GRASS Options</sup> (GRASS ရွေးချယ်စရာများ)</p></li>
+</ul>
+</section>
+<section id="grass-mapset-opening-grass-mapset">
+<h2><a class="toc-backref" href="#id16" role="doc-backlink"><span class="section-number">27.7. </span>GRASS mapset ကိုဖွင့်ခြင်း (Opening GRASS mapset)</a><a class="headerlink" href="#grass-mapset-opening-grass-mapset" title="Link to this heading"></a></h2>
+<p>Plugin ထဲရှိ GRASS ဆိုင်ရာ Tool များကိုရယူသုံးစွဲနိုင်ရန် GRASS mapset တစ်ခုအားဖွင့်ထားရပါမည်။ (mapset များဖွင့်မထားလျှင် tool များအားအသုံးပြု၍ရမည်မဟုတ်ပါ) Mapset တစ်ခုကို browser မှ ဖွင့်ရန်အတွက် mapset item ပေါ်တွင် right click နှိပ်၍ context menu မှ <span class="guilabel">Open mapset</span> ကိုရွေးချယ်ပါ။</p>
+</section>
+<section id="grass-location-mapset">
+<span id="sec-about-loc"></span><h2><a class="toc-backref" href="#id17" role="doc-backlink"><span class="section-number">27.8. </span>GRASS LOCATION နှင့် MAPSET</a><a class="headerlink" href="#grass-location-mapset" title="Link to this heading"></a></h2>
+<p>GRASS အချက်အလက်များကို GISDBASE ဟုရည်ညွှန်းသော ဖိုင်လမ်းကြောင်း (directory) တစ်ခုထဲတွင် သိုလှောင်ထားပါသည်။ ဤ directory အား <code class="file docutils literal notranslate"><span class="pre">grassdata</span></code> ဟုအမည်ပေးလေ့ရှိကြ၍ ၎င်းအား QGIS ထဲတွင် GRASS plugin နှင့်အလုပ်စတင်မလုပ်မီ ဖန်တီးထားရမည်ဖြစ်ပါသည်။ ဤ directory အတွင်းတွင် GRASS GIS အချက်အလက်များအား <code class="file docutils literal notranslate"><span class="pre">LOCATIONs</span></code> ဟုခေါ်သော subdirectories (ဖိုင်လမ်းကြောင်းအခွဲ) များထဲတွင် သိုလှောင်ထားသည့် project များအရ ဖွဲ့စည်းထားခြင်းဖြစ်ပါသည်။ <code class="file docutils literal notranslate"><span class="pre">LOCATION</span></code> တစ်ခုစီအား ၎င်း၏ ကိုဩဒိနိတ်စနစ်၊ မြေပုံအရိပ်ချစနစ် နှင့် ပထဝီဝင်ဆိုင်ရာနယ်နိမိတ်များအရသတ်မှတ်ထားခြင်းဖြစ်ပါသည်။ <code class="file docutils literal notranslate"><span class="pre">LOCATION</span></code> တစ်ခုစီတွင်  များစွာသော <code class="file docutils literal notranslate"><span class="pre">MAPSETs</span></code> များ (<code class="file docutils literal notranslate"><span class="pre">LOCATION</span></code> ၏ subdirectories)ရှိနိုင်ပြီး ၎င်းတို့အား project ကို အမျိုးမျိုးသောခေါင်းစဉ်များခွဲရန် သို့မဟုတ် region များအဖြစ် အပိုင်းခွဲရန်သုံးသကဲ့သို့ အဖွဲ့ဝင်တစ်ဦးတစ်ယောက်ချင်းစီအတွက် workspace များအဖြစ် အသုံးပြုပါသည် (<a class="reference internal" href="../literature_web/literature_and_web_references.html#literature-and-web"><span class="std std-ref">စာတမ်းများနှင့် Website ကိုးကားချက်များ (Literature and Web References)</span></a> ထဲရှိ Neteler &amp; Mitasova 2008 တွင်ကြည့်ပါ)။ Vector နှင့် raster layer များကို GRASS module များဖြင့် ခွဲခြမ်းစိတ်ဖြာရန် ဦးစွာ ၎င်းတို့ကို GRASS <code class="file docutils literal notranslate"><span class="pre">LOCATION</span></code> တစ်ခုထဲသို့ import လုပ်ရမည်ဖြစ်ပါသည်။ (အခြားနည်းလမ်းတစ်ခုမှာ –  layer များကို import လုပ်စရာမလိုဘဲ GRASS modules များဖြစ်သော <code class="file docutils literal notranslate"><span class="pre">r.external</span></code> နှင့် <code class="file docutils literal notranslate"><span class="pre">v.external</span></code> တို့အားအသုံးပြုပြီး ပြင်ပ GDAL-supported datasets များသို့ချိတ်ဆက်ထားသော ဖတ်၍သာရသည့် link များ ဖန်တီးခြင်းဖြစ်သည်။ ထိုနည်းလမ်းသည် စတင်အသုံးပြုသူများအနေဖြင့် GRASS နှင့်အလုပ်လုပ်နေကျမဟုတ်သည့်အတွက် ထိုလုပ်ဆောင်ချက်များအား ဤနေရာတွင်ဖော်ပြမထားပါ။)</p>
+<figure class="align-center" id="id1">
+<span id="figure-grass-location"></span><img alt="../../../_images/grass_location.png" src="../../../_images/grass_location.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 27.1 </span><span class="caption-text">Alaska LOCATION ထဲရှိ GRASS Data များ</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="grass-location-data-importing-data-into-a-grass-location">
+<span id="sec-import-loc-data"></span><h2><a class="toc-backref" href="#id18" role="doc-backlink"><span class="section-number">27.9. </span>GRASS LOCATION တစ်ခုထဲသို့ Data များ ထည့်သွင်းခြင်း (Importing data into a GRASS LOCATION)</a><a class="headerlink" href="#grass-location-data-importing-data-into-a-grass-location" title="Link to this heading"></a></h2>
+<p>Browser ထဲတွင် အချက်အလက်များအား drag and drop နည်းဖြင့် မည်သို့အလွယ်တကူ import လုပ်နိုင်ကြောင်း <a class="reference internal" href="#import-data-dnd"><span class="std std-ref">ဖိဆွဲချနည်းဖြင့် GRASS LOCATION ထဲသို့အချက်အလက်များ ထည့်သွင်းခြင်း (Importing data into a GRASS LOCATION via drag and drop)</span></a> အပိုင်းတွင်ကြည့်နိုင်ပါသည်။</p>
+<p>ဤအပိုင်းတွင် raster နှင့် vector အချက်အလက်များအား ‘alaska’ GRASS <code class="file docutils literal notranslate"><span class="pre">LOCATION</span></code> ထဲသို့ စံသတ်မှတ်ထားသော GRASS module များကိုသုံး၍ မည်သို့ import လုပ်ရမည်ဆိုသည်ကိုဖော်ပြထားပါသည်။ ထို့ကြောင့် QGIS ‘Alaska’ dataset ထဲမှ မြေပြင်ဖုံးလွှမ်းမှုအခြေပြမြေပုံ <code class="file docutils literal notranslate"><span class="pre">landcover.img</span></code> နှင့် vector GML ဖိုင်ဖြစ်သော <code class="file docutils literal notranslate"><span class="pre">lakes.gml</span></code> တို့ကိုအသုံးပြုပါမည်။ (<a class="reference internal" href="../introduction/getting_started.html#label-sampledata"><span class="std std-ref">နမူနာဒေတာများ ရယူခြင်း (Downloading sample data)</span></a> တွင်ကြည့်ပါ။)</p>
+<ol class="arabic simple">
+<li><p>QGIS ကိုဖွင့်ပါ။ QGIS တွင် GRASS plugin ထည့်ထားပြီး ဖြစ်ပါစေ။</p></li>
+<li><p>GRASS toolbar ထဲရှိ <a class="reference internal" href="../../../_images/grass_open_mapset.png"><img alt="grassOpenMapset" src="../../../_images/grass_open_mapset.png" style="width: 1.5em;" /></a> <sup>Open MAPSET</sup> သင်္ကေတအား click နှိပ်၍ <span class="guilabel">MAPSET</span> wizard အားခေါ်ယူပါ။</p></li>
+<li><p>QGIS Alaska dataset ထဲရှိ  <code class="file docutils literal notranslate"><span class="pre">grassdata</span></code> folder အား GRASS database အဖြစ်ရွေးချယ်ပါ။ <code class="file docutils literal notranslate"><span class="pre">LOCATION</span></code> အား ‘alaska’ အဖြစ် ရွေးချယ်၍ <code class="file docutils literal notranslate"><span class="pre">MAPSET</span></code>’demo’ အဖြစ်  ရွေးချယ်ပါ။ <span class="guilabel">OK</span> ကိုနှိပ်ပါ။</p></li>
+<li><p>ယခုအခါ <a class="reference internal" href="../../../_images/grass_tools.png"><img alt="grassTools" src="../../../_images/grass_tools.png" style="width: 1.5em;" /></a> <sup>Open GRASS tools</sup> သင်္ကေတအား click နှိပ်ပါ။ GRASS Toolbox dialog ပေါ်လာမည်ဖြစ်သည်။ (<a class="reference internal" href="#subsec-grass-toolbox"><span class="std std-ref">The GRASS Toolbox</span></a> အပိုင်းတွင်ကြည့်ပါ။)</p></li>
+<li><p><code class="file docutils literal notranslate"><span class="pre">landcover.img</span></code> raster မြေပုံအား import လုပ်ရန် <span class="guilabel">Modules Tree</span> tab ထဲရှိ <code class="file docutils literal notranslate"><span class="pre">r.in.gdal</span></code> module အား click နှိပ်ပါ။ ဤ GRASS module ကိုသုံးခြင်းဖြင့် GDAL မှထောက်ပံ့ပေးသော  raster ဖိုင်များအား GRASS <code class="file docutils literal notranslate"><span class="pre">LOCATION</span></code> တစ်ခုထဲသို့ import လုပ်နိုင်မည်ဖြစ်သည်။ Click နှိပ်ပြီးသောအခါ <code class="file docutils literal notranslate"><span class="pre">r.in.gdal</span></code> အတွက် module dialog ပေါ်လာမည်ဖြစ်သည်။</p></li>
+<li><p>QGIS ‘Alaska’ dataset ထဲရှိ <code class="file docutils literal notranslate"><span class="pre">raster</span></code> folder သို့သွား၍ <code class="file docutils literal notranslate"><span class="pre">landcover.img</span></code> file အားရွေးချယ်ပါ။</p></li>
+<li><p>ရလာဒ် raster ၏ အမည်အား  <code class="file docutils literal notranslate"><span class="pre">landcover_grass</span></code> ဟုသတ်မှတ်ပေး၍ <span class="guilabel">Run</span> အား click နှိပ်ပါ။
+<span class="guilabel">Output</span> tab ထဲတွင် လက်ရှိ ဆောင်ရွက်ဆဲ GRASS command ဖြစ်သည့် <code class="docutils literal notranslate"><span class="pre">r.in.gdal</span> <span class="pre">-o</span> <span class="pre">input=/path/to/landcover.img</span>&#160; <span class="pre">output=landcover_grass</span></code> အားတွေ့ရှိမည်ဖြစ်သည်။</p></li>
+<li><p><strong>Successfully finished (အောင်မြင်စွာပြီးဆုံးပြီ)</strong> ဟူသည့်စာတိုပေါ်လာလျှင် <span class="guilabel">View Output</span> အား click နှိပ်ပါ။ <code class="file docutils literal notranslate"><span class="pre">landcover_grass</span></code> ဟူသည့် raster layer သည် ယခုအခါတွင် GRASS ထဲသို့ import လုပ်ပြီးဖြစ်၍
+QGIS canvas ထဲတွင် ပုံဖော်ကြည့်ရှုနိုင်မည်ဖြစ်သည်။</p></li>
+<li><p>Vector GML ဖိုင် <code class="file docutils literal notranslate"><span class="pre">lakes.gml</span></code> အား import လုပ်ရန်အတွက် <span class="guilabel">Modules Tree</span> tab ထဲရှိ <code class="file docutils literal notranslate"><span class="pre">v.in.ogr</span></code> module အား click နှိပ်ပါ။ ဤ GRASS module ကိုသုံးခြင်းဖြင့် OGR မှထောက်ပံ့ပေးသော  vector ဖိုင်များအား GRASS <code class="file docutils literal notranslate"><span class="pre">LOCATION</span></code> တစ်ခုထဲသို့ import လုပ်နိုင်မည်ဖြစ်သည်။ Click နှိပ်ပြီးသောအခါ <code class="file docutils literal notranslate"><span class="pre">v.in.ogr</span></code> အတွက် module dialog ပေါ်လာမည်ဖြစ်သည်။</p></li>
+<li><p>QGIS ‘Alaska’ dataset ထဲရှိ <code class="file docutils literal notranslate"><span class="pre">gml</span></code> folder ရှိရာသို့သွား၍ <code class="file docutils literal notranslate"><span class="pre">lakes.gml</span></code> file အား OGR file အနေဖြင့် ရွေးချယ်ပါ။</p></li>
+<li><p>ရလာဒ် vector အမည်အား <code class="file docutils literal notranslate"><span class="pre">lakes_grass</span></code> ဟုသတ်မှတ်ပေး၍ <span class="guilabel">Run</span> အား click နှိပ်ပါ။ ဤဥပမာတွင် အခြားရွေးချယ်စရာများကို ဂရုပြုရန်မလိုအပ်သေးပါ။ <span class="guilabel">Output</span> tab ထဲတွင် လက်ရှိ ဆောင်ရွက်ဆဲ GRASS command ဖြစ်သည့် <code class="docutils literal notranslate"><span class="pre">v.in.ogr</span> <span class="pre">-o</span> <span class="pre">dsn=/path/to/lakes.gml</span> <span class="pre">output=lakes\_grass</span></code> အားတွေ့ရမည်ဖြစ်သည်။</p></li>
+<li><p><strong>Successfully finished (အောင်မြင်စွာပြီးဆုံးပြီ)</strong> ဟူသည့်စာတိုပေါ်လာလျှင် <span class="guilabel">View Output</span> အား click နှိပ်ပါ။ <code class="file docutils literal notranslate"><span class="pre">lakes_grass</span></code> ဟူသည့် vector layer သည် ယခုအခါတွင် GRASS ထဲသို့ import လုပ်ပြီးဖြစ်၍ QGIS canvas ထဲတွင် ပုံဖော်ကြည့်ရှုနိုင်မည်ဖြစ်သည်။</p></li>
+</ol>
+<section id="grass-location-creating-a-new-grass-location">
+<span id="sec-create-loc"></span><h3><a class="toc-backref" href="#id19" role="doc-backlink"><span class="section-number">27.9.1. </span>GRASS LOCATION အသစ်တစ်ခု ဖန်တီးခြင်း (Creating a new GRASS LOCATION)</a><a class="headerlink" href="#grass-location-creating-a-new-grass-location" title="Link to this heading"></a></h3>
+<p>ဥပမာတစ်ခုအနေဖြင့် Albers Equal Area projection မြေပုံအရိပ်ချစနစ်အားအသုံးပြုထားပြီး ယူနစ်မှာ ပေ ဖြစ်သည့် နမူနာ GRASS <code class="file docutils literal notranslate"><span class="pre">LOCATION</span> <span class="pre">alaska</span></code> အားပြသထားပါသည်။ ဤ နမူနာ GRASS <code class="file docutils literal notranslate"><span class="pre">LOCATION</span> <span class="pre">alaska</span></code> အား လာမည့် GRASS နှင့်သက်ဆိုင်သည့်အပိုင်းများအားလုံးရှိ ဥပမာများနှင့်လေ့ကျင့်ခန်းများ အားလုံးတွင်အသုံးပြုသွားပါမည်။ ကွန်ပျူတာတွင် dataset အား download လုပ်၍ install ပြုလုပ်ထားပါကအသုံးဝင်မည်ဖြစ်ပါသည် (<a class="reference internal" href="../introduction/getting_started.html#label-sampledata"><span class="std std-ref">နမူနာဒေတာများ ရယူခြင်း (Downloading sample data)</span></a> တွင်ကြည့်ပါ)။</p>
+<ol class="arabic simple">
+<li><p>QGIS ကိုဖွင့်ပါ။ QGIS တွင် GRASS plugin ထည့်သွင်းထားပြီး ဖြစ်ပါစေ။</p></li>
+<li><p>QGIS Alaska dataset (<a class="reference internal" href="../introduction/getting_started.html#label-sampledata"><span class="std std-ref">နမူနာဒေတာများ ရယူခြင်း (Downloading sample data)</span></a> တွင်ကြည့်ပါ) ထဲမှ shapefile ဖြစ်သော <code class="file docutils literal notranslate"><span class="pre">alaska.shp</span></code> အား ပုံဖော်ကြည့်ရှုပါ။ ( <a class="reference internal" href="../managing_data_source/opening_data.html#loading-file"><span class="std std-ref">ဖိုင်တစ်ခုမှ layer တစ်ခုကို ထည့်သွင်းခြင်း (Loading a layer from a file)</span></a> အပိုင်းတွင်ကြည့်ပါ)</p></li>
+<li><p>GRASS toolbar ထဲရှိ <a class="reference internal" href="../../../_images/grass_new_mapset.png"><img alt="grassNewMapset" src="../../../_images/grass_new_mapset.png" style="width: 1.5em;" /></a> <sup>New mapset</sup> သင်္ကေတအား click နှိပ်၍ <span class="guilabel">MAPSET</span> wizard အားခေါ်ယူပါ။</p></li>
+<li><p>ရှိပြီးသား GRASS database (GISDBASE) folder တစ်ခုဖြစ်သည့် <code class="file docutils literal notranslate"><span class="pre">grassdata</span></code> အားရွေးချယ်ပါ သို့မဟုတ် computer ရှိ file manager တစ်ခုအားအသုံးပြု၍ <code class="file docutils literal notranslate"><span class="pre">LOCATION</span></code> အသစ်အတွက် folder တစ်ခုဖန်တီးနိုင်ပါသည်။ ထို့နောက် <span class="guilabel">Next</span> အား click နှိပ်ပါ။</p></li>
+<li><p>ဤ wizard ကိုအသုံးပြုခြင်းဖြင့် ရှိပြီးသား <code class="file docutils literal notranslate"><span class="pre">LOCATION</span></code> အတွင်းတွင်
+<code class="file docutils literal notranslate"><span class="pre">MAPSET</span></code> အသစ်တစ်ခုအားဖန်တီးနိုင်သကဲ့သို့ <code class="file docutils literal notranslate"><span class="pre">LOCATION</span></code> အသစ်တစ်ခုအား အတူတကွဖန်တီးနိုင်ပါသည်။(<a class="reference internal" href="#sec-add-mapset"><span class="std std-ref">MAPSETအသစ်တစ်ခုထည့်သွင်းခြင်း (Adding a new MAPSET)</span></a> အပိုင်းတွင်ကြည့်ပါ) <a class="reference internal" href="../../../_images/radiobuttonon.png"><img alt="radioButtonOn" src="../../../_images/radiobuttonon.png" style="width: 1.5em;" /></a> <span class="guilabel">Create new location</span> အားရွေးချယ်ပါ။ ( <a class="reference internal" href="#figure-grass-new-location"><span class="std std-numref">Fig. 27.2</span></a> အားကြည့်ပါ)</p></li>
+<li><p><code class="file docutils literal notranslate"><span class="pre">LOCATION</span></code> အသစ်အတွက် အမည်တစ်ခုပေးပါ – ‘alaska’ ဟုအမည်ပေးခဲ့ပါသည် – ပြီးလျှင်  <span class="guilabel">Next</span> အား click နှိပ်ပါ။</p></li>
+<li><p><a class="reference internal" href="../../../_images/radiobuttonon.png"><img alt="radioButtonOn" src="../../../_images/radiobuttonon.png" style="width: 1.5em;" /></a> <span class="guilabel">Projection</span> ခလုတ်ပေါ်တွင် click နှိပ်၍ projection စာရင်း (list) အားဖွင့်ပြီး projection ကို သတ်မှတ်ပါ။</p></li>
+<li><p>List မှ Albers Equal Area Alaska projection (ပေယူနစ်) အားအသုံးပြုပါမည်။ ၎င်းအား EPSG ID 2964 ဖြင့် ကိုယ်စားပြုသည်ကို သိရှိရသောကြောင့် search box ထဲတွင်၎င်းကို ရိုက်ထည့်ပါသည်။ (မှတ်ချက်- အကယ်၍ ယခုလုပ်ငန်းစဉ်အား အခြား <code class="file docutils literal notranslate"><span class="pre">LOCATION</span></code> နှင့် projection အတွက် ထပ်မံပြုလုပ်လိုသော်လည်း EPSG ID အားမမှတ်မိဖြစ်နေပါက status bar ၏ ညာဘက်အောက်ထောင့်ရှိ <a class="reference internal" href="../../../_images/mIconProjectionEnabled.png"><img alt="projectionEnabled" src="../../../_images/mIconProjectionEnabled.png" style="width: 1.5em;" /></a> <sup>CRS Status</sup> သင်္ကေတပေါ်တွင် click နှိပ်ပါ။ ( <a class="reference internal" href="../working_with_projections/working_with_projections.html#label-projections"><span class="std std-ref">မြေပုံအရိပ်ချစနစ်များ နှင့် အလုပ်လုပ်ခြင်း (Working with Projections)</span></a> အပိုင်းတွင်ကြည့်ပါ))</p></li>
+<li><p><span class="guilabel">Filter</span> ထဲတွင် projection အားရွေးချယ်ရန်အတွက် 2964 ဟုထည့်သွင်းပါ။</p></li>
+<li><p><span class="guilabel">Next</span> အား Click နှိပ်ပါ။</p></li>
+<li><p>Default (ပုံသေ) region သတ်မှတ်ရန်အတွက် မြောက်၊ တောင်၊ အရှေ့ နှင့် အနောက် အနားသတ်တို့တွင် ရှိသော <code class="file docutils literal notranslate"><span class="pre">LOCATION</span></code> အတိုင်းအတာပမာဏ ထည့်သွင်းပေးရမည်ဖြစ်ပါသည်။ <span class="guilabel">Set Current QGIS Extent</span> ခလုတ်ပေါ်တွင် click နှိပ်ခြင်းဖြင့် QGIS ထဲတွင် တင်ထားသော <code class="file docutils literal notranslate"><span class="pre">alaska.shp</span></code> layer ၏ မြေပြင်အကျယ်အဝန်းအား  GRASS LOCATION ၏ default region ပမာဏအဖြစ် သတ်မှတ်ပေးမည်ဖြစ်သည်။</p></li>
+<li><p><span class="guilabel">Next</span> အား Click နှိပ်ပါ။</p></li>
+<li><p><code class="file docutils literal notranslate"><span class="pre">LOCATION</span></code> အသစ်အတွင်း  <code class="file docutils literal notranslate"><span class="pre">MAPSET</span></code> တစ်ခုအား သတ်မှတ်ရန်လည်းလိုအပ်ပါသည်။ (<code class="file docutils literal notranslate"><span class="pre">LOCATION</span></code> အသစ်တစ်ခုဖန်တီးတိုင်း ဤသို့သတ်မှတ်ပေးရန်လိုအပ်မည်ဖြစ်သည်။) ကြိုက်နှစ်သက်ရာအမည်ကိုပေးနိုင်ပါသည် - ဤနေရာတွင် ‘demo’ ဟုအမည်ပေးပါမည်။ GRASS သည် project အတွက် ပင်မ အချက်အလက်များ၊  ပုံသေ မြေပြင်အကျယ်အဝန်းနှင့်  ကိုဩဒိနိတ်စနစ် အဓိပ္ပာယ် သတ်မှတ်ချက်များကိုသိမ်းဆည်းရန် <code class="file docutils literal notranslate"><span class="pre">PERMANENT</span></code> ဟုခေါ်သော အထူး <code class="file docutils literal notranslate"><span class="pre">MAPSET</span></code> တစ်ခုကိုအလိုအလျောက်ဖန်တီးမည်ဖြစ်သည်။ (<a class="reference internal" href="../literature_web/literature_and_web_references.html#literature-and-web"><span class="std std-ref">စာတမ်းများနှင့် Website ကိုးကားချက်များ (Literature and Web References)</span></a> မှ Neteler &amp; Mitasova 2008 တွင်ကြည့်ပါ။)</p></li>
+<li><p>ချိန်ညှိမှုများမှန်ကန်ခြင်းရှိမရှိ အကျဉ်းချုပ်အား ပြန်လည်စစ်ဆေး၍ <span class="guilabel">Finish</span> အား click နှိပ်ပါ။</p></li>
+<li><p>‘alaska’ ဟူသည့် <code class="file docutils literal notranslate"><span class="pre">LOCATION</span></code> အသစ်နှင့် ‘demo’ နှင့် ‘PERMANENT’ဟူသည့် <code class="file docutils literal notranslate"><span class="pre">MAPSETs</span></code> နှစ်ခုအားဖန်တီးပြီးဖြစ်သည်။ ယခုလက်ရှိ ဖွင့်ထားသော working set တွင် အမည်သတ်မှတ်ထားခဲ့သည့်အတိုင်း ‘demo’ ဖြစ်ပါမည်။</p></li>
+<li><p>GRASS toolbar ထဲရှိ ပိတ်နေသော tools အချို့သည် ယခုအခါတွင် အသုံးပြုနိုင်သည့်အနေအထားဖြင့် ပွင့်နေသည်ကို သတိပြုမိမည်ဖြစ်သည်။</p></li>
+</ol>
+<figure class="align-center" id="id2">
+<span id="figure-grass-new-location"></span><img alt="../../../_images/create_grass_location.png" src="../../../_images/create_grass_location.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 27.2 </span><span class="caption-text">QGIS ထဲတွင် GRASS LOCATION အသစ်တစ်ခု သို့မဟုတ် MAPSET အသစ်တစ်ခုအားဖန်တီးခြင်း</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><code class="file docutils literal notranslate"><span class="pre">LOCATION</span></code> အသစ်တစ်ခုဖန်တီးရန် အဆင့်များလွန်းသည်ဟုထင်ရသော်လည်း လက်တွေ့တွင် လျင်မြန်၍ ရိုးရှင်းလွယ်ကူသည်ကိုတွေ့ရမည်။ ယခုအခါ <code class="file docutils literal notranslate"><span class="pre">LOCATION</span></code> ‘alaska’ ထဲသို့ အချက်အလက်များ import လုပ်ရန်အဆင်သင့်ဖြစ်နေသည်ကိုတွေ့ရမည် (<a class="reference internal" href="#sec-import-loc-data"><span class="std std-ref">GRASS LOCATION တစ်ခုထဲသို့ Data များ ထည့်သွင်းခြင်း (Importing data into a GRASS LOCATION)</span></a> အပိုင်းတွင်ကြည့်ပါ)။ QGIS ‘Alaska’ dataset <a class="reference internal" href="../introduction/getting_started.html#label-sampledata"><span class="std std-ref">နမူနာဒေတာများ ရယူခြင်း (Downloading sample data)</span></a> ထဲတွင်ပါဝင်သော နမူနာ GRASS <code class="file docutils literal notranslate"><span class="pre">LOCATION</span></code> ‘alaska’ ထဲမှ ရှိပြီးသား vector နှင့် raster အချက်အလက်များကိုလည်းအသုံးပြုနိုင်ပြီး <a class="reference internal" href="#label-vectmodel"><span class="std std-ref">The GRASS vector data model</span></a> အပိုင်းသို့ ဆက်သွားနိုင်မည်ဖြစ်သည်။</p>
+</section>
+<section id="mapset-adding-a-new-mapset">
+<span id="sec-add-mapset"></span><h3><a class="toc-backref" href="#id20" role="doc-backlink"><span class="section-number">27.9.2. </span>MAPSETအသစ်တစ်ခုထည့်သွင်းခြင်း (Adding a new MAPSET)</a><a class="headerlink" href="#mapset-adding-a-new-mapset" title="Link to this heading"></a></h3>
+<p>အသုံးပြုသူတစ်ဦးသည် ၎င်းဖန်တီးခဲ့သော GRASS <code class="file docutils literal notranslate"><span class="pre">MAPSET</span></code> တစ်ခုကိုသာ write access (ပြင်ဆင်ခွင့်) ရှိမည်ဖြစ်ပါသည်။ ဆိုလိုသည်မှာ သင်၏ ကိုယ်ပိုင် <code class="file docutils literal notranslate"><span class="pre">MAPSET</span></code> အား access လုပ်နိုင်သည့်အပြင် အခြားအသုံးပြုသူများ၏ <code class="file docutils literal notranslate"><span class="pre">MAPSETs</span></code> များတွင်ရှိသောမြေပုံများကိုဖတ်နိုင်မည်ဖြစ်သည်။ (၎င်းတို့သည်လည်း သင်၏ ဖိုင်များကိုဖတ်နိုင်မည်ဖြစ်ပါသည်။) သို့သော် ကိုယ်ပိုင် <code class="file docutils literal notranslate"><span class="pre">MAPSETs</span></code> ထဲရှိ မြေပုံများကိုသာပြုပြင်ပြောင်းလဲခြင်း သို့မဟုတ် ဖယ်ရှားခြင်း များပြုလုပ်နိုင်ပါမည်။</p>
+<p><code class="file docutils literal notranslate"><span class="pre">MAPSETs</span></code> အားလုံးတွင် လက်ရှိ နယ်နိမိတ် ကိုဩဒိနိတ်တန်ဖိုးများနှင့် လက်ရှိ ရွေးချယ်ထားသော raster ပုံရိပ်ပြတ်သားမှု ကိုသိမ်းဆည်းထားသော <code class="file docutils literal notranslate"><span class="pre">WIND</span></code> file တစ်ခုပါရှိသည် (<a class="reference internal" href="../literature_web/literature_and_web_references.html#literature-and-web"><span class="std std-ref">စာတမ်းများနှင့် Website ကိုးကားချက်များ (Literature and Web References)</span></a> ထဲရှိ Neteler &amp; Mitasova 2008  နှင့်  <a class="reference internal" href="#sec-grass-region"><span class="std std-ref">The GRASS region tool</span></a> တို့တွင်ကြည့်ပါ)။</p>
+<ol class="arabic simple">
+<li><p>QGIS ကိုဖွင့်ပါ။ QGIS တွင် GRASS plugin ထည့်သွင်းထားပြီး ဖြစ်ပါစေ။</p></li>
+<li><p>GRASS toolbar ထဲရှိ  <a class="reference internal" href="../../../_images/grass_new_mapset.png"><img alt="grassNewMapset" src="../../../_images/grass_new_mapset.png" style="width: 1.5em;" /></a> <sup>New mapset</sup> သင်္ကေတအား click နှိပ်၍ <span class="guilabel">MAPSET</span> wizard အားခေါ်ယူပါ။</p></li>
+<li><p><code class="file docutils literal notranslate"><span class="pre">LOCATION</span></code> ‘alaska’ ဖြင့် GRASS database (GISDBASE) folder ဖြစ်သည့် <code class="file docutils literal notranslate"><span class="pre">grassdata</span></code> အားရွေးပါ။ ၎င်းတွင် ‘test’ အမည်ရှိ  နောက်ထပ် <code class="file docutils literal notranslate"><span class="pre">MAPSET</span></code> တစ်ခုအားထပ်မံထည့်သွင်းပါမည်။</p></li>
+<li><p><span class="guilabel">Next</span> အား Click နှိပ်ပါ။</p></li>
+<li><p>ဤ wizard ကိုအသုံးပြုခြင်းဖြင့် ရှိပြီးသား <code class="file docutils literal notranslate"><span class="pre">LOCATION</span></code> အတွင်းတွင် <code class="file docutils literal notranslate"><span class="pre">MAPSET</span></code> အသစ်တစ်ခုအားဖန်တီးနိုင်သကဲ့သို့ <code class="file docutils literal notranslate"><span class="pre">LOCATION</span></code> အသစ်တစ်ခုအား အတူတကွဖန်တီးနိုင်ပါသည်။ <a class="reference internal" href="../../../_images/radiobuttonon.png"><img alt="radioButtonOn" src="../../../_images/radiobuttonon.png" style="width: 1.5em;" /></a> <span class="guilabel">Select location</span> ခလုတ်ပေါ်တွင် click နှိပ်ပြီးလျှင် <span class="guilabel">Next</span> ပေါ်တွင် click နှိပ်ပါ။ (<a class="reference internal" href="#figure-grass-new-location"><span class="std std-numref">Fig. 27.2</span></a> တွင်ကြည့်ပါ)</p></li>
+<li><p><code class="file docutils literal notranslate"><span class="pre">MAPSET</span></code> အသစ်အတွက် <code class="file docutils literal notranslate"><span class="pre">test</span></code> ဟုအမည်ထည့်သွင်းပါ။ Wizard entry ၏အောက်တွင် ရှိပြီးသား <code class="file docutils literal notranslate"><span class="pre">MAPSETs</span></code> များနှင့် သက်ဆိုင်ရာပိုင်ရှင်များ၏ စာရင်းပြသထားသည်ကိုတွေ့ရှိရမည်။</p></li>
+<li><p><span class="guilabel">Next</span> ကို Click နှိပ်ပါ ပြီးလျှင် ချိန်ညှိမှုများမှန်ကန်ခြင်းရှိမရှိ အကျဉ်းချုပ်အား ပြန်လည်စစ်ဆေး၍ <span class="guilabel">Finish</span> အား click နှိပ်ပါ။</p></li>
+</ol>
+</section>
+</section>
+<section id="the-grass-vector-data-model">
+<span id="label-vectmodel"></span><h2><a class="toc-backref" href="#id21" role="doc-backlink"><span class="section-number">27.10. </span>The GRASS vector data model</a><a class="headerlink" href="#the-grass-vector-data-model" title="Link to this heading"></a></h2>
+<p>မြေပုံအချက်အလက် ရေးဆွဲခြင်း (Digitizing) မပြုမီ <span class="target" id="index-1"></span>GRASS vector data model အား ဦးစွာ နားလည်ရန်အရေးကြီးပါသည်။ ယေဘုယျအနေဖြင့် GRASS သည် topological (ဆက်စပ်တည်ရှိမှုအရဖွဲ့စည်းပုံ) vector model တစ်ခုကိုအသုံးပြုပါသည်။ ဆိုလိုသည်မှာ ဧရိယာများအား polygons အပိတ်များအဖြစ် သတ်မှတ်ကိုယ်စားပြုထားခြင်းမရှိဘဲ တစ်ခုသို့မဟုတ် တစ်ခုထက်ပိုသော နယ်နိမိတ်များအဖြစ်သတ်မှတ်ကိုယ်စားပြုထားခြင်းဖြစ်ပါသည်။ ကပ်လျက်ရှိသော ဧရိယာနှစ်ခုကြားရှိ နယ်နိမိတ်တစ်ခုအား တစ်ကြိမ်တည်းသာ ရေးဆွဲထား၍ ၎င်းအားဧရိယာနှစ်ခုမှမျှဝေသုံးစွဲပါသည်။ နယ်နိမိတ်များသည် ချိတ်ဆက်ထိစပ်နေရမည်ဖြစ်ပြီး အဟ (gaps) များမပါဘဲ ပိတ်လျက်ရှိနေရမည်ဖြစ်ပါသည်။ ဧရိယာတစ်ခုအား ၎င်း၏ <strong>အလယ်ဗဟိုချက်မ</strong> မှတစ်ဆင့် သတ်မှတ်၍ အညွှန်းများတပ်မည်ဖြစ်ပါသည်။</p>
+<p>နယ်နိမိတ်များနှင့် အလယ်ဗဟိုချက်မများအပြင် vector မြေပုံတစ်ခုတွင် အမှတ်များနှင့် မျဉ်းများပါရှိနိုင်ပါသည်။ ဤ ဂျီဩမေတြီအရာဝတ္ထုများ (နယ်နိမိတ်များ၊ အလယ်ဗဟိုချက်မများ၊ အမှတ်များနှင့် မျဉ်းများ) အားလုံးသည် vector တစ်ခုထဲတွင် ရောထွေးတည်ရှိနေနိုင်ပါသည်။ ၎င်းတို့ကို GRASS vector မြေပုံတစ်ခုထဲတွင် မတူကွဲပြားသော layer များအနေဖြင့် ကိုယ်စားပြုပြသထားမည်ဖြစ်သည်။ ထို့ကြောင့် GRASS တွင် layer တစ်ခုသည် vector သို့မဟုတ် raster map တစ်ခုမဟုတ်ပဲ vector layer အတွင်းရှိ အဆင့်တစ်ခုဖြစ်ပါသည်။ ၎င်းတို့ကို ဂရုတစိုက်ခွဲခြားရန်အရေးကြီးပါသည်။ (ဂျီဩမေတြီအရာဝတ္ထုများကို ရောထွေးရန်မှာဖြစ်နိုင်ခြေရှိသော်လည်း ၎င်းကို သုံးလေ့သုံးထမရှိသည့်အတွက် GRASS ထဲမှာပင်လျှင် vector ကွန်ရက်ခွဲခြမ်းစိတ်ဖြာမှု (vector network analysis) ကဲ့သို့သော အထူးကိစ္စရပ်များတွင်သာအသုံးပြုပါသည်။ ပုံမှန်အားဖြင့် မတူကွဲပြားသော ဂျီဩမေတြီအရာဝတ္ထုများကို မတူသည့် layer များတွင် ခွဲခြားသိမ်းဆည်းသင့်ပါသည်။)</p>
+<p>Vector dataset တစ်ခုထဲတွင်မြောက်များစွာသော ‘layers’ များကိုသိမ်းဆည်းနိုင်ပါသည်။ ဥပမာအားဖြင့် လယ်ကွင်းပြင်များ၊ တောအုပ်များနှင့်ရေကန်များကို vector တစ်ခုထဲတွင်သိမ်းဆည်းနိုင်သည်။ တောအုပ်နှင့် ရေကန်သည် ကပ်လျက်ရှိနေလျှင် တူညီသောနယ်နိမိတ်တစ်ခုကို မျှဝေသုံးစွဲနိုင်သော်လည်း ၎င်းတို့တွင် ကွဲပြားသော attribute tables များသီးခြားပိုင်ဆိုင်ကြမည်ဖြစ်ပါသည်။ နယ်နိမိတ်များတွင်လည်း attribute များကို ပူးတွဲထားနိုင်ပါသည်။ ဥပမာအနေနှင့် ရေကန်တစ်ကန်နှင့်တောအုပ်တစ်ခုကြားရှိ နယ်နိမိတ်သည် လမ်းတစ်လမ်းဖြစ်နေခဲ့လျှင် ၎င်းတွင် ကွဲပြားသည့် attribute table တစ်ခုရှိနိုင်မည်ဖြစ်သည်။</p>
+<p>Feature တစ်ခု၏ ‘layer’ ကို GRASS အတွင်းရှိ ‘layer’ မှ သတ်မှတ်ပြီး ၎င်းသည် dataset အတွင်းရှိ Layer အရေအတွက်ကို ကိုယ်စားပြုခြင်းဖြစ်သည် (ဥပမာအားဖြင့် ဂျီဩမေတြီသည် သစ်တော သို့မဟုတ် ရေကန်ဖြစ်နေလျှင်)။ လက်ရှိ တွင် အရေအတွက်သာ ဖြစ်နိုင်သော်လည်း နောင်အနာဂတ်တွင် GRASS သည် user interface တွင် အမည်များကို field များအဖြစ် ထောက်ပံ့ပေးလာနိုင်မည်ဖြစ်သည်။</p>
+<p>Attribute များကို GRASS <code class="file docutils literal notranslate"><span class="pre">LOCATION</span></code> အတွင်းတွင် dBase၊  SQLite3 အဖြစ် သိမ်းဆည်းနိုင်သကဲ့သို့ ပြင်ပ database ဇယားများတွင် ဥပမာအားဖြင့်  PostgreSQL၊ MySQL၊ Oracle အစရှိသဖြင့်သိမ်းဆည်းနိုင်ပါသည်။</p>
+<p id="index-2">Database ဇယားများရှိ Attribute များအား ‘category’ တန်ဖိုးတစ်ခုကို အသုံးပြု၍ ဂျီသြမေတြီ အရာဝတ္ထုများနှင့် ချိတ်ဆက်ထားသည်။</p>
+<p id="index-3">‘Category’ (key၊ ID) သည် အခြေခံ ဂျီဩ‌မေတြီများနှင့် တွဲထားသော ကိန်းပြည့်ဂဏန်းဖြစ်ပြီး ၎င်းကို database ဇယားရှိ key column တစ်ခုသို့ချိတ်ဆက်ထားသည့် link အဖြစ်အသုံးပြုနိုင်သည်။</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><strong>GRASS vector model အားလေ့လာသင်ယူခြင်း</strong></p>
+<p>GRASS vector model နှင့် ၎င်း၏လုပ်ဆောင်နိုင်စွမ်းများအား လေ့လာသင်ယူရန်အကောင်းဆုံးနည်းလမ်းမှာ GRASS tutorial များထဲမှ vector model အကြောင်းအကျယ်တဝင့်ရှင်းပြထားသည့်တစ်ခုအား download ရယူ၍လေ့လာခြင်းဖြစ်ပါသည်။ ပိုမိုသိရှိလိုသောအချက်အလက်များ၊ စာအုပ်များနှင့် tutorial များအတွက် <a class="reference external" href="https://grass.osgeo.org/learn/manuals/">https://grass.osgeo.org/learn/manuals/</a>  တွင် အမျိုးမျိုးသော ဘာသာစကားများဖြင့် သွားရောက်ကြည့်ရှုလေ့လာနိုင်မည်ဖြစ်ပါသည်။</p>
+</div>
+</section>
+<section id="grass-vector-layer-creating-a-new-grass-vector-layer">
+<span id="creating-new-grass-vectors"></span><span id="index-4"></span><h2><a class="toc-backref" href="#id22" role="doc-backlink"><span class="section-number">27.11. </span>GRASS vector layer အသစ်တစ်ခု ဖန်တီးခြင်း (Creating a new GRASS vector layer)</a><a class="headerlink" href="#grass-vector-layer-creating-a-new-grass-vector-layer" title="Link to this heading"></a></h2>
+<p>GRASS vector layer အသစ်တစ်ခုအားဖန်တီးရန်အတွက် browser ထဲရှိ mapset context menu မှ အောက်ပါတို့ထဲကတစ်ခုကိုရွေးချယ်ပါ-</p>
+<ul class="simple">
+<li><p>New Point Layer (အမှတ် Layer အသစ်ဖန်တီးရန်အတွက်)</p></li>
+<li><p>New Line Layer (မျဉ်း Layerအသစ်ဖန်တီးရန်အတွက်)</p></li>
+<li><p>New Polygon Layer (ဗဟုဂံ Layerအသစ်ဖန်တီးရန်အတွက်)</p></li>
+</ul>
+<p>ထို့နောက် ပေါ်လာသော dialog ထဲတွင် အမည်တစ်ခုရိုက်ထည့်ပါ။ Vector မြေပုံအသစ်တစ်ခုကို ဖန်တီးပေးမည်ဖြစ်ပြီး layer သည်လည်း canvas ထဲသို့ ရောက်ရှိသွားမည်ဖြစ်ကာ ပြင်ဆင်တည်းဖြတ်ခြင်းများ စတင်နိုင်မည်ဖြစ်သည်။ Layer အမျိုးအစားကိုရွေးချယ်ခြင်းသည် vector မြေပုံ အတွင်း digitize ပြုလုပ်နိုင်သော ဂျီသြမေတြီအမျိုးအစားများကို ကန့်သတ်ထားခြင်းမရှိပါ။ GRASS တွင် ဂျီဩမေတြီပုံစံများ (point၊ line နှင့် polygon)၏ အမျိုးအစားအားလုံး ကို vector မြေပုံတစ်ခုထဲတွင်စုစည်းထားရှိနိုင်သည်။ QGIS သည် သီးသန့်ပုံစံရှိသော layer တစ်ခုလိုအပ်သောကြောင့် canvas ထဲသို့ layer တစ်ခုထည့်ပေးရန်သာ ပုံစံအမျိုးအစားတစ်ခုကိုရွေးချယ်ပေးရခြင်းဖြစ်သည်။</p>
+<p>ရှိပြီးသား vector မြေပုံ၏ context menu မှ အထက်တွင်ဖော်ပြခဲ့သော vector layer များထဲမှတစ်ခုကို ရွေးချယ်၍ ရှိပြီးသား vector မြေပုံများတွင် layer များထပ်ထည့်နိုင်သည်။</p>
+<p>GRASS သည် topology ဆိုင်ရာ vector model အား အသုံးပြုသောကြောင့် GRASS vector အသစ်တစ်ခုအားဖန်တီးနေချိန်တွင် ဂျီဩမေတြီအမျိုးအစားရွေးချယ်ပေးရန်မလိုပါ။ ထို့ကြောင့် GRASS ထဲတွင် ဂျီဩမေတြီအမျိုးအစားအားလုံး (point၊ line နှင့် polygon) အား layer တစ်ခုထဲတွင် စုစည်းထားနိုင်သည်။ ဤအချက်သည် QGIS ကိုအသုံးပြု၍ shapefile ဖန်တီးခြင်းနှင့်ကွဲပြားသည့် အချက်ဖြစ်သည်။ အဘယ့်ကြောင့်ဆိုသော် shapefile များသည် Simple
+Feature vector model အားအသုံးပြုခြင်းကြောင့်ဖြစ်သည်။ (<a class="reference internal" href="../managing_data_source/create_layers.html#sec-create-vector"><span class="std std-ref">Vector layer အသစ်များဖန်တီးခြင်း</span></a> အပိုင်းတွင်ကြည့်ပါ။)</p>
+</section>
+<section id="grass-vector-layer-digitizing-and-editing-a-grass-vector-layer">
+<span id="grass-digitizing"></span><span id="index-5"></span><h2><a class="toc-backref" href="#id23" role="doc-backlink"><span class="section-number">27.12. </span>GRASS vector layer တစ်ခုအား ရေးဆွဲခြင်းနှင့် တည်းဖြတ်ပြင်ဆင်ခြင်း (Digitizing and editing a GRASS vector layer)</a><a class="headerlink" href="#grass-vector-layer-digitizing-and-editing-a-grass-vector-layer" title="Link to this heading"></a></h2>
+<p>QGIS digitizing tool များကိုသုံး၍ GRASS vector layer များကို ရေးဆွဲနိုင်ပါသည်။
+သို့သော်-</p>
+<ul class="simple">
+<li><p>GRASS topological model နှင့် QGIS simple feature အကြားရှိ ကွာခြားချက်နှင့်</p></li>
+<li><p>GRASS model ၏ရှုပ်ထွေးမှု-</p>
+<ul>
+<li><p>မြေပုံတစ်ခုချင်းစီတွင် မြောက်များစွာသော layer များရှိနေခြင်း</p></li>
+<li><p>မြေပုံတစ်ခုချင်းစီတွင် မြောက်များစွာသော ဂျီဩမေတြီပုံစံအမျိုးအစားများရှိနေခြင်း</p></li>
+<li><p>မြောက်များစွာသောအလွှာများရှိ များစွာသော feature များမှ ဂျီဩမေတြီများမျှဝေသုံးစွဲမှု တို့ကြောင့် မြေပုံအချက်အလက်များရေးဆွဲသည့်အခါ ဂရုပြုရမည့်အချက်များရှိကြောင်းသိထားသင့်ပါသည်။</p></li>
+</ul>
+</li>
+</ul>
+<p>ဂရုပြုရမည့်အချက်များကို အောက်ဖော်ပြပါအပိုင်းများတွင်ဆွေးနွေးထားပါသည်။</p>
+<p><strong>Save, discard changes, undo, redo (ပြောင်းလဲမှုများသိမ်းဆည်းခြင်း၊ ပြောင်းလဲမှုများဖျက်သိမ်းခြင်း၊ လုပ်ဆောင်ချက်များကိုပယ်ဖျက်ခြင်း၊ လုပ်ဆောင်ချက်များပြန်လည်ရယူခြင်း)</strong></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>တည်းဖြတ်နေစဉ်အတွင်း ပြုလုပ်ခဲ့သမျှ ပြောင်းလဲမှုများသည် ချက်ချင်းပင် vector မြေပုံ နှင့် သက်ဆိုင်ရာ attribute ဇယားများတွင်ဖြည့်သွင်းပြီးဖြစ်မည်။</p>
+</div>
+<p>လုပ်ငန်းစဉ်တစ်ခုစီပြီးစီးတိုင်း ပြောင်းလဲမှုများကို သိမ်းဆည်းပေးပါသည်။ သို့သော်လည်း editing(တည်းဖြတ်ပြင်ဆင်ခြင်း)ကို ပိတ်/ရပ် လိုက်ချိန်တွင် လုပ်ဆောင်ချက်များကိုပယ်ဖျက်ခြင်း၊ လုပ်ဆောင်ချက်များပြန်လည်ရယူခြင်း သို့မဟုတ် ပြောင်းလဲမှုများအားလုံးကိုဖျက်သိမ်းခြင်းတို့ကို ပြုလုပ်နိုင်ပါသည်။ အကယ်၍ လုပ်ဆောင်ချက်များကိုပယ်ဖျက်ခြင်း သို့မဟုတ် ပြောင်းလဲမှုများဖျက်သိမ်းခြင်း အသုံးပြုပါက vector မြေပုံ နှင့် attribute ဇယားများထဲတွင် မူလအခြေအနေသို့ပြန်ရောက်သွားမည်ဖြစ်သည်။</p>
+<p>ဤအခြေအနေဖြစ်ရခြင်းအတွက် အဓိက အကြောင်းအရင်းနှစ်ရပ် ရှိပါသည်-</p>
+<ul class="simple">
+<li><p>GRASS vector များ၏ သဘောသဘာဝအရ အသုံးပြုသူများသည် ၎င်းတို့၏လုပ်ဆောင်မှုများတွင် ရည်ရွယ်ချက်ရှိရှိဖြင့် လုပ်ဆောင်ကြသဖြင့်  မမျှော်လင့်ထားသော အနှောင့်အယှက်များကြုံရသည့်အခါ Data အား သိမ်းဆည်းပြီးသားဖြစ်စေသည်။ (ဥပမာ- မီးပျက်ခြင်း)</p></li>
+<li><p>Topology ဆိုင်ရာ data များကို ထိရောက်စွာ ပြင်ဆင်တည်းဖြတ်ခြင်းအတွက် လိုအပ်သည်များကို topology ဆိုင်ရာမှန်ကန်မှု အချက်အလက်အဖြစ်ပြသပါသည်။ ပြောင်းလဲမှုများကို မြေပုံတွင်ရေးမှတ်လိုက်မှသာ GRASS vector map မှတဆင့် ထိုအချက်အလက်များကိုရယူနိုင်ပါလိမ့်မည်။</p></li>
+</ul>
+<p><strong>Toolbar</strong></p>
+<p>GRASS layer တစ်ခုအားတည်းဖြတ်ပြင်ဆင်လိုက်သောအခါတွင် ‘Digitizing Toolbar’ တွင်  အထူးသီးသန့် tools အချို့ရှိလာပါသည်-</p>
+<table class="docutils align-default" id="table-grass-digitizing">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Icon</p></th>
+<th class="head"><p>Tool</p></th>
+<th class="head"><p>ရည်ရွယ်ချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="../../../_images/mActionCapturePoint.png"><img alt="capturePoint" src="../../../_images/mActionCapturePoint.png" style="width: 1.5em;" /></a></p></td>
+<td><p>New Point (အမှတ်အသစ်)</p></td>
+<td><p>အမှတ်အသစ်အား digitize ပြုလုပ်ရန်</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../../../_images/mActionCaptureLine.png"><img alt="captureLine" src="../../../_images/mActionCaptureLine.png" style="width: 1.5em;" /></a></p></td>
+<td><p>New Line (မျဉ်းအသစ်)</p></td>
+<td><p>မျဉ်းအသစ်အား digitize ပြုလုပ်ရန်</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../../../_images/mActionCaptureBoundary.png"><img alt="captureBoundary" src="../../../_images/mActionCaptureBoundary.png" style="width: 1.5em;" /></a></p></td>
+<td><p>New Boundary (နယ်နိမိတ်အသစ်)</p></td>
+<td><p>နယ်နိမိတ်အသစ်အား digitize ပြုလုပ်ရန်</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../../../_images/mActionCaptureCentroid.png"><img alt="captureCentroid" src="../../../_images/mActionCaptureCentroid.png" style="width: 1.5em;" /></a></p></td>
+<td><p>New Centroid (အလယ်ဗဟိုအသစ်)</p></td>
+<td><p>အလယ်ဗဟိုအသစ်အား digitize ပြုလုပ်ရန် (ရှိနေပြီးသားဧရိယာကို အညွှန်းတပ်ရန်)</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../../../_images/mActionCapturePolygon.png"><img alt="capturePolygon" src="../../../_images/mActionCapturePolygon.png" style="width: 1.5em;" /></a></p></td>
+<td><p>New Closed Boundary (အပိတ် နယ်နိမိတ် အသစ်)</p></td>
+<td><p>အပိတ် နယ်နိမိတ် အသစ်အား digitize ပြုလုပ်ရန်</p></td>
+</tr>
+</tbody>
+</table>
+<p>GRASS ဆိုင်ရာမြေပုံအချက်အလက်ရေးဆွဲခြင်းဇယား - GRASS Digitizing Tools</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><strong>GRASS ထဲတွင် polygon များရေးဆွဲခြင်း</strong></p>
+<p>GRASS ထဲတွင် polygon တစ်ခုဖန်တီးလိုသောအခါ ပထမဦးစွာ polygon ၏ နယ်နိမိတ်ကို ရေးဆွဲရပါသည်။ ပြီးလျှင်  အပိတ်ဖြစ်အောင်ရေးဆွဲထားသော နယ်နိမိတ်ထဲသို့ အလယ်ဗဟိုမှတ်တစ်ခု (အညွှန်း အမှတ်) ထည့်သွင်းပေးရပါသည်။ အကြောင်းရင်းမှာ topological vector model တစ်ခုသည် attribute အချက်အလက်များကို polygon တစ်ခု၏ နယ်နိမိတ်နှင့်ချိတ်ဆက်သည်မဟုတ်ဘဲ ၎င်း၏အလယ်ဗဟိုမှတ်နှင့်သာချိတ်ဆက်သောကြောင့်ဖြစ်ပါသည်။</p>
+</div>
+<p><strong>Category (အမျိုးအစား)</strong></p>
+<p>“Cat” ဟု မကြာခဏရည်ညွှန်းသော “Category (အမျိုးအစား)” သည် ID အမျိုးအစားတစ်ခုဖြစ်သည်။ ထိုအမည် သည် GRASS vector များတွင် “category” attribute တစ်ခုတည်းသာရှိခဲ့သောအခါ ပေါ်ပေါက်လာခြင်းဖြစ်သည်။ Category ကို ဂျီဩမေတြီနှင့် attribute များအကြား ချိတ်ဆက်ရာတွင်အသုံးပြုသည်။ ဂျီသြမေတြီတစ်ခုတည်းတွင် Category (အမျိုးအစား)များစွာရှိနိုင်သောကြောင့် ၎င်းသည် GIS ၏ မတူညီသော layer များရှိ feature များစွာကို ကိုယ်စားပြုနိုင်သည်။ လက်ရှိတွင် QGIS editing tool များကိုအသုံးပြု၍ layer တစ်ခုလျှင် Category တစ်ခုတည်းသာ သတ်မှတ်နိုင်သည်။ နယ်နိမိတ်များမှလွဲ၍ feature အသစ်များကို သီးသန့် Category အသစ်များ အလိုအလျောက် သတ်မှတ်ပေးမည်ဖြစ်သည်။ ပုံမှန်အားဖြင့် နယ်နိမိတ်များသည် ဧရိယာများအဖြစ်သာ ဖွဲ့စည်းဖြစ်ပေါ်၍ မျဉ်းများကို ကိုယ်စားမပြုပါ။ သို့သော် ဥပမာအနေဖြင့် မတူညီသည့် layer တွင်  နယ်နိမိတ်တစ်ခုအတွက် attribute များကို နောက်မှ သတ်မှတ်ပေးနိုင်ပါသည်။</p>
+<p>Category အသစ်များကို လက်ရှိ တည်းဖြတ်ပြင်ဆင်နေသည့် layer ထဲတွင်သာ အမြဲဖန်တီးခြင်းဖြစ်ပါသည်။</p>
+<p>QGIS  editing ကို အသုံးပြု၍ ဂျီသြမေတြီကို Category တစ်ခုထက်ပို၍ သတ်မှတ်ရန်မှာမဖြစ်နိုင်ပါ။ မတူညီသော layer များမှ feature တစ်ခုချင်းနှင့် feature အများအပြားအဖြစ် မှန်ကန်စွာကိုယ်စားပြုသည့် data များသည် ဖျက်ပစ် ခံရနိုင်သည်။</p>
+<p><strong>Attributes (အချက်အလက်များ)</strong></p>
+<p>လက်ရှိတည်းဖြတ်ထားသော layer ၏ Attribute များကိုသာ ပြုပြင်မွမ်းမံခြင်းပြုလုပ်နိုင်မည်ဖြစ်သည်။ Vector မြေပုံတွင် layer များစွာပါ၀င်ပါက လက်ရှိ တည်းဖြတ်ထားသည့် layer မှလွဲ၍ အခြား layer များမှ feature များ၏ attribute များအားလုံး ကို ‘&lt;not editable (layer #)&gt;’ ဟုဖော်ပြကာ လော‌လောဆယ် ထို attribute များကို ပြင်ခွင့်မရှိကြောင်း သတိပေးမည်ဖြစ်သည်။ ထိုသို့ ကန့်သတ်ထားရခြင်းမှာ QGIS သည် layer တစ်ခုလျှင် ပုံသေသတ်မှတ်ထားသော set of fields (field များအစု) တစ်ခုကိုသာ ပံ့ပိုးပေးပြီး အခြား layer များတွင် မတူသော set of fields များစွာရှိနိုင်၍ဖြစ်သည်။</p>
+<p>အကယ်၍ အခြေခံ ဂျီသြမေတြီတွင် category သတ်မှတ်ထားခြင်း မရှိပါက စနစ်သည် သီးခြား category အသစ်ကို အလိုအလျောက် သတ်မှတ်ပေးသည်။ ထို့အပြင် ထိုဂျီသြမေတြီ၏ attribute တစ်ခု ပြောင်းလဲသောအခါ မှတ်တမ်းအသစ်တစ်ခုကို attribute ဇယားတွင် ဖန်တီးမည်ဖြစ်သည်။</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>‘Field Calculator’ (<a class="reference internal" href="../working_with_vector/attribute_table.html#vector-field-calculator"><span class="std std-ref">Field Calculator ကို အသုံးပြုခြင်း (Using the Field Calculator)</span></a>) ကို အသုံးပြု၍ ဇယားထဲတွင် attribute များအားအစုလိုက် update လုပ်နိုင်ပါသည်။ Update မလုပ်လိုသော category မပါသည့် feature များ (နယ်နိမိတ်များကဲ့သို့) ရှိပါက update လုပ်ငန်းစဉ်အတွင်း ၎င်းတို့ကို စစ်ထုတ်ရန်အတွက် ‘Advanced Filter’ ကို <code class="docutils literal notranslate"><span class="pre">cat</span> <span class="pre">is</span> <span class="pre">not</span> <span class="pre">null</span></code> သို့ချိန်ညှိခြင်းဖြင့် အသုံးပြုနိုင်ပါသည်။</p>
+</div>
+<p><strong>Editing style (သင်္ကေတများ၏ပုံစံကိုတည်းဖြတ်ပြင်ဆင်ခြင်း)</strong></p>
+<p id="index-6">Topological symbology သည် topological data ကိုထိရောက်စွာတည်းဖြတ်ရန်အတွက်အရေးကြီးပါသည်။ တည်းဖြတ်မှုစတင်သည့်အခါ အထူး ‘GRASS Edit’ renderer (ပုံဖော်ပြသပေးသည့်အရာ) ကို layer ပေါ်တွင် အလိုအလျောက်အသုံးပြုမည်ဖြစ်ပြီး တည်းဖြတ်ခြင်းကိုရပ်လိုက်သောအခါ မူရင်း renderer ကို ပြန်လည်ရရှိမည်ဖြစ်သည်။ Topological symbology ၏ သင်္ကေတပုံစံ ကို layer properties ‘Style’ tab တွင် စိတ်ကြိုက်ပြင်ဆင်နိုင်ပါသည်။ စိတ်ကြိုက်ပြင်ဆင်ထားသည့် သင်္ကေတပုံစံ ကို ပရောဂျက်ဖိုင်ထဲတွင် သို့မဟုတ် သီးခြားဖိုင်တစ်ခုထဲတွင် သိမ်းဆည်းနိုင်ပါသည်။ သင်္ကေတပုံစံအား စိတ်ကြိုက်ပြင်ဆင်ပြီးလျှင် ၎င်း၏ အမည်ကို မပြောင်းပါနှင့်။ အဘယ့်ကြောင့်ဆိုသော် တည်းဖြတ်ခြင်းကို ပြန်လည်စတင်သောအခါတွင် သင်္ကေတပုံစံကို ပြန်လည်သတ်မှတ်ရန် ၎င်းအမည်ကို အသုံးပြုရခြင်းကြောင့်ဖြစ်ပါသည်။</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Layer အားတည်းဖြတ်ပြင်ဆင်နေချိန်တွင် project file အားသိမ်းဆည်းခြင်းမပြုရပါ။ Layer အားမပြင်ဆင်ရသေးဘဲ ‘Edit Style’ ဖြင့် layer ကို သိမ်းဆည်းလိုက်မည်ဖြစ်ပြီး ၎င်းသည်အဓိပ္ပာယ်ရှိမည်မဟုတ်ပါ။</p>
+</div>
+<p>Style သည် attribute ဇယားထဲတွင် ‘topo_symbol’ field အဖြစ် ယာယီထည့်သွင်းထားသည့် topological အချက်အလက်များအပေါ် အခြေခံပါသည်။ တည်းဖြတ်ခြင်းကိုရပ်လိုက်သည့်အခါ ထို field သည် အလိုအလျောက် ဖယ်ရှားပြီးသားဖြစ်သွားမည်။</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>‘topo_symbol’ field ကို attribute ဇယားမှ မဖယ်ရှားရပါ။ Renderer (ပုံဖော်ပြသပေးသည့်အရာ) သည် ဤ column ပေါ်တွင်မူတည်သည်ဖြစ်၍ ထိုသို့ဖယ်ရှားလိုက်ခြင်းဖြင့် feature များကို မြင်ရနိုင်မည်မဟုတ်ပါ။</p>
+</div>
+<p><strong>Snapping (ဆွဲကပ်ခြင်း)</strong></p>
+<p>ဧရိယာတစ်ခု ပေါ်ပေါက်စေရန် ချိတ်ဆက်ထားသော နယ်နိမိတ်မျဉ်းများ၏ vertex (အဆစ်) များတွင် ကိုသြဒိနိတ်များ <strong>အတိအကျ</strong> ရှိရမည်ဖြစ်ပါသည်။ Canvas (မြေပုံမြင်ကွင်း) နှင့် vector map တို့ CRS တူမှသာ snapping tool သုံးပြီး ထိုသို့ တိကျမှု ရအောင် လုပ်ဆောင်နိင်သည်။ ထိုသို့မဟုတ်ပါက မြေပုံနှင့် canvas ကြား အပြန်အလှန် ကိုဩဒိနိတ်ပြောင်း သည့်အခါ ကိုယ်စားပြုရာတွင် မတိကျမှု နှင့် CRS ပြောင်းနည်းများကြောင့် ကိုသြဒိနိတ်များ အနည်းငယ်ကွဲပြားမှု ရှိနိုင်ပါသည်။</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>တည်းဖြတ်ပြင်ဆင်နေချိန်တွင် layer ၏ CRS ကို canvas အတွက်လည်း အသုံးပြုသင့်ပါသည်။</p>
+</div>
+<p><strong>Limitations (ကန့်သတ်ချက်များ)</strong></p>
+<p>Vector တစ်ခုထဲရှိ များစွာသော layer များကို တစ်ချိန်တည်းတွင် တစ်ပြိုင်နက် တည်းဖြတ်ခြင်းအား ထောက်ပံ့ပေးမထားပါ။ အဓိကအကြောင်းအရင်းမှာ ဒေတာအရင်းအမြစ်တစ်ခုချင်းစီအတွက်များစွာသော undo stack (လုပ်ဆောင်ချက်များကိုပယ်ဖျက်ခြင်း) များကို လုပ်ဆောင်ရန်မှာ မဖြစ်နိုင်သောကြောင့်ဖြစ်သည်။</p>
+<p><a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a> <a class="reference internal" href="../../../_images/osx.png"><img alt="osx" src="../../../_images/osx.png" style="width: 1em;" /></a> Linux နှင့် macOS ပေါ်တွင် တစ်ကြိမ်လျှင် GRASS layer တစ်ခုတည်းကိုသာတည်းဖြတ်နိုင်သည်။ GRASS တွင် ချွတ်ယွင်းချက်တစ်ခုအနေဖြင့် database driver များအား ကျပန်းအစီအစဉ်ဖြင့် ပိတ်ရန်မဖြစ်နိုင်ပါ။ ထိုပြဿနာအားဖြေရှင်းရန် GRASS developer များမှဆောင်ရွက်လျက်ရှိပါသည်။</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><strong>GRASS Edit Permissions (GRASS တည်းဖြတ်ပြင်ဆင်နိုင်ရေးခွင့်ပြုချက်များ)</strong></p>
+<p>GRASS MAPSET တစ်ခုကို တည်းဖြတ်ရန်အတွက် ထို <code class="file docutils literal notranslate"><span class="pre">MAPSET</span></code> ၏ ပိုင်ရှင်ဖြစ်ရန်လိုအပ်ပါသည်။ Write permission (ရေးသားခွင့်) ရှိသည့်တိုင် မိမိပိုင်မဟုတ်သည့် <code class="file docutils literal notranslate"><span class="pre">MAPSET</span></code> ထဲရှိ layer များအားတည်းဖြတ်ရန်မဖြစ်နိုင်ပါ။</p>
+</div>
+</section>
+<section id="the-grass-region-tool">
+<span id="sec-grass-region"></span><span id="index-7"></span><h2><a class="toc-backref" href="#id24" role="doc-backlink"><span class="section-number">27.13. </span>The GRASS region tool</a><a class="headerlink" href="#the-grass-region-tool" title="Link to this heading"></a></h2>
+<p>GRASS ရှိ region အဓိပ္ပါယ်ဖွင့်ဆိုချက်သည် raster data များကို ကိုင်တွယ်အလုပ်လုပ်ခြင်းအတွက် အရေးကြီးပါသည်။ Vector ခွဲခြမ်းစိတ်ဖြာမှုကို ပုံမှန်အားဖြင့် region အဓိပ္ပါယ်ဖွင့်ဆိုချက်များဖြင့် ကန့်သတ်မထားပါ။ သို့သော် အသစ်ဖန်တီးထားသော raster layer များအားလုံးသည် မူလ မြေပြင်အကျယ်အဝန်း (Spatial extension) နှင့် ကြည်လင်ပြတ်သားမှု (Resolution) ကို ထည့်သွင်းမစဉ်းစားပဲ လက်ရှိသတ်မှတ်ထားသော GRASS region ၏ မြေပြင်အကျယ်အဝန်းနှင့် ကြည်လင်ပြတ်သားမှုအတိုင်း ရှိနေမည်ဖြစ်သည်။ လက်ရှိ GRASS region ကို ဖိုင်လမ်းကြောင်း <code class="file docutils literal notranslate"><span class="pre">$LOCATION/$MAPSET/WIND</span></code> တွင် သိမ်းဆည်းထားပြီး ဤဖိုင်တွင် မြောက်၊ တောင်၊ အရှေ့နှင့် အနောက် နယ်နိမိတ်များ၊ column များနှင့် row များအရေအတွက်၊ အလျားလိုက်နှင့် ဒေါင်လိုက် ကြည်လင်ပြတ်သားမှုတို့ကဲ့သို့သော အချက်များ ပါဝင်ပါသည်။</p>
+<p>GRASS region ကို QGIS canvas တွင် <a class="reference internal" href="../../../_images/grass_region.png"><img alt="grassRegion" src="../../../_images/grass_region.png" style="width: 1.5em;" /></a> <sup>Display current GRASS region</sup> ခလုတ်ကို အသုံးပြု၍ အဖွင့်အပိတ်လုပ်နိုင်ပါသည်။</p>
+<p id="index-8">‘GRASS Tolls’ dock widget ရှိ ‘Region’ tab ကို အသုံးပြု၍ GRASS region အားပြင်ဆင်နိုင်ပါသည်။ အနားသတ် အကျယ်အဝန်းအသစ်နှင့် ကြည်လင်ပြတ်သားမှုကို ထည့်သွင်း၍ <span class="guilabel">Apply</span> အား click နှိပ်ပါ။ <span class="guilabel">Select the extent by dragging on canvas</span> ပေါ်တွင် click နှိပ်၍  QGIS canvas ပေါ်တွင် ထောင့်မှန်စတုဂံတစ်ခုကို ဖိဆွဲယူ၍ region အသစ်တစ်ခုကို သတ်မှတ်နိုင်မည်ဖြစ်သည်။</p>
+<p>GRASS module <code class="file docutils literal notranslate"><span class="pre">g.region</span></code> သည် raster ခွဲခြမ်းစိတ်ဖြာမှုအတွက် သင့်လျော်သော region အကျယ်အဝန်းနှင့် ကြည်လင်ပြတ်သားမှုကို သတ်မှတ်ရန် နောက်ထပ် parameter များကို ပံ့ပိုးပေးပါသည်။ ဤ parameter များကို GRASS Toolbox ဖြင့် အသုံးပြုနိုင်ပြီး အသေးစိတ်အား <a class="reference internal" href="#subsec-grass-toolbox"><span class="std std-ref">The GRASS Toolbox</span></a> တွင်သွားရောက်ကြည့်ရှုနိုင်ပါသည်။</p>
+</section>
+<section id="the-grass-toolbox">
+<span id="subsec-grass-toolbox"></span><span id="index-9"></span><h2><a class="toc-backref" href="#id25" role="doc-backlink"><span class="section-number">27.14. </span>The GRASS Toolbox</a><a class="headerlink" href="#the-grass-toolbox" title="Link to this heading"></a></h2>
+<p><a class="reference internal" href="../../../_images/grass_tools.png"><img alt="grassTools" src="../../../_images/grass_tools.png" style="width: 1.5em;" /></a> <sup>Open GRASS Tools</sup> box သည် GRASS module များအား ရွေးချယ်ထားသော GRASS <code class="file docutils literal notranslate"><span class="pre">LOCATION</span></code> နှင့် <code class="file docutils literal notranslate"><span class="pre">MAPSET</span></code> ထဲရှိ data များနှင့် အလုပ်လုပ်နိုင်စွမ်းများရရှိစေမည်ဖြစ်ပါသည်။ GRASS Toolbox ကိုအသုံးပြုရန် ပြင်ဆင်တည်းဖြတ်ခွင့်ရှိသည့် <code class="file docutils literal notranslate"><span class="pre">LOCATION</span></code> နှင့်  <code class="file docutils literal notranslate"><span class="pre">MAPSET</span></code> ကိုဖွင့်ရန်လိုအပ်ပါမည် (ပုံမှန်အားဖြင့်  <code class="file docutils literal notranslate"><span class="pre">MAPSET</span></code> ကိုဖန်တီးခဲ့လျှင်ပြင်ဆင်တည်းဖြတ်ခွင့်ရရှိပြီးဖြစ်ပါမည်)။ အဘယ့်ကြောင့်ဆိုသော် ခွဲခြမ်းစိတ်ဖြာမှုအတွင်း အသစ်ဖန်တီးလိုက်သည့် raster သို့မဟုတ် vector layer အသစ်များကို လက်ရှိရွေးချယ်ထားသော <code class="file docutils literal notranslate"><span class="pre">LOCATION</span></code> နှင့် <code class="file docutils literal notranslate"><span class="pre">MAPSET</span></code> ထဲတွင် ပြင်ဆင်မှတ်တမ်းတင်ရန် လိုအပ်သောကြောင့်ဖြစ်ပါသည်။</p>
+<figure class="align-center" id="id3">
+<span id="figure-grass-toolbox"></span><img alt="../../../_images/grass_toolbox_moduletree.png" src="../../../_images/grass_toolbox_moduletree.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 27.3 </span><span class="caption-text">GRASS Toolbox နှင့် Module Tree</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<section id="grass-module-working-with-grass-modules">
+<span id="grass-modules"></span><h3><a class="toc-backref" href="#id26" role="doc-backlink"><span class="section-number">27.14.1. </span>GRASS module များနှင့်အလုပ်လုပ်ခြင်း (Working with GRASS modules)</a><a class="headerlink" href="#grass-module-working-with-grass-modules" title="Link to this heading"></a></h3>
+<p>GRASS Toolbox အတွင်းရှိ GRASS shell သည် အသုံးပြုသူများအား command line interface မှတဆင့် GRASS module အားလုံးနီးပါး (module 300 ကျော်) ကိုအသုံးပြုခွင့်ပေးမည်ဖြစ်ပါသည်။ သို့သော်လည်း ပိုမိုအသုံးပြုရလွယ်ကူ​စေရန် GRASS module 200 ခန့် နှင့် လုပ်ဆောင်နိုင်စွမ်းများကို GRASS plugin Toolbox အတွင်းမှ graphic dialog များမှတဆင့်လည်း ရယူနိုင်သည်။</p>
+<p>QGIS 3.28 version ရှိ graphical Toolbox တွင် ရယူအသုံးပြုနိုင်သမျှ GRASS module များ၏စာရင်းအပြည့်အစုံကို GRASS wiki <a class="reference external" href="https://grasswiki.osgeo.org/wiki/GRASS-QGIS_relevant_module_list">https://grasswiki.osgeo.org/wiki/GRASS-QGIS_relevant_module_list</a> တွင်ကြည့်ရှုနိုင်ပါသည်။</p>
+<p>GRASS Toolbox တွင်ပါဝင်သော အကြောင်းအရာများအားစိတ်ကြိုက်ပြင်ဆင်နိုင်ပြီး ပြုလုပ်နည်း လုပ်ငန်းစဉ်အဆင့်ဆင့်အား <a class="reference internal" href="#sec-toolbox-customizing"><span class="std std-ref">GRASS Toolbox အား ပြင်ဆင်ခြင်း (Customizing the GRASS Toolbox)</span></a> အပိုင်းတွင်ဖော်ပြထားပါသည်။</p>
+<p><a class="reference internal" href="#figure-grass-toolbox"><span class="std std-numref">Fig. 27.3</span></a> တွင်ပြသထားသည့်အတိုင်း သင့်တော်သော module ကိုရှာရန် <span class="guilabel">Modules Tree</span>  သို့မဟုတ် ရှာဖွေနိုင်သော <span class="guilabel">Modules List</span> tab ကို အသုံးပြုနိုင်ပါသည်။</p>
+<p>Graphic module သင်္ကေတတစ်ခု အပေါ်တွင် click နှိပ်ခြင်းဖြင့် Toolbox dialog တွင် <span class="guilabel">Options</span> ၊ <span class="guilabel">Output</span> နှင့် <span class="guilabel">Manual</span> ဟူသော tab အခွဲသုံးခုပါဝင်သည့် tab အသစ်တစ်ခုကို ပေါင်းထည့်သွားမည်ဖြစ်သည်။</p>
+<p><strong>Options (ရွေးချယ်စရာများ)</strong></p>
+<p><span class="guilabel">Options</span> tab တွင် အသုံးပြုရလွယ်ကူပြီး ရိုးရှင်းသော dialog ကိုပံ့ပိုးပေးထားပြီး ၎င်းတွင် raster သို့မဟုတ် vector layer တစ်ခုကို QGIS canvas တွင်ပုံဖော်ကြည့်ရှုရန် ရွေးချယ်နိုင်ပြီး module နှင့် သက်ဆိုင်သည့် parameter များကို ထပ်မံထည့်သွင်းခြင်း ပြုလုပ်နိုင်မည်ဖြစ်ပါသည်။</p>
+<figure class="align-center" id="id4">
+<span id="figure-grass-module"></span><img alt="../../../_images/grass_module_option.png" src="../../../_images/grass_module_option.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 27.4 </span><span class="caption-text">GRASS Toolbox Module ရွေးချယ်စရာများ</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Dialog အား ရိုးရှင်းစေရန် ရည်ရွယ်၍ module parameter များအား အပြည့်အစုံထည့်သွင်းမထားပါ။ နောက်ထပ် module parameter သို့မဟုတ် flag များကို အသုံးပြုလိုပါက GRASS shell ကိုစတင်ရန်လိုအပ်ပြီး command line တွင် module ကို run ရန် လိုအပ်မည်ဖြစ်သည်။</p>
+<p>QGIS version 1.8 မှစ၍ <span class="guilabel">Options</span> tab ထဲရှိ ရိုးရှင်းသော module dialog အောက်တွင် ထည့်သွင်းထားသော <span class="guilabel">Show Advanced Options</span> ခလုတ်အတွက် feature တစ်ခုပါဝင်လာသည်။ ဤခလုတ်သည် လက်ရှိတွင် ဥပမာအနေဖြင့် အသုံးပြုရန် <code class="file docutils literal notranslate"><span class="pre">v.in.ascii</span></code> module တွင်သာ ထည့်သွင်းထားပါသည်။ သို့သော် QGIS ၏ အနာဂတ် version များတွင် GRASS Toolbox တွင် ပိုများသော module များ သို့မဟုတ် module အားလုံး၏ အစိတ်အပိုင်းတစ်ခုဖြစ်လာနိုင်ချေရှိပါသည်။ ၎င်းသည် GRASS shell သို့ပြောင်းစရာမလိုဘဲ GRASS module ရွေးချယ်စရာများအား အပြည့်အစုံ ရယူအသုံးပြုနိုင်မည်ဖြစ်ပါသည်။</p>
+<p><strong>Output (ရလာဒ်)</strong></p>
+<figure class="align-center" id="id5">
+<span id="figure-grass-module-output"></span><img alt="../../../_images/grass_module_output.png" src="../../../_images/grass_module_output.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 27.5 </span><span class="caption-text">GRASS Toolbox Module ရလာဒ်</span><a class="headerlink" href="#id5" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><span class="guilabel">Output</span> tab သည် module ၏ ရလာဒ်အခြေအနေ နှင့်ပတ်သက်သော အချက်အလက်များကို ဖော်ပြသည့်နေရာဖြစ်သည်။ <span class="guilabel">Run</span> ခလုတ်ကိုနှိပ်လိုက်သည့်အခါ module သည် <span class="guilabel">Output</span> tab သို့ပြောင်းသွားမည်ဖြစ်ပြီး ထို tab တွင် လက်ရှိလုပ်ဆောင်နေသော ခွဲခြမ်းစိတ်ဖြာမှုလုပ်ငန်းစဉ်နှင့် သက်ဆိုင်သည့် အချက်အလက်များကို ကြည့်ရှုနိုင်မည်ဖြစ်သည်။ လုပ်ငန်းစဉ် အောင်မြင်ခဲ့ပါက <code class="docutils literal notranslate"><span class="pre">Successfully</span> <span class="pre">finished</span></code> ဟူသည့် အသိပေးစာတိုကို တွေ့ရလိမ့်မည်ဖြစ်ပါသည်။</p>
+<p><strong>Manual</strong></p>
+<figure class="align-center" id="id6">
+<span id="figure-grass-module-manual"></span><img alt="../../../_images/grass_module_manual.png" src="../../../_images/grass_module_manual.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 27.6 </span><span class="caption-text">GRASS Toolbox Module အသုံးပြုသူလက်စွဲ</span><a class="headerlink" href="#id6" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><span class="guilabel">Manual</span> tab သည် GRASS module ၏ HTML အကူအညီစာမျက်နှာကို ပြသပေးမည်ဖြစ်သည်။ အကူအညီစာမျက်နှာအားအသုံးပြု၍ အခြား module parameter များနှင့် flag များကိုစစ်ဆေးကြည့်ရှုနိုင်သကဲ့သို့ module ၏ ရည်ရွယ်ချက်များနှင့်ပတ်သက်သည့်အကြောင်းအရာများအား ပိုမိုလေးနက်စွာနားလည်လာစေရန်လေ့လာနိုင်မည်ဖြစ်သည်။</p>
+<p>Module လက်စွဲစာမျက်နှာတစ်ခုစီ၏အဆုံးတွင် <code class="file docutils literal notranslate"><span class="pre">Main</span> <span class="pre">Help</span> <span class="pre">index</span></code>၊ <code class="file docutils literal notranslate"><span class="pre">Thematic</span> <span class="pre">index</span></code> နှင့် <code class="file docutils literal notranslate"><span class="pre">Full</span> <span class="pre">index</span></code> တို့ဆီသို့ ချိတ်ဆက်ထားသည့် နောက်ထပ် link များကို တွေ့ရှိမည်ဖြစ်သည်။ ဤ link များသည် <code class="file docutils literal notranslate"><span class="pre">g.manual</span></code> module ကဲ့သို့ပင် တူညီသောအချက်အလက်များပေးမည်ဖြစ်ပါသည်။</p>
+<div class="admonition tip" id="index-10">
+<p class="admonition-title">Tip</p>
+<p><strong>ရလာဒ်များအားချက်ချင်းပြသစေခြင်း</strong></p>
+<p>တွက်ချက်မှုရလာဒ်များကို canvas (မြေပုံမြင်ကွင်း) ထဲတွင်ချက်ချင်း ပြသလိုသည့်အခါ module tab ၏အောက်ခြေရှိ ‘View Output’ ခလုတ်အားအသုံးပြုနိုင်ပါသည်။</p>
+</div>
+</section>
+<section id="grass-module">
+<h3><a class="toc-backref" href="#id27" role="doc-backlink"><span class="section-number">27.14.2. </span>GRASS module ဥပမာများ</a><a class="headerlink" href="#grass-module" title="Link to this heading"></a></h3>
+<p>အောက်ဖော်ပြပါ ဥပမာများသည် အချို့သော GRASS module များ၏ လုပ်ဆောင်နိုင်သောစွမ်းအားကိုသရုပ်ပြပါလိမ့်မည်။</p>
+<section id="creating-contour-lines">
+<h4><a class="toc-backref" href="#id28" role="doc-backlink"><span class="section-number">27.14.2.1. </span>ကွန်တိုများဖန်တီးခြင်း (Creating contour lines)</a><a class="headerlink" href="#creating-contour-lines" title="Link to this heading"></a></h4>
+<p>ပထမဥပမာအနေဖြင့် elevation raster (DEM) တစ်ခုမှနေ၍ vector ကွန်တိုမြေပုံတစ်ခုကိုဖန်တီးခြင်းဖြစ်ပါသည်။
+ဤနေရာတွင် <a class="reference internal" href="#sec-import-loc-data"><span class="std std-ref">GRASS LOCATION တစ်ခုထဲသို့ Data များ ထည့်သွင်းခြင်း (Importing data into a GRASS LOCATION)</span></a> အပိုင်းတွင်ရှင်းလင်းပြသခဲ့သည့် Alaska <code class="file docutils literal notranslate"><span class="pre">LOCATION</span></code> အား သတ်မှတ်ပြီးဖြစ်သည်ဟုယူဆပါမည်။</p>
+<ul class="simple">
+<li><p>ပထမဦးစွာ <a class="reference internal" href="../../../_images/grass_open_mapset.png"><img alt="grassOpenMapset" src="../../../_images/grass_open_mapset.png" style="width: 1.5em;" /></a> <sup>Open mapset</sup> ခလုတ်အား click နှိပ်ပြီး Alaska တည်နေရာကို ရွေးချယ်၍ဖွင့်ပါ။</p></li>
+<li><p>ယခုအခါ <a class="reference internal" href="../../../_images/grass_tools.png"><img alt="grassTools" src="../../../_images/grass_tools.png" style="width: 1.5em;" /></a> <sup>Open GRASS tools</sup> ခလုတ်ဖြင့် Toolbox အားဖွင့်ပါ။</p></li>
+<li><p>Tool အမျိုးအစားစာရင်းထဲတွင် <span class="menuselection">Raster ► Surface Management ► Generate vector contour lines</span> ကို click နှစ်ချက်နှိပ်ပါ။</p></li>
+<li><p>ယခုအခါတွင် အပေါ်တွင်ရှင်းပြခဲ့သည့်အတိုင်း <strong>r.contour</strong> tool ပေါ်တွင် click တစ်ချက်နှိပ်လျှင် tool dialog သည် ပ္ငင့်လာပါလိမ့်မည်။ ( <a class="reference internal" href="#grass-modules"><span class="std std-ref">GRASS module များနှင့်အလုပ်လုပ်ခြင်း (Working with GRASS modules)</span></a> တွင်ကြည့်ပါ)</p></li>
+<li><p><span class="guilabel">Name of input raster map</span> ထဲတွင်  <code class="docutils literal notranslate"><span class="pre">gtopo30</span></code> ဟုရိုက်ထည့်ပါ။</p></li>
+<li><p><span class="guilabel">Increment between Contour levels</span> <a class="reference internal" href="../../../_images/selectnumber.png"><img alt="selectNumber" src="../../../_images/selectnumber.png" style="width: 2.8em;" /></a> တွင် တန်ဖိုး 100 အားရိုက်ထည့်ပါ။ (ဤသို့ပြုလုပ်ခြင်းဖြင့် ကွန်တိုမျဉ်းများအား အကွာအဝေး ၁၀၀ မီတာစီခြား၍ ဖန်တီးပေးမည်ဖြစ်သည်။)</p></li>
+<li><p><span class="guilabel">Name for output vector map</span> တွင် <code class="docutils literal notranslate"><span class="pre">ctour_100</span></code> ဟုအမည်ရိုက်ထည့်ပါ။</p></li>
+<li><p>လုပ်ငန်းစဉ်အားစတင်ရန်အတွက် <span class="guilabel">Run</span> အား Click နှိပ်ပါ။ Output window တွင် <code class="docutils literal notranslate"><span class="pre">Successfully</span> <span class="pre">finished</span></code> ဆိုသည့် သတိပေးစာတိုပေါ်လာသည်အထိ စောင့်ဆိုင်းပါ။ ထို့နောက် <span class="guilabel">View Output</span> နှင့် <span class="guilabel">Close</span> အား click နှိပ်ပါ။</p></li>
+</ul>
+<p>Region သည်ကြီးမားသောကြောင့် vector ကွန်တိုမျဉ်းများကို ပြသရန်မှာ အချိန်ခေတ္တ ကြာပါလိမ့်မည်။ ပုံဖော်ပြသခြင်းပြီးသည့်နောက်တွင် ကွန်တိုများသည် elevation raster layer ပေါ်တွင် ရှင်းလင်းစွာပေါ်လာစေရန်အတွက် layer properties window အားဖွင့်၍ မျဉ်းအရောင်ပြောင်းလဲခြင်းကိုပြုလုပ်နိုင်ပါသည်။ ၎င်းနှင့်ပတ်သက်၍ အသေးစိတ်ကို <a class="reference internal" href="../working_with_vector/vector_properties.html#vector-properties-dialog"><span class="std std-ref">Vector ၏ ဂုဏ်သတ္တိများပြ dialog (The Vector Properties Dialog)</span></a> တွင်ဖော်ပြထားပါသည်။</p>
+<p>နောက်တစ်ဆင့်အနေနှင့် Alaska ၏အလယ်ဗဟိုရှိ တောင်ထူထပ်သောဧရိယာတစ်ခုသို့ zoom ချဲ့ကြည့်ပါ။ အနီးကပ် ချဲ့ကြည့်လျှင်ကွန်တိုများတွင် သိသာထင်ရှားသည့်ထောင့်စွန်းများရှိသည်ကိုသတိပြုမိပါလိမ့်မည်။ GRASS တွင် vector မြေပုံများကို ယေဘုယျပုံသဏ္ဍာန်မပျက်စေဘဲ အနည်းငယ်ပြုပြင်ပြောင်းလဲခြင်းပြုလုပ်နိုင်သည့် <strong>v.generalize</strong> tool အား ပံ့ပိုးပေးထားပါသည်။ Tool သည် ရည်ရွယ်ချက်အမျိုးမျိုးအတွက် များစွာသော algorithm များကို အသုံးပြုထားသည်။ အချို့ algorithm များ (ဥပမာ- Douglas Peuker နှင့် Vertex Reduction နည်း) သည် လိုင်းအဆစ် (vertex) အချို့ကို ရှင်းလင်းခြင်းဖြင့် လိုင်းကို ရိုးရှင်းအောင် ပြုလုပ်ပေးပါသည်။ ရရှိလာသော vector ဖိုင်သည် ပေါ့ပါးလျင်မြန်စွာ ပွင့်လာမည်ဖြစ်သည်။ ဤလုပ်ငန်းစဉ်သည် အလွန်အသေးစိတ်ကျသော vector တစ်ခုဖြင့် စကေးအလွန်သေးသော မြေပုံတစ်ခုကိုရေးဆွဲနေပြီး ထိုအသေးစိတ်အရာများမလိုအပ်သည့်အချိန်တွင် အသုံးဝင်ပါသည်။</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><strong>The simplify tool</strong></p>
+<p>QGIS တွင် GRASS မှ <strong>v.generalize</strong> Douglas-Peuker algorithm ၏လုပ်ဆောင်ချက်နှင့်ဆင်တူသော tool ဖြစ်သည့်  <span class="menuselection">Vector ► Geometry Tools ► Simplify geometries</span> tool ရှိသည်ကို မှတ်သားထားပါ။</p>
+</div>
+<p>သို့သော်လည်း ယခုဥပမာ၏ရည်ရွယ်ချက်သည် ကွဲပြားခြားနားပါသည်။ <code class="docutils literal notranslate"><span class="pre">r.contour</span></code> ဖြင့် ဖန်တီးခဲ့သည့် ကွန်တိုမျဉ်းများတွင် ချောမွေ့သင့်သော ထောင့်ချွန်များ ပါရှိနေပါသည်။ ထိုထောင့်ချွန်များကို ချောမွေ့စေရန် <strong>v.generalize</strong> algorithm များထဲမှ Chaiken’s algorithm အားအသုံးပြုနိုင်ပါသည်။ (Hermite splinesကိုလဲ အသုံးပြုနိုင်ပါသည်။) သို့သော်လည်း ဤကဲ့သို့ algorithm များအသုံးပြုခြင်းသည် vector တွင် အပို မျဉ်းဆစ် (vertex) များ <strong>ပေါင်းထည့်</strong> နိုင်၍ vector သည် ပိုမိုလေးလံသွားနိုင်ကြောင်း သတိပြုရပါမည်။</p>
+<ul class="simple">
+<li><p>GRASS Toolbox ကိုဖွင့်၍ <span class="menuselection">Vector ► Develop map ► Generalization</span> ပေါ်တွင် double-click နှိပ်ပါ။ ထို့နောက် <strong>v.generalize</strong> module အား click နှိပ်၍ ၎င်း၏ options window အားဖွင့်ပါ။</p></li>
+<li><p><span class="guilabel">Name of input vector</span> တွင် ‘ctour_100’ အမည်ဖြင့်ပေါ်လာခြင်းရှိမရှိစစ်ဆေးပါ။</p></li>
+<li><p>Algorithm စာရင်းများမှ Chaiken’s algorithm အားရွေးချယ်ပါ။ အခြားရွေးချယ်စရာများအား မပြင်ဆင်ဘဲ မူရင်းအတိုင်းသာ ထားရှိ၍ <span class="guilabel">Name for output vector map</span> ဟူသော field တွင် ‘ctour_100_smooth’ အမည်ကို ထည့်ရန် နောက်ဆုံး row အထိသွားပါ။ထို့နောက် <span class="guilabel">Run</span> ကို click နှိပ်ပါ။</p></li>
+<li><p>လုပ်ငန်းစဉ်သည် အချိန်အတော်အသင့် ကြာမြင့်မည်ဖြစ်ပါသည်။ Output windows တွင် <code class="docutils literal notranslate"><span class="pre">Successfully</span> <span class="pre">finished</span></code> ဆိုသည့်စာသားပေါ်ပေါက်လာသည်နှင့်တစ်ပြိုင်နက် <span class="guilabel">View Output</span> အား click နှိပ်ပါ။ ထို့နောက် <span class="guilabel">Close</span> အားနှိပ်ပါ။</p></li>
+<li><p>Vector ၏အရောင်ကိုပြောင်းခြင်းဖြင့် raster နောက်ခံတွင် ရှင်းရှင်းလင်းလင်းမြင်နိုင်မည်ဖြစ်၍ မူရင်း ကွန်တိုလိုင်းများနှင့် အမြင်ပိုင်း ခြားနားမှုရရှိစေမည်ဖြစ်သည်။ ကွန်တိုမျဉ်းအသစ်များ (‘ctour_100_smooth’) သည် မူလပုံသဏ္ဍာန်အတိုင်းအလုံးစုံမပြောင်းလဲဘဲတည်ရှိနေပြီး မူလကွန်တိုမျဉ်းများထက် ပိုမိုချောမွေ့သည့် ထောင့်များရှိနေသည်ကို သတိထားမိပါလိမ့်မည်။</p></li>
+</ul>
+<figure class="align-center" id="id7">
+<span id="figure-grass-module-generalize"></span><a class="reference internal image-reference" href="../../../_images/grass_toolbox_vgeneralize.png"><img alt="../../../_images/grass_toolbox_vgeneralize.png" src="../../../_images/grass_toolbox_vgeneralize.png" style="width: 35em;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 27.7 </span><span class="caption-text">Vector မြေပုံတစ်ခုအားချောမွေ့စေရန် အသုံးပြုသည့် v.generalize GRASS module</span><a class="headerlink" href="#id7" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><strong>r.contour ၏အခြားအသုံးပြုမှုများ</strong></p>
+<p>အထက်တွင်ဖော်ပြခဲ့သည့် လုပ်ငန်းစဉ်အား အခြား တူညီသောအခြေအနေများတွင်အသုံးပြုနိုင်ပါသည်။ ဥပမာအားဖြင့် မိုးရွာသွန်းမှုဒေတာ၏ raster မြေပုံတစ်ခုရှိနေလျှင် အထက်ပါနည်းအားသုံး၍ isohyetal (အဆက်မပြတ်မိုးရွာသွန်းမှု) မျဉ်းကြောင်းများ၏ vector မြေပုံကိုဖန်တီးနိုင်ပါလိမ့်မည်။</p>
+</div>
+</section>
+<section id="creating-a-hillshade-3-d-effect">
+<h4><a class="toc-backref" href="#id29" role="doc-backlink"><span class="section-number">27.14.2.2. </span>ရုပ်ကြွတောင်အရိပ်အထူးပြုလုပ်ချက်တစ်ခုအားဖန်တီးခြင်း (Creating a Hillshade 3-D effect)</a><a class="headerlink" href="#creating-a-hillshade-3-d-effect" title="Link to this heading"></a></h4>
+<p>Elevation (မြေပြင်အမြင့်) layer များအား ပြသရန်နှင့် မြေပုံတွင် 3-D effect တစ်ခုရရှိရန် များစွာသော နည်းလမ်းများကို အသုံးပြုကြပါသည်။ ဖော်ပြခဲ့ပြီးသည့်အတိုင်း ကွန်တိုမျဉ်းများအသုံးပြုခြင်းသည် မြေမျက်နှာသွင်ပြင်မြေပုံများထုတ်လုပ်ရန် တွင်ကျယ်စွာအသုံးပြုသည့်နည်းလမ်းတစ်ခုဖြစ်ပါသည်။ 3-D effect ဖြင့်ပြသရန် အခြားနည်းလမ်းတစ်ခုမှာ hillshading(မြေမျက်နှာသွင်ပြင်ကို အလင်းရင်းမြစ်နှင့် အမြင့်မျက်နှာပြင်၏ လျှောစောက်နှင့်ရှုထောင့်မှ တွက်ချက်ပြီး ပုံဖော်ခြင်း) ဖြစ်ပါသည်။ Hillshade effect ကို Digital Elevation Model (DEM) မှ ဖန်တီးရပါသည်။
+လုပ်ငန်းစဉ်တွင် ဦးစွာ ဆဲလ်တစ်ခုစီ၏ လျှောစောက်နှင့် ရှုထောင့်ကို တွက်ချက်၍ ကောင်းကင်၌ နေ၏အနေအထားကို ပုံဖော်ပြီး ဆဲလ်တစ်ခုစီသို့ အလင်းပြန်မှုတန်ဖိုးကို သတ်မှတ်ပေးမည်ဖြစ်သည်။ ထို့ကြောင့် နေကိုမျက်နှာမူသော လျှောစောက်များတွင် လင်းနေသည်ကိုတွေ့ရပြီး နေနှင့် ဝေးရာသို့ မျက်နှာမူသောလျှောစောက်များတွင် မှောင်နေသည် (အရိပ်ကျနေသည်) ကိုတွေ့ရမည်။</p>
+<ul class="simple">
+<li><p>ယခု ဥပမာအား စတင်ရန် <code class="docutils literal notranslate"><span class="pre">gtopo30</span></code> အမည်ရှိ elevation raster အား ထည့်သွင်းပါ။ GRASS Toolbox အားဖွင့်၍ Raster category အောက်တွင် double-click နှိပ်၍ <span class="menuselection">Spatial analysis ► Terrain analysis</span> သို့ သွားပါ။</p></li>
+<li><p>ထို့နောက် <strong>r.shaded.relief</strong> အား click နှိပ်၍ module အားဖွင့်ပါ။</p></li>
+<li><p><span class="guilabel">azimuth angle</span> <a class="reference internal" href="../../../_images/selectnumber.png"><img alt="selectNumber" src="../../../_images/selectnumber.png" style="width: 2.8em;" /></a> တန်ဖိုးအား 270 မှ 315 သို့ပြောင်းလဲပါ။</p></li>
+<li><p>Hillshade raster အသစ်အတွက် <code class="docutils literal notranslate"><span class="pre">gtopo30_shade</span></code> အမည်အားရိုက်ထည့်၍  <span class="guilabel">Run</span> အား click နှိပ်ပါ။</p></li>
+<li><p>လုပ်ငန်းစဉ်ပြီးဆုံးပါက အသစ်ဖန်တီးထားသော hillshade raster ကို မြေပုံတွင် ထည့်သွင်းပါ။ ၎င်းအား grayscale (အဖြူရောင်နှင့်အနက်ရောင်ကြားတလျှောက် အရောင်စဉ်) ဖြင့်ပြနေသည်ကိုတွေ့ရမည်။</p></li>
+<li><p>Hillshade raster နှင့် <code class="docutils literal notranslate"><span class="pre">gtopo30</span></code> အရောင်များကို အတူတကွ ကြည့်ရှုရန် Table of contents တွင် hillshade မြေပုံအား မူလ elevation မြေပုံ (<code class="docutils literal notranslate"><span class="pre">gtopo30</span></code>) အောက်သို့ ရွှေ့ပါ။ ထို့နောက် <code class="docutils literal notranslate"><span class="pre">gtopo30</span></code> ၏ <span class="menuselection">Properties</span> window ကိုဖွင့်ပါ။ ပြီးလျှင် <span class="guilabel">Transparency</span> tab ဘက်သို့ပြောင်းကာ ၎င်း၏အလင်းဖောက်နှုန်းအဆင့်ကို 25% ခန့် သတ်မှတ်ပါ။</p></li>
+</ul>
+<p>ယခုအခါ အရောင်များဖြင့် <code class="docutils literal notranslate"><span class="pre">gtopo30</span></code> elevation အား အလင်းဖောက်နှုန်း setting နှင့်အတူ grayscale hillshade map ၏ <strong>အပေါ်</strong> တွင်ပြသပြီးဖြစ်နေပါမည်။ Hillshading ၏ effects များကိုမြင်သာစေရန်အတွက် <code class="docutils literal notranslate"><span class="pre">gtopo30_shade</span></code> မြေပုံအား အဖွင့်အပိတ်ပြုလုပ်ကြည့်ပါ။</p>
+<p><strong>Using the GRASS shell (GRASS shell အားအသုံးပြုခြင်း)</strong></p>
+<p>QGIS ရှိ GRASS plugin သည် GRASS ကိုစတင်အသုံးပြုသူများနှင့် module များအားလုံး၊ ရွေးချယ်စရာများအားလုံးနှင့် မရင်းနှီးသေးသော အသုံးပြုသူများအတွက် ဒီဇိုင်းပြုလုပ်ထားခြင်းဖြစ်ပါသည်။ သို့ဖြစ်၍ Toolbox ရှိ အချို့သော module များ၏ ရရှိနိုင်သောရွေးချယ်စရာများအားလုံးကို ပြသနိုင်မည်မဟုတ်သကဲ့သို့ အချို့ module များကိုလည်းတွေ့ရှိရမည်မဟုတ်ပါ။ GRASS shell (သို့မဟုတ် console) အားသုံးခြင်းဖြင့်  Toolbox tree တွင်မပြသထားသည့် နောက်ထပ် GRASS module များကိုဝင်ရောက်အသုံးပြုနိုင်မည် ဖြစ်သကဲ့သို့ Toolbox အတွင်းရှိ module များအတွက် ရွေးချယ်စရာလုပ်ဆောင်ချက်များအားလည်း အရိုးရှင်းဆုံး ပုံသေသတ်မှတ်ချက်များဖြင့် ရယူအသုံးပြုနိုင်မည်ဖြစ်သည်။ ယခုဥပမာ၌ အထက်တွင်ဖော်ပြထားသည့် <strong>r.shaded.relief</strong> module တွင် ထပ်ဆောင်းရွေးချယ်မှုတစ်ခု အသုံးပြုခြင်းကို ပြသထားပါသည်။</p>
+<figure class="align-center" id="id8">
+<span id="figure-grass-module-shell"></span><img alt="../../../_images/grass_toolbox_shell.png" src="../../../_images/grass_toolbox_shell.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 27.8 </span><span class="caption-text">GRASS shell ၊ r.shaded.relief module</span><a class="headerlink" href="#id8" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><strong>r.shaded.relief</strong> module သည် X-Y ကိုဩဒိနိတ်ယူနစ်များနှင့် ဆက်စပ်သော elevation တန်ဖိုး​​များကို အဆနှင့်တိုးစေသည့် <code class="docutils literal notranslate"><span class="pre">zmult</span></code> parameter ကိုအသုံးပြု၍ hillshade effect ကို ပို၍ထင်ရှားစေပါသည်။</p>
+<ul class="simple">
+<li><p>အပေါ်တွင်ပြခဲ့သည့်အတိုင်း <code class="docutils literal notranslate"><span class="pre">gtopo30</span></code> elevation raster အား ထည့်သွင်းပါ။ ထို့နောက် GRASS Toolbox အားဖွင့်၍ GRASS shell ပေါ်တွင် click နှိပ်ပါ။ Shell window ထဲတွင် <code class="docutils literal notranslate"><span class="pre">r.shaded.relief</span> <span class="pre">map=gtopo30</span> <span class="pre">shade=gtopo30_shade2</span> <span class="pre">azimuth=315</span> <span class="pre">zmult=3</span></code> ဟူသည့် ကွန်ပျူတာအမိန့်ပေးချက်အားရိုက်ထည့်ပါ။ ထို့နောက် <kbd class="kbd docutils literal notranslate">Enter</kbd> အားနှိပ်ပါ။</p></li>
+<li><p>လုပ်ငန်းစဉ်ပြီးဆုံးပြီးနောက် <span class="guilabel">Browse</span> tab သို့သွားပြီး raster အသစ်ဖြစ်သည့် <code class="docutils literal notranslate"><span class="pre">gtopo30_shade2</span></code> အား QGIS တွင်ပြသရန် ၎င်းအပေါ် click နှစ်ချက်နှိပ်ပါ။</p></li>
+<li><p>အပေါ်ဥပမာတွင်ပြသခဲ့သည့်အတိုင်း table of contents ထဲရှိ <code class="docutils literal notranslate"><span class="pre">gtopo30</span></code> raster အောက်သို့ shaded relief raster အားရွှေ့ပါ။ ထို့နောက် အရောင်ထည့်ထားသော <code class="docutils literal notranslate"><span class="pre">gtopo30</span></code> layer ၏ အလင်းဖောက်နှုန်းတန်ဖိုးမည်မျှပေးထားသည်ကို စစ်ဆေးပါ။ 3-D effect သည် ပထမ shaded relief map နှင့်နှိုင်းယှဉ်ပါက ပို၍ထင်ရှားစွာ ပေါ်လွင်လာသည် ကိုမြင်တွေ့ရမည်ဖြစ်ပါသည်။</p></li>
+</ul>
+<figure class="align-center" id="id9">
+<span id="figure-grass-module-display"></span><a class="reference internal image-reference" href="../../../_images/grass_toolbox_shadedrelief.png"><img alt="../../../_images/grass_toolbox_shadedrelief.png" src="../../../_images/grass_toolbox_shadedrelief.png" style="width: 35em;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 27.9 </span><span class="caption-text">r.shaded.relief GRASS module ဖြင့် ဖန်တီးထားသော shaded relief များအားပြသခြင်း</span><a class="headerlink" href="#id9" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="vector-raster-raster-statistics-in-a-vector-map">
+<h4><a class="toc-backref" href="#id30" role="doc-backlink"><span class="section-number">27.14.2.3. </span>Vector မြေပုံတစ်ခုထဲရှိ raster ကိန်းဂဏန်းအချက်အလက်များ (Raster statistics in a vector map)</a><a class="headerlink" href="#vector-raster-raster-statistics-in-a-vector-map" title="Link to this heading"></a></h4>
+<p>နောက်ဥပမာတစ်ခုတွင် GRASS module တစ်ခုအားသုံးခြင်းဖြင့် raster data များကို မည်သို့ စုစည်းနိုင်ကြောင်းနှင့် vector မြေပုံတစ်ခုထဲရှိ polygon တစ်ခုစီအတွက် စာရင်းအင်းအချက်အလက် column များ မည်သို့ထည့်သွင်းနိုင်ကြောင်း ပြသထားပါသည်။</p>
+<ul class="simple">
+<li><p>Alaska data များကိုထပ်မံအသုံးပြုလျက် <code class="file docutils literal notranslate"><span class="pre">shapefiles/trees.shp</span></code> file အား GRASS ထဲသို့ ထည့်သွင်းရန် <a class="reference internal" href="#sec-import-loc-data"><span class="std std-ref">GRASS LOCATION တစ်ခုထဲသို့ Data များ ထည့်သွင်းခြင်း (Importing data into a GRASS LOCATION)</span></a> ကို ကိုးကားပါ။</p></li>
+<li><p>ယခုအခါ ကြားအဆင့်တစ်ခုအနေဖြင့် ပြည့်စုံသော GRASS ဧရိယာ vector တစ်ခုဖြစ်စေရန် import လုပ်ထားသော trees မြေပုံထဲသို့ အလယ်ဗဟိုမှတ်များ ထပ်ပေါင်းထည့်ရပါမည်။ (နယ်နိမိတ်များ နှင့် အလယ်ဗဟိုမှတ်များ နှစ်မျိုးလုံး အပါအဝင်)</p></li>
+<li><p>Toolbox မှတစ်ဆင့် <span class="menuselection">Vector ► Manage features</span> အားရွေးချယ်၍  <strong>v.centroids</strong> ဆိုသည့် module အားဖွင့်ပါ။</p></li>
+<li><p><span class="guilabel">output vector map</span> တွင် ‘forest_areas’ ဟုအမည်ပေးပြီး ထို module အား run ပါ။</p></li>
+<li><p>ယခုအခါ <code class="docutils literal notranslate"><span class="pre">forest_areas</span></code> vector အားထည့်သွင်းပြီး သစ်တောအမျိုးအစားများ (ရွက်ကြွေ၊ အမြဲစိမ်း၊ ရောနှော) အား မတူညီသောအရောင်များနှင့် ပြသနိုင်ပြီဖြစ်သည်။ Layer <span class="guilabel">Properties</span> window ၏ <span class="guilabel">Symbology</span> tab တွင် <span class="guilabel">Legend type</span> <a class="reference internal" href="../../../_images/selectstring.png"><img alt="selectString" src="../../../_images/selectstring.png" style="width: 2.5em;" /></a> မှ ‘Unique value’ ကိုရွေးချယ်၍ <span class="guilabel">Classification field</span> နေရာတွင် ‘VEGDESC’ ဟု ထားပါ။ (Symbology tab အတွက် ရှင်းလင်းချက်များကို vector section ၏ <a class="reference internal" href="../working_with_vector/vector_properties.html#vector-style-menu"><span class="std std-ref">သင်္ကေတ ဂုဏ်သတ္တိများ (Symbology Properties)</span></a> တွင် ကိုးကားပါ)</p></li>
+<li><p>ထို့နောက် GRASS Toolbox ကိုတစ်ဖန်ပြန်ဖွင့်၍ အခြားမြေပုံများမှ <span class="menuselection">Vector ► Vector update</span> အားဖွင့်ပါ။</p></li>
+<li><p><strong>v.rast.stats</strong> module ပေါ်တွင် click နှိပ်ပါ။ <code class="docutils literal notranslate"><span class="pre">gtopo30</span></code>  နှင့် <code class="docutils literal notranslate"><span class="pre">forest_areas</span></code> ဟုအမည်ပေးပါ။</p></li>
+<li><p>Parameter တစ်ခုထပ်မံသတ်မှတ်ရန်သာလိုအပ်ပါတော့သည်။ <span class="guilabel">column prefix</span> တွင် <code class="docutils literal notranslate"><span class="pre">elev</span></code> ဟုရိုက်ထည့်၍ <span class="guilabel">Run</span> အား click နှိပ်ပါ။ ဤလုပ်ငန်းစဉ်သည် ကြီးမားသောတွက်ချက်မှုဖြစ်သောကြောင့် အချိန်အတော်ကြာမြင့်နိုင်ပါသည်။ (နှစ်နာရီအထိ ကြာကောင်းကြာနိုင်ပါသည်)</p></li>
+<li><p>နောက်ဆုံးအနေဖြင့် <code class="docutils literal notranslate"><span class="pre">forest_areas</span></code> attribute ဇယားအားဖွင့်၍ forest polygon တစ်ခုစီအတွက် <code class="docutils literal notranslate"><span class="pre">elev_min</span></code> ၊ <code class="docutils literal notranslate"><span class="pre">elev_max</span></code> ၊ <code class="docutils literal notranslate"><span class="pre">elev_mean</span></code> စသည်တို့ပါဝင်သော column အသစ်များစွာကို ထည့်သွင်းထားပြီးဖြစ်ကြောင်း စစ်ဆေးပါ။</p></li>
+</ul>
+</section>
+</section>
+<section id="grass-toolbox-customizing-the-grass-toolbox">
+<span id="sec-toolbox-customizing"></span><span id="index-11"></span><h3><a class="toc-backref" href="#id31" role="doc-backlink"><span class="section-number">27.14.3. </span>GRASS Toolbox အား ပြင်ဆင်ခြင်း (Customizing the GRASS Toolbox)</a><a class="headerlink" href="#grass-toolbox-customizing-the-grass-toolbox" title="Link to this heading"></a></h3>
+<p>GRASS module များအားလုံးနီးပါးကို GRASS Toolbox ထဲသို့ ထပ်ပေါင်းထည့်နိုင်ပါသည်။ Toolbox အတွင်းရှိ GRASS module များ၏ အသွင်အပြင်နှင့် parameter များကို ပြင်ဆင်သတ်မှတ်နိုင်သည့် ရိုးရှင်းသော XML file များကို ခွဲခြားဖော်ပြ (parse) ရန်  XML interface တစ်ခုကို ပံ့ပိုးပေးထားပါသည်။</p>
+<p>အောက်တွင် <code class="docutils literal notranslate"><span class="pre">v.buffer</span></code> (v.buffer.qgm) ဆိုသည့် module ကိုထုတ်ယူရန်အတွက် နမူနာ XML ဖိုင်တစ်ခု အားဖော်ပြထားပါသည်-</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="cp">&lt;!DOCTYPE qgisgrassmodule SYSTEM &quot;http://mrcc.com/qgisgrassmodule.dtd&quot;&gt;</span>
+
+<span class="nt">&lt;qgisgrassmodule</span><span class="w"> </span><span class="na">label=</span><span class="s">&quot;Vector buffer&quot;</span><span class="w"> </span><span class="na">module=</span><span class="s">&quot;v.buffer&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;option</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;input&quot;</span><span class="w"> </span><span class="na">typeoption=</span><span class="s">&quot;type&quot;</span><span class="w"> </span><span class="na">layeroption=</span><span class="s">&quot;layer&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;option</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;buffer&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;option</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;output&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/qgisgrassmodule&gt;</span>
+</pre></div>
+</div>
+<p>Module ကိုရွေးချယ်လိုက်သောအခါ parser သည် XML အဓိပ္ပါယ်ဖွင့်ဆိုချက်ကို ဖတ်ပြီး Toolbox အတွင်းတွင် tab အသစ်တစ်ခုကို ဖန်တီးပါသည်။ Module အသစ်များပေါင်းထည့်ခြင်း၊ module အုပ်စုတစ်ခုအား ပြောင်းလဲခြင်း စသည်တို့အတွက် ပိုမိုအသေးစိတ်ကျသည့်ရှင်းလင်းဖော်ပြချက်များကို <a class="reference external" href="https://qgis.org/en/site/getinvolved/development/addinggrasstools.html">https://qgis.org/en/site/getinvolved/development/addinggrasstools.html</a> တွင်ကြည့်ရှုနိုင်ပါသည်။</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../auth_system/auth_considerations.html" class="btn btn-neutral float-left" title="26. လုံခြုံရေးအတွက်စဉ်းစားရန်အချက်များ (Security Considerations)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../processing/index.html" class="btn btn-neutral float-right" title="28. QGIS processing framework" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2002-now, QGIS project.
+      <span class="lastupdated">Last updated on 2024 May 13, 16:23 +0700.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- Transifex follows a particular logic to build target pages:
+Expected French translation link for https://docs.qgis.org/3.28/en/docs/user_manual/print_composer/overview_composer.html
+would return https://app.transifex.com/qgis/qgis-documentation/translate/#fr/aa6d8bc653526d38b295ca94bf8eee5e
+with the md5 value of "github#qgis/QGIS-Documentation#release_3.28#locale/en/LC_MESSAGES/docs/user_manual/print_composer/overview_composer.po"-->
+<!--Make sure that mismatching language codes between Transifex and Sphinx are converted-->
+
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-info-circle"> QGIS Documentation </span>
+      v: 3.28
+      <span class="fa fa-caret-down"></span>
+    </span>
+
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Languages</dt>
+        
+          <dd><a href="https://docs.qgis.org/3.28/en/docs/user_manual/grass_integration/grass_integration.html">en</a></dd>
+        
+      </dl>
+
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/user_manual/grass_integration/grass_integration.html">testing</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/latest/en/docs/user_manual/grass_integration/grass_integration.html">latest</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.28/en/docs/user_manual/grass_integration/grass_integration.html">3.28</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.22/en/docs/user_manual/grass_integration/grass_integration.html">3.22</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.16/en/docs/user_manual/grass_integration/grass_integration.html">3.16</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.10/en/docs/user_manual/grass_integration/grass_integration.html">3.10</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.4/en/docs/user_manual/grass_integration/grass_integration.html">3.4</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/2.18/en/docs/user_manual/grass_integration/grass_integration.html">2.18</a></dd>
+        
+      </dl>
+
+       
+       <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="https://docs.qgis.org/3.28/pdf">PDF</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.28/zip">HTML</a></dd>
+        
+      </dl>
+      
+
+      
+       
+      <dl>
+        <dt>Contribute to Docs</dt>
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/edit/master/docs/user_manual/grass_integration/grass_integration.rst" target="_blank" rel="noopener noreferrer">Edit on GitHub</a>
+          </dd>
+          
+          
+          <dd>
+            <a href="https://app.transifex.com/qgis/qgis-documentation/translate/#en/f33337dec9c96a57ec1292dc77a4aec8" target="_blank" rel="noopener noreferrer">Translate Page</a>
+          </dd>
+          
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/issues" target="_blank" rel="noopener noreferrer">Report Issue</a>
+          </dd>
+      </dl>
+      
+
+      <dl>
+        <dt>On QGIS Project</dt>
+          <dd>
+            <a href="https://qgis.org/en" target="_blank" rel="noopener noreferrer">Home</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/api/3.28" target="_blank" rel="noopener noreferrer">C++ API</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/pyqgis/3.28" target="_blank" rel="noopener noreferrer">PyQGIS API</a>
+          </dd>
+          <dd>
+            <a href="https://github.com/qgis/QGIS/tree/release-3_28" target="_blank" rel="noopener noreferrer">Source</a>
+          </dd>
+      </dl>
+
+    </div>
+  </div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

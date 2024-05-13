@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>15.3. Data Format များနှင့် Field များကို လေ့လာခြင်း (Exploring Data Formats and Fields) &mdash; QGIS Documentation  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/qgis_docs.css?v=3fdf4c33" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/qgis_logo.ico"/>
+    <link rel="canonical" href="https://docs.qgis.org/latest/en/docs/user_manual/managing_data_source/supported_data.html"/>
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../../_static/copybutton.js?v=f281be69"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="16. Vector data များဖြင့် အလုပ်လုပ်ခြင်း" href="../working_with_vector/index.html" />
+    <link rel="prev" title="15.2. Layer များဖန်တီးခြင်း (Creating Layers)" href="create_layers.html" />
+  <meta name="description" content="QGIS 3.28 documentation: 15.3. Data Format များနှင့် Field များကို လေ့လာခြင်း (Exploring Data Formats and Fields)">
+</head>
+
+<body class="wy-body-for-nav">
+
+  <nav class="release_status_topbar">
+  </nav>
+
+   
+
+ 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+   
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            QGIS Documentation
+              <img src="../../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                3.28
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+   <a href= "../../../genindex.html">Index</a>
+ 
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">အသုံးပြုသူများအတွက်</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../preamble/preamble.html">1. စကားချီး (Preamble)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/foreword.html">2. အမှာစာ (Foreword)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/conventions.html">3. အသုံးအနှုန်းများ (Conventions)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/features.html">4. အသွင်အပြင်များ (Features)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/getting_started.html">5. စတင်အသုံးပြုခြင်း (Getting Started)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/project_files.html">6. Project Files များနှင့် အလုပ်လုပ်ခြင်း (Working with Project Files)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/qgis_gui.html">7. QGIS ၏အစိတ်အပိုင်းများ (QGIS GUI)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/browser.html">8. ဒေတာများရှာဖွေကြည့်ရှုနိုင်သည့်နေရာ (The Browser panel)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/qgis_configuration.html">9. QGIS ပြင်ဆင်သတ်မှတ်ခြင်း/အခင်းအကျင်း (QGIS Configuration)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_projections/working_with_projections.html">10. မြေပုံအရိပ်ချစနစ်များ နှင့် အလုပ်လုပ်ခြင်း (Working with Projections)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../map_views/index.html">11. မြေပုံများအား ပုံဖော်ကြည့်ရှုခြင်း (Visualizing Maps)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/general_tools.html">12. အထွေ‌ထွေ‌သုံးကိရိယာများ (General Tools)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../expressions/index.html">13. Expression များဖြင့် အဆင့်မြှင့်တင်ဆောင်ရွက်ခြင်း (Level up with Expressions)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../style_library/index.html">14. The Style Library (Style နှင့်ပတ်သက်သည်များ ထားရှိရာနေရာ)</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">15. ဒေတာအရင်းအမြစ်များအား စီမံခန့်ခွဲခြင်း (Managing Data Source)</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="opening_data.html">15.1. Data ဖွင့်ခြင်း (Opening Data)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="create_layers.html">15.2. Layer များဖန်တီးခြင်း (Creating Layers)</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">15.3. Data Format များနှင့် Field များကို လေ့လာခြင်း (Exploring Data Formats and Fields)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#raster-data">15.3.1. Raster data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vector-data">15.3.2. Vector Data</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#geopackage">15.3.2.1. GeoPackage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#esri-shapefile">15.3.2.2. ESRI Shapefile အမျိုးအစား</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#delimited-text">15.3.2.3. Delimited Text ဖိုင်များ</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#postgis-layer">15.3.2.4. PostGIS Layer များ</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#postgresql-data-importing-data-into-postgresql">15.3.2.5. PostgreSQL ထဲသို့ Data ထည့်ခြင်း (Importing Data into PostgreSQL)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#spatialite-layer-spatialite-layers">15.3.2.6. SpatiaLite layer များ (SpatiaLite Layers)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#geojson-geojson-specific-parameters">15.3.2.7. GeoJSON အတွက်သတ်မှတ်ချက်များ (GeoJSON specific parameters)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sap-hana-spatial-layer-sap-hana-spatial-layers">15.3.2.8. SAP HANA Spatial Layer များ (SAP HANA Spatial Layers)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#layer-layers-crossing-180-longitude">15.3.3. 180 ဒီဂရီ လောင်ဂျီတွဒ်ကိုကျော်သည့် Layer များ (Layers crossing 180° longitude)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#postgis-solving-in-postgis">15.3.3.1. PostGIS အသုံးပြဖြေရှင်းခြင်း (Solving in PostGIS)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_vector/index.html">16. Vector data များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_raster/index.html">17. Raster Data နှင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_mesh/mesh_properties.html">18. Working with Mesh Data (Mesh Data များနှင့် အလုပ်လုပ်ခြင်း)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_vector_tiles/vector_tiles_properties.html">19. Vector Tiles များနှင့်အလုပ်လုပ်ခြင်း (Working with Vector Tiles)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_point_clouds/point_clouds.html">20. Point Cloud များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../print_composer/index.html">21. မြေပုံအချောသပ်ပြင်ဆင်ခြင်း (Laying out the maps)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_ogc/ogc_client_support.html">22. OGC / ISO protocol များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_gps/index.html">23. GPS Data များနှင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../auth_system/auth_overview.html">24. အထောက်အထားစီစစ်ခြင်းအကြောင်းအကျဉ်း (Authentication System Overview)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../auth_system/auth_workflows.html">25. အသုံးပြုသူ အထောက်အထားစစ်ဆေးခြင်း လုပ်ငန်းအဆင့်များ (User Authentication Workflows)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../auth_system/auth_considerations.html">26. လုံခြုံရေးအတွက်စဉ်းစားရန်အချက်များ (Security Considerations)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../grass_integration/grass_integration.html">27. GRASS GIS နှင့်ပေါင်းစပ်အသုံးပြုခြင်း (GRASS GIS Integration)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing/index.html">28. QGIS processing framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing_algs/index.html">29. Processing ဆိုင်ရာ ထောက်ပံ့ပေးသူများနှင့် Algorithm များ (Processing providers and algorithms)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/plugins.html">30. QGIS Plugin များ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/core_plugins/index.html">31. QGIS ပင်မ Plugin များကို အသုံးပြုခြင်း (Using QGIS Core Plugins)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/python_console.html">32. QGIS တွင် Python code များရေးသားရန်နေရာ (QGIS Python console)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/help_and_support.html">33. အကူအညီနှင့်အထောက်အပံ့ (Help and Support)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/contributors.html">34. ပါဝင်အားဖြည့်သူများ (Contributors)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendices/index.html">35. နောက်ဆက်တွဲများ (Appendices)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../literature_web/literature_and_web_references.html">36. စာတမ်းများနှင့် Website ကိုးကားချက်များ (Literature and Web References)</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">QGIS Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">&lt;no title&gt;</a></li>
+          <li class="breadcrumb-item"><a href="index.html"><span class="section-number">15. </span>ဒေတာအရင်းအမြစ်များအား စီမံခန့်ခွဲခြင်း (Managing Data Source)</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">15.3. </span>Data Format များနှင့် Field များကို လေ့လာခြင်း (Exploring Data Formats and Fields)</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/qgis/QGIS-Documentation/blob/master/docs/user_manual/managing_data_source/supported_data.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="create_layers.html" class="btn btn-neutral float-left" title="15.2. Layer များဖန်တီးခြင်း (Creating Layers)" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../working_with_vector/index.html" class="btn btn-neutral float-right" title="16. Vector data များဖြင့် အလုပ်လုပ်ခြင်း" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <blockquote>
+<div></div></blockquote>
+<section id="data-format-field-exploring-data-formats-and-fields">
+<span id="supported-format"></span><h1><span class="section-number">15.3. </span>Data Format များနှင့် Field များကို လေ့လာခြင်း (Exploring Data Formats and Fields)<a class="headerlink" href="#data-format-field-exploring-data-formats-and-fields" title="Link to this heading"></a></h1>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#raster-data" id="id4">Raster data</a></p></li>
+<li><p><a class="reference internal" href="#vector-data" id="id5">Vector Data</a></p>
+<ul>
+<li><p><a class="reference internal" href="#geopackage" id="id6">GeoPackage</a></p></li>
+<li><p><a class="reference internal" href="#esri-shapefile" id="id7">ESRI Shapefile အမျိုးအစား</a></p></li>
+<li><p><a class="reference internal" href="#delimited-text" id="id8">Delimited Text ဖိုင်များ</a></p>
+<ul>
+<li><p><a class="reference internal" href="#delimited-text-file-geometry" id="id9">Delimited text file များအတွင်း geometry အချက်အလက်များ သိမ်းဆည်းခြင်း</a></p></li>
+<li><p><a class="reference internal" href="#csvt-file-field-format-using-csvt-file-to-control-field-formatting" id="id10">CSVT file ဖြင့် field format ပြုလုပ်ခြင်း (Using CSVT file to control field formatting)</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#postgis-layer" id="id11">PostGIS Layer များ</a></p>
+<ul>
+<li><p><a class="reference internal" href="#primary-key" id="id12">Primary key</a></p></li>
+<li><p><a class="reference internal" href="#view" id="id13">မြင်ကွင်း (View)</a></p></li>
+<li><p><a class="reference internal" href="#qgis-layer-style-database-qgis-layer-style-table-and-database-backup" id="id14">QGIS layer_style ဇယားနှင့် database အရန်သိမ်းဆည်းခြင်း (QGIS layer_style table and database backup)</a></p></li>
+<li><p><a class="reference internal" href="#database-filter-filter-database-side" id="id15">Database တွင် filter လုပ်ခြင်း (Filter database side)</a></p></li>
+<li><p><a class="reference internal" href="#postgresql-data-support-of-postgresql-data-types" id="id16">အသုံးပြုနိုင်သော PostgreSQL data အမျိုးအစားများ (Support of PostgreSQL data types)</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#postgresql-data-importing-data-into-postgresql" id="id17">PostgreSQL ထဲသို့ Data ထည့်ခြင်း (Importing Data into PostgreSQL)</a></p>
+<ul>
+<li><p><a class="reference internal" href="#database-db-manager" id="id18">Database စီမံခန့်ခွဲရာ (DB Manager)</a></p></li>
+<li><p><a class="reference internal" href="#shp2pgsql" id="id19">shp2pgsql</a></p></li>
+<li><p><a class="reference internal" href="#ogr2ogr" id="id20">ogr2ogr</a></p></li>
+<li><p><a class="reference internal" href="#improving-performance" id="id21">စွမ်းဆောင်ရည်တိုးတက်ကောင်းမွန်အောင်ဆောင်ရွက်ခြင်း (Improving Performance)</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#spatialite-layer-spatialite-layers" id="id22">SpatiaLite layer များ (SpatiaLite Layers)</a></p></li>
+<li><p><a class="reference internal" href="#geojson-geojson-specific-parameters" id="id23">GeoJSON အတွက်သတ်မှတ်ချက်များ (GeoJSON specific parameters)</a></p></li>
+<li><p><a class="reference internal" href="#sap-hana-spatial-layer-sap-hana-spatial-layers" id="id24">SAP HANA Spatial Layer များ (SAP HANA Spatial Layers)</a></p>
+<ul>
+<li><p><a class="reference internal" href="#feature-feature-identification" id="id25">Feature ခွဲခြားသတ်မှတ်ခြင်း (Feature Identification)</a></p></li>
+<li><p><a class="reference internal" href="#adding-tables" id="id26">အချက်အလက်ဇယားများထည့်သွင်းခြင်း (Adding tables)</a></p></li>
+<li><p><a class="reference internal" href="#adding-views" id="id27">ဇယားအပိုင်းများ ထည့်သွင်းခြင်း (Adding views)</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#layer-layers-crossing-180-longitude" id="id28">180 ဒီဂရီ လောင်ဂျီတွဒ်ကိုကျော်သည့် Layer များ (Layers crossing 180° longitude)</a></p>
+<ul>
+<li><p><a class="reference internal" href="#postgis-solving-in-postgis" id="id29">PostGIS အသုံးပြဖြေရှင်းခြင်း (Solving in PostGIS)</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+<section id="raster-data">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink"><span class="section-number">15.3.1. </span>Raster data</a><a class="headerlink" href="#raster-data" title="Link to this heading"></a></h2>
+<p>GIS raster data များသည် ကမ္ဘာ့မြေမျက်နှာပြင် အထက် သို့မဟုတ် အောက်ရှိ features (geometryနှင့် attribute data များပါဝင်သည့် entity တစ်ခု)/phenomena (ဖြစ်စဉ်များ) ကို ကိုယ်စားပြုဖော်ပြသည့် discrete cell များ (ပုံစံ သို့မဟုတ် သဘောတရားအားဖြင့် ကွဲပြားနေသည့် ဆဲလ်များ) ၏ matrices (data များအား စတုဂံပုံစုစည်းထားရှိမှု၊ matrices များကို raster data များကို သိမ်းဆည်းရန်အသုံးပြုပါသည်) များဖြစ်ပါသည်။ Raster grid ထဲရှိ ဆဲလ် (cell) တစ်ခုချင်းစီသည် တူညီသည့် အရွယ်အစား (size) ရှိပြီး ပုံမှန်အားဖြင့် ထောင့်မှန်စတုဂံများ (QGIS တွင် ၎င်းတို့သည် အမြဲ ထောင့်မှန်စတုဂံ ဖြစ်မည်ဖြစ်ပါသည်) ဖြစ်ပါသည်။ ပုံမှန် raster dataset များတွင် ကောင်းကင်ဓာတ်ပုံ (aerial photography) သို့မဟုတ် ဂြိုလ်တုဓာတ်ပုံ (satellite imagery) ကဲ့သို့သော အဝေးမှစူးစမ်းလေ့လာသည့်ဒေတာ (remote sensing data) နှင့် အမြင့် (elevation) သို့မဟုတ် အပူချိန် (temperature) ကဲ့သို့သော model ပြုလုပ်ထားသည့် data (modelled data) များပါဝင်ပါသည်။</p>
+<p>Vector data နှင့်မတူသည်မှာ raster data တွင် ပုံမှန်အားဖြင့် ဆဲလ် (cell) တစ်ခုချင်းစီအတွက် ဆက်စပ်နေသည့် (associated) database record တစ်ခုမရှိပါ။ ၎င်းတို့ကို pixel resolution (pixel ကြည်လင်ပြတ်သားမှု) နှင့် raster layer ၏ ထောင့်ရှိ pixel (corner pixel) ၏ X/Y coordinate ဖြင့် geocode ပြုလုပ်ပါသည်။ (Geocode ပြုလုပ်သည်ဆိုသည်မှာ တည်နေရာတစ်ခုနှင့်ဆက်စပ်နေသည့် ပထဝီဝင်ဆိုင်ရာ ကိုဩဒိနိတ်များကို ပံ့ပိုးပေးခြင်းဖြစ်ပါသည်) ၎င်းသည် QGIS ကို map canvas အပေါ်တွင် data ကို မှန်ကန်စွာနေရာချနိုင်ရန် ခွင့်ပြုပေးပါသည်။</p>
+<p>GeoPackage format (.gpkg extension ပါဝင်သည့် SQLite Database file တစ်ခု) သည် QGIS နှင့်လုပ်ငန်းဆောင်တာများဆောင်ရွက်သည့်အခါတွင် raster data များကို သိမ်းဆည်းရန်အတွက် အဆင်ပြေစေပါသည်။ လူသိများပြီး အစွမ်းထက် (powerful) သော GeoTiff format သည် ကောင်းမွန်သည့် နည်းလမ်း (alternative) တစ်ခုဖြစ်ပါသည်။</p>
+<p>QGIS သည် data ကို မှန်ကန်စွာဖော်ပြရန် raster layer ထဲရှိ georeference information (ဥပမာ- <span class="target" id="index-0"></span>GeoTiff) သို့မဟုတ် သက်ဆိုင်ရာ <em>world file</em> တစ်ခုကို အသုံးပြုပါသည်။</p>
+</section>
+<section id="vector-data">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink"><span class="section-number">15.3.2. </span>Vector Data</a><a class="headerlink" href="#vector-data" title="Link to this heading"></a></h2>
+<p>QGIS တွင် ရရှိနိုင်သည့် features နှင့် tool များသည် vector data ရင်းမြစ် (source) မခွဲခြားပဲ တူညီစွာပင် အလုပ်လုပ်ပါသည်။ သို့ရာတွင် format specifications (သီးခြားကန့်သတ်သတ်မှတ်ချက်များ) များအကြား မတူညီမှုများကြောင့် (GeoPackage ၊ ESRI Shapefile ၊ MapInfo and MicroStation file formats ၊ AutoCAD DXF ၊ PostGIS ၊ SpatiaLite ၊ Oracle Spatial ၊ MS SQL Server SAP HANA Spatial databases နှင့် နောက်ထပ်အခြားသော) QGIS သည် ၎င်းတို့၏ ဂုဏ်သတ္တိများ (properties) ထဲမှ အချို့ကို ကွဲပြားစွာ ကိုင်တွယ်ပါသည်။ ထောက်ပံ့မှု (Support) ကို <a class="reference external" href="https://gdal.org/drivers/vector/index.html">GDAL vector drivers</a> မှ ပံ့ပိုးပေးပါသည်။ ဤ section သည် အဆိုပါ သတ်မှတ်ချက်များ (specifics) နှင့် မည်သို့ ဆောင်ရွက်ရမည်ကို ဖော်ပြပါသည်။</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>QGIS သည် (multi)point ၊  (multi)line ၊ (multi)polygon ၊ CircularString ၊ CompoundCurve ၊ CurvePolygon ၊ MultiCurve ၊ MultiSurface feature အမျိုးအစားများကို ပံ့ပိုးပေးပြီး ၎င်းတို့အားလုံးတွင် ရွေးချယ်နိုင်သည့် Z နှင့်/သို့မဟုတ် M တန်ဖိုးများပါရှိပါသည်။</p>
+<p>အချို့ drivers များသည် CircularString ၊ CompoundCurve ၊ CurvePolygon ၊ MultiCurve ၊ MultiSurface feature အမျိုးအစားများကို မပံ့ပိုးသည်ကို သတိပြုရမည်ဖြစ်ပါသည်။ QGIS သည် ၎င်းတို့ကို ပြောင်းလဲပေးမည် (convert) ဖြစ်ပါသည်။</p>
+</div>
+<section id="geopackage">
+<span id="vector-geopackage"></span><span id="index-1"></span><h3><a class="toc-backref" href="#id6" role="doc-backlink"><span class="section-number">15.3.2.1. </span>GeoPackage</a><a class="headerlink" href="#geopackage" title="Link to this heading"></a></h3>
+<p><a class="reference external" href="https://www.geopackage.org/">GeoPackage</a> (GPKG) format သည် platform-independent (ပလက်ဖောင်းကိုမီခိုသော) ဖြစ်ပြီး SQLite database container အဖြစ် အကောင်အထည်ဖော်ပါသည်။ ၎င်းကို vector နှင့် raster data များကို သိမ်းဆည်းရန်အသုံးပြုပါသည်။ Format ကို Open Geospatial Consortium (OGC) မှ သတ်မှတ်ခဲ့ပြီး ၂၀၁၄ ခုနှစ်တွင် ထုတ်ပြန်ခဲ့ (publish) ပါသည်။</p>
+<p>GeoPackage အား SQLite database တစ်ခုထဲတွင် အောက်ဖော်ပြပါတို့ကို သိမ်းဆည်းရန် အသုံးပြုနိုင်ပါသည်-</p>
+<ul class="simple">
+<li><p><strong>Vector</strong> features (vector features များတွင် point ၊ line သို့မဟုတ် polygon geometry အမျိုးအစားများပါဝင်ပါသည်)</p></li>
+<li><p><strong>tile matrix sets of imagery</strong> (ပုံရိပ်များ၏ tile matrix sets များ) နှင့် <strong>raster</strong> map များ</p></li>
+<li><p>Attribute များ (non-spatial data)</p></li>
+<li><p>Extension များ</p></li>
+</ul>
+<p>QGIS version 3.8 မှစ၍ GeoPackage သည် QGIS project များကိုလည်း သိမ်းဆည်းနိုင်ပါသည်။ GeoPackage layer များတွင် JSON fields များပါရှိပါသည်။ (JavaScript Object Notation (JSON) သည် ArcGIS နှင့် အခြားစနစ်များအကြား GIS ဒေတာကို မျှဝေရန်အတွက် text-based ၊ lightweight ၊ data interchange format တစ်ခုဖြစ်ပါသည်)</p>
+<p>GeoPackage သည် QGIS ထဲရှိ vector data အတွက် default format ဖြစ်ပါသည်။</p>
+</section>
+<section id="esri-shapefile">
+<span id="vector-shapefiles"></span><span id="index-2"></span><h3><a class="toc-backref" href="#id7" role="doc-backlink"><span class="section-number">15.3.2.2. </span>ESRI Shapefile အမျိုးအစား</a><a class="headerlink" href="#esri-shapefile" title="Link to this heading"></a></h3>
+<p>ESRI Shapefile format သည် GeoPackage နှင့် SpatiaLite စသည်တို့နှင့် နှိုင်းယှဉ်ပါက ကန့်သတ်ချက်အချို့ရှိသော်လည်း  အများဆုံးအသုံးပြုနေသည့် vector file format များထဲမှတစ်ခုဖြစ်နေပါသေးသည်။</p>
+<p>ESRI Shapefile format dataset  တစ်ခုတွင် ဖိုင်များစွာပါဝင်ပါသည်။
+အောက်ဖော်ပြပါ (၃) ခုကိုလိုအပ်မည်ဖြစ်ပါသည်။-</p>
+<ol class="arabic simple">
+<li><p>Feature geometries များပါဝင်သည့် <code class="file docutils literal notranslate"><span class="pre">.shp</span></code> ဖိုင်</p></li>
+<li><p>dBase format တွင် attributes များပါဝင်သည့် <code class="file docutils literal notranslate"><span class="pre">.dbf</span></code> ဖိုင်</p></li>
+<li><p><code class="file docutils literal notranslate"><span class="pre">.shx</span></code> index file (indexed file သည် ၎င်း၏ file key ပေးထားသည့် မည်သည့်မှတ်တမ်းကိုမဆို အလွယ်တကူ ကျပန်းဝင်ရောက်ခွင့်ပြုသည့် index တစ်ခုပါရှိသော ကွန်ပျူတာဖိုင်တစ်ခုဖြစ်သည်)</p></li>
+</ol>
+<p>ESRI Shapefile format dataset တစ်ခုတွင် <code class="file docutils literal notranslate"><span class="pre">.prj</span></code> နောက်ဆက်တွဲပါရှိသည့် ဖိုင်တစ်ခုလည်းပါဝင်ပါသည်။ ၎င်းတွင် projection ဆိုင်ရာအချက်အလက်များပါဝင်ပါသည်။ Projection file တစ်ခုရှိခြင်းသည် အလွန်အသုံးဝင်သော်လည်း မဖြစ်မနေရှိရန်မလိုအပ်ပါ။
+Shapefile format dataset တစ်ခုတွင် ထပ်ဆောင်းအပိုဖိုင်များ ပါဝင်ပါသည်။ နောက်ထပ်အသေးစိတ်အချက်အလက်များအတွက် ESRI <a class="reference external" href="https://www.esri.com/content/dam/esrisites/sitecore-archive/Files/Pdfs/library/whitepapers/pdfs/shapefile.pdf">technical specification</a> တွင် ကြည့်ရှုပါ။</p>
+<p>GDAL သည် compressed ပြုလုပ်ထားသည့် ESRI Shapefile format (<code class="file docutils literal notranslate"><span class="pre">shz</span></code> နှင့် <code class="file docutils literal notranslate"><span class="pre">shp.zip</span></code>) အတွက် ဖတ်ရှုခြင်း-ရေးသားခြင်းပံ့ပိုးမှု (read-write support) ပါရှိပါသည်။</p>
+<p><strong>ESRI Shapefile format dataset များအတွက် စွမ်းဆောင်ရည် (Performance) ကောင်းမွန်စေခြင်း</strong></p>
+<p>ESRI Shapefile format တစ်ခုအတွက် ပုံရေးဆွဲခြင်းဆိုင်ရာစွမ်းဆောင်ရည် (drawing performance) ကို တိုးတက်ကောင်းမွန်စေရန် Spatial index တစ်ခုကို ဖန်တီးနိုင်ပါသည်။
+Spatial index တစ်ခုသည် (spatial index ဆိုသည်မှာ GIS ထဲရှိ multidimensional space တစ်ခုတွင်ရှိနေသည့် point များ ၊ line များနှင့် polygon များကဲ့သို့သော spatial data ၏ querying နှင့် retrieval ကို အကျိုးရှိစေသည့် data structure တစ်ခုဖြစ်ပါသည်) zooming  နှင့် panning ပြုလုပ်ခြင်း၏ အလျင် (speed)ကို တိုးတက်ကောင်းမွန်စေမည်ဖြစ်ပါသည်။
+QGIS မှ အသုံးပြုသည့် Spatial index များတွင် <code class="file docutils literal notranslate"><span class="pre">.qix</span></code> extension တစ်ခုပါရှိပါသည်။</p>
+<p>အညွှန်း (index) ကိုဖန်တီးရန် အောက်ပါအဆင့်များကို အသုံးပြုပါ-</p>
+<ol class="arabic simple">
+<li><p>ESRI Shapefile format dataset (<a class="reference internal" href="opening_data.html#browser-panel"><span class="std std-ref">ဒေတာများရှာဖွေကြည့်ရှုနိုင်သည့်နေရာ (The Browser panel)</span></a> တွင် ကြည့်ပါ) တစ်ခုကို ထည့်သွင်းပါ။</p></li>
+<li><p>မြေပုံရည်ညွှန်းချက် (legend) ထဲရှိ layer အမည်အပေါ်ကို double-clicking သို့မဟုတ် right-clicking ပြုလုပ်ပြီး context menu မှ <span class="menuselection">Properties…</span> ကို ရွေးချယ်ပြီး <span class="guilabel">Layer Properties</span> dialog ကိုဖွင့်ပါ။</p></li>
+<li><p><span class="guilabel">Source</span> tab ထဲတွင် <span class="guilabel">Create Spatial Index</span> button ကို click နှိပ်ပါ။</p></li>
+</ol>
+<p><strong>.prj file တစ်ခုကို loading ပြုလုပ်ရာတွင် ကြုံတွေ့ရသည့်ပြဿနာ</strong></p>
+<p>အကယ်၍ ESRI Shapefile format dataset တစ်ခုကို <code class="file docutils literal notranslate"><span class="pre">.prj</span></code> file ဖြင့် ထည့်သွင်းပါက QGIS သည် အဆိုပါဖိုင်မှ coordinate reference system (ကိုဩဒိနိတ်ရည်ညွှန်းစနစ်) ကို မဖတ်ရှုနိုင်သည့်အခါတွင် <a class="reference internal" href="../../../_images/mActionSetProjection.png"><img alt="setProjection" src="../../../_images/mActionSetProjection.png" style="width: 1.5em;" /></a> <sup>Select CRS</sup> button ကို click နှိပ်ခြင်းဖြင့် layer ၏ <span class="menuselection">Layer Properties ► Source</span> tab ထဲတွင် သင့်လျော်ရာ projection ကို ကိုယ်တိုင်(manually) သတ်မှတ်ရန် လိုအပ်ပါသည်။ ထိုသို့ဖြစ်ရခြင်းမှာ <code class="file docutils literal notranslate"><span class="pre">.prj</span></code> file များသည် <span class="guilabel">CRS</span> dialog တွင် စာရင်းပြုစုဖော်ပြထားသည့်အတိုင်းနှင့် QGIS တွင် အသုံးပြုထားသည့်အတိုင်း projection ဆိုင်ရာသတ်မှတ်ချက် (projection parameters) အပြည့်အစုံကို ပံ့ပိုးခြင်း မရှိသည့်အတွက်ကြောင့် ဖြစ်ပါသည်။</p>
+<p>ထို့နည်းတူစွာပင် အကယ်၍ ESRI Shapefile format dataset အသစ်တစ်ခုကို QGIS ဖြင့်ဖန်တီးပါက တူညီမှုမရှိသော ဖိုင်(၂)ခုဖြစ်သည့် ESRI software နှင့်ကိုက်ညီပြီး ကန့်သတ်ထား (limit) သည့် projection parameter များ ပါရှိသည့် <code class="file docutils literal notranslate"><span class="pre">.prj</span></code> တစ်ခုနှင့် CRS ၏ သတ်မှတ်ချက် (parameters) အားလုံးကို ပံ့ပိုးပေးထားသည့် <code class="file docutils literal notranslate"><span class="pre">.qpj</span></code> file တစ်ခုကို ဖန်တီးမည်ဖြစ်ပါသည်။</p>
+<p>QGIS သည် <code class="file docutils literal notranslate"><span class="pre">.qpj</span></code> file ကို ရှာဖွေတွေ့ရှိသည့်အခါတွင် ၎င်းကို <code class="file docutils literal notranslate"><span class="pre">.prj</span></code> အစား အသုံးပြုမည်ဖြစ်ပါသည်။</p>
+</section>
+<section id="delimited-text">
+<span id="vector-csv"></span><span id="index-3"></span><h3><a class="toc-backref" href="#id8" role="doc-backlink"><span class="section-number">15.3.2.3. </span>Delimited Text ဖိုင်များ</a><a class="headerlink" href="#delimited-text" title="Link to this heading"></a></h3>
+<p>Delimited text files များသည် ၎င်းတို့၏ ရိုးရှင်းမှု (simplicity) နှင့် ဖတ်ရှုရလွယ်ကူမှု (readability) တို့ကြောင့် ပုံမှန်တွေ့ရလေ့ရှိပြီး ကျယ်ပြန့်စွာအသုံးပြုခြင်း ခံရပါသည်။ Data ကို ရိုးရှင်းသည့် text editor (စာသားများပြင်ဆင်သည့်ဆော့ဖ်ဝဲလ်) ဖြင့်ပင် ပြင်ဆင်နိုင်ပြီး ကြည့်ရှုနိုင်ပါသည်။ Delimited text file သည် သတ်မှတ်ထား (defined)သည့် character တစ်ခုဖြင့် ပိုင်းခြားထားသည့် column များနှင့် line break (စာကြောင်းတစ်ကြောင်းအဆုံးသတ်ပြီး စာကြောင်းအသစ်စတင်သည့်နေရာ) များဖြင့် ပိုင်းခြားထားသည့် row များပါရှိသော tabular data (columns သို့မဟုတ် tables(ဇယားများ) ပါရှိသည့် ဒေတာ)ဖြစ်ပါသည်။ ပထမဆုံး row တွင် များသောအားဖြင့် column ၏ အမည်များပါဝင်ပါသည်။ တွေ့ရလေ့ရှိသည့် delimited text file အမျိုးအစားတစ်ခုမှာ column များကို ကော်မာ (,) များဖြင့် ပိုင်းခြားထားသော CSV (Comma Separated Values) တစ်ခုဖြစ်ပါသည်။ Delimited text file များတွင် positional information (တည်နေရာနှင့်ဆိုင်သောအချက်အလက်) လည်း ပါဝင်နိုင်ပါသည်။ (<a class="reference internal" href="#csv-geometry"><span class="std std-ref">Delimited text file များအတွင်း geometry အချက်အလက်များ သိမ်းဆည်းခြင်း</span></a> တွင် ကြည့်ရှပါ)</p>
+<p>QGIS သည် delimited text file တစ်ခုကို layer တစ်ခုအဖြစ် သို့မဟုတ် ပုံမှန်ဇယား (ordinary table) တစ်ခုအဖြစ်သို့ ထည့်သွင်းခြင်းကို ခွင့်ပြုပါသည်။ (<a class="reference internal" href="opening_data.html#browser-panel"><span class="std std-ref">ဒေတာများရှာဖွေကြည့်ရှုနိုင်သည့်နေရာ (The Browser panel)</span></a> သို့မဟုတ် <a class="reference internal" href="opening_data.html#vector-loading-csv"><span class="std std-ref">Importing a delimited text file (Delimited text file တစ်ခုကို import ပြုလုပ်ခြင်း)</span></a> တွင် ကြည့်ပါ) ပထမဦးစွာ ဖိုင်များသည် အောက်ဖော်ပြပါ လိုအပ်ချက်များ (requirements) နှင့် ကိုက်ညီမှုရှိကြောင်း စစ်ဆေးရမည်ဖြစ်ပါသည်-</p>
+<ol class="arabic simple">
+<li><p>ဖိုင်တွင် field အမည်များ၏ delimited header row တစ်ခုရှိရမည်ဖြစ်ပါသည်။ ၎င်းသည် data ၏ ပထမဆုံးစာကြောင်းဖြစ်ရမည်ဖြစ်ပါသည်။ (ယေဘုယျအားဖြင့် စာသားဖိုင်ထဲရှိ ပထမဆုံး row)</p></li>
+<li><p>အကယ်၍ geometry ကို ဖွင့်ထားပါက ဖိုင်တွင် geometry ကို သတ်မှတ်ထားသည့် field(s) များပါဝင်ရမည်ဖြစ်ပါသည်။ ဤ field(s) များတွင် မည်သည့်အမည်မဆို ပေးနိုင်ပါသည်။</p></li>
+<li><p>X နှင့် Y ကိုဩဒိနိတ် field များ (X and Y coordinates fields) (အကယ်၍ geometry ကို coordinates များဖြင့် သတ်မှတ်ထားပါက)
+ကို ကိန်းဂဏန်းနံပါတ်များ (numbers) အဖြစ်သို့ သတ်မှတ်ရမည်ဖြစ်ပါသည်။ ကိုဩဒိနိတ်စနစ်သည် အရေးမကြီးပါ။</p></li>
+<li><p>Non-string column များပါရှိသည့် CSV file တစ်ခုရှိပါက ၎င်းနှင့်အတူ CSVT file တစ်ခုရှိနိုင်ပါသည်။ (<a class="reference internal" href="#csvt-files"><span class="std std-ref">CSVT file ဖြင့် field format ပြုလုပ်ခြင်း (Using CSVT file to control field formatting)</span></a> section တွင် ကြည့်ပါ)</p></li>
+</ol>
+<p>QGIS sample (နမူနာ) dataset ထဲရှိ elevation point data file (အမြင့်အမှတ်ဒေတာဖိုင်) <code class="file docutils literal notranslate"><span class="pre">elevp.csv`(:ref:`label_sampledata</span></code> section တွင် ကြည့်ပါ) သည် valid text file (valid text file သည် ရိုးရှင်းသည့်အင်္ဂလိပ်စာသားပါဝင်သည့် မည်သည့်ဖိုင်မဆိုဖြစ်ပြီး Valid file extensions များသည် .txt သို့မဟုတ် .csv ဖြစ်ကြပါသည်) တစ်ခု၏ နမူနာတစ်ခုဖြစ်ပါသည်-</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="p">;</span><span class="n">Y</span><span class="p">;</span><span class="n">ELEV</span>
+<span class="o">-</span><span class="mi">300120</span><span class="p">;</span><span class="mi">7689960</span><span class="p">;</span><span class="mi">13</span>
+<span class="o">-</span><span class="mi">654360</span><span class="p">;</span><span class="mi">7562040</span><span class="p">;</span><span class="mi">52</span>
+<span class="mi">1640</span><span class="p">;</span><span class="mi">7512840</span><span class="p">;</span><span class="mi">3</span>
+<span class="p">[</span><span class="o">...</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>စာသားဖိုင် (text file) နှင့် စပ်လျဉ်း၍ မှတ်သားထားရမည့်အရာအချို့-</p>
+<ol class="arabic simple">
+<li><p>နမူနာ စာသားဖိုင် (text file) သည် <code class="docutils literal notranslate"><span class="pre">;</span></code> (semicolon) ကို delimiter (စာလုံးများ၊ တန်ဖိုးများကို ခွဲခြားပေးသည့် space သို့မဟုတ် comma (,) ကဲ့သို့သော character များ) အဖြစ်အသုံးပြုပါသည်။ (မည်သည့် character ကို မဆို field များကို delimit ပြုလုပ်ရန် အသုံးပြုနိုင်ပါသည်)</p></li>
+<li><p>ပထမဆုံး row သည် header row (ခေါင်းစီးအတန်း) ဖြစ်ပါသည်။ ၎င်းတွင် <code class="docutils literal notranslate"><span class="pre">X</span></code> ၊ <code class="docutils literal notranslate"><span class="pre">Y</span></code> နှင့် <code class="docutils literal notranslate"><span class="pre">ELEV</span></code> field များပါဝင်ပါသည်။</p></li>
+<li><p>No quotes (<code class="docutils literal notranslate"><span class="pre">&quot;</span></code>) များကို text field များအား delimit ပြုလုပ်ရန် အသုံးပြုပါသည်။</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">X</span></code> field ထဲတွင် X coordinates များ ပါဝင်ပါသည်။</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Y</span></code> field ထဲတွင် Y coordinates များ ပါဝင်ပါသည်။</p></li>
+</ol>
+<section id="delimited-text-file-geometry">
+<span id="csv-geometry"></span><h4><a class="toc-backref" href="#id9" role="doc-backlink">Delimited text file များအတွင်း geometry အချက်အလက်များ သိမ်းဆည်းခြင်း</a><a class="headerlink" href="#delimited-text-file-geometry" title="Link to this heading"></a></h4>
+<p>Delimited text file များတွင် geometry information (အချက်အလက်) များသည် အဓိကပုံစံ(၂) မျိုးဖြင့်ပါရှိနိုင်ပါသည်-</p>
+<ul class="simple">
+<li><p>Point geometry data အတွက် သီးခြားကော်လံတိုင်များ (separate columns) ထဲရှိ coordinates များအဖြစ် (ဥပမာ <code class="docutils literal notranslate"><span class="pre">Xcol</span></code> ၊ <code class="docutils literal notranslate"><span class="pre">Ycol</span></code>… )</p></li>
+<li><p>မည်သည့် geometry အမျိုးအစားအတွက်မဆို single ကော်လံတိုင် (column) တစ်ခုထဲတွင် geometry ကို ကိုယ်စားပြုပြန်လည်ဖော်ပြသော well-known text (WKT) အဖြစ်၊</p></li>
+</ul>
+<p>အကွေးများပါရှိသည့် geometry များ (CircularString ၊ CurvePolygon နှင့် CompoundCurve) ပါရှိသည့် Feature များကို ပံ့ပိုးပေးပါသည်။
+ဖော်ပြပါတို့သည် geometry များကို WKT အဖြစ် code ပြုလုပ်ထားသည့် delimited text file တစ်ခုထဲရှိ geometry အမျိုးအစားများ၏ နမူနာအချို့ဖြစ်ပါသည်-</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Label</span><span class="p">;</span><span class="n">WKT_geom</span>
+<span class="n">LineString</span><span class="p">;</span><span class="n">LINESTRING</span><span class="p">(</span><span class="mf">10.0</span> <span class="mf">20.0</span><span class="p">,</span> <span class="mf">11.0</span> <span class="mf">21.0</span><span class="p">,</span> <span class="mf">13.0</span> <span class="mf">25.5</span><span class="p">)</span>
+<span class="n">CircularString</span><span class="p">;</span><span class="n">CIRCULARSTRING</span><span class="p">(</span><span class="mi">268</span> <span class="mi">415</span><span class="p">,</span><span class="mi">227</span> <span class="mi">505</span><span class="p">,</span><span class="mi">227</span> <span class="mi">406</span><span class="p">)</span>
+<span class="n">CurvePolygon</span><span class="p">;</span><span class="n">CURVEPOLYGON</span><span class="p">(</span><span class="n">CIRCULARSTRING</span><span class="p">(</span><span class="mi">1</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">7</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span> <span class="mi">3</span><span class="p">))</span>
+<span class="n">CompoundCurve</span><span class="p">;</span><span class="n">COMPOUNDCURVE</span><span class="p">((</span><span class="mi">5</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span> <span class="mi">13</span><span class="p">),</span> <span class="n">CIRCULARSTRING</span><span class="p">(</span><span class="mi">5</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">7</span> <span class="mi">15</span><span class="p">,</span>
+  <span class="mi">9</span> <span class="mi">13</span><span class="p">),</span> <span class="p">(</span><span class="mi">9</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">9</span> <span class="mi">3</span><span class="p">),</span> <span class="n">CIRCULARSTRING</span><span class="p">(</span><span class="mi">9</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">7</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span> <span class="mi">3</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Delimited text file များသည် geometry များထဲရှိ Z နှင့် M coordinates များကိုလည်း ပံ့ပိုးပေးပါသည်။</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LINESTRINGZ</span><span class="p">(</span><span class="mf">10.0</span> <span class="mf">20.0</span> <span class="mf">30.0</span><span class="p">,</span> <span class="mf">11.0</span> <span class="mf">21.0</span> <span class="mf">31.0</span><span class="p">,</span> <span class="mf">11.0</span> <span class="mf">22.0</span> <span class="mf">30.0</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="csvt-file-field-format-using-csvt-file-to-control-field-formatting">
+<span id="csvt-files"></span><span id="index-4"></span><h4><a class="toc-backref" href="#id10" role="doc-backlink">CSVT file ဖြင့် field format ပြုလုပ်ခြင်း (Using CSVT file to control field formatting)</a><a class="headerlink" href="#csvt-file-field-format-using-csvt-file-to-control-field-formatting" title="Link to this heading"></a></h4>
+<p>CSV files များကို ထည့်သွင်းရာတွင် အခြားတစ်ခုအဖြစ်မဖော်ပြပါက GDAL driver သည် fields အားလုံးကို string (ဥပမာ- စာသား) များဟု ယူဆပါသည်။ မတူညီသော column များ၏ data အမျိုးအစားကို GDAL (နှင့် QGIS) အား ဖော်ပြရန် CSVT file တစ်ခုကို ဖန်တီးနိုင်ပါသည်-</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Type(အမျိုးအစား)</p></th>
+<th class="head"><p>Name(အမည်)</p></th>
+<th class="head"><p>Example(နမူနာ)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Whole number</p></td>
+<td><p>Integer</p></td>
+<td><p>4</p></td>
+</tr>
+<tr class="row-odd"><td><p>Boolean</p></td>
+<td><p>Integer(Boolean)</p></td>
+<td><p>true</p></td>
+</tr>
+<tr class="row-even"><td><p>Decimal number</p></td>
+<td><p>Real</p></td>
+<td><p>3.456</p></td>
+</tr>
+<tr class="row-odd"><td><p>Date</p></td>
+<td><p>Date (YYYY-MM-DD)</p></td>
+<td><p>2016-07-28</p></td>
+</tr>
+<tr class="row-even"><td><p>Time</p></td>
+<td><p>Time (HH:MM:SS+nn)</p></td>
+<td><p>18:33:12+00</p></td>
+</tr>
+<tr class="row-odd"><td><p>Date &amp; Time</p></td>
+<td><p>DateTime (YYYY-MM-DD HH:MM:SS+nn)</p></td>
+<td><p>2016-07-28 18:33:12+00</p></td>
+</tr>
+<tr class="row-even"><td><p>CoordX</p></td>
+<td><p>CoordX</p></td>
+<td><p>8.8249</p></td>
+</tr>
+<tr class="row-odd"><td><p>CoordY</p></td>
+<td><p>CoordY</p></td>
+<td><p>47.2274</p></td>
+</tr>
+<tr class="row-even"><td><p>Point(X)</p></td>
+<td><p>Point(X)</p></td>
+<td><p>8.8249</p></td>
+</tr>
+<tr class="row-odd"><td><p>Point(Y)</p></td>
+<td><p>Point(Y)</p></td>
+<td><p>47.2274</p></td>
+</tr>
+<tr class="row-even"><td><p>WKT</p></td>
+<td><p>WKT</p></td>
+<td><p>POINT(15 20)</p></td>
+</tr>
+</tbody>
+</table>
+<p>CSVT file သည် comma များဖြင့် ပိုင်းခြားထားပြီး quotes ဖြင့်ရှိသည့် data အမျိုးအစားများပါဝင်သည့် <strong>ONE line</strong> plain text file တစ်ခုဖြစ်ပါသည်။ ဥပမာ-</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;Integer&quot;</span><span class="p">,</span><span class="s2">&quot;Real&quot;</span><span class="p">,</span><span class="s2">&quot;String&quot;</span>
+</pre></div>
+</div>
+<p>Column တစ်ခုချင်းစီ၏ width (အကျယ်) နှင့် precision (တိကျမှု) ကိုပင် သတ်မှတ်နိုင်ပါသည်။ ဥပမာ-</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;Integer(6)&quot;</span><span class="p">,</span><span class="s2">&quot;Real(5.5)&quot;</span><span class="p">,</span><span class="s2">&quot;String(22)&quot;</span>
+</pre></div>
+</div>
+<p>ဤဖိုင်ကို တူညီသည့် folder ထဲတွင် တူညီသည့်အမည်ဖြင့် <code class="file docutils literal notranslate"><span class="pre">.csv</span></code> file အဖြစ်သို့ သိမ်းဆည်းနိုင်ပါသည်။
+သို့ရာတွင် <code class="file docutils literal notranslate"><span class="pre">.csvt</span></code> ကို extension အဖြစ် သိမ်းဆည်းရမည်ဖြစ်ပါသည်။</p>
+<p><em>နောက်ထပ် အချက်အလက်များကို `GDAL CSV Driver &lt;https://gdal.org/drivers/vector/csv.html&gt;`_ တွင် ရှာဖွေတွေ့ရှိနိုင်ပါသည်။</em></p>
+<div class="admonition tip" id="tip-detect-field-types">
+<p class="admonition-title">Tip</p>
+<p><strong>Field အမျိုးအစားများကို ရှာဖွေဖော်ထုတ်နိုင်ပါသည်</strong></p>
+<p>Data အမျိုးအစားများအား ဖော်ပြရန် CSVT file တစ်ခုကို အသုံးပြုခြင်းအစား QGIS သည် field အမျိုးအစားများကို အလိုအလျောက် ရှာဖွေဖော်ထုတ်ရန် နှင့် ယူဆလိုက်သည့် field အမျိုးအစားများသို့ ပြောင်းလဲရန် ဖြစ်နိုင်ခြေများ (possibility) ကို ပံ့ပိုးပေးပါသည်။</p>
+</div>
+</section>
+</section>
+<section id="postgis-layer">
+<span id="label-postgis"></span><span id="index-5"></span><h3><a class="toc-backref" href="#id11" role="doc-backlink"><span class="section-number">15.3.2.4. </span>PostGIS Layer များ</a><a class="headerlink" href="#postgis-layer" title="Link to this heading"></a></h3>
+<p>PostGIS layer များကို PostgreSQL database တစ်ခုထဲတွင် သိမ်းဆည်းပါသည်။ PostGIS ၏ ကောင်းကျိုးများမှာ spatial indexing (indexing ပြုလုပ်ခြင်းသည် သီးခြားမှတ်တမ်းတစ်ခုကို ရှာဖွေရန် လျင်မြန်စွာ traverse ပြုနိုင်သည့် search tree ထဲသို့ ဒေတာများကို စုစည်းခြင်းဖြင့် ရှာဖွေမှုကို အရှိန်မြှင့်စေသည်)၊ filtering (စစ်ထုတ်ခြင်း) နှင့် querying capabilities (စွမ်းဆောင်ရည်များကို query ပြုလုပ်ခြင်း) တို့ဖြစ်ပါသည်။ PostGIS ကို အသုံးပြုပြီး select ပြုလုပ်ခြင်းနှင့် သတ်မှတ်ခြင်း(identify) ကဲ့သို့သော vector function များကို လုပ်ဆောင်ရာတွင် အဆိုပါဆောင်ရွက်မှုများကို QGIS တွင် GDAL layer များနှင့်လုပ်ဆောင်သည်ထက် ပိုမိုတိကျစွာဆောင်ရွက်နိုင်ပါသည်။</p>
+<div class="admonition tip" id="tip-postgis-layers">
+<p class="admonition-title">Tip</p>
+<p><strong>PostGIS Layers</strong></p>
+<p>ပုံမှန်အားဖြင့် PostGIS layer တစ်ခုကို geometry_columns table ထဲရှိ entry တစ်ခုဖြင့် သတ်မှတ်ပါသည်။ QGIS သည် geometry_columns table ထဲရှိ entry တစ်ခုမပါသည့် layer များကို ထည့်သွင်းနိုင်ပါသည်။ ၎င်းတွင် table များနှင့် view များ ပါဝင်ပါသည်။ View များအား ဖန်တီးခြင်းနှင့်စပ်လျဉ်းသည့် အချက်အလက်များအတွက် PostgreSQL လမ်းညွှန် (manual) ကို ကိုးကားပါ။</p>
+</div>
+<p>ဤ section တွင် QGIS သည် PostgreSQL layers များကို မည်သို့ accesses ပြုလုပ်သည်နှင့်စပ်လျဉ်း၍ အချက်အလက်အချို့ပါဝင်ပါသည်။ အချိန်အများစုတွင် QGIS သည် ထည့်သွင်းနိုင်သည့် database tables(ဇယား) စာရင်းတစ်ခုဖြင့် ရိုးရှင်းစွာ ပံ့ပိုးသင့်ပြီး တောင်းဆိုမှု (request) ပြုလုပ်သည့်အခါတွင် ၎င်းတို့ကို ထည့်သွင်းသွားမည်ဖြစ်ပါသည်။ သို့ရာတွင် PostgreSQL table တစ်ခုကို QGIS ထဲသို့ ထည့်သွင်းရာတွင် အခက်အခဲများရှိနေပါက အောက်ဖော်ပြပါ အချက်အလက်များသည် QGIS ၏အသိပေးချက်များကို နားလည်သဘောပေါက်စေရန် နှင့် ၎င်းကို QGIS အတွင်းထည့်သွင်းနိုင်စေရန် PostgreSQL table သို့မဟုတ် view definition ကို ပြင်ဆင်ခြင်း (modifying) အတွက် လမ်းညွှန်ချက်များကို ပေးသွားမည်ဖြစ်ပါသည်။</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>PostgreSQL database တစ်ခုသည် QGIS project များကိုလည်း သိမ်းဆည်းနိုင်ပါသည်။</p>
+</div>
+<section id="primary-key">
+<h4><a class="toc-backref" href="#id12" role="doc-backlink">Primary key</a><a class="headerlink" href="#primary-key" title="Link to this heading"></a></h4>
+<p>QGIS အနေဖြင့် layer အတွက် သိသာထင်ရှားသည့် key (unique key) တစ်ခုအဖြစ် အသုံးပြုနိုင်သည့် column တစ်ခုပါဝင်သော PostgreSQL layer များကို လိုအပ်ပါသည်။ Table သည် primary key တစ်ခု သို့မဟုတ် ၎င်းအပေါ်တွင် သိသာသည့် ကန့်သတ်ချက် (constraint) ပါရှိသည့် column တစ်ခုကို လိုအပ်သည်ဟု ဆိုလိုပါသည်။ QGIS တွင် ဤ column သည် int4 အမျိုးအစား (အရွယ်အစား 4 bytes ရှိသည့် integer တစ်ခု) ဖြစ်ရန်လိုအပ်ပါသည်။ တစ်နည်းအားဖြင့် ctid column ကို primary key အဖြစ်အသုံးပြုနိုင်ပါသည်။ အကယ်၍ table သည် ဤ item များမပါရှိပါက ၎င်းအစား oid column ကို အသုံးပြုမည်ဖြစ်ပါသည်။ Column ကို index (ညွှန်းဆိုဖော်ပြခြင်း) ပြုလုပ်ထားပါက စွမ်းဆောင်ရည် (Performance) ကို ကောင်းမွန်အောင် ဆောင်ရွက်နိုင်မည်ဖြစ်ပါသည်။
+(Primary key များသည် PostgreSQL တွင် အလိုအလျောက် index (ညွှန်းဆိုဖော်ပြခြင်း) ပြုလုပ်သည်ကို သတိပြုရမည်ဖြစ်ပါသည်)</p>
+<p>QGIS သည် <strong>Select at id</strong> checkbox တစ်ခုကို ပံ့ပိုးပြီး ၎င်းကို ပုံမှန် (default) အနေဖြင့် activate ပြုလုပ်ထားပါသည်။
+ဤ နည်းလမ်းသည် id များကို attribute များမပါရှိဘဲ ရရှိစေပြီး ထိုသို့မပါရှိခြင်းသည် ကိစ္စရပ်အများစုတွင် ပိုမိုမြန်ဆန်မှုဖြစ်စေပါသည်။</p>
+</section>
+<section id="view">
+<h4><a class="toc-backref" href="#id13" role="doc-backlink">မြင်ကွင်း (View)</a><a class="headerlink" href="#view" title="Link to this heading"></a></h4>
+<p>အကယ်၍ PostgreSQL layer သည် view တစ်ခုဖြစ်ပါက တူညီသော လိုအပ်ချက် (requirement) ရှိမည်ဖြစ်ပါသည်။ သို့သော် view များတွင် primary key များ သို့မဟုတ် ၎င်းတို့အပေါ်တွင် သိသာသည့် constraints (ကန့်သတ်ချက်များ) များဖြင့် column များ အမြဲတမ်း မပါရှိပါ။ View ကို မထည့်သွင်းမီတွင် QGIS dialog ထဲ၌ primary key field (integer တစ်ခုဖြစ်ရပါမည်) တစ်ခုကို သတ်မှတ်ရန်လိုအပ်မည်ဖြစ်ပါသည်။ အကယ်၍ view ထဲတွင် သင့်လျော်သည့် column တစ်ခုရှိမနေပါက QGIS သည် layer ကို ထည့်သွင်းမည်မဟုတ်ပါ။ ဤသို့ဖြစ်ပွားပါက ဖြေရှင်းနိုင်သည့်နည်းလမ်းမှာ သင့်လျော်သည့် column တစ်ခုပါရှိစေရန် (integer အမျိုးအစားတစ်ခုဖြစ်ပြီး primary key သို့မဟုတ် unique constraint တစ်ခု၊ ဖြစ်နိုင်ပါက index ပြုလုပ်ထားခြင်းကိုလိုလားပါသည်) view ကို ပြောင်းလဲခြင်းဖြစ်ပါသည်။</p>
+<p>Table အတွက် <strong>Select at id</strong> checkbox တစ်ခုကို ပံ့ပိုးပြီး ၎င်းကို ပုံမှန် (default) အနေဖြင့် activate ပြုလုပ်ထားပါသည်။ (checkbox ၏ အဓိပ္ပါယ်ကို အပေါ်တွင် ကြည့်ရှုပါ။) Expensive view များကို အသုံးပြုသောအခါတွင် ဤ နည်းလမ်းကို ပိတ်ထားခြင်း(disable) သည် ပို၍ အဓိပ္ပါယ်ရှိပါသည်။</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>PostgreSQL foreign table</strong></p>
+<p>PostgreSQL foreign table (PostgreSQL foreign table တစ်ခုသည် PostgreSQL ဆာဗာတွင် ပေါ်တွင် storage မရှိပါ) များကို PostgreSQL provider မှ အထူးတလည်ပံ့ပိုးထားခြင်းမရှိဘဲ view တစ်ခုကဲ့သို့ ကိုင်တွယ်ဆောင်ရွက်သွားမည်ဖြစ်ပါသည်။</p>
+</div>
+</section>
+<section id="qgis-layer-style-database-qgis-layer-style-table-and-database-backup">
+<span id="layer-style-backup"></span><h4><a class="toc-backref" href="#id14" role="doc-backlink">QGIS layer_style ဇယားနှင့် database အရန်သိမ်းဆည်းခြင်း (QGIS layer_style table and database backup)</a><a class="headerlink" href="#qgis-layer-style-database-qgis-layer-style-table-and-database-backup" title="Link to this heading"></a></h4>
+<p>အကယ်၍ <code class="file docutils literal notranslate"><span class="pre">pg_dump</span></code> နှင့် <code class="file docutils literal notranslate"><span class="pre">pg_restore</span></code> command (အမိန့်ပေးစေခိုင်းချက်) များကို အသုံးပြု၍ PostGIS database ၏ backup တစ်ခုကို ပြုလုပ်လိုပြီး နောက်ပိုင်းတွင် QGIS မှ သိမ်းဆည်းထားသည့် default layer style များသည် restore  (ပြန်လည်ရယူခြင်း) မပြုလုပ်နိုင်သည့်အခါတွင် restore command မတိုင်ခင် XML option ကို <code class="file docutils literal notranslate"><span class="pre">DOCUMENT</span></code> သို့ သတ်မှတ်ရမည်ဖြစ်ပါသည်။</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">layer_style</span></code> table ၏ PLAIN backup တစ်ခုကို ပြုလုပ်ပါ။</p></li>
+<li><p>Text editor တစ်ခုအတွင်းတွင် ဖိုင်ကိုဖွင့်ပါ။</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SET</span> <span class="pre">xmloption</span> <span class="pre">=</span> <span class="pre">content;</span></code> စာကြောင်းကို <code class="docutils literal notranslate"><span class="pre">SET</span> <span class="pre">XML</span> <span class="pre">OPTION</span> <span class="pre">DOCUMENT;</span></code> အဖြစ်သို့ ပြောင်းလဲပါ။</p></li>
+<li><p>File ကို သိမ်းဆည်းပါ။</p></li>
+<li><p>Database အသစ်ထဲတွင် table ကို restore (ပြန်လည်ရယူခြင်း) ဆောင်ရွက်ရန် psql ကို အသုံးပြုပါ။</p></li>
+</ol>
+</section>
+<section id="database-filter-filter-database-side">
+<h4><a class="toc-backref" href="#id15" role="doc-backlink">Database တွင် filter လုပ်ခြင်း (Filter database side)</a><a class="headerlink" href="#database-filter-filter-database-side" title="Link to this heading"></a></h4>
+<p>QGIS သည် server side (server-side သည် ဆာဗာပေါ်တွင် လုပ်ဆောင်သည့် ပရိုဂရမ်များနှင့် လုပ်ဆောင်ချက်များကို ရည်ညွှန်းသည်) တွင် ရှိနေပြီးသားဖြစ်သည့် features များကို စစ်ထုတ်ရန် (filter) ခွင့်ပြုပါသည်။ ထိုသို့ဆောင်ရွက်ရန် <span class="menuselection">Settings ► Options ► Data Sources ►</span> <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="menuselection">Execute expressions on server-side if possible</span> ကို အမှန်ခြစ်ပါ။ ပံ့ပိုးပေးထားသည့် expression (Expression များသည် geometry style ၊ label ၏ တည်နေရာ သို့မဟုတ် ပါဝင်သည့်အကြောင်းအရာ ၊ diagram အတွက် တန်ဖိုး ၊ layout item တစ်ခု၏ အမြင့် ၊ features အချို့ကို select ပြုလုပ်ခြင်း ၊ virtual field များကို ဖန်တီးခြင်း ၊ စသည်တို့ကိုဆောင်ရွက်ရန်အတွက် attribute value ၊ geometry နှင့် variablesကို ကိုင်တွယ်ဆောင်ရွက်ရန် အားကောင်းသည့် နည်းလမ်းတစ်ခုဖြစ်ပါသည်) များကိုသာ database ထဲသို့ ပေးပို့သွားမည်ဖြစ်ပါသည်။ ပံ့ပိုးထားခြင်းမရှိသည့် operator များ သို့မဟုတ် function (လုပ်ဆောင်ချက်များ) ကို အသုံးပြုထားသည့် Expression များသည် local evaluation သို့ ပြန်လည်ရောက်ရှိမည်ဖြစ်ပါသည်။</p>
+</section>
+<section id="postgresql-data-support-of-postgresql-data-types">
+<h4><a class="toc-backref" href="#id16" role="doc-backlink">အသုံးပြုနိုင်သော PostgreSQL data အမျိုးအစားများ (Support of PostgreSQL data types)</a><a class="headerlink" href="#postgresql-data-support-of-postgresql-data-types" title="Link to this heading"></a></h4>
+<p>PostgreSQL provider မှ ပံ့ပိုးထားသည့် data အမျိုးအစားတွင်- integer (သုည အပါအဝင် အပေါင်း သို့မဟုတ် အနုတ်ပါဝင်သည့် အပြည့်ကိန်းများ) ၊ float (ဒဿမကိန်းများပါရှိသည့် အပေါင်း သို့မဟုတ် အနုတ်ကိန်းများ) ၊ boolean (true (1) သို့မဟုတ် false (0) ပါဝင်သည့် ဒေတာအမျိုးအစား) ၊ binary object (binary data ကို single entity အဖြစ် သိမ်းဆည်းထားသည့် အရာဝတ္ထုများ) ၊ varchar (variable-length character data အမျိုးအစား) ၊ geometry (two-dimensional flat surface တစ်ခုအပေါ်တွင် ပုံဖော်ထားသည့် spatial data အမျိုးအစား) ၊ timestamp (ကွန်ပျူတာဖြင့် မှတ်တမ်းတင်ထားသော အဖြစ်အပျက်တစ်ခု၏ လက်ရှိအချိန်ဖြစ်သည်) ၊ array (element အစုအဖွဲ့တစ်ခုကို ကိုယ်စားပြုသည့် object) ၊ hstore (ဆဲလ်တစ်ခုတည်းတွင် key-value အတွဲများကို သိမ်းဆည်းနိုင်စေမည့် data အမျိုးအစား) နှင့် json (JavaScript object syntax ကို အခြေခံ၍ တည်ဆောက်ထားသော data ကို ကိုယ်စားပြုရန်အတွက် စံ text-based format တစ်ခု) တို့ပါဝင်ပါသည်။</p>
+</section>
+</section>
+<section id="postgresql-data-importing-data-into-postgresql">
+<span id="vector-import-data-in-postgis"></span><span id="index-6"></span><h3><a class="toc-backref" href="#id17" role="doc-backlink"><span class="section-number">15.3.2.5. </span>PostgreSQL ထဲသို့ Data ထည့်ခြင်း (Importing Data into PostgreSQL)</a><a class="headerlink" href="#postgresql-data-importing-data-into-postgresql" title="Link to this heading"></a></h3>
+<p>DB Manager plugin အပါအဝင် များစွာသော tool များနှင့် shp2pgsql နှင့် ogr2ogr command line tool များ အသုံးပြုပြီး PostgreSQL/PostGIS ထဲသို့ Data ကို import ပြုလုပ်နိုင်ပါသည်။</p>
+<section id="database-db-manager">
+<h4><a class="toc-backref" href="#id18" role="doc-backlink">Database စီမံခန့်ခွဲရာ (DB Manager)</a><a class="headerlink" href="#database-db-manager" title="Link to this heading"></a></h4>
+<p>QGIS သည် <a class="reference internal" href="../../../_images/dbmanager.png"><img alt="dbManager" src="../../../_images/dbmanager.png" style="width: 1.5em;" /></a> <sup>DB Manager</sup> ဟု အမည်တွင်သည့် အဓိက (core) plugin ဖြင့် လာပါသည်။ ၎င်းကို data အား ထည့်သွင်းရန်အသုံးပြုနိုင်ပြီး schemas (plan သို့မဟုတ် theory တစ်ခုကို utline သို့မဟုတ် model ပုံစံဖြင့် ကိုယ်စားပြုဖော်ပြချက်တစ်ခု) များအတွက် ပံ့ပိုးမှုများပါဝင်ပါသည်။ နောက်ထပ်အချက်အလက်များအတွက် <a class="reference internal" href="../plugins/core_plugins/plugins_db_manager.html#dbmanager"><span class="std std-ref">Database စီမံခန့်ခွဲရာ Plugin (DB Manager Plugin)</span></a> section တွင် ကြည့်ရှုပါ။</p>
+</section>
+<section id="shp2pgsql">
+<h4><a class="toc-backref" href="#id19" role="doc-backlink">shp2pgsql</a><a class="headerlink" href="#shp2pgsql" title="Link to this heading"></a></h4>
+<p>PostGIS တွင် <strong>shp2pgsql</strong> ဟု ခေါ်ဆိုသည့် utility တစ်ခုပါဝင်ပြီး ၎င်းကို PostGIS-enabled database (PostGIS ဆောင်ရွက်နိုင်သည့် database) တစ်ခုထဲသို့ Shapefile format datasets များကို import ပြုလုပ်ရန် အသုံးပြုနိုင်ပါသည်။
+ဥပမာ- <code class="file docutils literal notranslate"><span class="pre">lakes.shp</span></code> ဟု အမည်တွင်သည့် Shapefile format တစ်ခုကို <code class="docutils literal notranslate"><span class="pre">gis_data</span></code> ဟု အမည်တွင်သည့် PostgreSQL database တစ်ခုထဲသို့ import ပြုလုပ်ရန် အောက်ဖော်ပြပါ command (အမိန့်ပေးစေခိုင်းချက်) ကို အသုံးပြုပါ-</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">shp2pgsql</span> <span class="o">-</span><span class="n">s</span> <span class="mi">2964</span> <span class="n">lakes</span><span class="o">.</span><span class="n">shp</span> <span class="n">lakes_new</span> <span class="o">|</span> <span class="n">psql</span> <span class="n">gis_data</span>
+</pre></div>
+</div>
+<p>၎င်းသည် <code class="docutils literal notranslate"><span class="pre">gis_data</span></code> database ထဲတွင် <code class="docutils literal notranslate"><span class="pre">lakes_new</span></code> ဟုခေါ်ဆိုသည့် layer အသစ်တစ်ခုကို ဖန်တီးပါသည်။ Layer အသစ်တွင် 2964 ဆိုသည့် spatial reference identifier (SRID) (spatial reference identifier (SRID) သည် တိကျသော ကိုသြဒိနိတ်စနစ်၊ tolerance နှင့် resolution တို့နှင့် ဆက်စပ်နေသည့် unique identifier တစ်ခုဖြစ်ပါသည်) တစ်ခု ရှိမည်ဖြစ်ပါသည်။ Spatial reference system များ၊ projection များနှင့်သက်ဆိုင်သည့် နောက်ထပ်အချက်အလက်များအတွက် <a class="reference internal" href="../working_with_projections/working_with_projections.html#label-projections"><span class="std std-ref">မြေပုံအရိပ်ချစနစ်များ နှင့် အလုပ်လုပ်ခြင်း (Working with Projections)</span></a> section တွင် ကြည့်ရှုပါ။</p>
+<div class="admonition tip" id="tip-export-from-postgis">
+<span id="index-7"></span><p class="admonition-title">Tip</p>
+<p><strong>PostGIS မှ dataset များကို export ထုတ်ခြင်း</strong></p>
+<p>PostGIS datasets ကို Shapefile format: <strong>pgsql2shp</strong> သို့ export ပြုလုပ်ရန် tool တစ်ခုရှိပါသည်။ ၎င်းကို သင့်၏ PostGIS distribution (PostGIS ဆိုင်ရာ ဖြန့်ဖြူးခြင်း) အတွင်းတွင် တင်ပို့ခြင်း (shipped) ပြုလုပ်ပါသည်။</p>
+</div>
+</section>
+<section id="ogr2ogr">
+<span id="index-8"></span><h4><a class="toc-backref" href="#id20" role="doc-backlink">ogr2ogr</a><a class="headerlink" href="#ogr2ogr" title="Link to this heading"></a></h4>
+<p><strong>shp2pgsql</strong> နှင့် <strong>DB Manager</strong> တို့အပြင် geographical data (ပထဝီဝင်ဆိုင်ရာအချက်အလက်များ) ကို PostGIS ထဲသို့ ထည့်သွင်းရန်အတွက် <strong>ogr2ogr</strong> ဆိုသည့် နောက်ထပ် tool တစ်ခုရှိပါသည်။ ၎င်းသည် GDAL ထည့်သွင်းတည်ဆောက်မှု (installation) ၏ တစ်စိတ်တစ်ပိုင်းဖြစ်ပါသည်။</p>
+<p>Shapefile format dataset တစ်ခုကို PostGIS ထဲသို့ import ပြုလုပ်ရန် အောက်ပါတို့ကိုလုပ်ဆောင်ပါ-</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ogr2ogr</span> <span class="o">-</span><span class="n">f</span> <span class="s2">&quot;PostgreSQL&quot;</span> <span class="n">PG</span><span class="p">:</span><span class="s2">&quot;dbname=postgis host=myhost.de user=postgres</span>
+<span class="n">password</span><span class="o">=</span><span class="n">topsecret</span><span class="s2">&quot; alaska.shp</span>
+</pre></div>
+</div>
+<p>၎င်းသည် user (အသုံးပြုသူ) <em>postgres</em> နှင့် password <em>topsecret</em> ကို အသုံးပြု၍ host server (မူရင်းဆာဗာ) <em>myhost.de</em> အပေါ်ရှိ PostGIS database <em>postgis</em> ထဲသို့ Shapefile format dataset <code class="file docutils literal notranslate"><span class="pre">alaska.shp</span></code> ကို  import ပြုလုပ်ပါသည်။</p>
+<p>PostGIS အားပံ့ပိုးရန်အတွက် GDAL ကို PostgreSQL နှင့်အတူထည့်သွင်းရန် သတိပြုရမည်ဖြစ်ပါသည်၊
+(<a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a>) တွင် အောက်ပါအတိုင်းရိုက်ထည့်ခြင်းဖြင့် ၎င်းကို verify (အသိအမှတ်ပြု) လုပ်နိုင်ပါသည်-</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ogrinfo</span> <span class="o">--</span><span class="n">formats</span> <span class="o">|</span> <span class="n">grep</span> <span class="o">-</span><span class="n">i</span> <span class="n">post</span>
+</pre></div>
+</div>
+<p>PostgreSQL ၏ <strong>COPY</strong> command ကို ပုံမှန်(default) <strong>INSERT INTO</strong>  နည်းလမ်းအစား ပို၍ အသုံးပြုလိုပါက အောက်ဖော်ပြပါ environment variable (ကွန်ပျူတာပေါ်တွင် လုပ်ဆောင်နေသည့် လုပ်ငန်းစဉ်များလုပ်ဆောင်ပုံအပေါ် သက်ရောက်မှုရှိနိုင်သည့် အသုံးပြုသူမှ သတ်မှတ်နိုင်သော တန်ဖိုးတစ်ခု) ကို export ပြုလုပ်နိုင်ပါသည်။ (<a class="reference internal" href="../../../_images/nix.png"><img alt="nix" src="../../../_images/nix.png" style="width: 1em;" /></a> နှင့် <a class="reference internal" href="../../../_images/osx.png"><img alt="osx" src="../../../_images/osx.png" style="width: 1em;" /></a> အပေါ်တွင်ရရှိနိုင်ပါသည်)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">export</span> <span class="n">PG_USE_COPY</span><span class="o">=</span><span class="n">YES</span>
+</pre></div>
+</div>
+<p><strong>ogr2ogr</strong> သည် <strong>shp2pgsl</strong> ကဲ့သို့ spatial index များကို ဖန်တီးမည်မဟုတ်ပါ။ နောက်ပိုင်းတွင် အပိုအဆင့်တစ်ခုအဖြစ် ပုံမှန် (normal) SQL command <strong>CREATE INDEX</strong> ကို အသုံးပြု၍ ၎င်းတို့ကို ကိုယ်တိုင် (manually) ဖန်တီးရန် လိုအပ်ပါသည်။ (နောက် <a class="reference internal" href="#vector-improving-performance"><span class="std std-ref">စွမ်းဆောင်ရည်တိုးတက်ကောင်းမွန်အောင်ဆောင်ရွက်ခြင်း (Improving Performance)</span></a> section တွင် ဖော်ပြထားသကဲ့သို့)</p>
+</section>
+<section id="improving-performance">
+<span id="vector-improving-performance"></span><span id="index-9"></span><h4><a class="toc-backref" href="#id21" role="doc-backlink">စွမ်းဆောင်ရည်တိုးတက်ကောင်းမွန်အောင်ဆောင်ရွက်ခြင်း (Improving Performance)</a><a class="headerlink" href="#improving-performance" title="Link to this heading"></a></h4>
+<p>PostgreSQL database မှ features များကို ပြန်လည်ရယူခြင်း (Retrieving) သည် အချိန်ကုန်စေပါသည်။ အထူးသဖြင့် network(ကွန်ယက်) တစ်ခုအပေါ်တွင်ဆိုပါက ပို၍အချိန်ကုန်ပါသည်။ PostgreSQL layers များ၏ ပုံရေးဆွဲခြင်းဆိုင်ရာစွမ်းဆောင်ရည်(drawing performance) ကို database ထဲရှိ layer တစ်ခုချင်းစီအပေါ်တွင် PostGIS spatial index တစ်ခု ရှိနေစေခြင်းဖြင့် တိုးတက်ကောင်းမွန်အောင်ဆောင်ရွက်နိုင်ပါသည်။ PostGIS သည် spatial searching ကို မြန်ဆန်စေရန် GiST (Generalized Search Tree) (GiST သည် disk-based search tree အမျိုးမျိုးကို တည်ဆောက်ရန် အသုံးပြုနိုင်သည့် ဒေတာဖွဲ့စည်းပုံနှင့် API တစ်ခုဖြစ်သည်။) တစ်ခုဖန်တီးခြင်းကို ပံ့ပိုးပေးပါသည်။ (GiST index information (GIS ညွှန်းကိန်းအချက်အလက်များ) ကို <a class="reference external" href="https://postgis.net">https://postgis.net</a> တွင် ရရှိနိုင်သည့် PostGIS documentation (စာရွက်စာတမ်းများ) မှ ရယူထားပါသည်)</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>DBManager ကို layer အတွက် index (ညွှန်းကိန်း) တစ်ခုကိုဖန်တီးရန် အသုံးပြုပါသည်။
+Layer ကို ပထမဆုံး select ပြုလုပ်သင့်ပြီး <span class="menuselection">Table ► Edit table</span> အပေါ်တွင် click ပြုလုပ်ပါ။ <span class="menuselection">Indexes</span> tab ကိုသွားပြီး <span class="guilabel">Add Spatial Index</span> အပေါ်တွင် click ပြုလုပ်ပါ။</p>
+<p>GiST index တစ်ခုကို ဖန်တီးရန် syntax မှာ-</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">CREATE</span> <span class="n">INDEX</span> <span class="p">[</span><span class="n">indexname</span><span class="p">]</span> <span class="n">ON</span> <span class="p">[</span><span class="n">tablename</span><span class="p">]</span>
+  <span class="n">USING</span> <span class="n">GIST</span> <span class="p">(</span> <span class="p">[</span><span class="n">geometryfield</span><span class="p">]</span> <span class="n">GIST_GEOMETRY_OPS</span> <span class="p">);</span>
+</pre></div>
+</div>
+<p>ကြီးမားသည့် table များအတွက် index (အညွှန်း) တစ်ခုကို ဖန်တီးခြင်းသည် အချိန်ယူရမည်ဖြစ်သည်ကို သတိပြုရမည်ဖြစ်ပါသည်။
+Index ကို ဖန်တီးလိုက်သည်နှင့်တစ်ပြိုင်နက် <code class="docutils literal notranslate"><span class="pre">VACUUM</span> <span class="pre">ANALYZE</span></code> တစ်ခုကို ဆောင်ရွက်သင့်ပါသည်။
+နောက်ထပ်အချက်အလက်များအတွက် PostGIS documentation (<a class="reference internal" href="../literature_web/literature_and_web_references.html#literature-and-web"><span class="std std-ref">စာတမ်းများနှင့် Website ကိုးကားချက်များ (Literature and Web References)</span></a> ထဲရှိ POSTGIS-PROJECT) ကို ကြည့်ရှုပါ။</p>
+<p>ဖော်ပြပါ နမူနာသည် GiST index တစ်ခုကိုဖန်တီးပါသည်-</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>gsherman@madison:~/current$ psql gis_data
+Welcome to psql 8.3.0, the PostgreSQL interactive terminal.
+
+Type:  \copyright for distribution terms
+       \h for help with SQL commands
+       \? for help with psql commands
+       \g or terminate with semicolon to execute query
+       \q to quit
+
+gis_data=# CREATE INDEX sidx_alaska_lakes ON alaska_lakes
+gis_data-# USING GIST (the_geom GIST_GEOMETRY_OPS);
+CREATE INDEX
+gis_data=# VACUUM ANALYZE alaska_lakes;
+VACUUM
+gis_data=# \q
+gsherman@madison:~/current$
+</pre></div>
+</div>
+</section>
+</section>
+<section id="spatialite-layer-spatialite-layers">
+<span id="spatialite-data"></span><span id="index-10"></span><h3><a class="toc-backref" href="#id22" role="doc-backlink"><span class="section-number">15.3.2.6. </span>SpatiaLite layer များ (SpatiaLite Layers)</a><a class="headerlink" href="#spatialite-layer-spatialite-layers" title="Link to this heading"></a></h3>
+<p>Vector layer တစ်ခုအား SpatiaLite format ကို အသုံးပြု၍ သိမ်းဆည်းလိုပါက <a class="reference internal" href="create_layers.html#general-saveas"><span class="std std-ref">layer တစ်ခုမှ layer အသစ်များကို ဖန်တီးခြင်း (Creating new layers from an existing layer)</span></a> တွင် ပါရှိသည့် လမ်းညွှန်ချက်များ (instructions) ကို လိုက်နာခြင်းဖြင့် ဆောင်ရွက်နိုင်ပါသည်။ <span class="guilabel">Format</span> အဖြစ် <code class="docutils literal notranslate"><span class="pre">SpatiaLite</span></code> ကို select ပြုလုပ်ပြီး <span class="guilabel">File name</span> နှင့် <span class="guilabel">Layer name</span> နှစ်ခုစလုံးကို ထည့်သွင်းပါ။</p>
+<p><code class="docutils literal notranslate"><span class="pre">SQLite</span></code> ကိုလည်း format အနေဖြင့် select ပြုလုပ်နိုင်ပြီး <span class="menuselection">Custom Options ► Data source</span> field ထဲတွင် <code class="docutils literal notranslate"><span class="pre">SPATIALITE=YES</span></code> ကို ထည့်သွင်းပါ။ ၎င်းသည် GDAL အား SpatiaLite database တစ်ခုကို ဖန်တီးရန် အသိပေးပါသည်။ <a class="reference external" href="https://gdal.org/drivers/vector/sqlite.html">https://gdal.org/drivers/vector/sqlite.html</a> တွင်လည်း ကြည့်ရှုပါ။</p>
+<p>QGIS သည် SpatiaLite ထဲတွင် ပြန်လည်ပြင်ဆင်နိုင်သည့်မြင်ကွင်းများ (editable views) ကို ပံ့ပိုးပေးပါသည်။ SpatiaLite data များကို စီမံခန့်ခွဲခြင်းအတွက် အဓိက (core) plugin <a class="reference internal" href="../plugins/core_plugins/plugins_db_manager.html#dbmanager"><span class="std std-ref">DB Manager</span></a> ကိုလည်း အသုံးပြုနိုင်ပါသည်။</p>
+<p>အကယ်၍ SpatiaLite layer အသစ်တစ်ခုကို ဖန်တီးလိုပါက <a class="reference internal" href="create_layers.html#vector-create-spatialite"><span class="std std-ref">SpatiaLite layer အသစ်တစ်ခု ဖန်တီးခြင်း</span></a> section ကို ရည်ညွှန်းကိုးကားပါ။</p>
+</section>
+<section id="geojson-geojson-specific-parameters">
+<span id="export-geojson-files"></span><span id="index-11"></span><h3><a class="toc-backref" href="#id23" role="doc-backlink"><span class="section-number">15.3.2.7. </span>GeoJSON အတွက်သတ်မှတ်ချက်များ (GeoJSON specific parameters)</a><a class="headerlink" href="#geojson-geojson-specific-parameters" title="Link to this heading"></a></h3>
+<p>GeoJSON သို့ layer များကို export ပြုလုပ် (<a class="reference internal" href="create_layers.html#general-saveas"><span class="std std-ref">exporting layers</span></a>) သောအခါတွင် သီးသန့် <span class="guilabel">Layer Options (ရွေးချယ်မှုများ)</span> အချို့ကို ရရှိနိုင်ပါသည်။ အဆိုပါ option များသည် GDAL မှ လာပြီး ဖိုင်ကို ရေးသားရာတွင် အရေးပါပါသည်-</p>
+<ul class="simple">
+<li><p><span class="guilabel">COORDINATE_PRECISION</span> - ကိုဩဒိနိတ်များ (coordinates) ထဲတွင် ရေးသားရန် ဒဿမကိန်းခြားနားချက်(decimal separator) နောက်ရှိ အများဆုံးရှိနိုင်သည့် ဂဏန်းအရေအတွက်။ ပုံမှန်(Defaults) သည် ၁၅ ဖြစ်ပါသည်။ (မှတ်စု- Lat Lon coordinate များအတွက် ၆ သည် လုံလောက်သည်ဟု ယူဆပါသည်) နောက်ရှိ သုညများ (trailing zeros) ကို ဖယ်ရှားရန် တိုအောင်ဖြတ်တောက်ခြင်း (Truncation) လုပ်ဆောင်ပါလိမ့်သည်။</p></li>
+<li><p><span class="guilabel">RFC7946</span> - ပုံမှန်(default) အားဖြင့် GeoJSON 2008 ကိုအသုံးပြုမည်ဖြစ်ပါသည်။ YES ကို သတ်မှတ်ထားပါက update ပြုလုပ်ထားသည့် RFC 7946 စံသတ်မှတ်ချက်ကို အသုံးပြုမည်ဖြစ်ပါသည်။ Default သည် NO ဖြစ်ပါသည်။ (ထို့ကြောင့် GeoJSON 2008) အဓိက ကွဲပြားခြားနားချက်များအတွက် <a class="reference external" href="https://gdal.org/drivers/vector/geojson.html#rfc-7946-write-support">https://gdal.org/drivers/vector/geojson.html#rfc-7946-write-support</a> တွင်ကြည့်ပါ။ အတိုချုံးပြောရလျှင် EPSG:4326 ကိုသာ ခွင့်ပြုထားပါသည်။ အခြား crs များကို အသွင်ပြောင်းခြင်း (transform) ပြုလုပ်မည်ဖြစ်ပြီး ဦးတည်ရာ (orientation) အတွက် polygon များအား right-hand rule လိုက်နာရန် စသည်ဖြင့် ရေးသားမည်ဖြစ်ပါသည်။ “bbox” တစ်ခု၏ array တန်ဖိုးများမှာ [west(အနောက်) ၊ south(တောင်) ၊ east(အရှေ့) ၊ north(မြောက်)] ဖြစ်ပြီး [minx, miny, maxx, maxy] မဟုတ်ပါ။ အချို့သော extension member အမည်များကို FeatureCollection(Feature များစုစည်းထားရှိမှု)၊ Feature နှင့် Geometry objects များထဲတွင် တားမြစ်ထား (forbidden) ပြီး ပုံမှန်(default) ကိုဩဒိနိတ် တိကျမှု (coordinate precision) မှာ ဒဿမကိန်း ၇ လုံးဖြစ်ပါသည်။</p></li>
+<li><p>Feature နှင့် feature များစုဆောင်းသည့် အဆင့်တွင် geometries များ၏ bounding box ပါဝင်ရန် <span class="guilabel">WRITE_BBOX</span> ကို YES သို့ သတ်မှတ်ပါ။</p></li>
+</ul>
+<p>GeoJSON အပြင် “GeoJSON - Newline Delimited” သို့ export ပြုလုပ်ရန် နည်းလမ်းတစ်ခုလည်း ရှိပါသေးသည်။
+(<a class="reference external" href="https://gdal.org/drivers/vector/geojsonseq.html">https://gdal.org/drivers/vector/geojsonseq.html</a> တွင် ကြည့်ရှုပါ)
+Feature များပါဝင်သည့် FeatureCollection (Featureများစုစည်းထားရှိမှု) အစား newline များဖြင့် အစီအစဉ်တကျ ပိုင်းခြားထားသည့် အမျိုးအစားတစ်မျိုး (Features များသာ ဖြစ်နိုင်ပါသည်) ကို ကူးပြောင်းနိုင်ပါသည်။</p>
+<p>GeoJSON - Newline Delimited (Newline Delimited ဆိုသည်မှာ transformationနှင့် processing အတွက် အထူးအဆင်ပြေသည့် စာသားအခြေခံ geospatial ဖိုင် format တစ်ခုဖြစ်ပါသည်) တွင် သီးသန့် option အချို့လည်း ရရှိနိုင်ပါသေးသည်-</p>
+<ul class="simple">
+<li><p><span class="guilabel">COORDINATE_PRECISION</span> အပေါ်တွင်ကြည့်ရှုပါ (GeoJSON အတွက်လည်း အတူတူဖြစ်ပါသည်။)</p></li>
+<li><p><span class="guilabel">RS</span> - RS=0x1E character ဖြင့် မှတ်တမ်းများ (records) ကို စတင်ရန် ရှိ/မရှိ။ Feature များကို မည်ကဲ့သို့ ခွဲခြားထားသည်လဲ - :newline (LF) character (Newline Delimited JSON ၊ geojsonl) ဖြင့်သာ သို့မဟုတ် record-separator (RS) character ( GeoJSON Text Sequences ၊ geojsons ကို ပေးထားခြင်း) တစ်ခုကို ထည့်သွင်းခြင်းတို့ ပေါ်မူတည်ပြီး ကွာခြားပါသည်။ NO ကို Default ထားပါ။ အကယ်၍ extension များကို မပံ့ပိုးပေးထားပါက ဖိုင်များကို <code class="file docutils literal notranslate"><span class="pre">.json</span></code> extension ဖြင့်ထားရှိပါသည်။</p></li>
+</ul>
+</section>
+<section id="sap-hana-spatial-layer-sap-hana-spatial-layers">
+<span id="label-hana-spatial"></span><span id="index-12"></span><h3><a class="toc-backref" href="#id24" role="doc-backlink"><span class="section-number">15.3.2.8. </span>SAP HANA Spatial Layer များ (SAP HANA Spatial Layers)</a><a class="headerlink" href="#sap-hana-spatial-layer-sap-hana-spatial-layers" title="Link to this heading"></a></h3>
+<p>ဤ section တွင် QGIS သည် SAP HANA layers များကို မည်သို့ ဝင်ရောက်ကြည့်ရှုသုံးစွဲ (access) နိုင်သည်နှင့် စပ်လျဉ်းသော အသေးစိတ်အချက်အလက်အချို့ ပါဝင်ပါသည်။ အချိန်အများစုတွင် QGIS သည် ထည့်သွင်းနိုင်သည့် database table များနှင့် view များ  စာရင်းတစ်ခုဖြင့် ရိုးရှင်းစွာ ပံ့ပိုးပေးသင့်ပြီး ၎င်းတို့ကို တောင်းခံမှု (request) ပြုလုပ်သည့်အခါတွင် ထည့်သွင်းသွားမည်ဖြစ်ပါသည်။ သို့ရာတွင် QGIS ထဲသို့ SAP HANA table သို့မဟုတ် view တစ်ခုကို ထည့်သွင်းရာတွင် အခက်အခဲ ရှိနေပါက အောက်ဖော်ပြပါ အချက်အလက်များသည် ဖြစ်ပွားရသည့် အရင်းခံအကြောင်းအရင်း (root cause) ကို နားလည်စေရန်နှင့် ပြဿနာ(issue) ကို ဖြေရှင်းရာတွင် ကူညီပေးနိုင်မည်ဖြစ်ပါသည်။</p>
+<section id="feature-feature-identification">
+<h4><a class="toc-backref" href="#id25" role="doc-backlink">Feature ခွဲခြားသတ်မှတ်ခြင်း (Feature Identification)</a><a class="headerlink" href="#feature-feature-identification" title="Link to this heading"></a></h4>
+<p>QGIS ၏ feature အား ပြန်လည်ပြင်ဆင်နိုင်သည့် စွမ်းဆောင်ရည် (feature editing capabilities) အားလုံးကို အသုံးပြုလိုပါက QGIS သည် layer တစ်ခုထဲရှိ feature တစ်ခုချင်းစီကို ရှင်းလင်းတိကျစွာ (unambiguously) သတ်မှတ်နိုင်ရမည်ဖြစ်ပါသည်။
+အတွင်းပိုင်း (Internally) တွင် QGIS သည် feature များကို သတ်မှတ်ရန် 64-bit signed integer (64-bit signed integer type ကို အပေါင်း သို့မဟုတ် အနုတ် ကိန်းပြည့်များကို သိမ်းဆည်းရန် အသုံးပြုသည်) တစ်ခုကို အသုံးပြုပြီး negative range (အနုတ် အပိုင်းအခြား) ကို အထူးရည်ရွယ်ချက်များ (special purposes) အတွက် အရန်သိမ်းဆည်းထားပါသည်။</p>
+<p>ထို့အတွက်ကြောင့် QGIS ၏ feature အား ပြန်လည်ပြင်ဆင်နိုင်သည့် စွမ်းဆောင်ရည် (feature editing capabilities) များကို အပြည့်အဝ ပံ့ပိုးရန် positive 64-bit integer အဖြစ်သို့ map (ဖော်ပြ) လုပ်ပေးနိုင်သည့် unique key (သိသာထင်ရှားသော key) တစ်ခုကို လိုအပ်မည်ဖြစ်ပါသည်။ အကယ်၍ ထိုကဲ့သို့သော mapping တစ်ခုကို ဖန်တီးရန် မဖြစ်နိုင်ပါက သင့်အနေဖြင့် features များကို ကြည့်ရှုနိုင်သေးသော်လည်း ပြန်လည်ပြင်ဆင်ခြင်း (editing) ကိုမူ ဆောင်ရွက်နိုင်မည်မဟုတ်ပါ။</p>
+</section>
+<section id="adding-tables">
+<h4><a class="toc-backref" href="#id26" role="doc-backlink">အချက်အလက်ဇယားများထည့်သွင်းခြင်း (Adding tables)</a><a class="headerlink" href="#adding-tables" title="Link to this heading"></a></h4>
+<p>Table တစ်ခုကို layer တစ်ခုအဖြစ် ထည့်သွင်းသောအခါတွင် SAP HANA provider သည် table ၏ primary key ကို သိသာထင်ရှား (unique) သော feature id တစ်ခုအဖြစ် ဖော်ပြရန် အသုံးပြုပါသည်။ ထို့အတွက်ကြောင့် အပြည့်အဝပြန်လည်ပြင်ဆင်နိုင်သည့် ပံ့ပိုးမှု (full feature editing support)ကို ရရှိရန်အတွက် table definition (အဓိပ္ပါယ်ဖွင့်ဆိုသတ်မှတ်ချက်)တွင် primary key တစ်ခုရှိရန် လိုအပ်ပါသည်။</p>
+<p>SAP HANA provider သည် multi-column primary key (column များစွာကိုအသုံးပြု၍ ဖွဲ့စည်းထားသော primary key များ) များကို ထောက်ပံ့ပေးပါသည်။ သို့ရာတွင် အကောင်းဆုံးသော စွမ်းဆောင်ရည်ကို ရရှိလိုပါက primary key သည် <code class="docutils literal notranslate"><span class="pre">INTEGER</span></code> အမျိုးအစားဖြစ်သည့် single column တစ်ခုဖြစ်သင့်ပါသည်။</p>
+</section>
+<section id="adding-views">
+<h4><a class="toc-backref" href="#id27" role="doc-backlink">ဇယားအပိုင်းများ ထည့်သွင်းခြင်း (Adding views)</a><a class="headerlink" href="#adding-views" title="Link to this heading"></a></h4>
+<p>View တစ်ခုကို layer တစ်ခုအဖြစ်ထည့်သွင်းသည့်အခါတွင် SAP HANA provider သည် feature တစ်ခုကို ရှင်းလင်းတိကျစွာသတ်မှတ်ဖော်ပြသည့် column များကို အလိုအလျောက်သတ်မှတ်ခြင်းမပြုနိုင်ပါ။ ထို့အပြင် view အချို့ သည်
+read-only (ဖတ်ရှုယုံမျှသာ) ဖြစ်ပြီး ပြန်လည်ပြင်ဆင်ခြင်း(edit) ဆောင်ရွက်နိုင်မည်မဟုတ်ပါ။</p>
+<p>အပြည့်အဝပြန်လည်ပြင်ဆင်နိုင်သည့်ပံ့ပိုးမှု (full feature editing support) ကိုရရှိရန် View သည် updatable (update လုပ်ဆောင်နိုင်သော) ဖြစ်ရမည်ဖြစ်ပြီး (View အတွက် system view <code class="docutils literal notranslate"><span class="pre">SYS.VIEWS</span></code> ထဲရှိ <code class="docutils literal notranslate"><span class="pre">IS_READ_ONLY</span></code> column ကို check ပြုလုပ်ပါ) QGIS အား feature တစ်ခုကို သတ်မှတ်သည့် တစ်ခု သို့မဟုတ် တစ်ခုထက်ပိုသော column များဖြင့် ကိုယ်တိုင်(manually) ထည့်သွင်းပေးရမည်ဖြစ်သည်။ Column များကို <span class="menuselection">Layer ► Add Layer ► Add SAP HANA Spatial Layer</span> အား အသုံးပြုပြီး <span class="guilabel">Feature id</span> column ထဲရှိ column များကို select ပြုလုပ်ခြင်းဖြင့် ထည့်သွင်းပေးနိုင်ပါသည်။ အကောင်းဆုံးသော စွမ်းဆောင်ရည် (performance) အတွက် <span class="guilabel">Feature id</span> တန်ဖိုးသည် single <code class="docutils literal notranslate"><span class="pre">INTEGER</span></code> column တစ်ခုဖြစ်သင့်ပါသည်။</p>
+</section>
+</section>
+</section>
+<section id="layer-layers-crossing-180-longitude">
+<span id="index-13"></span><h2><a class="toc-backref" href="#id28" role="doc-backlink"><span class="section-number">15.3.3. </span>180 ဒီဂရီ လောင်ဂျီတွဒ်ကိုကျော်သည့် Layer များ (Layers crossing 180° longitude)</a><a class="headerlink" href="#layer-layers-crossing-180-longitude" title="Link to this heading"></a></h2>
+<p>GIS ပက်ကေ့ချ် အတော်များများသည် 180 ဒီဂရီ လောင်ဂျီတွဒ်မျဉ်းကို ဖြတ်သန်းသည့် ပထဝီဝင်ဆိုင်ရာရည်ညွှန်းကိုးကားစနစ်(geographic reference system) (lat/lon) တစ်ခုဖြင့် layer များကို သိမ်းဆည်းထုပ်ပိုး (wrap) ထားမည်မဟုတ်ပါ။
+ရလဒ်အနေဖြင့် QGIS ထဲတွင် အဆိုပါ layer တစ်ခုကို ဖွင့်ပါက တစ်ခုနှင့်တစ်ခုနီးကပ်စွာရှိသင့်သည့် တည်နေရာနှစ်ခုကို အလွန်ဝေးကွာခြားနားသည့် တည်နေရာနှစ်ခုတွင် တွေ့မြင်ရမည်ဖြစ်ပါသည်။
+<a class="reference internal" href="#figure-vector-crossing"><span class="std std-numref">Fig. 15.27</span></a> တွင် map canvas ၏ ဘယ်ဘက်တွင်ရှိသော သေးငယ်သည့်အမှတ် (Chatham ကျွန်းများ) သည် New Zealand အဓိကကျွန်းများ၏ ညာဘက်ရှိ ဂရစ်ကွက်အတွင်းတွင် ရှိသင့်ပါသည်။</p>
+<figure class="align-center" id="id2">
+<span id="figure-vector-crossing"></span><img alt="../../../_images/vectorNotWrapping.png" src="../../../_images/vectorNotWrapping.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 15.27 </span><span class="caption-text">Map in lat/lon crossing the 180° longitude line
+180 ဒီဂရီ လောင်ဂျီတွဒ်မျဉ်းကို ဖြတ်သန်းသည့် lat/lon ဖြင့် မြေပုံ</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<section id="postgis-solving-in-postgis">
+<h3><a class="toc-backref" href="#id29" role="doc-backlink"><span class="section-number">15.3.3.1. </span>PostGIS အသုံးပြဖြေရှင်းခြင်း (Solving in PostGIS)</a><a class="headerlink" href="#postgis-solving-in-postgis" title="Link to this heading"></a></h3>
+<p>လုပ်ဆောင်ရမည့်တစ်ချက်သည် PostGIS နှင့် <a class="reference external" href="https://postgis.net/docs/ST_Shift_Longitude.html">ST_ShiftLongitude</a> function (လုပ်ဆောင်ချက်) ကို အသုံးပြုပြီး လောင်ဂျီတွဒ် တန်ဖိုးများကို အသွင်ကူးပြောင်းမှုများပြုလုပ်ရန် (transform) ဖြစ်ပါသည်။ ဤ function သည် geometry တစ်ခုထဲရှိ feature တစ်ခုချင်းစီ၏ အစိတ်အပိုင်း (component) တစ်ခုချင်းစီထဲရှိ point (အမှတ်)/vertex (ထောင့်မှတ်) တစ်ခုချင်းစီကို ဖတ်ရှုပြီး ၎င်း၏ လောင်ဂျီတွဒ် ကိုဩဒိနိတ် (longitude coordinate) ကို -180..0 ဒီဂရီ မှ 180..360 ဒီဂရီ သို့ ကူးပြောင်းပေးပြီး ဤ ranges (အပိုင်းအခြား) အတွင်းဖြစ်ပါက အပြန်အလှန် (vice versa) ကူးပြောင်းခြင်းဆောင်ရွက်ပါသည်။ ဤ function သည် အချိုးကျ (symmetrical) ဖြစ်သည့်အတွက် ရလဒ်အနေဖြင့် 0..360 ဒီဂရီ data သည် -180..180 ဒီဂရီ data ၏ ကိုယ်စားပြုဖော်ပြချက် (representation) ဖြစ်ပြီး -180..180 ဒီဂရီ data သည် 0..360 ဒီဂရီ data ၏ ကိုယ်စားပြုဖော်ပြချက်ဖြစ်ပါသည်။</p>
+<figure class="align-center" id="id3">
+<span id="figure-vector-crossing-map"></span><a class="reference internal image-reference" href="../../../_images/vectorWrapping.png"><img alt="../../../_images/vectorWrapping.png" src="../../../_images/vectorWrapping.png" style="width: 25em;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 15.28 </span><span class="caption-text"><strong>ST_ShiftLongitude</strong> function ကို အသုံးပြုပြီး 180 ဒီဂရီ လောင်ဂျီတွဒ်ကို ဖြတ်သန်းခြင်း</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ol class="arabic">
+<li><p>ဥပမာ- DB Manager plugin ကို အသုံးပြုပြီး PostGIS ထဲသို့ data ကို Importပြုလုပ်ပါ။  (<a class="reference internal" href="#vector-import-data-in-postgis"><span class="std std-ref">PostgreSQL ထဲသို့ Data ထည့်ခြင်း (Importing Data into PostgreSQL)</span></a>)</p></li>
+<li><p>အောက်ဖော်ပြပါ command ကို ထုတ်ပြန်ရန်အတွက် PostGIS command line interface ကို အသုံးပြုပါ-</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="c1">-- In this example, &quot;TABLE&quot; is the actual name of your PostGIS table</span>
+<span class="k">update</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="n">geom</span><span class="o">=</span><span class="n">ST_ShiftLongitude</span><span class="p">(</span><span class="n">geom</span><span class="p">);</span>
+</pre></div>
+</div>
+</li>
+<li><p>အရာအားလုံးသည် အဆင်ပြေချောမွေ့နေပါက update ပြုလုပ်လိုက်သည့် feature များ၏ အရေအတွက်နှင့်
+ပတ်သက်ပြီး အတည်ပြုချက် (confirmation) တစ်ခုကို ရရှိသင့်ပါသည်။ ထို့နောက် သင့်အနေဖြင့် map (မြေပုံ) ကို ထည့်သွင်းနိုင်မည်ဖြစ်ပြီး ကွဲပြားခြားနားချက်ကို တွေ့မြင်နိုင်မည်ဖြစ်ပါသည်။ (<a class="reference internal" href="#figure-vector-crossing-map">Figure_vector_crossing_map</a>)</p></li>
+</ol>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="create_layers.html" class="btn btn-neutral float-left" title="15.2. Layer များဖန်တီးခြင်း (Creating Layers)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../working_with_vector/index.html" class="btn btn-neutral float-right" title="16. Vector data များဖြင့် အလုပ်လုပ်ခြင်း" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2002-now, QGIS project.
+      <span class="lastupdated">Last updated on 2024 May 13, 16:23 +0700.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- Transifex follows a particular logic to build target pages:
+Expected French translation link for https://docs.qgis.org/3.28/en/docs/user_manual/print_composer/overview_composer.html
+would return https://app.transifex.com/qgis/qgis-documentation/translate/#fr/aa6d8bc653526d38b295ca94bf8eee5e
+with the md5 value of "github#qgis/QGIS-Documentation#release_3.28#locale/en/LC_MESSAGES/docs/user_manual/print_composer/overview_composer.po"-->
+<!--Make sure that mismatching language codes between Transifex and Sphinx are converted-->
+
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-info-circle"> QGIS Documentation </span>
+      v: 3.28
+      <span class="fa fa-caret-down"></span>
+    </span>
+
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Languages</dt>
+        
+          <dd><a href="https://docs.qgis.org/3.28/en/docs/user_manual/managing_data_source/supported_data.html">en</a></dd>
+        
+      </dl>
+
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/user_manual/managing_data_source/supported_data.html">testing</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/latest/en/docs/user_manual/managing_data_source/supported_data.html">latest</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.28/en/docs/user_manual/managing_data_source/supported_data.html">3.28</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.22/en/docs/user_manual/managing_data_source/supported_data.html">3.22</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.16/en/docs/user_manual/managing_data_source/supported_data.html">3.16</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.10/en/docs/user_manual/managing_data_source/supported_data.html">3.10</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.4/en/docs/user_manual/managing_data_source/supported_data.html">3.4</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/2.18/en/docs/user_manual/managing_data_source/supported_data.html">2.18</a></dd>
+        
+      </dl>
+
+       
+       <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="https://docs.qgis.org/3.28/pdf">PDF</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.28/zip">HTML</a></dd>
+        
+      </dl>
+      
+
+      
+       
+      <dl>
+        <dt>Contribute to Docs</dt>
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/edit/master/docs/user_manual/managing_data_source/supported_data.rst" target="_blank" rel="noopener noreferrer">Edit on GitHub</a>
+          </dd>
+          
+          
+          <dd>
+            <a href="https://app.transifex.com/qgis/qgis-documentation/translate/#en/aace720c6def4a74451d4e44f5fed871" target="_blank" rel="noopener noreferrer">Translate Page</a>
+          </dd>
+          
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/issues" target="_blank" rel="noopener noreferrer">Report Issue</a>
+          </dd>
+      </dl>
+      
+
+      <dl>
+        <dt>On QGIS Project</dt>
+          <dd>
+            <a href="https://qgis.org/en" target="_blank" rel="noopener noreferrer">Home</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/api/3.28" target="_blank" rel="noopener noreferrer">C++ API</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/pyqgis/3.28" target="_blank" rel="noopener noreferrer">PyQGIS API</a>
+          </dd>
+          <dd>
+            <a href="https://github.com/qgis/QGIS/tree/release-3_28" target="_blank" rel="noopener noreferrer">Source</a>
+          </dd>
+      </dl>
+
+    </div>
+  </div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,12 @@
+.. _authentication_index:
+
+=
+အထောက်အထားစီစစ်ခြင်းစနစ် (Authentication System)
+=================================================
+
+.. toctree::
+   :maxdepth: 2
+
+   auth_overview
+   auth_workflows
+   auth_considerations

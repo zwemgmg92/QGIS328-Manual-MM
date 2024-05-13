@@ -1,0 +1,1737 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>29.1.20. Vector တွင်ရွေးချယ်ခြင်း (Vector selection) &mdash; QGIS Documentation  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/qgis_docs.css?v=3fdf4c33" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
+
+  
+    <link rel="shortcut icon" href="../../../../_static/qgis_logo.ico"/>
+    <link rel="canonical" href="https://docs.qgis.org/latest/en/docs/user_manual/processing_algs/qgis/vectorselection.html"/>
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../../../_static/copybutton.js?v=f281be69"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../../../_static/togglebutton.js?v=4a39c7ea"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="29.1.21. Vector ဇယား (Vector table)" href="vectortable.html" />
+    <link rel="prev" title="29.1.19. Vector အလွှာထပ်တွက်ချက်ခြင်း (Vector overlay)" href="vectoroverlay.html" />
+  <meta name="description" content="QGIS 3.28 documentation: 29.1.20. Vector တွင်ရွေးချယ်ခြင်း (Vector selection)">
+</head>
+
+<body class="wy-body-for-nav">
+
+  <nav class="release_status_topbar">
+  </nav>
+
+   
+
+ 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+   
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            QGIS Documentation
+              <img src="../../../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                3.28
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+   <a href= "../../../../genindex.html">Index</a>
+ 
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">အသုံးပြုသူများအတွက်</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../preamble/preamble.html">1. စကားချီး (Preamble)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preamble/foreword.html">2. အမှာစာ (Foreword)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preamble/conventions.html">3. အသုံးအနှုန်းများ (Conventions)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preamble/features.html">4. အသွင်အပြင်များ (Features)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/getting_started.html">5. စတင်အသုံးပြုခြင်း (Getting Started)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/project_files.html">6. Project Files များနှင့် အလုပ်လုပ်ခြင်း (Working with Project Files)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/qgis_gui.html">7. QGIS ၏အစိတ်အပိုင်းများ (QGIS GUI)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/browser.html">8. ဒေတာများရှာဖွေကြည့်ရှုနိုင်သည့်နေရာ (The Browser panel)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/qgis_configuration.html">9. QGIS ပြင်ဆင်သတ်မှတ်ခြင်း/အခင်းအကျင်း (QGIS Configuration)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../working_with_projections/working_with_projections.html">10. မြေပုံအရိပ်ချစနစ်များ နှင့် အလုပ်လုပ်ခြင်း (Working with Projections)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../map_views/index.html">11. မြေပုံများအား ပုံဖော်ကြည့်ရှုခြင်း (Visualizing Maps)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/general_tools.html">12. အထွေ‌ထွေ‌သုံးကိရိယာများ (General Tools)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../expressions/index.html">13. Expression များဖြင့် အဆင့်မြှင့်တင်ဆောင်ရွက်ခြင်း (Level up with Expressions)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../style_library/index.html">14. The Style Library (Style နှင့်ပတ်သက်သည်များ ထားရှိရာနေရာ)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../managing_data_source/index.html">15. ဒေတာအရင်းအမြစ်များအား စီမံခန့်ခွဲခြင်း (Managing Data Source)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../working_with_vector/index.html">16. Vector data များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../working_with_raster/index.html">17. Raster Data နှင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../working_with_mesh/mesh_properties.html">18. Working with Mesh Data (Mesh Data များနှင့် အလုပ်လုပ်ခြင်း)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../working_with_vector_tiles/vector_tiles_properties.html">19. Vector Tiles များနှင့်အလုပ်လုပ်ခြင်း (Working with Vector Tiles)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../working_with_point_clouds/point_clouds.html">20. Point Cloud များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../print_composer/index.html">21. မြေပုံအချောသပ်ပြင်ဆင်ခြင်း (Laying out the maps)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../working_with_ogc/ogc_client_support.html">22. OGC / ISO protocol များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../working_with_gps/index.html">23. GPS Data များနှင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../auth_system/auth_overview.html">24. အထောက်အထားစီစစ်ခြင်းအကြောင်းအကျဉ်း (Authentication System Overview)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../auth_system/auth_workflows.html">25. အသုံးပြုသူ အထောက်အထားစစ်ဆေးခြင်း လုပ်ငန်းအဆင့်များ (User Authentication Workflows)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../auth_system/auth_considerations.html">26. လုံခြုံရေးအတွက်စဉ်းစားရန်အချက်များ (Security Considerations)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../grass_integration/grass_integration.html">27. GRASS GIS နှင့်ပေါင်းစပ်အသုံးပြုခြင်း (GRASS GIS Integration)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../processing/index.html">28. QGIS processing framework</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">29. Processing ဆိုင်ရာ ထောက်ပံ့ပေးသူများနှင့် Algorithm များ (Processing providers and algorithms)</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">29.1. QGIS algorithm ထောက်ပံ့ပေးသူ (QGIS algorithm provider)</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="cartography.html">29.1.1. မြေပုံရေးဆွဲခြင်းအတတ်ပညာ (Cartography)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="database.html">29.1.2. Database</a></li>
+<li class="toctree-l3"><a class="reference internal" href="filetools.html">29.1.3. File ကိရိယာများ (File tools)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gps.html">29.1.4. ကမ္ဘာလုံးဆိုင်ရာတည်နေရာပြစနစ် (GPS)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="interpolation.html">29.1.5. သွယ်ဝိုက်တွက်ချက်ခြင်း (Interpolation)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="layertools.html">29.1.6. Layer ကိရိယာများ (Layer tools)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mesh.html">29.1.7. ဝါယာကွန်ယက်(Mesh)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelertools.html">29.1.8. Modeler ကိရိယာများ (Modeler tools)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="networkanalysis.html">29.1.9. လမ်းကြောင်းကွန်ယက်ဆိုင်ရာ တွက်ချက်မှု (Network analysis)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plots.html">29.1.10. Plot များ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rasteranalysis.html">29.1.11. Raster ဖြင့်ဆန်းစစ်လေ့လာခြင်း (Raster analysis)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rastercreation.html">29.1.12. Raster Creation (Raster ဖန်တီးခြင်း)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rasterterrainanalysis.html">29.1.13. Raster မြေမျက်နှာသွင်ပြင် ဆန်းစစ်လေ့လာခြင်း (Raster terrain analysis)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rastertools.html">29.1.14. Raster ကိရိယာများ (Raster tools)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vectoranalysis.html">29.1.15. Vector ဆန်းစစ်လေ့လာခြင်း (Vector analysis)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vectorcreation.html">29.1.16. Vector ဖန်တီးခြင်း (Vector creation)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vectorgeneral.html">29.1.17. Vector ဆိုင်ရာ အထွေထွေ (Vector general)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vectorgeometry.html">29.1.18. Vector ဂျီဩမေတြီ (Vector geometry)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vectoroverlay.html">29.1.19. Vector အလွှာထပ်တွက်ချက်ခြင်း (Vector overlay)</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">29.1.20. Vector တွင်ရွေးချယ်ခြင်း (Vector selection)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#attribute-extract-by-attribute">29.1.20.1. Attribute ဖြင့်ထုတ်ယူခြင်း (Extract by attribute)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#expression-extract-by-expression">29.1.20.2. Expression ဖြင့် ထုတ်ယူခြင်း (Extract by expression)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#extract-by-location">29.1.20.3. တည်နေရာဖြင့် ထုတ်ယူခြင်း (Extract by location)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#extract-within-distance">29.1.20.4. အကွာအဝေးအတွင်းထုတ်ယူခြင်း (Extract within distance)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#filter-by-geometry-type">29.1.20.5. ဂျီဩမေတြီ အမျိုးအစားဖြင့် စစ်ထုတ်ခြင်း (Filter by geometry type)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#random-extract">29.1.20.6. ကျပန်းထုတ်ယူခြင်း (Random extract)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#subset-random-extract-within-subsets">29.1.20.7. Subset များအတွင်း ကျပန်းထုတ်ယူခြင်း (Random extract within subsets)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#random-selection">29.1.20.8. ကျပန်းရွေးချယ်ခြင်း (Random selection)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#subset-random-selection-within-subsets">29.1.20.9. Subset များအတွင်း ကျပန်းရွေးချယ်ခြင်း (Random selection within subsets)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#attribute-select-by-attribute">29.1.20.10. အချက်အလက်(attribute)ဖြင့် ရွေးချယ်ခြင်း) (Select by attribute)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#expression-select-by-expression">29.1.20.11. Expression ဖြင့် ရွေးချယ်ခြင်း (Select by expression)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#select-by-location">29.1.20.12. တည်နေရာဖြင့် ရွေးချယ်ခြင်း (Select by location)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#select-within-distance">29.1.20.13. အကွာအဝေးအတွင်း ရွေးချယ်ခြင်း (Select within distance)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="vectortable.html">29.1.21. Vector ဇယား (Vector table)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vectortiles.html">29.1.22. Vector tile များ</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../gdal/index.html">29.2. GDAL algorithm ထောက်ပံ့ပေးသူ (GDAL algorithm provider)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../otb.html">29.3. OTB application များ ထောက်ပံ့ပေးသည့်အရာ (OTB applications provider)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../plugins/plugins.html">30. QGIS Plugin များ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../plugins/core_plugins/index.html">31. QGIS ပင်မ Plugin များကို အသုံးပြုခြင်း (Using QGIS Core Plugins)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../plugins/python_console.html">32. QGIS တွင် Python code များရေးသားရန်နေရာ (QGIS Python console)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preamble/help_and_support.html">33. အကူအညီနှင့်အထောက်အပံ့ (Help and Support)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preamble/contributors.html">34. ပါဝင်အားဖြည့်သူများ (Contributors)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendices/index.html">35. နောက်ဆက်တွဲများ (Appendices)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../literature_web/literature_and_web_references.html">36. စာတမ်းများနှင့် Website ကိုးကားချက်များ (Literature and Web References)</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">QGIS Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">&lt;no title&gt;</a></li>
+          <li class="breadcrumb-item"><a href="../index.html"><span class="section-number">29. </span>Processing ဆိုင်ရာ ထောက်ပံ့ပေးသူများနှင့် Algorithm များ (Processing providers and algorithms)</a></li>
+          <li class="breadcrumb-item"><a href="index.html"><span class="section-number">29.1. </span>QGIS algorithm ထောက်ပံ့ပေးသူ (QGIS algorithm provider)</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">29.1.20. </span>Vector တွင်ရွေးချယ်ခြင်း (Vector selection)</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/qgis/QGIS-Documentation/blob/master/docs/user_manual/processing_algs/qgis/vectorselection.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="vectoroverlay.html" class="btn btn-neutral float-left" title="29.1.19. Vector အလွှာထပ်တွက်ချက်ခြင်း (Vector overlay)" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="vectortable.html" class="btn btn-neutral float-right" title="29.1.21. Vector ဇယား (Vector table)" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <blockquote>
+<div></div></blockquote>
+<section id="vector-vector-selection">
+<h1><span class="section-number">29.1.20. </span>Vector တွင်ရွေးချယ်ခြင်း (Vector selection)<a class="headerlink" href="#vector-vector-selection" title="Link to this heading"></a></h1>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#attribute-extract-by-attribute" id="id40">Attribute ဖြင့်ထုတ်ယူခြင်း (Extract by attribute)</a></p></li>
+<li><p><a class="reference internal" href="#expression-extract-by-expression" id="id41">Expression ဖြင့် ထုတ်ယူခြင်း (Extract by expression)</a></p></li>
+<li><p><a class="reference internal" href="#extract-by-location" id="id42">တည်နေရာဖြင့် ထုတ်ယူခြင်း (Extract by location)</a></p></li>
+<li><p><a class="reference internal" href="#extract-within-distance" id="id43">အကွာအဝေးအတွင်းထုတ်ယူခြင်း (Extract within distance)</a></p></li>
+<li><p><a class="reference internal" href="#filter-by-geometry-type" id="id44">ဂျီဩမေတြီ အမျိုးအစားဖြင့် စစ်ထုတ်ခြင်း (Filter by geometry type)</a></p></li>
+<li><p><a class="reference internal" href="#random-extract" id="id45">ကျပန်းထုတ်ယူခြင်း (Random extract)</a></p></li>
+<li><p><a class="reference internal" href="#subset-random-extract-within-subsets" id="id46">Subset များအတွင်း ကျပန်းထုတ်ယူခြင်း (Random extract within subsets)</a></p></li>
+<li><p><a class="reference internal" href="#random-selection" id="id47">ကျပန်းရွေးချယ်ခြင်း (Random selection)</a></p></li>
+<li><p><a class="reference internal" href="#subset-random-selection-within-subsets" id="id48">Subset များအတွင်း ကျပန်းရွေးချယ်ခြင်း (Random selection within subsets)</a></p></li>
+<li><p><a class="reference internal" href="#attribute-select-by-attribute" id="id49">အချက်အလက်(attribute)ဖြင့် ရွေးချယ်ခြင်း) (Select by attribute)</a></p></li>
+<li><p><a class="reference internal" href="#expression-select-by-expression" id="id50">Expression ဖြင့် ရွေးချယ်ခြင်း (Select by expression)</a></p></li>
+<li><p><a class="reference internal" href="#select-by-location" id="id51">တည်နေရာဖြင့် ရွေးချယ်ခြင်း (Select by location)</a></p></li>
+<li><p><a class="reference internal" href="#select-within-distance" id="id52">အကွာအဝေးအတွင်း ရွေးချယ်ခြင်း (Select within distance)</a></p></li>
+</ul>
+</nav>
+<section id="attribute-extract-by-attribute">
+<span id="qgisextractbyattribute"></span><h2><a class="toc-backref" href="#id40" role="doc-backlink"><span class="section-number">29.1.20.1. </span>Attribute ဖြင့်ထုတ်ယူခြင်း (Extract by attribute)</a><a class="headerlink" href="#attribute-extract-by-attribute" title="Link to this heading"></a></h2>
+<p>Input layer တစ်ခုမှ vector layer နှစ်ခု ကိုဖန်တီးပေးပါသည် - ပထမတစ်ခုတွင် ကိုက်ညီမှုရှိသော feature များသာပါဝင်ပြီး ဒုတိယတစ်ခုတွင် ကိုက်ညီမှုမရှိသော feature များအားလုံးပါဝင်ပါသည်။</p>
+<p>ရလာဒ်ထုတ်ပေးသည့် layer တွင် feature များထည့်သွင်းခြင်းအတွက် စံသတ်မှတ်ချက်သည် input layer မှ attribute တစ်ခု၏ တန်ဖိုးများအပေါ် အခြေခံပါသည်။</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="#qgisselectbyattribute"><span class="std std-ref">အချက်အလက်(attribute)ဖြင့် ရွေးချယ်ခြင်း) (Select by attribute)</span></a></p>
+</div>
+<section id="parameters">
+<h3>သတ်မှတ်ချက်များ (Parameters)<a class="headerlink" href="#parameters" title="Link to this heading"></a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Input layer</strong> <strong>(ထည့်သွင်းအသုံးပြုသော layer)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">INPUT</span></code></p></td>
+<td><p>[vector: any]</p></td>
+<td><p>Feature များ ထုတ်ယူရန် Layer။</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Selection attribute</strong> <strong>(ရွေးချယ်မှု အချက်အလက်)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">FIELD</span></code></p></td>
+<td><p>[tablefield: any]</p></td>
+<td><p>Layer ၏ filter (စစ်ထုတ်) သော field</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Operator</strong> <strong>(+ - * / စသည့်သင်္ကေတ)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OPERATOR</span></code></p></td>
+<td><p>[enumeration]</p>
+<p>Default: 0</p>
+</td>
+<td><p>အမျိုးမျိုးသော operator (သင်္ချာဆိုင်ရာ သို့မဟုတ် လော့ဂျစ်ဆိုင်ရာလုပ်ဆောင်ချက်များကို ကိုယ်စားပြုသည့်အရာ) များကို အသုံးပြုနိုင်ပါသည်-</p>
+<ul class="simple">
+<li><p>0 — = (ညီမျှသော)</p></li>
+<li><p>1 — ≠ (မညီမျှသော)</p></li>
+<li><p>2 — &gt; (..ထက်ကြီးသော)</p></li>
+<li><p>3 — &gt;= (..ထက်ကြီးပြီး၊ ..နှင့်ညီမျှသော)</p></li>
+<li><p>4 — &lt; (..ထက်ငယ်သော)</p></li>
+<li><p>5 — &lt;= (..ထက်ငယ်ပြီး၊ ..နှင့်ညီမျှသော)</p></li>
+<li><p>6 — begins with (..ဖြင့်စတင်သော)</p></li>
+<li><p>7 — contains (..ပါဝင်သော)</p></li>
+<li><p>8 — is null (Null တန်ဖိုးဖြစ်သော)</p></li>
+<li><p>9 — is not null (Null တန်ဖိုးမဟုတ်သော)</p></li>
+<li><p>10 — does not contain (..မပါဝင်သော)</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p><strong>Value</strong> <strong>(တန်ဖိုး)</strong></p>
+<p>Optional (မဖြစ်မနေလုပ်ဆောင်ရန်မလိုပါ)</p>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">VALUE</span></code></p></td>
+<td><p>[string]</p></td>
+<td><p>အကဲဖြတ်ရန် တန်ဖိုး</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Extracted (attribute)</strong> <strong>(ထုတ်ယူထားသော (အချက်အလက်))</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
+<td><p>[input နှင့်အတူတူဖြစ်ပါသည်]</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">[Create</span> <span class="pre">Temporary</span> <span class="pre">Layer]</span></code></p>
+</td>
+<td><p>ကိုက်ညီမှုရှိသော feature များအတွက် output vector layer ကို သတ်မှတ်ပါ။ အောက်ပါတို့ထဲမှ တစ်ခုဖြစ်ပါသည်-</p>
+<ul class="simple">
+<li><p>ယာယီ layer ဖန်တီးပါ (<code class="docutils literal notranslate"><span class="pre">TEMPORARY_OUTPUT</span></code>)</p></li>
+<li><p>File တွင်သိမ်းဆည်းပါ</p></li>
+<li><p>Geopackage တွင် သိမ်းဆည်းပါ</p></li>
+<li><p>Database ဇယားတွင် သိမ်းဆည်းပါ</p></li>
+</ul>
+<p>File encoding ကိုလည်းဤနေရာတွင်ပြောင်းလဲနိုင်ပါသည်။</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p><strong>Extracted (non-matching)</strong> <strong>(ထုတ်ယူထားသော (ကိုက်ညီမှုမရှိသော))</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">FAIL_OUTPUT</span></code></p></td>
+<td><p>[input နှင့်အတူတူဖြစ်ပါသည်]</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">[Skip</span> <span class="pre">output]</span></code></p>
+</td>
+<td><p>ကိုက်ညီမှုမရှိသော feature များအတွက် output vector layer ကို သတ်မှတ်ပါ။ အောက်ပါတို့ထဲမှ တစ်ခုဖြစ်ပါသည်-</p>
+<ul class="simple">
+<li><p>Output ကိုကျော်ပစ်ပါ</p></li>
+<li><p>ယာယီ layer ဖန်တီးပါ (<code class="docutils literal notranslate"><span class="pre">TEMPORARY_OUTPUT</span></code>)</p></li>
+<li><p>File တွင်သိမ်းဆည်းပါ</p></li>
+<li><p>Geopackage တွင် သိမ်းဆည်းပါ</p></li>
+<li><p>Database ဇယားတွင် သိမ်းဆည်းပါ</p></li>
+</ul>
+<p>File encoding ကိုလည်းဤနေရာတွင်ပြောင်းလဲနိုင်ပါသည်။</p>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="outputs">
+<h3>ရလာဒ်များ (Outputs)<a class="headerlink" href="#outputs" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Extracted (attribute)</strong> <strong>(ထုတ်ယူထားသော (အချက်အလက်))</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
+<td><p>[input နှင့်အတူတူဖြစ်ပါသည်]</p></td>
+<td><p>Input layer မှ ကိုက်ညီမှုရှိသော feature များပါဝင်သည့် vector layer</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Extracted (non-matching)</strong> <strong>(ထုတ်ယူထားသော (ကိုက်ညီမှုမရှိသော))</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">FAIL_OUTPUT</span></code></p></td>
+<td><p>[input နှင့်အတူတူဖြစ်ပါသည်]</p></td>
+<td><p>Input layer မှ ကိုက်ညီမှုမရှိသော feature များပါဝင်သည့် vector layer</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="python-code">
+<h3>Python code<a class="headerlink" href="#python-code" title="Link to this heading"></a></h3>
+<p><strong>Algorithm ID</strong>: <code class="docutils literal notranslate"><span class="pre">qgis:extractbyattribute</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">processing</span>
+<span class="n">processing</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;algorithm_id&quot;</span><span class="p">,</span> <span class="p">{</span><span class="n">parameter_dictionary</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>Processing Toolbox ထဲရှိ algorithm ပေါ်တွင် mouse ကိုတင်ထားလျှင် <em>algorithm id</em> ကိုပြသပေးပါသည်။ <em>parameter dictionary</em> သည် parameter နာမည်များနှင့် တန်ဖိုးများကို ပေးပါသည်။ Python console မှ algorithm များကို မည်သို့လုပ်ဆောင်ရမည် ဆိုသည့် အသေးစိတ်ကို သိရှိလိုလျှင် <a class="reference internal" href="../../processing/console.html#processing-console"><span class="std std-ref">Console တွင် processing algorithm များကို အသုံးပြုခြင်း</span></a> တွင်ကြည့်ပါ။</p>
+</section>
+</section>
+<section id="expression-extract-by-expression">
+<span id="qgisextractbyexpression"></span><h2><a class="toc-backref" href="#id41" role="doc-backlink"><span class="section-number">29.1.20.2. </span>Expression ဖြင့် ထုတ်ယူခြင်း (Extract by expression)</a><a class="headerlink" href="#expression-extract-by-expression" title="Link to this heading"></a></h2>
+<p>Input layer တစ်ခုမှ vector layer နှစ်ခု ကိုဖန်တီးပေးပါသည် - ပထမတစ်ခုတွင် ကိုက်ညီမှုရှိသော feature များသာပါဝင်ပြီး ဒုတိယတစ်ခုတွင် ကိုက်ညီမှုမရှိသော feature များအားလုံးပါဝင်ပါသည်။</p>
+<p>ရလာဒ်ထုတ်ပေးသည့် layer တွင် feature များထည့်သွင်းခြင်းအတွက် စံသတ်မှတ်ချက်သည် QGIS expression တစ်ခုအပေါ် အခြေခံပါသည်။ Expression အကြောင်းကို ပိုမိုသိရှိရန်အတွက် <a class="reference internal" href="../../expressions/expression.html#vector-expressions"><span class="std std-ref">စေခိုင်းချက်များ (Expressions)</span></a> တွင်ကြည့်ပါ။</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="#qgisselectbyexpression"><span class="std std-ref">Expression ဖြင့် ရွေးချယ်ခြင်း (Select by expression)</span></a></p>
+</div>
+<section id="id1">
+<h3>သတ်မှတ်ချက်များ (Parameters)<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Input layer</strong> <strong>(ထည့်သွင်းအသုံးပြုသော layer)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">INPUT</span></code></p></td>
+<td><p>[vector: any]</p></td>
+<td><p>ထည့်သွင်းအသုံးပြုသော vector layer</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Expression</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">EXPRESSION</span></code></p></td>
+<td><p>[expression]</p></td>
+<td><p>Vector layer ကို စစ်ထုတ် (filter) ရန် expression</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Matching features</strong> <strong>(ကိုက်ညီမှုရှိသော feature များ)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
+<td><p>[input နှင့်အတူတူဖြစ်ပါသည်]</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">[Create</span> <span class="pre">Temporary</span> <span class="pre">Layer]</span></code></p>
+</td>
+<td><p>ကိုက်ညီမှုရှိသော feature များအတွက် output vector layer ကို သတ်မှတ်ပါ။ အောက်ပါတို့ထဲမှ တစ်ခုဖြစ်ပါသည်-</p>
+<ul class="simple">
+<li><p>ယာယီ layer ဖန်တီးပါ (<code class="docutils literal notranslate"><span class="pre">TEMPORARY_OUTPUT</span></code>)</p></li>
+<li><p>File တွင်သိမ်းဆည်းပါ</p></li>
+<li><p>Geopackage တွင် သိမ်းဆည်းပါ</p></li>
+<li><p>Database ဇယားတွင် သိမ်းဆည်းပါ</p></li>
+</ul>
+<p>File encoding ကိုလည်းဤနေရာတွင်ပြောင်းလဲနိုင်ပါသည်။</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p><strong>Non-matching</strong> <strong>(ကိုက်ညီမှုမရှိသော)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">FAIL_OUTPUT</span></code></p></td>
+<td><p>[input နှင့်အတူတူဖြစ်ပါသည်]</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">[Skip</span> <span class="pre">output]</span></code></p>
+</td>
+<td><p>ကိုက်ညီမှုမရှိသော feature များအတွက် output vector layer ကို သတ်မှတ်ပါ။ အောက်ပါတို့ထဲမှ တစ်ခုဖြစ်ပါသည်-</p>
+<ul class="simple">
+<li><p>Output ကိုကျော်ပစ်ပါ</p></li>
+<li><p>ယာယီ layer ဖန်တီးပါ (<code class="docutils literal notranslate"><span class="pre">TEMPORARY_OUTPUT</span></code>)</p></li>
+<li><p>File တွင်သိမ်းဆည်းပါ</p></li>
+<li><p>Geopackage တွင် သိမ်းဆည်းပါ</p></li>
+<li><p>Database ဇယားတွင် သိမ်းဆည်းပါ</p></li>
+</ul>
+<p>File encoding ကိုလည်းဤနေရာတွင်ပြောင်းလဲနိုင်ပါသည်။</p>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id2">
+<h3>ရလာဒ်များ (Outputs)<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Matching features</strong> <strong>(ကိုက်ညီမှုရှိသော feature များ)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
+<td><p>[input နှင့်အတူတူဖြစ်ပါသည်]</p></td>
+<td><p>Input layer မှ ကိုက်ညီမှုရှိသော feature များပါဝင်သည့် vector layer</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Non-matching</strong> <strong>(ကိုက်ညီမှုမရှိသော)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">FAIL_OUTPUT</span></code></p></td>
+<td><p>[input နှင့်အတူတူဖြစ်ပါသည်]</p></td>
+<td><p>Input layer မှ ကိုက်ညီမှုမရှိသော feature များပါဝင်သည့် vector layer</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id3">
+<h3>Python code<a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
+<p><strong>Algorithm ID</strong>: <code class="docutils literal notranslate"><span class="pre">qgis:extractbyexpression</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">processing</span>
+<span class="n">processing</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;algorithm_id&quot;</span><span class="p">,</span> <span class="p">{</span><span class="n">parameter_dictionary</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>Processing Toolbox ထဲရှိ algorithm ပေါ်တွင် mouse ကိုတင်ထားလျှင် <em>algorithm id</em> ကိုပြသပေးပါသည်။ <em>parameter dictionary</em> သည် parameter နာမည်များနှင့် တန်ဖိုးများကို ပေးပါသည်။ Python console မှ algorithm များကို မည်သို့လုပ်ဆောင်ရမည် ဆိုသည့် အသေးစိတ်ကို သိရှိလိုလျှင် <a class="reference internal" href="../../processing/console.html#processing-console"><span class="std std-ref">Console တွင် processing algorithm များကို အသုံးပြုခြင်း</span></a> တွင်ကြည့်ပါ။</p>
+</section>
+</section>
+<section id="extract-by-location">
+<span id="qgisextractbylocation"></span><h2><a class="toc-backref" href="#id42" role="doc-backlink"><span class="section-number">29.1.20.3. </span>တည်နေရာဖြင့် ထုတ်ယူခြင်း (Extract by location)</a><a class="headerlink" href="#extract-by-location" title="Link to this heading"></a></h2>
+<p>Input layer တစ်ခုမှ ကိုက်ညီမှုရှိသော feature များသာ ပါဝင်သော vector layer အသစ်တစ်ခု ဖန်တီးပေးပါသည်။</p>
+<p>ရလာဒ် layer တွင် feature များထည့်သွင်းခြင်းအတွက် စံသတ်မှတ်ချက်သည် feature တစ်ခုချင်းစီနှင့် ထပ်ဆောင်း layer တစ်ခုထဲရှိ feature များအကြားရှိ တည်နေရာဆိုင်ရာဆက်နွယ်မှု (spatial relationship) အပေါ်တွင် အခြေခံပါသည်။</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="#qgisselectbylocation"><span class="std std-ref">တည်နေရာဖြင့် ရွေးချယ်ခြင်း (Select by location)</span></a> ၊ <a class="reference internal" href="#qgisextractwithindistance"><span class="std std-ref">အကွာအဝေးအတွင်းထုတ်ယူခြင်း (Extract within distance)</span></a></p>
+</div>
+<section id="exploring-spatial-relations">
+<h3>တည်နေရာဆိုင်ရာ ဆက်နွယ်မှုများကို လေ့လာခြင်း (Exploring spatial relations)<a class="headerlink" href="#exploring-spatial-relations" title="Link to this heading"></a></h3>
+<p>Geometric predicate ဆိုသည်မှာ feature တစ်ခုနှင့် အခြား feature တစ်ခု၏ တည်နေရာဆိုင်ရာဆက်နွယ်မှုကို ၎င်းတို့၏ ဂျီဩမေတြီများမည်သို့ မျှဝေနေရာယူနေသလဲဆိုသည်ကို နှိုင်းယှဉ်ခြင်းအားဖြင့် ဆုံးဖြတ်ရန်အသုံးပြုသော boolean (မှန်/မှား) function များကို ဆိုလိုပါသည်။</p>
+<figure class="align-center" id="id38">
+<img alt="../../../../_images/selectbylocation.png" src="../../../../_images/selectbylocation.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 29.123 </span><span class="caption-text">Layer များအကြား တည်နေရာဆိုင်ရာဆက်နွယ်မှုကို ရှာဖွေခြင်း</span><a class="headerlink" href="#id38" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>အထက်ဖော်ပြပါပုံကိုအသုံးပြုပြီး လိမ္မော်ရောင် ထောင့်မှန်စတုဂံ feature များကို အစိမ်းရောင်စက်ဝိုင်းများနှင့် တည်နေရာအရ နှိုင်းယှဉ်ပြီး အစိမ်းရောင်စက်ဝိုင်းများကို ရှာဖွေပါသည်။ အသုံးပြုနိုင်သော geometric predicate များမှာ-</p>
+<dl class="simple">
+<dt><em>Intersect (ထိဖြတ်ခြင်း)</em></dt><dd><p>ဂျီဩမေတြီ တစ်ခုသည် အခြား ဂျီဩမေတြီ တစ်ခုနှင့်ထိဖြတ်/မဖြတ်ကို စစ်ဆေးပေးပါသည်။ ထိဖြတ်နေလျှင် (နေရာအစိတ်အပိုင်းတစ်ခုကိုမျှဝေသုံးစွဲခြင်း - ထပ်နေခြင်း သို့မဟုတ် ထိနေခြင်း ကိုဆိုလိုပါသည်) 1 (အမှန်) တန်ဖိုးကို ထုတ်ပေးပြီး မဖြစ်လျှင် 0 တန်ဖိုးကိုထုတ်ပေးပါသည်။ အထက်ဖော်ပြပါ ဓာတ်ပုံတွင် စက်ဝိုင်း 1၊ 2 နှင့် 3 တို့ကိုထုတ်ပေးပါသည်။</p>
+</dd>
+<dt><em>Contain (ပါဝင်ခြင်း)</em></dt><dd><p>b ၏အမှတ်များသည် a ၏အပြင်ဘက်တွင် မရှိလျှင်နှင့် မရှိမှသာ တန်ဖိုး 1 (အမှန်) ကိုထုတ်ပေးပြီး အနည်းဆုံး b ၏အတွင်းဘက်ကတစ်မှတ်သည် a ၏အတွင်းဘက်တွင် ရှိရပါမည်။ ပုံတွင် မည်သည့်စက်ဝိုင်းမှ ပြန်ထုတ်မပေးပါ သို့သော် ၎င်းသည် စက်ဝိုင်း 1 အပြည့်အဝပါဝင်သောကြောင့် အခြားနည်းဖြင့်ရှာဖွေလျှင် ထောင့်မှန်စတုဂံ ကိုပြန်ထုတ်ပေးပါမည်။ ယခုနည်းလမ်းလည်း <em>are within (အတွင်းတွင်ရှိခြင်း)</em> နှင့် ဆန့်ကျင်ဘက်ဖြစ်ပါသည်။</p>
+</dd>
+<dt><em>Disjoint (အဆက်ဖြုတ်ခြင်း)</em></dt><dd><p>ဂျီဩမေတြီ များသည် မည်သည့်အစိတ်အပိုင်းမျှ နေရာချင်းမျှဝေမနေလျှင် (ထပ်မနေ၊ ထိမနေခြင်း ကိုဆိုလိုပါသည်) တန်ဖိုး 1 (အမှန်) ကို ထုတ်ပေးပါမည်။ စက်ဝိုင်း 4 ကိုသာ ပြန်ထုတ်ပေးမည်ဖြစ်သည်။</p>
+</dd>
+<dt><em>Equal (ညီမျှခြင်း)</em></dt><dd><p>ဂျီဩမေတြီ များသည်လုံးဝ တစ်ပုံစံတည်း တူနေလျှင် သို့မဟုတ် တူနေမှသာ တန်ဖိုး 1 (အမှန်) ကိုထုတ်ပေးပါသည်။ စက်ဝိုင်းများကို ထုတ်မပေးပါ။</p>
+</dd>
+<dt><em>Touch (ထိနေခြင်း)</em></dt><dd><p>ဂျီဩမေတြီ တစ်ခုသည် အခြားဂျီဩမေတြီ တစ်ခုနှင့် ထိ/မထိ စစ်ဆေးပေးပါသည်။ ဂျီဩမေတြီများသည် အနည်းဆုံး ဘုံ point တစ်ခုရှိနေပြီး ၎င်းတို့၏အတွင်းပိုင်းများသည် ထိဖြတ်မနေသောအခါ တန်ဖိုး 1 (အမှန်) ကိုထုတ်ပေးပါသည်။ စက်ဝိုင်း 3 ကိုသာ ပြန်ထုတ်ပေးပါသည်။</p>
+</dd>
+<dt><em>Overlap (ထပ်နေခြင်း)</em></dt><dd><p>ဂျီဩမေတြီ သည် အခြား ဂျီဩမေတြီ တစ်ခုနှင့် ထပ်/မထပ် ကို စစ်ဆေးပေးပါသည်။ ဂျီဩမေတြီများသည် နေရာခြင်း မျှဝေနေပြီး အရွယ်အစားလည်း တူညီနေသော်လည်း တစ်ခုထဲတွင် အခြားတစ်ခုက လုံးဝဝင်ရောက်နေခြင်း မဟုတ်လျှင် တန်ဖိုး 1 (အမှန်) ကိုထုတ်ပေးပါသည်။ စက်ဝိုင်း 2 ကိုသာ ပြန်ထုတ်ပေးပါသည်။</p>
+</dd>
+<dt><em>Are within (အတွင်းတွင်ရှိခြင်း)</em></dt><dd><p>ဂျီဩမေတြီ သည် အခြား ဂျီဩမေတြီ တစ်ခုအတွင်းတွင်ရှိ/မရှိ ကို စစ်ဆေးပေးပါသည်။ ဂျီဩမေတြီ a သည် geometry b ၏အတွင်းတွင် လုံးဝကျရောက်နေလျှင် တန်ဖိုး 1 (အမှန်) ကိုထုတ်ပေးပါသည်။ စက်ဝိုင်း 1 ကိုသာ ပြန်ထုတ်ပေးပါသည်။</p>
+</dd>
+<dt><em>Cross (ကန့်လန့်ဖြတ်နေခြင်း)</em></dt><dd><p>အသုံးပြုထားသော ဂျီဩမေတြီ များသည် အားလုံးမဟုတ်တောင် အချို့သော အတွင်းပိုင်း ဘုံ point များရှိနေပြီး အမှန်တကယ် ကန့်လန့်ဖြတ်နေခြင်း သည် အမြင့်ဆုံး ဂျီဩမေတြီ ထက်နိမ့်သော dimension တစ်ခုတွင် ဖြစ်သောအခါ တန်ဖိုး 1 (အမှန်) ကိုထုတ်ပေးပါသည်။ ဥပမာ- polygon တစ်ခုကိုဖြတ်သော line တစ်ခုသည် line အဖြစ် ကန့်လန့်ဖြတ်ပါမည် (အမှန်)။ ကန့်လန့်ဖြတ်နေသော line နှစ်ခုသည် point အဖြစ် ဖြတ်ပါလိမ့်မည် (အမှန်)။ Polygon နှစ်ခုသည် polygon တစ်ခုအဖြစ် ဖြတ်ပါလိမ့်မည် (အမှား)။ ဓာတ်ပုံတွင် စက်ဝိုင်းများကို ပြန်ထုတ်မပေးပါ။</p>
+</dd>
+</dl>
+</section>
+<section id="id4">
+<h3>သတ်မှတ်ချက်များ (Parameters)<a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Extract features from</strong> <strong>(Feature များထုတ်ယူမည့် layer)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">INPUT</span></code></p></td>
+<td><p>[vector: any]</p></td>
+<td><p>ထည့်သွင်းအသုံးပြုသော vector layer</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Where the features (geometric predicate)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">PREDICATE</span></code></p></td>
+<td><p>[enumeration] [list]</p>
+<p>Default: [0]</p>
+</td>
+<td><p>ရွေးချယ်ခြင်းပြုနိုင်စေရန်အတွက် Input feature တွင် ရှိသင့်သည့် intersect feature တစ်ခုနှင့် တည်နေရာဆိုင်ရာဆက်နွယ်မှု (spatial relation) အမျိုးအစား။ အောက်ပါတို့အနက်မှ တစ်ခု သို့မဟုတ် တစ်ခုထက်ပို၍ ရွေးချယ်နိုင်ပါသည်-</p>
+<ul class="simple">
+<li><p>0 — intersect (ထိဖြတ်သော)</p></li>
+<li><p>1 — contain (ပါဝင်သော)</p></li>
+<li><p>2 — disjoint (ချိတ်ဆက်မှုမရှိသော)</p></li>
+<li><p>3 — equal (ညီမျှသော)</p></li>
+<li><p>4 — touch (ထိစပ်နေသော)</p></li>
+<li><p>5 — overlap (ထပ်နေသော)</p></li>
+<li><p>6 — are within (အတွင်းတွင်ကျရောက်သော)</p></li>
+<li><p>7 — cross (တစ်ခုနှင့်တစ်ခုဖြတ်သွားသော)</p></li>
+</ul>
+<p>အခြေအနေတစ်ခုထက်ပို၍ ရွေးချယ်ခဲ့ပါက ၎င်းတို့အနက်မှ အနည်းဆုံးတစ်ခု (OR operation) သည် feature တစ်ခုထုတ်ယူရန်အတွက် ကိုက်ညီနေရမည်ဖြစ်သည်။</p>
+</td>
+</tr>
+<tr class="row-even"><td><p><strong>By comparing to the features from</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">INTERSECT</span></code></p></td>
+<td><p>[vector: any]</p></td>
+<td><p>ထိဖြတ်ခြင်း vector layer</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Extracted (location)</strong> <strong>(ထုတ်ယူပြီးသော (တည်နေရာ))</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
+<td><p>[input နှင့်အတူတူဖြစ်ပါသည်]</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">[Create</span> <span class="pre">temporary</span> <span class="pre">layer]</span></code></p>
+</td>
+<td><p>နှိုင်းယှဉ်ခြင်း layer ထဲရှိ တစ်ခု သို့မဟုတ် တစ်ခုထက်ပိုသော feature များဖြင့် ရွေးချယ်ထားသည့် တည်နေရာဆိုင်ရာဆက်နွယ်မှု (spatial relationship) ရှိသော feature များအတွက် output vector layer ကို သတ်မှတ်ပါ။ အောက်ပါတို့ထဲမှ တစ်ခုဖြစ်ပါသည်-</p>
+<ul class="simple">
+<li><p>ယာယီ layer ဖန်တီးပါ (<code class="docutils literal notranslate"><span class="pre">TEMPORARY_OUTPUT</span></code>)</p></li>
+<li><p>File တွင်သိမ်းဆည်းပါ</p></li>
+<li><p>Geopackage တွင် သိမ်းဆည်းပါ</p></li>
+<li><p>Database ဇယားတွင် သိမ်းဆည်းပါ</p></li>
+</ul>
+<p>File encoding ကိုလည်းဤနေရာတွင်ပြောင်းလဲနိုင်ပါသည်။</p>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id5">
+<h3>ရလာဒ်များ (Outputs)<a class="headerlink" href="#id5" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Extracted (location)</strong> <strong>(ထုတ်ယူပြီးသော (တည်နေရာ))</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
+<td><p>[input နှင့်အတူတူဖြစ်ပါသည်]</p></td>
+<td><p>နှိုင်းယှဉ်ခြင်း layer ထဲရှိ တစ်ခု သို့မဟုတ် တစ်ခုထက်ပိုသော feature များဖြင့် ရွေးချယ်ထားသည့် တည်နေရာဆိုင်ရာဆက်နွယ်မှု (spatial relationship) ရှိသော input layer မှ feature များပါဝင်သည့် vector layer။</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id6">
+<h3>Python code<a class="headerlink" href="#id6" title="Link to this heading"></a></h3>
+<p><strong>Algorithm ID</strong>: <code class="docutils literal notranslate"><span class="pre">qgis:extractbylocation</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">processing</span>
+<span class="n">processing</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;algorithm_id&quot;</span><span class="p">,</span> <span class="p">{</span><span class="n">parameter_dictionary</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>Processing Toolbox ထဲရှိ algorithm ပေါ်တွင် mouse ကိုတင်ထားလျှင် <em>algorithm id</em> ကိုပြသပေးပါသည်။ <em>parameter dictionary</em> သည် parameter နာမည်များနှင့် တန်ဖိုးများကို ပေးပါသည်။ Python console မှ algorithm များကို မည်သို့လုပ်ဆောင်ရမည် ဆိုသည့် အသေးစိတ်ကို သိရှိလိုလျှင် <a class="reference internal" href="../../processing/console.html#processing-console"><span class="std std-ref">Console တွင် processing algorithm များကို အသုံးပြုခြင်း</span></a> တွင်ကြည့်ပါ။</p>
+</section>
+</section>
+<section id="extract-within-distance">
+<span id="qgisextractwithindistance"></span><h2><a class="toc-backref" href="#id43" role="doc-backlink"><span class="section-number">29.1.20.4. </span>အကွာအဝေးအတွင်းထုတ်ယူခြင်း (Extract within distance)</a><a class="headerlink" href="#extract-within-distance" title="Link to this heading"></a></h2>
+<p>Input layer တစ်ခုမှ ကိုက်ညီမှုရှိသော feature များသာ ပါဝင်သော vector layer အသစ်တစ်ခု ဖန်တီးပေးပါသည်။ ထပ်ဆောင်း ရည်ညွှန်း layer တစ်ခုထဲရှိ feature များမှ တိတိကျကျသတ်မှတ်ထားသော အများဆုံးအကွာအဝေး အတွင်းတွင် ရှိနေသည့်အခါတိုင်းတွင် feature များကို မိတ္တူကူးယူပေးမည် ဖြစ်ပါသည်။</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="#qgisselectwithindistance"><span class="std std-ref">အကွာအဝေးအတွင်း ရွေးချယ်ခြင်း (Select within distance)</span></a> ၊ <a class="reference internal" href="#qgisextractbylocation"><span class="std std-ref">တည်နေရာဖြင့် ထုတ်ယူခြင်း (Extract by location)</span></a></p>
+</div>
+<section id="id7">
+<h3>သတ်မှတ်ချက်များ (Parameters)<a class="headerlink" href="#id7" title="Link to this heading"></a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Extract features from</strong> <strong>(Feature များထုတ်ယူမည့် layer)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">INPUT</span></code></p></td>
+<td><p>[vector: any]</p></td>
+<td><p>Feature များကို မိတ္တူကူးမည့် input vector layer</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>By comparing to the features from</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">REFERENCE</span></code></p></td>
+<td><p>[vector: any]</p></td>
+<td><p>နီးစပ်မှု (closeness) အတွက်အသုံးပြုမည့် feature များပါဝင်သော Vector layer ။</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Where the features are within</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">DISTANCE</span></code></p></td>
+<td><p>[number]</p>
+<p>Default: 100</p>
+</td>
+<td><p>ရည်ညွှန်း feature များ ပတ်လည်ရှိ အများဆုံး အကွာအဝေး။ ထိုအကွာအဝေးအတွင်းတွင် ရှိသော input feature များကို ရွေးချယ်မည်ဖြစ်သည်။</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Modify current selection by</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">METHOD</span></code></p></td>
+<td><p>[enumeration]</p>
+<p>Default: 0</p>
+</td>
+<td><p>Algorithm ၏ ရွေးချယ်ခြင်းကို မည်သို့စီမံသင့်သည်ကို ရွေးချယ်ပါ။ အောက်ပါတို့မှ တစ်ခုဖြစ်ပါသည်-</p>
+<ul class="simple">
+<li><p>0 — creating new selection (ရွေးချယ်ခြင်းအသစ် ဖန်တီးခြင်း)</p></li>
+<li><p>1 — adding to current selection (လက်ရှိရွေးချယ်ခြင်းထဲသို့ ပေါင်းထည့်ခြင်း)</p></li>
+<li><p>2 — selecting within current selection (လက်ရှိရွေးချယ်ထားခြင်းထဲတွင် ရွေးချယ်ခြင်း)</p></li>
+<li><p>3 — removing from current selection (လက်ရှိရွေးချယ်ထားခြင်းမှ ဖယ်ရှားခြင်း)</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p><strong>Extracted (location)</strong> <strong>(ထုတ်ယူထားပြီးသော (တည်နေရာ))</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
+<td><p>[input နှင့်အတူတူဖြစ်ပါသည်]</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">[Create</span> <span class="pre">temporary</span> <span class="pre">layer]</span></code></p>
+</td>
+<td><p>ရည်ညွှန်း feature များမှ သတ်မှတ်ထားသော အကွာအဝေးအတွင်းရှိသော feature များအတွက် output vector layer ကို သတ်မှတ်ပါ။ အောက်ပါတို့မှ တစ်ခုဖြစ်ပါသည်-</p>
+<ul class="simple">
+<li><p>ယာယီ layer ဖန်တီးပါ (<code class="docutils literal notranslate"><span class="pre">TEMPORARY_OUTPUT</span></code>)</p></li>
+<li><p>File တွင်သိမ်းဆည်းပါ</p></li>
+<li><p>Geopackage တွင် သိမ်းဆည်းပါ</p></li>
+<li><p>Database ဇယားတွင် သိမ်းဆည်းပါ</p></li>
+</ul>
+<p>File encoding ကိုလည်းဤနေရာတွင်ပြောင်းလဲနိုင်ပါသည်။</p>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id8">
+<h3>ရလာဒ်များ (Outputs)<a class="headerlink" href="#id8" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Extracted (location)</strong> <strong>(ထုတ်ယူထားပြီးသော (တည်နေရာ))</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
+<td><p>[input နှင့်အတူတူဖြစ်ပါသည်]</p></td>
+<td><p>ရည်ညွှန်း feature များမှ အကွာအဝေးအခြေအနေနှင့် ကိုက်ညီသော input layer မှ
+feature များပါဝင်သည့် vector layer။</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id9">
+<h3>Python code<a class="headerlink" href="#id9" title="Link to this heading"></a></h3>
+<p><strong>Algorithm ID</strong>: <code class="docutils literal notranslate"><span class="pre">native:extractwithindistance</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">processing</span>
+<span class="n">processing</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;algorithm_id&quot;</span><span class="p">,</span> <span class="p">{</span><span class="n">parameter_dictionary</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>Processing Toolbox ထဲရှိ algorithm ပေါ်တွင် mouse ကိုတင်ထားလျှင် <em>algorithm id</em> ကိုပြသပေးပါသည်။ <em>parameter dictionary</em> သည် parameter နာမည်များနှင့် တန်ဖိုးများကို ပေးပါသည်။ Python console မှ algorithm များကို မည်သို့လုပ်ဆောင်ရမည် ဆိုသည့် အသေးစိတ်ကို သိရှိလိုလျှင် <a class="reference internal" href="../../processing/console.html#processing-console"><span class="std std-ref">Console တွင် processing algorithm များကို အသုံးပြုခြင်း</span></a> တွင်ကြည့်ပါ။</p>
+</section>
+</section>
+<section id="filter-by-geometry-type">
+<span id="qgisfilterbygeometry"></span><h2><a class="toc-backref" href="#id44" role="doc-backlink"><span class="section-number">29.1.20.5. </span>ဂျီဩမေတြီ အမျိုးအစားဖြင့် စစ်ထုတ်ခြင်း (Filter by geometry type)</a><a class="headerlink" href="#filter-by-geometry-type" title="Link to this heading"></a></h2>
+<p>Feature များကို ၎င်းတို့၏ ဂျီဩမေတြီအမျိုးအစားဖြင့် စစ်ထုတ်မည်ဖြစ်ပါသည်။ ဝင်ရောက်လာသော feature များကို ၎င်းတို့တွင် point တစ်ခု ၊ line သို့မဟုတ် polygon ဂျီဩမေတြီ ရှိခြင်း မရှိခြင်း အပေါ်တွင်အခြေခံပြီး ရလာဒ်အမျိုးမျိုး ထုတ်ပေးမည် ဖြစ်ပါသည်။</p>
+<section id="id10">
+<h3>သတ်မှတ်ချက်များ (Parameters)<a class="headerlink" href="#id10" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Input layer</strong> <strong>(ထည့်သွင်းအသုံးပြုသော layer)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">INPUT</span></code></p></td>
+<td><p>[vector: any]</p></td>
+<td><p>အကဲဖြတ်ရန် layer</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id11">
+<h3>ရလာဒ်များ (Outputs)<a class="headerlink" href="#id11" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Point features</strong></p>
+<p>Optional (မဖြစ်မနေလုပ်ဆောင်ရန်မလိုပါ)</p>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">POINTS</span></code></p></td>
+<td><p>[vector: point]</p></td>
+<td><p>Point များပါသည့် layer</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Line features</strong></p>
+<p>Optional (မဖြစ်မနေလုပ်ဆောင်ရန်မလိုပါ)</p>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">LINES</span></code></p></td>
+<td><p>[vector: line]</p></td>
+<td><p>Line များပါသည့် layer</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Polygon features</strong></p>
+<p>Optional (မဖြစ်မနေလုပ်ဆောင်ရန်မလိုပါ)</p>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">POLYGONS</span></code></p></td>
+<td><p>[vector: polygon]</p></td>
+<td><p>Polygon များပါသည့် layer</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Features with no geometry</strong></p>
+<p>Optional (မဖြစ်မနေလုပ်ဆောင်ရန်မလိုပါ)</p>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">NO_GEOMETRY</span></code></p></td>
+<td><p>[table]</p></td>
+<td><p>ဂျီဩမေတြီများမပါဝင်သော (Geometry-less) vector layer</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id12">
+<h3>Python code<a class="headerlink" href="#id12" title="Link to this heading"></a></h3>
+<p><strong>Algorithm ID</strong>: <code class="docutils literal notranslate"><span class="pre">native:filterbygeometry</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">processing</span>
+<span class="n">processing</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;algorithm_id&quot;</span><span class="p">,</span> <span class="p">{</span><span class="n">parameter_dictionary</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>Processing Toolbox ထဲရှိ algorithm ပေါ်တွင် mouse ကိုတင်ထားလျှင် <em>algorithm id</em> ကိုပြသပေးပါသည်။ <em>parameter dictionary</em> သည် parameter နာမည်များနှင့် တန်ဖိုးများကို ပေးပါသည်။ Python console မှ algorithm များကို မည်သို့လုပ်ဆောင်ရမည် ဆိုသည့် အသေးစိတ်ကို သိရှိလိုလျှင် <a class="reference internal" href="../../processing/console.html#processing-console"><span class="std std-ref">Console တွင် processing algorithm များကို အသုံးပြုခြင်း</span></a> တွင်ကြည့်ပါ။</p>
+</section>
+</section>
+<section id="random-extract">
+<span id="qgisrandomextract"></span><h2><a class="toc-backref" href="#id45" role="doc-backlink"><span class="section-number">29.1.20.6. </span>ကျပန်းထုတ်ယူခြင်း (Random extract)</a><a class="headerlink" href="#random-extract" title="Link to this heading"></a></h2>
+<p>Vector layer တစ်ခုကို ယူပြီး input layer ထဲရှိ feature များအစု (subset) တစ်ခုသာလျှင် ပါဝင်သည့် layer အသစ်တစ်ခုကို ထုတ်ပေးပါသည်။</p>
+<p>အစု (subset) ကို feature ID များအပေါ်တွင် အခြေခံပြီး ကျပန်းသတ်မှတ်ပါသည်။ အစုထဲရှိ စုစုပေါင်း feature အရေအတွက်ကို သတ်မှတ်ရန် ရာခိုင်နှုန်း (percentage) သို့မဟုတ် အရေအတွက် (count) တန်ဖိုးတစ်ခုကို အသုံးပြုပါသည်။</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="#qgisrandomselection"><span class="std std-ref">ကျပန်းရွေးချယ်ခြင်း (Random selection)</span></a></p>
+</div>
+<section id="id13">
+<h3>သတ်မှတ်ချက်များ (Parameters)<a class="headerlink" href="#id13" title="Link to this heading"></a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Input layer</strong> <strong>(ထည့်သွင်းအသုံးပြုသော layer)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">INPUT</span></code></p></td>
+<td><p>[vector: any]</p></td>
+<td><p>Feature များကို ရွေးချယ်ရန် ရင်းမြစ် vector layer</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Method</strong> <strong>(နည်းလမ်း)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">METHOD</span></code></p></td>
+<td><p>[enumeration]</p>
+<p>Default: 0</p>
+</td>
+<td><p>ကျပန်းရွေးချယ်ခြင်း နည်းလမ်းများ။ အောက်ပါတို့အနက်မှ တစ်ခုဖြစ်ပါသည်-</p>
+<ul class="simple">
+<li><p>0 — ရွေးချယ်ထားသည့် feature များ၏ အရေအတွက်</p></li>
+<li><p>1 — ရွေးချယ်ထားသည့် feature များ၏ ရာခိုင်နှုန်း</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p><strong>Number/percentage of selected features</strong> <strong>(ရွေးချယ်ထားသည့် feature များ၏ အရေအတွက်/ရာခိုင်နှုန်း)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">NUMBER</span></code></p></td>
+<td><p>[number]</p>
+<p>Default: 10</p>
+</td>
+<td><p>ရွေးချယ်ရန် feature များ၏ အရေအတွက် သို့မဟုတ် ရာခိုင်နှုန်း</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Extracted (random)</strong> <strong>(ထုတ်ယူထားပြီးသော (ကျပန်း))</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
+<td><p>[vector: any]</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">[Create</span> <span class="pre">temporary</span> <span class="pre">layer]</span></code></p>
+</td>
+<td><p>ကျပန်းရွေးချယ်ထားသော feature များအတွက် output vector layer ကို သတ်မှတ်ပါ။ အောက်ပါတို့ထဲမှ တစ်ခုဖြစ်ပါသည်-</p>
+<ul class="simple">
+<li><p>ယာယီ layer ဖန်တီးပါ (<code class="docutils literal notranslate"><span class="pre">TEMPORARY_OUTPUT</span></code>)</p></li>
+<li><p>File တွင်သိမ်းဆည်းပါ</p></li>
+<li><p>Geopackage တွင် သိမ်းဆည်းပါ</p></li>
+<li><p>Database ဇယားတွင် သိမ်းဆည်းပါ</p></li>
+</ul>
+<p>File encoding ကိုလည်းဤနေရာတွင်ပြောင်းလဲနိုင်ပါသည်။</p>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id14">
+<h3>ရလာဒ်များ (Outputs)<a class="headerlink" href="#id14" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Extracted (random)</strong> <strong>(ထုတ်ယူထားပြီးသော (ကျပန်း))</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
+<td><p>[input နှင့်အတူတူဖြစ်ပါသည်]</p></td>
+<td><p>Input layer မှ ကျပန်းရွေးချယ်ထားသည့် feature များပါဝင်သည့် vector layer</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id15">
+<h3>Python code<a class="headerlink" href="#id15" title="Link to this heading"></a></h3>
+<p><strong>Algorithm ID</strong>: <code class="docutils literal notranslate"><span class="pre">qgis:randomextract</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">processing</span>
+<span class="n">processing</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;algorithm_id&quot;</span><span class="p">,</span> <span class="p">{</span><span class="n">parameter_dictionary</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>Processing Toolbox ထဲရှိ algorithm ပေါ်တွင် mouse ကိုတင်ထားလျှင် <em>algorithm id</em> ကိုပြသပေးပါသည်။ <em>parameter dictionary</em> သည် parameter နာမည်များနှင့် တန်ဖိုးများကို ပေးပါသည်။ Python console မှ algorithm များကို မည်သို့လုပ်ဆောင်ရမည် ဆိုသည့် အသေးစိတ်ကို သိရှိလိုလျှင် <a class="reference internal" href="../../processing/console.html#processing-console"><span class="std std-ref">Console တွင် processing algorithm များကို အသုံးပြုခြင်း</span></a> တွင်ကြည့်ပါ။</p>
+</section>
+</section>
+<section id="subset-random-extract-within-subsets">
+<span id="qgisrandomextractwithinsubsets"></span><h2><a class="toc-backref" href="#id46" role="doc-backlink"><span class="section-number">29.1.20.7. </span>Subset များအတွင်း ကျပန်းထုတ်ယူခြင်း (Random extract within subsets)</a><a class="headerlink" href="#subset-random-extract-within-subsets" title="Link to this heading"></a></h2>
+<p>Vector layer တစ်ခုကို ယူပြီး input layer ထဲရှိ feature များအစု (subset) တစ်ခုသာလျှင်
+ပါဝင်သည့် layer အသစ်တစ်ခုကို ထုတ်ပေးပါသည်။</p>
+<p>အစု (subset) ကို feature ID များအပေါ်တွင် အခြေခံပြီး ကျပန်းသတ်မှတ်ပါသည်။ အစုထဲရှိ စုစုပေါင်း feature အရေအတွက်ကို သတ်မှတ်ရန် ရာခိုင်နှုန်း (percentage) သို့မဟုတ် အရေအတွက် (count) တန်ဖိုးတစ်ခုကို အသုံးပြုပါသည်။ ရာခိုင်နှုန်း/အရေအတွက် တန်ဖိုးကို layer တစ်ခုလုံးအတွက် အသုံးပြုမည်မဟုတ်ပါ၊ သို့သော် အမျိုးအစား (category) တစ်ခုချင်းစီတွင် အသုံးပြုသွားမည်ဖြစ်သည်။ အမျိုးအစား (category) များကို ပေးထားသည့် အချက်အလက် (attribute) တစ်ခုအရ သတ်မှတ်ပါသည်။</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="#qgisrandomselectionwithinsubsets"><span class="std std-ref">Subset များအတွင်း ကျပန်းရွေးချယ်ခြင်း (Random selection within subsets)</span></a></p>
+</div>
+<section id="id16">
+<h3>သတ်မှတ်ချက်များ (Parameters)<a class="headerlink" href="#id16" title="Link to this heading"></a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Input layer</strong> <strong>(ထည့်သွင်းအသုံးပြုသော layer)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">INPUT</span></code></p></td>
+<td><p>[vector: any]</p></td>
+<td><p>Feature များကို ရွေးချယ်ရန် vector layer</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>ID field</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">FIELD</span></code></p></td>
+<td><p>[tablefield: any]</p></td>
+<td><p>Feature များကို ရွေးချယ်ရန် ရင်းမြစ် vector layer ၏ အမျိုးအစား (category)</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Method</strong> <strong>(နည်းလမ်း)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">METHOD</span></code></p></td>
+<td><p>[enumeration]</p>
+<p>Default: 0</p>
+</td>
+<td><p>ကျပန်းရွေးချယ်ခြင်း နည်းလမ်း။ အောက်ပါတို့အနက်မှ တစ်ခုဖြစ်ပါသည်-</p>
+<ul class="simple">
+<li><p>0 — ရွေးချယ်ထားသည့် feature များ၏ အရေအတွက်</p></li>
+<li><p>1 — ရွေးချယ်ထားသည့် feature များ၏ ရာခိုင်နှုန်း</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p><strong>Number/percentage of selected features</strong> <strong>(ရွေးချယ်ထားသည့် feature များ၏ အရေအတွက်/ရာခိုင်နှုန်း)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">NUMBER</span></code></p></td>
+<td><p>[number]</p>
+<p>Default: 10</p>
+</td>
+<td><p>ရွေးချယ်ရန် feature များ၏ အရေအတွက် သို့မဟုတ် ရာခိုင်နှုန်း</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Extracted (random stratified)</strong> <strong>(ထုတ်ယူထားပြီးသော (ကျပန်းအလွှာခွဲ))</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
+<td><p>[input နှင့်အတူတူဖြစ်ပါသည်]</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">[Create</span> <span class="pre">temporary</span> <span class="pre">layer]</span></code></p>
+</td>
+<td><p>ကျပန်းရွေးချယ်ထားသော feature များအတွက် output vector layer ကို သတ်မှတ်ပါ။ အောက်ပါတို့ထဲမှ တစ်ခုဖြစ်ပါသည်-</p>
+<ul class="simple">
+<li><p>ယာယီ layer ဖန်တီးပါ (<code class="docutils literal notranslate"><span class="pre">TEMPORARY_OUTPUT</span></code>)</p></li>
+<li><p>File တွင်သိမ်းဆည်းပါ</p></li>
+<li><p>Geopackage တွင် သိမ်းဆည်းပါ</p></li>
+<li><p>Database ဇယားတွင် သိမ်းဆည်းပါ</p></li>
+</ul>
+<p>File encoding ကိုလည်းဤနေရာတွင်ပြောင်းလဲနိုင်ပါသည်။</p>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id17">
+<h3>ရလာဒ်များ (Outputs)<a class="headerlink" href="#id17" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Extracted (random stratified)</strong> <strong>(ထုတ်ယူထားပြီးသော (ကျပန်းအလွှာခွဲ))</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
+<td><p>[input နှင့်အတူတူဖြစ်ပါသည်]</p></td>
+<td><p>Input layer မှ ကျပန်းရွေးချယ်ထားသည့် feature များပါဝင်သည့် vector layer</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id18">
+<h3>Python code<a class="headerlink" href="#id18" title="Link to this heading"></a></h3>
+<p><strong>Algorithm ID</strong>: <code class="docutils literal notranslate"><span class="pre">qgis:randomextractwithinsubsets</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">processing</span>
+<span class="n">processing</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;algorithm_id&quot;</span><span class="p">,</span> <span class="p">{</span><span class="n">parameter_dictionary</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>Processing Toolbox ထဲရှိ algorithm ပေါ်တွင် mouse ကိုတင်ထားလျှင် <em>algorithm id</em> ကိုပြသပေးပါသည်။ <em>parameter dictionary</em> သည် parameter နာမည်များနှင့် တန်ဖိုးများကို ပေးပါသည်။ Python console မှ algorithm များကို မည်သို့လုပ်ဆောင်ရမည် ဆိုသည့် အသေးစိတ်ကို သိရှိလိုလျှင် <a class="reference internal" href="../../processing/console.html#processing-console"><span class="std std-ref">Console တွင် processing algorithm များကို အသုံးပြုခြင်း</span></a> တွင်ကြည့်ပါ။</p>
+</section>
+</section>
+<section id="random-selection">
+<span id="qgisrandomselection"></span><h2><a class="toc-backref" href="#id47" role="doc-backlink"><span class="section-number">29.1.20.8. </span>ကျပန်းရွေးချယ်ခြင်း (Random selection)</a><a class="headerlink" href="#random-selection" title="Link to this heading"></a></h2>
+<p>Vector layer တစ်ခုကို ယူပြီး ၎င်း feature များ၏ အစု (subset) တစ်ခုကို ရွေးချယ်ပေးပါသည်။ ဤ algorithm သည် layer အသစ်တစ်ခု ထုတ်ပေးမည် မဟုတ်ပါ။</p>
+<p>အစု (subset) ကို feature ID များအပေါ်တွင် အခြေခံပြီး ကျပန်းသတ်မှတ်ပါသည်။ အစုထဲရှိ စုစုပေါင်း feature အရေအတွက်ကို သတ်မှတ်ရန် ရာခိုင်နှုန်း (percentage) သို့မဟုတ် အရေအတွက် (count) တန်ဖိုးတစ်ခုကို အသုံးပြုပါသည်။</p>
+<p><strong>Default menu</strong> - <span class="menuselection">Vector ► Research Tools</span></p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="#qgisrandomextract"><span class="std std-ref">ကျပန်းထုတ်ယူခြင်း (Random extract)</span></a></p>
+</div>
+<section id="id19">
+<h3>သတ်မှတ်ချက်များ (Parameters)<a class="headerlink" href="#id19" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Input layer</strong> <strong>(ထည့်သွင်းအသုံးပြုသော layer)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">INPUT</span></code></p></td>
+<td><p>[vector: any]</p></td>
+<td><p>ရွေးချယ်ခြင်းများအတွက် vector layer</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Method</strong> <strong>(နည်းလမ်း)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">METHOD</span></code></p></td>
+<td><p>[enumeration]</p>
+<p>Default: 0</p>
+</td>
+<td><p>ကျပန်းရွေးချယ်ခြင်း နည်းလမ်း။ အောက်ပါတို့အနက်မှ တစ်ခုဖြစ်ပါသည်-</p>
+<ul class="simple">
+<li><p>0 — ရွေးချယ်ထားသည့် feature များ၏ အရေအတွက်</p></li>
+<li><p>1 — ရွေးချယ်ထားသည့် feature များ၏ ရာခိုင်နှုန်း</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p><strong>Number/percentage of selected features</strong> <strong>(ရွေးချယ်ထားသည့် feature များ၏ အရေအတွက်/ရာခိုင်နှုန်း)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">NUMBER</span></code></p></td>
+<td><p>[number]</p>
+<p>Default: 10</p>
+</td>
+<td><p>ရွေးချယ်ရန် feature များ၏ အရေအတွက် သို့မဟုတ် ရာခိုင်နှုန်း</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id20">
+<h3>ရလာဒ်များ (Outputs)<a class="headerlink" href="#id20" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Input layer</strong> <strong>(ထည့်သွင်းအသုံးပြုသော layer)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">INPUT</span></code></p></td>
+<td><p>[input နှင့်အတူတူဖြစ်ပါသည်]</p></td>
+<td><p>ရွေးချယ်ထားသည့် feature များပါဝင်သော input layer</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id21">
+<h3>Python code<a class="headerlink" href="#id21" title="Link to this heading"></a></h3>
+<p><strong>Algorithm ID</strong>: <code class="docutils literal notranslate"><span class="pre">qgis:randomselection</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">processing</span>
+<span class="n">processing</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;algorithm_id&quot;</span><span class="p">,</span> <span class="p">{</span><span class="n">parameter_dictionary</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>Processing Toolbox ထဲရှိ algorithm ပေါ်တွင် mouse ကိုတင်ထားလျှင် <em>algorithm id</em> ကိုပြသပေးပါသည်။ <em>parameter dictionary</em> သည် parameter နာမည်များနှင့် တန်ဖိုးများကို ပေးပါသည်။ Python console မှ algorithm များကို မည်သို့လုပ်ဆောင်ရမည် ဆိုသည့် အသေးစိတ်ကို သိရှိလိုလျှင် <a class="reference internal" href="../../processing/console.html#processing-console"><span class="std std-ref">Console တွင် processing algorithm များကို အသုံးပြုခြင်း</span></a> တွင်ကြည့်ပါ။</p>
+</section>
+</section>
+<section id="subset-random-selection-within-subsets">
+<span id="qgisrandomselectionwithinsubsets"></span><h2><a class="toc-backref" href="#id48" role="doc-backlink"><span class="section-number">29.1.20.9. </span>Subset များအတွင်း ကျပန်းရွေးချယ်ခြင်း (Random selection within subsets)</a><a class="headerlink" href="#subset-random-selection-within-subsets" title="Link to this heading"></a></h2>
+<p>Vector layer တစ်ခုကို ယူပြီး ၎င်း feature များ၏ အစု (subset) တစ်ခုကို ရွေးချယ်ပေးပါသည်။ ဤ algorithm သည် layer အသစ်တစ်ခု ထုတ်ပေးမည် မဟုတ်ပါ။</p>
+<p>အစု (subset) ကို feature ID များအပေါ်တွင် အခြေခံပြီး ကျပန်းသတ်မှတ်ပါသည်။ အစုထဲရှိ စုစုပေါင်း feature အရေအတွက်ကို သတ်မှတ်ရန် ရာခိုင်နှုန်း (percentage) သို့မဟုတ် အရေအတွက် (count) တန်ဖိုးတစ်ခုကို အသုံးပြုပါသည်။</p>
+<p>ရာခိုင်နှုန်း/အရေအတွက် တန်ဖိုးကို layer တစ်ခုလုံးအတွက် အသုံးပြုမည်မဟုတ်ပါ၊ သို့သော် အမျိုးအစား (category) တစ်ခုချင်းစီတွင် အသုံးပြုသွားမည်ဖြစ်သည်။</p>
+<p>ပေးထားသည့် အချက်အလက် (attribute) တစ်ခုအရ အမျိုးအစား (category) များကို သတ်မှတ်မည်ဖြစ်ပြီး ၎င်းကို algorithm အတွက် input parameter တစ်ခုအဖြစ်လည်း သတ်မှတ်မည် ဖြစ်သည်။</p>
+<p>Output အသစ်များကို ဖန်တီးမည် မဟုတ်ပါ။</p>
+<p><strong>Default menu</strong> - <span class="menuselection">Vector ► Research Tools</span></p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="#qgisrandomextractwithinsubsets"><span class="std std-ref">Subset များအတွင်း ကျပန်းထုတ်ယူခြင်း (Random extract within subsets)</span></a></p>
+</div>
+<section id="id22">
+<h3>သတ်မှတ်ချက်များ (Parameters)<a class="headerlink" href="#id22" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Input layer</strong> <strong>(ထည့်သွင်းအသုံးပြုသော layer)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">INPUT</span></code></p></td>
+<td><p>[vector: any]</p></td>
+<td><p>Feature များ ရွေးချယ်မည့် vector layer</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>ID field</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">FIELD</span></code></p></td>
+<td><p>[tablefield: any]</p></td>
+<td><p>Feature များရွေးချယ်မည့် input layer ၏ အမျိုးအစား (category)</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Method</strong> <strong>(နည်းလမ်း)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">METHOD</span></code></p></td>
+<td><p>[enumeration]</p>
+<p>Default: 0</p>
+</td>
+<td><p>ကျပန်းရွေးချယ်ခြင်း နည်းလမ်း။ အောက်ပါတို့အနက်မှ တစ်ခုဖြစ်ပါသည်-</p>
+<ul class="simple">
+<li><p>0 — ရွေးချယ်ထားသည့် feature များ၏ အရေအတွက်</p></li>
+<li><p>1 — ရွေးချယ်ထားသည့် feature များ၏ ရာခိုင်နှုန်း</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p><strong>Number/percentage of selected features</strong> <strong>(ရွေးချယ်ထားသည့် feature များ၏ အရေအတွက်/ရာခိုင်နှုန်း)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">NUMBER</span></code></p></td>
+<td><p>[number]</p>
+<p>Default: 10</p>
+</td>
+<td><p>ရွေးချယ်ရန် feature များ၏ အရေအတွက် သို့မဟုတ် ရာခိုင်နှုန်း</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id23">
+<h3>ရလာဒ်များ (Outputs)<a class="headerlink" href="#id23" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Input layer</strong> <strong>(ထည့်သွင်းအသုံးပြုသော layer)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">INPUT</span></code></p></td>
+<td><p>[input နှင့်အတူတူဖြစ်ပါသည်]</p></td>
+<td><p>ရွေးချယ်ထားသည့် feature များပါဝင်သော input layer</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id24">
+<h3>Python code<a class="headerlink" href="#id24" title="Link to this heading"></a></h3>
+<p><strong>Algorithm ID</strong>: <code class="docutils literal notranslate"><span class="pre">qgis:randomselectionwithinsubsets</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">processing</span>
+<span class="n">processing</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;algorithm_id&quot;</span><span class="p">,</span> <span class="p">{</span><span class="n">parameter_dictionary</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>Processing Toolbox ထဲရှိ algorithm ပေါ်တွင် mouse ကိုတင်ထားလျှင် <em>algorithm id</em> ကိုပြသပေးပါသည်။ <em>parameter dictionary</em> သည် parameter နာမည်များနှင့် တန်ဖိုးများကို ပေးပါသည်။ Python console မှ algorithm များကို မည်သို့လုပ်ဆောင်ရမည် ဆိုသည့် အသေးစိတ်ကို သိရှိလိုလျှင် <a class="reference internal" href="../../processing/console.html#processing-console"><span class="std std-ref">Console တွင် processing algorithm များကို အသုံးပြုခြင်း</span></a> တွင်ကြည့်ပါ။</p>
+</section>
+</section>
+<section id="attribute-select-by-attribute">
+<span id="qgisselectbyattribute"></span><h2><a class="toc-backref" href="#id49" role="doc-backlink"><span class="section-number">29.1.20.10. </span>အချက်အလက်(attribute)ဖြင့် ရွေးချယ်ခြင်း) (Select by attribute)</a><a class="headerlink" href="#attribute-select-by-attribute" title="Link to this heading"></a></h2>
+<p>Vector layer တစ်ခုထဲတွင် ရွေးချယ်ခြင်းတစ်ခု ဖန်တီးပေးပါသည်။</p>
+<p>Feature များ ရွေးချယ်ခြင်းအတွက် စံသတ်မှတ်ချက်သည် input layer မှ အချက်အလက်တစ်ခု၏ တန်ဖိုးများအပေါ်တွင် အခြေခံပါသည်။</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="#qgisextractbyattribute"><span class="std std-ref">Attribute ဖြင့်ထုတ်ယူခြင်း (Extract by attribute)</span></a></p>
+</div>
+<section id="id25">
+<h3>သတ်မှတ်ချက်များ (Parameters)<a class="headerlink" href="#id25" title="Link to this heading"></a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Input layer</strong> <strong>(ထည့်သွင်းအသုံးပြုသော layer)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">INPUT</span></code></p></td>
+<td><p>[vector: any]</p></td>
+<td><p>Feature များ ရွေးချယ်မည့် vector layer</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Selection attribute</strong> <strong>(ရွေးချယ်ခြင်း အချက်အလက်)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">FIELD</span></code></p></td>
+<td><p>[tablefield: any]</p></td>
+<td><p>Layer ၏ စစ်ထုတ် (filter) သော field</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Operator</strong> <strong>(+ - * / စသည့်သင်္ကေတ)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OPERATOR</span></code></p></td>
+<td><p>[enumeration]</p>
+<p>Default: 0</p>
+</td>
+<td><p>အမျိုးမျိုးသော operator (သင်္ချာဆိုင်ရာ သို့မဟုတ် လော့ဂျစ်ဆိုင်ရာလုပ်ဆောင်ချက်များကို ကိုယ်စားပြုသည့်အရာ) များကို အသုံးပြုနိုင်ပါသည်-</p>
+<ul class="simple">
+<li><p>0 — = (ညီမျှသော)</p></li>
+<li><p>1 — ≠ (မညီမျှသော)</p></li>
+<li><p>2 — &gt; (..ထက်ကြီးသော)</p></li>
+<li><p>3 — &gt;= (..ထက်ကြီးပြီး၊ ..နှင့်ညီမျှသော)</p></li>
+<li><p>4 — &lt; (..ထက်ငယ်သော)</p></li>
+<li><p>5 — &lt;= (..ထက်ငယ်ပြီး၊ ..နှင့်ညီမျှသော)</p></li>
+<li><p>6 — begins with (..ဖြင့်စတင်သော)</p></li>
+<li><p>7 — contains (..ပါဝင်သော)</p></li>
+<li><p>8 — is null (Null တန်ဖိုးဖြစ်သော)</p></li>
+<li><p>9 — is not null (Null တန်ဖိုးမဟုတ်သော)</p></li>
+<li><p>10 — does not contain (..မပါဝင်သော)</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p><strong>Value</strong> <strong>(တန်ဖိုး)</strong></p>
+<p>Optional (မဖြစ်မနေလုပ်ဆောင်ရန်မလိုပါ)</p>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">VALUE</span></code></p></td>
+<td><p>[string]</p></td>
+<td><p>အကဲဖြတ်ရန် တန်ဖိုး</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Modify current selection by</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">METHOD</span></code></p></td>
+<td><p>[enumeration]</p>
+<p>Default: 0</p>
+</td>
+<td><p>Algorithm ၏ ရွေးချယ်ခြင်းကို မည်သို့စီမံသင့်သည်ကို ရွေးချယ်ပါ။ အောက်ပါတို့မှ တစ်ခုဖြစ်ပါသည်-</p>
+<ul class="simple">
+<li><p>0 — creating new selection (ရွေးချယ်ခြင်းအသစ် ဖန်တီးခြင်း)</p></li>
+<li><p>1 — adding to current selection (လက်ရှိရွေးချယ်ခြင်းထဲသို့ ပေါင်းထည့်ခြင်း)</p></li>
+<li><p>2 — removing from current selection (လက်ရှိရွေးချယ်ထားခြင်းမှ ဖယ်ရှားခြင်း)</p></li>
+<li><p>3 — selecting within current selection (လက်ရှိရွေးချယ်ထားခြင်းထဲတွင် ရွေးချယ်ခြင်း)</p></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id26">
+<h3>ရလာဒ်များ (Outputs)<a class="headerlink" href="#id26" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Input layer</strong> <strong>(ထည့်သွင်းအသုံးပြုသော layer)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">INPUT</span></code></p></td>
+<td><p>[input နှင့်အတူတူဖြစ်ပါသည်]</p></td>
+<td><p>ရွေးချယ်ထားသည့် feature များပါဝင်သော input layer</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id27">
+<h3>Python code<a class="headerlink" href="#id27" title="Link to this heading"></a></h3>
+<p><strong>Algorithm ID</strong>: <code class="docutils literal notranslate"><span class="pre">qgis:selectbyattribute</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">processing</span>
+<span class="n">processing</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;algorithm_id&quot;</span><span class="p">,</span> <span class="p">{</span><span class="n">parameter_dictionary</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>Processing Toolbox ထဲရှိ algorithm ပေါ်တွင် mouse ကိုတင်ထားလျှင် <em>algorithm id</em> ကိုပြသပေးပါသည်။ <em>parameter dictionary</em> သည် parameter နာမည်များနှင့် တန်ဖိုးများကို ပေးပါသည်။ Python console မှ algorithm များကို မည်သို့လုပ်ဆောင်ရမည် ဆိုသည့် အသေးစိတ်ကို သိရှိလိုလျှင် <a class="reference internal" href="../../processing/console.html#processing-console"><span class="std std-ref">Console တွင် processing algorithm များကို အသုံးပြုခြင်း</span></a> တွင်ကြည့်ပါ။</p>
+</section>
+</section>
+<section id="expression-select-by-expression">
+<span id="qgisselectbyexpression"></span><h2><a class="toc-backref" href="#id50" role="doc-backlink"><span class="section-number">29.1.20.11. </span>Expression ဖြင့် ရွေးချယ်ခြင်း (Select by expression)</a><a class="headerlink" href="#expression-select-by-expression" title="Link to this heading"></a></h2>
+<p>Vector layer တစ်ခုထဲတွင် ရွေးချယ်မှုတစ်ခုကို ဖန်တီးပေးပါသည်။</p>
+<p>Feature များရွေးချယ်ခြင်းအတွက် စံသတ်မှတ်ချက်သည် QGIS expression တစ်ခုပေါ်တွင် အခြေခံပါသည်။ Expression နှင့်ပတ်သက်၍ ပိုမိုသိရှိလိုပါက <a class="reference internal" href="../../expressions/expression.html#vector-expressions"><span class="std std-ref">စေခိုင်းချက်များ (Expressions)</span></a> တွင် လေ့လာနိုင်ပါသည်။</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="#qgisextractbyexpression"><span class="std std-ref">Expression ဖြင့် ထုတ်ယူခြင်း (Extract by expression)</span></a></p>
+</div>
+<section id="id28">
+<h3>သတ်မှတ်ချက်များ (Parameters)<a class="headerlink" href="#id28" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Input layer</strong> <strong>(ထည့်သွင်းအသုံးပြုသော layer)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">INPUT</span></code></p></td>
+<td><p>[vector: any]</p></td>
+<td><p>ထည့်သွင်းအသုံးပြုသော vector layer</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Expression</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">EXPRESSION</span></code></p></td>
+<td><p>[expression]</p></td>
+<td><p>Input layer ကို စစ်ထုတ် (filter) ရန် Expression</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Modify current selection by</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">METHOD</span></code></p></td>
+<td><p>[enumeration]</p>
+<p>Default: 0</p>
+</td>
+<td><p>Algorithm ၏ ရွေးချယ်ခြင်းကို မည်သို့စီမံသင့်သည်ကို ရွေးချယ်ပါ။ အောက်ပါတို့မှ တစ်ခုဖြစ်ပါသည်-</p>
+<ul class="simple">
+<li><p>0 — creating new selection (ရွေးချယ်ခြင်းအသစ် ဖန်တီးခြင်း)</p></li>
+<li><p>1 — adding to current selection (လက်ရှိရွေးချယ်ခြင်းထဲသို့ ပေါင်းထည့်ခြင်း)</p></li>
+<li><p>2 — removing from current selection (လက်ရှိရွေးချယ်ထားခြင်းမှ ဖယ်ရှားခြင်း)</p></li>
+<li><p>3 — selecting within current selection (လက်ရှိရွေးချယ်ထားခြင်းထဲတွင် ရွေးချယ်ခြင်း)</p></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id29">
+<h3>ရလာဒ်များ (Outputs)<a class="headerlink" href="#id29" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Input layer</strong> <strong>(ထည့်သွင်းအသုံးပြုသော layer)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">INPUT</span></code></p></td>
+<td><p>[input နှင့်အတူတူဖြစ်ပါသည်]</p></td>
+<td><p>ရွေးချယ်ထားသည့် feature များပါဝင်သော input layer</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id30">
+<h3>Python code<a class="headerlink" href="#id30" title="Link to this heading"></a></h3>
+<p><strong>Algorithm ID</strong>: <code class="docutils literal notranslate"><span class="pre">qgis:selectbyexpression</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">processing</span>
+<span class="n">processing</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;algorithm_id&quot;</span><span class="p">,</span> <span class="p">{</span><span class="n">parameter_dictionary</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>Processing Toolbox ထဲရှိ algorithm ပေါ်တွင် mouse ကိုတင်ထားလျှင် <em>algorithm id</em> ကိုပြသပေးပါသည်။ <em>parameter dictionary</em> သည် parameter နာမည်များနှင့် တန်ဖိုးများကို ပေးပါသည်။ Python console မှ algorithm များကို မည်သို့လုပ်ဆောင်ရမည် ဆိုသည့် အသေးစိတ်ကို သိရှိလိုလျှင် <a class="reference internal" href="../../processing/console.html#processing-console"><span class="std std-ref">Console တွင် processing algorithm များကို အသုံးပြုခြင်း</span></a> တွင်ကြည့်ပါ။</p>
+</section>
+</section>
+<section id="select-by-location">
+<span id="qgisselectbylocation"></span><h2><a class="toc-backref" href="#id51" role="doc-backlink"><span class="section-number">29.1.20.12. </span>တည်နေရာဖြင့် ရွေးချယ်ခြင်း (Select by location)</a><a class="headerlink" href="#select-by-location" title="Link to this heading"></a></h2>
+<p>Vector layer တစ်ခုထဲတွင် ရွေးချယ်မှုတစ်ခုကို ဖန်တီးပေးပါသည်။</p>
+<p>Feature များရွေးချယ်ခြင်းအတွက် စံသတ်မှတ်ချက်သည် feature တစ်ခုချင်းစီနှင့် ထပ်ဆောင်း layer တစ်ခုထဲရှိ feature များအကြားရှိ တည်နေရာဆိုင်ရာဆက်နွယ်မှု (spatial relationship) အပေါ် အခြေခံပါသည်။</p>
+<p><strong>Default menu</strong> - <span class="menuselection">Vector ► Research Tools</span></p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="#qgisextractbylocation"><span class="std std-ref">တည်နေရာဖြင့် ထုတ်ယူခြင်း (Extract by location)</span></a> ၊ <a class="reference internal" href="#qgisselectwithindistance"><span class="std std-ref">အကွာအဝေးအတွင်း ရွေးချယ်ခြင်း (Select within distance)</span></a></p>
+</div>
+<section id="id31">
+<h3>တည်နေရာဆိုင်ရာ ဆက်နွယ်မှုများကို လေ့လာခြင်း (Exploring spatial relations)<a class="headerlink" href="#id31" title="Link to this heading"></a></h3>
+<p>Geometric predicate ဆိုသည်မှာ feature တစ်ခုနှင့် အခြား feature တစ်ခု၏ တည်နေရာဆိုင်ရာဆက်နွယ်မှုကို ၎င်းတို့၏ ဂျီဩမေတြီများမည်သို့ မျှဝေနေရာယူနေသလဲဆိုသည်ကို နှိုင်းယှဉ်ခြင်းအားဖြင့် ဆုံးဖြတ်ရန်အသုံးပြုသော boolean (မှန်/မှား) function များကို ဆိုလိုပါသည်။</p>
+<figure class="align-center" id="id39">
+<img alt="../../../../_images/selectbylocation.png" src="../../../../_images/selectbylocation.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 29.124 </span><span class="caption-text">Layer များအကြား တည်နေရာဆိုင်ရာဆက်နွယ်မှုကို ရှာဖွေခြင်း</span><a class="headerlink" href="#id39" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>အထက်ဖော်ပြပါပုံကိုအသုံးပြုပြီး လိမ္မော်ရောင် ထောင့်မှန်စတုဂံ feature များကို အစိမ်းရောင်စက်ဝိုင်းများနှင့် တည်နေရာအရ နှိုင်းယှဉ်ပြီး အစိမ်းရောင်စက်ဝိုင်းများကို ရှာဖွေပါသည်။ အသုံးပြုနိုင်သော geometric predicate များမှာ-</p>
+<dl class="simple">
+<dt><em>Intersect (ထိဖြတ်ခြင်း)</em></dt><dd><p>ဂျီဩမေတြီ တစ်ခုသည် အခြား ဂျီဩမေတြီ တစ်ခုနှင့်ထိဖြတ်/မဖြတ်ကို စစ်ဆေးပေးပါသည်။ ထိဖြတ်နေလျှင် (နေရာအစိတ်အပိုင်းတစ်ခုကိုမျှဝေသုံးစွဲခြင်း - ထပ်နေခြင်း သို့မဟုတ် ထိနေခြင်း ကိုဆိုလိုပါသည်) 1 (အမှန်) တန်ဖိုးကို ထုတ်ပေးပြီး မဖြစ်လျှင် 0 တန်ဖိုးကိုထုတ်ပေးပါသည်။ အထက်ဖော်ပြပါ ဓာတ်ပုံတွင် စက်ဝိုင်း 1၊ 2 နှင့် 3 တို့ကိုထုတ်ပေးပါသည်။</p>
+</dd>
+<dt><em>Contain (ပါဝင်ခြင်း)</em></dt><dd><p>b ၏အမှတ်များသည် a ၏အပြင်ဘက်တွင် မရှိလျှင်နှင့် မရှိမှသာ တန်ဖိုး 1 (အမှန်) ကိုထုတ်ပေးပြီး အနည်းဆုံး b ၏အတွင်းဘက်ကတစ်မှတ်သည် a ၏အတွင်းဘက်တွင် ရှိရပါမည်။ ပုံတွင် မည်သည့်စက်ဝိုင်းမှ ပြန်ထုတ်မပေးပါ သို့သော် ၎င်းသည် စက်ဝိုင်း 1 အပြည့်အဝပါဝင်သောကြောင့် အခြားနည်းဖြင့်ရှာဖွေလျှင် ထောင့်မှန်စတုဂံ ကိုပြန်ထုတ်ပေးပါမည်။ ယခုနည်းလမ်းလည်း <em>are within (အတွင်းတွင်ရှိခြင်း)</em> နှင့် ဆန့်ကျင်ဘက်ဖြစ်ပါသည်။</p>
+</dd>
+<dt><em>Disjoint (အဆက်ဖြုတ်ခြင်း)</em></dt><dd><p>ဂျီဩမေတြီ များသည် မည်သည့်အစိတ်အပိုင်းမျှ နေရာချင်းမျှဝေမနေလျှင် (ထပ်မနေ၊ ထိမနေခြင်း ကိုဆိုလိုပါသည်) တန်ဖိုး 1 (အမှန်) ကို ထုတ်ပေးပါမည်။ စက်ဝိုင်း 4 ကိုသာ ပြန်ထုတ်ပေးမည်ဖြစ်သည်။</p>
+</dd>
+<dt><em>Equal (ညီမျှခြင်း)</em></dt><dd><p>ဂျီဩမေတြီ များသည်လုံးဝ တစ်ပုံစံတည်း တူနေလျှင် သို့မဟုတ် တူနေမှသာ တန်ဖိုး 1 (အမှန်) ကိုထုတ်ပေးပါသည်။ စက်ဝိုင်းများကို ထုတ်မပေးပါ။</p>
+</dd>
+<dt><em>Touch (ထိနေခြင်း)</em></dt><dd><p>ဂျီဩမေတြီ တစ်ခုသည် အခြားဂျီဩမေတြီ တစ်ခုနှင့် ထိ/မထိ စစ်ဆေးပေးပါသည်။ ဂျီဩမေတြီများသည် အနည်းဆုံး ဘုံ point တစ်ခုရှိနေပြီး ၎င်းတို့၏အတွင်းပိုင်းများသည် ထိဖြတ်မနေသောအခါ တန်ဖိုး 1 (အမှန်) ကိုထုတ်ပေးပါသည်။ စက်ဝိုင်း 3 ကိုသာ ပြန်ထုတ်ပေးပါသည်။</p>
+</dd>
+<dt><em>Overlap (ထပ်နေခြင်း)</em></dt><dd><p>ဂျီဩမေတြီ သည် အခြား ဂျီဩမေတြီ တစ်ခုနှင့် ထပ်/မထပ် ကို စစ်ဆေးပေးပါသည်။ ဂျီဩမေတြီများသည် နေရာခြင်း မျှဝေနေပြီး အရွယ်အစားလည်း တူညီနေသော်လည်း တစ်ခုထဲတွင် အခြားတစ်ခုက လုံးဝဝင်ရောက်နေခြင်း မဟုတ်လျှင် တန်ဖိုး 1 (အမှန်) ကိုထုတ်ပေးပါသည်။ စက်ဝိုင်း 2 ကိုသာ ပြန်ထုတ်ပေးပါသည်။</p>
+</dd>
+<dt><em>Are within (အတွင်းတွင်ရှိခြင်း)</em></dt><dd><p>ဂျီဩမေတြီ သည် အခြား ဂျီဩမေတြီ တစ်ခုအတွင်းတွင်ရှိ/မရှိ ကို စစ်ဆေးပေးပါသည်။ ဂျီဩမေတြီ a သည် geometry b ၏အတွင်းတွင် လုံးဝကျရောက်နေလျှင် တန်ဖိုး 1 (အမှန်) ကိုထုတ်ပေးပါသည်။ စက်ဝိုင်း 1 ကိုသာ ပြန်ထုတ်ပေးပါသည်။</p>
+</dd>
+<dt><em>Cross (ကန့်လန့်ဖြတ်နေခြင်း)</em></dt><dd><p>အသုံးပြုထားသော ဂျီဩမေတြီ များသည် အားလုံးမဟုတ်တောင် အချို့သော အတွင်းပိုင်း ဘုံ point များရှိနေပြီး အမှန်တကယ် ကန့်လန့်ဖြတ်နေခြင်း သည် အမြင့်ဆုံး ဂျီဩမေတြီ ထက်နိမ့်သော dimension တစ်ခုတွင် ဖြစ်သောအခါ တန်ဖိုး 1 (အမှန်) ကိုထုတ်ပေးပါသည်။ ဥပမာ- polygon တစ်ခုကိုဖြတ်သော line တစ်ခုသည် line အဖြစ် ကန့်လန့်ဖြတ်ပါမည် (အမှန်)။ ကန့်လန့်ဖြတ်နေသော line နှစ်ခုသည် point အဖြစ် ဖြတ်ပါလိမ့်မည် (အမှန်)။ Polygon နှစ်ခုသည် polygon တစ်ခုအဖြစ် ဖြတ်ပါလိမ့်မည် (အမှား)။ ဓာတ်ပုံတွင် စက်ဝိုင်းများကို ပြန်ထုတ်မပေးပါ။</p>
+</dd>
+</dl>
+</section>
+<section id="id32">
+<h3>သတ်မှတ်ချက်များ (Parameters)<a class="headerlink" href="#id32" title="Link to this heading"></a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Select features from</strong> <strong>(Feature များရွေးချယ်မည့် layer)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">INPUT</span></code></p></td>
+<td><p>[vector: any]</p></td>
+<td><p>ထည့်သွင်းအသုံးပြုသော vector layer</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Where the features (geometric predicate)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">PREDICATE</span></code></p></td>
+<td><p>[enumeration] [list]</p>
+<p>Default: [0]</p>
+</td>
+<td><p>ရွေးချယ်ခြင်းပြုနိုင်စေရန်အတွက် Input feature တွင် ရှိသင့်သည့် intersect feature တစ်ခုနှင့် တည်နေရာဆိုင်ရာဆက်နွယ်မှု (spatial relation) အမျိုးအစား။ အောက်ပါတို့အနက်မှ တစ်ခု သို့မဟုတ် တစ်ခုထက်ပို၍ ရွေးချယ်နိုင်ပါသည်-</p>
+<ul class="simple">
+<li><p>0 — intersect (ထိဖြတ်သော)</p></li>
+<li><p>1 — contain (ပါဝင်သော)</p></li>
+<li><p>2 — disjoint (ချိတ်ဆက်မှုမရှိသော)</p></li>
+<li><p>3 — equal (ညီမျှသော)</p></li>
+<li><p>4 — touch (ထိစပ်နေသော)</p></li>
+<li><p>5 — overlap (ထပ်နေသော)</p></li>
+<li><p>6 — are within (အတွင်းတွင်ကျရောက်သော)</p></li>
+<li><p>7 — cross (တစ်ခုနှင့်တစ်ခုဖြတ်သွားသော)</p></li>
+</ul>
+<p>အခြေအနေတစ်ခုထက်ပို၍ ရွေးချယ်ခဲ့ပါက ၎င်းတို့အနက်မှ အနည်းဆုံးတစ်ခု (OR operation) သည် feature တစ်ခုထုတ်ယူရန်အတွက် ကိုက်ညီနေရမည်ဖြစ်သည်။</p>
+</td>
+</tr>
+<tr class="row-even"><td><p><strong>By comparing to the features from</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">INTERSECT</span></code></p></td>
+<td><p>[vector: any]</p></td>
+<td><p>ထိဖြတ်ခြင်း vector layer</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Modify current selection by</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">METHOD</span></code></p></td>
+<td><p>[enumeration]</p>
+<p>Default: 0</p>
+</td>
+<td><p>Algorithm ၏ ရွေးချယ်ခြင်းကို မည်သို့စီမံသင့်သည်ကို ရွေးချယ်ပါ။ အောက်ပါတို့မှ တစ်ခုဖြစ်ပါသည်-</p>
+<ul class="simple">
+<li><p>0 — creating new selection (ရွေးချယ်ခြင်းအသစ် ဖန်တီးခြင်း)</p></li>
+<li><p>1 — adding to current selection (လက်ရှိရွေးချယ်ခြင်းထဲသို့ ပေါင်းထည့်ခြင်း)</p></li>
+<li><p>2 — selecting within current selection (လက်ရှိရွေးချယ်ထားခြင်းထဲတွင် ရွေးချယ်ခြင်း)</p></li>
+<li><p>3 — removing from current selection (လက်ရှိရွေးချယ်ထားခြင်းမှ ဖယ်ရှားခြင်း)</p></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id33">
+<h3>ရလာဒ်များ (Outputs)<a class="headerlink" href="#id33" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Input layer</strong> <strong>(ထည့်သွင်းအသုံးပြုသော layer)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">INPUT</span></code></p></td>
+<td><p>[input နှင့်အတူတူဖြစ်ပါသည်]</p></td>
+<td><p>ရွေးချယ်ထားသည့် feature များပါဝင်သော input layer</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id34">
+<h3>Python code<a class="headerlink" href="#id34" title="Link to this heading"></a></h3>
+<p><strong>Algorithm ID</strong>: <code class="docutils literal notranslate"><span class="pre">qgis:selectbylocation</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">processing</span>
+<span class="n">processing</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;algorithm_id&quot;</span><span class="p">,</span> <span class="p">{</span><span class="n">parameter_dictionary</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>Processing Toolbox ထဲရှိ algorithm ပေါ်တွင် mouse ကိုတင်ထားလျှင် <em>algorithm id</em> ကိုပြသပေးပါသည်။ <em>parameter dictionary</em> သည် parameter နာမည်များနှင့် တန်ဖိုးများကို ပေးပါသည်။ Python console မှ algorithm များကို မည်သို့လုပ်ဆောင်ရမည် ဆိုသည့် အသေးစိတ်ကို သိရှိလိုလျှင် <a class="reference internal" href="../../processing/console.html#processing-console"><span class="std std-ref">Console တွင် processing algorithm များကို အသုံးပြုခြင်း</span></a> တွင်ကြည့်ပါ။</p>
+</section>
+</section>
+<section id="select-within-distance">
+<span id="qgisselectwithindistance"></span><h2><a class="toc-backref" href="#id52" role="doc-backlink"><span class="section-number">29.1.20.13. </span>အကွာအဝေးအတွင်း ရွေးချယ်ခြင်း (Select within distance)</a><a class="headerlink" href="#select-within-distance" title="Link to this heading"></a></h2>
+<p>Vector layer တစ်ခုထဲတွင် ရွေးချယ်မှုတစ်ခုကို ဖန်တီးပေးပါသည်။ ထပ်ဆောင်း ရည်ညွှန်း layer တစ်ခုအတွင်းရှိ feature များမှ သတ်မှတ်ထားသည့် အများဆုံးအကွာအဝေးအတွင်း
+ရှိနေသည့် အခါတိုင်းတွင် feature များကို ရွေးချယ်မည်ဖြစ်ပါသည်။</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="#qgisextractwithindistance"><span class="std std-ref">အကွာအဝေးအတွင်းထုတ်ယူခြင်း (Extract within distance)</span></a> ၊ <a class="reference internal" href="#qgisselectbylocation"><span class="std std-ref">တည်နေရာဖြင့် ရွေးချယ်ခြင်း (Select by location)</span></a></p>
+</div>
+<section id="id35">
+<h3>သတ်မှတ်ချက်များ (Parameters)<a class="headerlink" href="#id35" title="Link to this heading"></a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Select features from</strong> <strong>(Feature များရွေးချယ်မည့် layer)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">INPUT</span></code></p></td>
+<td><p>[vector: any]</p></td>
+<td><p>Feature များကို ရွေးချယ်မည့် input vector layer</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>By comparing to the features from</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">REFERENCE</span></code></p></td>
+<td><p>[vector: any]</p></td>
+<td><p>နီးစပ်မှု (closeness) အတွက်အသုံးပြုမည့် feature များပါဝင်သော Vector layer ။</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Where the features are within</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">DISTANCE</span></code></p></td>
+<td><p>[number]</p>
+<p>Default: 100</p>
+</td>
+<td><p>ရည်ညွှန်း feature များ ပတ်လည်ရှိ အများဆုံး အကွာအဝေး။ ထိုအကွာအဝေးအတွင်းတွင် ရှိသော input feature များကို ရွေးချယ်မည်ဖြစ်သည်။</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Modify current selection by</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">METHOD</span></code></p></td>
+<td><p>[enumeration]</p>
+<p>Default: 0</p>
+</td>
+<td><p>Algorithm ၏ ရွေးချယ်ခြင်းကို မည်သို့စီမံသင့်သည်ကို ရွေးချယ်ပါ။ အောက်ပါတို့မှ တစ်ခုဖြစ်ပါသည်-</p>
+<ul class="simple">
+<li><p>0 — creating new selection (ရွေးချယ်ခြင်းအသစ် ဖန်တီးခြင်း)</p></li>
+<li><p>1 — adding to current selection (လက်ရှိရွေးချယ်ခြင်းထဲသို့ ပေါင်းထည့်ခြင်း)</p></li>
+<li><p>2 — selecting within current selection (လက်ရှိရွေးချယ်ထားခြင်းထဲတွင် ရွေးချယ်ခြင်း)</p></li>
+<li><p>3 — removing from current selection (လက်ရှိရွေးချယ်ထားခြင်းမှ ဖယ်ရှားခြင်း)</p></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id36">
+<h3>ရလာဒ်များ (Outputs)<a class="headerlink" href="#id36" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Input layer</strong> <strong>(ထည့်သွင်းအသုံးပြုသော layer)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">INPUT</span></code></p></td>
+<td><p>[input နှင့်အတူတူဖြစ်ပါသည်]</p></td>
+<td><p>ရွေးချယ်ထားသည့် feature များပါဝင်သော input layer</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id37">
+<h3>Python code<a class="headerlink" href="#id37" title="Link to this heading"></a></h3>
+<p><strong>Algorithm ID</strong>: <code class="docutils literal notranslate"><span class="pre">native:selectwithindistance</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">processing</span>
+<span class="n">processing</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;algorithm_id&quot;</span><span class="p">,</span> <span class="p">{</span><span class="n">parameter_dictionary</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>Processing Toolbox ထဲရှိ algorithm ပေါ်တွင် mouse ကိုတင်ထားလျှင် <em>algorithm id</em> ကိုပြသပေးပါသည်။ <em>parameter dictionary</em> သည် parameter နာမည်များနှင့် တန်ဖိုးများကို ပေးပါသည်။ Python console မှ algorithm များကို မည်သို့လုပ်ဆောင်ရမည် ဆိုသည့် အသေးစိတ်ကို သိရှိလိုလျှင် <a class="reference internal" href="../../processing/console.html#processing-console"><span class="std std-ref">Console တွင် processing algorithm များကို အသုံးပြုခြင်း</span></a> တွင်ကြည့်ပါ။</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="vectoroverlay.html" class="btn btn-neutral float-left" title="29.1.19. Vector အလွှာထပ်တွက်ချက်ခြင်း (Vector overlay)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="vectortable.html" class="btn btn-neutral float-right" title="29.1.21. Vector ဇယား (Vector table)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2002-now, QGIS project.
+      <span class="lastupdated">Last updated on 2024 May 13, 16:23 +0700.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- Transifex follows a particular logic to build target pages:
+Expected French translation link for https://docs.qgis.org/3.28/en/docs/user_manual/print_composer/overview_composer.html
+would return https://app.transifex.com/qgis/qgis-documentation/translate/#fr/aa6d8bc653526d38b295ca94bf8eee5e
+with the md5 value of "github#qgis/QGIS-Documentation#release_3.28#locale/en/LC_MESSAGES/docs/user_manual/print_composer/overview_composer.po"-->
+<!--Make sure that mismatching language codes between Transifex and Sphinx are converted-->
+
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-info-circle"> QGIS Documentation </span>
+      v: 3.28
+      <span class="fa fa-caret-down"></span>
+    </span>
+
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Languages</dt>
+        
+          <dd><a href="https://docs.qgis.org/3.28/en/docs/user_manual/processing_algs/qgis/vectorselection.html">en</a></dd>
+        
+      </dl>
+
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/user_manual/processing_algs/qgis/vectorselection.html">testing</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/latest/en/docs/user_manual/processing_algs/qgis/vectorselection.html">latest</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.28/en/docs/user_manual/processing_algs/qgis/vectorselection.html">3.28</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.22/en/docs/user_manual/processing_algs/qgis/vectorselection.html">3.22</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.16/en/docs/user_manual/processing_algs/qgis/vectorselection.html">3.16</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.10/en/docs/user_manual/processing_algs/qgis/vectorselection.html">3.10</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.4/en/docs/user_manual/processing_algs/qgis/vectorselection.html">3.4</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/2.18/en/docs/user_manual/processing_algs/qgis/vectorselection.html">2.18</a></dd>
+        
+      </dl>
+
+       
+       <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="https://docs.qgis.org/3.28/pdf">PDF</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.28/zip">HTML</a></dd>
+        
+      </dl>
+      
+
+      
+       
+      <dl>
+        <dt>Contribute to Docs</dt>
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/edit/master/docs/user_manual/processing_algs/qgis/vectorselection.rst" target="_blank" rel="noopener noreferrer">Edit on GitHub</a>
+          </dd>
+          
+          
+          <dd>
+            <a href="https://app.transifex.com/qgis/qgis-documentation/translate/#en/a379b13dff65ba4938966260b4142d63" target="_blank" rel="noopener noreferrer">Translate Page</a>
+          </dd>
+          
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/issues" target="_blank" rel="noopener noreferrer">Report Issue</a>
+          </dd>
+      </dl>
+      
+
+      <dl>
+        <dt>On QGIS Project</dt>
+          <dd>
+            <a href="https://qgis.org/en" target="_blank" rel="noopener noreferrer">Home</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/api/3.28" target="_blank" rel="noopener noreferrer">C++ API</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/pyqgis/3.28" target="_blank" rel="noopener noreferrer">PyQGIS API</a>
+          </dd>
+          <dd>
+            <a href="https://github.com/qgis/QGIS/tree/release-3_28" target="_blank" rel="noopener noreferrer">Source</a>
+          </dd>
+      </dl>
+
+    </div>
+  </div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

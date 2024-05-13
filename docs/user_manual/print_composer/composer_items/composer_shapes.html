@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>21.2.11. အရာဝတ္ထုများ (The Shape Items) &mdash; QGIS Documentation  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/qgis_docs.css?v=3fdf4c33" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
+
+  
+    <link rel="shortcut icon" href="../../../../_static/qgis_logo.ico"/>
+    <link rel="canonical" href="https://docs.qgis.org/latest/en/docs/user_manual/print_composer/composer_items/composer_shapes.html"/>
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../../../_static/copybutton.js?v=f281be69"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../../../_static/togglebutton.js?v=4a39c7ea"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="21.3. ရလာဒ်တစ်ခု ဖန်တီးခြင်း (Creating an Output)" href="../create_output.html" />
+    <link rel="prev" title="21.2.10. HTML အကွက် (The HTML Frame Item)" href="composer_html_frame.html" />
+  <meta name="description" content="QGIS 3.28 documentation: 21.2.11. အရာဝတ္ထုများ (The Shape Items)">
+</head>
+
+<body class="wy-body-for-nav">
+
+  <nav class="release_status_topbar">
+  </nav>
+
+   
+
+ 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+   
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            QGIS Documentation
+              <img src="../../../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                3.28
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+   <a href= "../../../../genindex.html">Index</a>
+ 
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">အသုံးပြုသူများအတွက်</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../preamble/preamble.html">1. စကားချီး (Preamble)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preamble/foreword.html">2. အမှာစာ (Foreword)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preamble/conventions.html">3. အသုံးအနှုန်းများ (Conventions)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preamble/features.html">4. အသွင်အပြင်များ (Features)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/getting_started.html">5. စတင်အသုံးပြုခြင်း (Getting Started)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/project_files.html">6. Project Files များနှင့် အလုပ်လုပ်ခြင်း (Working with Project Files)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/qgis_gui.html">7. QGIS ၏အစိတ်အပိုင်းများ (QGIS GUI)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/browser.html">8. ဒေတာများရှာဖွေကြည့်ရှုနိုင်သည့်နေရာ (The Browser panel)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/qgis_configuration.html">9. QGIS ပြင်ဆင်သတ်မှတ်ခြင်း/အခင်းအကျင်း (QGIS Configuration)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../working_with_projections/working_with_projections.html">10. မြေပုံအရိပ်ချစနစ်များ နှင့် အလုပ်လုပ်ခြင်း (Working with Projections)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../map_views/index.html">11. မြေပုံများအား ပုံဖော်ကြည့်ရှုခြင်း (Visualizing Maps)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/general_tools.html">12. အထွေ‌ထွေ‌သုံးကိရိယာများ (General Tools)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../expressions/index.html">13. Expression များဖြင့် အဆင့်မြှင့်တင်ဆောင်ရွက်ခြင်း (Level up with Expressions)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../style_library/index.html">14. The Style Library (Style နှင့်ပတ်သက်သည်များ ထားရှိရာနေရာ)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../managing_data_source/index.html">15. ဒေတာအရင်းအမြစ်များအား စီမံခန့်ခွဲခြင်း (Managing Data Source)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../working_with_vector/index.html">16. Vector data များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../working_with_raster/index.html">17. Raster Data နှင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../working_with_mesh/mesh_properties.html">18. Working with Mesh Data (Mesh Data များနှင့် အလုပ်လုပ်ခြင်း)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../working_with_vector_tiles/vector_tiles_properties.html">19. Vector Tiles များနှင့်အလုပ်လုပ်ခြင်း (Working with Vector Tiles)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../working_with_point_clouds/point_clouds.html">20. Point Cloud များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">21. မြေပုံအချောသပ်ပြင်ဆင်ခြင်း (Laying out the maps)</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../overview_composer.html">21.1. ပုံထုတ်အပြင်အဆင်ဆိုင်ရာ ခြုံငုံသုံးသပ်ချက် (Overview of the Print Layout)</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">21.2. အချောထုတ်မြေပုံ၏အစိတ်အပိုင်းများ (Layout items )</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="composer_items_options.html">21.2.1. Layout Item တိုင်းတွင်ရှိသည့်ရွေးချယ်စရာများ (Layout Items Common Options)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="composer_map.html">21.2.2. မြေပုံထည့်ရန် (The Map Item)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="composer_map3d.html">21.2.3. ရုပ်ကြွမြေပုံ (The 3D Map Item)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="composer_label.html">21.2.4. အညွှန်းစာ (The Label Item)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="composer_legend.html">21.2.5. မြေပုံရည်ညွှန်းချက် Item (The Legend Item)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="composer_scale_bar.html">21.2.6. စကေးဘား (The Scale Bar Item)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="composer_tables.html">21.2.7. ဇယားများ (The Table Items)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="composer_image.html">21.2.8. အမှတ်အသား၊ ရုပ်ပုံနှင့် မြောက်အရပ်ပြမြှား များ (The Marker,  Picture and North Arrow Items)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="layout_elevation_profile.html">21.2.9. မြေပြင်ဖြတ်ပိုင်းပုံပြ Item (The Elevation Profile Item)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="composer_html_frame.html">21.2.10. HTML အကွက် (The HTML Frame Item)</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">21.2.11. အရာဝတ္ထုများ (The Shape Items)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#the-regular-shape-item">21.2.11.1. ပုံသဏ္ဍာန်မှန် အရာများ (The Regular Shape Item)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#the-node-based-shape-items">21.2.11.2. အမှတ်များကိုအခြေခံသည့် ပုံသဏ္ဍာန်များ (The Node-Based Shape Items)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../create_output.html">21.3. ရလာဒ်တစ်ခု ဖန်တီးခြင်း (Creating an Output)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../create_reports.html">21.4. အစီရင်ခံစာတစ်ခုဖန်တီးခြင်း (Creating a Report)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../working_with_ogc/ogc_client_support.html">22. OGC / ISO protocol များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../working_with_gps/index.html">23. GPS Data များနှင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../auth_system/auth_overview.html">24. အထောက်အထားစီစစ်ခြင်းအကြောင်းအကျဉ်း (Authentication System Overview)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../auth_system/auth_workflows.html">25. အသုံးပြုသူ အထောက်အထားစစ်ဆေးခြင်း လုပ်ငန်းအဆင့်များ (User Authentication Workflows)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../auth_system/auth_considerations.html">26. လုံခြုံရေးအတွက်စဉ်းစားရန်အချက်များ (Security Considerations)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../grass_integration/grass_integration.html">27. GRASS GIS နှင့်ပေါင်းစပ်အသုံးပြုခြင်း (GRASS GIS Integration)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../processing/index.html">28. QGIS processing framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../processing_algs/index.html">29. Processing ဆိုင်ရာ ထောက်ပံ့ပေးသူများနှင့် Algorithm များ (Processing providers and algorithms)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../plugins/plugins.html">30. QGIS Plugin များ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../plugins/core_plugins/index.html">31. QGIS ပင်မ Plugin များကို အသုံးပြုခြင်း (Using QGIS Core Plugins)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../plugins/python_console.html">32. QGIS တွင် Python code များရေးသားရန်နေရာ (QGIS Python console)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preamble/help_and_support.html">33. အကူအညီနှင့်အထောက်အပံ့ (Help and Support)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preamble/contributors.html">34. ပါဝင်အားဖြည့်သူများ (Contributors)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendices/index.html">35. နောက်ဆက်တွဲများ (Appendices)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../literature_web/literature_and_web_references.html">36. စာတမ်းများနှင့် Website ကိုးကားချက်များ (Literature and Web References)</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">QGIS Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">&lt;no title&gt;</a></li>
+          <li class="breadcrumb-item"><a href="../index.html"><span class="section-number">21. </span>မြေပုံအချောသပ်ပြင်ဆင်ခြင်း (Laying out the maps)</a></li>
+          <li class="breadcrumb-item"><a href="index.html"><span class="section-number">21.2. </span>အချောထုတ်မြေပုံ၏အစိတ်အပိုင်းများ (Layout items )</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">21.2.11. </span>အရာဝတ္ထုများ (The Shape Items)</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/qgis/QGIS-Documentation/blob/master/docs/user_manual/print_composer/composer_items/composer_shapes.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="composer_html_frame.html" class="btn btn-neutral float-left" title="21.2.10. HTML အကွက် (The HTML Frame Item)" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../create_output.html" class="btn btn-neutral float-right" title="21.3. ရလာဒ်တစ်ခု ဖန်တီးခြင်း (Creating an Output)" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <blockquote>
+<div></div></blockquote>
+<section id="the-shape-items">
+<h1><span class="section-number">21.2.11. </span>အရာဝတ္ထုများ (The Shape Items)<a class="headerlink" href="#the-shape-items" title="Link to this heading"></a></h1>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#the-regular-shape-item" id="id4">ပုံသဏ္ဍာန်မှန် အရာများ (The Regular Shape Item)</a></p></li>
+<li><p><a class="reference internal" href="#the-node-based-shape-items" id="id5">အမှတ်များကိုအခြေခံသည့် ပုံသဏ္ဍာန်များ (The Node-Based Shape Items)</a></p>
+<ul>
+<li><p><a class="reference internal" href="#the-arrow-item" id="id6">မြှား (The Arrow Item)</a></p></li>
+<li><p><a class="reference internal" href="#editing-a-node-item-geometry" id="id7">အဆစ် ဂျီဩမေတြီတစ်ခုကို တည်းဖြတ်ပြင်ဆင်ခြင်း (Editing a node item geometry)</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+<p>QGIS တွင် print layout (ပုံထုတ်အပြင်အဆင်) ပေါ်၌ ပုံမှန် သို့မဟုတ် ပိုမိုရှုပ်ထွေးသော ပုံသဏ္ဍာန်များရေးဆွဲရန် ကိရိယာများကို ပံ့ပိုးပေးထားပါသည်။</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>အခြား print layout item များနှင့်မတူသည့်အချက်မှာ ပုံသဏ္ဍာန်ဘောင်၏ စတိုင် သို့မဟုတ် နောက်ခံအရောင်ကို ပြောင်းလဲ၍မရခြင်းဖြစ်သည် (Default အားဖြင့် transparent ဟုသတ်မှတ်ထားသည်)။</p>
+</div>
+<section id="the-regular-shape-item">
+<span id="layout-basic-shape-item"></span><span id="index-0"></span><h2><a class="toc-backref" href="#id4" role="doc-backlink"><span class="section-number">21.2.11.1. </span>ပုံသဏ္ဍာန်မှန် အရာများ (The Regular Shape Item)</a><a class="headerlink" href="#the-regular-shape-item" title="Link to this heading"></a></h2>
+<p><span class="guilabel">Shape</span> item သည် တြိဂံ၊ ထောင့်မှန်စတုဂံနှင့် ဘဲဥပုံသဏ္ဍာန်များ…ကဲ့သို့သော ပုံမှန် ပုံသဏ္ဍာန်များဖြင့် မြေပုံအားအလှဆင်နိုင်မည့် tool တစ်ခုဖြစ်သည်။ သီးသန့် tool များဖြစ်သော <a class="reference internal" href="../../../../_images/mActionAddBasicRectangle.png"><img alt="addBasicRectangle" src="../../../../_images/mActionAddBasicRectangle.png" style="width: 1.5em;" /></a> <sup>Add Rectangle</sup> ၊ <a class="reference internal" href="../../../../_images/mActionAddBasicCircle.png"><img alt="addBasicCircle" src="../../../../_images/mActionAddBasicCircle.png" style="width: 1.5em;" /></a> <sup>Add Ellipse</sup> နှင့် <a class="reference internal" href="../../../../_images/mActionAddBasicTriangle.png"><img alt="addBasicTriangle" src="../../../../_images/mActionAddBasicTriangle.png" style="width: 1.5em;" /></a> <sup>Add Triangle</sup> တို့ကိုရယူအသုံးပြုနိုင်သည့် <a class="reference internal" href="../../../../_images/mActionAddBasicShape.png"><img alt="addBasicShape" src="../../../../_images/mActionAddBasicShape.png" style="width: 1.5em;" /></a> <sup>Add Shape</sup> tool မှတစ်ဆင့် ပုံမှန် ပုံသဏ္ဍာန်တစ်ခုကိုထည့်သွင်းနိုင်သည်။ သင့်တော်သော tool ကိုရွေးချယ်ပြီးသည်နှင့် <a class="reference internal" href="composer_items_options.html#create-layout-item"><span class="std std-ref">item များဖန်တီးခြင်းဆိုင်ရာ ညွှန်ကြားချက်များ</span></a> ကိုလိုက်နာ၍ item ကိုရေးဆွဲနိုင်ပြီဖြစ်သည်။ အခြား layout item များကဲ့သို့ပင် ပုံမှန် ပုံသဏ္ဍာန်တစ်ခုအား <a class="reference internal" href="composer_items_options.html#interact-layout-item"><span class="std std-ref">Layout item များနှင့် အပြန်အလှန်လုပ်ဆောင်ခြင်း (Interacting with layout items)</span></a> တွင်ပြသထားသည့်နည်းလမ်းအတိုင်း ကိုင်တွယ်နိုင်မည်ဖြစ်သည်။</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>အခြေခံပုံသဏ္ဍာန်တစ်ခုကို click နှိပ်၍ drag ဆွဲခြင်းနည်းလမ်းအသုံးပြု၍ ဆွဲသည့်အခါ <kbd class="kbd docutils literal notranslate">Shift</kbd> ခလုတ်ကိုဖိထားခြင်းဖြင့် ပြည့်စုံသေသပ်သောစတုရန်း၊ စက်ဝိုင်း သို့မဟုတ် တြိဂံတစ်ခုဖန်တီးနိုင်မည်ဖြစ်သည်။</p>
+</div>
+<p>Default ပါဝင်သည့် ပုံသဏ္ဍာန် ကို ၎င်း၏ <span class="guilabel">Item Properties</span> panel အားအသုံးပြု၍ စိတ်ကြိုက်ပြင်ဆင်နိုင်သည်။ <a class="reference internal" href="composer_items_options.html#item-common-properties"><span class="std std-ref">item များ၏ဘုံဂုဏ်သတ္တိများ</span></a> အပြင် ဤ feature တွင်အောက်ပါလုပ်ဆောင်ချက်များပါရှိသည် (<a class="reference internal" href="#figure-layout-basic-shape"><span class="std std-numref">Fig. 21.59</span></a> ကိုကြည့်ပါ)-</p>
+<figure class="align-center" id="id1">
+<span id="figure-layout-basic-shape"></span><img alt="../../../../_images/shape_properties.png" src="../../../../_images/shape_properties.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 21.59 </span><span class="caption-text">ပုံသဏ္ဍာန် Item ဂုဏ်သတ္တိများ Panel</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>ပေးထားသော frame အတွင်းတွင် <span class="guilabel">Main properties</span> အုပ်စုဖြင့် ပုံသဏ္ဍာန်၏အမျိုးအစား  (<strong>ဘဲဥပုံသဏ္ဍာန်</strong> ၊ <strong>ထောင့်မှန်စတုဂံ</strong> သို့မဟုတ် <strong>တြိဂံ</strong>) ကိုကြည့်ရှုနိုင်၍ ပြောင်းလဲနိုင်သည်။</p>
+<p>အဆင့်မြင့် <a class="reference internal" href="../../style_library/symbol_selector.html#symbol-selector"><span class="std std-ref">သင်္ကေတ</span></a> နှင့် <a class="reference internal" href="../../introduction/general_tools.html#color-selector"><span class="std std-ref">အရောင်</span></a> ရွေးချယ်ပေးသည့်အရာ widget…တို့အားအသုံးပြု၍ ပုံသဏ္ဍာန်၏ style အားသတ်မှတ်နိုင်သည်</p>
+<p>ထောင့်မှန်စတုဂံပုံသဏ္ဍာန်အတွက် ထောင့်စွန်းများကိုလုံးရန် <span class="guilabel">Corner radius</span> ၏တန်ဖိုးကို အမျိုးမျိုးသော ယူနစ်များဖြင့် သတ်မှတ်နိုင်သည်။</p>
+</section>
+<section id="the-node-based-shape-items">
+<span id="layout-node-based-shape-item"></span><span id="index-1"></span><h2><a class="toc-backref" href="#id5" role="doc-backlink"><span class="section-number">21.2.11.2. </span>အမှတ်များကိုအခြေခံသည့် ပုံသဏ္ဍာန်များ (The Node-Based Shape Items)</a><a class="headerlink" href="#the-node-based-shape-items" title="Link to this heading"></a></h2>
+<p><a class="reference internal" href="../../../../_images/mActionAddBasicShape.png"><img alt="addBasicShape" src="../../../../_images/mActionAddBasicShape.png" style="width: 1.5em;" /></a> <span class="guilabel">Add Shape</span> tool ဖြင့် ရိုးရှင်း၍ ကြိုတင်သတ်မှတ်ထားသောသမားရိုးကျ ဂျီဩမေတြီ ပုံသဏ္ဍာန်များ ဖန်တီးနိုင်မည်ဖြစ်ပြီး <a class="reference internal" href="../../../../_images/mActionAddNodesShape.png"><img alt="addNodesShape" src="../../../../_images/mActionAddNodesShape.png" style="width: 1.5em;" /></a> <span class="guilabel">Add Node Item</span> tool ဖြင့် ပို၍အဆင့်မြင့်သော ဂျီဩမေတြီ item များကို စိတ်ကြိုက်ဖန်တီးနိုင်မည်ဖြစ်သည်။</p>
+<p>Polyline များ သို့မဟုတ် polygon များအတွက် အလိုရှိသလောက် မျဉ်းများ သို့မဟုတ် အနားများကို ရေးဆွဲနိုင်ပြီး <a class="reference internal" href="../../../../_images/mActionEditNodesShape.png"><img alt="editNodesShape" src="../../../../_images/mActionEditNodesShape.png" style="width: 1.5em;" /></a> <span class="guilabel">Edit Nodes Item</span> အားအသုံးပြု၍ item များ၏ vertex (မျဉ်းအဆစ်) များကို မည်သည့်အရာကိုမျှမမှီခိုဘဲ တိုက်ရိုက်ကိုင်တွယ်နိုင်မည်ဖြစ်သည်။ <a class="reference internal" href="composer_items_options.html#interact-layout-item"><span class="std std-ref">Layout item များနှင့် အပြန်အလှန်လုပ်ဆောင်ခြင်း (Interacting with layout items)</span></a> တွင်ဖော်ပြထားသည့်အတိုင်း ပုံသဏ္ဍာန် အား ကိုင်တွယ်နိုင်မည်ဖြစ်သည်။</p>
+<p>အဆစ်များကိုအခြေခံသည့် ပုံသဏ္ဍာန်တစ်ခုကိုထည့်သွင်းရန်-</p>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="../../../../_images/mActionAddNodesShape.png"><img alt="addNodesShape" src="../../../../_images/mActionAddNodesShape.png" style="width: 1.5em;" /></a> <sup>Add Node Item</sup> သင်္ကေတပေါ်တွင် Click နှိပ်ပါ။</p></li>
+<li><p><a class="reference internal" href="../../../../_images/mActionAddPolygon.png"><img alt="addPolygon" src="../../../../_images/mActionAddPolygon.png" style="width: 1.5em;" /></a> <sup>Add Polygon</sup> tool ကိုဖြစ်စေ <a class="reference internal" href="../../../../_images/mActionAddPolyline.png"><img alt="addPolyline" src="../../../../_images/mActionAddPolyline.png" style="width: 1.5em;" /></a> <sup>Add Polyline</sup> tool ကိုဖြစ်စေရွေးချယ်ပါ။</p></li>
+<li><p>Item တွင် အဆစ်များထည့်ရန်အတွက် left click များဆက်တိုက်နှိပ်သွားပါ။ Segment (မျဉ်းပိုင်း) တစ်ခုဆွဲနေချိန်တွင် <kbd class="kbd docutils literal notranslate">Shift</kbd> ခလုတ်ကို ဖိထားပါက 45° ၏ ဆတိုးဖြစ်သော ဦးတည်ရာများအတိုင်း ကန့်သတ်ရွေ့လျားမည်ဖြစ်သည်။</p></li>
+<li><p>လုပ်ဆောင်ပြီးသောအခါ right-click နှိပ်၍ ပုံသဏ္ဍာန်ကို အပြီးသတ်ပါ။</p></li>
+</ol>
+<p><span class="guilabel">Item Properties</span> panel ထဲတွင် ပုံသဏ္ဍာန်၏အသွင်အပြင်အားစိတ်ကြိုက်ပြင်ဆင်နိုင်သည်။</p>
+<figure class="align-center" id="id2">
+<span id="figure-layout-nodes-shape"></span><img alt="../../../../_images/shape_nodes_properties.png" src="../../../../_images/shape_nodes_properties.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 21.60 </span><span class="caption-text">Polygon အဆစ်ပုံသဏ္ဍာန် Item ဂုဏ်သတ္တိများ Panel</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><span class="guilabel">Main properties</span> ထဲတွင် အဆင့်မြင့် <a class="reference internal" href="../../style_library/symbol_selector.html#symbol-selector"><span class="std std-ref">သင်္ကေတ</span></a> နှင့် <a class="reference internal" href="../../introduction/general_tools.html#color-selector"><span class="std std-ref">အရောင်</span></a> ရွေးချယ်ပေးသည့်အရာ widget… အားအသုံးပြု၍ ပုံသဏ္ဍာန်၏ style အားသတ်မှတ်နိုင်သည်။</p>
+<p>Polyline အဆစ် item များအတွက် <span class="guilabel">Line markers</span> (လိုင်းအမှတ်အသား) များအားစိတ်ကြိုက်ပြင်ဆင်နိုင်သည်၊ ဆိုလိုသည်မှာ-</p>
+<ul class="simple">
+<li><p>ရွေးချယ်စရာများဖြင့် အစ နှင့်/သို့မဟုတ် အဆုံး အမှတ်အသားများထည့်သွင်းရန်-</p>
+<ul>
+<li><p><span class="guilabel">None</span> - ရိုးရှင်းသော polyline တစ်ခုကိုဆွဲပေးသည်။</p></li>
+<li><p><span class="guilabel">Arrow</span> - စိတ်ကြိုက်ပြင်ဆင်နိုင်မည့် ပုံမှန် တြိဂံပုံ မြှားခေါင်းတစ်ခုကိုထည့်သွင်းပေးသည်။</p></li>
+<li><p><span class="guilabel">SVG</span> အမှတ်အသား - <code class="file docutils literal notranslate"><span class="pre">SVG</span></code> file တစ်ခုအား item ၏မြှားခေါင်းတစ်ခုအဖြစ်အသုံးပြုပေးသည်။</p></li>
+</ul>
+</li>
+<li><p>မြှားခေါင်းကိုစိတ်ကြိုက်ပြင်ဆင်ရန်-</p>
+<ul>
+<li><p><span class="guilabel">Arrow stroke color</span> - မြှားခေါင်း၏အပြင်အနားသတ်အ‌ရောင်ကိုသတ်မှတ်ပေးသည်။</p></li>
+<li><p><span class="guilabel">Arrow fill color</span> - မြှားခေါင်း၏အတွင်းဖြည့်ထားသည့်အရောင်ကိုသတ်မှတ်ပေးသည်။</p></li>
+<li><p><span class="guilabel">Arrow stroke width</span> - မြှားခေါင်း၏အပြင်အနားသတ်အထူကိုသတ်မှတ်ပေးသည်။</p></li>
+<li><p><span class="guilabel">Arrow head width</span> - မြှားခေါင်း၏အရွယ်အစားကိုသတ်မှတ်ပေးသည်။</p></li>
+</ul>
+</li>
+</ul>
+<p>SVG ပုံများသည် မျဉ်းများ၏ ဦးတည်ရာအတိုင်းလိုက်၍ အလိုအလျောက် လှည့်နိုင်သည်။ QGIS တွင်ကြိုတင်သတ်မှတ်ထားသော SVG ပုံများ၏ Stroke (အပြင်အနားသတ်) အရောင် နှင့် Fill (အဖြည့်) အရောင်များကို သက်ဆိုင်ရာရွေးချယ်စရာများကိုအသုံးပြု၍ ပြောင်းလဲနိုင်သည်။ SVG ကို စိတ်ကြိုက်ပြင်ဆင်ရာတွင် ဤ <a class="reference internal" href="composer_image.html#parameterized-svg"><span class="std std-ref">ညွှန်ကြားချက်</span></a> ကိုလိုက်နာရန်လိုအပ်နိုင်သည်။</p>
+<figure class="align-center" id="id3">
+<span id="figure-layout-arrow"></span><img alt="../../../../_images/arrow_properties.png" src="../../../../_images/arrow_properties.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 21.61 </span><span class="caption-text">Polyline အဆစ်ပုံသဏ္ဍာန် Item ဂုဏ်သတ္တိများ Panel</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<section id="the-arrow-item">
+<span id="layout-arrow-item"></span><span id="index-2"></span><h3><a class="toc-backref" href="#id6" role="doc-backlink">မြှား (The Arrow Item)</a><a class="headerlink" href="#the-arrow-item" title="Link to this heading"></a></h3>
+<p><a class="reference internal" href="../../../../_images/mActionAddArrow.png"><img alt="addArrow" src="../../../../_images/mActionAddArrow.png" style="width: 1.5em;" /></a> <sup>Add Arrow</sup> tool သည် default အားဖြင့် မြှားပါဝင်သော polyline တစ်ခုကိုဖန်တီးရန် ဖြတ်လမ်းတစ်ခုဖြစ်သောကြောင့် ၎င်း၏ ဂုဏ်သတ္တိများနှင့် အလုပ်လုပ်ပုံမှာ <a class="reference internal" href="#layout-node-based-shape-item"><span class="std std-ref">polyline node item</span></a> နှင့်တူညီသည်။</p>
+<p>အမှန်တွင် ရိုးရှင်းသော မြှားတစ်ခုကို ထည့်ရန် မြှား item ကိုအသုံးပြုနိုင်သည်၊ ဥပမာအားဖြင့် မတူညီသော print layout item နှစ်ခုကြားရှိ ဆက်နွယ်မှုကိုညွှန်ပြလိုသည့်အခါဖြစ်သည်။ သို့သော်လည်း မြောက်အရပ်ပြမြှားတစ်ခုကို ဖန်တီးရာတွင် မြေပုံ item တစ်ခုနှင့် sync လုပ်နိုင်ပြီး ၎င်းမြေပုံ item အတိုင်း အလိုအလျောက်လှည့်ပေးနိုင်သော <code class="file docutils literal notranslate"><span class="pre">.SVG</span></code> format ဖြင့် မြောက်အရပ်ပြမြှားသို့ <a class="reference internal" href="composer_image.html#layout-picture-item"><span class="std std-ref">image item</span></a> သည်ဝင်ရောက်ခွင့်ပေးသောကြောင့် ၎င်း image item အား ဦးစွာ စဉ်းစားသင့်ပါသည်။</p>
+</section>
+<section id="editing-a-node-item-geometry">
+<h3><a class="toc-backref" href="#id7" role="doc-backlink">အဆစ် ဂျီဩမေတြီတစ်ခုကို တည်းဖြတ်ပြင်ဆင်ခြင်း (Editing a node item geometry)</a><a class="headerlink" href="#editing-a-node-item-geometry" title="Link to this heading"></a></h3>
+<p><a class="reference internal" href="../../../../_images/mActionEditNodesShape.png"><img alt="editNodesShape" src="../../../../_images/mActionEditNodesShape.png" style="width: 1.5em;" /></a> <sup>Edit Nodes Item</sup> ဖြင့် အဆစ်အခြေခံသည့်ပုံသဏ္ဍာန်များကို တည်းဖြတ်ရန် သီးသန့် tool တစ်ခုကို ပံ့ပိုးပေးထားသည်။ ဤ mode အတွင်းတွင် အဆစ်တစ်ခုပေါ်တွင် click နှိပ်ခြင်းဖြင့် ၎င်းကိုရွေးချယ်နိုင်သည် (ရွေးချယ်ထားသော အဆစ်ပေါ်တွင် အမှတ်အသားတစ်ခုအားပြသပေးသည်)။ ရွေးချယ်ထားသော အဆစ်တစ်ခုအား drag ဆွဲခြင်းဖြင့်ဖြစ်စေ ကီးဘုဒ်မှ မြှားခလုတ်များ အသုံးပြုခြင်းဖြင့်ဖြစ်စေ ရွှေ့နိုင်သည်။ ထို့အပြင် ဤ mode တွင် ရှိပြီးသားပုံသဏ္ဍာန်တစ်ခုသို့ အဆစ်များထည့်သွင်းနိုင်သည်- မျဉ်းပိုင်းတစ်ခုပေါ်တွင် click နှစ်ချက်နှိပ်ပါက click နှိပ်သောနေရာတွင် အဆစ်တစ်ခုထည့်ပြီးသားဖြစ်သွားမည်။ နောက်ဆုံးတွင် <kbd class="kbd docutils literal notranslate">Del</kbd> ခလုတ်အားနှိပ်၍ လက်ရှိရွေးချယ်ထားသောအဆစ်အားဖယ်ရှားနိုင်မည်ဖြစ်သည်။</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="composer_html_frame.html" class="btn btn-neutral float-left" title="21.2.10. HTML အကွက် (The HTML Frame Item)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../create_output.html" class="btn btn-neutral float-right" title="21.3. ရလာဒ်တစ်ခု ဖန်တီးခြင်း (Creating an Output)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2002-now, QGIS project.
+      <span class="lastupdated">Last updated on 2024 May 13, 16:23 +0700.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- Transifex follows a particular logic to build target pages:
+Expected French translation link for https://docs.qgis.org/3.28/en/docs/user_manual/print_composer/overview_composer.html
+would return https://app.transifex.com/qgis/qgis-documentation/translate/#fr/aa6d8bc653526d38b295ca94bf8eee5e
+with the md5 value of "github#qgis/QGIS-Documentation#release_3.28#locale/en/LC_MESSAGES/docs/user_manual/print_composer/overview_composer.po"-->
+<!--Make sure that mismatching language codes between Transifex and Sphinx are converted-->
+
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-info-circle"> QGIS Documentation </span>
+      v: 3.28
+      <span class="fa fa-caret-down"></span>
+    </span>
+
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Languages</dt>
+        
+          <dd><a href="https://docs.qgis.org/3.28/en/docs/user_manual/print_composer/composer_items/composer_shapes.html">en</a></dd>
+        
+      </dl>
+
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/user_manual/print_composer/composer_items/composer_shapes.html">testing</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/latest/en/docs/user_manual/print_composer/composer_items/composer_shapes.html">latest</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.28/en/docs/user_manual/print_composer/composer_items/composer_shapes.html">3.28</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.22/en/docs/user_manual/print_composer/composer_items/composer_shapes.html">3.22</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.16/en/docs/user_manual/print_composer/composer_items/composer_shapes.html">3.16</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.10/en/docs/user_manual/print_composer/composer_items/composer_shapes.html">3.10</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.4/en/docs/user_manual/print_composer/composer_items/composer_shapes.html">3.4</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/2.18/en/docs/user_manual/print_composer/composer_items/composer_shapes.html">2.18</a></dd>
+        
+      </dl>
+
+       
+       <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="https://docs.qgis.org/3.28/pdf">PDF</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.28/zip">HTML</a></dd>
+        
+      </dl>
+      
+
+      
+       
+      <dl>
+        <dt>Contribute to Docs</dt>
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/edit/master/docs/user_manual/print_composer/composer_items/composer_shapes.rst" target="_blank" rel="noopener noreferrer">Edit on GitHub</a>
+          </dd>
+          
+          
+          <dd>
+            <a href="https://app.transifex.com/qgis/qgis-documentation/translate/#en/5120a1c6bf1f0585c3e3e23493f0d7ab" target="_blank" rel="noopener noreferrer">Translate Page</a>
+          </dd>
+          
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/issues" target="_blank" rel="noopener noreferrer">Report Issue</a>
+          </dd>
+      </dl>
+      
+
+      <dl>
+        <dt>On QGIS Project</dt>
+          <dd>
+            <a href="https://qgis.org/en" target="_blank" rel="noopener noreferrer">Home</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/api/3.28" target="_blank" rel="noopener noreferrer">C++ API</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/pyqgis/3.28" target="_blank" rel="noopener noreferrer">PyQGIS API</a>
+          </dd>
+          <dd>
+            <a href="https://github.com/qgis/QGIS/tree/release-3_28" target="_blank" rel="noopener noreferrer">Source</a>
+          </dd>
+      </dl>
+
+    </div>
+  </div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

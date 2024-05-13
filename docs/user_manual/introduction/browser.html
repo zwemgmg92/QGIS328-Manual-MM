@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>8. ဒေတာများရှာဖွေကြည့်ရှုနိုင်သည့်နေရာ (The Browser panel) &mdash; QGIS Documentation  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/qgis_docs.css?v=3fdf4c33" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/qgis_logo.ico"/>
+    <link rel="canonical" href="https://docs.qgis.org/latest/en/docs/user_manual/introduction/browser.html"/>
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../../_static/copybutton.js?v=f281be69"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="9. QGIS ပြင်ဆင်သတ်မှတ်ခြင်း/အခင်းအကျင်း (QGIS Configuration)" href="qgis_configuration.html" />
+    <link rel="prev" title="7. QGIS ၏အစိတ်အပိုင်းများ (QGIS GUI)" href="qgis_gui.html" />
+  <meta name="description" content="QGIS 3.28 documentation: 8. ဒေတာများရှာဖွေကြည့်ရှုနိုင်သည့်နေရာ (The Browser panel)">
+</head>
+
+<body class="wy-body-for-nav">
+
+  <nav class="release_status_topbar">
+  </nav>
+
+   
+
+ 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+   
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            QGIS Documentation
+              <img src="../../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                3.28
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+   <a href= "../../../genindex.html">Index</a>
+ 
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">အသုံးပြုသူများအတွက်</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../preamble/preamble.html">1. စကားချီး (Preamble)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/foreword.html">2. အမှာစာ (Foreword)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/conventions.html">3. အသုံးအနှုန်းများ (Conventions)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/features.html">4. အသွင်အပြင်များ (Features)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">5. စတင်အသုံးပြုခြင်း (Getting Started)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="project_files.html">6. Project Files များနှင့် အလုပ်လုပ်ခြင်း (Working with Project Files)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qgis_gui.html">7. QGIS ၏အစိတ်အပိုင်းများ (QGIS GUI)</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">8. ဒေတာများရှာဖွေကြည့်ရှုနိုင်သည့်နေရာ (The Browser panel)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#browser-resources-that-can-be-opened-run-from-the-browser">8.1. Browser မှ ဖွင့်နိုင်/လုပ်ဆောင်နိုင်သော အရင်းအမြစ်များ (Resources that can be opened / run from the Browser)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#browser-panel-browser-panel-top-level-entries">8.2. Browser panel ရှိ ထိပ်ပိုင်းအဆင့် အရာများ (Browser panel top-level entries)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#favorites">8.2.1. နှစ်သက်ရာများ (Favorites)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#spatial-bookmarks">8.2.2. နေရာမှတ်သားချက်များ (Spatial Bookmarks)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#project-project-home">8.2.3. Project ပင်မနေရာ (Project Home)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#drives-and-file-system">8.2.4. ဖိုင်သိမ်းဆည်းရာနေရာများ နှင့် ဖိုင်စနစ် (Drives and file system)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#database-database-entries">8.2.5. Database ရှိဒေတာများ (Database entries)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tiles-web-tiles-and-web-services">8.2.6. Tiles နှင့် Web ဝန်ဆောင်မှုများ (Tiles and Web Services)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#resources">8.3. အရင်းအမြစ်များ (Resources)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="qgis_configuration.html">9. QGIS ပြင်ဆင်သတ်မှတ်ခြင်း/အခင်းအကျင်း (QGIS Configuration)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_projections/working_with_projections.html">10. မြေပုံအရိပ်ချစနစ်များ နှင့် အလုပ်လုပ်ခြင်း (Working with Projections)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../map_views/index.html">11. မြေပုံများအား ပုံဖော်ကြည့်ရှုခြင်း (Visualizing Maps)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="general_tools.html">12. အထွေ‌ထွေ‌သုံးကိရိယာများ (General Tools)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../expressions/index.html">13. Expression များဖြင့် အဆင့်မြှင့်တင်ဆောင်ရွက်ခြင်း (Level up with Expressions)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../style_library/index.html">14. The Style Library (Style နှင့်ပတ်သက်သည်များ ထားရှိရာနေရာ)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../managing_data_source/index.html">15. ဒေတာအရင်းအမြစ်များအား စီမံခန့်ခွဲခြင်း (Managing Data Source)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_vector/index.html">16. Vector data များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_raster/index.html">17. Raster Data နှင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_mesh/mesh_properties.html">18. Working with Mesh Data (Mesh Data များနှင့် အလုပ်လုပ်ခြင်း)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_vector_tiles/vector_tiles_properties.html">19. Vector Tiles များနှင့်အလုပ်လုပ်ခြင်း (Working with Vector Tiles)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_point_clouds/point_clouds.html">20. Point Cloud များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../print_composer/index.html">21. မြေပုံအချောသပ်ပြင်ဆင်ခြင်း (Laying out the maps)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_ogc/ogc_client_support.html">22. OGC / ISO protocol များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_gps/index.html">23. GPS Data များနှင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../auth_system/auth_overview.html">24. အထောက်အထားစီစစ်ခြင်းအကြောင်းအကျဉ်း (Authentication System Overview)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../auth_system/auth_workflows.html">25. အသုံးပြုသူ အထောက်အထားစစ်ဆေးခြင်း လုပ်ငန်းအဆင့်များ (User Authentication Workflows)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../auth_system/auth_considerations.html">26. လုံခြုံရေးအတွက်စဉ်းစားရန်အချက်များ (Security Considerations)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../grass_integration/grass_integration.html">27. GRASS GIS နှင့်ပေါင်းစပ်အသုံးပြုခြင်း (GRASS GIS Integration)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing/index.html">28. QGIS processing framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing_algs/index.html">29. Processing ဆိုင်ရာ ထောက်ပံ့ပေးသူများနှင့် Algorithm များ (Processing providers and algorithms)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/plugins.html">30. QGIS Plugin များ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/core_plugins/index.html">31. QGIS ပင်မ Plugin များကို အသုံးပြုခြင်း (Using QGIS Core Plugins)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/python_console.html">32. QGIS တွင် Python code များရေးသားရန်နေရာ (QGIS Python console)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/help_and_support.html">33. အကူအညီနှင့်အထောက်အပံ့ (Help and Support)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/contributors.html">34. ပါဝင်အားဖြည့်သူများ (Contributors)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendices/index.html">35. နောက်ဆက်တွဲများ (Appendices)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../literature_web/literature_and_web_references.html">36. စာတမ်းများနှင့် Website ကိုးကားချက်များ (Literature and Web References)</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">QGIS Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">&lt;no title&gt;</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">8. </span>ဒေတာများရှာဖွေကြည့်ရှုနိုင်သည့်နေရာ (The Browser panel)</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/qgis/QGIS-Documentation/blob/master/docs/user_manual/introduction/browser.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="qgis_gui.html" class="btn btn-neutral float-left" title="7. QGIS ၏အစိတ်အပိုင်းများ (QGIS GUI)" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="qgis_configuration.html" class="btn btn-neutral float-right" title="9. QGIS ပြင်ဆင်သတ်မှတ်ခြင်း/အခင်းအကျင်း (QGIS Configuration)" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <blockquote>
+<div></div></blockquote>
+<section id="the-browser-panel">
+<span id="label-browserpanel"></span><span id="index-0"></span><h1><span class="section-number">8. </span>ဒေတာများရှာဖွေကြည့်ရှုနိုင်သည့်နေရာ (The Browser panel)<a class="headerlink" href="#the-browser-panel" title="Link to this heading"></a></h1>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#browser-resources-that-can-be-opened-run-from-the-browser" id="id5">Browser မှ ဖွင့်နိုင်/လုပ်ဆောင်နိုင်သော အရင်းအမြစ်များ (Resources that can be opened / run from the Browser)</a></p></li>
+<li><p><a class="reference internal" href="#browser-panel-browser-panel-top-level-entries" id="id6">Browser panel ရှိ ထိပ်ပိုင်းအဆင့် အရာများ (Browser panel top-level entries)</a></p>
+<ul>
+<li><p><a class="reference internal" href="#favorites" id="id7">နှစ်သက်ရာများ (Favorites)</a></p></li>
+<li><p><a class="reference internal" href="#spatial-bookmarks" id="id8">နေရာမှတ်သားချက်များ (Spatial Bookmarks)</a></p></li>
+<li><p><a class="reference internal" href="#project-project-home" id="id9">Project ပင်မနေရာ (Project Home)</a></p></li>
+<li><p><a class="reference internal" href="#drives-and-file-system" id="id10">ဖိုင်သိမ်းဆည်းရာနေရာများ နှင့် ဖိုင်စနစ် (Drives and file system)</a></p></li>
+<li><p><a class="reference internal" href="#database-database-entries" id="id11">Database ရှိဒေတာများ (Database entries)</a></p></li>
+<li><p><a class="reference internal" href="#tiles-web-tiles-and-web-services" id="id12">Tiles နှင့် Web ဝန်ဆောင်မှုများ (Tiles and Web Services)</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#resources" id="id13">အရင်းအမြစ်များ (Resources)</a></p></li>
+</ul>
+</nav>
+<p>QGIS Browser panel သည် QGIS တွင် ကိုင်တွယ်အသုံးပြုနိုင်သော GIS အရင်းအမြစ်များကို ရှာဖွေခြင်း၊
+စစ်‌ဆေးခြင်း၊ ကူးယူခြင်းနှင့် ထည့်သွင်းအသုံးပြုခြင်းများပြုလုပ်ရာတွင် ထိရောက်ကောင်းမွန်သော Tool တစ်ခုဖြစ်သည်။
+ထို Broswer ထဲတွင် QGIS မှကိုင်တွယ်လုပ်နိုင်သည့် အရာများကိုသာ ဖော်ပြထားပါသည်။</p>
+<p>QGIS Browser panel ကို <a class="reference internal" href="../managing_data_source/opening_data.html#browser-panel"><span class="std std-ref">ဒေတာများရှာဖွေကြည့်ရှုနိုင်သည့်နေရာ (The Browser panel)</span></a> တွင်ဖော်ပြထားသည့်အတိုင်း  မိမိ၏ Project တွင်
+GIS ဒေတာများကို ရှာဖွေထည့်သွင်းခြင်း၊ စစ်ဆေးခြင်းများ ပြုလုပ်ရာတွင် အသုံးပြုနိုင်သည်။ ထို့အပြင် Project files ၊ Python scripts ၊ Processing scripts
+နှင့် Processing models များကို ဖိဆွဲ၍ ထည့်သွင်းနိုင်ပါသည်။</p>
+<p>Python scripts ၊ Processing scripts နှင့် Processing models များကို ပြင်ပ Editor Tool တစ်ခုခု
+သို့မဟုတ် Graphical Modeller တို့တွင် Edit ပြုလုပ်ရန်အတွက်လည်း အသုံးပြုနိုင်ပါသည်။</p>
+<p>ထို့အပြင် <span class="guilabel">Layers</span> Panel မှ <span class="guilabel">Browser</span> Panel အတွင်းသို့ Layer များကို ဖိဆွဲ၍ထည့်သွင်းနိုင်ပါသည်။
+ဥပမာ - GeoPackage သို့မဟုတ် PostGIS database အတွင်းသို့ ထည့်သွင်းနိုင်ပါသည်။</p>
+<figure class="align-center" id="id3">
+<span id="figure-browser-panel"></span><img alt="../../../_images/browser_panel.png" src="../../../_images/browser_panel.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 8.1 </span><span class="caption-text">Browser panel</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Browser panel ( <a class="reference internal" href="#figure-browser-panel"><span class="std std-numref">Fig. 8.1</span></a> ) တွင် browser မှ ကိုင်တွယ်အသုံးပြုနိုင်သည့်အရင်းအမြစ်များကို စုစည်းထားသည့် ထိပ်ဆုံးအဆင့်အရင်းအမြစ် (Entry) များကို
+အဆင့်ဆင့်ဖွင့်နိုင်သည့်ပုံစံဖြင့် ဖော်ပြထားသည်။ Entry နာမည်၏ ဘယ်ဘက်ရှိ <a class="reference internal" href="../../../_images/browser_expand.png"><img alt="browserExpand" src="../../../_images/browser_expand.png" style="width: 1.5em;" /></a> ကိုနှိပ်ပြီး အောက်တွင်ပါဝင်သည်များကို ဖြန့်ချနိုင်ပြီး <a class="reference internal" href="../../../_images/browser_collapse.png"><img alt="browserCollapse" src="../../../_images/browser_collapse.png" style="width: 1.5em;" /></a> ကို နှိပ်၍ ပြန်လည်စုစည်းထားနိုင်သည်။
+<a class="reference internal" href="../../../_images/mActionCollapseTree.png"><img alt="collapseTree" src="../../../_images/mActionCollapseTree.png" style="width: 1.5em;" /></a> <sup>Collapse All</sup> ကိုနှိပ်ခြင်းဖြင့် ထိပ်ဆုံးအဆင့် entry အားလုံးကို ပြန်စုစည်းနိုင်သည်။</p>
+<p><span class="menuselection">Settings ► Interface Customization</span> သည် GIS အရင်းအမြစ်များကို ပိတ်ထားရာတွင် အသုံးပြုနိုင်သည်။
+ဥပမာ - Browser အတွင်း Python scripts များကို မဖော်ပြစေလိုလျှင် <span class="menuselection">Browser ► py</span> ကို ပိတ်နိုင်ပြီး
+ကွန်ပျူတာ၏မူရင်း folder ကို browser အတွင်းမှ ဖယ်ရှားလိုပါက <span class="menuselection">Browser ► special:Home</span> ကို အမှန်ခြစ်ဖြုတ်၍ ဖယ်ရှားနိုင်သည်။</p>
+<p>Filter (စစ်ထုတ်မှု) (<a class="reference internal" href="../../../_images/mActionFilterMap.png"><img alt="filterMap" src="../../../_images/mActionFilterMap.png" style="width: 1.5em;" /></a> <sup>Filter Browser</sup>) ကို entry နာမည်ပေါ်မူတည်၍ ရှာဖွေရာတွင် အသုံးပြုနိုင်ပါသည်။ (Hierarchy ထဲရှိ leaf entry များနှင့် node entry နှစ်မျိုးစလုံး)
+Filter ဘေးရှိ <a class="reference internal" href="../../../_images/mActionOptions.png"><img alt="options" src="../../../_images/mActionOptions.png" style="width: 1em;" /></a> <sup>Options</sup> ကို နှိပ်၍ အောက်သို့ဆွဲချလိုက်လျှင်-</p>
+<ul class="simple">
+<li><p><span class="guilabel">Case Sensitive</span> search (စာလုံးအကြီးအသေးအရရှာခြင်း) ကို အဖွင့်အပိတ်ပြုလုပ်နိုင်ခြင်း၊</p></li>
+<li><p><span class="guilabel">Filter pattern syntax</span> (စစ်လိုသည့်ပုံစံတည်ဆောက်ခြင်း)ကို အောက်ပါတို့မှ တစ်ခုခုတို့တွင် သတ်မှတ်နိုင်ခြင်း-</p>
+<ul>
+<li><p><span class="guilabel">Normal</span> (ပုံမှန်အတိုင်း)</p></li>
+<li><p><span class="guilabel">Wildcard(s)</span> ( * နှင့် ? များအသုံးပြုခြင်း)</p></li>
+<li><p><span class="guilabel">Regular Expressions</span></p></li>
+</ul>
+</li>
+</ul>
+<p>Entry တစ်ချို့အကြောင်း အသုံးဝင်သည့် အချက်အလက်များကို ဖော်ပြပေးသည့် <em>Properties widget</em> ကို <a class="reference internal" href="../../../_images/metadata.png"><img alt="metadata" src="../../../_images/metadata.png" style="width: 1.5em;" /></a><sup>Enable/disable properties widget</sup> ခလုတ်ကို အသုံးပြု၍ အဖွင့်အပိတ်ပြုလုပ်နိုင်ပါသည်။
+ဖွင့်လိုက်ပါက ၎င်းနှင့်ပတ်သက်သောအချက်အလက်များသည် Browser Panel ၏ အောက်ခြေ၌ <a class="reference internal" href="#figure-properties-widget"><span class="std std-numref">Fig. 8.2</span></a> တွင် ဖော်ပြထားသည့်အတိုင်း ပေါ်လာလိမ့်မည်။</p>
+<figure class="align-center" id="id4">
+<span id="figure-properties-widget"></span><img alt="../../../_images/browser_p_properties_w.png" src="../../../_images/browser_p_properties_w.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 8.2 </span><span class="caption-text">Properties widget</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><span class="menuselection">View ► Panels</span> တွင် <span class="guilabel">Browser (2)</span> ကိုဖွင့်ပေးခြင်းဖြင့် နောက်ထပ် Browser panel တစ်ခုကို ပွင့်လာစေပါမည်။
+ထိုသို့ Browser panel နှစ်ခုဖွင့်ထားခြင်းသည် Folder တစ်ခုစီ၌ရှိသော Layer များကို ကူးယူရာတွင် အသုံးဝင်ပါသည်။</p>
+<section id="browser-resources-that-can-be-opened-run-from-the-browser">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink"><span class="section-number">8.1. </span>Browser မှ ဖွင့်နိုင်/လုပ်ဆောင်နိုင်သော အရင်းအမြစ်များ (Resources that can be opened / run from the Browser)</a><a class="headerlink" href="#browser-resources-that-can-be-opened-run-from-the-browser" title="Link to this heading"></a></h2>
+<p>Browser Panel တွင် အောက်တွင် ဖော်ပြထားသည့်အတိုင်း လုပ်ငန်းဆောင်တာများစွာကို ဆောင်ရွက်နိုင်ပါသည်-</p>
+<ul class="simple">
+<li><p>Vector ၊ raster နှင့် mesh layres များကို မိမိ၏ map အတွင်းသို့ double-click နှိပ်၍လည်းကောင်း၊
+Map Canvas ပေါ်သို့ အရင်းအမြစ်ဖိုင်များကို တိုက်ရိုက်ဖိဆွဲယူ၍လည်းကောင်း သို့မဟုတ်
+ထည့်သွင်းလိုသော layers များကို ရွေးချယ်ပြီးနောက် <a class="reference internal" href="../../../_images/mActionAddLayer.png"><img alt="addLayer" src="../../../_images/mActionAddLayer.png" style="width: 1.5em;" /></a><sup>Add Selected Layers</sup> ကို click နှိပ်၍ လည်းကောင်း ထည့်သွင်းနိုင်ပါသည်။</p></li>
+<li><p>Processing algorithms များပါဝင်သော Python scripts များကို double-click နှိပ်၍လည်းကောင်း၊ map canvas ပေါ်သို့
+အရင်းအမြစ်ဖိုင်များကို တိုက်ရိုက်ဖိဆွဲယူ၍ Run နိုင်သည်။</p></li>
+<li><p>Models များကို double-click နှိပ်၍လည်းကောင်း၊ မြေပုံနောက်ခံမျက်နှာပြင်ပေါ်သို့ အရင်းအမြစ်ဖိုင်များကို တိုက်ရိုက်ဖိဆွဲယူ၍လည်းကောင်း Run နိုင်သည်။</p></li>
+<li><p>Context menu (အကြောင်းအရာ menu) အသုံးပြု၍ QGIS Project ဖိုင်မှ <span class="guilabel">Extract Symbols…</span> (Symbol များ ထုတ်ယူခြင်း) ပြုလုပ်နိုင်ပါသည်။</p></li>
+<li><p>Context Menu ထဲရှိ <span class="guilabel">Open &lt;file type&gt; Externally…</span> သို့ ဝင်ရောက်၍ ပုံမှန်သတ်မှတ်ထားသည့်
+application များဖြင့် ဖိုင်များကို ဖွင့်နိုင်သည်။ ဥပမာ - HTML files ၊ spreadsheets ၊ images ၊ PDFs ၊ text files အမျိုးအစားများဖြစ်ပါသည်။</p></li>
+<li><p>အရင်းအမြစ်(Entry) များကို ကူးယူနိုင်သည်။</p></li>
+<li><p>Layers များကို အမည်ပြောင်းလဲခြင်း၊ ဖျက်ခြင်းများပြုလုပ်လိုပါက Context menu မှ <span class="menuselection">Manage ►</span> သို့ဝင်ရောက်၍ ပြုလုပ်နိုင်ပါသည်။</p></li>
+<li><p><span class="guilabel">Show in Files</span> ကို နှိပ်ပါက file explorer window ပွင့်လာပြီးနောက် ဖိုင်တည်နေရာကို
+သိရှိနိုင်ပြီး ဖိုင်ကို တိုက်ရိုက်ရွေးချယ်နိုင်ပါသည်။</p></li>
+</ul>
+<p>အောက်တွင်ဖော်ပြထားသည့် ထိပ်ပိုင်းအဆင့် entry များအောက်တွင် စဉ်ထားသည့်အရင်းအမြစ်အုပ်စုအမျိုးမျိုးအတွက် Resource specific action (အရင်းအမြစ်နှင့်ပတ်သက်သည့် သီးသန့်လုပ်ဆောင်ချက်) များကို စာရင်းပြုလုပ်ထားပါသည်။</p>
+</section>
+<section id="browser-panel-browser-panel-top-level-entries">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink"><span class="section-number">8.2. </span>Browser panel ရှိ ထိပ်ပိုင်းအဆင့် အရာများ (Browser panel top-level entries)</a><a class="headerlink" href="#browser-panel-browser-panel-top-level-entries" title="Link to this heading"></a></h2>
+<section id="favorites">
+<h3><a class="toc-backref" href="#id7" role="doc-backlink"><span class="section-number">8.2.1. </span>နှစ်သက်ရာများ (Favorites)</a><a class="headerlink" href="#favorites" title="Link to this heading"></a></h3>
+<p>မကြာခဏ အသုံးပြုလေ့ရှိသော ဖိုင်တည်နေရာများကို နှစ်သက်ရာများ (Favorites) အဖြစ် မှတ်သားထားနိုင်သည်။
+ထိုသို့ မှတ်သားထားသော ဖိုင်များသည် ဤနေရာတွင် ပေါ်လာမည်ဖြစ်သည်။</p>
+<p>Home တွင် ပါဝင်သော လုပ်ဆောင်ချက်များအပြင် Context menu မှတဆင့် အမည်ပြောင်းလဲလိုပါက
+<span class="guilabel">Rename Favorite…</span> ဖြင့် နှစ်သက်ရာများကို အမည်ပြောင်းလဲနိုင်ပြီး ဖယ်ရှားလိုပါက <span class="guilabel">Remove Favorite</span> ဖြင့်
+နှစ်သက်ရာများကို ဖယ်ရှားခြင်း ပြုလုပ်နိုင်ပါသည်။</p>
+</section>
+<section id="spatial-bookmarks">
+<h3><a class="toc-backref" href="#id8" role="doc-backlink"><span class="section-number">8.2.2. </span>နေရာမှတ်သားချက်များ (Spatial Bookmarks)</a><a class="headerlink" href="#spatial-bookmarks" title="Link to this heading"></a></h3>
+<p>ဤနေရာတွင် အလုပ်လုပ်နေသော Project ရှိ မိမိသိမ်းဆည်းလိုသော တည်နေရာများကို မှတ်သားနိုင်သည်။
+ထိုတည်နေရာများကို Project Bookmarks နှင့် User Bookmarks ဟူ၍ နှစ်မျိုးခွဲခြားနိုင်ပြီး Project အတွင်း၌ တည်နေရာများကို
+သိမ်းဆည်းလိုပါက <span class="guilabel">Project Bookmarks</span> တွင် မှတ်သားနိုင်၍ မိမိကိုယ်ပိုင်ကွန်ပျူတာ တွင် သိမ်းဆည်းလိုပါက
+<span class="guilabel">User Bookmarks</span> တွင် မှတ်သားနိုင်ပါသည်။</p>
+<p>ထိပ်ပိုင်းအဆင့် context menu မှ  Bookmark တစ်ခု (<span class="guilabel">New Spatial Bookmark…</span>) ဖန်တီးနိုင်ပြီး ၊ <span class="guilabel">Show the Spatial Bookmark Manager</span> ၊
+<span class="guilabel">Import Spatial Bookmarks…</span> နှင့် <span class="guilabel">Export Spatial Bookmarks…</span> တို့မှတဆင့်
+Bookmark တစ်ခုကို ဖန်တီးသိမ်းဆည်းနိုင်သည်။</p>
+<p>မှတ်သားထားသော Spatial Bookmark Group Entry များကိုမူ Bookmark အသစ်တစ်ခုပြောင်းလဲထုတ်ယူလိုပါက
+<span class="guilabel">Export Spatial Bookmarks…</span> ကိုပြုလုပ်၍လည်းကောင်း၊
+အသစ်တစ်ခုဖန်တီးလိုပါက <span class="guilabel">New Spatial Bookmark…</span> ကို ပြုလုပ်၍လည်းကောင်း၊
+အမည်ပြောင်းလဲလိုပါက <span class="guilabel">Rename Bookmark Group</span> ကို ပြုလုပ်၍လည်းကောင်း၊
+Bookmark Group အား ပယ်ဖျက်လိုပါက <span class="guilabel">Delete Bookmark Group</span> ကိုပြုလုပ်၍လည်းကောင်း အသုံးပြုနိုင်သည်။</p>
+<p>Bookmark Entry များအတွက် Bookmark များနေရာသို့ Zoom ချဲ့ ကြည့်ရန် <span class="guilabel">Zoom to Bookmark</span> ကိုပြုလုပ်ခြင်း၊
+တည်းဖြတ်ပြင်ဆင်ခြင်းအတွက် <span class="guilabel">Edit Spatial Bookmark…</span> နှင့် ပယ်ဖျက်ခြင်းအတွက် <span class="guilabel">Delete Spatial Bookmark</span> တို့ကိုပြုလုပ်နိုင်သည်။</p>
+</section>
+<section id="project-project-home">
+<h3><a class="toc-backref" href="#id9" role="doc-backlink"><span class="section-number">8.2.3. </span>Project ပင်မနေရာ (Project Home)</a><a class="headerlink" href="#project-project-home" title="Link to this heading"></a></h3>
+<p>Project Home သည် လုပ်ဆောင်နေသော Project ဖိုင်တစ်ခုအား သိမ်းဆည်းပြီးပါက ထိုဖိုင်တွင် အသုံးပြုခဲ့သော data များ၊
+script၊ models နှင့် text ကဲ့သို့သော အခြားအကြောင်းအရာများကို မှတ်သားထားသော နေရာဖြစ်သည်။ ထို့ကြောင့် ထို Project အတွင်းရှိ
+data များကို ပြန်လည်အသုံးပြုလိုပါက <span class="guilabel">Browser</span> panel အတွင်းရှိ Project Home အောက်တွင် အလွယ်တကူရှာဖွေတွေ့ရှိနိုင်ပါသည်။</p>
+<p>Project Home သည် သိမ်းဆည်းထားသော Project များ၏ ပုံမှန်သိမ်းဆည်းရာလမ်းကြောင်းဖြစ်သော်လည်း
+၎င်းအား <span class="menuselection">Project ► Properties… ► General ► Project home</span> မှတဆင့်
+ပြောင်းလဲနိုင်သည်။ နောက်တစ်နည်းအားဖြင့် Browser Panel ရှိ <span class="guilabel">Project Home</span> အား right-click နှိပ်၍
+<span class="guilabel">Set project home…</span> မှတဆင့် ဖိုင်သိမ်းဆည်းရာလမ်းကြောင်းအား သတ်မှတ်ပေးနိုင်သည်။ အထူးသဖြင့် Folder အား
+သိမ်းဆည်းရာလမ်းကြောင်းစိတ်ကြိုက်ရွေးချယ်သတ်မှတ်ခြင်းသည် Project ဖိုင်များအား  dataset များနှင့်အတူ မူရင်း Folder တွင်
+မသိမ်းဆည်းထားသည့်အခါ အလွန်အသုံးဝင်ပါသည်။</p>
+</section>
+<section id="drives-and-file-system">
+<h3><a class="toc-backref" href="#id10" role="doc-backlink"><span class="section-number">8.2.4. </span>ဖိုင်သိမ်းဆည်းရာနေရာများ နှင့် ဖိုင်စနစ် (Drives and file system)</a><a class="headerlink" href="#drives-and-file-system" title="Link to this heading"></a></h3>
+<p>Browser Panel တွင် နောက်ထပ်ပါဝင်သည့် item များသည် အသုံးပြုသည့် ကွန်ပျူတာလုပ်ဆောင်မှုစနစ် (Operating System - OS) ပေါ်တွင် မူတည်ပြီး ၎င်း file system ၏ ထိပ်ပိုင်းအဆင့် entry များနှင့်သက်ဆိုင်ပါသည်။</p>
+<p>အဓိကအားဖြင့်-</p>
+<ul class="simple">
+<li><p>အသုံးပြုသူ၏လက်ရှိ home folder ကို ရည်ညွှန်းသော <span class="guilabel">Home</span> folder</p></li>
+<li><p>Unix ကို အခြေခံသော ကွန်ပျူတာလုပ်ဆောင်မှုစနစ် (OS) ပါရှိသည့် ကွန်ပျူတာများတွင် root <span class="guilabel">/</span> folder</p></li>
+<li><p>ချိတ်ဆက်ထားသော Drives များ - ကွန်ပျူတာအတွင်း သို့မဟုတ် ကွန်ယက် (Network)။ OS ပေါ်မူတည်ပြီး တိုက်ရိုက် (ဥပမာ - <code class="docutils literal notranslate"><span class="pre">C:\`</span> <span class="pre">၊</span> <span class="pre">``D:\</span></code>) သို့မဟုတ် <code class="docutils literal notranslate"><span class="pre">/Volumes</span></code> entry ကိုဖြတ်၍ list လုပ်ထားပါသည်။</p></li>
+</ul>
+<p>Folder နှင့် Drives တစ်ခုချင်းစီ၏ အကြောင်းအရာ menu မှ ဆက်လက်လုပ်ဆောင်နိုင်သော function များမှာ အောက်ပါအတိုင်းဖြစ်သည်-</p>
+<ul class="simple">
+<li><p>ပါဝင်သောအကြောင်းအရာများကို  Refresh ပြန်လုပ်နိုင်သည်။</p></li>
+<li><p><span class="menuselection">New ►</span> tab မှတဆင့် ဖိုင်သိမ်းဆည်းရာလမ်းကြောင်းအသစ် <span class="guilabel">Directory</span> ၊ GIS data format များဖြစ်သည့် <span class="guilabel">GeoPackage</span> နှင့် ESRI <span class="guilabel">Shapefile</span> တို့ကို အသီးသီးဖန်တီးနိုင်သည်။</p></li>
+<li><p>Browser Panel မှ ဖိုင်သိမ်းဆည်းရာလမ်းကြောင်းအား ဖျောက်ထားခြင်း (<span class="guilabel">Hide from Browser</span>) ကိုလုပ်ဆောင်နိုင်သည်။</p></li>
+<li><p>Browser Panel ရှိ အခြား folder များနှင့်မတူညီဘဲ အလွယ်တကူရှာ‌ဖွေနိုင်ရန် မိမိစိတ်ကြိုက်အရောင်ပြောင်းလိုပါက <span class="guilabel">Set color</span> ကိုအသုံးပြု၍ လုပ်ဆောင်နိုင်သည်။</p></li>
+<li><p><span class="guilabel">Scanning</span> ကို လုပ်ဆောင်နိုင်သည်-</p>
+<ul>
+<li><p>သီးသန့်ဖိုင်သိမ်းဆည်းရာလမ်းကြောင်း (Particular Directory) ကို စောင့်ကြည့်ပေးရန်နှင့် အလိုအလျောက် update ပြုလုပ်ပေးရန် <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">Monitor for changes</span> ကိုအသုံးပြုနိုင်သည်။ ဤ Setting သည် ရွေးချယ်ထားသော Directory နှင့် ၎င်း Directory အောက်ရှိ ဖိုင်အခွဲများအားလုံးအပေါ် သက်ရောက်စေနိုင်ပါသည်။ အကယ်၍ မိမိ Project တွင် ပါဝင်သော Network drives များတွင် မည်သည့်ပြဿနာမှမပါရှိကြောင်း သေချာလျှင် <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">Monitor for changes</span> အား အသုံးပြုနိုင်ပြီး အကြောင်းအမျိုးမျိုးကြောင့် Directory များအား အလိုအလျောက် update မပြုလုပ်လိုပါက ပြန်ဖြုတ်ထားနိုင်သည်။ ပုံမှန်အားဖြင့် Network drives များကို အလိုအလျောက် Update ပြုလုပ်မည်မဟုတ်ပါ။</p></li>
+<li><p>Directory အား အမြန် scan ဖတ်လိုလျှင် <a class="reference internal" href="../../../_images/unchecked.png"><img alt="unchecked" src="../../../_images/unchecked.png" style="width: 1.3em;" /></a> <span class="guilabel">Fast scan this directory</span> မှတဆင့် ပြုလုပ်နိုင်သည်။</p></li>
+</ul>
+</li>
+<li><p>File Manager မှ Directory အား ဖွင့်လိုပါက <span class="guilabel">Open Directory…</span> ကို နှိပ်၍ ဖွင့်နိုင်သည်။</p></li>
+<li><p>Directory အား Terminal window ဖြင့် ဖွင့်လိုပါက <span class="guilabel">Open in Terminal…</span> မှတဆင့် ဖွင့်နိုင်သည်။</p></li>
+<li><p>Folder ၏ Properties အား သိလိုလျှင် <span class="guilabel">Properties…</span> ကို နှိပ်၍ ကြည့်နိုင်ပြီး မူရင်း Folder ကြီးတစ်ခုလုံး၏ Properties ကို ကြည့်လိုလျှင် <span class="guilabel">Directory  Properties…</span> မှတဆင့် ကြည့်နိုင်သည်။</p></li>
+</ul>
+</section>
+<section id="database-database-entries">
+<h3><a class="toc-backref" href="#id11" role="doc-backlink"><span class="section-number">8.2.5. </span>Database ရှိဒေတာများ (Database entries)</a><a class="headerlink" href="#database-database-entries" title="Link to this heading"></a></h3>
+<p>အသုံးပြုသည့် OS နှင့် ကွန်ပျူတာအတွင်း ထည့်သွင်းထားသည့် Drivers များပေါ် မူတည်၍ QGIS တွင် Database ပုံစံအမျိုးမျိုးကို အသုံးပြုနိုင်သည်။
+အောက်တွင် Dataset tree ၏ အဆင့်တစ်ခုချင်းစီအလိုက် ပါဝင်သော အကြောင်းအရာ menu များကို ဖော်ပြထားသည်။</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td rowspan="2"><p>Level</p></td>
+<td rowspan="2"><p>Context menu</p></td>
+<td colspan="6"><p>Type of database</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../../../_images/mGeoPackage.png"><img alt="geoPackage" src="../../../_images/mGeoPackage.png" style="width: 1.5em;" /></a>
+GeoPackage
+(<a class="footnote-reference brackets" href="#id2" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>)</p></td>
+<td><p><a class="reference internal" href="../../../_images/mIconSpatialite.png"><img alt="spatialite" src="../../../_images/mIconSpatialite.png" style="width: 1.5em;" /></a>
+SpatiaLite</p></td>
+<td><p><a class="reference internal" href="../../../_images/mIconPostgis.png"><img alt="postgis" src="../../../_images/mIconPostgis.png" style="width: 1.5em;" /></a>
+PostGIS</p></td>
+<td><p><a class="reference internal" href="../../../_images/mIconHana.png"><img alt="hana" src="../../../_images/mIconHana.png" style="width: 1.5em;" /></a>
+SAP HANA</p></td>
+<td><p><a class="reference internal" href="../../../_images/mIconMssql.png"><img alt="mssql" src="../../../_images/mIconMssql.png" style="width: 1.5em;" /></a>
+MS SQL Server</p></td>
+<td><p><a class="reference internal" href="../../../_images/mIconOracle.png"><img alt="oracle" src="../../../_images/mIconOracle.png" style="width: 1.5em;" /></a>
+Oracle</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="4"><p>Top menu</p></td>
+<td><p>Create a <span class="guilabel">New Connection…</span>
+to an existing database</p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+</tr>
+<tr class="row-even"><td><p><span class="guilabel">Create Database…</span></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><span class="guilabel">Save Connections…</span> details
+to a file</p></td>
+<td></td>
+<td></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><span class="guilabel">Load Connections…</span></p></td>
+<td></td>
+<td></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td rowspan="8"><p>Connection
+/ Database</p></td>
+<td><p><span class="guilabel">Refresh</span> a connection</p></td>
+<td></td>
+<td></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><span class="guilabel">Edit Connection…</span> settings</p></td>
+<td></td>
+<td></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><span class="guilabel">Remove Connection</span></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><span class="guilabel">Delete &lt;database_name&gt;</span></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><span class="guilabel">Compact Database (VACUUM)</span></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Create a <span class="guilabel">New Schema…</span></p></td>
+<td></td>
+<td></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Create a <span class="guilabel">New Table…</span></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><span class="guilabel">Execute SQL…</span> query</p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td rowspan="5"><p>Schema</p></td>
+<td><p><span class="guilabel">Refresh</span> a schema</p></td>
+<td></td>
+<td></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><span class="menuselection">Schema Operations ►
+Rename Schema…</span></p></td>
+<td></td>
+<td></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><span class="menuselection">Schema Operations ►
+Delete Schema…</span></p></td>
+<td></td>
+<td></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Create a <span class="guilabel">New Table…</span></p></td>
+<td></td>
+<td></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><span class="guilabel">Execute SQL…</span> query</p></td>
+<td></td>
+<td></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td rowspan="11"><p>Table / Layer</p></td>
+<td><p><span class="menuselection">Table Operations ►
+Rename Table…</span></p></td>
+<td></td>
+<td></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><span class="menuselection">Table Operations ►
+Truncate Table…</span></p></td>
+<td></td>
+<td></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><span class="guilabel">Execute SQL…</span> query</p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><span class="menuselection">Export Layer ► To file…</span></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><span class="menuselection">Manage ►
+Rename Layer &lt;layer_name&gt;…</span></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><span class="menuselection">Manage ►
+Delete Layer &lt;layer_name&gt;…</span></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><span class="menuselection">Manage ►
+Delete Selected Layers</span></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><span class="menuselection">Manage ►
+Add Layer to Project</span></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><span class="menuselection">Manage ►
+Add Selected Layers to Project</span></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Open <span class="guilabel">Layer Properties…</span> dialog</p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Open <span class="guilabel">File Properties…</span> dialog</p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Fields</p></td>
+<td><p><span class="guilabel">Add New Field…</span></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td rowspan="3"><p>Field</p></td>
+<td><p><span class="guilabel">Set Alias…</span></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><span class="guilabel">Set Comment…</span></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><span class="guilabel">Delete Field…</span></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="id2" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>GDAL (Geospatial Data Abstraction Library) မှ ထောက်ပံ့ပေးထားသည့် <a class="reference external" href="https://gdal.org/drivers/vector/index.html">vector file formats</a> များဖြစ်သည့် ESRI File Geodatabase ၊ FlatGeobuf ၊ GeoParquet ၊ NetCDF ကဲ့သို့သော Entry အမျိုးမျိုးကိုလည်း ဆီလျော်ပါက အသုံးပြုနိုင်သည်။</p>
+</aside>
+</aside>
+</section>
+<section id="tiles-web-tiles-and-web-services">
+<h3><a class="toc-backref" href="#id12" role="doc-backlink"><span class="section-number">8.2.6. </span>Tiles နှင့် Web ဝန်ဆောင်မှုများ (Tiles and Web Services)</a><a class="headerlink" href="#tiles-web-tiles-and-web-services" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head" rowspan="2"><p>Level</p></th>
+<th class="head" rowspan="2"><p>Context menu</p></th>
+<th class="head" colspan="6"><p>Type of services</p></th>
+</tr>
+<tr class="row-even"><th class="head"><p><a class="reference internal" href="../../../_images/mIconWms.png"><img alt="wms" src="../../../_images/mIconWms.png" style="width: 1.5em;" /></a>
+WMS / WMTS</p></th>
+<th class="head"><p><a class="reference internal" href="../../../_images/mIconVectorTileLayer.png"><img alt="vectorTileLayer" src="../../../_images/mIconVectorTileLayer.png" style="width: 1.5em;" /></a>
+Vector Tiles</p></th>
+<th class="head"><p><a class="reference internal" href="../../../_images/mIconXyz.png"><img alt="xyz" src="../../../_images/mIconXyz.png" style="width: 1.5em;" /></a>
+XYZ Tiles</p></th>
+<th class="head"><p><a class="reference internal" href="../../../_images/mIconWcs.png"><img alt="wcs" src="../../../_images/mIconWcs.png" style="width: 1.5em;" /></a>
+WCS</p></th>
+<th class="head"><p><a class="reference internal" href="../../../_images/mIconWfs.png"><img alt="wfs" src="../../../_images/mIconWfs.png" style="width: 1.5em;" /></a>
+WFS / OGC
+API - Features</p></th>
+<th class="head"><p><a class="reference internal" href="../../../_images/mIconAfs.png"><img alt="afs" src="../../../_images/mIconAfs.png" style="width: 1.5em;" /></a>
+ArcGIS REST
+Servers</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-odd"><td rowspan="5"><p>Top menu</p></td>
+<td><p>Create a <span class="guilabel">New Connection…</span></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+</tr>
+<tr class="row-even"><td><p>Create a <span class="guilabel">New Generic Connection…</span></p></td>
+<td></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Create a <span class="guilabel">New ArcGIS Vector Tile
+Service Connection…</span></p></td>
+<td></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><span class="guilabel">Save Connections…</span> details
+to a file</p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="guilabel">Load Connections…</span></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+</tr>
+<tr class="row-even"><td rowspan="4"><p>Connection</p></td>
+<td><p><span class="guilabel">Refresh</span> connection</p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="guilabel">Edit…</span> connection settings</p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+</tr>
+<tr class="row-even"><td><p><span class="guilabel">Delete</span> connection</p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="guilabel">View Service Info</span> in Web browser</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+</tr>
+<tr class="row-even"><td rowspan="4"><p>Table / Layer</p></td>
+<td><p><span class="menuselection">Export Layer ► To File…</span></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="guilabel">Add layer to Project</span></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+</tr>
+<tr class="row-even"><td><p>Open <span class="guilabel">Layer properties…</span> dialog</p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="guilabel">View Service Info</span> in Web browser</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="resources">
+<h2><a class="toc-backref" href="#id13" role="doc-backlink"><span class="section-number">8.3. </span>အရင်းအမြစ်များ (Resources)</a><a class="headerlink" href="#resources" title="Link to this heading"></a></h2>
+<ul>
+<li><p>QGIS Project file တွင် ပါဝင်သော အကြောင်းအရာ menu မှ အောက်ပါတို့ကို လုပ်ဆောင်နိုင်သည်-</p>
+<ul class="simple">
+<li><p><span class="guilabel">Open Project</span> ကိုသုံး၍ Project ကို ဖွင့်နိုင်သည်။</p></li>
+<li><p><span class="guilabel">Extract Symbols…</span> ကိုနှိပ်ပါက သင်္ကေတများကို ထုတ်ယူနိုင်ရန် style manager ပေါ်လာမည်ဖြစ်ပြီး ထို style manager မှတဆင့် သင်္ကေတများကို XML file အဖြစ် ပြောင်းလဲထုတ်ယူခြင်း၊ ပုံမှန်သုံးမည့် Default သင်္ကေတ အဖြစ် သတ်မှတ်ခြင်းနှင့် PNG သို့မဟုတ် SVG format အဖြစ် ထုတ်ယူခြင်းတို့ကို ဆောင်ရွက်နိုင်သည်။</p></li>
+<li><p>Project ၏ properties များကို ကြည့်ရှုရန် <span class="guilabel">File Properties…</span> သို့ ဝင်ရောက်နိုင်သည်။</p></li>
+</ul>
+<p>Project တွင်ပါဝင်သော  Layers များကိုမြင်နိုင်ရန် Project File ကို ဖြန့်ထုတ်နိုင်သည်။
+Layer ၏ Context Menu သည် Browser Panel ရှိ အခြား Entry များလိုပင် အလားတူလုပ်ဆောင်ချက်များကို ဆောင်ရွက်ပေးနိုင်သည်။</p>
+</li>
+<li><p>QGIS Layer Definition Files (QLR) များအတွက် Context Menu မှ အောက်ဖော်ပြပါ လုပ်ငန်းများဆောင်ရွက်နိုင်ပါသည်-</p>
+<ul class="simple">
+<li><p><span class="menuselection">Export Layer ► To file</span> ကိုအသုံးပြု၍ export ထုတ်ယူခြင်း၊</p></li>
+<li><p><span class="guilabel">Add Layer to Project</span> ကိုအသုံးပြု၍ project အတွင်းသို့ ထည့်သွင်းအသုံးပြုခြင်း၊</p></li>
+<li><p><span class="guilabel">Layer Properties…</span> ကိုအသုံးပြု၍ Properties များကို ကြည့်ရှုစစ်ဆေးခြင်း၊</p></li>
+</ul>
+</li>
+<li><p>Processing models (စနစ်တကျလုပ်ဆောင်သည့် model များ) (.model3) များအတွက် Context Menu မှ အောက်ဖော်ပြပါ လုပ်ငန်းများဆောင်ရွက်နိုင်ပါသည်-</p>
+<ul class="simple">
+<li><p><span class="guilabel">Run Model…</span>  (Model ကို အလုပ်လုပ်စေခြင်း)</p></li>
+<li><p><span class="guilabel">Edit Model…</span> (Model ကို ပြင်ဆင်မှုများ လုပ်ဆောင်ခြင်း)</p></li>
+</ul>
+</li>
+<li><p>QGIS Print Composer templates (မြေပုံ Layout အတွက် အသင့်အသုံးပြုနိုင်သည့်ပုံစံများ) (QPT) များအတွက် Context Menu မှ အောက်ဖော်ပြပါ လုပ်ငန်းများဆောင်ရွက်နိုင်ပါသည်-</p>
+<ul class="simple">
+<li><p><span class="guilabel">New Layout from Template</span> ကိုအသုံးပြု၍ Layout အသစ် ဖန်တီးခြင်း</p></li>
+</ul>
+</li>
+<li><p>Python scripts (.py) များအတွက် Context Menu မှ အောက်ဖော်ပြပါ လုပ်ငန်းများဆောင်ရွက်နိုင်ပါသည်-</p>
+<ul class="simple">
+<li><p><span class="guilabel">Run script…</span> ကိုအသုံးပြု၍ Script အား အလုပ်လုပ်စေခြင်း၊</p></li>
+<li><p><span class="guilabel">Open in External Editor</span> ကိုအသုံးပြု၍ ပြင်ပ Editor tool တစ်ခုခုတွင် Script အား Edit ပြုလုပ်ခြင်း၊</p></li>
+</ul>
+</li>
+<li><p>အသိအမှတ်ပြုထားသည့် Raster format များအတွက် Context Menu မှ အောက်ဖော်ပြပါ လုပ်ငန်းများဆောင်ရွက်နိုင်ပါသည်-</p>
+<ul class="simple">
+<li><p><span class="guilabel">Delete File &lt;dataset name&gt;</span> ကိုအသုံးပြု၍ ဖိုင်များကို ပယ်ဖျက်ခြင်း၊</p></li>
+<li><p><span class="menuselection">Export Layer ► To file</span> ကိုအသုံးပြု၍ Layer များကို ထုတ်ယူခြင်း၊</p></li>
+<li><p><span class="guilabel">Add Layer to Project</span> ကိုအသုံးပြု၍ project အတွင်းသို့ ထည့်သွင်းအသုံးပြုခြင်း၊</p></li>
+<li><p><span class="guilabel">Layer Properties…</span> ကိုအသုံးပြု၍ Properties များကို ကြည့်ရှုစစ်ဆေးခြင်း၊</p></li>
+</ul>
+<p>အခြား format များအတွက် <span class="guilabel">Open &lt;file type&gt; Externally…</span> ကိုအသုံးပြု၍ လုပ်ဆောင်နိုင်ပါသည်။</p>
+</li>
+<li><p>အသိအမှတ်ပြုထားသည့် Vector format များအတွက် Context Menu မှ အောက်ဖော်ပြပါ လုပ်ငန်းများဆောင်ရွက်နိုင်ပါသည်-</p>
+<ul class="simple">
+<li><p><span class="guilabel">Delete File &lt;dataset name&gt;</span> ကိုအသုံးပြု၍ ဖိုင်များကို ပယ်ဖျက်ခြင်း၊</p></li>
+<li><p><span class="menuselection">Export Layer ► To file</span> ကိုအသုံးပြု၍ Layer များကို ထုတ်ယူခြင်း၊</p></li>
+<li><p><span class="guilabel">Add Layer to Project</span> ကိုအသုံးပြု၍ project အတွင်းသို့ ထည့်သွင်းအသုံးပြုခြင်း၊</p></li>
+<li><p><span class="guilabel">Layer Properties…</span> ကိုအသုံးပြု၍ Properties များကို ကြည့်ရှုစစ်ဆေးခြင်း၊</p></li>
+</ul>
+<p>အခြား format များအတွက် <span class="guilabel">Open &lt;file type&gt; Externally…</span> ကိုအသုံးပြု၍ လုပ်ဆောင်နိုင်ပါသည်။</p>
+</li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="qgis_gui.html" class="btn btn-neutral float-left" title="7. QGIS ၏အစိတ်အပိုင်းများ (QGIS GUI)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="qgis_configuration.html" class="btn btn-neutral float-right" title="9. QGIS ပြင်ဆင်သတ်မှတ်ခြင်း/အခင်းအကျင်း (QGIS Configuration)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2002-now, QGIS project.
+      <span class="lastupdated">Last updated on 2024 May 13, 16:23 +0700.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- Transifex follows a particular logic to build target pages:
+Expected French translation link for https://docs.qgis.org/3.28/en/docs/user_manual/print_composer/overview_composer.html
+would return https://app.transifex.com/qgis/qgis-documentation/translate/#fr/aa6d8bc653526d38b295ca94bf8eee5e
+with the md5 value of "github#qgis/QGIS-Documentation#release_3.28#locale/en/LC_MESSAGES/docs/user_manual/print_composer/overview_composer.po"-->
+<!--Make sure that mismatching language codes between Transifex and Sphinx are converted-->
+
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-info-circle"> QGIS Documentation </span>
+      v: 3.28
+      <span class="fa fa-caret-down"></span>
+    </span>
+
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Languages</dt>
+        
+          <dd><a href="https://docs.qgis.org/3.28/en/docs/user_manual/introduction/browser.html">en</a></dd>
+        
+      </dl>
+
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/user_manual/introduction/browser.html">testing</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/latest/en/docs/user_manual/introduction/browser.html">latest</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.28/en/docs/user_manual/introduction/browser.html">3.28</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.22/en/docs/user_manual/introduction/browser.html">3.22</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.16/en/docs/user_manual/introduction/browser.html">3.16</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.10/en/docs/user_manual/introduction/browser.html">3.10</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.4/en/docs/user_manual/introduction/browser.html">3.4</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/2.18/en/docs/user_manual/introduction/browser.html">2.18</a></dd>
+        
+      </dl>
+
+       
+       <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="https://docs.qgis.org/3.28/pdf">PDF</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.28/zip">HTML</a></dd>
+        
+      </dl>
+      
+
+      
+       
+      <dl>
+        <dt>Contribute to Docs</dt>
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/edit/master/docs/user_manual/introduction/browser.rst" target="_blank" rel="noopener noreferrer">Edit on GitHub</a>
+          </dd>
+          
+          
+          <dd>
+            <a href="https://app.transifex.com/qgis/qgis-documentation/translate/#en/cfad4a6c3a73e6310e68f8eba6a70160" target="_blank" rel="noopener noreferrer">Translate Page</a>
+          </dd>
+          
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/issues" target="_blank" rel="noopener noreferrer">Report Issue</a>
+          </dd>
+      </dl>
+      
+
+      <dl>
+        <dt>On QGIS Project</dt>
+          <dd>
+            <a href="https://qgis.org/en" target="_blank" rel="noopener noreferrer">Home</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/api/3.28" target="_blank" rel="noopener noreferrer">C++ API</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/pyqgis/3.28" target="_blank" rel="noopener noreferrer">PyQGIS API</a>
+          </dd>
+          <dd>
+            <a href="https://github.com/qgis/QGIS/tree/release-3_28" target="_blank" rel="noopener noreferrer">Source</a>
+          </dd>
+      </dl>
+
+    </div>
+  </div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

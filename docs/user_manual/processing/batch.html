@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>28.6. လုပ်ဆောင်ချက်များ အပြိုင်ပြုလုပ်ရန်နေရာ (The batch processing interface) &mdash; QGIS Documentation  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/qgis_docs.css?v=3fdf4c33" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/qgis_logo.ico"/>
+    <link rel="canonical" href="https://docs.qgis.org/latest/en/docs/user_manual/processing/batch.html"/>
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../../_static/copybutton.js?v=f281be69"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="28.7. Console တွင် processing algorithm များကို အသုံးပြုခြင်း" href="console.html" />
+    <link rel="prev" title="28.5. Model design ပြုလုပ်ရာနေရာ (The model designer)" href="modeler.html" />
+  <meta name="description" content="QGIS 3.28 documentation: 28.6. လုပ်ဆောင်ချက်များ အပြိုင်ပြုလုပ်ရန်နေရာ (The batch processing interface)">
+</head>
+
+<body class="wy-body-for-nav">
+
+  <nav class="release_status_topbar">
+  </nav>
+
+   
+
+ 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+   
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            QGIS Documentation
+              <img src="../../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                3.28
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+   <a href= "../../../genindex.html">Index</a>
+ 
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">အသုံးပြုသူများအတွက်</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../preamble/preamble.html">1. စကားချီး (Preamble)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/foreword.html">2. အမှာစာ (Foreword)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/conventions.html">3. အသုံးအနှုန်းများ (Conventions)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/features.html">4. အသွင်အပြင်များ (Features)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/getting_started.html">5. စတင်အသုံးပြုခြင်း (Getting Started)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/project_files.html">6. Project Files များနှင့် အလုပ်လုပ်ခြင်း (Working with Project Files)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/qgis_gui.html">7. QGIS ၏အစိတ်အပိုင်းများ (QGIS GUI)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/browser.html">8. ဒေတာများရှာဖွေကြည့်ရှုနိုင်သည့်နေရာ (The Browser panel)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/qgis_configuration.html">9. QGIS ပြင်ဆင်သတ်မှတ်ခြင်း/အခင်းအကျင်း (QGIS Configuration)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_projections/working_with_projections.html">10. မြေပုံအရိပ်ချစနစ်များ နှင့် အလုပ်လုပ်ခြင်း (Working with Projections)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../map_views/index.html">11. မြေပုံများအား ပုံဖော်ကြည့်ရှုခြင်း (Visualizing Maps)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/general_tools.html">12. အထွေ‌ထွေ‌သုံးကိရိယာများ (General Tools)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../expressions/index.html">13. Expression များဖြင့် အဆင့်မြှင့်တင်ဆောင်ရွက်ခြင်း (Level up with Expressions)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../style_library/index.html">14. The Style Library (Style နှင့်ပတ်သက်သည်များ ထားရှိရာနေရာ)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../managing_data_source/index.html">15. ဒေတာအရင်းအမြစ်များအား စီမံခန့်ခွဲခြင်း (Managing Data Source)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_vector/index.html">16. Vector data များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_raster/index.html">17. Raster Data နှင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_mesh/mesh_properties.html">18. Working with Mesh Data (Mesh Data များနှင့် အလုပ်လုပ်ခြင်း)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_vector_tiles/vector_tiles_properties.html">19. Vector Tiles များနှင့်အလုပ်လုပ်ခြင်း (Working with Vector Tiles)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_point_clouds/point_clouds.html">20. Point Cloud များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../print_composer/index.html">21. မြေပုံအချောသပ်ပြင်ဆင်ခြင်း (Laying out the maps)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_ogc/ogc_client_support.html">22. OGC / ISO protocol များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_gps/index.html">23. GPS Data များနှင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../auth_system/auth_overview.html">24. အထောက်အထားစီစစ်ခြင်းအကြောင်းအကျဉ်း (Authentication System Overview)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../auth_system/auth_workflows.html">25. အသုံးပြုသူ အထောက်အထားစစ်ဆေးခြင်း လုပ်ငန်းအဆင့်များ (User Authentication Workflows)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../auth_system/auth_considerations.html">26. လုံခြုံရေးအတွက်စဉ်းစားရန်အချက်များ (Security Considerations)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../grass_integration/grass_integration.html">27. GRASS GIS နှင့်ပေါင်းစပ်အသုံးပြုခြင်း (GRASS GIS Integration)</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">28. QGIS processing framework</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="intro.html">28.1. မိတ်ဆက် (Introduction)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html">28.2. Processing Framework ကို ပြင်ဆင်သတ်မှတ်ခြင်း (Configuring the Processing Framework)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html">28.3. ကိရိယာများအစု (The Toolbox)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="history.html">28.4. ရှေတွင်လုပ်ခဲ့သည့်အဆင့်များကို စီမံခန့်ခွဲရာနေရာ (The history manager)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modeler.html">28.5. Model design ပြုလုပ်ရာနေရာ (The model designer)</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">28.6. လုပ်ဆောင်ချက်များ အပြိုင်ပြုလုပ်ရန်နေရာ (The batch processing interface)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#introduction">28.6.1. မိတ်ဆက် (Introduction)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parameter-the-parameters-table">28.6.2. Parameter များ ဇယား (The parameters table)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parameter-filling-the-parameters-table">28.6.3. Parameter ဇယားတွင် အချက်အလက်ထည့်သွင်းခြင်း (Filling the parameters table)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#batch-process-executing-the-batch-process">28.6.4. Batch process လုပ်ဆောင်ခြင်း (Executing the batch process)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="console.html">28.7. Console တွင် processing algorithm များကို အသုံးပြုခြင်း</a></li>
+<li class="toctree-l2"><a class="reference internal" href="standalone.html">28.8. Command line မှ processing ပြုလုပ်ခြင်း</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scripts.html">28.9. Processing algorithm အသစ်များကို Python script များအဖြစ် ရေးသားခြင်း</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3rdParty.html">28.10. ပြင်ပ application များကို ပြင်ဆင်သတ်မှတ်ခြင်း (Configuring external applications)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../processing_algs/index.html">29. Processing ဆိုင်ရာ ထောက်ပံ့ပေးသူများနှင့် Algorithm များ (Processing providers and algorithms)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/plugins.html">30. QGIS Plugin များ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/core_plugins/index.html">31. QGIS ပင်မ Plugin များကို အသုံးပြုခြင်း (Using QGIS Core Plugins)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/python_console.html">32. QGIS တွင် Python code များရေးသားရန်နေရာ (QGIS Python console)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/help_and_support.html">33. အကူအညီနှင့်အထောက်အပံ့ (Help and Support)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/contributors.html">34. ပါဝင်အားဖြည့်သူများ (Contributors)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendices/index.html">35. နောက်ဆက်တွဲများ (Appendices)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../literature_web/literature_and_web_references.html">36. စာတမ်းများနှင့် Website ကိုးကားချက်များ (Literature and Web References)</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">QGIS Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">&lt;no title&gt;</a></li>
+          <li class="breadcrumb-item"><a href="index.html"><span class="section-number">28. </span>QGIS processing framework</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">28.6. </span>လုပ်ဆောင်ချက်များ အပြိုင်ပြုလုပ်ရန်နေရာ (The batch processing interface)</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/qgis/QGIS-Documentation/blob/master/docs/user_manual/processing/batch.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="modeler.html" class="btn btn-neutral float-left" title="28.5. Model design ပြုလုပ်ရာနေရာ (The model designer)" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="console.html" class="btn btn-neutral float-right" title="28.7. Console တွင် processing algorithm များကို အသုံးပြုခြင်း" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <blockquote>
+<div></div></blockquote>
+<section id="the-batch-processing-interface">
+<span id="processing-batch"></span><h1><span class="section-number">28.6. </span>လုပ်ဆောင်ချက်များ အပြိုင်ပြုလုပ်ရန်နေရာ (The batch processing interface)<a class="headerlink" href="#the-batch-processing-interface" title="Link to this heading"></a></h1>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#introduction" id="id5">မိတ်ဆက် (Introduction)</a></p></li>
+<li><p><a class="reference internal" href="#parameter-the-parameters-table" id="id6">Parameter များ ဇယား (The parameters table)</a></p></li>
+<li><p><a class="reference internal" href="#parameter-filling-the-parameters-table" id="id7">Parameter ဇယားတွင် အချက်အလက်ထည့်သွင်းခြင်း (Filling the parameters table)</a></p></li>
+<li><p><a class="reference internal" href="#batch-process-executing-the-batch-process" id="id8">Batch process လုပ်ဆောင်ခြင်း (Executing the batch process)</a></p></li>
+</ul>
+</nav>
+<section id="introduction">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink"><span class="section-number">28.6.1. </span>မိတ်ဆက် (Introduction)</a><a class="headerlink" href="#introduction" title="Link to this heading"></a></h2>
+<p>Model များအပါအဝင် algorithm များအားလုံးကို တစ်စုတစ်စည်းတည်း (batch) အဖြစ် စုပေါင်းစေခိုင်းနိုင်ပါသည်။ ထည့်သွင်းအသုံးပြုသော data တစ်စုတည်းအသုံးပြုပြီးလုပ်ဆောင်ရုံတင်မကဘဲ အများအပြားကို လိုအပ်သလောက် အကြိမ်အရေအတွက်ထိ လုပ်ဆောင်နိုင်ပါသည်။ Algorithm ကို toolbox မှ အကြိမ်များစွာ ဖွင့်ပြီးလုပ်ဆောင်ရန်မလိုသောကြောင့် data အများကြီးကို processing လုပ်ဆောင်သောအခါ ဒီနည်းလမ်းသည် အသုံးဝင်ပါသည်။</p>
+<p>Algorithm ကို တစ်စုတစ်စည်းတည်းအဖြစ် စုပေါင်းစေခိုင်းရန် toolbox ထဲရှိ နာမည်ကို right-click နှိပ်ပြီး ပေါ်လာသော menu မှ <span class="guilabel">Execute as batch process</span> ကိုရွေးချယ်ပါ။</p>
+<figure class="align-center" id="id1">
+<span id="figure-processing-batch-start"></span><img alt="../../../_images/batch_processing_right_click.png" src="../../../_images/batch_processing_right_click.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 28.32 </span><span class="caption-text">Right-click နှိပ်ခြင်းမှ Batch processing</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Algorithm ၏ လုပ်ဆောင်မှု dialog ကိုဖွင့်ထားပြီးလျှင် <span class="guilabel">Run as batch process…</span> ခလုတ်ကို နှိပ်ပြီး batch processing ကို စတင်နိုင်ပါသည်။</p>
+<figure class="align-center" id="id2">
+<span id="figure-processing-batch-start2"></span><img alt="../../../_images/parameters_dialog.png" src="../../../_images/parameters_dialog.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 28.33 </span><span class="caption-text">Algorithm Dialog မှ Batch processing</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="parameter-the-parameters-table">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink"><span class="section-number">28.6.2. </span>Parameter များ ဇယား (The parameters table)</a><a class="headerlink" href="#parameter-the-parameters-table" title="Link to this heading"></a></h2>
+<p>Batch processing လုပ်ခြင်းသည် algorithm တစ်ခု၏ တစ်ခုစာ လုပ်ဆောင်ခြင်းနှင့် ဆင်တူပါသည်။ Parameter တန်ဖိုးများကိုသတ်မှတ်ပေးရပါမည်၊ သို့သော် ယခုဥပမာတွင် parameter တစ်ခုချင်းစီအတွက် တန်ဖိုးတစ်ခုကိုသာ လိုအပ်သည်မဟုတ်ပဲ တစ်စုတစ်စည်းလုံးစာအတွက် လိုအပ်ပြီး algorithm တစ်ခါလုပ်ဆောင်တိုင်းအတွက် တစ်ခုလိုအပ်ပါသည်။ တန်ဖိုးများကို ပြသထားသော ဇယားပုံစံမျိုးကိုအသုံးပြုပြီး ထည့်သွင်းပါသည်။ ဇယားထဲတွင် row တစ်ခုချင်းစီသည် iteration (row တစ်ခုကို တစ်ခါလုပ်ဆောင်ခြင်း) ဖြစ်ပြီး column များသည် algorithm ၏ parameter များဖြစ်ပါသည်။</p>
+<figure class="align-center" id="id3">
+<span id="figure-processing-batch-parameters"></span><img alt="../../../_images/batch_processing.png" src="../../../_images/batch_processing.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 28.34 </span><span class="caption-text">Batch Processing</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>အပေါ်ဘက်တွင်ရှိသော toolbar မှ အောက်ပါတို့ကိုလုပ်ဆောင်နိုင်ပါသည် -</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../../../_images/symbologyAdd.png"><img alt="symbologyAdd" src="../../../_images/symbologyAdd.png" style="width: 1.5em;" /></a> <sup>Add row</sup> - ပြင်ဆင်သတ်မှတ်ခြင်းအတွက် processing entry အသစ်တစ်ခုထည့်ခြင်း။</p></li>
+<li><p><a class="reference internal" href="../../../_images/symbologyRemove.png"><img alt="symbologyRemove" src="../../../_images/symbologyRemove.png" style="width: 1.5em;" /></a> <sup>Remove row(s)</sup> - ဇယားမှ ရွေးချယ်ထားသော row များကိုဖယ်ရှားပစ်ခြင်း။ ဘယ်ဘက်ရှိ ဂဏန်းပေါ်တွင် click နှိပ်ခြင်းဖြင့် row ကိုရွေးချယ်နိုင်ပါသည်။ <a class="reference internal" href="../working_with_vector/attribute_table.html#interacting-features-table"><span class="std std-ref">keyboard combination</span></a> ကိုအသုံးပြုပြီး row များစွာရွေးချယ်နိုင်ပါသည်။</p></li>
+<li><p><a class="reference internal" href="../../../_images/mActionFileOpen.png"><img alt="fileOpen" src="../../../_images/mActionFileOpen.png" style="width: 1.5em;" /></a> <sup>Open</sup> - Batch Processing ပြင်ဆင်သတ်မှတ်ခြင်း file တစ်ခုကို ဖွင့်ခြင်း</p></li>
+<li><p><a class="reference internal" href="../../../_images/mActionFileSave.png"><img alt="fileSave" src="../../../_images/mActionFileSave.png" style="width: 1.5em;" /></a> <sup>Save</sup> - Batch Processing ပြင်ဆင်ထားခြင်းကို နောက်ပိုင်းတွင် အသုံးပြုနိုင်သော <code class="file docutils literal notranslate"><span class="pre">.JSON</span></code> file ထဲတွင် သိမ်းဆည်းထားခြင်း</p></li>
+</ul>
+<p>ပုံမှန်အားဖြင့် ဇယားသည် row နှစ်ခုသာ ပါဝင်ပါသည် -</p>
+<ul class="simple">
+<li><p>ပထမ row တွင် အောက်တွင် cell များကိုအမြန်ဖြည့်ရန် <a class="reference internal" href="#batch-parameters"><span class="std std-ref">options</span></a> များဖြင့် <span class="menuselection">Autofill… ►</span> drop-down menu တစ်ခုကို cell တစ်ခုချင်းဆီတွင် ဖော်ပြပေးပါသည်။ ရရှိနိုင်သော option များသည် parameter အမျိုးအစားပေါ်တွင် မူတည်ပါသည်။</p></li>
+<li><p>ဒုတိယ row သည် (ကပ်လျက်ဖြစ်သော row တစ်ခုစီတိုင်းလည်း) algorithm ၏ တစ်ခုချင်း စေခိုင်းလုပ်ဆောင်မှုကို ကိုယ်စားပြုပြီး cell တစ်ခုချင်းသည် parameter များထဲမှ တစ်ခု၏ တန်ဖိုးပါဝင်ပါသည်။ Toolbox မှ algorithm တစ်ခုကို စေခိုင်းလုပ်ဆောင်သောအခါ မြင်ရသော parameters dialog နှင့် ဆင်တူသော်လည်း စီစဉ်ထားမှုမတူညီပါ။</p></li>
+</ul>
+<p>ဇယား၏အောက်ခြေတွင် <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">Load layers on completion</span> ကို အမှန်ခြစ်ထား/မခြစ်ထားမည်ကို သတ်မှတ်ပေးနိုင်ပါသည်။</p>
+<p>ဇယား၏အရွယ်အစားသတ်မှတ်ပြီးသည်နှင့် လိုချင်သောတန်ဖိုးများကို ထည့်သွင်းပေးရပါမည်။</p>
+</section>
+<section id="parameter-filling-the-parameters-table">
+<span id="batch-parameters"></span><h2><a class="toc-backref" href="#id7" role="doc-backlink"><span class="section-number">28.6.3. </span>Parameter ဇယားတွင် အချက်အလက်ထည့်သွင်းခြင်း (Filling the parameters table)</a><a class="headerlink" href="#parameter-filling-the-parameters-table" title="Link to this heading"></a></h2>
+<p>Parameter အများစုအတွက် တန်ဖိုးသတ်မှတ်ခြင်းသည် အရေးမကြီးပါ။ <a class="reference internal" href="toolbox.html#algorithm-widgets"><span class="std std-ref">single process dialog</span></a> ထဲကနှင့်အတူတူဖြစ်သော သင့်တော်သော widget ပါဝင်ပြီး တန်ဖိုးများကို စာရိုက်ထည့်သွင်းလို့ရပါသည်၊ သို့မဟုတ် parameter အမျိုးအစားပေါ်မူတည်ပြီး ဖြစ်နိုင်သောတန်ဖိုးများ စာရင်းမှ ရွေးချယ်နိုင်ပါသည်။ ကိုက်ညီမှုရှိသောအခါ data-define (Data ဖြင့်သတ်မှတ်ထားသော) widget လည်းပါဝင်ပါသည်။</p>
+<p>Batch process သတ်မှတ်ခြင်းကို အလိုအလျှောက်လုပ်ဆောင်ရန်နှင့် ဇယားကို cell တစ်ခုချင်း ထည့်သွင်းခြင်းကို ရှောင်ရှားရန် parameter တစ်ခု၏ <span class="guilabel">Autofill…</span> menu ကို နှိပ်ရမည် ဖြစ်ပြီး column ထဲရှိတန်ဖိုးများကို အစားထိုးရန် အောက်ပါနည်းလမ်းများထဲမှ တစ်ခုခုကိုရွေးချယ်ရပါမည်-</p>
+<ul>
+<li><p><span class="guilabel">Fill Down</span> သည် ပထမ process အတွက် ထည့်သွင်းအသုံးပြုသောတန်ဖိုးကို ရယူပြီး အခြား process များအတွက် ၎င်းတန်ဖိုးကိုထည့်သွင်းပါသည်။</p></li>
+<li><p><a class="reference internal" href="../../../_images/mActionCalculateField.png"><img alt="calculateField" src="../../../_images/mActionCalculateField.png" style="width: 1.5em;" /></a> <span class="guilabel">Calculate by Expression…</span> သည် column တစ်ခုအတွင်း ရှိနေပြီးသား တန်ဖိုးများကို အသစ်ပြင်ဆင်ရန် QGIS expression တစ်ခုကိုရေးရန် လုပ်ဆောင်ပေးပါသည်။ ရှိနေပြီးသား parameter တန်ဖိုးများ (အခြား column မှတန်ဖိုးများလည်းပါဝင်သည်) ကို <a class="reference internal" href="../introduction/general_tools.html#general-tools-variables"><span class="std std-ref">variables</span></a> မှတဆင့် expression ထဲတွင် ထည့်သွင်းအသုံးပြုနိုင်ပါသည်။ ဥပမာ- layer တစ်ခုချင်းစီ၏ buffer အကွာအဝေးပေါ်အခြေခံပြီး segment (အပိုင်း) များ၏အရေအတွက်ကို သတ်မှတ်ခြင်း-</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">CASE</span> <span class="n">WHEN</span> <span class="nd">@DISTANCE</span> <span class="o">&gt;</span> <span class="mi">20</span> <span class="n">THEN</span> <span class="mi">12</span> <span class="n">ELSE</span> <span class="mi">8</span> <span class="n">END</span>
+</pre></div>
+</div>
+</li>
+<li><p><span class="guilabel">Add Values by Expression…</span> သည် expression တစ်ခုမှ တန်ဖိုးများကိုအသုံးပြုပြီး row အသစ်များထည့်ပေါင်းပေးကာ array တစ်ခုကိုဖန်တီးပေးပါသည် (ရှိနေပြီးသား row များကိုသာအသုံးပြုသော <span class="guilabel">Calculate  by Expression…</span> နှင့်ဆန့်ကျင်ဘက်)။ ရည်ရွယ်ထားသော အသုံးပြုမှုမှာ ရှုပ်ထွေးသော ကိန်းဂဏန်းစဉ်များကို အသုံးပြုပြီး batch dialog ကိုလုပ်ဆောင်ရန်ဖြစ်ပါသည်။ ဥပမာ- row အသစ်များထဲတွင် 100၊ 150၊ 200၊ …. 1000 တန်ဖိုးများနှင့် အကွာအဝေး parameter ရလာဒ်များအတွက် <code class="docutils literal notranslate"><span class="pre">generate_series(100,</span> <span class="pre">1000,</span> <span class="pre">50)</span></code> expression ကိုအသုံးပြုပြီး batch buffer လုပ်ဆောင်ရန်အတွက် row အသစ်များထည့်ပေါင်းခြင်း။</p></li>
+<li><p>File တစ်ခု သို့မဟုတ် layer parameter တစ်ခုကို သတ်မှတ်သောအခါ ရွေးချယ်စရာများစွာ ရှိပါသည် -</p>
+<ul class="simple">
+<li><p><span class="guilabel">Add Files by Pattern…</span> - Folder တစ်ခုထဲတွင် <span class="guilabel">Look in (ကြည့်ရန်)</span> <span class="guilabel">File pattern</span> တစ်ခုနှင့်ကိုက်ညီသော file များအတွက် ဇယားတွင် row အသစ်များ ထည့်ပေးပါသည်။ ဥပမာ- folder ထဲရှိ <code class="file docutils literal notranslate"><span class="pre">SHP</span></code> file များအားလုံးကို စာရင်းထဲတွင် <code class="docutils literal notranslate"><span class="pre">*.shp</span></code> ကိုပေါင်းထည့်ပါလိမ့်မည်။ <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">Search recursively</span> ကိုအမှန်ခြစ်ခြင်းဖြင့် folder အခွဲများ အတွင်းပါ ရှာဖွေနိုင်ပါသည်။</p></li>
+<li><p><span class="guilabel">Directory တစ်ခုမှ file များအားလုံးကိုထည့်ခြင်း</span></p></li>
+<li><p>အသုံးပြုနေသော project ထဲရှိ <span class="guilabel">ဖွင့်ထားသော Layer များမှ ရွေးချယ်ခြင်း</span></p></li>
+</ul>
+</li>
+</ul>
+<p>Algorithm ကို single process အဖြစ်စေခိုင်းလုပ်ဆောင်သောအခါ ထွက်လာသော ရလာဒ်များ၏ parameter သည် တူညီသော လုပ်နိုင်စွမ်းများကို ဖော်ပြပေးပါသည်။ Algorithm ပေါ်မူတည်ပြီး ရလာဒ်များသည် အောက်ပါအတိုင်း ဖြစ်နိုင်ပါသည် -</p>
+<ul>
+<li><p>Cell က ဘာမှမရှိလျှင် ကျော်လိုက်ခြင်း။</p></li>
+<li><p>ယာယီ file အဖြစ်သိမ်းခြင်း - cell ကို <code class="docutils literal notranslate"><span class="pre">TEMPORARY_OUTPUT</span> <span class="pre">(ယာယီရလာဒ်)</span></code> ဖြင့်ဖြည့်စွက်မည်ဖြစ်ပြီး <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">Load layers on completion</span> checkbox ကို အမှန်ခြစ် ခြစ်ထားရန် မမေ့ပါနှင့်။</p></li>
+<li><p>တစ်ခုခုမလုပ်ဆောင်ခင်တွင် <span class="guilabel">Autofill</span> နည်းလမ်းများဖြင့် file လမ်းကြောင်းကိုသတ်မှတ်ပေးသော plain file (<code class="file docutils literal notranslate"><span class="pre">.SHP</span></code> ၊ <code class="file docutils literal notranslate"><span class="pre">.GPKG</span></code> ၊ <code class="file docutils literal notranslate"><span class="pre">.XML</span></code> ၊ <code class="file docutils literal notranslate"><span class="pre">.PDF</span></code> ၊ <code class="file docutils literal notranslate"><span class="pre">.JPG</span></code> ၊…) တစ်ခုအဖြစ် သိမ်းဆည်းခြင်း။ ဥပမာ- ရှုပ်ထွေးသော expression များကို ထွက်လာမည့် file အမည်များကို သတ်မှတ်ပေးရန် <span class="guilabel">Calculate by Expression…</span> ကို အသုံးပြုခြင်း-</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;/home/me/stuff/buffer_&#39;</span> <span class="o">||</span> <span class="n">left</span><span class="p">(</span><span class="nd">@INPUT</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span> <span class="o">||</span> <span class="s1">&#39;_&#39;</span> <span class="o">||</span> <span class="nd">@DISTANCE</span> <span class="o">||</span> <span class="s1">&#39;.shp&#39;</span>
+</pre></div>
+</div>
+<p>File လမ်းကြောင်းကို လက်ဖြင့်တိုက်ရိုက်စာရိုက်ထည့်နိုင်သလို <span class="guilabel">…</span> ခလုတ်ကို နှိပ်လျှင်ပေါ်လာသော file ရွေးချယ်သော dialog ကိုလည်း အသုံးပြုနိုင်ပါသည်။ File ကိုရွေးပြီးသည်နှင့် column တစ်ခုတည်းရှိ (parameter တစ်ခုတည်း) အခြား cell များကို အလိုအလျှောက်ပြီးဆုံးအောင်လုပ်ခြင်းအတွက် dialog တစ်ခုပေါ်လာပါသည်။</p>
+<figure class="align-center" id="id4">
+<span id="figure-processing-save"></span><img alt="../../../_images/batch_processing_save.png" src="../../../_images/batch_processing_save.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 28.35 </span><span class="caption-text">Batch Processing ကို သိမ်းဆည်းခြင်း</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>မူရင်းတန်ဖိုး (<span class="guilabel">Do not autofill</span>) ကိုရွေးချယ်ထားလျှင် parameter ဇယားမှ ရွေးချယ်ထားသော cell ထဲရှိ ရွေးချယ်ထားသော file အမည် ကိုထည့်ပေးပါလိမ့်မည်။ အခြားရွေးချယ်စရာများထဲမှတစ်ခုခုကို ရွေးချယ်ထားလျှင် ရွေးချယ်ထားသောတစ်ခု၏ <strong>အောက်တွင်</strong> ရှိနေသော cell အားလုံးကို သတ်မှတ်ထားသော စံနှုန်းပေါ်မူတည်ပြီး အလိုအလျောက်ဖြည့်စွက်ပေးပါသည်-</p>
+<ul class="simple">
+<li><p><span class="guilabel">Fill with numbers</span> - file အမည်နောက်တွင် ဂဏန်းတစ်ခုကို တစ်ခုချင်းတိုးပြီး ပေါင်းထည့်ပေးပါသည်။</p></li>
+<li><p><span class="guilabel">Fill with parameter values</span> - file အမည်တွင်ပေါင်းထည့်ပေးမည့် တူညီသော row ထဲရှိ parameter တန်ဖိုးကို ရွေးချယ်နိုင်ပါသည်။ ထည့်သွင်းအသုံးပြုသော အချက်အလက်များပေါ်မူတည်ပြီး ရလာသော ရလာဒ်များကို နာမည်ပေးချင်သောအခါ ဒီနည်းလမ်းသည် အသုံးဝင်ပါသည်။</p></li>
+</ul>
+</li>
+<li><p>Database container ထဲတွင် layer တစ်ခုအနေဖြင့် သိမ်းဆည်းခြင်း -</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Indicate a layer within a GeoPackage file</span>
+<span class="n">ogr</span><span class="p">:</span><span class="n">dbname</span><span class="o">=</span><span class="s1">&#39;C:/Path/To/Geopackage.gpkg&#39;</span> <span class="n">table</span><span class="o">=</span><span class="s2">&quot;New_Table&quot;</span> <span class="p">(</span><span class="n">geom</span><span class="p">)</span>
+
+<span class="c1"># Use the &quot;Calculate By Expression&quot; to output to different layers in a GeoPackage</span>
+<span class="s1">&#39;ogr:dbname=</span><span class="se">\&#39;</span><span class="s1">&#39;</span> <span class="o">||</span> <span class="nd">@project_folder</span> <span class="o">||</span> <span class="s1">&#39;/Buffers.gpkg</span><span class="se">\&#39;</span><span class="s1"> table=&quot;&#39;</span> <span class="o">||</span> <span class="nd">@INPUT</span> <span class="o">||</span> <span class="s1">&#39;_&#39;</span> <span class="o">||</span> <span class="nd">@DISTANCE</span> <span class="o">||</span> <span class="s1">&#39;&quot; (geom)&#39;</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+<section id="batch-process-executing-the-batch-process">
+<h2><a class="toc-backref" href="#id8" role="doc-backlink"><span class="section-number">28.6.4. </span>Batch process လုပ်ဆောင်ခြင်း (Executing the batch process)</a><a class="headerlink" href="#batch-process-executing-the-batch-process" title="Link to this heading"></a></h2>
+<p>မဖြစ်မနေလိုအပ်သော တန်ဖိုးများထည့်သွင်းပြီးနောက် batch process ကိုစေခိုင်းလုပ်ဆောင်ရန် <span class="guilabel">Run</span> ခလုတ်ကိုနှိပ်ပါ။ <span class="guilabel">Log</span> panel ပွင့်လာပြီး လုပ်ဆောင်နေသော အဆင့်များကို အသေးစိတ်ဖော်ပြပေးပါလိမ့်မည်။ Batch process ၏ ပြီးစီးနေသောပမာဏကို dialog ၏အောက်ခြေရှိ progress bar တွင် ပြသနေပါမည်။</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="modeler.html" class="btn btn-neutral float-left" title="28.5. Model design ပြုလုပ်ရာနေရာ (The model designer)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="console.html" class="btn btn-neutral float-right" title="28.7. Console တွင် processing algorithm များကို အသုံးပြုခြင်း" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2002-now, QGIS project.
+      <span class="lastupdated">Last updated on 2024 May 13, 16:23 +0700.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- Transifex follows a particular logic to build target pages:
+Expected French translation link for https://docs.qgis.org/3.28/en/docs/user_manual/print_composer/overview_composer.html
+would return https://app.transifex.com/qgis/qgis-documentation/translate/#fr/aa6d8bc653526d38b295ca94bf8eee5e
+with the md5 value of "github#qgis/QGIS-Documentation#release_3.28#locale/en/LC_MESSAGES/docs/user_manual/print_composer/overview_composer.po"-->
+<!--Make sure that mismatching language codes between Transifex and Sphinx are converted-->
+
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-info-circle"> QGIS Documentation </span>
+      v: 3.28
+      <span class="fa fa-caret-down"></span>
+    </span>
+
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Languages</dt>
+        
+          <dd><a href="https://docs.qgis.org/3.28/en/docs/user_manual/processing/batch.html">en</a></dd>
+        
+      </dl>
+
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/user_manual/processing/batch.html">testing</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/latest/en/docs/user_manual/processing/batch.html">latest</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.28/en/docs/user_manual/processing/batch.html">3.28</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.22/en/docs/user_manual/processing/batch.html">3.22</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.16/en/docs/user_manual/processing/batch.html">3.16</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.10/en/docs/user_manual/processing/batch.html">3.10</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.4/en/docs/user_manual/processing/batch.html">3.4</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/2.18/en/docs/user_manual/processing/batch.html">2.18</a></dd>
+        
+      </dl>
+
+       
+       <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="https://docs.qgis.org/3.28/pdf">PDF</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.28/zip">HTML</a></dd>
+        
+      </dl>
+      
+
+      
+       
+      <dl>
+        <dt>Contribute to Docs</dt>
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/edit/master/docs/user_manual/processing/batch.rst" target="_blank" rel="noopener noreferrer">Edit on GitHub</a>
+          </dd>
+          
+          
+          <dd>
+            <a href="https://app.transifex.com/qgis/qgis-documentation/translate/#en/93cf72051d2cea9ea8642010cc31a949" target="_blank" rel="noopener noreferrer">Translate Page</a>
+          </dd>
+          
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/issues" target="_blank" rel="noopener noreferrer">Report Issue</a>
+          </dd>
+      </dl>
+      
+
+      <dl>
+        <dt>On QGIS Project</dt>
+          <dd>
+            <a href="https://qgis.org/en" target="_blank" rel="noopener noreferrer">Home</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/api/3.28" target="_blank" rel="noopener noreferrer">C++ API</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/pyqgis/3.28" target="_blank" rel="noopener noreferrer">PyQGIS API</a>
+          </dd>
+          <dd>
+            <a href="https://github.com/qgis/QGIS/tree/release-3_28" target="_blank" rel="noopener noreferrer">Source</a>
+          </dd>
+      </dl>
+
+    </div>
+  </div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

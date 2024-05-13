@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>28.7. Console တွင် processing algorithm များကို အသုံးပြုခြင်း &mdash; QGIS Documentation  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/qgis_docs.css?v=3fdf4c33" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/qgis_logo.ico"/>
+    <link rel="canonical" href="https://docs.qgis.org/latest/en/docs/user_manual/processing/console.html"/>
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../../_static/copybutton.js?v=f281be69"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="28.8. Command line မှ processing ပြုလုပ်ခြင်း" href="standalone.html" />
+    <link rel="prev" title="28.6. လုပ်ဆောင်ချက်များ အပြိုင်ပြုလုပ်ရန်နေရာ (The batch processing interface)" href="batch.html" />
+  <meta name="description" content="QGIS 3.28 documentation: 28.7. Console တွင် processing algorithm များကို အသုံးပြုခြင်း">
+</head>
+
+<body class="wy-body-for-nav">
+
+  <nav class="release_status_topbar">
+  </nav>
+
+   
+
+ 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+   
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            QGIS Documentation
+              <img src="../../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                3.28
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+   <a href= "../../../genindex.html">Index</a>
+ 
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">အသုံးပြုသူများအတွက်</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../preamble/preamble.html">1. စကားချီး (Preamble)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/foreword.html">2. အမှာစာ (Foreword)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/conventions.html">3. အသုံးအနှုန်းများ (Conventions)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/features.html">4. အသွင်အပြင်များ (Features)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/getting_started.html">5. စတင်အသုံးပြုခြင်း (Getting Started)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/project_files.html">6. Project Files များနှင့် အလုပ်လုပ်ခြင်း (Working with Project Files)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/qgis_gui.html">7. QGIS ၏အစိတ်အပိုင်းများ (QGIS GUI)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/browser.html">8. ဒေတာများရှာဖွေကြည့်ရှုနိုင်သည့်နေရာ (The Browser panel)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/qgis_configuration.html">9. QGIS ပြင်ဆင်သတ်မှတ်ခြင်း/အခင်းအကျင်း (QGIS Configuration)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_projections/working_with_projections.html">10. မြေပုံအရိပ်ချစနစ်များ နှင့် အလုပ်လုပ်ခြင်း (Working with Projections)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../map_views/index.html">11. မြေပုံများအား ပုံဖော်ကြည့်ရှုခြင်း (Visualizing Maps)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/general_tools.html">12. အထွေ‌ထွေ‌သုံးကိရိယာများ (General Tools)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../expressions/index.html">13. Expression များဖြင့် အဆင့်မြှင့်တင်ဆောင်ရွက်ခြင်း (Level up with Expressions)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../style_library/index.html">14. The Style Library (Style နှင့်ပတ်သက်သည်များ ထားရှိရာနေရာ)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../managing_data_source/index.html">15. ဒေတာအရင်းအမြစ်များအား စီမံခန့်ခွဲခြင်း (Managing Data Source)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_vector/index.html">16. Vector data များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_raster/index.html">17. Raster Data နှင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_mesh/mesh_properties.html">18. Working with Mesh Data (Mesh Data များနှင့် အလုပ်လုပ်ခြင်း)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_vector_tiles/vector_tiles_properties.html">19. Vector Tiles များနှင့်အလုပ်လုပ်ခြင်း (Working with Vector Tiles)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_point_clouds/point_clouds.html">20. Point Cloud များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../print_composer/index.html">21. မြေပုံအချောသပ်ပြင်ဆင်ခြင်း (Laying out the maps)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_ogc/ogc_client_support.html">22. OGC / ISO protocol များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_gps/index.html">23. GPS Data များနှင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../auth_system/auth_overview.html">24. အထောက်အထားစီစစ်ခြင်းအကြောင်းအကျဉ်း (Authentication System Overview)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../auth_system/auth_workflows.html">25. အသုံးပြုသူ အထောက်အထားစစ်ဆေးခြင်း လုပ်ငန်းအဆင့်များ (User Authentication Workflows)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../auth_system/auth_considerations.html">26. လုံခြုံရေးအတွက်စဉ်းစားရန်အချက်များ (Security Considerations)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../grass_integration/grass_integration.html">27. GRASS GIS နှင့်ပေါင်းစပ်အသုံးပြုခြင်း (GRASS GIS Integration)</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">28. QGIS processing framework</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="intro.html">28.1. မိတ်ဆက် (Introduction)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html">28.2. Processing Framework ကို ပြင်ဆင်သတ်မှတ်ခြင်း (Configuring the Processing Framework)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html">28.3. ကိရိယာများအစု (The Toolbox)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="history.html">28.4. ရှေတွင်လုပ်ခဲ့သည့်အဆင့်များကို စီမံခန့်ခွဲရာနေရာ (The history manager)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modeler.html">28.5. Model design ပြုလုပ်ရာနေရာ (The model designer)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="batch.html">28.6. လုပ်ဆောင်ချက်များ အပြိုင်ပြုလုပ်ရန်နေရာ (The batch processing interface)</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">28.7. Console တွင် processing algorithm များကို အသုံးပြုခြင်း</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#python-console-algorithm">28.7.1. Python console မှ algorithm များကို ခေါ်ယူအသုံးပြုခြင်း</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#script-toolbox-creating-scripts-and-running-them-from-the-toolbox">28.7.2. Script များဖန်တီးခြင်းနှင့် ၎င်းတို့ကို toolbox မှ လုပ်ဆောင်စေခြင်း (Creating scripts and running them from the toolbox)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#feedback">28.7.2.1. တုန့်ပြန်မှု (Feedback)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#handling-errors">28.7.2.2. အမှားများကိုင်တွယ်ခြင်း (Handling errors)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#script-documenting-your-scripts">28.7.2.3. Script များကို မှတ်တမ်းပြုစုခြင်း (Documenting your scripts)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#pre-and-post-execution-script-hooks">28.7.3. Pre- and post-execution script hooks</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="standalone.html">28.8. Command line မှ processing ပြုလုပ်ခြင်း</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scripts.html">28.9. Processing algorithm အသစ်များကို Python script များအဖြစ် ရေးသားခြင်း</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3rdParty.html">28.10. ပြင်ပ application များကို ပြင်ဆင်သတ်မှတ်ခြင်း (Configuring external applications)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../processing_algs/index.html">29. Processing ဆိုင်ရာ ထောက်ပံ့ပေးသူများနှင့် Algorithm များ (Processing providers and algorithms)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/plugins.html">30. QGIS Plugin များ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/core_plugins/index.html">31. QGIS ပင်မ Plugin များကို အသုံးပြုခြင်း (Using QGIS Core Plugins)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/python_console.html">32. QGIS တွင် Python code များရေးသားရန်နေရာ (QGIS Python console)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/help_and_support.html">33. အကူအညီနှင့်အထောက်အပံ့ (Help and Support)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/contributors.html">34. ပါဝင်အားဖြည့်သူများ (Contributors)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendices/index.html">35. နောက်ဆက်တွဲများ (Appendices)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../literature_web/literature_and_web_references.html">36. စာတမ်းများနှင့် Website ကိုးကားချက်များ (Literature and Web References)</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">QGIS Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">&lt;no title&gt;</a></li>
+          <li class="breadcrumb-item"><a href="index.html"><span class="section-number">28. </span>QGIS processing framework</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">28.7. </span>Console တွင် processing algorithm များကို အသုံးပြုခြင်း</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/qgis/QGIS-Documentation/blob/master/docs/user_manual/processing/console.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="batch.html" class="btn btn-neutral float-left" title="28.6. လုပ်ဆောင်ချက်များ အပြိုင်ပြုလုပ်ရန်နေရာ (The batch processing interface)" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="standalone.html" class="btn btn-neutral float-right" title="28.8. Command line မှ processing ပြုလုပ်ခြင်း" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <blockquote>
+<div></div></blockquote>
+<section id="console-processing-algorithm">
+<span id="processing-console"></span><h1><span class="section-number">28.7. </span>Console တွင် processing algorithm များကို အသုံးပြုခြင်း<a class="headerlink" href="#console-processing-algorithm" title="Link to this heading"></a></h1>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#python-console-algorithm" id="id2">Python console မှ algorithm များကို ခေါ်ယူအသုံးပြုခြင်း</a></p></li>
+<li><p><a class="reference internal" href="#script-toolbox-creating-scripts-and-running-them-from-the-toolbox" id="id3">Script များဖန်တီးခြင်းနှင့် ၎င်းတို့ကို toolbox မှ လုပ်ဆောင်စေခြင်း (Creating scripts and running them from the toolbox)</a></p>
+<ul>
+<li><p><a class="reference internal" href="#feedback" id="id4">တုန့်ပြန်မှု (Feedback)</a></p></li>
+<li><p><a class="reference internal" href="#handling-errors" id="id5">အမှားများကိုင်တွယ်ခြင်း (Handling errors)</a></p></li>
+<li><p><a class="reference internal" href="#script-documenting-your-scripts" id="id6">Script များကို မှတ်တမ်းပြုစုခြင်း (Documenting your scripts)</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#pre-and-post-execution-script-hooks" id="id7">Pre- and post-execution script hooks</a></p></li>
+</ul>
+</nav>
+<p>Console တွင် processing framework ၏ အခြား GUI element များကိုအသုံးပြုပြီး မလုပ်ဆောင်နိုင်သော ရှုပ်ထွေးသည့်လုပ်ငန်းဆောင်တာများကို ကျွမ်းကျင်အသုံးပြုသူများမှ အဆင့်မြင့်လုပ်ဆောင်နိုင်ပြီး လုပ်ငန်းကိုပိုမိုထိရောက်စေပါသည်။ Algorithm များစွာပါသော model များကို command-line interface ကိုအသုံးပြုပြီးသတ်မှတ်နိုင်ပြီး ထပ်ခါထပ်ခါလုပ်ဆောင်သော loop များနှင့် အခြေအနေအရလုပ်ဆောင်သော စာတန်းများ (Conditional sentences) ကဲ့သို့ အခြားလုပ်ငန်းများကို ထပ်ဖြည့်ပြီး ပိုမိုလိုက်လျောညီထွေဖြစ်ပြီး လုပ်ဆောင်နိုင်စွမ်းများသော workflow (လုပ်ငန်းအဆင့်များ) များကို ဖန်တီးပေးပါသည်။</p>
+<p>QGIS တွင် processing console ပါဝင်ခြင်းမရှိပါ။ သို့သော် QGIS ၏မူရင်းပါသော <a class="reference internal" href="../plugins/python_console.html#console"><span class="std std-ref">Python console</span></a> မှ processing command များအားလုံးကိုအသုံးပြုနိုင်ပါသည်။ ဆိုလိုသည်မှာ ၎င်း command များကို မိမိ၏ console လုပ်ငန်းများနှင့် ပူးတွဲလုပ်ဆောင်နိုင်ပြီး processing algorithm များကို ရနိုင်သော အခြား feature များ (QGIS API မှ နည်းလမ်းများအပါအဝင်) နှင့် ချိတ်ဆက်နိုင်ပါသည်။</p>
+<p>သီးခြား processing method တစ်ခုခုကို ခေါ်ယူအသုံးမပြုလျှင်တောင်မှ python console မှ စေခိုင်းလုပ်ဆောင်နိုင်သော code ကို အခြား algorithm ဖြင့်လုပ်ဆောင်သကဲ့သို့ နောက်ပိုင်းတွင် toolbox၊ graphical modeler သို့မဟုတ် အခြား component များမှ ခေါ်ယူအသုံးပြုနိုင်သော algorithm တစ်ခုအဖြစ် ပြောင်းလဲနိုင်ပါသည်။ တကယ်တော့ toolbox ထဲတွင်တွေ့ရသော အချို့သော algorithm များသည် လွယ်ကူရိုးရှင်းသော script များဖြစ်ပါသည်။</p>
+<p>ဤ section တွင် QGIS Python console မှ processing algorithm များကို မည်သို့အသုံးပြုရမည် နှင့် Python ကိုအသုံးပြုပြီး algorithm များမည်သို့ရေးရမည် ဆိုသည်ကို တွေ့ရမည်ဖြစ်ပါသည်။</p>
+<section id="python-console-algorithm">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink"><span class="section-number">28.7.1. </span>Python console မှ algorithm များကို ခေါ်ယူအသုံးပြုခြင်း</a><a class="headerlink" href="#python-console-algorithm" title="Link to this heading"></a></h2>
+<p>ပထမဆုံးလုပ်ဆောင်ရမည့် အဆင့်မှာ အောက်ပါ စာကြောင်းဖြင့် processing function များကိုထည့်သွင်းရန်ဖြစ်သည်-</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">qgis</span> <span class="kn">import</span> <span class="n">processing</span>
+</pre></div>
+</div>
+<p>ယခုလက်ရှိတွင် Console မှ လုပ်ဆောင်နိုင်သော (စိတ်ဝင်စားစရာကောင်းသော) အရာတစ်မျိုးသာရှိပါသည် - algorithm ကို စေခိုင်းလုပ်ဆောင်ခြင်း (execute) ဖြစ်ပါသည်။ Algorithm ၏အမည်ကို ၎င်း၏ပထမဆုံး parameter အဖြစ် စေခိုင်းလုပ်ဆောင်သည့် <a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingAlgorithm.html#qgis.core.QgsProcessingAlgorithm.run" title="(in QGIS Python API v3.28)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">run()</span></code></a> နည်းလမ်းကိုအသုံးပြုပြီး လုပ်ဆောင်ပါသည်။ ထို့နောက် algorithm ၏ လိုအပ်ချက်များပေါ် မူတည်ပြီး အခြား parameter များ၏ variable အရေအတွက်ကိုလုပ်ဆောင်ပါသည်။ ထို့ကြောင့် စေခိုင်းလုပ်ဆောင်ရန်အတွက် ပထမဆုံးသိရမည့်အချက်မှာ algorithm ၏ အမည်ဖြစ်ပါသည်။ Toolbox ထဲတွင်တွေ့ရသော အမည်မဟုတ်ပါ၊ တမူထူးခြားသော command-line အမည်ဖြစ်ပါသည်။ Algorithm ၏အမည်အမှန်ကိုရှာရန် <a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingRegistry.html#qgis.core.QgsProcessingRegistry" title="(in QGIS Python API v3.28)"><code class="xref py py-class docutils literal notranslate"><span class="pre">processingRegistry</span></code></a> ကိုအသုံးပြုနိုင်ပါသည်။ Console ထဲတွင် အောက်ပါစာကြောင်းကိုရိုက်ထည့်ပါ-</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">alg</span> <span class="ow">in</span> <span class="n">QgsApplication</span><span class="o">.</span><span class="n">processingRegistry</span><span class="p">()</span><span class="o">.</span><span class="n">algorithms</span><span class="p">():</span>
+<span class="go">        print(alg.id(), &quot;-&gt;&quot;, alg.displayName())</span>
+</pre></div>
+</div>
+<p>အောက်တွင်ဖော်ပြထားသည့်အတိုင်း တွေ့ရမည်ဖြစ်ပါသည် (ဖတ်ရလွယ်ကူစေရန် dash များပိုထည့်ပြီး ညှိပေးထားပါသည်)။</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">3</span><span class="n">d</span><span class="p">:</span><span class="n">tessellate</span> <span class="o">--------------&gt;</span> <span class="n">Tessellate</span>
+<span class="n">gdal</span><span class="p">:</span><span class="n">aspect</span> <span class="o">----------------&gt;</span> <span class="n">Aspect</span>
+<span class="n">gdal</span><span class="p">:</span><span class="n">assignprojection</span> <span class="o">------&gt;</span> <span class="n">Assign</span> <span class="n">projection</span>
+<span class="n">gdal</span><span class="p">:</span><span class="n">buffervectors</span> <span class="o">---------&gt;</span> <span class="n">Buffer</span> <span class="n">vectors</span>
+<span class="n">gdal</span><span class="p">:</span><span class="n">buildvirtualraster</span> <span class="o">----&gt;</span> <span class="n">Build</span> <span class="n">Virtual</span> <span class="n">Raster</span>
+<span class="n">gdal</span><span class="p">:</span><span class="n">cliprasterbyextent</span> <span class="o">----&gt;</span> <span class="n">Clip</span> <span class="n">raster</span> <span class="n">by</span> <span class="n">extent</span>
+<span class="n">gdal</span><span class="p">:</span><span class="n">cliprasterbymasklayer</span> <span class="o">-&gt;</span> <span class="n">Clip</span> <span class="n">raster</span> <span class="n">by</span> <span class="n">mask</span> <span class="n">layer</span>
+<span class="n">gdal</span><span class="p">:</span><span class="n">clipvectorbyextent</span> <span class="o">----&gt;</span> <span class="n">Clip</span> <span class="n">vector</span> <span class="n">by</span> <span class="n">extent</span>
+<span class="n">gdal</span><span class="p">:</span><span class="n">clipvectorbypolygon</span> <span class="o">---&gt;</span> <span class="n">Clip</span> <span class="n">vector</span> <span class="n">by</span> <span class="n">mask</span> <span class="n">layer</span>
+<span class="n">gdal</span><span class="p">:</span><span class="n">colorrelief</span> <span class="o">-----------&gt;</span> <span class="n">Color</span> <span class="n">relief</span>
+<span class="n">gdal</span><span class="p">:</span><span class="n">contour</span> <span class="o">---------------&gt;</span> <span class="n">Contour</span>
+<span class="n">gdal</span><span class="p">:</span><span class="n">convertformat</span> <span class="o">---------&gt;</span> <span class="n">Convert</span> <span class="nb">format</span>
+<span class="n">gdal</span><span class="p">:</span><span class="n">dissolve</span> <span class="o">--------------&gt;</span> <span class="n">Dissolve</span>
+<span class="o">...</span>
+</pre></div>
+</div>
+<p>၎င်းတို့၏သက်ဆိုင်ရာအမည်များအလိုက် provider အမည်နှင့် algorithm အမည်များဖြင့် စီစဉ်ထားသော အသုံးပြုနိုင်သော algorithm ID များအားလုံး၏ စာရင်းဖြစ်ပါသည်။</p>
+<p>Algorithm ၏ command-line အမည်ကို သိသည်နှင့် နောက်ထပ်လုပ်ဆောင်ရမည့်အဆင့်မှာ စေခိုင်းလုပ်ဆောင်ရန်အတွက် မှန်ကန်သော syntax (ဝါကျဖွဲ့ပုံ) ကိုဆုံးဖြတ်ရန်ဖြစ်ပါသည်။ <code class="docutils literal notranslate"><span class="pre">run()</span></code> နည်းလမ်းကိုအသုံးပြုသောအခါ မည်သည့် parameter များလိုအပ်သည်ကို သိခြင်းကို ဆိုလိုပါသည်။</p>
+<p>Algorithm တစ်ခုမှ လိုအပ်သော parameter များစာရင်းကိုရရန်နှင့် ထွက်လာမည့် ရလာဒ်များရရှိရန် အသုံးပြုနိုင်သော algorithm တစ်ခုကိုအသေးစိတ်ဖော်ပြသည့် နည်းလမ်းတစ်ခုရှိပါသည်။ ၎င်းသတင်းအချက်အလက်ကို ရယူရန် <code class="docutils literal notranslate"><span class="pre">algorithmHelp(id_of_the_algorithm)</span></code> နည်းလမ်းကိုအသုံးပြုနိုင်ပါသည်။ Algorithm ၏ ID ကိုအသုံးပြုပါ၊ ဖော်ပြနာမည်အပြည့်အစုံကို သုံးရန်မလိုအပ်ပါ။</p>
+<p>နည်းလမ်းကို parameter (<code class="docutils literal notranslate"><span class="pre">qgis:buffer</span></code> သည် <code class="docutils literal notranslate"><span class="pre">native:buffer</span></code> အတွက် နာမည်ပွားဖြစ်ပြီး အလုပ်လည်း လုပ်ဆောင်ပေးပါသည်) အဖြစ် <code class="docutils literal notranslate"><span class="pre">native:buffer</span></code> နှင့်ခေါ်ယူအသုံးပြုခြင်းဖြင့် အောက်ပါ ဖော်ပြချက်ကို ရရှိမည်ဖြစ်ပါသည်-</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">processing</span><span class="o">.</span><span class="n">algorithmHelp</span><span class="p">(</span><span class="s2">&quot;native:buffer&quot;</span><span class="p">)</span>
+<span class="go">Buffer (native:buffer)</span>
+
+<span class="go">      ဤ algorithm သည် ပုံသေ သို့မဟုတ် ပြောင်းလဲနေသော အကွာအဝေးကို အသုံးပြုပြီး input layer တစ်ခုအတွင်းရှိ feature များအားလုံးအတွက် buffer area ကိုတွက်ထုတ်ပေးပါသည်။</span>
+
+<span class="go">      Segments (မျဉ်းပိုင်းများ) parameter သည် ထောင့်ကွေးများတွင် offset (အရွေ့) များဖန်တီးသောအခါ စက်ဝိုင်း၏လေးပုံတစ်ပုံခန့်ကိုဖန်တီးရန် အသုံးပြုသော line segment အရေအတွက်ကို ထိန်းချုပ်ပေးပါသည်။</span>
+
+<span class="go">      အဆုံးသတ် အဝိုက် (cap) style parameter သည် buffer ထဲတွင် မျဉ်းအဆုံးသတ်များကို မည်သို့ ကိုင်တွယ်မည်ဆိုသည်ကို ထိန်းချုပ်ပေးပါသည်။</span>
+
+<span class="go">      Line တစ်ခုတွင် ထောင့်များကို offset လုပ်သောအခါ round (စောင်းလုံး)၊ miter (စောင်းတိ) သို့မဟုတ် bevel (စောင်းသတ်) အဆက်များ အသုံးပြုသင့်သည်ကို joint style parameter ကဆုံးဖြတ်ပေးပါသည်။</span>
+
+<span class="go">      Miter ကန့်သတ်ချက် parameter သည် miter (စောင်းတိ) ဆက်သော style များအတွက်သာအသုံးပြုနိုင်ပြီး miter (စောင်းတိ) join တစ်ခုဖန်တီးသောအခါ အသုံးပြုရန် offset အကွေးမှ အဝေးဆုံးအကွာအဝေးကို ထိန်းချုပ်ပေးပါသည်။</span>
+
+
+<span class="go">----------------------------------------------------------------</span>
+<span class="go">Input parameters (ထည့်သွင်းအသုံးပြုသော parameter များ)</span>
+<span class="go">----------------------------------------------------------------</span>
+
+<span class="go">INPUT: Input layer (ထည့်သွင်းအသုံးပြုသော layer)</span>
+
+<span class="go">   Parameter type: QgsProcessingParameterFeatureSource</span>
+
+<span class="go">   Accepted data types:</span>
+<span class="go">           - str: layer ID</span>
+<span class="go">           - str: layer name</span>
+<span class="go">           - str: layer source</span>
+<span class="go">           - QgsProcessingFeatureSourceDefinition</span>
+<span class="go">           - QgsProperty</span>
+<span class="go">           - QgsVectorLayer</span>
+
+<span class="go">DISTANCE: Distance (အကွာအဝေး)</span>
+
+<span class="go">   Parameter type: QgsProcessingParameterDistance</span>
+
+<span class="go">   Accepted data types:</span>
+<span class="go">           - int</span>
+<span class="go">           - float</span>
+<span class="go">           - QgsProperty</span>
+
+<span class="go">SEGMENTS: Segments (မျဉ်းပိုင်းများ)</span>
+
+<span class="go">   Parameter type: QgsProcessingParameterNumber</span>
+
+<span class="go">   Accepted data types:</span>
+<span class="go">           - int</span>
+<span class="go">           - float</span>
+<span class="go">           - QgsProperty</span>
+
+<span class="go">END_CAP_STYLE: End cap style (အဆုံးသတ် အဝိုက် style)</span>
+
+<span class="go">   Parameter type: QgsProcessingParameterEnum</span>
+
+<span class="go">   Available values:</span>
+<span class="go">           - 0: Round</span>
+<span class="go">           - 1: Flat</span>
+<span class="go">           - 2: Square</span>
+
+<span class="go">   Accepted data types:</span>
+<span class="go">           - int</span>
+<span class="go">           - str: as string representation of int, e.g. &#39;1&#39;</span>
+<span class="go">           - QgsProperty</span>
+
+<span class="go">JOIN_STYLE: Join style (မျဉ်း နှစ်ခုဆက်သော style)</span>
+
+<span class="go">   Parameter type: QgsProcessingParameterEnum</span>
+
+<span class="go">   Available values:</span>
+<span class="go">           - 0: Round</span>
+<span class="go">           - 1: Miter</span>
+<span class="go">           - 2: Bevel</span>
+
+<span class="go">   Accepted data types:</span>
+<span class="go">           - int</span>
+<span class="go">           - str: as string representation of int, e.g. &#39;1&#39;</span>
+<span class="go">           - QgsProperty</span>
+
+<span class="go">MITER_LIMIT: Miter limit (Miter ကန့်သတ်ချက်)</span>
+
+<span class="go">   Parameter type: QgsProcessingParameterNumber</span>
+
+<span class="go">   Accepted data types:</span>
+<span class="go">           - int</span>
+<span class="go">           - float</span>
+<span class="go">           - QgsProperty</span>
+
+<span class="go">DISSOLVE: Dissolve result (ပျော်ဝင်ပေါင်းစည်းသွားသော/ရောနှောသွားသော ရလာဒ်)</span>
+
+<span class="go">   Parameter type: QgsProcessingParameterBoolean</span>
+
+<span class="go">   Accepted data types:</span>
+<span class="go">           - bool</span>
+<span class="go">           - int</span>
+<span class="go">           - str</span>
+<span class="go">           - QgsProperty</span>
+
+<span class="go">OUTPUT: Buffered</span>
+
+<span class="go">   Parameter type: QgsProcessingParameterFeatureSink</span>
+
+<span class="go">   Accepted data types:</span>
+<span class="go">           - str: destination vector file, e.g. &#39;d:/test.shp&#39;</span>
+<span class="go">           - str: &#39;memory:&#39; to store result in temporary memory layer</span>
+<span class="go">           - str: using vector provider ID prefix and destination URI,</span>
+<span class="go">                  e.g. &#39;postgres:...&#39; to store result in PostGIS table</span>
+<span class="go">           - QgsProcessingOutputLayerDefinition</span>
+<span class="go">           - QgsProperty</span>
+
+<span class="go">------------------------------------------------</span>
+<span class="go">Outputs (ရလာဒ်များ)</span>
+<span class="go">------------------------------------------------</span>
+
+<span class="go">OUTPUT:  &lt;QgsProcessingOutputVectorLayer&gt;</span>
+<span class="go">   Buffered</span>
+</pre></div>
+</div>
+<p>Now you have everything you need to run any algorithm. As we have
+already mentioned, algorithms can be run using: <code class="docutils literal notranslate"><span class="pre">run()</span></code>.
+Its syntax is as follows:</p>
+<p>ယခုဆိုလျှင် မည်သည့် algorithm ကိုမဆို လုပ်ဆောင်ရန်အတွက် လိုအပ်သောအရာများ အားလုံးရှိနေပြီဖြစ်ပါသည်။ အထက်တွင်ဖော်ပြခဲ့သည့်အတိုင်း <code class="docutils literal notranslate"><span class="pre">run()</span></code> ကို အသုံးပြုပြီး algorithm များကို စေခိုင်းလုပ်ဆောင်နိုင်ပါသည်။ ၎င်း၏ syntax မှာအောက်ပါအတိုင်းဖြစ်ပါသည်-</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">processing</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">name_of_the_algorithm</span><span class="p">,</span> <span class="n">parameters</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Parameter များသည် ကိုယ်လုပ်ဆောင်လိုသော algorithm ပေါ်မူတည်သော parameter များ၏ dictionary တစ်ခုဖြစ်ပြီး <code class="docutils literal notranslate"><span class="pre">algorithmHelp()</span></code> နည်းလမ်းမှ ပေးသော စာရင်းအတိအကျအတိုင်း ဖြစ်ပါသည်။။</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span> <span class="o">&gt;&gt;&gt;</span> <span class="n">processing</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;native:buffer&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;INPUT&#39;</span><span class="p">:</span> <span class="s1">&#39;/data/lines.shp&#39;</span><span class="p">,</span>
+<span class="linenos">2</span>               <span class="s1">&#39;DISTANCE&#39;</span><span class="p">:</span> <span class="mf">100.0</span><span class="p">,</span>
+<span class="linenos">3</span>               <span class="s1">&#39;SEGMENTS&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+<span class="linenos">4</span>               <span class="s1">&#39;DISSOLVE&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+<span class="linenos">5</span>               <span class="s1">&#39;END_CAP_STYLE&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+<span class="linenos">6</span>               <span class="s1">&#39;JOIN_STYLE&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+<span class="linenos">7</span>               <span class="s1">&#39;MITER_LIMIT&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+<span class="linenos">8</span>               <span class="s1">&#39;OUTPUT&#39;</span><span class="p">:</span> <span class="s1">&#39;/data/buffers.shp&#39;</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>Parameter သည် optional (အသုံးမပြုလည်းရ) ဖြစ်ပြီး မိမိကလည်းအသုံးမပြုလိုလျှင် ၎င်းကို dictionary တွင် မထည့်ပါနှင့်။</p>
+<p>Parameter တန်ဖိုးကို သတ်မှတ်မပေးထားလျှင် software မှပေးသော မူရင်းတန်ဖိုးကိုအသုံးပြုမည် ဖြစ်ပါသည်။</p>
+<p>Parameter အမျိုးအစားပေါ်မူတည်ပြီး တန်ဖိုးများကို ကွဲပြားစွာထည့်ပေးပါသည်။ နောက်ဖော်ပြပေးမည့်စာရင်းသည် ထည့်သွင်းအသုံးပြုမည့် parameter တစ်ခုချင်းစီအတွက် တန်ဖိုးများကို မည်သို့ထည့်သွင်းရမည်ဆိုသော နည်းလမ်းကို သုံးသပ်ဖော်ပြပေးပါမည်-</p>
+<ul>
+<li><p>Raster Layer ၊ Vector Layer သို့မဟုတ် Table ။ အသုံးပြုမည့် data object (QGIS Table of Contents ထဲတွင်ရှိနေသော ၎င်း၏အမည်) သို့မဟုတ် file အမည်တစ်ခု (သက်ဆိုင်ရာ layer ကို ဖွင့်မထားလျှင် ၎င်းကိုဖွင့်မည်ဖြစ်ပြီး မြေပုံမြင်ကွင်းထဲသို့ ထည့်သွင်းမည်မဟုတ်ပါ) ကိုခွဲခြားပေးသော အမည်စာသားတစ်ခုကို ရိုးရှင်းစွာအသုံးပြုပါ။ Layer ကိုကိုယ်စားပြုသော QGIS object တစ်ခု ဥပမာ ရှိလျှင် ၎င်းကို parameter အဖြစ် အသုံးပြုနိုင်ပါသည်။</p></li>
+<li><p>တစ်ခုချင်းစီသီးခြားဖော်ပြခြင်း (Enumeration) ။ Algorithm တစ်ခုတွင် enumeration parameter တစ်ခုရှိလျှင် ကိန်းပြည့်ဂဏန်းတစ်ခုကို အသုံးပြုပြီး ၎င်း parameter ၏တန်ဖိုးကို ထည့်သွင်းသင့်ပါသည်။ အသုံးပြုနိုင်သော နည်းလမ်းများကို သိလိုလျှင် အထက်မှာဖော်ပြခဲ့သည့်အတိုင်း <code class="docutils literal notranslate"><span class="pre">algorithmHelp()</span></code> command ကိုအသုံးပြုနိုင်ပါသည်။ ဥပမာ- <code class="docutils literal notranslate"><span class="pre">native:buffer</span></code> algorithm တွင် JOIN_STYLE ဟုခေါ်သော enumeration တစ်ခုရှိပါသည်-</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">JOIN_STYLE</span><span class="p">:</span> <span class="n">Join</span> <span class="n">style</span> <span class="p">(</span><span class="n">မျဉ်း</span> <span class="n">နှစ်ခုဆက်သော</span> <span class="n">style</span><span class="p">)</span>
+
+   <span class="n">Parameter</span> <span class="nb">type</span><span class="p">:</span> <span class="n">QgsProcessingParameterEnum</span>
+
+   <span class="n">Available</span> <span class="n">values</span><span class="p">:</span>
+           <span class="o">-</span> <span class="mi">0</span><span class="p">:</span> <span class="n">Round</span>
+           <span class="o">-</span> <span class="mi">1</span><span class="p">:</span> <span class="n">Miter</span>
+           <span class="o">-</span> <span class="mi">2</span><span class="p">:</span> <span class="n">Bevel</span>
+
+   <span class="n">Accepted</span> <span class="n">data</span> <span class="n">types</span><span class="p">:</span>
+           <span class="o">-</span> <span class="nb">int</span>
+           <span class="o">-</span> <span class="nb">str</span><span class="p">:</span> <span class="k">as</span> <span class="n">string</span> <span class="n">representation</span> <span class="n">of</span> <span class="nb">int</span><span class="p">,</span> <span class="n">e</span><span class="o">.</span><span class="n">g</span><span class="o">.</span> <span class="s1">&#39;1&#39;</span>
+           <span class="o">-</span> <span class="n">QgsProperty</span>
+</pre></div>
+</div>
+<p>ယခုဥပမာတွင် parameter တွင်ရွေးချယ်စရာ သုံးမျိုးရှိပါသည်။ အစီအစဉ်မှာ သုညမှ စတင်ထားသည်ကို သတိပြုပါ။</p>
+</li>
+<li><p>Boolean။ <code class="docutils literal notranslate"><span class="pre">အမှန်</span></code> သို့မဟုတ် <code class="docutils literal notranslate"><span class="pre">အမှား</span></code> ကိုအသုံးပြုပါ။</p></li>
+<li><p>ထည့်သွင်းအသုံးပြုသောအရာ များစွာရှိခြင်း။ တန်ဖိုးသည် semicolons (<code class="docutils literal notranslate"><span class="pre">;</span></code>) ဖြင့်ပိုင်းခြားထားသော စာသားဖြင့် ရေးသားဖော်ပြထားခြင်း ဖြစ်ပါသည်။ Layer တစ်ခုတည်း သို့မဟုတ် ဇယားများပါသော အခါတွင် ထည့်သွင်းအသုံးပြုသော ရေးသားဖော်ပြချက်သည် data object အမည် သို့မဟုတ် ၎င်း၏ file လမ်းကြောင်း ဖြစ်နိုင်ပါသည်။</p></li>
+<li><p>XXX မှ ဇယား၏ field။ အသုံးပြုမည့် field ၏အမည်ဖြင့် စာသားတစ်ခုကို အသုံးပြုပါ။ ၎င်း parameter သည် စာလုံးအကြီးအသေး (case-sensitive) ဂရုပြုရမည်ဖြစ်သည်။</p></li>
+<li><p>ပုံသေသတ်မှတ်ထားသော ဇယား။ Commas (<code class="docutils literal notranslate"><span class="pre">,</span></code>) နှင့်ခြားထားပြီး quotes (<code class="docutils literal notranslate"><span class="pre">&quot;</span></code>) ထဲတွင်ထည့်ရေးထားသော ဇယားမှတန်ဖိုးများအားလုံး၏ စာရင်းကို စာရိုက်ထည့်ပါ။ အပေါ်ပိုင်း row မှ တန်ဖိုးများစတင်ပြီး ဘယ်မှညာဘက်ကို ရွေ့သွားပါသည်။ ဇယားကိုကိုယ်စားပြုသော တန်ဖိုးများ၏ နှစ်ဖက်မြင်ကိန်းတန်း (2-D array) ကိုလည်း အသုံးပြုနိုင်ပါသည်။</p></li>
+<li><p>CRS။ အသုံးပြုလိုသော CRS ၏ EPSG code နံပါတ်ကို ထည့်သွင်းပါ။</p></li>
+<li><p>စတုဂံပုံအကျယ်အဝန်းနယ် (Extent)။ Commas (<code class="docutils literal notranslate"><span class="pre">,</span></code>) ဖြင့်ခြားထားသော <code class="docutils literal notranslate"><span class="pre">အနည်းဆုံး</span> <span class="pre">x</span> <span class="pre">တန်ဖိုး</span></code> ၊ <code class="docutils literal notranslate"><span class="pre">အများဆုံး</span> <span class="pre">x</span> <span class="pre">တန်ဖိုး</span></code> ၊ <code class="docutils literal notranslate"><span class="pre">အနည်းဆုံး</span> <span class="pre">y</span> <span class="pre">တန်ဖိုး</span></code> နှင့် <code class="docutils literal notranslate"><span class="pre">အများဆုံး</span> <span class="pre">y</span> <span class="pre">တန်ဖိုး</span></code> များဖြင့် စာသားတစ်ခုကို အသုံးပြုရပါမည်။</p></li>
+</ul>
+<p>Boolean ၊ file ၊ စာသား နှင့် ကိန်းဂဏန်း parameter များသည် ထပ်ဆောင်းဖြည့်စွက်ရှင်းလင်းချက်များ မလိုအပ်ပါ။</p>
+<p>စာသား၊ boolean သို့မဟုတ် ကိန်းဂဏန်းတန်ဖိုးများကဲ့သို့ input parameter များတွင် မူရင်း (default) တန်ဖိုးများ ရှိပါသည်။ ထည့်ပေးရမည့် သက်ဆိုင်ရာ parameter များထည့်မထားလျှင် ၎င်းမူရင်းတန်ဖိုးကို ထည့်သွင်းအသုံးပြုပါသည်။</p>
+<p>ရလာဒ် object များအတွက် toolbox တွင်လုပ်ဆောင်သလိုမျိုး သိမ်းဆည်းရမည့် file လမ်းကြောင်းကိုထည့်သွင်းရေးသားပါ။ ရလာဒ် object ကိုသတ်မှတ်မပေးလျှင် ရလာဒ်ကို ယာယီ file တွင်သိမ်းဆည်းမည်ဖြစ်ပါသည် (မဖြစ်မနေသိမ်းပေးရမည့် ရလာဒ်မျိုးမဟုတ်လျှင် သိမ်းဆည်းမပေးတော့ပါ)။ File ၏ extension သည် file format ကိုဆုံးဖြတ်ပေးပါသည်။ Algorithm ကလုပ်ဆောင်မပေးနိုင်သော file extension ကိုထည့်သွင်းအသုံးပြုလျှင် ၎င်းရလာဒ်အမျိုးအစားအတွက် မူရင်း (default) format ကိုအသုံးပြုပါလိမ့်မည်။ ထို့နောက် ၎င်းနှင့်သက်ဆိုင်သော extension ကို ထည့်သွင်းပေးထားသော file လမ်းကြောင်းတွင် ထည့်ပေါင်းပေးပါသည်။</p>
+<p>Toolbox မှ algorithm တစ်ခုကိုစေခိုင်းလုပ်ဆောင်ခြင်းနှင့်မတူဘဲ <a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingAlgorithm.html#qgis.core.QgsProcessingAlgorithm.run" title="(in QGIS Python API v3.28)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">run()</span></code></a> ကိုအသုံးပြုပြီး Python console မှ တူညီသော algorithm ကို စေခိုင်းလုပ်ဆောင်လျှင် ရလာဒ်ကို မြေပုံမြင်ကွင်းထဲတွင် ထည့်သွင်းဖော်မပြပါ။ သို့သော် <code class="docutils literal notranslate"><span class="pre">runAndLoadResults()</span></code> ကိုအသုံးပြုလျှင် မြေပုံတွင် ထည့်သွင်းဖော်ပြပေးပါသည်။</p>
+<p><a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingAlgorithm.html#qgis.core.QgsProcessingAlgorithm.run" title="(in QGIS Python API v3.28)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">run()</span></code></a> နည်းလမ်းသည် key များနှင့် ရလာဒ်များ၏ file လမ်းကြောင်းများအဖြစ် တစ်ခု သို့မဟုတ် ပိုများသော ရလာဒ်နာမည်များ (algorithm ဖော်ပြချက်တွင် ပြသထားသောအရာများ) ဖြင့် dictionary တစ်ခုကို တန်ဖိုးများအနေဖြင့် ပြန်ထုတ်ပေးပါသည် -</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span> <span class="o">&gt;&gt;&gt;</span> <span class="n">myresult</span> <span class="o">=</span> <span class="n">processing</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;native:buffer&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;INPUT&#39;</span><span class="p">:</span> <span class="s1">&#39;/data/lines.shp&#39;</span><span class="p">,</span>
+<span class="linenos"> 2</span>               <span class="s1">&#39;DISTANCE&#39;</span><span class="p">:</span> <span class="mf">100.0</span><span class="p">,</span>
+<span class="linenos"> 3</span>               <span class="s1">&#39;SEGMENTS&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+<span class="linenos"> 4</span>               <span class="s1">&#39;DISSOLVE&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+<span class="linenos"> 5</span>               <span class="s1">&#39;END_CAP_STYLE&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+<span class="linenos"> 6</span>               <span class="s1">&#39;JOIN_STYLE&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+<span class="linenos"> 7</span>               <span class="s1">&#39;MITER_LIMIT&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+<span class="linenos"> 8</span>               <span class="s1">&#39;OUTPUT&#39;</span><span class="p">:</span> <span class="s1">&#39;/data/buffers.shp&#39;</span><span class="p">})</span>
+<span class="linenos"> 9</span> <span class="o">&gt;&gt;&gt;</span> <span class="n">myresult</span><span class="p">[</span><span class="s1">&#39;OUTPUT&#39;</span><span class="p">]</span>
+<span class="linenos">10</span> <span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">buffers</span><span class="o">.</span><span class="n">shp</span>
+</pre></div>
+</div>
+<p>သက်ဆိုင်ရာ file လမ်းကြောင်းများကို <code class="docutils literal notranslate"><span class="pre">load()</span></code> သို့ပို့ဆောင်သော နည်းလမ်းကိုအသုံးပြုပြီး Feature ရလာဒ်ကို ခေါ်ယူထည့်သွင်းနိုင်ပါသည်။ သို့မဟုတ် ၎င်းတို့ကို ချက်ချင်းခေါ်ယူထည့်သွင်းရန်အတွက် <a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingAlgorithm.html#qgis.core.QgsProcessingAlgorithm.run" title="(in QGIS Python API v3.28)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">run()</span></code></a> အစား <code class="docutils literal notranslate"><span class="pre">runAndLoadResults()</span></code> ကိုအသုံးပြုနိုင်ပါသည်။</p>
+<p>Console မှ algorithm dialog ကိုဖွင့်လိုလျှင် <code class="docutils literal notranslate"><span class="pre">createAlgorithmDialog</span></code> နည်းလမ်းကိုအသုံးပြုနိုင်ပါသည်။ မဖြစ်မနေထည့်ရမည့် parameter မှာ algorithm နာမည်ဖြစ်ပြီး dialog ကိုအလိုအလျှောက်ဖြည့်စွက်စေရန် parameter များ၏ dictionary ကိုလည်း သတ်မှတ်ပေးနိုင်ပါသည်-</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span> <span class="o">&gt;&gt;&gt;</span> <span class="n">my_dialog</span> <span class="o">=</span> <span class="n">processing</span><span class="o">.</span><span class="n">createAlgorithmDialog</span><span class="p">(</span><span class="s2">&quot;native:buffer&quot;</span><span class="p">,</span> <span class="p">{</span>
+<span class="linenos"> 2</span>               <span class="s1">&#39;INPUT&#39;</span><span class="p">:</span> <span class="s1">&#39;/data/lines.shp&#39;</span><span class="p">,</span>
+<span class="linenos"> 3</span>               <span class="s1">&#39;DISTANCE&#39;</span><span class="p">:</span> <span class="mf">100.0</span><span class="p">,</span>
+<span class="linenos"> 4</span>               <span class="s1">&#39;SEGMENTS&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+<span class="linenos"> 5</span>               <span class="s1">&#39;DISSOLVE&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+<span class="linenos"> 6</span>               <span class="s1">&#39;END_CAP_STYLE&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+<span class="linenos"> 7</span>               <span class="s1">&#39;JOIN_STYLE&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+<span class="linenos"> 8</span>               <span class="s1">&#39;MITER_LIMIT&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+<span class="linenos"> 9</span>               <span class="s1">&#39;OUTPUT&#39;</span><span class="p">:</span> <span class="s1">&#39;/data/buffers.shp&#39;</span><span class="p">})</span>
+<span class="linenos">10</span> <span class="o">&gt;&gt;&gt;</span> <span class="n">my_dialog</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">execAlgorithmDialog</span></code> နည်းလမ်းသည် dialog ကိုချက်ချင်းပွင့်စေပါသည် -</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span> <span class="o">&gt;&gt;&gt;</span> <span class="n">processing</span><span class="o">.</span><span class="n">execAlgorithmDialog</span><span class="p">(</span><span class="s2">&quot;native:buffer&quot;</span><span class="p">,</span> <span class="p">{</span>
+<span class="linenos">2</span>               <span class="s1">&#39;INPUT&#39;</span><span class="p">:</span> <span class="s1">&#39;/data/lines.shp&#39;</span><span class="p">,</span>
+<span class="linenos">3</span>               <span class="s1">&#39;DISTANCE&#39;</span><span class="p">:</span> <span class="mf">100.0</span><span class="p">,</span>
+<span class="linenos">4</span>               <span class="s1">&#39;SEGMENTS&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+<span class="linenos">5</span>               <span class="s1">&#39;DISSOLVE&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+<span class="linenos">6</span>               <span class="s1">&#39;END_CAP_STYLE&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+<span class="linenos">7</span>               <span class="s1">&#39;JOIN_STYLE&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+<span class="linenos">8</span>               <span class="s1">&#39;MITER_LIMIT&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+<span class="linenos">9</span>               <span class="s1">&#39;OUTPUT&#39;</span><span class="p">:</span> <span class="s1">&#39;/data/buffers.shp&#39;</span><span class="p">})</span>
+</pre></div>
+</div>
+</section>
+<section id="script-toolbox-creating-scripts-and-running-them-from-the-toolbox">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink"><span class="section-number">28.7.2. </span>Script များဖန်တီးခြင်းနှင့် ၎င်းတို့ကို toolbox မှ လုပ်ဆောင်စေခြင်း (Creating scripts and running them from the toolbox)</a><a class="headerlink" href="#script-toolbox-creating-scripts-and-running-them-from-the-toolbox" title="Link to this heading"></a></h2>
+<p>Python code များရေးသားပြီး ကိုယ်ပိုင် algorithm များဖန်တီးနိုင်ပါသည်။ Processing script များသည် <a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingAlgorithm.html#qgis.core.QgsProcessingAlgorithm" title="(in QGIS Python API v3.28)"><code class="xref py py-class docutils literal notranslate"><span class="pre">QgsProcessingAlgorithm</span></code></a> ကိုချဲ့ထွင်ပေးပါသည်။ ထို့ကြောင့် မဖြစ်မနေလုပ်ဆောင်ရမည့် လုပ်ဆောင်ချက်များကို အကောင်အထည်ဖော်ရန် code တွင် စာကြောင်းအချို့ဖြည့်စွက်ရေးသားရန်လိုအပ်ပါသည်။ Processing toolbox ၏ အပေါ်ထိပ်တွင်ရှိသော <span class="guilabel">Scripts</span> dropdown menu အောက်တွင် <span class="guilabel">Create new script</span> (clean sheet) နှင့် <span class="guilabel">Create New Script from Template</span> (<a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingAlgorithm.html#qgis.core.QgsProcessingAlgorithm" title="(in QGIS Python API v3.28)"><code class="xref py py-class docutils literal notranslate"><span class="pre">QgsProcessingAlgorithm</span></code></a> ၏ မဖြစ်မနေလုပ်ဆောင်ရမည့် လုပ်ဆောင်ချက်များအတွက် code များပါဝင်သော template) များကို တွေ့နိုင်ပါသည်။ ထို script ကို <code class="file docutils literal notranslate"><span class="pre">.py</span></code> extension ဖြင့် <code class="file docutils literal notranslate"><span class="pre">scripts</span></code> folder (File သိမ်းဆည်းခြင်း dialog ကို ဖွင့်လျှင် ပေါ်လာသော default folder) ထဲတွင်သိမ်းဆည်းလိုက်ခြင်းသည် သက်ဆိုင်ရာ algorithm ကိုဖန်တီးသင့်ပါသည်။</p>
+<p>Algorithm ၏ အမည် (toolbox ထဲတွင်တွေ့ရမည့်တစ်ခု) ကို code ထဲတွင် သတ်မှတ်ပါသည်။</p>
+<p>Layer ကိုပထမအဆင့် ချောမွေ့အောင်လုပ်ပြီးနောက် အသုံးပြုသူမှရွေးချယ်သတ်မှတ်သော vector layer ပေါ်တွင် သတ်မှတ် buffer အကွာအဝေးဖြင့် buffer ကိုလုပ်ဆောင်ပေးသော Processing algorithm တစ်ခုကိုသတ်မှတ်ပေးသည့် အောက်ဖော်ပြပါ code ကိုတစ်ချက်ကြည့်ကြည့်ပါ။</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span> <span class="nn">qgis.core</span> <span class="kn">import</span> <span class="p">(</span><span class="n">QgsProcessingAlgorithm</span><span class="p">,</span>
+<span class="linenos"> 2</span>       <span class="n">QgsProcessingParameterNumber</span><span class="p">,</span>
+<span class="linenos"> 3</span>       <span class="n">QgsProcessingParameterFeatureSource</span><span class="p">,</span>
+<span class="linenos"> 4</span>       <span class="n">QgsProcessingParameterFeatureSink</span><span class="p">)</span>
+<span class="linenos"> 5</span>
+<span class="linenos"> 6</span><span class="kn">from</span> <span class="nn">qgis</span> <span class="kn">import</span> <span class="n">processing</span>
+<span class="linenos"> 7</span>
+<span class="linenos"> 8</span><span class="k">class</span> <span class="nc">algTest</span><span class="p">(</span><span class="n">QgsProcessingAlgorithm</span><span class="p">):</span>
+<span class="linenos"> 9</span>    <span class="n">INPUT_BUFFERDIST</span> <span class="o">=</span> <span class="s1">&#39;BUFFERDIST&#39;</span>
+<span class="linenos">10</span>    <span class="n">OUTPUT_BUFFER</span> <span class="o">=</span> <span class="s1">&#39;OUTPUT_BUFFER&#39;</span>
+<span class="linenos">11</span>    <span class="n">INPUT_VECTOR</span> <span class="o">=</span> <span class="s1">&#39;INPUT_VECTOR&#39;</span>
+<span class="linenos">12</span>
+<span class="linenos">13</span>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos">14</span>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+<span class="linenos">15</span>
+<span class="linenos">16</span>    <span class="k">def</span> <span class="nf">name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos">17</span>        <span class="k">return</span> <span class="s2">&quot;algTest&quot;</span>
+<span class="linenos">18</span>
+<span class="linenos">19</span>    <span class="k">def</span> <span class="nf">displayName</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos">20</span>        <span class="k">return</span> <span class="s2">&quot;algTest script&quot;</span>
+<span class="linenos">21</span>
+<span class="linenos">22</span>    <span class="k">def</span> <span class="nf">createInstance</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos">23</span>        <span class="k">return</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)()</span>
+<span class="linenos">24</span>
+<span class="linenos">25</span>    <span class="k">def</span> <span class="nf">initAlgorithm</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="linenos">26</span>        <span class="bp">self</span><span class="o">.</span><span class="n">addParameter</span><span class="p">(</span><span class="n">QgsProcessingParameterFeatureSource</span><span class="p">(</span>
+<span class="linenos">27</span>            <span class="bp">self</span><span class="o">.</span><span class="n">INPUT_VECTOR</span><span class="p">,</span> <span class="s2">&quot;Input vector&quot;</span><span class="p">))</span>
+<span class="linenos">28</span>        <span class="bp">self</span><span class="o">.</span><span class="n">addParameter</span><span class="p">(</span><span class="n">QgsProcessingParameterNumber</span><span class="p">(</span>
+<span class="linenos">29</span>            <span class="bp">self</span><span class="o">.</span><span class="n">INPUT_BUFFERDIST</span><span class="p">,</span> <span class="s2">&quot;Buffer distance&quot;</span><span class="p">,</span>
+<span class="linenos">30</span>            <span class="n">QgsProcessingParameterNumber</span><span class="o">.</span><span class="n">Double</span><span class="p">,</span>
+<span class="linenos">31</span>            <span class="mf">100.0</span><span class="p">))</span>
+<span class="linenos">32</span>        <span class="bp">self</span><span class="o">.</span><span class="n">addParameter</span><span class="p">(</span><span class="n">QgsProcessingParameterFeatureSink</span><span class="p">(</span>
+<span class="linenos">33</span>            <span class="bp">self</span><span class="o">.</span><span class="n">OUTPUT_BUFFER</span><span class="p">,</span> <span class="s2">&quot;Output buffer&quot;</span><span class="p">))</span>
+<span class="linenos">34</span>
+<span class="linenos">35</span>    <span class="k">def</span> <span class="nf">processAlgorithm</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parameters</span><span class="p">,</span> <span class="n">context</span><span class="p">,</span> <span class="n">feedback</span><span class="p">):</span>
+<span class="linenos">36</span>        <span class="c1">#DO SOMETHING</span>
+<span class="linenos">37</span>        <span class="n">algresult</span> <span class="o">=</span> <span class="n">processing</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;native:smoothgeometry&quot;</span><span class="p">,</span>
+<span class="linenos">38</span>            <span class="p">{</span><span class="s1">&#39;INPUT&#39;</span><span class="p">:</span> <span class="n">parameters</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">INPUT_VECTOR</span><span class="p">],</span>
+<span class="linenos">39</span>             <span class="s1">&#39;ITERATIONS&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
+<span class="linenos">40</span>             <span class="s1">&#39;OFFSET&#39;</span><span class="p">:</span><span class="mf">0.25</span><span class="p">,</span>
+<span class="linenos">41</span>             <span class="s1">&#39;MAX_ANGLE&#39;</span><span class="p">:</span><span class="mi">180</span><span class="p">,</span>
+<span class="linenos">42</span>             <span class="s1">&#39;OUTPUT&#39;</span><span class="p">:</span> <span class="s1">&#39;memory:&#39;</span><span class="p">},</span>
+<span class="linenos">43</span>            <span class="n">context</span><span class="o">=</span><span class="n">context</span><span class="p">,</span> <span class="n">feedback</span><span class="o">=</span><span class="n">feedback</span><span class="p">,</span> <span class="n">is_child_algorithm</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="linenos">44</span>        <span class="n">smoothed</span> <span class="o">=</span> <span class="n">algresult</span><span class="p">[</span><span class="s1">&#39;OUTPUT&#39;</span><span class="p">]</span>
+<span class="linenos">45</span>        <span class="n">algresult</span> <span class="o">=</span> <span class="n">processing</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s1">&#39;native:buffer&#39;</span><span class="p">,</span>
+<span class="linenos">46</span>            <span class="p">{</span><span class="s1">&#39;INPUT&#39;</span><span class="p">:</span> <span class="n">smoothed</span><span class="p">,</span>
+<span class="linenos">47</span>            <span class="s1">&#39;DISTANCE&#39;</span><span class="p">:</span> <span class="n">parameters</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">INPUT_BUFFERDIST</span><span class="p">],</span>
+<span class="linenos">48</span>            <span class="s1">&#39;SEGMENTS&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+<span class="linenos">49</span>            <span class="s1">&#39;END_CAP_STYLE&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+<span class="linenos">50</span>            <span class="s1">&#39;JOIN_STYLE&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+<span class="linenos">51</span>            <span class="s1">&#39;MITER_LIMIT&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+<span class="linenos">52</span>            <span class="s1">&#39;DISSOLVE&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+<span class="linenos">53</span>            <span class="s1">&#39;OUTPUT&#39;</span><span class="p">:</span> <span class="n">parameters</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">OUTPUT_BUFFER</span><span class="p">]},</span>
+<span class="linenos">54</span>            <span class="n">context</span><span class="o">=</span><span class="n">context</span><span class="p">,</span> <span class="n">feedback</span><span class="o">=</span><span class="n">feedback</span><span class="p">,</span> <span class="n">is_child_algorithm</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="linenos">55</span>        <span class="n">buffered</span> <span class="o">=</span> <span class="n">algresult</span><span class="p">[</span><span class="s1">&#39;OUTPUT&#39;</span><span class="p">]</span>
+<span class="linenos">56</span>        <span class="k">return</span> <span class="p">{</span><span class="bp">self</span><span class="o">.</span><span class="n">OUTPUT_BUFFER</span><span class="p">:</span> <span class="n">buffered</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>မဖြစ်မနေလိုအပ်သော ထည့်သွင်းမှုများပြုလုပ်ပြီးနောက် အောက်ပါ <a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingAlgorithm.html#qgis.core.QgsProcessingAlgorithm" title="(in QGIS Python API v3.28)"><code class="xref py py-class docutils literal notranslate"><span class="pre">QgsProcessingAlgorithm</span></code></a> လုပ်ဆောင်ချက်များကို သတ်မှတ်ပါသည် -</p>
+<ul>
+<li><p><a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingAlgorithm.html#qgis.core.QgsProcessingAlgorithm.name" title="(in QGIS Python API v3.28)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">name()</span></code></a> - Algorithm ၏ id (စာလုံးအသေး)</p></li>
+<li><p><a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingAlgorithm.html#qgis.core.QgsProcessingAlgorithm.displayName" title="(in QGIS Python API v3.28)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">displayName()</span></code></a> - Algorithm အတွက် ဖတ်ရှုနိုင်သော အမည်တစ်ခု။</p></li>
+<li><p><a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingAlgorithm.html#qgis.core.QgsProcessingAlgorithm.createInstance" title="(in QGIS Python API v3.28)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">createInstance()</span></code></a> - Algorithm အမျိုးအစား၏ ဖြစ်စဉ် (instance) တစ်ခုကို ဖန်တီးပေးပါသည်။</p></li>
+<li><p><a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingAlgorithm.html#qgis.core.QgsProcessingAlgorithm.initAlgorithm" title="(in QGIS Python API v3.28)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">initAlgorithm()</span></code></a> - parameterDefinition နှင့် outputDefinition များကို ပြင်ဆင်သတ်မှတ်ပါသည်။</p>
+<p>Algorithm ၏ parameter များနှင့် ရလာဒ်များကို ဤတွင်ဖော်ပြပါသည်။ ဒီကိစ္စတွင် ထည့်သွင်းအသုံးပြုသော အချက်အလက်အတွက် feature source တစ်ခု၊ ရလာဒ်အတွက် feature sink နှင့် buffer အကွာအဝေးအတွက် နံပါတ်တစ်ခု။</p>
+</li>
+<li><p><a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingAlgorithm.html#qgis.core.QgsProcessingAlgorithm.processAlgorithm" title="(in QGIS Python API v3.28)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">processAlgorithm()</span></code></a> - အလုပ်ကိုလုပ်ဆောင်ပါသည်။</p>
+<p>Geometry ကိုချောမွေ့စေရန် <code class="docutils literal notranslate"><span class="pre">smoothgeometry</span></code> algorithm ကိုပထမဆုံး လုပ်ဆောင်ပါသည်။ ထို့နောက် ချောမွေ့အောင်ပြုလုပ်ထားသော ရလာဒ်ပေါ်တွင် <code class="docutils literal notranslate"><span class="pre">buffer</span></code> algorithm ကိုလုပ်ဆောင်ပါသည်။ အခြား algorithm အတွင်းတွင် algorithm များကိုလုပ်ဆောင်နိုင်ရန် <code class="docutils literal notranslate"><span class="pre">is_child_algorithm</span></code> argument ကို <code class="xref py py-const docutils literal notranslate"><span class="pre">True</span></code> ကို သတ်မှတ်ပေးရန်လိုအပ်ပါသည်။ ထည့်သွင်းအသုံးပြုသောနှင့် ထွက်လာသော parameter များကို <code class="docutils literal notranslate"><span class="pre">smoothgeometry</span></code> နှင့် <code class="docutils literal notranslate"><span class="pre">buffer</span></code> algorithm များအတွက် parameter များအဖြစ် မည်သို့အသုံးပြုသည်ကို တွေ့နိုင်ပါသည်။</p>
+</li>
+</ul>
+<p>Input နှင့် output များအတွက် parameter အမျိုးအစားများစွာရှိပါသည်။ အောက်တွင် အက္ခရာစဉ်အလိုက် စီစဉ်ပြသထားပါသည် -</p>
+<table class="longtable docutils align-default" id="id1">
+<caption><span class="caption-number">Table 28.2 </span><span class="caption-text">Input နှင့် output algorithm parameter အမျိုးအစားများ စာရင်း</span><a class="headerlink" href="#id1" title="Link to this table"></a></caption>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingParameterAggregate.html#qgis.core.QgsProcessingParameterAggregate" title="(in QGIS Python API v3.28)"><code class="xref py py-class docutils literal notranslate"><span class="pre">QgsProcessingParameterAggregate</span></code></a></p></td>
+<td><p><a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingParameterAnnotationLayer.html#qgis.core.QgsProcessingParameterAnnotationLayer" title="(in QGIS Python API v3.28)"><code class="xref py py-class docutils literal notranslate"><span class="pre">QgsProcessingParameterAnnotationLayer</span></code></a></p></td>
+<td><p><a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingParameterAuthConfig.html#qgis.core.QgsProcessingParameterAuthConfig" title="(in QGIS Python API v3.28)"><code class="xref py py-class docutils literal notranslate"><span class="pre">QgsProcessingParameterAuthConfig</span></code></a></p></td>
+<td><p><a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingParameterBand.html#qgis.core.QgsProcessingParameterBand" title="(in QGIS Python API v3.28)"><code class="xref py py-class docutils literal notranslate"><span class="pre">QgsProcessingParameterBand</span></code></a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingParameterBoolean.html#qgis.core.QgsProcessingParameterBoolean" title="(in QGIS Python API v3.28)"><code class="xref py py-class docutils literal notranslate"><span class="pre">QgsProcessingParameterBoolean</span></code></a></p></td>
+<td><p><a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingParameterColor.html#qgis.core.QgsProcessingParameterColor" title="(in QGIS Python API v3.28)"><code class="xref py py-class docutils literal notranslate"><span class="pre">QgsProcessingParameterColor</span></code></a></p></td>
+<td><p><a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingParameterCoordinateOperation.html#qgis.core.QgsProcessingParameterCoordinateOperation" title="(in QGIS Python API v3.28)"><code class="xref py py-class docutils literal notranslate"><span class="pre">QgsProcessingParameterCoordinateOperation</span></code></a></p></td>
+<td><p><a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingParameterCrs.html#qgis.core.QgsProcessingParameterCrs" title="(in QGIS Python API v3.28)"><code class="xref py py-class docutils literal notranslate"><span class="pre">QgsProcessingParameterCrs</span></code></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingParameterDatabaseSchema.html#qgis.core.QgsProcessingParameterDatabaseSchema" title="(in QGIS Python API v3.28)"><code class="xref py py-class docutils literal notranslate"><span class="pre">QgsProcessingParameterDatabaseSchema</span></code></a></p></td>
+<td><p><a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingParameterDatabaseTable.html#qgis.core.QgsProcessingParameterDatabaseTable" title="(in QGIS Python API v3.28)"><code class="xref py py-class docutils literal notranslate"><span class="pre">QgsProcessingParameterDatabaseTable</span></code></a></p></td>
+<td><p><a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingParameterDateTime.html#qgis.core.QgsProcessingParameterDateTime" title="(in QGIS Python API v3.28)"><code class="xref py py-class docutils literal notranslate"><span class="pre">QgsProcessingParameterDateTime</span></code></a></p></td>
+<td><p><a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingParameterDistance.html#qgis.core.QgsProcessingParameterDistance" title="(in QGIS Python API v3.28)"><code class="xref py py-class docutils literal notranslate"><span class="pre">QgsProcessingParameterDistance</span></code></a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingParameterEnum.html#qgis.core.QgsProcessingParameterEnum" title="(in QGIS Python API v3.28)"><code class="xref py py-class docutils literal notranslate"><span class="pre">QgsProcessingParameterEnum</span></code></a></p></td>
+<td><p><a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingParameterExpression.html#qgis.core.QgsProcessingParameterExpression" title="(in QGIS Python API v3.28)"><code class="xref py py-class docutils literal notranslate"><span class="pre">QgsProcessingParameterExpression</span></code></a></p></td>
+<td><p><a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingParameterExtent.html#qgis.core.QgsProcessingParameterExtent" title="(in QGIS Python API v3.28)"><code class="xref py py-class docutils literal notranslate"><span class="pre">QgsProcessingParameterExtent</span></code></a></p></td>
+<td><p><a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingParameterFeatureSink.html#qgis.core.QgsProcessingParameterFeatureSink" title="(in QGIS Python API v3.28)"><code class="xref py py-class docutils literal notranslate"><span class="pre">QgsProcessingParameterFeatureSink</span></code></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingParameterFeatureSource.html#qgis.core.QgsProcessingParameterFeatureSource" title="(in QGIS Python API v3.28)"><code class="xref py py-class docutils literal notranslate"><span class="pre">QgsProcessingParameterFeatureSource</span></code></a></p></td>
+<td><p><a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingParameterField.html#qgis.core.QgsProcessingParameterField" title="(in QGIS Python API v3.28)"><code class="xref py py-class docutils literal notranslate"><span class="pre">QgsProcessingParameterField</span></code></a></p></td>
+<td><p><a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingParameterFieldMapping.html#qgis.core.QgsProcessingParameterFieldMapping" title="(in QGIS Python API v3.28)"><code class="xref py py-class docutils literal notranslate"><span class="pre">QgsProcessingParameterFieldMapping</span></code></a></p></td>
+<td><p><a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingParameterFile.html#qgis.core.QgsProcessingParameterFile" title="(in QGIS Python API v3.28)"><code class="xref py py-class docutils literal notranslate"><span class="pre">QgsProcessingParameterFile</span></code></a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingParameterFileDestination.html#qgis.core.QgsProcessingParameterFileDestination" title="(in QGIS Python API v3.28)"><code class="xref py py-class docutils literal notranslate"><span class="pre">QgsProcessingParameterFileDestination</span></code></a></p></td>
+<td><p><a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingParameterFolderDestination.html#qgis.core.QgsProcessingParameterFolderDestination" title="(in QGIS Python API v3.28)"><code class="xref py py-class docutils literal notranslate"><span class="pre">QgsProcessingParameterFolderDestination</span></code></a></p></td>
+<td><p><a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingParameterGeometry.html#qgis.core.QgsProcessingParameterGeometry" title="(in QGIS Python API v3.28)"><code class="xref py py-class docutils literal notranslate"><span class="pre">QgsProcessingParameterGeometry</span></code></a></p></td>
+<td><p><a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingParameterLayout.html#qgis.core.QgsProcessingParameterLayout" title="(in QGIS Python API v3.28)"><code class="xref py py-class docutils literal notranslate"><span class="pre">QgsProcessingParameterLayout</span></code></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingParameterLayoutItem.html#qgis.core.QgsProcessingParameterLayoutItem" title="(in QGIS Python API v3.28)"><code class="xref py py-class docutils literal notranslate"><span class="pre">QgsProcessingParameterLayoutItem</span></code></a></p></td>
+<td><p><a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingParameterMapLayer.html#qgis.core.QgsProcessingParameterMapLayer" title="(in QGIS Python API v3.28)"><code class="xref py py-class docutils literal notranslate"><span class="pre">QgsProcessingParameterMapLayer</span></code></a></p></td>
+<td><p><a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingParameterMapTheme.html#qgis.core.QgsProcessingParameterMapTheme" title="(in QGIS Python API v3.28)"><code class="xref py py-class docutils literal notranslate"><span class="pre">QgsProcessingParameterMapTheme</span></code></a></p></td>
+<td><p><a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingParameterMatrix.html#qgis.core.QgsProcessingParameterMatrix" title="(in QGIS Python API v3.28)"><code class="xref py py-class docutils literal notranslate"><span class="pre">QgsProcessingParameterMatrix</span></code></a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingParameterMeshLayer.html#qgis.core.QgsProcessingParameterMeshLayer" title="(in QGIS Python API v3.28)"><code class="xref py py-class docutils literal notranslate"><span class="pre">QgsProcessingParameterMeshLayer</span></code></a></p></td>
+<td><p><a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingParameterMultipleLayers.html#qgis.core.QgsProcessingParameterMultipleLayers" title="(in QGIS Python API v3.28)"><code class="xref py py-class docutils literal notranslate"><span class="pre">QgsProcessingParameterMultipleLayers</span></code></a></p></td>
+<td><p><a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingParameterNumber.html#qgis.core.QgsProcessingParameterNumber" title="(in QGIS Python API v3.28)"><code class="xref py py-class docutils literal notranslate"><span class="pre">QgsProcessingParameterNumber</span></code></a></p></td>
+<td><p><a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingParameterPoint.html#qgis.core.QgsProcessingParameterPoint" title="(in QGIS Python API v3.28)"><code class="xref py py-class docutils literal notranslate"><span class="pre">QgsProcessingParameterPoint</span></code></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-class docutils literal notranslate"><span class="pre">QgsProcessingParameterPointCloudAttribute</span></code></p></td>
+<td><p><a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingParameterPointCloudLayer.html#qgis.core.QgsProcessingParameterPointCloudLayer" title="(in QGIS Python API v3.28)"><code class="xref py py-class docutils literal notranslate"><span class="pre">QgsProcessingParameterPointCloudLayer</span></code></a></p></td>
+<td><p><a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingParameterProviderConnection.html#qgis.core.QgsProcessingParameterProviderConnection" title="(in QGIS Python API v3.28)"><code class="xref py py-class docutils literal notranslate"><span class="pre">QgsProcessingParameterProviderConnection</span></code></a></p></td>
+<td><p><a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingParameterRange.html#qgis.core.QgsProcessingParameterRange" title="(in QGIS Python API v3.28)"><code class="xref py py-class docutils literal notranslate"><span class="pre">QgsProcessingParameterRange</span></code></a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingParameterRasterDestination.html#qgis.core.QgsProcessingParameterRasterDestination" title="(in QGIS Python API v3.28)"><code class="xref py py-class docutils literal notranslate"><span class="pre">QgsProcessingParameterRasterDestination</span></code></a></p></td>
+<td><p><a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingParameterRasterLayer.html#qgis.core.QgsProcessingParameterRasterLayer" title="(in QGIS Python API v3.28)"><code class="xref py py-class docutils literal notranslate"><span class="pre">QgsProcessingParameterRasterLayer</span></code></a></p></td>
+<td><p><a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingParameterScale.html#qgis.core.QgsProcessingParameterScale" title="(in QGIS Python API v3.28)"><code class="xref py py-class docutils literal notranslate"><span class="pre">QgsProcessingParameterScale</span></code></a></p></td>
+<td><p><a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingParameterString.html#qgis.core.QgsProcessingParameterString" title="(in QGIS Python API v3.28)"><code class="xref py py-class docutils literal notranslate"><span class="pre">QgsProcessingParameterString</span></code></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingParameterVectorDestination.html#qgis.core.QgsProcessingParameterVectorDestination" title="(in QGIS Python API v3.28)"><code class="xref py py-class docutils literal notranslate"><span class="pre">QgsProcessingParameterVectorDestination</span></code></a></p></td>
+<td><p><a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingParameterVectorLayer.html#qgis.core.QgsProcessingParameterVectorLayer" title="(in QGIS Python API v3.28)"><code class="xref py py-class docutils literal notranslate"><span class="pre">QgsProcessingParameterVectorLayer</span></code></a></p></td>
+<td><p><code class="xref py py-class docutils literal notranslate"><span class="pre">QgsProcessingParameterVectorTileDestination</span></code></p></td>
+<td><p><a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingParameterVectorTileWriterLayers.html#qgis.core.QgsProcessingParameterVectorTileWriterLayers" title="(in QGIS Python API v3.28)"><code class="xref py py-class docutils literal notranslate"><span class="pre">QgsProcessingParameterVectorTileWriterLayers</span></code></a></p></td>
+</tr>
+</tbody>
+</table>
+<p>Constructor များအတွက် ပထမဆုံး parameter မှာ parameter ၏အမည်ဖြစ်ပြီး ဒုတိယမှာ paramter ၏ ရေးသားဖော်ပြချက်ဖြစ်ပါသည် (User Interface အတွက်)။ Constructor parameter များ၏ကျန်ရှိသောအရာများမှာ သီးခြား parameter အမျိုးအစားများ ဖြစ်ပါသည်။</p>
+<p><a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingAlgorithm.html#qgis.core.QgsProcessingAlgorithm" title="(in QGIS Python API v3.28)"><code class="xref py py-class docutils literal notranslate"><span class="pre">QgsProcessingAlgorithm</span></code></a> ၏ <code class="docutils literal notranslate"><span class="pre">parameterAs</span></code> function များကိုအသုံးပြုပြီး input များကို QGIS အမျိုးအစားများအဖြစ် ပြောင်းလဲနိုင်ပါသည်။ ဥပမာ- buffer အကွာအဝေးအတွက် အသုံးပြုသောနံပါတ်ကို double အဖြစ်ရရန်-</p>
+<dl class="simple">
+<dt>::</dt><dd><p>self.parameterAsDouble(parameters, self.INPUT_BUFFERDIST, context)).</p>
+</dd>
+</dl>
+<p><code class="docutils literal notranslate"><span class="pre">processAlgorithm</span></code> function သည် algorithm မှသတ်မှတ်ထားသော ရလာဒ်တိုင်းအတွက် တန်ဖိုးများပါဝင်သော dictionary တစ်ခုကို ပြန်ထုတ်ပေးသင့်ပါသည်။ ၎င်းသည် တူညီသော model ထဲတွင် ပါဝင်သော အခြား algorithm များအပါအဝင် အခြား algorithm များမှ ရလာဒ်များကို ဝင်ရောက်အသုံးပြုနိုင်အောင် လုပ်ဆောင်ပေးပါသည်။</p>
+<p>ကောင်းကောင်းမွန်မွန် အလုပ်လုပ်ဆောင်သော algorithm များသည် အဓိပ္ပါယ်ရှိသလောက် ရလာဒ်များများကို သတ်မှတ်ပြီး ပြန်ထုတ်ပေးသင့်ပါသည်။ ကိန်းဂဏန်းများ နှင့် စာသားများ ကဲ့သို့ non-feature ရလာဒ်များကို model အတွင်းရှိ နောက်ဆက်တွဲ algorithm များအတွက် ထည့်သွင်းအသုံးပြုသော parameter များအဖြစ် အသုံးပြုနိုင်သောကြောင့် algorithm ကို ပိုကြီးမားသော model တစ်ခု၏ အစိတ်အပိုင်းတစ်ခုအဖြစ် အသုံးပြုသောအခါ အလွန်အသုံးဝင်ပါသည်။ Process လုပ်ဆောင်ထားသော feature အရေအတွက်၊ ကြုံတွေ့ရသည့် ဆီလျော်မှုမရှိသော feature အရေအတွက်၊ ရလာဒ် feature အရေအတွက် ကဲ့သို့ အရာများအတွက် ကိန်းဂဏန်းရလာဒ်များ ပေါင်းထည့်ခြင်းကို ထည့်သွင်းစဉ်းစားပါ။ ရလာဒ်များများထွက်လာလေလေ algorithm ကပိုပြီး အသုံးဝင်လေလေ ဖြစ်ပါသည်။</p>
+<section id="feedback">
+<h3><a class="toc-backref" href="#id4" role="doc-backlink"><span class="section-number">28.7.2.1. </span>တုန့်ပြန်မှု (Feedback)</a><a class="headerlink" href="#feedback" title="Link to this heading"></a></h3>
+<p><a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingAlgorithm.html#qgis.core.QgsProcessingAlgorithm.processAlgorithm" title="(in QGIS Python API v3.28)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">processAlgorithm()</span></code></a> ဆီသို့လွှဲပြောင်းပေးသော <a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingFeedback.html#qgis.core.QgsProcessingFeedback" title="(in QGIS Python API v3.28)"><code class="xref py py-class docutils literal notranslate"><span class="pre">feedback</span></code></a> object ကို အသုံးပြုသူ တုန့်ပြန်မှု/အပြန်အလှန်လုပ်ဆောင်မှု အတွက် အသုံးပြုသင့်ပါသည်။ Algorithm ၏ပြီးစီးမှုပမာဏကို အသုံးပြုသူများသိစေရန် ပြီးစီးမှုပြ bar (Progress bar) (0 မှ 100) ကို update ပြုလုပ်ရန်အတွက် <a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingFeedback.html#qgis.core.QgsProcessingFeedback" title="(in QGIS Python API v3.28)"><code class="xref py py-class docutils literal notranslate"><span class="pre">feedback</span></code></a> object ၏ <a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsFeedback.html#qgis.core.QgsFeedback.setProgress" title="(in QGIS Python API v3.28)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">setProgress()</span></code></a> function ကိုအသုံးပြုနိုင်ပါသည်။ မိမိလုပ်ဆောင်နေသော algorithm သည် အချိန်ကြာမြင့်စွာ လုပ်ဆောင်ရလျှင် ဒီနည်းလမ်းသည် အလွန်အသုံးဝင်ပါသည်။</p>
+<p><a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingFeedback.html#qgis.core.QgsProcessingFeedback" title="(in QGIS Python API v3.28)"><code class="xref py py-class docutils literal notranslate"><span class="pre">feedback</span></code></a> object တွင် အသုံးပြုသူမှ algorithm ကို ရပ်တန့်နိုင်စေရန် စောင့်ကြည့်ပေးသင့်သော <a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsFeedback.html#qgis.core.QgsFeedback.isCanceled" title="(in QGIS Python API v3.28)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">isCanceled()</span></code></a> နည်းလမ်းတစ်ခု ပါရှိပါသည်။ :<a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingFeedback.html#qgis.core.QgsProcessingFeedback" title="(in QGIS Python API v3.28)"><code class="xref py py-class docutils literal notranslate"><span class="pre">feedback</span></code></a> ၏ <a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingFeedback.html#qgis.core.QgsProcessingFeedback.pushInfo" title="(in QGIS Python API v3.28)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pushInfo()</span></code></a> နည်းလမ်းကို အသုံးပြုသူထံသို့ သတင်းအချက်အလက်ပို့ရန် အသုံးပြုနိုင်ပြီး <a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingFeedback.html#qgis.core.QgsProcessingFeedback.reportError" title="(in QGIS Python API v3.28)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">reportError()</span></code></a> သည် ဆိုးဆိုးရွားရွားမဟုတ်သော အမှားများကို အသုံးပြုသူထံ ပို့ဆောင်ခြင်းအတွက် လွယ်ကူပါသည်။</p>
+<p>Statement များကို print ထုတ်ခြင်း သို့မဟုတ် <a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsMessageLog.html#qgis.core.QgsMessageLog" title="(in QGIS Python API v3.28)"><code class="xref py py-class docutils literal notranslate"><span class="pre">QgsMessageLog</span></code></a> တွင် မှတ်တမ်းသိမ်းခြင်း (logging) ကဲ့သို့ အခြား ပုံစံများအသုံးပြုပြီး အသုံးပြုသူများထံသို့ feedback ပေးပို့ခြင်းကို algorithm များမှရှောင်ရှားသင့်ပါသည်။ ၎င်းသည် algorithm အတွက် ကြာရှည်သော logging ကိုခွင့်ပြုပေးပြီး thread-safe လည်းဖြစ်ပါသည် (အရေးကြီးပြီး algorithm များသည် များသောအားဖြင့် နောက်ကွယ်တွင်လုပ်ဆောင်ကြပါသည်)။</p>
+</section>
+<section id="handling-errors">
+<h3><a class="toc-backref" href="#id5" role="doc-backlink"><span class="section-number">28.7.2.2. </span>အမှားများကိုင်တွယ်ခြင်း (Handling errors)</a><a class="headerlink" href="#handling-errors" title="Link to this heading"></a></h3>
+<p>ဆီလျော်မှုမရှိသော input တန်ဖိုးများ သို့မဟုတ် ပြန်လည်ပြင်ဆင်၍မရသော အခြားသောအခြေအနေများကဲ့သို့ ပြဿနာတစ်ခုခုရှိနေပြီး algroithm ကိုစေခိုင်းလုပ်ဆောင်၍မရသောအခါ <a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingException.html#qgis.core.QgsProcessingException" title="(in QGIS Python API v3.28)"><code class="xref py py-class docutils literal notranslate"><span class="pre">QgsProcessingException</span></code></a> တစ်ခုကို လုပ်ဆောင်သင့်ပါသည်။
+E.g.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">feature</span><span class="p">[</span><span class="s1">&#39;value&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">20</span><span class="p">:</span>
+  <span class="k">raise</span> <span class="n">QgsProcessingException</span><span class="p">(</span><span class="s1">&#39;Invalid input value </span><span class="si">{}</span><span class="s1">, must be &gt;= 20&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">feature</span><span class="p">[</span><span class="s1">&#39;value&#39;</span><span class="p">]))</span>
+</pre></div>
+</div>
+<p>ဆိုးဆိုးရွားရွားမဟုတ်သော အမှားများ (non-fatal errors) အတွက် (ဥပမာ- feature တစ်ခုသည် null geometry ရှိနေသောအခါ) <a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingException.html#qgis.core.QgsProcessingException" title="(in QGIS Python API v3.28)"><code class="xref py py-class docutils literal notranslate"><span class="pre">QgsProcessingException</span></code></a> အသုံးပြုခြင်းကို မလုပ်ဆောင်သင့်ပါ၊ ၎င်းကိုအသုံးပြုမည့်အစား ဆိုးဆိုးရွားရွားမဟုတ်သော အမှားများကို <code class="docutils literal notranslate"><span class="pre">feedback.reportError()</span></code> မှတဆင့် တင်ပြပြီး ၎င်း feature ကို ကျော်ပစ်လိုက်ပါ။ ၎င်းသည် ဆိုးဆိုးရွားရွားမဟုတ်သောအမှားတစ်ခု ကြုံတွေ့ရသောအခါ algorithm တစ်ခုလုံး၏လုပ်ဆောင်မှုကို ရပ်တန့်ပစ်ခြင်းမှရှောင်ရှားပေးသောကြောင့် သင့် algorithm အား “model-friendly” ဖြစ်စေပါသည်။</p>
+</section>
+<section id="script-documenting-your-scripts">
+<h3><a class="toc-backref" href="#id6" role="doc-backlink"><span class="section-number">28.7.2.3. </span>Script များကို မှတ်တမ်းပြုစုခြင်း (Documenting your scripts)</a><a class="headerlink" href="#script-documenting-your-scripts" title="Link to this heading"></a></h3>
+<p>Model များနှင့်လုပ်ဆောင်သောအခါ script များနှင့်ပတ်သက်ပြီး ၎င်းတို့ မည်သည့်အရာများလုပ်ဆောင်သည်နှင့် ၎င်းတို့အားမည်သို့အသုံးပြုရမည်ကို ရှင်းပြရန် မိမိ၏ script များအတွက် ဖြည့်စွက်မှတ်တမ်းများ ဖန်တီးနိုင်ပါသည်။</p>
+<p>ထိုသို့ရေးသားရန်အတွက် <a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingAlgorithm.html#qgis.core.QgsProcessingAlgorithm" title="(in QGIS Python API v3.28)"><code class="xref py py-class docutils literal notranslate"><span class="pre">QgsProcessingAlgorithm</span></code></a> သည် <a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingAlgorithm.html#qgis.core.QgsProcessingAlgorithm.helpString" title="(in QGIS Python API v3.28)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">helpString()</span></code></a>၊ <a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingAlgorithm.html#qgis.core.QgsProcessingAlgorithm.shortHelpString" title="(in QGIS Python API v3.28)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">shortHelpString()</span></code></a> နှင့် <a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingAlgorithm.html#qgis.core.QgsProcessingAlgorithm.helpUrl" title="(in QGIS Python API v3.28)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">helpUrl()</span></code></a> function များကို လုပ်ဆောင်ပေးပါသည်။ အသုံးပြုသူများအတွက် အကူအညီပိုမိုရရှိစေရန် ၎င်းတို့ကို သတ်မှတ်ဖော်ပြ/အစားထိုးဖော်ပြပေးပါ။</p>
+<p>Toolbox ထဲရှိ algorithm ပေါ်တွင် mouse ကိုတင်ထားသောအခါ စာသားဖော်ပြသည့် tooltip ထဲတွင် <a class="reference external" href="https://qgis.org/pyqgis/3.28/core/QgsProcessingAlgorithm.html#qgis.core.QgsProcessingAlgorithm.shortDescription" title="(in QGIS Python API v3.28)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">shortDescription()</span></code></a> ကိုအသုံးပြုပါသည်။</p>
+</section>
+</section>
+<section id="pre-and-post-execution-script-hooks">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink"><span class="section-number">28.7.3. </span>Pre- and post-execution script hooks</a><a class="headerlink" href="#pre-and-post-execution-script-hooks" title="Link to this heading"></a></h2>
+<p>Script များကို algorithm လုပ်ဆောင်ခြင်းမတိုင်မီနှင့် လုပ်ဆောင်ခြင်းအပြီးတွင် လုပ်ဆောင်ပေးသော pre-execution (စေခိုင်းလုပ်ဆောင်ခြင်းမတိုင်မီ) နှင့် post-execution (စေခိုင်းလုပ်ဆောင်ခြင်းအပြီး) script hook များအဖြစ်လည်း အသုံးပြုနိုင်ပါသည်။ Algorithm တစ်ခုကိုစေခိုင်းလုပ်ဆောင်သည့်အချိန်တိုင်း လုပ်ဆောင်သင့်သည့် task များကို အလိုအလျှောက်အလုပ်လုပ်စေရန် ၎င်းကို အသုံးပြုနိုင်ပါသည်။</p>
+<p>Syntax သည် အပေါ်ရှင်းပြခဲ့သော syntax နှင့်တစ်ပုံစံတည်းတူပါသည်၊ သို့သော် စေခိုင်းလုပ်ဆောင်ပြီးသော (သို့မဟုတ် စေခိုင်းလုပ်ဆောင်တော့မည့်) algorithm ကိုကိုယ်စားပြုသော <code class="docutils literal notranslate"><span class="pre">alg</span></code> ဟုခေါ်သည့် global variable တစ်ခုကိုအသုံးပြုနိုင်ပါသည်။</p>
+<p>ကိစ္စတစ်ခုစီတွင် လုပ်ဆောင်မည့် script များ၏ filename များကိုထည့်သွင်းနိုင်သော <span class="guilabel">Pre-execution script</span> နှင့် <span class="guilabel">Post-execution script</span> entry နှစ်ခုကို Processing options dialog ၏ <span class="guilabel">General</span> အုပ်စုထဲတွင် တွေ့ရပါလိမ့်မည်။</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="batch.html" class="btn btn-neutral float-left" title="28.6. လုပ်ဆောင်ချက်များ အပြိုင်ပြုလုပ်ရန်နေရာ (The batch processing interface)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="standalone.html" class="btn btn-neutral float-right" title="28.8. Command line မှ processing ပြုလုပ်ခြင်း" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2002-now, QGIS project.
+      <span class="lastupdated">Last updated on 2024 May 13, 16:23 +0700.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- Transifex follows a particular logic to build target pages:
+Expected French translation link for https://docs.qgis.org/3.28/en/docs/user_manual/print_composer/overview_composer.html
+would return https://app.transifex.com/qgis/qgis-documentation/translate/#fr/aa6d8bc653526d38b295ca94bf8eee5e
+with the md5 value of "github#qgis/QGIS-Documentation#release_3.28#locale/en/LC_MESSAGES/docs/user_manual/print_composer/overview_composer.po"-->
+<!--Make sure that mismatching language codes between Transifex and Sphinx are converted-->
+
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-info-circle"> QGIS Documentation </span>
+      v: 3.28
+      <span class="fa fa-caret-down"></span>
+    </span>
+
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Languages</dt>
+        
+          <dd><a href="https://docs.qgis.org/3.28/en/docs/user_manual/processing/console.html">en</a></dd>
+        
+      </dl>
+
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/user_manual/processing/console.html">testing</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/latest/en/docs/user_manual/processing/console.html">latest</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.28/en/docs/user_manual/processing/console.html">3.28</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.22/en/docs/user_manual/processing/console.html">3.22</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.16/en/docs/user_manual/processing/console.html">3.16</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.10/en/docs/user_manual/processing/console.html">3.10</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.4/en/docs/user_manual/processing/console.html">3.4</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/2.18/en/docs/user_manual/processing/console.html">2.18</a></dd>
+        
+      </dl>
+
+       
+       <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="https://docs.qgis.org/3.28/pdf">PDF</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.28/zip">HTML</a></dd>
+        
+      </dl>
+      
+
+      
+       
+      <dl>
+        <dt>Contribute to Docs</dt>
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/edit/master/docs/user_manual/processing/console.rst" target="_blank" rel="noopener noreferrer">Edit on GitHub</a>
+          </dd>
+          
+          
+          <dd>
+            <a href="https://app.transifex.com/qgis/qgis-documentation/translate/#en/3f44055d611fe7a915631f0b00dc4107" target="_blank" rel="noopener noreferrer">Translate Page</a>
+          </dd>
+          
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/issues" target="_blank" rel="noopener noreferrer">Report Issue</a>
+          </dd>
+      </dl>
+      
+
+      <dl>
+        <dt>On QGIS Project</dt>
+          <dd>
+            <a href="https://qgis.org/en" target="_blank" rel="noopener noreferrer">Home</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/api/3.28" target="_blank" rel="noopener noreferrer">C++ API</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/pyqgis/3.28" target="_blank" rel="noopener noreferrer">PyQGIS API</a>
+          </dd>
+          <dd>
+            <a href="https://github.com/qgis/QGIS/tree/release-3_28" target="_blank" rel="noopener noreferrer">Source</a>
+          </dd>
+      </dl>
+
+    </div>
+  </div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>15.2. Layer များဖန်တီးခြင်း (Creating Layers) &mdash; QGIS Documentation  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/qgis_docs.css?v=3fdf4c33" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/qgis_logo.ico"/>
+    <link rel="canonical" href="https://docs.qgis.org/latest/en/docs/user_manual/managing_data_source/create_layers.html"/>
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../../_static/copybutton.js?v=f281be69"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="15.3. Data Format များနှင့် Field များကို လေ့လာခြင်း (Exploring Data Formats and Fields)" href="supported_data.html" />
+    <link rel="prev" title="15.1. Data ဖွင့်ခြင်း (Opening Data)" href="opening_data.html" />
+  <meta name="description" content="QGIS 3.28 documentation: 15.2. Layer များဖန်တီးခြင်း (Creating Layers)">
+</head>
+
+<body class="wy-body-for-nav">
+
+  <nav class="release_status_topbar">
+  </nav>
+
+   
+
+ 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+   
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            QGIS Documentation
+              <img src="../../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                3.28
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+   <a href= "../../../genindex.html">Index</a>
+ 
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">အသုံးပြုသူများအတွက်</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../preamble/preamble.html">1. စကားချီး (Preamble)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/foreword.html">2. အမှာစာ (Foreword)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/conventions.html">3. အသုံးအနှုန်းများ (Conventions)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/features.html">4. အသွင်အပြင်များ (Features)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/getting_started.html">5. စတင်အသုံးပြုခြင်း (Getting Started)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/project_files.html">6. Project Files များနှင့် အလုပ်လုပ်ခြင်း (Working with Project Files)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/qgis_gui.html">7. QGIS ၏အစိတ်အပိုင်းများ (QGIS GUI)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/browser.html">8. ဒေတာများရှာဖွေကြည့်ရှုနိုင်သည့်နေရာ (The Browser panel)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/qgis_configuration.html">9. QGIS ပြင်ဆင်သတ်မှတ်ခြင်း/အခင်းအကျင်း (QGIS Configuration)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_projections/working_with_projections.html">10. မြေပုံအရိပ်ချစနစ်များ နှင့် အလုပ်လုပ်ခြင်း (Working with Projections)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../map_views/index.html">11. မြေပုံများအား ပုံဖော်ကြည့်ရှုခြင်း (Visualizing Maps)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/general_tools.html">12. အထွေ‌ထွေ‌သုံးကိရိယာများ (General Tools)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../expressions/index.html">13. Expression များဖြင့် အဆင့်မြှင့်တင်ဆောင်ရွက်ခြင်း (Level up with Expressions)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../style_library/index.html">14. The Style Library (Style နှင့်ပတ်သက်သည်များ ထားရှိရာနေရာ)</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">15. ဒေတာအရင်းအမြစ်များအား စီမံခန့်ခွဲခြင်း (Managing Data Source)</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="opening_data.html">15.1. Data ဖွင့်ခြင်း (Opening Data)</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">15.2. Layer များဖန်တီးခြင်း (Creating Layers)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#vector-layer">15.2.1. Vector layer အသစ်များဖန်တီးခြင်း</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#geopackage-layer">15.2.1.1. GeoPackage layer အသစ်တစ်ခုဖန်တီးခြင်း</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#shapefile-layer">15.2.1.2. Shapefile layer အသစ်တစ်ခု ဖန်တီးခြင်း</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#spatialite-layer">15.2.1.3. SpatiaLite layer အသစ်တစ်ခု ဖန်တီးခြင်း</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mesh-layer">15.2.1.4. Mesh layer အသစ်တစ်ခု ဖန်တီးခြင်း</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpx-layer">15.2.1.5. GPX layer အသစ်တစ်ခု ဖန်တီးခြင်း</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#temporary-scratch-layer">15.2.1.6. Temporary Scratch Layer အသစ်တစ်ခု ဖန်တီးခြင်း</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#layer-layer-creating-new-layers-from-an-existing-layer">15.2.2. layer တစ်ခုမှ layer အသစ်များကို ဖန်တီးခြင်း (Creating new layers from an existing layer)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#common-parameters">15.2.2.1. Common parameters (အသုံးများသော သတ်မှတ်ချက်များ)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#raster-raster-specific-parameters">15.2.2.2. Raster အတွက် သီးသန့် သတ်မှတ်ချက်များ (Raster specific parameters)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#vector-vector-specific-parameters">15.2.2.3. Vector အတွက် သီးသန့် သတ်မှတ်ချက်များ (Vector specific parameters)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#dxf-files">15.2.3. DXF files အသစ်များ ဖန်တီးခြင်း</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#clipboard-layer-creating-new-layers-from-the-clipboard">15.2.4. Clipboard မှ layer အသစ်များ ဖန်တီးခြင်း (Creating new layers from the clipboard)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#virtual-layers">15.2.5. Virtual layers များဖန်တီးခြင်း</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#query-layers-embedding-layers-for-use-in-queries">15.2.5.1. Query များထဲတွင် အသုံးပြုရန် layers များကို ထည့်သွင်းခြင်း (Embedding layers for use in queries)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#query-supported-query-language">15.2.5.2. အသုံးပြုနိုင်သည့် Query အသုံးများ (Supported query language)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#performance-issues">15.2.5.3. စွမ်းဆောင်ရည်ပိုင်းဆိုင်ရာပြဿနာရပ်များ (Performance issues)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#special-comments">15.2.5.4. Special comments (အထူးမှတ်ချက်များ)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#use-of-indexes-index">15.2.5.5. Use of indexes (အညွှန်း (index) များအသုံးပြုခြင်း)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="supported_data.html">15.3. Data Format များနှင့် Field များကို လေ့လာခြင်း (Exploring Data Formats and Fields)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_vector/index.html">16. Vector data များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_raster/index.html">17. Raster Data နှင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_mesh/mesh_properties.html">18. Working with Mesh Data (Mesh Data များနှင့် အလုပ်လုပ်ခြင်း)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_vector_tiles/vector_tiles_properties.html">19. Vector Tiles များနှင့်အလုပ်လုပ်ခြင်း (Working with Vector Tiles)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_point_clouds/point_clouds.html">20. Point Cloud များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../print_composer/index.html">21. မြေပုံအချောသပ်ပြင်ဆင်ခြင်း (Laying out the maps)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_ogc/ogc_client_support.html">22. OGC / ISO protocol များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_gps/index.html">23. GPS Data များနှင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../auth_system/auth_overview.html">24. အထောက်အထားစီစစ်ခြင်းအကြောင်းအကျဉ်း (Authentication System Overview)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../auth_system/auth_workflows.html">25. အသုံးပြုသူ အထောက်အထားစစ်ဆေးခြင်း လုပ်ငန်းအဆင့်များ (User Authentication Workflows)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../auth_system/auth_considerations.html">26. လုံခြုံရေးအတွက်စဉ်းစားရန်အချက်များ (Security Considerations)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../grass_integration/grass_integration.html">27. GRASS GIS နှင့်ပေါင်းစပ်အသုံးပြုခြင်း (GRASS GIS Integration)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing/index.html">28. QGIS processing framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing_algs/index.html">29. Processing ဆိုင်ရာ ထောက်ပံ့ပေးသူများနှင့် Algorithm များ (Processing providers and algorithms)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/plugins.html">30. QGIS Plugin များ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/core_plugins/index.html">31. QGIS ပင်မ Plugin များကို အသုံးပြုခြင်း (Using QGIS Core Plugins)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/python_console.html">32. QGIS တွင် Python code များရေးသားရန်နေရာ (QGIS Python console)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/help_and_support.html">33. အကူအညီနှင့်အထောက်အပံ့ (Help and Support)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/contributors.html">34. ပါဝင်အားဖြည့်သူများ (Contributors)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendices/index.html">35. နောက်ဆက်တွဲများ (Appendices)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../literature_web/literature_and_web_references.html">36. စာတမ်းများနှင့် Website ကိုးကားချက်များ (Literature and Web References)</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">QGIS Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">&lt;no title&gt;</a></li>
+          <li class="breadcrumb-item"><a href="index.html"><span class="section-number">15. </span>ဒေတာအရင်းအမြစ်များအား စီမံခန့်ခွဲခြင်း (Managing Data Source)</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">15.2. </span>Layer များဖန်တီးခြင်း (Creating Layers)</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/qgis/QGIS-Documentation/blob/master/docs/user_manual/managing_data_source/create_layers.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="opening_data.html" class="btn btn-neutral float-left" title="15.1. Data ဖွင့်ခြင်း (Opening Data)" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="supported_data.html" class="btn btn-neutral float-right" title="15.3. Data Format များနှင့် Field များကို လေ့လာခြင်း (Exploring Data Formats and Fields)" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <blockquote>
+<div></div></blockquote>
+<section id="layer-creating-layers">
+<span id="creating-layers"></span><h1><span class="section-number">15.2. </span>Layer များဖန်တီးခြင်း (Creating Layers)<a class="headerlink" href="#layer-creating-layers" title="Link to this heading"></a></h1>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#vector-layer" id="id10">Vector layer အသစ်များဖန်တီးခြင်း</a></p>
+<ul>
+<li><p><a class="reference internal" href="#geopackage-layer" id="id11">GeoPackage layer အသစ်တစ်ခုဖန်တီးခြင်း</a></p></li>
+<li><p><a class="reference internal" href="#shapefile-layer" id="id12">Shapefile layer အသစ်တစ်ခု ဖန်တီးခြင်း</a></p></li>
+<li><p><a class="reference internal" href="#spatialite-layer" id="id13">SpatiaLite layer အသစ်တစ်ခု ဖန်တီးခြင်း</a></p></li>
+<li><p><a class="reference internal" href="#mesh-layer" id="id14">Mesh layer အသစ်တစ်ခု ဖန်တီးခြင်း</a></p></li>
+<li><p><a class="reference internal" href="#gpx-layer" id="id15">GPX layer အသစ်တစ်ခု ဖန်တီးခြင်း</a></p></li>
+<li><p><a class="reference internal" href="#temporary-scratch-layer" id="id16">Temporary Scratch Layer အသစ်တစ်ခု ဖန်တီးခြင်း</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#layer-layer-creating-new-layers-from-an-existing-layer" id="id17">layer တစ်ခုမှ layer အသစ်များကို ဖန်တီးခြင်း (Creating new layers from an existing layer)</a></p>
+<ul>
+<li><p><a class="reference internal" href="#common-parameters" id="id18">Common parameters (အသုံးများသော သတ်မှတ်ချက်များ)</a></p></li>
+<li><p><a class="reference internal" href="#raster-raster-specific-parameters" id="id19">Raster အတွက် သီးသန့် သတ်မှတ်ချက်များ (Raster specific parameters)</a></p></li>
+<li><p><a class="reference internal" href="#vector-vector-specific-parameters" id="id20">Vector အတွက် သီးသန့် သတ်မှတ်ချက်များ (Vector specific parameters)</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#dxf-files" id="id21">DXF files အသစ်များ ဖန်တီးခြင်း</a></p></li>
+<li><p><a class="reference internal" href="#clipboard-layer-creating-new-layers-from-the-clipboard" id="id22">Clipboard မှ layer အသစ်များ ဖန်တီးခြင်း (Creating new layers from the clipboard)</a></p></li>
+<li><p><a class="reference internal" href="#virtual-layers" id="id23">Virtual layers များဖန်တီးခြင်း</a></p>
+<ul>
+<li><p><a class="reference internal" href="#query-layers-embedding-layers-for-use-in-queries" id="id24">Query များထဲတွင် အသုံးပြုရန် layers များကို ထည့်သွင်းခြင်း (Embedding layers for use in queries)</a></p></li>
+<li><p><a class="reference internal" href="#query-supported-query-language" id="id25">အသုံးပြုနိုင်သည့် Query အသုံးများ (Supported query language)</a></p></li>
+<li><p><a class="reference internal" href="#performance-issues" id="id26">စွမ်းဆောင်ရည်ပိုင်းဆိုင်ရာပြဿနာရပ်များ (Performance issues)</a></p></li>
+<li><p><a class="reference internal" href="#special-comments" id="id27">Special comments (အထူးမှတ်ချက်များ)</a></p></li>
+<li><p><a class="reference internal" href="#use-of-indexes-index" id="id28">Use of indexes (အညွှန်း (index) များအသုံးပြုခြင်း)</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+<p>Layers များကို အောက်ပါနည်းလမ်းများ အပါအဝင် နည်းလမ်းများစွာဖြင့် ဖန်တီးနိုင်ပါသည်-</p>
+<ul class="simple">
+<li><p>Scratch မှ layer အလွတ်များ</p></li>
+<li><p>လက်ရှိရှိနေသည့် layer များမှ layer များ</p></li>
+<li><p>Clipboard (ဖိုင်တစ်ခုမှ အရာများအား နောက်ဖိုင်တစ်ခုသို့ ကူးယူရန်အတွက် ခေတ္တသိမ်းဆည်းထားသည့်နေရာ) ရှိ layer များ</p></li>
+<li><p>တစ်ခုသို့ တစ်ခုထက်ပိုသော layer များအပေါ်အခြေခံထားသည့် SQL-like query ၏ ရလဒ်တစ်ခုအဖြစ်ရရှိလာသည့် layer များ (<a class="reference internal" href="#vector-virtual-layers"><span class="std std-ref">virtual layers</span></a>)</p></li>
+</ul>
+<p>QGIS သည် အမျိုးမျိုးသော formats များအား တစ်ခုမှအခြားတစ်ခုသို့ import/export ပြုလုပ်နိုင်ရန် tools (ကိရိယာတန်ဆာပလာ) အမျိုးမျိုးအား ပံ့ပိုးပေးထားပါသည်။</p>
+<section id="vector-layer">
+<span id="sec-create-vector"></span><span id="index-1"></span><span id="index-0"></span><h2><a class="toc-backref" href="#id10" role="doc-backlink"><span class="section-number">15.2.1. </span>Vector layer အသစ်များဖန်တီးခြင်း</a><a class="headerlink" href="#vector-layer" title="Link to this heading"></a></h2>
+<p>QGIS သည် layer များကို အမျိုးမျိုးသော formats များဖြင့်ဖန်တီးနိုင်ရန်ခွင့်ပြုထားပါသည်။ ၎င်းသည် GeoPackage ၊ Shapefile ၊ SpatiaLite ၊ GPX format နှင့် disk များထဲတွင် သိမ်းဆည်းထားခြင်းမျိုးမဟုတ်ဘဲ QGIS ပိတ်လိုက်သည်နှင့် ပျောက်သွားမည့် Temporary Scratch layers (memory layers ဟုလည်းခေါ်ဆိုပါသည်) များဖန်တီးနိုင်ရန်အတွက် tools များကို ထောက်ပံ့ပေးထားပါသည်။
+GRASS plugin အတွင်းတွင် <a class="reference internal" href="../grass_integration/grass_integration.html#creating-new-grass-vectors"><span class="std std-ref">GRASS layer အသစ်</span></a> တစ်ခု ဖန်တီးနိုင်ရန် ပံ့ပိုးထားပါသည်။</p>
+<section id="geopackage-layer">
+<span id="vector-create-geopackage"></span><span id="index-2"></span><h3><a class="toc-backref" href="#id11" role="doc-backlink"><span class="section-number">15.2.1.1. </span>GeoPackage layer အသစ်တစ်ခုဖန်တီးခြင်း</a><a class="headerlink" href="#geopackage-layer" title="Link to this heading"></a></h3>
+<p>GeoPackage layer (အမျိုးမျိုးသော raster နှင့် vector layer များကို သိမ်းဆည်းထားသည့် layer) အသစ်တစ်ခုကိုဖန်တီးရန် <span class="menuselection">Layer ► Create Layer ►</span> menu သို့မဟုတ် <span class="guilabel">Data Source Manager</span> toolbar ရှိ <a class="reference internal" href="../../../_images/mActionNewGeoPackageLayer.png"><img alt="newGeoPackageLayer" src="../../../_images/mActionNewGeoPackageLayer.png" style="width: 1.5em;" /></a> <span class="menuselection">New GeoPackage Layer…</span> ခလုတ်ကိုနှိပ်ပါ။ <a class="reference internal" href="#figure-create-geopackage"><span class="std std-numref">Fig. 15.18</span></a> တွင်ပြသထားသည့်အတိုင်း <span class="guilabel">New GeoPackage Layer</span> dialog ကိုပြသသွားမည်ဖြစ်ပါသည်။</p>
+<figure class="align-center" id="id1">
+<span id="figure-create-geopackage"></span><img alt="../../../_images/editNewGeoPackage.png" src="../../../_images/editNewGeoPackage.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 15.18 </span><span class="caption-text">GeoPackage layer dialog အသစ်တစ်ခုအား ဖန်တီးခြင်း</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ol class="arabic simple">
+<li><p>ပထမအဆင့်သည် database ဖိုင်တည်နေရာကို ညွှန်ပြသတ်မှတ်ခြင်းဖြစ်ပါသည်။ ၎င်းကို <span class="guilabel">Database</span> field ၏ ညာဘက်ဘေးရှိ <span class="guilabel">…</span> ခလုတ် ကို နှိပ်၍ ရှိနေသည့် GeoPackage file တစ်ခုကို select ပြုလုပ်ခြင်း သို့မဟုတ် အသစ်ဖန်တီးခြင်းဖြင့် ဆောင်ရွက်နိုင်ပါသည်။ QGIS သည် သတ်မှတ်ခဲ့သည့် အမည်အတိုင်း မှန်ကန်သည့် extension ကို အလိုအလျောက်ထည့်သွင်းသွားမည်ဖြစ်ပါသည်။</p></li>
+<li><p>Layer / table အသစ်အား အမည်ပေးပါ။  (<span class="guilabel">Table name</span>)</p></li>
+<li><p><span class="guilabel">Geometry type</span> ကို သတ်မှတ်ပါ။ Geometryless (ဂျီဩမေတြီ မပါရှိသည့်) layer တစ်ခုမဟုတ်ပါက ၎င်းသည် <span class="guilabel">Include Z dimension</span> နှင့်/သို့မဟုတ် <span class="guilabel">Include M values</span> ဖြစ်သင့်သည်ကို သတ်မှတ်နိုင်ပါသည်။</p></li>
+<li><p><a class="reference internal" href="../../../_images/mActionSetProjection.png"><img alt="setProjection" src="../../../_images/mActionSetProjection.png" style="width: 1.5em;" /></a> ခလုတ်ကို အသုံးပြု၍ coordinate reference system ကို သတ်မှတ်ပါ။</p></li>
+</ol>
+<p>ဖန်တီးထားသည့် layer ထဲတွင် သက်ဆိုင်ရာ field များအား ထည့်သွင်းရန်-</p>
+<ol class="arabic simple">
+<li><p>Field ၏ <span class="guilabel">Name</span> (အမည်) ကိုထည့်သွင်းပါ။</p></li>
+<li><p>Data <span class="guilabel">Type</span> ကို ရွေးချယ်ပါ။ ပံ့ပိုးထားသည့်အမျိုးအစားများမှာ <span class="guilabel">Text data</span> ၊ <span class="guilabel">Whole number</span> (integer နှင့် integer64 နှစ်မျိုးစလုံး)၊ <span class="guilabel">Decimal number</span> ၊ <span class="guilabel">Date</span> နှင့် <span class="guilabel">Date and time</span>၊ <span class="guilabel">Binary (BLOB)</span> နှင့် <span class="guilabel">Boolean</span> တို့ဖြစ်ပါသည်။</p></li>
+<li><p>ရွေးချယ်ထားသည့် data format အလိုက် တန်ဖိုးများ၏ <span class="guilabel">Maximum length</span> (အမြင့်ဆုံးအရှည်) ကို ထည့်သွင်းပါ။</p></li>
+<li><p><a class="reference internal" href="../../../_images/mActionNewAttribute.png"><img alt="newAttribute" src="../../../_images/mActionNewAttribute.png" style="width: 1.5em;" /></a> <span class="guilabel">Add to Fields List</span> ခလုတ် ကို click နှိပ်ပါ။</p></li>
+<li><p>ထည့်သွင်းလိုသည့် field တစ်ခုချင်းစီအတွက် အထက်တွင်ဖော်ပြခဲ့သည့် အဆင့်များအတိုင်း ပြန်လည်လုပ်ဆောင်ပါ။</p></li>
+<li><p>ဆက်စပ် attributes များကို စိတ်တိုင်းကျပြီဆိုပါက <span class="guilabel">OK</span> ကို နှိပ်ပါ။ QGIS သည် legend (ရည်ညွှန်းချက်) ထဲသို့ layer အသစ်အား ထည့်သွင်းသွားမည်ဖြစ်ပြီး ၎င်းကို <a class="reference internal" href="../working_with_vector/editing_geometry_attributes.html#sec-edit-existing-layer"><span class="std std-ref">layer တစ်ခုအတွင်း ဆွဲသားခြင်း (Digitizing an existing layer)</span></a> တွင် ဖော်ပြထားသည့်အတိုင်း edit (ပြောင်းလဲပြင်ဆင်ခြင်း) ပြုလုပ်နိုင်ပါသည်။</p></li>
+</ol>
+<p>ပုံမှန်အားဖြင့် GeoPackage layer တစ်ခုကို ဖန်တီးသည့်အခါတွင် QGIS သည် Layer ၏ primary key (အဓိကသော့ချက်) အဖြစ်ဆောင်ရွက်သွားမည့် <code class="docutils literal notranslate"><span class="pre">fid</span></code> ဟုခေါ်သည့် <span class="guilabel">Feature id column</span> တစ်ခုကို ဖန်တီးထုတ်လုပ်ပေးသွားမည်ဖြစ်ပါသည်။ အမည်အား ပြောင်းလဲပြင်ဆင်နိုင်ပါသည်။
+ဂျီဩမေတြီ field ကို ရရှိနိုင်ပါက <code class="docutils literal notranslate"><span class="pre">geometry</span></code> အဖြစ် အမည်ပေးထားပြီး ၎င်းအပေါ်တွင် <span class="guilabel">Create a spatial index (Spatial index တစ်ခုဖန်တီးရန်)</span> ကို ရွေးချယ်နိုင်ပါသည်။ ဤနည်းလမ်းများ (options) ကို <span class="guilabel">Advanced Options</span> အောက်တွင် <span class="guilabel">Layer identifier</span> (ဖတ်ရှုသဘောပေါက်ရန်လွယ်ကူသည့် layer ၏ အမည်) နှင့် <span class="guilabel">Layer description</span> (layer သတ်မှတ်ဖော်ပြချက်) တို့နှင့်အတူတွေ့ရှိနိုင်ပါသည်။</p>
+<p>နောက်ထပ် GeoPackage layer များစီမံခန့်ခွဲခြင်းကို <a class="reference internal" href="../plugins/core_plugins/plugins_db_manager.html#dbmanager"><span class="std std-ref">DB Manager</span></a> ဖြင့်လုပ်ဆောင်နိုင်ပါသည်။</p>
+</section>
+<section id="shapefile-layer">
+<span id="vector-create-shapefile"></span><h3><a class="toc-backref" href="#id12" role="doc-backlink"><span class="section-number">15.2.1.2. </span>Shapefile layer အသစ်တစ်ခု ဖန်တီးခြင်း</a><a class="headerlink" href="#shapefile-layer" title="Link to this heading"></a></h3>
+<p>ESRI Shapefile format layer အသစ်တစ်ခုအားဖန်တီးရန် <span class="menuselection">Layer ► Create Layer ►</span> menu ထဲရှိ <a class="reference internal" href="../../../_images/mActionNewVectorLayer.png"><img alt="newVectorLayer" src="../../../_images/mActionNewVectorLayer.png" style="width: 1.5em;" /></a> <span class="menuselection">New Shapefile Layer…</span>  သို့မဟုတ် <span class="guilabel">Data Source Manager</span> toolbar ကို နှိပ်ပါ။ <span class="guilabel">New Shapefile Layer</span> dialog သည် <a class="reference internal" href="#figure-create-shapefile"><span class="std std-numref">Fig. 15.19</span></a> တွင်ပြထားသည့်အတိုင်း ပြသမည်ဖြစ်ပါသည်။</p>
+<ol class="arabic simple">
+<li><p><span class="guilabel">File name</span> ဘေးရှိ <span class="guilabel">…</span> ခလုတ်ကို အသုံးပြုပြီး ဖိုင်နာမည် (file name) နှင့် လမ်းကြောင်း (path) တစ်ခုကို ပေးပါ။ QGIS သည် ပေးထားသည့်အမည်အတွက် မှန်ကန်သည့် extension ကို အလိုအလျောက်ထည့်သွင်းပေးမည်ဖြစ်ပါသည်။</p></li>
+<li><p>ထို့နောက် data ၏ <span class="guilabel">File encoding</span> ကို ဖော်ပြပါ။</p></li>
+<li><p>Layer ၏ <span class="guilabel">Geometry type</span> ကို ရွေးချယ်ပါ - No Geometry ( <code class="file docutils literal notranslate"><span class="pre">.DBF</span></code> format file ဖြင့်ရရှိလာမည်ဖြစ်သည်)၊ point (အမှတ်)၊ multipoint (အမှတ်များ)၊ line (မျဉ်း) နှင့် polygon (ဗဟုဂံ)။</p></li>
+<li><p>ဂျီဩမေတြီ သည် အခြားသောအတိုင်းအတာများ (dimensions) - <span class="guilabel">None</span> ၊ <span class="guilabel">Z (+ M values)</span> သို့မဟုတ် <span class="guilabel">M values</span> ရှိသင့်သည်/မရှိသင့်သည်ကို ဆုံးဖြတ်သတ်မှတ်ပါ။</p></li>
+<li><p><a class="reference internal" href="../../../_images/mActionSetProjection.png"><img alt="setProjection" src="../../../_images/mActionSetProjection.png" style="width: 1.5em;" /></a> ခလုတ်ကို အသုံးပြု၍ coordinate reference system (ကိုဩဒိနိတ်စနစ်) ကို သတ်မှတ်ဖော်ပြပါ။</p></li>
+</ol>
+<figure class="align-center" id="id2">
+<span id="figure-create-shapefile"></span><img alt="../../../_images/editNewVector.png" src="../../../_images/editNewVector.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 15.19 </span><span class="caption-text">Shapefile layer အသစ်တစ်ခုကိုဖန်တီးခြင်းပြပုံ</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>ဖန်တီးထားသည့် layer ထဲသို့ field များထည့်သွင်းရန်-</p>
+<ol class="arabic simple">
+<li><p>Field ၏ <span class="guilabel">Name</span> ကို ထည့်သွင်းပါ။</p></li>
+<li><p>Data <span class="guilabel">Type</span> ကို ရွေးချယ်ပါ။ <span class="guilabel">Decimal number</span> (ဒဿမကိန်း)၊ <span class="guilabel">Whole number</span> (အပြည့်ကိန်း)၊ <span class="guilabel">Text data</span> (စာသား) and <span class="guilabel">Date</span> (ရက်စွဲ) စသည့် attributes များကိုသာ ပံ့ပိုးထားပါသည်။</p></li>
+<li><p>ရွေးချယ်ထားသည့် data format အလိုက် <span class="guilabel">Length (အရှည်)</span> နှင့် <span class="guilabel">Precision (တိကျမှု)</span> ကို ထည့်သွင်းပါ။</p></li>
+<li><p><a class="reference internal" href="../../../_images/mActionNewAttribute.png"><img alt="newAttribute" src="../../../_images/mActionNewAttribute.png" style="width: 1.5em;" /></a> <span class="guilabel">Add to Fields List</span> ခလုတ်ကို click နှိပ်ပါ။</p></li>
+<li><p>ထပ်မံထည့်သွင်းရန်လိုအပ်ပါက အထက်တွင်ဖော်ပြခဲ့သည့်အဆင့်များကို ပြန်လည်လုပ်ဆောင်ပါ။</p></li>
+<li><p>Attributes များကိုစိတ်တိုင်းကျပြီဆိုပါက <span class="guilabel">OK</span> ကိုနှိပ်ပါ။ QGIS သည် ရည်ညွှန်းချက် (legend) ထဲတွင် layer အသစ်ကို ထည့်သွင်းပေးသွားမည်ဖြစ်ပြီး <a class="reference internal" href="../working_with_vector/editing_geometry_attributes.html#sec-edit-existing-layer"><span class="std std-ref">layer တစ်ခုအတွင်း ဆွဲသားခြင်း (Digitizing an existing layer)</span></a> အပိုင်းတွင် ဖော်ပြထားသည့်အတိုင်း edit (ပြောင်းလဲပြင်ဆင်ခြင်း) လုပ်နိုင်ပါသည်။</p></li>
+</ol>
+<p>ပုံမှန်အားဖြင့် ပထမဆုံးကိန်းပြည့် <code class="docutils literal notranslate"><span class="pre">id</span></code> column တစ်ခုကို ထည့်သွင်းထားမည်ဖြစ်ပြီး ၎င်းကို ဖယ်ရှား၍ရနိင်ပါသည်။</p>
+</section>
+<section id="spatialite-layer">
+<span id="vector-create-spatialite"></span><span id="index-3"></span><h3><a class="toc-backref" href="#id13" role="doc-backlink"><span class="section-number">15.2.1.3. </span>SpatiaLite layer အသစ်တစ်ခု ဖန်တီးခြင်း</a><a class="headerlink" href="#spatialite-layer" title="Link to this heading"></a></h3>
+<p>SpatiaLite layer (Single file တစ်ခုထဲတွင် spatial database တစ်ခုလုံးကို ကိုင်တွယ်ဆောင်ရွက်ရလွယ်ကူစေရန် ဖန်တီးထားသည့် layer) အသစ်တစ်ခုကို ဖန်တီးရန် <span class="menuselection">Layer► Create Layer ►</span> menu ရှိ <span class="menuselection">New SpatiaLite Layer…</span> ခလုတ်သို့မဟုတ် <span class="guilabel">Data Source Manager</span> toolbar ကို နှိပ်ပါ။ <a class="reference internal" href="#figure-create-spatialite"><span class="std std-numref">Fig. 15.20</span></a> တွင်ပြထားသည့်အတိုင်း <span class="guilabel">New SpatiaLite Layer</span> dialog ကို ပြသမည်ဖြစ်ပါသည်။</p>
+<figure class="align-center" id="id3">
+<span id="figure-create-spatialite"></span><img alt="../../../_images/editNewSpatialite.png" src="../../../_images/editNewSpatialite.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 15.20 </span><span class="caption-text">SpatiaLite layer အသစ်တစ်ခုအားဖန်တီးခြင်း Dialog</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ol class="arabic simple">
+<li><p>ပထမဆုံးအဆင့်သည် database file location (ဒေတာဘေ့စ်ဖိုင်တည်နေရာ) ကို သတ်မှတ်ဖော်ပြခြင်းဖြစ်ပါသည်။ ၎င်းကို <span class="guilabel">Database</span> field ၏ ညာဘက်ဘေးရှိ <span class="guilabel">…</span> ခလုတ်ကို နှိပ်ပြီး လက်ရှိရှိနေသည့် SpatiaLite file ကို ရွေးချယ်ခြင်း သို့မဟုတ် အသစ်တစ်ခုကို ဖန်တီးခြင်းဖြင့် ဆောင်ရွက်နိုင်ပါသည်။ QGIS သည် သတ်မှတ်ထားသည့်အမည်အား မှန်ကန်သည့် extension ကို အလိုအလျောက်ထည့်သွင်းပေးသွားမည်ဖြစ်ပါသည်။</p></li>
+<li><p>Layer အသစ်အတွက် (<span class="guilabel">Layer name</span>) အမည်တစ်ခုပေးပါ။</p></li>
+<li><p><span class="guilabel">Geometry type</span> ကို သတ်မှတ်ပါ။ Geometryless (ဂျီဩမေတြီမပါရှိသော) layer တစ်ခုမဟုတ်ပါက ၎င်းသည် <span class="guilabel">Include Z dimension</span> နှင့်/သို့မဟုတ် <span class="guilabel">Include M values</span> ဖြစ်သင့်သည် ကို သတ်မှတ်နိုင်ပါသည်။</p></li>
+<li><p><a class="reference internal" href="../../../_images/mActionSetProjection.png"><img alt="setProjection" src="../../../_images/mActionSetProjection.png" style="width: 1.5em;" /></a> ခလုတ်ကိုအသုံးပြု၍ coordinate reference system ကို သတ်မှတ်ပါ။</p></li>
+</ol>
+<p>ဖန်တီးထားသည့်  layer အား field များထည့်သွင်းရန်-</p>
+<ol class="arabic simple">
+<li><p>Field ၏ <span class="guilabel">Name</span> (အမည်) ကိုထည့်သွင်းပါ။</p></li>
+<li><p>Data <span class="guilabel">Type</span> ကို ရွေးချယ်ပါ။ ပံ့ပိုးပေးထားသည့်အမျိုးအစားများမှာ <span class="guilabel">Text data</span> (စာသား) ၊ <span class="guilabel">Whole number</span> (ကိန်းပြည့်) ၊ <span class="guilabel">Decimal number</span> (ဒဿမကိန်း) ၊ <span class="guilabel">Date</span> (ရက်စွဲ) နှင့် <span class="guilabel">Date time</span> (ရက်စွဲအချိန်) တို့ဖြစ်ပါသည်။</p></li>
+<li><p><a class="reference internal" href="../../../_images/mActionNewAttribute.png"><img alt="newAttribute" src="../../../_images/mActionNewAttribute.png" style="width: 1.5em;" /></a> <span class="guilabel">Add to Fields List</span> ခလုတ်ကို click နှိပ်ပါ။</p></li>
+<li><p>ထပ်ထည့်ရန်လိုအပ်ပါက အထက်တွင်ဖော်ပြခဲ့သည့်အဆင့်များအတိုင်း ပြန်လည်လုပ်ဆောင်ပါ။</p></li>
+<li><p>Attribute များကို စိတ်တိုင်းကျပြီဆိုပါက <span class="guilabel">OK</span> ကို နှိပ်ပါ။ QGIS သည် legend (ရည်ညွှန်းချက်) ထဲတွင် layer အသစ်ကို ထည့်သွင်းသွားမည်ဖြစ်ပြီး ၎င်းကို <a class="reference internal" href="../working_with_vector/editing_geometry_attributes.html#sec-edit-existing-layer"><span class="std std-ref">layer တစ်ခုအတွင်း ဆွဲသားခြင်း (Digitizing an existing layer)</span></a> section တွင် ဖော်ပြထားသည့်အတိုင်း edit (ပြန်လည်ပြင်ဆင်ခြင်း) ပြုလုပ်နိုင်ပါသည်။</p></li>
+</ol>
+<p>ဆန္ဒရှိပါက <span class="guilabel">Advanced Options</span> section အောက်ရှိ <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">Create an autoincrementing primary key</span> ကို select ပြုလုပ်နိုင်ပါသည်။ <span class="guilabel">Geometry column</span> (ပုံမှန်အားဖြင့် <code class="docutils literal notranslate"><span class="pre">geometry</span></code>) ကိုလည်း အမည်ပြန်လည်ပြင်ဆင်နိုင်ပါသည်။</p>
+<p>နောက်ထပ် SpatiaLite layer များစီမံခန့်ခွဲခြင်းကို <a class="reference internal" href="../plugins/core_plugins/plugins_db_manager.html#dbmanager"><span class="std std-ref">DB Manager</span></a> ဖြင့် ဆောင်ရွက်နိုင်ပါသည်။</p>
+</section>
+<section id="mesh-layer">
+<span id="vector-create-mesh"></span><span id="index-4"></span><h3><a class="toc-backref" href="#id14" role="doc-backlink"><span class="section-number">15.2.1.4. </span>Mesh layer အသစ်တစ်ခု ဖန်တီးခြင်း</a><a class="headerlink" href="#mesh-layer" title="Link to this heading"></a></h3>
+<p>Mesh layer အသစ်တစ်ခုဖန်တီးရန် <span class="menuselection">Layer ► Create Layer ►</span> menu ထဲရှိ <a class="reference internal" href="../../../_images/mActionNewMeshLayer.png"><img alt="newMeshLayer" src="../../../_images/mActionNewMeshLayer.png" style="width: 1.5em;" /></a> <span class="menuselection">New Mesh Layer…</span> ခလုတ်သို့မဟုတ် <span class="guilabel">Data Source Manager</span> toolbar ကို နှိပ်ပါ။ <a class="reference internal" href="#figure-create-mesh"><span class="std std-numref">Fig. 15.21</span></a> တွင်ပြထားသည့်အတိုင်း <span class="guilabel">New Mesh Layer</span> dialog သည် ပြသသွားမည်ဖြစ်ပါသည်။</p>
+<figure class="align-center" id="id4">
+<span id="figure-create-mesh"></span><img alt="../../../_images/editNewMesh.png" src="../../../_images/editNewMesh.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 15.21 </span><span class="caption-text">Mesh layer အသစ်တစ်ခုအားဖန်တီးခြင်း Dialog</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ol class="arabic">
+<li><p>ပထမဆုံးအဆင့်သည် mesh file location (mesh ဖိုင်တည်နေရာ) ကို သတ်မှတ်ဖော်ပြခြင်းဖြစ်ပါသည်။ ၎င်းကို <span class="guilabel">File name</span> field ၏ ညာဘက်ဘေးရှိ <span class="guilabel">…</span> ခလုတ်ကို နှိပ်ပြီး လက်ရှိရှိနေသည့် mesh file ကို ရွေးချယ်ခြင်း သို့မဟုတ် အသစ်တစ်ခုကို ဖန်တီးခြင်းဖြင့် ဆောင်ရွက်နိုင်ပါသည်။</p></li>
+<li><p>(<span class="guilabel">Layer name</span>) အမည်တစ်ခုသတ်မှတ်ပါ။ ဆိုလိုသည်မှာ <span class="guilabel">Layers</span> panel ထဲတွင် layer ကို ပြသသွားမည့် အမည်ဖြစ်ပါသည်။</p></li>
+<li><p><span class="guilabel">File format</span> ကို select ပြုလုပ်ပါ။ လက်ရှိတွင်ပံ့ပိုးပေးထားသည့်  mesh file formats များမှာ <code class="docutils literal notranslate"><span class="pre">2DM</span> <span class="pre">Mesh</span> <span class="pre">File</span> <span class="pre">(*.2dm)</span></code> ၊ <code class="docutils literal notranslate"><span class="pre">Selafin</span> <span class="pre">File</span> <span class="pre">(*.slf)</span></code> နှင့် <code class="docutils literal notranslate"><span class="pre">UGRID</span> <span class="pre">(*.nc)</span></code> တို့ဖြစ်ပါသည်။</p></li>
+<li><p>Dataset တွင်ထည့်သွင်းရန် <a class="reference internal" href="../working_with_projections/working_with_projections.html#crs-selector"><span class="std std-ref">Coordinate Reference System</span></a> ကို သတ်မှတ်ပါ။</p></li>
+<li><p>အထက်ဖော်ပြပါအဆင့်များသည် နောက်ပိုင်းတွင် vertices များကို digitize ပြုလုပ်ခြင်းနှင့် dataset groups များထည့်သွင်းခြင်းကို ဆောင်ရွက်နိုင်သည့် layer အလွတ်တစ်ခုကို ထုတ်ပေးမည်ဖြစ်ပါသည်။ သို့ရာတွင် ၎င်းသည် လက်ရှိရှိနေပြီးသား mesh layer တစ်ခုနှင့်အတူ layer ကို စတင်ဆောင်ရွက်နိုင်ပါသည်။ ဥပမာ- layer အသစ်ကို အခြား layer မှ vertices (မျဉ်းအဆစ်ထောင့်များ) သို့မဟုတ် faces (မျက်နှာများ) များဖြင့်ဖြည့်ခြင်း။ ထိုသို့ဆောင်ရွက်ရန်-</p>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">Initialize Mesh using</span> ကို အမှန်ခြစ်ပါ။</p></li>
+<li><p>ထို့နောက် <span class="guilabel">Mesh from the current project (လက်ရှိ project မှ mesh)</span> သို့မဟုတ် <span class="guilabel">Mesh from a file (File တစ်ခုမှ mesh)</span> ကို ရွေးချယ်ပါ။ Select ပြုလုပ်ထားသည့် mesh file ၏ အချက်အလက်များကို စစ်ဆေးမှုများပြုလုပ်ရန် (checkup) ပြသသွားမည်ဖြစ်ပါသည်။</p></li>
+</ol>
+<p>Mesh layer ၏ frame (ဘောင်) ကိုသာ layer အသစ်ထဲသို့ ကူးပြောင်းခြင်းလုပ်နိုင်ပြီး ၎င်းတို့၏ datasets များကို ကူးယူ၍မရသည်ကို သတိပြုရမည်ဖြစ်ပါသည်။</p>
+</li>
+</ol>
+</section>
+<section id="gpx-layer">
+<span id="vector-create-gpx"></span><span id="index-5"></span><h3><a class="toc-backref" href="#id15" role="doc-backlink"><span class="section-number">15.2.1.5. </span>GPX layer အသစ်တစ်ခု ဖန်တီးခြင်း</a><a class="headerlink" href="#gpx-layer" title="Link to this heading"></a></h3>
+<p>GPX file အသစ်တစ်ခုကိုဖန်တီးရန်-</p>
+<ol class="arabic simple">
+<li><p><span class="menuselection">Layer</span> menu မှ <span class="menuselection">Create Layer ►</span> <a class="reference internal" href="../../../_images/create_gpx.png"><img alt="createGPX" src="../../../_images/create_gpx.png" style="width: 1.5em;" /></a> <span class="menuselection">New GPX Layer…</span> ကို ရွေးချယ်ပါ။</p></li>
+<li><p>Dialog တွင် ဖိုင်အသစ်ကို မည်သည့်နေရာတွင် သိမ်းဆည်းမည်ကို ရွေးချယ်ပါ။ အမည်ပေးပါ။ ထို့နောက် <span class="guilabel">Save</span> ကိုနှိပ်ပါ။</p></li>
+<li><p>Layers အသစ် သုံးခုကို <span class="guilabel">Layers Panel</span> ထဲသို့ ထည့်သွင်းသွားမည်ဖြစ်ပါသည်-</p>
+<ul class="simple">
+<li><p>Name (အမည်) ၊ elevation (အမြင့်) ၊ comment (မှတ်ချက်) ၊ description (သတ်မှတ်ဖော်ပြချက်) ၊ source (ရင်းမြစ်) ၊ url နှင့် url name များကို သိမ်းဆည်းထားသည့် field များနှင့်အတူ တည်နေရာများ (<code class="docutils literal notranslate"><span class="pre">waypoints</span></code>) ကို digitize (digital form အဖြစ်သို့ ပြောင်းလဲခြင်း) ပြုလုပ်နိုင်သည့် point layer တစ်ခု</p></li>
+<li><p>Name (အမည်) ၊ symbol (သင်္ကေတ) ၊ number (ကိန်းဂဏန်း) ၊ comment (မှတ်ချက်) ၊ description (သတ်မှတ်ဖော်ပြချက်) ၊ source (ရင်းမြစ်) ၊ url နှင့် url name များကို သိမ်းဆည်းထားသည့် field များနှင့်အတူ ကြိုတင်သတ်မှတ်ထားသည့်လမ်းကြောင်းတစ်ခုကို ပြုလုပ်ပေးနိုင်သည့် အတွဲလိုက်တည်နေရာများ (sequences of locations) ကို digitize ပြုလုပ်နိုင်သည့် line layer တစ်ခု</p></li>
+<li><p>Name (အမည်) ၊ symbol (သင်္ကေတ) ၊ number (ကိန်းဂဏန်း) ၊ comment (မှတ်ချက်) ၊ description (သတ်မှတ်ဖော်ပြချက်) ၊ source (ရင်းမြစ်) ၊ url နှင့် url name များကို သိမ်းဆည်းထားသည့် field များနှင့်အတူ လက်ခံသူ၏ အချိန်နှင့်အမျှ လှုပ်ရှားသွားလာမှု (<code class="docutils literal notranslate"><span class="pre">tracks</span></code>) ကို ခြေရာခံရန် line layer တစ်ခု</p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="../working_with_vector/editing_geometry_attributes.html#sec-edit-existing-layer"><span class="std std-ref">layer တစ်ခုအတွင်း ဆွဲသားခြင်း (Digitizing an existing layer)</span></a> section တွင် ဖော်ပြထားသည့်အတိုင်း ၎င်းတို့အထဲမှ မည်သည်ကိုမဆို ယခုအချိန်တွင် ပြင်ဆင်ခြင်းများဆောင်ရွက်နိုင်ပြီဖြစ်ပါသည်။</p></li>
+</ol>
+</section>
+<section id="temporary-scratch-layer">
+<span id="vector-new-scratch-layer"></span><span id="index-6"></span><h3><a class="toc-backref" href="#id16" role="doc-backlink"><span class="section-number">15.2.1.6. </span>Temporary Scratch Layer အသစ်တစ်ခု ဖန်တီးခြင်း</a><a class="headerlink" href="#temporary-scratch-layer" title="Link to this heading"></a></h3>
+<p>Temporary Scratch Layers များသည် in-memory layers ဖြစ်ပါသည်။ ဆိုလိုသည်မှာ ၎င်းတို့ကို disk တွင် သိမ်းဆည်းထားခြင်းမဟုတ်ဘဲ QGIS ပိတ်လိုက်သည်နှင့် ဖယ်ရှားခံရမည်ဖြစ်ပါသည်။ ၎င်းတို့သည် ယာယီလိုအပ်သည့် feature များကို သိမ်းဆည်းရာတွင်ဖြစ်စေ geoprocessing
+operations (လုပ်ငန်းဆောင်တာများ) ဆောင်ရွက်နေစဉ်တွင် intermediate layers များအဖြစ်သိမ်းဆည်းရာတွင်ဖြစ်စေ များစွာအသုံးတည့်ပါသည်။</p>
+<p>Temporary Scratch layer အသစ်တစ်ခုအားဖန်တီးရန် <span class="menuselection">Layer ► Create Layer ►</span> menu ထဲရှိ <a class="reference internal" href="../../../_images/mActionCreateMemory.png"><img alt="createMemory" src="../../../_images/mActionCreateMemory.png" style="width: 1.5em;" /></a>
+<span class="menuselection">New Temporary Scratch Layer…</span> entry  သို့မဟုတ် <span class="guilabel">Data Source Manager</span> toolbar ကို ရွေးချယ်ပါ။
+<span class="guilabel">New Temporary Scratch Layer</span> dialog သည် <a class="reference internal" href="#figure-create-temporary"><span class="std std-numref">Fig. 15.22</span></a> တွင်ပြထားသည့်အတိုင်း ပြသမည်ဖြစ်ပါသည်။ ထို့နောက်-</p>
+<ol class="arabic simple">
+<li><p><span class="guilabel">Layer name</span> ကို ထည့်သွင်းပါ။</p></li>
+<li><p><span class="guilabel">Geometry type</span> ကို select ပြုလုပ်ပါ။ ဤနေရာတွင် အောက်ပါတို့ကိုဖန်တီးနိုင်ပါသည်-</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">No</span> <span class="pre">geometry</span></code> အမျိုးအစား layer ၊ simple table (ရိုးရှင်းသည့်ဇယား) ဖြင့် ဆောင်ရွက်ပါသည်။</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Point</span></code> သို့မဟုတ် <code class="docutils literal notranslate"><span class="pre">MultiPoint</span></code> layer ၊</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">LineString/CompoundCurve</span></code> သို့မဟုတ် <code class="docutils literal notranslate"><span class="pre">MultiLineString/MultiCurve</span></code> layer</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Polygon/CurvePolygon</span></code> သို့မဟုတ် <code class="docutils literal notranslate"><span class="pre">MultiPolygon/MultiSurface</span></code> layer</p></li>
+</ul>
+</li>
+<li><p>Geometric အမျိုးအစားများအတွက် dataset ၏ အတိုင်းအတာများ (dimensions) ကို သတ်မှတ်ပါ။ ၎င်းတို့သည် <span class="guilabel">Include Z dimension</span> နှင့်/သို့မဟုတ် <span class="guilabel">Include M values</span> ဖြစ်သင့်သည်ကို စစ်ဆေးပါ။</p></li>
+<li><p><a class="reference internal" href="../../../_images/mActionSetProjection.png"><img alt="setProjection" src="../../../_images/mActionSetProjection.png" style="width: 1.5em;" /></a> ခလုတ်ကို အသုံးပြု၍ coordinate reference system ကို သတ်မှတ်ပါ။</p></li>
+<li><p>Layer ထဲသို့ fields များထည့်သွင်းပါ။ သတိပြုရန်မှာ အခြားသော formats များနှင့်မတူသည်မှာ temporary
+layer များကို မည်သည့် field များမပါဘဲ ဖန်တီးနိုင်ပါသည်။ ထို့ကြောင့် ဤအဆင့်သည် စိတ်ကြိုက်ရွေးချယ်ခွင့် (optional) ဖြစ်ပါသည်။</p></li>
+<li><p>Field ၏ <span class="guilabel">Name</span> ကို ထည့်သွင်းပါ။</p></li>
+<li><p>Data <span class="guilabel">Type</span> ကို select ပြုလုပ်ပါ။ <span class="guilabel">Text</span> ၊ <span class="guilabel">Whole number</span> ၊ <span class="guilabel">Decimal number</span> ၊ <span class="guilabel">Boolean</span> ၊ <span class="guilabel">Date</span> ၊ <span class="guilabel">Time</span> ၊ <span class="guilabel">Date &amp; Time</span> နှင့် <span class="guilabel">Binary (BLOB)</span> များကို ပံ့ပိုးပေးထားပါသည်။</p></li>
+<li><p>ရွေးချယ်ထားသည့် data format အလိုက်  <span class="guilabel">Length</span> နှင့် <span class="guilabel">Precision</span> ကို ထည့်သွင်းပါ။</p></li>
+<li><p><a class="reference internal" href="../../../_images/mActionNewAttribute.png"><img alt="newAttribute" src="../../../_images/mActionNewAttribute.png" style="width: 1.5em;" /></a> <span class="guilabel">Add to Fields List</span> ခလုတ်ကို click နှိပ်ပါ။</p></li>
+<li><p>ထပ်မံထည့်သွင်းလိုပါက အထက်တွင်ဆောင်ရွက်ခဲ့သည့်အဆင့်များအတိုင်း ပြန်လည်လုပ်ဆောင်ပါ။</p></li>
+<li><p>Setting များကို စိတ်တိုင်းကျပြီဆိုပါက <span class="guilabel">OK</span> ကို နှိပ်ပါ။ QGIS သည် <span class="guilabel">Layers</span> panel ထဲတွင် layer အသစ်တစ်ခုကို ထည့်သွင်းသွားမည်ဖြစ်ပြီး ၎င်းကို <a class="reference internal" href="../working_with_vector/editing_geometry_attributes.html#sec-edit-existing-layer"><span class="std std-ref">layer တစ်ခုအတွင်း ဆွဲသားခြင်း (Digitizing an existing layer)</span></a> section တွင် ဖော်ပြထားသည့်အတိုင်း edit (ပြန်လည်ပြင်ဆင်ခြင်း) ပြုလုပ်နိုင်ပါသည်။</p></li>
+</ol>
+<figure class="align-center" id="id5">
+<span id="figure-create-temporary"></span><img alt="../../../_images/editNewTemporaryLayer.png" src="../../../_images/editNewTemporaryLayer.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 15.22 </span><span class="caption-text">Temporary Scratch layer အသစ်တစ်ခုအားဖန်တီးခြင်း Dialog</span><a class="headerlink" href="#id5" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Prepopulated (ကြိုတင်တွက်ချက်ဖြည့်တင်းထားသည့်) temporary scratch layers များကို clipboard (<a class="reference internal" href="#paste-into-layer"><span class="std std-ref">Clipboard မှ layer အသစ်များ ဖန်တီးခြင်း (Creating new layers from the clipboard)</span></a> တွင်ကြည့်ရှုပါ) ကို အသုံးပြုခြင်းဖြင့်ဖြစ်စေ သို့မဟုတ် <a class="reference internal" href="../processing_algs/index.html#processing-algs"><span class="std std-ref">Processing algorithm</span></a> ၏ ရလဒ်တစ်ခုအဖြစ် အသုံးပြုခြင်းဖြင့်ဖြစ်စေ ဖန်တီးနိုင်ပါသည်။</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><strong>Memory layer တစ်ခုကို Disk တွင် အမြဲသိမ်းဆည်းထားပါ</strong></p>
+<p>Temporary scratch layers များနှင့်အတူ project တစ်ခုကို ပိတ်သည့်အခါတွင် ဒေတာဆုံးရှုံးမှုများကို ရှောင်ရှားရန် ၎င်းတို့ကို QGIS မှ ပံ့ပိုးထားသည့် မည်သည့် vector format အဖြစ်သို့မဆိုပြောင်း၍ သိမ်းဆည်းထားနိုင်ပါသည်-</p>
+<ul class="simple">
+<li><p>Layer ၏ ဘေးတွင်ရှိသည့် <a class="reference internal" href="../../../_images/mIndicatorMemory.png"><img alt="indicatorMemory" src="../../../_images/mIndicatorMemory.png" style="width: 1.5em;" /></a> indicator icon ကို နှိပ်ခြင်းဖြင့်၊</p></li>
+<li><p>Layer contextual menu ထဲရှိ <span class="guilabel">Make permanent</span> entry ကို select လုပ်ခြင်းဖြင့်၊</p></li>
+<li><p>Contextual menu ထဲရှိ <span class="menuselection">Export ►</span> entry သို့မဟုတ် <span class="menuselection">Layer ► Save As…</span> menu ကို အသုံးပြုခြင်းဖြင့်ဖြစ်စေ။</p></li>
+</ul>
+<p>ဖော်ပြပါ commands (စေခိုင်းဆောင်ရွက်မှုများ) သည်  <a class="reference internal" href="#general-saveas"><span class="std std-ref">layer တစ်ခုမှ layer အသစ်များကို ဖန်တီးခြင်း (Creating new layers from an existing layer)</span></a> section တွင်ဖော်ပြထားသည့် <span class="guilabel">Save Vector Layer as</span> dialog ကို ပွင့်စေပြီး သိမ်းဆည်းထားသည့်ဖိုင် (saved file) သည် <span class="guilabel">Layers</span> panel ထဲရှိ ယာယီဖိုင်နှင့် နေရာလဲသွားမည်ဖြစ်ပါသည်။</p>
+</div>
+</section>
+</section>
+<section id="layer-layer-creating-new-layers-from-an-existing-layer">
+<span id="general-saveas"></span><span id="index-7"></span><h2><a class="toc-backref" href="#id17" role="doc-backlink"><span class="section-number">15.2.2. </span>layer တစ်ခုမှ layer အသစ်များကို ဖန်တီးခြင်း (Creating new layers from an existing layer)</a><a class="headerlink" href="#layer-layer-creating-new-layers-from-an-existing-layer" title="Link to this heading"></a></h2>
+<p>Raster နှင့် vector layer များကို အမျိုးမျိုးသော format များဖြင့်သိမ်းဆည်းနိုင်ပြီး မတူညီသော coordinate reference system (CRS) သို့ <span class="menuselection">Layer ► Save As…</span> menu  သို့မဟုတ် <span class="guilabel">Layers panel</span> ရှိ layer ပေါ်တွင် right-clicking နှိပ်ပြီး အောက်ပါတို့ကိုရွေးချယ်ကာ reproject ပြုလုပ်နိုင်ပါသည်-</p>
+<ul class="simple">
+<li><p>Raster layers များအတွက် <span class="menuselection">Export ► Save As…</span></p></li>
+<li><p>Vector layers များအတွက် <span class="menuselection">Export ► Save Features As…</span> သို့မဟုတ် <span class="menuselection">Export ► Save Selected Features As…</span></p></li>
+<li><p>Layer tree (node များဖြင့်တည်ဆောက်ထားသော classical tree structure တစ်ခု) ထဲရှိ layer ကို <span class="guilabel">Browser Panel</span> ထဲရှိ PostGIS entry (spatial data များကို သိမ်းဆည်းရန်၊ spatial shapes များကို ဖန်တီးရန်နှင့်သိမ်းဆည်းရန်၊ လမ်းကြောင်းများကို ဆုံးဖြတ်ရန်၊ ဧရိယာနှင့်အကွာအဝေးများကို တွက်ချက်ရန်အသုံးပြုပါသည်) ထဲသို့ ဆွဲထည့်ပါ။ <span class="guilabel">Browser Panel</span> ထဲတွင် PostGIS connection တစ်ခုရှိရမည်ကို သတိပြုရမည်ဖြစ်ပါသည်။</p></li>
+</ul>
+<section id="common-parameters">
+<h3><a class="toc-backref" href="#id18" role="doc-backlink"><span class="section-number">15.2.2.1. </span>Common parameters (အသုံးများသော သတ်မှတ်ချက်များ)</a><a class="headerlink" href="#common-parameters" title="Link to this heading"></a></h3>
+<p><span class="guilabel">Save Layer as…</span> dialog သည် layer ကို သိမ်းဆည်းသောအခါတွင် behavior (database တစ်ခုထဲရှိ အရာဝတ္ထုတစ်ခု၏ လုပ်ဆောင်ချက်များနှင့် ဝိသေသလက္ခဏာများ) များကို ပြောင်းလဲရန်အတွက် များစွာသော parameters (သတ်မှတ်ချက်များ) ကိုပြသပါသည်။
+Raster နှင့် vector အတွက် common parameter များမှာ-</p>
+<ul class="simple">
+<li><p><span class="guilabel">File name</span> - Disk တွင်ရှိသည့် ဖိုင်၏တည်နေရာ။ ၎င်းသည် output layer သို့မဟုတ် layer များကိုသိမ်းဆည်းထားသည့် container တစ်ခု (ဥပမာ- GeoPackage ၊ SpatiaLite သို့မဟုတ် Open Document Spreadsheets ကဲ့သို့သော database နှင့်တူသော format များ) ကို ညွှန်းဆိုပါသည်။</p></li>
+<li><p>Data များကို coordinate system တစ်ခုမှ အခြားတစ်ခုသို့ပြောင်းလဲခြင်း (reproject) ပြုလုပ်ရန် <span class="guilabel">CRS</span> ကို ပြောင်းလဲနိုင်ပါသည်။</p></li>
+<li><p><span class="guilabel">Extent</span> - <a class="reference internal" href="../introduction/general_tools.html#extent-selector"><span class="std std-ref">extent_selector</span></a> widget ကို အသုံးပြု၍ export လုပ်ခြင်းခံရမည့် input ၏ extent ကို ကန့်သတ်ပါသည်။</p></li>
+<li><p><span class="guilabel">Add saved file to map</span> - Canvas (မြေပုံရေးဆွဲသည့်နေရာ) ထဲသို့ layer အသစ်ကို ထည့်သွင်းရန်။</p></li>
+</ul>
+<p>သို့ရာတွင် အချို့သော parameters များသည်  raster နှင့် vector format များအတွက် သီးသန့်ဖြစ်ပါသည်။</p>
+</section>
+<section id="raster-raster-specific-parameters">
+<h3><a class="toc-backref" href="#id19" role="doc-backlink"><span class="section-number">15.2.2.2. </span>Raster အတွက် သီးသန့် သတ်မှတ်ချက်များ (Raster specific parameters)</a><a class="headerlink" href="#raster-raster-specific-parameters" title="Link to this heading"></a></h3>
+<p>Export ထုတ်မည့် format အပေါ်မူတည်၍ အောက်ဖော်ပြပါ အချို့သော options (နည်းလမ်းများ) ကိုရရှိနိုင်မည်မဟုတ်ပါ-</p>
+<ul class="simple">
+<li><p><span class="guilabel">Output mode</span> (၎င်းသည် <strong>raw data</strong> သို့မဟုတ် <strong>rendered image</strong> ဖြစ်နိုင်ပါသည်)</p></li>
+<li><p><span class="guilabel">Format</span> - GeoTiff ၊ GeoPackage ၊ MBTiles ၊ Geospatial PDF ၊ SAGA GIS Binary Grid ၊ Intergraph Raster ၊ ESRI .hdr Labelled… ကဲ့သို့သော GDAL မှ ရေးသားနိုင်သည့် မည်သည့် raster format များသို့မဆို export ပြုလုပ်ပါသည်။</p></li>
+<li><p><span class="guilabel">Resolution</span> (ကြည်လင်ပြတ်သားမှု)</p></li>
+<li><p>ဖိုင်များကို ထုတ်လုပ်သည့်အခါတွင် output format နှင့်ဆက်စပ်နေသည့် <a class="reference internal" href="../introduction/qgis_configuration.html#gdal-createoptions"><span class="std std-ref">predefined create profiles</span></a> မှ သော်လည်းကောင်း parameter တစ်ခုချင်းစီကို သတ်မှတ်ခြင်းဖြင့်သော်လည်းကောင်း advanced options (file compression (ဖိုင်ချုံ့ခြင်း) ၊ block sizes (blockchain တစ်ခုထဲတွင် single block တစ်ခုမှ သိမ်းဆည်းထားနိုင်သည့် အကြီးဆုံးဒေတာပမာဏ) ၊ colorimetry (color compound များစုစည်းမှုကိုဆုံးဖြတ်သည့်ပညာရပ်…)) များကို အသုံးပြုပါ။</p></li>
+<li><p><span class="guilabel">Pyramids</span> ဖန်တီးခြင်း</p></li>
+<li><p>အကယ်၍ <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">Create VRT</span> ကို အမှန်ခြစ်ခဲ့ပါက <span class="guilabel">VRT Tiles</span></p></li>
+<li><p><span class="guilabel">No data values</span></p></li>
+</ul>
+<figure class="align-center" id="id6">
+<span id="figure-save-raster"></span><img alt="../../../_images/saveasraster.png" src="../../../_images/saveasraster.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 15.23 </span><span class="caption-text">Raster layer အသစ်တစ်ခုအဖြစ်သို့သိမ်းဆည်းခြင်း</span><a class="headerlink" href="#id6" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="vector-vector-specific-parameters">
+<h3><a class="toc-backref" href="#id20" role="doc-backlink"><span class="section-number">15.2.2.3. </span>Vector အတွက် သီးသန့် သတ်မှတ်ချက်များ (Vector specific parameters)</a><a class="headerlink" href="#vector-vector-specific-parameters" title="Link to this heading"></a></h3>
+<p>Export ထုတ်မည့် format အပေါ်မူတည်၍ အောက်ဖော်ပြပါ အချို့သော options (နည်းလမ်းများ) များကို ရရှိနိုင်ပါသည်။-</p>
+<ul class="simple">
+<li><p><span class="guilabel">Format</span> - GeoPackage ၊ GML ၊ ESRI Shapefile ၊ AutoCAD DXF ၊ ESRI FileGDB ၊ Mapinfo TAB or
+MIF ၊ SpatiaLite ၊ CSV ၊ KML ၊ ODS ၊ … ကဲ့သို့သော GDAL မှ ရေးသားနိုင်သည့် မည်သည့် vector format များသို့မဆို export ပြုလုပ်ပါသည်။</p></li>
+<li><p><span class="guilabel">Layer name</span> - <span class="guilabel">File name</span> (ဖိုင်အမည်) သည် container-like format (container နှင့်တူသော format) ကို ညွှန်းဆိုသည့်အခါတွင် ရယူဆောင်ရွက်နိုင်ပါသည်။ ဤ entry သည် output layer ကို ကိုယ်စားပြုဖော်ပြပါသည်။</p></li>
+<li><p><span class="guilabel">Encoding</span> (စာဝှက်ဖြင့်ရေးသားခြင်း)</p></li>
+<li><p><span class="guilabel">Save only selected features</span> (ရွေးချယ်ထားသော feature များကိုသာ သိမ်းဆည်းခြင်း)</p></li>
+<li><p><span class="guilabel">Select fields to export and their export options</span> - Field များကို စိတ်ကြိုက်အမည်များနှင့် <a class="reference internal" href="../working_with_vector/vector_properties.html#configure-field"><span class="std std-ref">form widget</span></a> setting များနှင့်အတူ export ပြုလုပ်ရန် နည်းလမ်းများကို ပံ့ပိုးပေးသည်-</p>
+<ul>
+<li><p>Output layer (ထွက်ရှိလာသည့် layer) ထဲတွင် သိမ်းဆည်းရန်အတွက် field များကို ရွေးချယ်ရန် <span class="guilabel">Name</span> ကော်လံတိုင် (column)အောက်ရှိ row များကို အမှန်ခြစ်ပါ။ သို့မဟုတ် <span class="guilabel">Select All</span> သို့မဟုတ် <span class="guilabel">Deselect All</span> ခလုတ်များကိုနှိပ်ပါ။</p></li>
+<li><p><span class="guilabel">Export name</span> column ကို သက်ဆိုင်ရာ field aliases (field တစ်ခုကိုသတ်မှတ်ထားသည့် အခြားအမည်တစ်ခု) များဖြင့်ဖြည့်ရန် သို့မဟုတ် original field name (field ၏ မူရင်းအမည်) ကို reset (မူလအတိုင်းပြန်လည်ထားရှိရန်) <span class="guilabel">Use aliases for exported name</span> checkbox ကို အမှန်ခြစ်ပါ။ Cell တစ်ခုကို Double-clicking ပြုလုပ်ခြင်းသည်လည်း အမည်ကို ပြန်လည်ပြင်ဆင်နိုင်မည်ဖြစ်ပါသည်။</p></li>
+<li><p>Attribute form custom widgets (attribute ပုံစံ စိတ်ကြိုက် widegt) များ အားအသုံးပြုနေမှုရှိ/မရှိအပေါ်မူတည်၍ <span class="guilabel">Replace all selected raw field values by displayed values</span> (Select ပြုလုပ်ထားသည့် raw field values များကို displayed values များဖြင့်အစားထိုးခြင်း) ကို ဆောင်ရွက်နိုင်ပါသည်။ ဥပမာ- အကယ်၍ <code class="docutils literal notranslate"><span class="pre">value</span> <span class="pre">map</span></code> widget တစ်ခုသည် field တစ်ခုအပေါ်သို့ သက်ရောက်ထားပါက output layer သည် original values (မူလတန်ဖိုးများ) အစား description values (ဖော်ပြထားသည့်တန်ဖိုးများ) ပါဝင်လိမ့်မည်ဖြစ်ပါသည်။ ထိုသို့နေရာလဲခြင်း (replacement) ကို <span class="guilabel">Replace with displayed values</span> column ထဲတွင် field by field basis (field တစ်ခုချင်းစီ) နည်းလမ်းဖြင့် ဆောင်ရွက်နိုင်ပါသည်။</p></li>
+</ul>
+</li>
+<li><p><span class="guilabel">Persist layer metadata</span> သည် source layer ထဲတွင် <a class="reference internal" href="../working_with_vector/vector_properties.html#vectormetadatamenu"><span class="std std-ref">metadata</span></a> များရှိနေသည့် မည်သည့် layer ကိုမဆို အောက်ဖော်ပြပါအနေဖြင့် ကော်ပီကူးယူခြင်းနှင့် သိမ်းဆည်းခြင်းကို သေချာစေပါသည်-</p>
+<ul>
+<li><p>အကယ်၍ output သည် GeoPackage format ဖြစ်ပါက အသစ်ဖန်တီးထားသည့် layer ထဲတွင်၊</p></li>
+<li><p>အခြားသော format များအတွက် output layer နှင့် အတူ <code class="file docutils literal notranslate"><span class="pre">.qmd</span></code> file တစ်ခုအဖြစ်။ Dataset (ဥပမာ- SpatiaLite ၊ DXF ၊…) တစ်ခုထက်ပို၍ ပံ့ပိုးပေးသော file-based formats များသည် unintended behavior (ရည်ရွယ်ထားခြင်းမရှိသည့်လုပ်ဆောင်ချက်) ရှိကောင်းရှိနိုင်သည်ကို သတိပြုရမည်ဖြစ်ပါသည်။</p></li>
+</ul>
+</li>
+<li><p><span class="guilabel">Symbology export</span> ကို DXF export နှင့် OGR feature styles များကို (အောက်ရှိ note တွင်ကြည့်ပါ)  DXF ၊ KML ၊ tab file formats များအဖြစ်သို့ ကိုင်တွယ်ဆောင်ရွက်နိုင်သည့် အခြားသော file formats များအတွက် အဓိကအသုံးပြုနိုင်ပါသည်-</p>
+<ul>
+<li><p><strong>No symbology</strong> - Data များကိုဖတ်ရှုသည့် application ၏ default style (ပုံမှန်စတိုင်)</p></li>
+<li><p><strong>Feature symbology</strong> - OGR Feature Style များဖြင့် style ကို သိမ်းဆည်းပါသည် (အောက်ရှိ note တွင်ကြည့်ပါ)</p></li>
+<li><p><strong>Symbol Layer symbology</strong> - OGR Feature Style များဖြင့် style ကို သိမ်းဆည်းပါသည် (အောက်ရှိ မှတ်စု ကိုကြည့်ပါ)။ သို့ရာတွင် အကယ်၍ symbology symbol layer များ အများအပြားရှိနေပါက တူညီသည့် ဂျီဩမေတြီများကို အကြိမ်များစွာ (multiple times) export ပြုလုပ်ပါသည်။</p></li>
+<li><p><strong>Scale</strong> value (Scale တန်ဖိုး) တစ်ခုကို နောက်ဆုံးနည်းလမ်းများ (latest options) အပေါ်တွင် အသုံးချနိုင်ပါသည်။</p></li>
+</ul>
+</li>
+</ul>
+<div class="admonition note" id="ogr-features-note">
+<p class="admonition-title">Note</p>
+<p><em>OGR Feature Styles</em> များသည် style ကို data ထဲတွင် hidden attribute (တွေ့မြင်နိုင်ခြင်းမရှိသည့် attribute) အဖြစ်သို့ တိုက်ရိုက်သိမ်းဆည်းနိုင်သည့် နည်းလမ်းတစ်ခုဖြစ်ပါသည်။ Format အချို့သာ ဤကဲ့သို့သော အချက်အလက်များ (information) ကို ကိုင်တွယ်ဆောင်ရွက်နိုင်ပါသည်။ KML ၊ DXF နှင့် TAB file format များသည် ထိုကဲ့သို့သော format များဖြစ်ပါသည်။ ပို၍အသေးစိတ်သည့်အချက်အလက်များအတွက် <a class="reference external" href="https://gdal.org/user/ogr_feature_style.html">OGR Feature Styles specification</a> document တွင် ဖတ်ရှုနိုင်ပါသည်။</p>
+</div>
+<ul class="simple">
+<li><p><span class="guilabel">Geometry</span> - Output layer ၏ ဂျီဩမေတြီ capabilities (စွမ်းဆောင်နိုင်ရည်များ) များကို သတ်မှတ်နိုင်ပါသည်-</p>
+<ul>
+<li><p><span class="guilabel">geometry type</span> - <strong>Automatic</strong> အဖြစ်သတ်မှတ်ထားသည့်အခါတွင် feature များ၏ မူလ ဂျီဩမေတြီကို သိမ်းထားနိုင်ပါသည်။ ထိုသို့မဟုတ်ပါက ၎င်းကို ဖယ်ရှားခြင်း သို့မဟုတ် မည်သည့်အမျိုးအစားနှင့်မဆို ပြင်ဆင်ရေးသားခြင်းများ ဆောင်ရွက်နိုင်ပါသည်။ Attribute table တစ်ခုထဲသို့ ဂျီဩမေတြီ column အလွတ်တစ်ခုကို ထည့်သွင်းနိုင်ပြီး spatial layer တစ်ခု၏ ဂျီဩမေတြီ column ကို ဖယ်ရှားနိုင်ပါသည်။</p></li>
+<li><p><span class="guilabel">Force multi-type</span> - Layer ထဲတွင် multi-geometry feature (အမျိုးမျိုးသော ဂျီဩမေတြီ features) များဖန်တီးခြင်းကို ဖြစ်စေပါသည်။</p></li>
+<li><p><span class="guilabel">Include z-dimension</span> - ဂျီဩမေတြီ များတွင် z-dimension ကို ထည့်သွင်းပါသည်။</p></li>
+</ul>
+</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Layer ဂျီဩမေတြီ အမျိုးအစားကို ပြင်ဆင်ရေးသားခြင်းသည် geometryless (ဂျီဩမေတြီမပါရှိသော) ဇယား (ဥပမာ- <code class="file docutils literal notranslate"><span class="pre">.csv</span></code> file) တစ်ခုအား မည်သည့် ဂျီဩမေတြီ အမျိုးအစား (point ၊ line ၊ polygon) ဖြစ်ဖြစ် ပါရှိသည့် shapefile တစ်ခုအဖြစ် သို့ သိမ်းဆည်းခြင်းကဲ့သို့သော အရာများကို လုပ်ဆောင်နိုင်စေပါသည်။ သို့မှသာ ဂျီဩမေတြီ များကို <a class="reference internal" href="../../../_images/mActionAddPart.png"><img alt="addPart" src="../../../_images/mActionAddPart.png" style="width: 1.5em;" /></a> <sup>Add Part</sup> tool အသုံးပြုပြီး rows များထဲသို့ ကိုယ်တိုင် (manually) ထည့်သွင်းနိုင်မည်ဖြစ်ပါသည်။</p>
+</div>
+<ul class="simple">
+<li><p><span class="guilabel">Datasource Options</span> ၊ <span class="guilabel">Layer Options</span> သို့မဟုတ် <span class="guilabel">Custom Options</span> သည် output format အလိုက် advanced parameters (အထူးသတ်မှတ်ချက်များ) ကို ဖန်တီးသတ်မှတ်ခြင်းကိုခွင့်ပြုပါသည်။ အချို့ကို <a class="reference internal" href="supported_data.html#supported-format"><span class="std std-ref">Data Format များနှင့် Field များကို လေ့လာခြင်း (Exploring Data Formats and Fields)</span></a> တွင်ဖော်ပြထားသော်လည်း အပြည့်အစုံကို <a class="reference external" href="https://gdal.org">GDAL</a> driver documentation တွင် ကြည့်ရှုပါ။ File တစ်ခုချင်းစီသည် ၎င်း၏ကိုယ်ပိုင် custom parameters (စိတ်ကြိုက်သတ်မှတ်ချက်များ) များရှိပါသည်။  ဥပမာ- <code class="docutils literal notranslate"><span class="pre">GeoJSON</span></code> format အတွက် <a class="reference external" href="https://gdal.org/drivers/vector/geojson.html#layer-creation-options">GDAL GeoJSON</a> documentation တွင် ကြည့်ရှုပါ။</p></li>
+</ul>
+<figure class="align-center" id="id7">
+<span id="figure-save-vector"></span><img alt="../../../_images/saveasvector.png" src="../../../_images/saveasvector.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 15.24 </span><span class="caption-text">Vector layer အသစ်တစ်ခုအဖြစ် သိမ်းဆည်းခြင်း</span><a class="headerlink" href="#id7" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p id="index-8">Vector layer တစ်ခုကို လက်ရှိရှိပြီးသားဖိုင်ထဲတွင် သိမ်းဆည်းသောအခါ output format ၏ စွမ်းဆောင်နိုင်ရည်များ (capabilities) အလိုက် သုံးစွဲသူအနေဖြင့် အောက်ပါတို့ကို ဆောင်ရွက်မည်/မဆောင်ရွက်မည်ကို ဆုံးဖြတ်နိုင်ပါသည်-</p>
+<ul class="simple">
+<li><p>ဖိုင်တစ်ခုလုံးကို ပြန်လည်ပြင်ဆင်ရေးသားခြင်း၊</p></li>
+<li><p>Target layer (ရည်ရွယ်ထားသည့် layer) ကိုသာပြန်လည်ပြင်ဆင်ရေးသားခြင်း (layer အမည်သည် ပြင်ဆင်သတ်မှတ်နိုင်ပါသည်)၊</p></li>
+<li><p>လက်ရှိရှိနေသည့် target layer ထဲသို့ feature များကို နောက်ဆက်တွဲပေါင်းထည့်ခြင်း (Append)၊</p></li>
+<li><p>Feature များကို နောက်ဆက်တွဲပေါင်းထည့်ခြင်း၊ အကယ်၍ တစ်ခုခုရှိနေပါက field အသစ်များကို ပေါင်းထည့်ခြင်း။</p></li>
+</ul>
+<p>ESRI Shapefile ၊ MapInfo .tab ၊ ကဲ့သို့သော formats များအတွက် Features append (Feature များကို နောက်ဆက်တွဲပေါင်းထည့်ခြင်း) ကိုရယူဆောင်ရွက်နိုင်ပါသည်။</p>
+</section>
+</section>
+<section id="dxf-files">
+<span id="create-dxf-files"></span><span id="index-9"></span><h2><a class="toc-backref" href="#id21" role="doc-backlink"><span class="section-number">15.2.3. </span>DXF files အသစ်များ ဖန်တီးခြင်း</a><a class="headerlink" href="#dxf-files" title="Link to this heading"></a></h2>
+<p><code class="file docutils literal notranslate"><span class="pre">*.DXF</span></code> အပါအဝင် single layer တစ်ခုကို အခြားသော format အဖြစ်သို့ export ထုတ်သည့် options (နည်းလမ်းများ) ကို ပံ့ပိုးသည့် <span class="guilabel">Save As…</span> dialog အပြင် QGIS သည် multiple layers များကို single DXF layer တစ်ခုအဖြစ်သို့ export ထုတ်ရန် အခြားသော tool ကို ပံ့ပိုးပေးထားပါသည်။ ၎င်းကို <span class="menuselection">Project ► Import/Export ► Export Project to DXF…</span> menu ထဲတွင် ကိုင်တွယ်ဆောင်ရွက်ခွင့် (accessible) ရှိပါသည်။</p>
+<p><span class="guilabel">DXF Export</span> dialog ထဲတွင်-</p>
+<ol class="arabic">
+<li><p>ဖိုင်တည်နေရာကိုပံ့ပိုးထားပါသည်။</p></li>
+<li><p>အကယ်၍ အသုံးပြုနိုင်မည်ဆိုပါက symbology mode နှင့် scale (စကေး) ကို ရွေးချယ်ပါ။ (<a class="reference internal" href="#ogr-features-note"><span class="std std-ref">OGR Feature Styles</span></a> note တွင်ကြည့်ရှပါ)</p></li>
+<li><p>Data <span class="guilabel">Encoding</span> ကို select ပြုလုပ်ပါ။</p></li>
+<li><p>အသုံးပြုမည့် <span class="guilabel">CRS</span> ကို select ပြုလုပ်ပါ။ Select ပြုလုပ်ထားသည့် layer များကို ပေးထားသည့် CRS နှင့်အညီ reproject လုပ်ဆောင်မည်ဖြစ်သည်။</p></li>
+<li><p>Table widget ထဲတွင် ၎င်းတို့အားအမှန်ခြစ်ပေးခြင်းဖြင့်လည်းကောင်း လက်ရှိရှိနေသည့် <a class="reference internal" href="../introduction/general_tools.html#map-themes"><span class="std std-ref">map theme</span></a> မှ အလိုအလျောက်ရွေးချယ်ခြင်းဖြင့်လည်းကောင်း  DXF files များထဲတွင် ထည့်သွင်းရန် layer များကို select ပြုလုပ်ပါ။
+<span class="guilabel">Select All</span> နှင့် <span class="guilabel">Deselect All</span> ခလုတ်များသည် export ပြုလုပ်နိုင်ရန် data ကို လျင်မြန်စွာ သတ်မှတ်နိုင်အောင် ကူညီပံ့ပိုးပေးပါသည်။</p>
+<p>Layer တစ်ခုချင်းစီအတွက် features အားလုံးကို single DXF layer တစ်ခုအဖြစ်သို့ export ပြုလုပ်မည် သို့မဟုတ်
+Feature များကို DXF output ထဲရှိ layer များအဖြစ်သို့ခွဲထုတ်ရာတွင် အသုံးပြုသည့် ကိန်းဂဏန်းတန်ဖိုးများပါရှိသည့် field တစ်ခုအပေါ်တွင်မှီခိုမည် စသည်တို့ကို ရွေးချယ်နိုင်ပါသည်။</p>
+</li>
+</ol>
+<p>အောက်ပါတို့ကိုလည်း ရွေးချယ်လိုပါက ရွေးချယ်နိုင်ပါသည်-</p>
+<ul class="simple">
+<li><p>Layer ၏ မူရင်းအမည်အစား သတ်မှတ်ထားသည့်အမည်ကို layer title အဖြစ်အသုံးပြုရန် <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">Use the layer title as name if set</span> ကို အမှန်ခြစ်ပါ။</p></li>
+<li><p>လက်ရှိ map extent နှင့်ထပ်နေသည့် feature များကိုသာ export ထုတ်ရန် <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">Export features intersecting the current map extent</span> ကို အမှန်ခြစ်ပါ။</p></li>
+<li><p><a class="reference internal" href="../../../_images/unchecked.png"><img alt="unchecked" src="../../../_images/unchecked.png" style="width: 1.3em;" /></a> <span class="guilabel">Force 2d output (eg. to support polyline width)</span> ကို အမှန်ခြစ်ဖျောက်ပါ။</p></li>
+<li><p>MTEXT elements သို့မဟုတ် TEXT elements အနေဖြင့် label ကို export ထုတ်ရန် <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">Export label as MTEXT elements</span> ကိုအမှန်ခြစ်ပါ။</p></li>
+</ul>
+<figure class="align-center" id="id8">
+<span id="figure-create-dxf"></span><img alt="../../../_images/export_dxf.png" src="../../../_images/export_dxf.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 15.25 </span><span class="caption-text">Project တစ်ခုကို DXF အဖြစ်သို့ Export ပြုလုပ်ခြင်း Dialog</span><a class="headerlink" href="#id8" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="clipboard-layer-creating-new-layers-from-the-clipboard">
+<span id="paste-into-layer"></span><h2><a class="toc-backref" href="#id22" role="doc-backlink"><span class="section-number">15.2.4. </span>Clipboard မှ layer အသစ်များ ဖန်တီးခြင်း (Creating new layers from the clipboard)</a><a class="headerlink" href="#clipboard-layer-creating-new-layers-from-the-clipboard" title="Link to this heading"></a></h2>
+<p>Clipboard ပေါ်ရှိ feature များကို layer အသစ်တစ်ခုထဲသို့ paste ပြုလုပ်နိုင်ပါသည်။ ထိုသို့လုပ်ဆောင်ရန် features အချို့ကို select ပြုလုပ်ပါ။ ၎င်းတို့ကို clipboard သို့ ကော်ပီကူးယူပါ၊ ထို့နောက် <span class="menuselection">Edit ► Paste Features as ►</span> ကို အသုံးပြု၍ အောက်ပါတို့ကို ရွေးချယ်ပြီး layer အသစ်တစ်ခုထဲတွင် paste ပြုလုပ်ပါ-</p>
+<ul class="simple">
+<li><p><span class="guilabel">New Vector Layer…</span> - <span class="guilabel">Save vector layer as…</span> dialog ပေါ်လာမည်ဖြစ်ပါသည်။ (parameter များအတွက် <a class="reference internal" href="#general-saveas"><span class="std std-ref">layer တစ်ခုမှ layer အသစ်များကို ဖန်တီးခြင်း (Creating new layers from an existing layer)</span></a> တွင် ကြည့်ရှုပါ)</p></li>
+<li><p>သို့မဟုတ် <span class="guilabel">Temporary Scratch Layer…</span> - Layer အတွက် အမည်တစ်ခု ပေးရမည်ဖြစ်ပါသည်။</p></li>
+</ul>
+<p>ရွေးချယ်ထားသည့် feature များနှင့် ၎င်းတို့၏ attribute များဖြင့်ဖြည့်ထားသည့် layer အသစ်တစ်ခုကို ဖန်တီးသွားမည်ဖြစ်ပါသည်။ (ထို့နောက် map canvas ထဲသို့ ထည့်သွားမည်ဖြစ်ပါသည်)</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Clipboard မှ layer များကိုဖန်တီးခြင်းကို QGIS အတွင်း select နှင့် copy လုပ်ထားသည့် feature များအပြင် အခြားသော application များမှ feature များဖြင့်လည်းဆောင်ရွက်နိုင်ပါသည်။ ထိုသို့ဆောင်ရွက်ခြင်းကို ၎င်းတို့၏ ဂျီဩမေတြီ များကို သိသာထင်ရှားသည့်စာသား (well-known text (WKT)) အသုံးပြု၍ သတ်မှတ်ထားသရွေ့ လုပ်ဆောင်နိုင်ပါသည်။</p>
+</div>
+</section>
+<section id="virtual-layers">
+<span id="vector-virtual-layers"></span><span id="index-10"></span><h2><a class="toc-backref" href="#id23" role="doc-backlink"><span class="section-number">15.2.5. </span>Virtual layers များဖန်တီးခြင်း</a><a class="headerlink" href="#virtual-layers" title="Link to this heading"></a></h2>
+<p>Virtual layer တစ်ခုဆိုသည်မှာ အထူး (special) vector layer အမျိုးအစားတစ်ခုဖြစ်ပါသည်။ ၎င်းသည် layer တစ်ခုကို QGIS မှ ဖွင့်နိုင်သည့် အခြား vector layer များမဆို ပါ၀င်သော SQL query တစ်ခု၏ ရလဒ်အဖြစ် သတ်မှတ်ရန် ခွင့်ပြုပါသည်။
+Virtual layer များသည် ၎င်းတို့ကိုယ်တိုင် ဒေတာများကို သယ်ဆောင်ခြင်း (carry) မပြုလုပ်ဘဲ မြင်ကွင်းများ (views) အဖြစ် တွေ့မြင်နိုင်ပါသည်။</p>
+<p>Virtual layer တစ်ခုကို ဖန်တီးရန် virtual layer creation dialog ကို အောက်ပါတို့ကိုဆောင်ရွက်ခြင်းဖြင့် ဖွင့်ပါ-</p>
+<ul class="simple">
+<li><p><span class="menuselection">Layer ► Add Layer ►</span> menu ထဲရှိ <a class="reference internal" href="../../../_images/mActionAddVirtualLayer.png"><img alt="addVirtualLayer" src="../../../_images/mActionAddVirtualLayer.png" style="width: 1.5em;" /></a> <span class="guilabel">Add/Edit Virtual Layer</span> entry ကို ရွေးချယ်ခြင်း၊</p></li>
+<li><p><span class="guilabel">Data Source Manager</span> dialog ထဲရှိ <a class="reference internal" href="../../../_images/mActionAddVirtualLayer.png"><img alt="addVirtualLayer" src="../../../_images/mActionAddVirtualLayer.png" style="width: 1.5em;" /></a> <span class="guilabel">Add Virtual Layer</span> tab ကို ဖွင့်ခြင်း၊</p></li>
+<li><p>သို့မဟုတ် <span class="guilabel">DB Manager</span> dialog tree ကို အသုံးပြုခြင်း</p></li>
+</ul>
+<p>Dialog သည် <span class="guilabel">Layer name</span> တစ်ခုနှင့် SQL <span class="guilabel">Query</span> တစ်ခုကို သတ်မှတ်ခြင်းကို ခွင့်ပြုပါသည်။ Query သည် ထည့်သွင်းထားသည့် vector layers အမည် (သို့မဟုတ် id) ကို table များအဖြစ်အသုံးပြုနိုင်သည့်အပြင် ၎င်းတို့၏ field အမည်များကို  column များအဖြစ်လည်းအသုံးပြုနိုင်ပါသည်။</p>
+<p>ဥပမာ- သင့်တွင် <code class="docutils literal notranslate"><span class="pre">airports</span></code> ဟုခေါ်သည့် layer တစ်ခုရှိပါက <code class="docutils literal notranslate"><span class="pre">public_airports</span></code> ဟုခေါ်သော virtual layer အသစ်တစ်ခုကို အောက်ဖော်ပြပါ SQL query တစ်ခုဖြင့် ဖန်တီးနိုင်ပါသည်-</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">airports</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">USE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ss">&quot;Civilian/Public&quot;</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">airports</span></code> layer ၏ provider သည် SQL query များကို တိုက်ရိုက်မပံ့ပိုးစေကာမူ SQL query ကို လုပ်ကိုင်ဆောင်ရွက်နိုင်ပါသည်။</p>
+<figure class="align-center" id="id9">
+<img alt="../../../_images/create_virtual_layers.png" src="../../../_images/create_virtual_layers.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 15.26 </span><span class="caption-text">Virtual layer များဖန်တီးခြင်း Dialog</span><a class="headerlink" href="#id9" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Joins (ချိတ်ဆက်မှုများ) နှင့် ရှုပ်ထွေးသည့် (complex) query များကိုလည်း ဖန်တီးနိုင်ပါသည်။
+ဥပမာ- လေဆိပ်များ (airports) နှင့် နိုင်ငံ၏အချက်အလက်များ (country information) ကို ချိတ်ဆက်ရန်-</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">airports</span><span class="p">.</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="n">country</span><span class="p">.</span><span class="n">population</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">airports</span>
+<span class="k">JOIN</span><span class="w"> </span><span class="n">country</span>
+<span class="k">ON</span><span class="w"> </span><span class="n">airports</span><span class="p">.</span><span class="n">country</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">country</span><span class="p">.</span><span class="n">name</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Virtual layer များကို <a class="reference internal" href="../plugins/core_plugins/plugins_db_manager.html#dbmanager"><span class="std std-ref">Database စီမံခန့်ခွဲရာ Plugin (DB Manager Plugin)</span></a> ၏ SQL window ကို အသုံးပြု၍ ဖန်တီးရန်လည်း ဖြစ်နိုင်ပါသည်။</p>
+</div>
+<section id="query-layers-embedding-layers-for-use-in-queries">
+<h3><a class="toc-backref" href="#id24" role="doc-backlink"><span class="section-number">15.2.5.1. </span>Query များထဲတွင် အသုံးပြုရန် layers များကို ထည့်သွင်းခြင်း (Embedding layers for use in queries)</a><a class="headerlink" href="#query-layers-embedding-layers-for-use-in-queries" title="Link to this heading"></a></h3>
+<p>Map canvas တွင် ရရှိနိုင်သည့် vector layers များအပြင် <span class="guilabel">Embedded layers</span> list ထဲသို့ layer များကို ထည့်သွင်းနိုင်ပါသည်။ ၎င်းကို map canvas သို့မဟုတ် layers panel ထဲတွင် ပြသရန်မလိုအပ်ဘဲ query များတွင် အသုံးပြုနိုင်ပါသည်။</p>
+<p>Layer တစ်ခုကို ထည့်သွင်းရန် <span class="guilabel">Add</span> ကို click နှိပ်ပြီး <span class="guilabel">Local name</span> ၊ <span class="guilabel">Provider</span> ၊ <span class="guilabel">Encoding</span> နှင့် <span class="guilabel">Source</span> လမ်းကြောင်း စသည်တို့ကို ထည့်သွင်းပါ။</p>
+<p><span class="guilabel">Import</span> ခလုတ် သည် map canvas ထဲရှိ layers များကို Embedded layers list (ထည့်သွင်းထားသည့် layer စာရင်း) ထဲသို့ ထည့်သွင်းခြင်းကိုခွင့်ပြုပါသည်။ အဆိုပါ layer များကို နောက်ပိုင်းတွင် ရှိပြီးသား existent queries များကိုဖြိုခွဲခြင်းမပြုဘဲ layers panel များမှဖယ်ရှားနိုင်ပါသည်။</p>
+</section>
+<section id="query-supported-query-language">
+<h3><a class="toc-backref" href="#id25" role="doc-backlink"><span class="section-number">15.2.5.2. </span>အသုံးပြုနိုင်သည့် Query အသုံးများ (Supported query language)</a><a class="headerlink" href="#query-supported-query-language" title="Link to this heading"></a></h3>
+<p>Underlying engine (အရင်းခံ engine) သည် လုပ်ငန်းဆောင်တာများလည်ပတ်ရန် SQLite နှင့် SpatiaLite ကို အသုံးပြုပါသည်။</p>
+<p>ဆိုလိုသည်မှာ SQLite ၏ local installation ပြုလုပ်ခြင်းက နားလည်နိုင်သော SQL အားလုံးကို အသုံးပြုနိုင်ပါသည်။</p>
+<p>SQLite မှ လုပ်ငန်းဆောင်ရွက်မှုများ (functions) နှင့် SpatiaLite မှ spatial function များကို virtual layer query တစ်ခုထဲတွင် အသုံးပြုနိုင်ပါသည်။ ဥပမာ- point layer တစ်ခုကို attribute-only layer တစ်ခု၏ ပြင်ပမှ ဖန်တီးခြင်းကို အောက်ဖော်ပြပါနှင့်အလားတူသည့် query တစ်ခုဖြင့် လုပ်ဆောင်နိုင်ပါသည်-</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">MakePoint</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="mi">4326</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">geometry</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">coordinates</span>
+</pre></div>
+</div>
+<p><a class="reference internal" href="../expressions/functions_list.html#functions-list"><span class="std std-ref">Functions of QGIS expressions</span></a>  ကို virtual layer query တစ်ခုထဲတွင်လည်း အသုံးပြုနိုင်ပါသည်။</p>
+<p>Layer တစ်ခု၏ ဂျီဩမေတြီ column ကို ညွှန်းဆိုရန် <code class="docutils literal notranslate"><span class="pre">geometry</span></code> ဆိုသည့် အမည်ကို အသုံးပြုပါ။</p>
+<p>Pure SQL query တစ်ခုနှင့်မတူသည်မှာ virtual layer query တစ်ခု၏ field အားလုံးကို အမည်သတ်မှတ်ပေးထားရမည်ဖြစ်ပါသည်။
+အကယ်၍ ၎င်းတို့သည် တွက်ချက်မှု (computation) တစ်ခု၏ ရလဒ် သို့မဟုတ် function call တစ်ခုဖြစ်ပါက column များကို အမည်ပေးရန် <code class="docutils literal notranslate"><span class="pre">as</span></code> keyword  ကို အသုံးပြုရန်မမေ့သင့်ပါ။</p>
+</section>
+<section id="performance-issues">
+<h3><a class="toc-backref" href="#id26" role="doc-backlink"><span class="section-number">15.2.5.3. </span>စွမ်းဆောင်ရည်ပိုင်းဆိုင်ရာပြဿနာရပ်များ (Performance issues)</a><a class="headerlink" href="#performance-issues" title="Link to this heading"></a></h3>
+<p>ပုံမှန်သတ်မှတ်ချက်များ (default parameters) နှင့်အတူ virtual layer engine သည် အကယ်၍ ဂျီဩမေတြီ column တစ်ခုကို ဖော်ပြထားပါက ဂျီဩမေတြီ column ၏ အမျိုးအစားအပါအဝင် query ၏ မတူညီသည့် column များ၏အမျိုးအစားကို ရှာဖွေတွေ့ရှိရန် (detect) အစွမ်းကုန်ဆောင်ရွက်သွားမည်ဖြစ်ပါသည်။</p>
+<p>၎င်းကို သင့်လျော်သည့်အခါတိုင်းတွင် query ကို ဆန်းစစ်ခြင်း (introspecting) သို့မဟုတ် query ၏ ပထမဆုံး row (LIMIT 1) ကို နောက်ဆုံး resort အဖြစ်သို့ fetching (တစ်စုံတစ်ခုကိုရယူရန်ဆောင်ရွက်ခြင်း) ပြုလုပ်ခြင်းဖြင့်ဆောင်ရွက်နိုင်ပါသည်။ Layer ကို ဖန်တီးရုံသက်သက်ဖြင့် first row ရလဒ်၏ ကို fetching ပြုလုပ်ခြင်းသည် စွမ်းဆောင်ရည်ပိုင်းဆိုင်ရာအကြောင်းပြချက်များ (performance reasons) အတွက် လိုအပ်မှုမရှိသည်လည်းဖြစ်နိုင်ပါသည်။</p>
+<p>Creation dialog သတ်မှတ်ချက်များ-</p>
+<ul class="simple">
+<li><p><span class="guilabel">Unique identifier column</span> - QGIS မှ row identifier များအဖြစ်အသုံးပြုနိုင်သော သိသာထင်ရှားသည့် အပြည့်ကိန်းတန်ဖိုးများ (unique integer values) ကို ကိုယ်စားပြုဖော်ပြသည့် query ၏ field တစ်ခုကို သတ်မှတ်ပါသည်။ ပုံမှန်အားဖြင့် အလိုအလျောက်တိုးပွားသည့် အပြည့်ကိန်းတန်ဖိုးကို အသုံးပြုပါသည်။ Unique (သိသာထင်ရှားသည့်) identifier column တစ်ခုကို သတ်မှတ်ခြင်းသည် id ဖြင့် row များအား selection ပြုလုပ်ခြင်းကို လျင်မြန်စေပါသည်။</p></li>
+<li><p><span class="guilabel">No geometry</span> - Virtual layer အား မည်သည့် ဂျီဩမေတြီ field ကိုမဆို လျစ်လျူရှုခြင်း (ignore) ကို ဖြစ်စေပါသည်။ ရရှိလာသည့် layer သည် attribute-only (features များကို ဖော်ပြသည့် spatial data နှင့် ချိတ်ဆက်ထားသော အချက်အလက်များသာပါဝင်သည့်) layer တစ်ခုဖြစ်ပါသည်။</p></li>
+<li><p>Geometry <span class="guilabel">Column</span> - ဂျီဩမေတြီ column ၏ အမည်ကို သတ်မှတ်ပါသည်။</p></li>
+<li><p>Geometry <span class="guilabel">Type</span> - ဂျီဩမေတြီ ၏ အမျိုးအစားကို သတ်မှတ်ပါသည်။</p></li>
+<li><p>Geometry <span class="guilabel">CRS</span> - Virtual layer ၏ coordinate reference system ကို သတ်မှတ်ပါသည်။</p></li>
+</ul>
+</section>
+<section id="special-comments">
+<h3><a class="toc-backref" href="#id27" role="doc-backlink"><span class="section-number">15.2.5.4. </span>Special comments (အထူးမှတ်ချက်များ)</a><a class="headerlink" href="#special-comments" title="Link to this heading"></a></h3>
+<p>Virtual layer engine သည် query ၏ column တစ်ခုချင်းစီ၏ အမျိုးအစားကို ဆုံးဖြတ်ရန် ကြိုးပမ်းမည်ဖြစ်ပါသည်။ အကယ်၍ မအောင်မြင်ခဲ့ပါက column အမျိူးအစားများကို ဆုံးဖြတ်ရန် query ၏ ပထမဆုံး row သည် fetch ပြုလုပ်ခြင်း ခံရမည်ဖြစ်ပါသည်။</p>
+<p>Query ထဲတွင် သီးသန့် column တစ်ခု၏ အမျိုးအစားကို special comments (အထူးမှတ်ချက်များ) အချို့ကို အသုံးပြု၍ တိုက်ရိုက်သတ်မှတ်နိုင်ပါသည်။</p>
+<p>Syntax (စကားလုံးနှင့်စကားရပ်အထားအသို) သည် ဖော်ပြပါအတိုင်းဖြစ်ပါသည်- <code class="docutils literal notranslate"><span class="pre">/*:type*/</span></code> ။ ၎င်းကို column တစ်ခု၏အမည်နောက်တွင် ထားရှိရမည်ဖြစ်ပါသည်။ <code class="docutils literal notranslate"><span class="pre">type</span></code> သည် အပြည့်ကိန်း (integer) များအတွက် <code class="docutils literal notranslate"><span class="pre">int</span></code> ၊ floating point numbers (ဒသမနေရာများပါဝင်သည့် အပေါင်းနှင့်အနုတ်ကိန်းပြည့်များ) <code class="docutils literal notranslate"><span class="pre">real</span></code> သို့မဟုတ် <code class="docutils literal notranslate"><span class="pre">text</span></code> ဖြစ်နိုင်ပါသည်။</p>
+<p>ဥပမာ-</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">id</span><span class="o">+</span><span class="mi">1</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">nid</span><span class="w"> </span><span class="cm">/*:int*/</span>
+<span class="k">FROM</span><span class="w"> </span><span class="k">table</span>
+</pre></div>
+</div>
+<p>ဂျီဩမေတြီ column ၏ အမျိုးအစားနှင့် coordinate reference system ကို ဖော်ပြပါ syntax <code class="docutils literal notranslate"><span class="pre">/*:gtype:srid*/</span></code> နှင့်အတူ special comments (အထူးမှတ်ချက်များ) များဖြင့်သတ်မှတ်နိုင်ပါသည်။ <code class="docutils literal notranslate"><span class="pre">/*:gtype:srid*/</span></code> တွင် <code class="docutils literal notranslate"><span class="pre">gtype</span></code> သည် ဂျီဩမေတြီ အမျိုးအစား (<code class="docutils literal notranslate"><span class="pre">point</span></code> ၊ <code class="docutils literal notranslate"><span class="pre">linestring</span></code> ၊ <code class="docutils literal notranslate"><span class="pre">polygon</span></code> ၊ <code class="docutils literal notranslate"><span class="pre">multipoint</span></code> ၊ <code class="docutils literal notranslate"><span class="pre">multilinestring</span></code> သို့မဟုတ် <code class="docutils literal notranslate"><span class="pre">multipolygon</span></code>) နှင့် <code class="docutils literal notranslate"><span class="pre">srid</span></code> သည် coordinate reference system တစ်ခု၏ EPSG code ကို ကိုယ်စားပြုဖော်ပြသည့် အပြည့်ကိန်း (integer) တစ်ခု ဖြစ်ပါသည်။</p>
+</section>
+<section id="use-of-indexes-index">
+<h3><a class="toc-backref" href="#id28" role="doc-backlink"><span class="section-number">15.2.5.5. </span>Use of indexes (အညွှန်း (index) များအသုံးပြုခြင်း)</a><a class="headerlink" href="#use-of-indexes-index" title="Link to this heading"></a></h3>
+<p>Virtual layer တစ်ခုမှတဆင့် layer တစ်ခုကို တောင်းဆိုသည့်အခါတွင် source layer indices (ရင်းမြစ် layer ၏ အညွှန်း) ကို အောက်ဖော်ပြပါနည်းလမ်းများဖြင့် အသုံးပြုသွားမည်ဖြစ်ပါသည်-</p>
+<ul class="simple">
+<li><p>အကယ်၍ <code class="docutils literal notranslate"><span class="pre">=</span></code> predicate (အတိအကျဖော်ပြမှု) တစ်ခုကို layer ၏ primary key column (အဓိကကော်လံ) တွင် အသုံးပြုထားပါက underlying data provider သည် particular id(သီးသန့်အိုင်ဒီ) (FilterFid) ကို တောင်းဆိုမည်ဖြစ်သည်။</p></li>
+<li><p>အခြားသော predicate များ (<code class="docutils literal notranslate"><span class="pre">&gt;</span></code> ၊ <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code> ၊ <code class="docutils literal notranslate"><span class="pre">!=</span></code> ၊ အစရှိသည်…) အတွက် သို့မဟုတ် primary key တစ်ခု မပါရှိသည့် column တစ်ခုအပေါ်တွင် expression တစ်ခုမှ တည်ဆောက်ထားသည့် request (တောင်းဆိုမှု) တစ်ခုအား underlying vector data provider ကို request (တောင်းဆိုမှု) လုပ်ရန် အသုံးပြုလိမ့်မည်ဖြစ်သည်။ ဆိုလိုသည်မှာ အကယ်၍ database providers တည်ရှိနေပါက အညွှန်းများ (indexes) ကို အဆိုပါ database providers များအပေါ်တွင်အသုံးပြုမည်ဖြစ်ပါသည်။</p></li>
+</ul>
+<p>တိကျသည့် syntax (specific syntax) တစ်ခုသည် request များထဲတွင် spatial predicate များကိုကိုင်တွယ်ဆောင်ရွက်ရန်  နှင့် spatial index တစ်ခုအသုံးပြုမှုကို အစပျိုးလုပ်ဆောင်ရန် တည်ရှိပါသည်။ <code class="docutils literal notranslate"><span class="pre">_search_frame_</span></code> ဟု အမည်တွင်သည့် မမြင်အောင်ဖျောက်ထားသည့် column တစ်ခုသည် virtual layer တစ်ခုချင်းစီအတွက် တည်ရှိမည်ဖြစ်ပါသည်။ ဤ column သည် တန်းတူညီမျှရှိစေရေး (equality) အတွက် bounding box တစ်ခုနှင့်နှိုင်းယှဉ်နိုင်မည်ဖြစ်ပါသည်။ ဥပမာ-</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">vtab</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">_search_frame_</span><span class="o">=</span><span class="n">BuildMbr</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">.</span><span class="mi">10</span><span class="p">,</span><span class="mi">49</span><span class="p">.</span><span class="mi">38</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">.</span><span class="mi">3</span><span class="p">,</span><span class="mi">49</span><span class="p">.</span><span class="mi">99</span><span class="p">,</span><span class="mi">4326</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>ဤ spatial index syntax များနှင့်ဆက်စပ်၍ အသုံးပြုသောအခါတွင် <code class="docutils literal notranslate"><span class="pre">ST_Intersects</span></code> ကဲ့သို့သော Spatial binary predicate များသည် သိသာထင်ရှားစွာ အရှိန်မြင့်တက်လာမည်ဖြစ်ပါသည်။</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="opening_data.html" class="btn btn-neutral float-left" title="15.1. Data ဖွင့်ခြင်း (Opening Data)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="supported_data.html" class="btn btn-neutral float-right" title="15.3. Data Format များနှင့် Field များကို လေ့လာခြင်း (Exploring Data Formats and Fields)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2002-now, QGIS project.
+      <span class="lastupdated">Last updated on 2024 May 13, 16:23 +0700.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- Transifex follows a particular logic to build target pages:
+Expected French translation link for https://docs.qgis.org/3.28/en/docs/user_manual/print_composer/overview_composer.html
+would return https://app.transifex.com/qgis/qgis-documentation/translate/#fr/aa6d8bc653526d38b295ca94bf8eee5e
+with the md5 value of "github#qgis/QGIS-Documentation#release_3.28#locale/en/LC_MESSAGES/docs/user_manual/print_composer/overview_composer.po"-->
+<!--Make sure that mismatching language codes between Transifex and Sphinx are converted-->
+
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-info-circle"> QGIS Documentation </span>
+      v: 3.28
+      <span class="fa fa-caret-down"></span>
+    </span>
+
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Languages</dt>
+        
+          <dd><a href="https://docs.qgis.org/3.28/en/docs/user_manual/managing_data_source/create_layers.html">en</a></dd>
+        
+      </dl>
+
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/user_manual/managing_data_source/create_layers.html">testing</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/latest/en/docs/user_manual/managing_data_source/create_layers.html">latest</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.28/en/docs/user_manual/managing_data_source/create_layers.html">3.28</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.22/en/docs/user_manual/managing_data_source/create_layers.html">3.22</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.16/en/docs/user_manual/managing_data_source/create_layers.html">3.16</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.10/en/docs/user_manual/managing_data_source/create_layers.html">3.10</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.4/en/docs/user_manual/managing_data_source/create_layers.html">3.4</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/2.18/en/docs/user_manual/managing_data_source/create_layers.html">2.18</a></dd>
+        
+      </dl>
+
+       
+       <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="https://docs.qgis.org/3.28/pdf">PDF</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.28/zip">HTML</a></dd>
+        
+      </dl>
+      
+
+      
+       
+      <dl>
+        <dt>Contribute to Docs</dt>
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/edit/master/docs/user_manual/managing_data_source/create_layers.rst" target="_blank" rel="noopener noreferrer">Edit on GitHub</a>
+          </dd>
+          
+          
+          <dd>
+            <a href="https://app.transifex.com/qgis/qgis-documentation/translate/#en/a9e77686bfd998f3636f2a08b1098e72" target="_blank" rel="noopener noreferrer">Translate Page</a>
+          </dd>
+          
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/issues" target="_blank" rel="noopener noreferrer">Report Issue</a>
+          </dd>
+      </dl>
+      
+
+      <dl>
+        <dt>On QGIS Project</dt>
+          <dd>
+            <a href="https://qgis.org/en" target="_blank" rel="noopener noreferrer">Home</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/api/3.28" target="_blank" rel="noopener noreferrer">C++ API</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/pyqgis/3.28" target="_blank" rel="noopener noreferrer">PyQGIS API</a>
+          </dd>
+          <dd>
+            <a href="https://github.com/qgis/QGIS/tree/release-3_28" target="_blank" rel="noopener noreferrer">Source</a>
+          </dd>
+      </dl>
+
+    </div>
+  </div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

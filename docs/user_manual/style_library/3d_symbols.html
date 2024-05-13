@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>14.4. ရုပ်ကြွသင်္ကေတများ ဖန်တီးခြင်း (Creating 3D Symbols) &mdash; QGIS Documentation  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/qgis_docs.css?v=3fdf4c33" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/qgis_logo.ico"/>
+    <link rel="canonical" href="https://docs.qgis.org/latest/en/docs/user_manual/style_library/3d_symbols.html"/>
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../../_static/copybutton.js?v=f281be69"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="15. ဒေတာအရင်းအမြစ်များအား စီမံခန့်ခွဲခြင်း (Managing Data Source)" href="../managing_data_source/index.html" />
+    <link rel="prev" title="14.3. အညွှန်းစာတစ်ခု သတ်မှတ်ခြင်း (Setting a label)" href="label_settings.html" />
+  <meta name="description" content="QGIS 3.28 documentation: 14.4. ရုပ်ကြွသင်္ကေတများ ဖန်တီးခြင်း (Creating 3D Symbols)">
+</head>
+
+<body class="wy-body-for-nav">
+
+  <nav class="release_status_topbar">
+  </nav>
+
+   
+
+ 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+   
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            QGIS Documentation
+              <img src="../../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                3.28
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+   <a href= "../../../genindex.html">Index</a>
+ 
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">အသုံးပြုသူများအတွက်</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../preamble/preamble.html">1. စကားချီး (Preamble)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/foreword.html">2. အမှာစာ (Foreword)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/conventions.html">3. အသုံးအနှုန်းများ (Conventions)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/features.html">4. အသွင်အပြင်များ (Features)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/getting_started.html">5. စတင်အသုံးပြုခြင်း (Getting Started)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/project_files.html">6. Project Files များနှင့် အလုပ်လုပ်ခြင်း (Working with Project Files)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/qgis_gui.html">7. QGIS ၏အစိတ်အပိုင်းများ (QGIS GUI)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/browser.html">8. ဒေတာများရှာဖွေကြည့်ရှုနိုင်သည့်နေရာ (The Browser panel)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/qgis_configuration.html">9. QGIS ပြင်ဆင်သတ်မှတ်ခြင်း/အခင်းအကျင်း (QGIS Configuration)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_projections/working_with_projections.html">10. မြေပုံအရိပ်ချစနစ်များ နှင့် အလုပ်လုပ်ခြင်း (Working with Projections)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../map_views/index.html">11. မြေပုံများအား ပုံဖော်ကြည့်ရှုခြင်း (Visualizing Maps)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/general_tools.html">12. အထွေ‌ထွေ‌သုံးကိရိယာများ (General Tools)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../expressions/index.html">13. Expression များဖြင့် အဆင့်မြှင့်တင်ဆောင်ရွက်ခြင်း (Level up with Expressions)</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">14. The Style Library (Style နှင့်ပတ်သက်သည်များ ထားရှိရာနေရာ)</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="style_manager.html">14.1. Style များစီမံခန့်ခွဲရာ (Style Manager)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="symbol_selector.html">14.2. သင်္ကေတရွေးချယ်သည့်အရာ (The Symbol Seclector)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="label_settings.html">14.3. အညွှန်းစာတစ်ခု သတ်မှတ်ခြင်း (Setting a label)</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">14.4. ရုပ်ကြွသင်္ကေတများ ဖန်တီးခြင်း (Creating 3D Symbols)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#point-point-layers">14.4.1. Point အလွှာများ (Point Layers)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#line-line-layers">14.4.2. Line အလွှာများ (Line Layers)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#polygon-polygon-layers">14.4.3. Polygon အလွှာများ (Polygon Layers)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#texture-shading-the-texture">14.4.4. texture တွင်အရိပ်ထည့်ခြင်း (Shading the texture)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#application-example">14.4.5. အသုံးချမှုဥပမာ (Application example)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../managing_data_source/index.html">15. ဒေတာအရင်းအမြစ်များအား စီမံခန့်ခွဲခြင်း (Managing Data Source)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_vector/index.html">16. Vector data များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_raster/index.html">17. Raster Data နှင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_mesh/mesh_properties.html">18. Working with Mesh Data (Mesh Data များနှင့် အလုပ်လုပ်ခြင်း)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_vector_tiles/vector_tiles_properties.html">19. Vector Tiles များနှင့်အလုပ်လုပ်ခြင်း (Working with Vector Tiles)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_point_clouds/point_clouds.html">20. Point Cloud များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../print_composer/index.html">21. မြေပုံအချောသပ်ပြင်ဆင်ခြင်း (Laying out the maps)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_ogc/ogc_client_support.html">22. OGC / ISO protocol များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_gps/index.html">23. GPS Data များနှင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../auth_system/auth_overview.html">24. အထောက်အထားစီစစ်ခြင်းအကြောင်းအကျဉ်း (Authentication System Overview)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../auth_system/auth_workflows.html">25. အသုံးပြုသူ အထောက်အထားစစ်ဆေးခြင်း လုပ်ငန်းအဆင့်များ (User Authentication Workflows)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../auth_system/auth_considerations.html">26. လုံခြုံရေးအတွက်စဉ်းစားရန်အချက်များ (Security Considerations)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../grass_integration/grass_integration.html">27. GRASS GIS နှင့်ပေါင်းစပ်အသုံးပြုခြင်း (GRASS GIS Integration)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing/index.html">28. QGIS processing framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing_algs/index.html">29. Processing ဆိုင်ရာ ထောက်ပံ့ပေးသူများနှင့် Algorithm များ (Processing providers and algorithms)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/plugins.html">30. QGIS Plugin များ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/core_plugins/index.html">31. QGIS ပင်မ Plugin များကို အသုံးပြုခြင်း (Using QGIS Core Plugins)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/python_console.html">32. QGIS တွင် Python code များရေးသားရန်နေရာ (QGIS Python console)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/help_and_support.html">33. အကူအညီနှင့်အထောက်အပံ့ (Help and Support)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/contributors.html">34. ပါဝင်အားဖြည့်သူများ (Contributors)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendices/index.html">35. နောက်ဆက်တွဲများ (Appendices)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../literature_web/literature_and_web_references.html">36. စာတမ်းများနှင့် Website ကိုးကားချက်များ (Literature and Web References)</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">QGIS Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">&lt;no title&gt;</a></li>
+          <li class="breadcrumb-item"><a href="index.html"><span class="section-number">14. </span>The Style Library (Style နှင့်ပတ်သက်သည်များ ထားရှိရာနေရာ)</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">14.4. </span>ရုပ်ကြွသင်္ကေတများ ဖန်တီးခြင်း (Creating 3D Symbols)</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/qgis/QGIS-Documentation/blob/master/docs/user_manual/style_library/3d_symbols.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="label_settings.html" class="btn btn-neutral float-left" title="14.3. အညွှန်းစာတစ်ခု သတ်မှတ်ခြင်း (Setting a label)" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../managing_data_source/index.html" class="btn btn-neutral float-right" title="15. ဒေတာအရင်းအမြစ်များအား စီမံခန့်ခွဲခြင်း (Managing Data Source)" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <blockquote>
+<div></div></blockquote>
+<section id="creating-3d-symbols">
+<span id="dsymbols"></span><h1><span class="section-number">14.4. </span>ရုပ်ကြွသင်္ကေတများ ဖန်တီးခြင်း (Creating 3D Symbols)<a class="headerlink" href="#creating-3d-symbols" title="Link to this heading"></a></h1>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#point-point-layers" id="id5">Point အလွှာများ (Point Layers)</a></p></li>
+<li><p><a class="reference internal" href="#line-line-layers" id="id6">Line အလွှာများ (Line Layers)</a></p></li>
+<li><p><a class="reference internal" href="#polygon-polygon-layers" id="id7">Polygon အလွှာများ (Polygon Layers)</a></p></li>
+<li><p><a class="reference internal" href="#texture-shading-the-texture" id="id8">texture တွင်အရိပ်ထည့်ခြင်း (Shading the texture)</a></p></li>
+<li><p><a class="reference internal" href="#application-example" id="id9">အသုံးချမှုဥပမာ (Application example)</a></p></li>
+</ul>
+</nav>
+<p><span class="guilabel">Style Manager</span> သည် <a class="reference internal" href="../map_views/3d_map_view.html#label-3dmapview"><span class="std std-ref">3D map view</span></a> တွင် ပုံဖော်ရန် ဂျီဩမေတြီ အမျိုးအစားတိုင်းအတွက် 3D သင်္ကေတများကို ဖန်တီးသိမ်းဆည်းရန် ကူညီပေးသည်။</p>
+<p>အခြား ဂျီဩမေတြီ အမျိုးအစားများဖန်တီးရန် <a class="reference internal" href="../../../_images/3d.png"><img alt="3d" src="../../../_images/3d.png" style="width: 1.5em;" /></a> <span class="guilabel">3D Symbols</span> tab ကိုဖွင့်ပြီး <a class="reference internal" href="../../../_images/symbologyAdd.png"><img alt="symbologyAdd" src="../../../_images/symbologyAdd.png" style="width: 1.5em;" /></a> ကို နှိပ်ပါ-</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#d-pointlayers"><span class="std std-ref">3D point symbols</span></a> (3D Point သင်္ကေတ)</p></li>
+<li><p><a class="reference internal" href="#d-linelayers"><span class="std std-ref">3D line symbols</span></a> (3D Line သင်္ကေတ)</p></li>
+<li><p><a class="reference internal" href="#d-polygonlayers"><span class="std std-ref">3D polygon symbols</span></a> (3D Polygon သင်္ကေတ)</p></li>
+</ul>
+<section id="point-point-layers">
+<span id="d-pointlayers"></span><h2><a class="toc-backref" href="#id5" role="doc-backlink"><span class="section-number">14.4.1. </span>Point အလွှာများ (Point Layers)</a><a class="headerlink" href="#point-point-layers" title="Link to this heading"></a></h2>
+<figure class="align-center" id="id1">
+<span id="figure-3d-point-symbol"></span><img alt="../../../_images/3d_point_symbol.png" src="../../../_images/3d_point_symbol.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 14.33 </span><span class="caption-text">3D Point Symbol တစ်ခု၏ ဂုဏ်သတ္တိများ</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ul class="simple">
+<li><p>Point symbol များအတွက် အသုံးပြုရန် မတူညီသော 3D <span class="guilabel">Shape</span> အမျိုးအစားများကို သတ်မှတ်နိုင်ပါသည်။ ထို point symbol များကို အဓိကအားဖြင့် project ၏ CRS မှ ရည်ညွှန်းထားသည့် အတိုင်းအတာယူနစ်အသုံးပြုထားသော ၎င်းတို့၏ dimension (ရှုထောင့်) များဖြင့် သတ်မှတ်ပါသည်။ ရရှိနိုင်သည့်အမျိုးအစားများမှာ-</p>
+<ul>
+<li><p><span class="guilabel">Sphere</span> ကို <span class="guilabel">Radius</span> တစ်ခုဖြင့် သတ်မှတ်သည်။</p></li>
+<li><p><span class="guilabel">Cylinder</span> ကို <span class="guilabel">Radius</span> နှင့်  <span class="guilabel">Length</span> ဖြင့် ပေါင်းစပ်သတ်မှတ်သည်။</p></li>
+<li><p><span class="guilabel">Cube</span> ကို <span class="guilabel">Size</span> တစ်ခုဖြင့် သတ်မှတ်သည်။</p></li>
+<li><p><span class="guilabel">Cone</span> ကို <span class="guilabel">Top radius</span> ၊ <span class="guilabel">Bottom radius</span> နှင့် <span class="guilabel">Length</span> များဖြင့် ပေါင်းစပ်သတ်မှတ်သည်။</p></li>
+<li><p><span class="guilabel">Plane</span> ကို <span class="guilabel">Size</span> တစ်ခုဖြင့် သတ်မှတ်သည်။</p></li>
+<li><p><span class="guilabel">Torus</span> ကို <span class="guilabel">Radius</span> နှင့် <span class="guilabel">Minor radius</span> ဖြင့် ပေါင်းစပ်သတ်မှတ်သည်။</p></li>
+<li><p><span class="guilabel">3D Model</span> 3D ပုံစံအသုံပြုထားသောဖိုင်တစ်ခုတွင် wavefront <code class="file docutils literal notranslate"><span class="pre">.obj</span></code> ၊ <code class="file docutils literal notranslate"><span class="pre">.glTF</span></code> နှင့် <code class="file docutils literal notranslate"><span class="pre">.fbx</span></code> စသည့်  format သုံးမျိုးဖြင့် ပံ့ပိုးထားသည်။ ထို 3D ပုံစံများသည် ကွန်ပျူတာပေါ်တွင်ရှိသော ဖိုင်တစ်ခု၊ remote URL တစ်ခု သို့မဟုတ် <a class="reference internal" href="../introduction/general_tools.html#embedded-file-selector"><span class="std std-ref">project ထဲတွင် ထည့်သွင်းမြှုပ်နှံထားသည့်</span></a> ဖြစ်နိုင်ပါသည်။ လူအများပူးပေါင်းပါဝင် ဖန်တီးထားသော 3D model များကို <a class="reference external" href="https://plugins.qgis.org/wavefronts">https://plugins.qgis.org/wavefronts</a> ရှိ QGIS Hub တွင် မျှဝေထားပါသည်။</p></li>
+<li><p><span class="guilabel">Billboard</span> ကို <span class="guilabel">Billboard height</span> နှင့် <span class="guilabel">Billboard symbol</span> ဖြင့် (များသောအားဖြင့် <a class="reference internal" href="symbol_selector.html#vector-marker-symbols"><span class="std std-ref">marker symbol</span></a> ကိုအခြေခံ၍) သတ်မှတ်ထားပါသည်။ Symbol သည် တည်ငြိမ်သောအရွယ်အစားရှိပြီး 3D point cloud များကို ကြည့်ရှုရာတွင် အဆင်ပြေစေပါသည်။</p></li>
+</ul>
+</li>
+<li><p><span class="guilabel">Altitude clamping</span> ကို <span class="guilabel">Absolute</span> နှင့် <span class="guilabel">Relative</span> သို့မဟုတ် <span class="guilabel">Terrain</span> ဟု သတ်မှတ်နိုင်သည်။ 3D vector များ၏ အမြင့်တန်ဖိုးများသည် သုည (0) မှ ပကတိအတိုင်းအတာအဖြစ် ထောက်ပံ့ပေးသည့်အခါ <span class="guilabel">absolute</span> setting ကို အသုံးပြုနိုင်ပါသည်။ <span class="guilabel">Relative</span> နှင့် <span class="guilabel">Terrain</span> သည် အောက်ခံမြေမျက်နှာသွင်ပြင်အမြင့်ထဲတွင် ပေးထားသော အမြင့်တန်ဖိုးများ ပေါင်းထည့်ခြင်းဖြစ်သည်။</p></li>
+<li><p><a class="reference internal" href="#shading-texture"><span class="std std-ref">Shading (အမှောင်ရိပ်ထည့်ခြင်း)</span></a> ဂုဏ်သတ္တိများကို သတ်မှတ်နိုင်ပါသည်။</p></li>
+<li><p><span class="guilabel">Transformations</span> frame အောက်တွင် symbol များကို affine transformation (ပုံသဏ္ဍာန်မပျက် အသွင်ပြောင်းခြင်း) အသုံးပြုနိုင်ပါသည်-</p>
+<ul>
+<li><p><span class="guilabel">Translation</span> သည် Object များကို x ၊ y နှင့် z ဝင်ရိုးတွင် ရွှေ့ရန်ဖြစ်သည်။</p></li>
+<li><p><span class="guilabel">Scale</span> သည် 3D ပုံသဏ္ဍာန်များကို အရွယ်အစားပြောင်းရန်ဖြစ်သည်။</p></li>
+<li><p><span class="guilabel">Rotation</span> သည် x ၊ y နှင့် z ဝင်ရိုးကို လှည့်ရန်ဖြစ်သည်။</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="line-line-layers">
+<span id="d-linelayers"></span><h2><a class="toc-backref" href="#id6" role="doc-backlink"><span class="section-number">14.4.2. </span>Line အလွှာများ (Line Layers)</a><a class="headerlink" href="#line-line-layers" title="Link to this heading"></a></h2>
+<figure class="align-center" id="id2">
+<span id="figure-3d-line-symbol"></span><img alt="../../../_images/3d_line_symbol.png" src="../../../_images/3d_line_symbol.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 14.34 </span><span class="caption-text">3D Line symbol တစ်ခု၏ ဂုဏ်သတ္တိများ</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ul class="simple">
+<li><p><span class="guilabel">Width</span> နှင့် <span class="guilabel">Height</span> setting အောက်တွင် vector line များ၏ <span class="guilabel">Extrusion</span> ကို သတ်မှတ်နိုင်သည်။ ထို vector lines များတွင် Z တန်ဖိုးများမရှိပါက 3D volumes setting ဖြင့်သတ်မှတ်နိုင်သည်။</p></li>
+<li><p>3D line များတွင် raster elevation data သို့မဟုတ် အခြားသော 3D vector များ ပါဝင်ပါက အောက်ခံမြေမျက်နှာသွင်ပြင်နှင့် ဆက်စပ်နေသည့်  3D line များ၏ တည်နေရာကို <span class="guilabel">Altitude clamping</span> ဖြင့် သတ်မှတ်နိုင်သည်။</p></li>
+<li><p><span class="guilabel">Altitude binding</span> သည် feature နှင့် မြေမျက်နှာသွင်ပြင် မည်သို့ချိတ်ဆက်နေသည်ကို သတ်မှတ်ပေးပါသည်။ ထိုသို့ feature နှင့် မြေမျက်နှာပြင်ချိတ်ဆက်ရာတွင် feature ၏  <span class="guilabel">Vertex</span> တိုင်းဖြင့် ချိတ်ဆက်ခြင်း ပြုလုပ်နိုင်သလို <span class="guilabel">Centroid</span> မှလည်း ချိတ်ဆက်နိုင်ပါသည်။</p></li>
+<li><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a><span class="guilabel">Render as simple 3D lines</span> သည် ရိုးရှင်းသော 3D lines များအဖြစ် ပုံဖော်ပေးပါသည်။</p></li>
+<li><p><a class="reference internal" href="#shading-texture"><span class="std std-ref">Shading (အမှောင်ရိပ်ထည့်ခြင်း)</span></a> ဂုဏ်သတ္တိများကို သတ်မှတ်နိုင်သည်။</p></li>
+</ul>
+<p id="d-polygonlayers">Polygon Layers</p>
+</section>
+<section id="polygon-polygon-layers">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink"><span class="section-number">14.4.3. </span>Polygon အလွှာများ (Polygon Layers)</a><a class="headerlink" href="#polygon-polygon-layers" title="Link to this heading"></a></h2>
+<figure class="align-center" id="id3">
+<span id="figure-3d-polygon-symbol"></span><img alt="../../../_images/3d_polygon_symbol.png" src="../../../_images/3d_polygon_symbol.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 14.35 </span><span class="caption-text">3D Polygon symbol တစ်ခု၏ ဂုဏ်သတ္တိများ</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ul>
+<li><p>အခြား geometry အမျိုးအစားများဖန်တီးရန် <span class="guilabel">Height</span> ကို CRS ယူနစ်များတွင် သတ်မှတ်နိုင်သည်။ အသုံးပြုသူမှ ဖန်တီးထားသော ဖော်ပြချက်တန်ဖိုးတစ်ခု၊
+ကိန်းရှင်တန်ဖိုးတစ်ခု သို့မဟုတ် attribute table ၏ ပထဝီဆိုင်ရာအချက်အလက်များ ပြန်လည်ထည့်သွင်းရန် <a class="reference internal" href="../../../_images/mIconDataDefine.png"><img alt="dataDefine" src="../../../_images/mIconDataDefine.png" style="width: 1.5em;" /></a> buttom ကိုအသုံးပြုနိုင်ပါသည်။</p></li>
+<li><p><span class="guilabel">Extrusion</span> သည် ပျောက်နေသည့် Z တန်ဖိုးများအတွက် ဖြစ်နိုင်ပါသည်။ Polygon တစ်ခုချင်းစီတွင် မတူညီသော result များ ရရှိရန်နှင့်
+vector layer ၏ တန်ဖိုးများကို အသုံးပြုရန်အလို့ဌာ extrusion (ထုထည်ဖော်ခြင်း) အတွက် <a class="reference internal" href="../../../_images/mIconDataDefine.png"><img alt="dataDefine" src="../../../_images/mIconDataDefine.png" style="width: 1.5em;" /></a> buttom ကို အသုံးပြုနိုင်ပါသည်။</p>
+<figure class="align-center" id="id4">
+<img alt="../../../_images/3d_extrusion.png" src="../../../_images/3d_extrusion.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 14.36 </span><span class="caption-text">သတ်မှတ် data အသုံးပြုထားသည့် extrusion</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</li>
+<li><p><span class="guilabel">Altitude clamping</span> နှင့် <span class="guilabel">Altitude binding</span> တို့ကို အထက်တွင်ရှင်းပြထားသည့်အတိုင်းသတ်မှတ်နိုင်သည်။</p></li>
+<li><p><span class="guilabel">Culling mode</span> ကို symbol အတွက်အသုံးပြုရာတွင်-</p>
+<ul class="simple">
+<li><p><span class="guilabel">No Culling</span> သည် polygonZ/multipatch data များ၏ vertex များသည် အစဥ်အလိုက် တသမတ်တည်း မရှိသောအခါ
+(ဥပမာ - နာရီလက်တံအတိုင်း သို့မဟုတ် နာရီလက်တံပြောင်းပြန်အတိုင်း) ပျောက်နေပုံရသော မျက်နှာပြင်များကို ရှောင်ရှားရန် ကူညီပေးနိုင်ပါသည်။</p></li>
+<li><p><span class="guilabel">Front</span> (အရှေ့ဘက်)</p></li>
+<li><p>သို့မဟုတ် <span class="guilabel">Back</span> (အနောက်ဘက်)</p></li>
+</ul>
+</li>
+<li><p><span class="guilabel">Rendered facade</span> သည်  မျက်နှာပြင်များကို ပြသရန် ဆုံးဖြတ်သည်။ ဖြစ်နိုင်ချေတန်ဖိုးများမှာ
+<span class="guilabel">No facades</span>၊ <span class="guilabel">Walls</span>၊ <span class="guilabel">Roofs</span> သို့မဟုတ် <span class="guilabel">Walls and roofs</span> တို့ဖြစ်သည်။</p></li>
+<li><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">Add back faces</span> သည် တြိဂံတစ်ခုစီအတွက် vertex data အရေအတွက် တိုးလာစေခြင်းဖြင့်
+မှန်ကန်သောပုံမှန်ပုံစံများဖြင့် ရှေ့နှင့်နောက်မျက်နှာနှစ်ခုလုံးကို ဖန်တီးသည်။ Shading ပြဿနာများကို ဖြေရှင်းရန် ထို option ကို အသုံးပြုနိုင်ပါသည်။
+(ဥပမာ - vertex များ အစဥ်အလိုက် တသမတ်တည်း မရှိသည့် data များကြောင့်)</p></li>
+<li><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">Invert normals (experimental)</span> သည်
+နာရီလက်တံအတိုင်း/နာရီလက်တံပြောင်းပြန်အတိုင်း vertex အစဥ်လိုက်ပြင်ဆင်ရန်အတွက် အသုံးဝင်ပါသည်။</p></li>
+<li><p><a class="reference internal" href="#shading-texture"><span class="std std-ref">Shading</span></a> ဂုဏ်သတ္တိများကို သတ်မှတ်နိုင်သည်။</p></li>
+<li><p>Symbol များ၏ <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">Edges</span> ကိုပြသနိုင်ပြီး <span class="guilabel">Width</span> နှင့် <span class="guilabel">Color</span> တို့ကို သတ်မှတ်ပေးနိုင်ပါသည်။</p></li>
+</ul>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p><strong>3D data များကို အကောင်းဆုံးပုံဖော်နိုင်ရန်အတွက် ပေါင်းစပ်မှုများ</strong></p>
+<p><span class="guilabel">Culling mode</span>၊ <span class="guilabel">Add back faces</span> နှင့် <span class="guilabel">Invert normals</span> များသည် မှားနေသော 3D ဒေတာများကို အမှန်ပြင်ရန် ဖြစ်သည်။ ပုံမှန်အားဖြင့် data အချို့ကို တင်လိုက်သည့်အခါ <code class="docutils literal notranslate"><span class="pre">culling</span> <span class="pre">mode=back</span></code> နှင့် <code class="docutils literal notranslate"><span class="pre">add</span> <span class="pre">back</span> <span class="pre">faces=disabled</span></code> ကို ဦးစွာကြိုးစားသည်မှာ အကောင်းဆုံးဖြစ်သည်။ ၎င်းသည် အထိရောက်ဆုံးဖြစ်သည်။ ပုံဖော်ခြင်းသည် မှန်ကန်စွာမပြသပါက <code class="docutils literal notranslate"><span class="pre">add</span> <span class="pre">back</span> <span class="pre">faces=enabled</span></code> လုပ်ထားပြီး <code class="docutils literal notranslate"><span class="pre">culling</span> <span class="pre">mode=no</span> <span class="pre">culling</span></code> အဖြစ် ဆက်ထားပါ။ အခြားပေါင်းစပ်မှုများသည် ပိုမိုအဆင့်မြင့်ပြီး input dataset မည်သို့ရောနှောထားသည်ကိုအခြေခံထားသည့် အချို့သောအခြေအနေများတွင်သာ အသုံးဝင်ပါသည်။</p>
+</div>
+</section>
+<section id="texture-shading-the-texture">
+<span id="shading-texture"></span><h2><a class="toc-backref" href="#id8" role="doc-backlink"><span class="section-number">14.4.4. </span>texture တွင်အရိပ်ထည့်ခြင်း (Shading the texture)</a><a class="headerlink" href="#texture-shading-the-texture" title="Link to this heading"></a></h2>
+<p>Shading လုပ်ခြင်းဖြင့် အလင်းရောင်ကြောင့် ဖုံးကွယ်နေသော object ၏ 3D အသေးစိတ်ကို ဖော်ထုတ်ပြသရန် ကူညီပေးနိုင်သည်။
+အခြေခံအားဖြင့် feature များကို ပုံဖော်ကြည့်ရှုရန် သင့်လျော်သော scene lighting များ ချမှတ်ခြင်းနှင့်ပတ်သက်ပြီး စိုးရိမ်စရာ မလိုသောကြောင့် လုပ်ကိုင်ရလွယ်ကူပါသည်။</p>
+<p>QGIS တွင် အမျိုးမျိုးသော Shading နည်းပညာများကို အသုံးပြုထားပြီး ၎င်းတို့၏ ရရှိနိုင်မှုမှာ symbol ၏ ဂျီဩမေတြီ အမျိုးအစားပေါ် မူတည်ပါသည်-</p>
+<ul class="simple">
+<li><p><span class="guilabel">Realistic (Phong)</span> သည် ကြမ်းတမ်းသောမျက်နှာပြင်များ၏ ရောင်ပြန်ဟပ်မှု <span class="guilabel">Diffuse</span> နှင့်
+တောက်ပသောမျက်နှာပြင်များ၏ <span class="guilabel">Specular</span> ရောင်ပြန်ဟပ်မှု (<span class="guilabel">Shininess</span>) တို့ကို ပေါင်းစပ်ကာ မျက်နှာပြင်တစ်ခု၏ အလင်းရောင်ပြန်ဟပ်မှုကို ဖော်ပြပေးပါသည်။
+မြင်ကွင်းတစ်ခုလုံးတွင် ပြန့်ကျဲနေသော အလင်းအနည်းငယ်ကို ထည့်သွင်းစဉ်းစားနိုင်ရန် <span class="guilabel">Ambient</span> option လည်းပါဝင်သည်။
+3D တွင် တစ်စိတ်တစ်ပိုင်း ဖောက်ထွင်းမြင်ရသော object များကို ပုံဖော်ရန် <span class="guilabel">Opacity</span> slider ကိုသုံးပါ။
+<a class="reference external" href="https://en.wikipedia.org/wiki/Phong_reflection_model#Description">https://en.wikipedia.org/wiki/Phong_reflection_model#Description</a> တွင် ပိုမိုဖတ်ရှုနိုင်ပါသည်။</p></li>
+<li><p><span class="guilabel">Realistic Textured (Phong)</span> သည် image တစ်ခုကို <span class="guilabel">Diffuse Texture</span> အဖြစ်အသုံးပြုသည်မှလွဲ၍ <span class="guilabel">Realistic (Phong)</span> နှင့် အတူတူပင်ဖြစ်ပါသည်။
+Image သည် ကွန်ပျူတာပေါ်တွင်ရှိသော ဖိုင်တစ်ခု၊ remote URL တစ်ခု သို့မဟုတ်  <a class="reference internal" href="../introduction/general_tools.html#embedded-file-selector"><span class="std std-ref">project ထဲတွင် ထည့်သွင်းမြှုပ်နှံထားသည့်</span></a> အဖြစ် ဖြစ်နိုင်ပါသည်။  <span class="guilabel">Texture scale</span> နှင့် <span class="guilabel">Texture rotation</span> လိုအပ်ပါသည်။ 3D တွင် တစ်စိတ်တစ်ပိုင်း ဖောက်ထွင်းမြင်ရသော object များကို ပုံဖော်ရန် <span class="guilabel">Opacity</span> slider ကိုသုံးပါ။</p></li>
+<li><p><span class="guilabel">CAD (Gooch)</span> သည် အနားသတ်မျဥ်းများနှင့် highlight များကို အမြင်အရထင်ရှားမှု ရှိနေစေရန် mid-tones များတွင်သာ shading ပြုလုပ်ရသော နည်းပညာဖြစ်ပါသည်။
+<span class="guilabel">Diffuse</span>၊ <span class="guilabel">Specular</span>၊ <span class="guilabel">Shininess</span> option များနှင့်အတူ
+<span class="guilabel">Warm</span> color  (အလင်းကို မျက်နှာမူနေသောမျက်နှာပြင်များအတွက်) နှင့်
+<span class="guilabel">Cool</span> color (အဝေးကို မျက်နှာမူထားသော မျက်နှာပြင်များအတွက်) လုပ်ဆောင်ပေးရန်လိုအပ်ပါသည်။
+ထို့အပြင် diffuse color ဖြင့် warm color နှင့် cold color များတွင် ဆက်စပ်ပါဝင်မှုများကို <span class="guilabel">Alpha</span> နှင့် <span class="guilabel">Beta</span> ဂုဏ်သတ္တိများ အသီးသီးဖြင့် ထိန်းချုပ်ထားပါသည်။
+<a class="reference external" href="https://en.wikipedia.org/wiki/Gooch_shading">https://en.wikipedia.org/wiki/Gooch_shading</a> ကိုလည်း ကြည့်ရှုပါ။</p></li>
+<li><p>3D models ပုံသဏ္ဍာန် ဖြင့် <span class="guilabel">Embedded Textures</span></p></li>
+</ul>
+</section>
+<section id="application-example">
+<h2><a class="toc-backref" href="#id9" role="doc-backlink"><span class="section-number">14.4.5. </span>အသုံးချမှုဥပမာ (Application example)</a><a class="headerlink" href="#application-example" title="Link to this heading"></a></h2>
+<p>အထက်တွင် ရှင်းလင်းဖော်ပြထားသော setting များကို စေ့စပ်သေချာစွာနားလည်စေရန် <a class="reference external" href="https://app.merginmaps.com/projects/saber/luxembourg/tree">https://app.merginmaps.com/projects/saber/luxembourg/tree</a> တွင် ကြည့်ရှုနိုင်ပါသည်။</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="label_settings.html" class="btn btn-neutral float-left" title="14.3. အညွှန်းစာတစ်ခု သတ်မှတ်ခြင်း (Setting a label)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../managing_data_source/index.html" class="btn btn-neutral float-right" title="15. ဒေတာအရင်းအမြစ်များအား စီမံခန့်ခွဲခြင်း (Managing Data Source)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2002-now, QGIS project.
+      <span class="lastupdated">Last updated on 2024 May 13, 16:23 +0700.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- Transifex follows a particular logic to build target pages:
+Expected French translation link for https://docs.qgis.org/3.28/en/docs/user_manual/print_composer/overview_composer.html
+would return https://app.transifex.com/qgis/qgis-documentation/translate/#fr/aa6d8bc653526d38b295ca94bf8eee5e
+with the md5 value of "github#qgis/QGIS-Documentation#release_3.28#locale/en/LC_MESSAGES/docs/user_manual/print_composer/overview_composer.po"-->
+<!--Make sure that mismatching language codes between Transifex and Sphinx are converted-->
+
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-info-circle"> QGIS Documentation </span>
+      v: 3.28
+      <span class="fa fa-caret-down"></span>
+    </span>
+
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Languages</dt>
+        
+          <dd><a href="https://docs.qgis.org/3.28/en/docs/user_manual/style_library/3d_symbols.html">en</a></dd>
+        
+      </dl>
+
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/user_manual/style_library/3d_symbols.html">testing</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/latest/en/docs/user_manual/style_library/3d_symbols.html">latest</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.28/en/docs/user_manual/style_library/3d_symbols.html">3.28</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.22/en/docs/user_manual/style_library/3d_symbols.html">3.22</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.16/en/docs/user_manual/style_library/3d_symbols.html">3.16</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.10/en/docs/user_manual/style_library/3d_symbols.html">3.10</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.4/en/docs/user_manual/style_library/3d_symbols.html">3.4</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/2.18/en/docs/user_manual/style_library/3d_symbols.html">2.18</a></dd>
+        
+      </dl>
+
+       
+       <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="https://docs.qgis.org/3.28/pdf">PDF</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.28/zip">HTML</a></dd>
+        
+      </dl>
+      
+
+      
+       
+      <dl>
+        <dt>Contribute to Docs</dt>
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/edit/master/docs/user_manual/style_library/3d_symbols.rst" target="_blank" rel="noopener noreferrer">Edit on GitHub</a>
+          </dd>
+          
+          
+          <dd>
+            <a href="https://app.transifex.com/qgis/qgis-documentation/translate/#en/c96824bdcfac284a0a61c1b52033cace" target="_blank" rel="noopener noreferrer">Translate Page</a>
+          </dd>
+          
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/issues" target="_blank" rel="noopener noreferrer">Report Issue</a>
+          </dd>
+      </dl>
+      
+
+      <dl>
+        <dt>On QGIS Project</dt>
+          <dd>
+            <a href="https://qgis.org/en" target="_blank" rel="noopener noreferrer">Home</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/api/3.28" target="_blank" rel="noopener noreferrer">C++ API</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/pyqgis/3.28" target="_blank" rel="noopener noreferrer">PyQGIS API</a>
+          </dd>
+          <dd>
+            <a href="https://github.com/qgis/QGIS/tree/release-3_28" target="_blank" rel="noopener noreferrer">Source</a>
+          </dd>
+      </dl>
+
+    </div>
+  </div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

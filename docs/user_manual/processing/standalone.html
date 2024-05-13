@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>28.8. Command line မှ processing ပြုလုပ်ခြင်း &mdash; QGIS Documentation  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/qgis_docs.css?v=3fdf4c33" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/qgis_logo.ico"/>
+    <link rel="canonical" href="https://docs.qgis.org/latest/en/docs/user_manual/processing/standalone.html"/>
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../../_static/copybutton.js?v=f281be69"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="28.9. Processing algorithm အသစ်များကို Python script များအဖြစ် ရေးသားခြင်း" href="scripts.html" />
+    <link rel="prev" title="28.7. Console တွင် processing algorithm များကို အသုံးပြုခြင်း" href="console.html" />
+  <meta name="description" content="QGIS 3.28 documentation: 28.8. Command line မှ processing ပြုလုပ်ခြင်း">
+</head>
+
+<body class="wy-body-for-nav">
+
+  <nav class="release_status_topbar">
+  </nav>
+
+   
+
+ 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+   
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            QGIS Documentation
+              <img src="../../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                3.28
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+   <a href= "../../../genindex.html">Index</a>
+ 
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">အသုံးပြုသူများအတွက်</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../preamble/preamble.html">1. စကားချီး (Preamble)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/foreword.html">2. အမှာစာ (Foreword)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/conventions.html">3. အသုံးအနှုန်းများ (Conventions)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/features.html">4. အသွင်အပြင်များ (Features)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/getting_started.html">5. စတင်အသုံးပြုခြင်း (Getting Started)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/project_files.html">6. Project Files များနှင့် အလုပ်လုပ်ခြင်း (Working with Project Files)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/qgis_gui.html">7. QGIS ၏အစိတ်အပိုင်းများ (QGIS GUI)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/browser.html">8. ဒေတာများရှာဖွေကြည့်ရှုနိုင်သည့်နေရာ (The Browser panel)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/qgis_configuration.html">9. QGIS ပြင်ဆင်သတ်မှတ်ခြင်း/အခင်းအကျင်း (QGIS Configuration)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_projections/working_with_projections.html">10. မြေပုံအရိပ်ချစနစ်များ နှင့် အလုပ်လုပ်ခြင်း (Working with Projections)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../map_views/index.html">11. မြေပုံများအား ပုံဖော်ကြည့်ရှုခြင်း (Visualizing Maps)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/general_tools.html">12. အထွေ‌ထွေ‌သုံးကိရိယာများ (General Tools)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../expressions/index.html">13. Expression များဖြင့် အဆင့်မြှင့်တင်ဆောင်ရွက်ခြင်း (Level up with Expressions)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../style_library/index.html">14. The Style Library (Style နှင့်ပတ်သက်သည်များ ထားရှိရာနေရာ)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../managing_data_source/index.html">15. ဒေတာအရင်းအမြစ်များအား စီမံခန့်ခွဲခြင်း (Managing Data Source)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_vector/index.html">16. Vector data များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_raster/index.html">17. Raster Data နှင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_mesh/mesh_properties.html">18. Working with Mesh Data (Mesh Data များနှင့် အလုပ်လုပ်ခြင်း)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_vector_tiles/vector_tiles_properties.html">19. Vector Tiles များနှင့်အလုပ်လုပ်ခြင်း (Working with Vector Tiles)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_point_clouds/point_clouds.html">20. Point Cloud များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../print_composer/index.html">21. မြေပုံအချောသပ်ပြင်ဆင်ခြင်း (Laying out the maps)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_ogc/ogc_client_support.html">22. OGC / ISO protocol များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_gps/index.html">23. GPS Data များနှင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../auth_system/auth_overview.html">24. အထောက်အထားစီစစ်ခြင်းအကြောင်းအကျဉ်း (Authentication System Overview)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../auth_system/auth_workflows.html">25. အသုံးပြုသူ အထောက်အထားစစ်ဆေးခြင်း လုပ်ငန်းအဆင့်များ (User Authentication Workflows)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../auth_system/auth_considerations.html">26. လုံခြုံရေးအတွက်စဉ်းစားရန်အချက်များ (Security Considerations)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../grass_integration/grass_integration.html">27. GRASS GIS နှင့်ပေါင်းစပ်အသုံးပြုခြင်း (GRASS GIS Integration)</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">28. QGIS processing framework</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="intro.html">28.1. မိတ်ဆက် (Introduction)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html">28.2. Processing Framework ကို ပြင်ဆင်သတ်မှတ်ခြင်း (Configuring the Processing Framework)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html">28.3. ကိရိယာများအစု (The Toolbox)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="history.html">28.4. ရှေတွင်လုပ်ခဲ့သည့်အဆင့်များကို စီမံခန့်ခွဲရာနေရာ (The history manager)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modeler.html">28.5. Model design ပြုလုပ်ရာနေရာ (The model designer)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="batch.html">28.6. လုပ်ဆောင်ချက်များ အပြိုင်ပြုလုပ်ရန်နေရာ (The batch processing interface)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="console.html">28.7. Console တွင် processing algorithm များကို အသုံးပြုခြင်း</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">28.8. Command line မှ processing ပြုလုပ်ခြင်း</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scripts.html">28.9. Processing algorithm အသစ်များကို Python script များအဖြစ် ရေးသားခြင်း</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3rdParty.html">28.10. ပြင်ပ application များကို ပြင်ဆင်သတ်မှတ်ခြင်း (Configuring external applications)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../processing_algs/index.html">29. Processing ဆိုင်ရာ ထောက်ပံ့ပေးသူများနှင့် Algorithm များ (Processing providers and algorithms)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/plugins.html">30. QGIS Plugin များ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/core_plugins/index.html">31. QGIS ပင်မ Plugin များကို အသုံးပြုခြင်း (Using QGIS Core Plugins)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/python_console.html">32. QGIS တွင် Python code များရေးသားရန်နေရာ (QGIS Python console)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/help_and_support.html">33. အကူအညီနှင့်အထောက်အပံ့ (Help and Support)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/contributors.html">34. ပါဝင်အားဖြည့်သူများ (Contributors)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendices/index.html">35. နောက်ဆက်တွဲများ (Appendices)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../literature_web/literature_and_web_references.html">36. စာတမ်းများနှင့် Website ကိုးကားချက်များ (Literature and Web References)</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">QGIS Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">&lt;no title&gt;</a></li>
+          <li class="breadcrumb-item"><a href="index.html"><span class="section-number">28. </span>QGIS processing framework</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">28.8. </span>Command line မှ processing ပြုလုပ်ခြင်း</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/qgis/QGIS-Documentation/blob/master/docs/user_manual/processing/standalone.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="console.html" class="btn btn-neutral float-left" title="28.7. Console တွင် processing algorithm များကို အသုံးပြုခြင်း" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="scripts.html" class="btn btn-neutral float-right" title="28.9. Processing algorithm အသစ်များကို Python script များအဖြစ် ရေးသားခြင်း" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <blockquote>
+<div></div></blockquote>
+<section id="command-line-processing">
+<span id="processing-standalone"></span><h1><span class="section-number">28.8. </span>Command line မှ processing ပြုလုပ်ခြင်း<a class="headerlink" href="#command-line-processing" title="Link to this heading"></a></h1>
+<p>QGIS Desktop ကိုဖွင့်ရန်မလိုအပ်ပဲ command line မှတဆင့် processing algorithm များနှင့် model များ (မူရင်းပါသော သို့မဟုတ် plugins ဖြင့်ထည့်သွင်းထားသော) ကိုတိုက်ရိုက်လုပ်ဆောင်နိုင်သော <code class="docutils literal notranslate"><span class="pre">QGIS</span> <span class="pre">Processing</span> <span class="pre">Executor</span></code> ဟုခေါ်သည့် tool တစ်ခု QGIS တွင်ပါဝင်ပါသည်။</p>
+<p>Command line tool မှ <code class="docutils literal notranslate"><span class="pre">qgis_process</span></code> ကို run ပြီးလျှင် အောက်ပါအတိုင်း ရရှိသင့်ပါသည် -</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>QGIS<span class="w"> </span>Processing<span class="w"> </span>Executor<span class="w"> </span>-<span class="w"> </span><span class="m">3</span>.27.0-Master<span class="w"> </span><span class="s1">&#39;Master&#39;</span><span class="w"> </span><span class="o">(</span><span class="m">3</span>.27.0-Master<span class="o">)</span>
+Usage:<span class="w"> </span>C:<span class="se">\O</span>SGeo4W<span class="se">\a</span>pps<span class="se">\q</span>gis-dev<span class="se">\b</span>in<span class="se">\q</span>gis_process.exe<span class="w"> </span><span class="o">[</span>--help<span class="o">]</span><span class="w"> </span><span class="o">[</span>--version<span class="o">]</span><span class="w"> </span><span class="o">[</span>--json<span class="o">]</span><span class="w"> </span><span class="o">[</span>--verbose<span class="o">]</span><span class="w"> </span><span class="o">[</span>--no-python<span class="o">]</span><span class="w"> </span><span class="o">[</span>command<span class="o">]</span><span class="w"> </span><span class="o">[</span>algorithm<span class="w"> </span>id,<span class="w"> </span>path<span class="w"> </span>to<span class="w"> </span>model<span class="w"> </span>file,<span class="w"> </span>or<span class="w"> </span>path<span class="w"> </span>to<span class="w"> </span>Python<span class="w"> </span>script<span class="o">]</span><span class="w"> </span><span class="o">[</span>parameters<span class="o">]</span>
+
+Options<span class="w"> </span><span class="o">(</span>ရွေးချယ်စရာနည်းလမ်းများ<span class="o">)</span>:
+
+<span class="w">  </span>--help<span class="w"> </span>or<span class="w"> </span>-h<span class="w">      </span>Output<span class="w"> </span>the<span class="w"> </span><span class="nb">help</span><span class="w"> </span><span class="o">(</span>အကူအညီကို<span class="w"> </span>ထုတ်ပေးပါသည်<span class="o">)</span>
+<span class="w">  </span>--version<span class="w"> </span>or<span class="w"> </span>-v<span class="w">   </span>Output<span class="w"> </span>all<span class="w"> </span>versions<span class="w"> </span>related<span class="w"> </span>to<span class="w"> </span>QGIS<span class="w"> </span>Process<span class="w"> </span><span class="o">(</span>QGIS<span class="w"> </span>Process<span class="w"> </span>နှင့်ဆက်စပ်သော<span class="w"> </span>version<span class="w"> </span>များအားလုံးကို<span class="w"> </span>ထုတ်ပေးပါသည်<span class="o">)</span>
+<span class="w">  </span>--json<span class="w">            </span>Output<span class="w"> </span>results<span class="w"> </span>as<span class="w"> </span>JSON<span class="w"> </span>objects<span class="w"> </span><span class="o">(</span>ရလာဒ်များကို<span class="w"> </span>JSON<span class="w"> </span>object<span class="w"> </span>များအဖြစ်<span class="w"> </span>ထုတ်ပေးပါသည်<span class="o">)</span>
+<span class="w">  </span>--verbose<span class="w">         </span>Output<span class="w"> </span>verbose<span class="w"> </span>logs<span class="w"> </span><span class="o">(</span>ရှည်လျားသော<span class="w"> </span>log<span class="w"> </span>များကို<span class="w"> </span>ထုတ်ပေးပါသည်<span class="o">)</span>
+<span class="w">  </span>--no-python<span class="w">       </span>Disable<span class="w"> </span>Python<span class="w"> </span>support<span class="w"> </span><span class="o">(</span>results<span class="w"> </span><span class="k">in</span><span class="w"> </span>faster<span class="w"> </span>startup<span class="o">)</span><span class="w"> </span><span class="o">(</span>Python<span class="w"> </span>အကူအညီကို<span class="w"> </span>ပိတ်ပေးပါသည်<span class="w"> </span><span class="o">(</span>စပွင့်သောအခါ<span class="w"> </span>ပိုမြန်စေပါသည်<span class="o">))</span>
+
+Available<span class="w"> </span>commands<span class="w"> </span><span class="o">(</span>အသုံးပြုနိုင်သော<span class="w"> </span><span class="nb">command</span><span class="w"> </span>များ<span class="o">)</span>:
+
+<span class="w">  </span>plugins<span class="w">          </span>အသုံးပြုနိုင်သော<span class="w"> </span>plugin<span class="w"> </span>များကို<span class="w"> </span>စာရင်းပြုစုပေးပါသည်
+<span class="w">  </span>plugins<span class="w"> </span><span class="nb">enable</span><span class="w">   </span>ထည့်သွင်းထားသော<span class="w"> </span>plugin<span class="w"> </span>တစ်ခုကိုအသုံးပြုနိုင်စေရန်ဖွင့်ပေးပါသည်။<span class="w"> </span>Plugin<span class="w"> </span>၏နာမည်ကို<span class="w"> </span>တိတိကျကျပေးထားရပါမည်၊<span class="w"> </span>ဥပမာ-<span class="w"> </span><span class="s2">&quot;plugins enable cartography_tools&quot;</span>
+<span class="w">  </span>plugins<span class="w"> </span>disable<span class="w">  </span>ထည့်သွင်းထားသော<span class="w"> </span>plugin<span class="w"> </span>ကို<span class="w"> </span>အသုံးပြုလို့မရအောင်<span class="w"> </span>ပိတ်ထားပေးပါသည်။<span class="w"> </span>Plugin<span class="w"> </span>၏နာမည်ကို<span class="w"> </span>တိတိကျကျပေးထားရပါမည်၊<span class="w"> </span>ဥပမာ<span class="w"> </span><span class="s2">&quot;plugins disable cartography_tools&quot;</span>
+<span class="w">  </span>list<span class="w">             </span>အသုံးပြုနိုင်သော<span class="w"> </span>processing<span class="w"> </span>algorithm<span class="w"> </span>များအားလုံးကို<span class="w"> </span>စာရင်းပြုစုပေးပါသည်
+<span class="w">  </span><span class="nb">help</span><span class="w">             </span>Algorithm<span class="w"> </span>တစ်ခုအတွက်<span class="w"> </span>အကူအညီကို<span class="w"> </span>ပြသပေးပါသည်။<span class="w"> </span>Algorithm<span class="w"> </span>ID<span class="w"> </span>သို့မဟုတ်<span class="w"> </span>Model<span class="w"> </span>file<span class="w"> </span>တစ်ခုဆီသို့<span class="w"> </span>လမ်းကြောင်းကို<span class="w"> </span>တိတိကျကျ<span class="w"> </span>ဖော်ပြထားရပါမည်
+<span class="w">  </span>run<span class="w">              </span>Algorithm<span class="w"> </span>ကို<span class="w"> </span>စေခိုင်းလုပ်ဆောင်ပါသည်။<span class="w"> </span>Algorithm<span class="w"> </span>ID<span class="w"> </span>သို့မဟုတ်<span class="w"> </span>Model<span class="w"> </span>File<span class="w"> </span>တစ်ခုဆီသို့<span class="w"> </span>လမ်းကြောင်း<span class="w"> </span>နှင့်<span class="w"> </span>parameter<span class="w"> </span>တန်ဖိုးများကို<span class="w"> </span>တိတိကျကျ<span class="w"> </span>ဖော်ပြထားရပါမည်
+<span class="w">                   </span>Parameter<span class="w"> </span>တန်ဖိုးများကို<span class="w"> </span>--<span class="w"> </span>၏နောက်တွင်<span class="w"> </span><span class="nv">PARAMETER</span><span class="o">=</span>VALUE<span class="w"> </span>syntax<span class="w"> </span>ဖြင့်<span class="w"> </span>သတ်မှတ်ပေးပါ။
+<span class="w">                   </span>Parameter<span class="w"> </span>အကြိမ်များစွာကို<span class="w"> </span>သတ်မှတ်ပေးခြင်းဖြင့်<span class="w"> </span>Parameter<span class="w"> </span>တစ်ခုအတွက်<span class="w"> </span>စီစဉ်ထားသော<span class="w"> </span>စာရင်းတန်ဖိုးများကို<span class="w"> </span>ဖန်တီးနိုင်ပါသည်<span class="w"> </span><span class="o">(</span>ဥပမာ<span class="w"> </span>-<span class="w"> </span>--LAYERS<span class="o">=</span>layer1.shp<span class="w"> </span>--LAYERS<span class="o">=</span>layer2.shp<span class="o">)</span>
+<span class="w">                   </span>တခြားနည်းအားဖြင့်<span class="w"> </span>Parameters<span class="w"> </span>agrunment<span class="w"> </span>၏နေရာထဲရှိ<span class="w"> </span><span class="s1">&#39;-&#39;</span><span class="w"> </span>character<span class="w"> </span>သည်<span class="w"> </span>parameter<span class="w"> </span>များကို<span class="w"> </span>JSON<span class="w"> </span>object<span class="w"> </span>တစ်ခုအဖြစ်<span class="w"> </span>STDIN<span class="w"> </span>မှ<span class="w"> </span>ဖတ်သင့်သည်ဟု<span class="w"> </span>ညွှန်းဆိုပါသည်။
+<span class="w">                   </span>ထည့်သွင်းအသုံးပြုသော<span class="w"> </span>parameter<span class="w"> </span>တန်ဖိုးများ၏<span class="w"> </span>မြေပုံကိုသတ်မှတ်ပေးသော<span class="w"> </span>အနည်းဆုံး<span class="w"> </span><span class="s2">&quot;ထည့်သွင်းအသုံးပြုသည့်အချက်အလက်များ&quot;</span><span class="w"> </span>key<span class="w"> </span>တစ်ခုပါဝင်သော<span class="w"> </span>မြေပုံတစ်ခုအဖြစ်<span class="w"> </span>JSON<span class="w"> </span>ကိုတည်ဆောက်သင့်ပါသည်။
+<span class="w">                   </span>၎င်းသည်<span class="w"> </span>ရလာဒ်အတွက်<span class="w"> </span>JSON<span class="w"> </span>object<span class="w"> </span>တစ်ခုအဖြစ်<span class="w"> </span>--json<span class="w"> </span>ကို<span class="w"> </span>သွယ်ဝိုက်ညွှန်းဆိုပါသည်။
+<span class="w">                   </span>လိုအပ်လျှင်<span class="w"> </span>အကွာအဝေးနှင့်<span class="w"> </span>ဧရိယာတွက်ချက်ခြင်းများအတွက်<span class="w"> </span>ellipsoid<span class="w"> </span>ကို<span class="w"> </span><span class="s2">&quot;--ELLIPSOID=name&quot;</span><span class="w"> </span>argument<span class="w"> </span>မှတဆင့်<span class="w"> </span>သတ်မှတ်ပေးနိုင်ပါသည်။
+<span class="w">                   </span>လိုအပ်လျှင်<span class="w"> </span>algorithm<span class="w"> </span>စေခိုင်းလုပ်ဆောင်စဉ်တွင်<span class="w"> </span>အသုံးပြုမည့်<span class="w"> </span>ရှိနေပြီးသား<span class="w"> </span>QGIS<span class="w"> </span>project<span class="w"> </span>ကို<span class="w"> </span><span class="s2">&quot;--PROJECT_PATH=path&quot;</span><span class="w"> </span>argument<span class="w"> </span>မှတဆင့်<span class="w"> </span>သတ်မှတ်ပေးနိုင်ပါသည်။
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="file docutils literal notranslate"><span class="pre">metadata.txt</span></code> file ထဲတွင် <code class="docutils literal notranslate"><span class="pre">hasProcessingProvider=yes</span></code> ကိုဖော်ပြသော ထည့်သွင်းထားသည့် plugin များကိုသာ အသိအမှတ်ပြုပြီး အသုံးပြုနိုင်အောင်ဖွင့်နိုင်သည် သို့မဟုတ် qgis_process tool မှထည့်သွင်းအသုံးပြုနိုင်ပါသည်။</p>
+</div>
+<p>အသုံးပြုနိုင်သော provider များနှင့် algorithm များအားလုံး၏စာရင်းကို ရရန် <code class="docutils literal notranslate"><span class="pre">list</span></code> command ကိုအသုံးပြုနိုင်ပါသည်။</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>qgis_process<span class="w"> </span>list
+</pre></div>
+</div>
+<p>Command များနှင့် algorithm များအကြောင်းကို ပိုမိုသိရှိနိုင်ရန် <code class="docutils literal notranslate"><span class="pre">help</span></code> command ကိုအသုံးပြုနိုင်ပါသည်။</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>qgis_process<span class="w"> </span><span class="nb">help</span><span class="w"> </span>qgis:regularpoints
+</pre></div>
+</div>
+<p>Algorithm သို့မဟုတ် model ကိုစေခိုင်းလုပ်ဆောင်ရန် <code class="docutils literal notranslate"><span class="pre">run</span></code> command ကိုအသုံးပြုနိုင်ပါသည်။ Algorithm ၏နာမည် သို့မဟုတ် model တစ်ခုဆီသို့ လမ်းကြောင်းကို ပထမဆုံး parameter အဖြစ် သတ်မှတ်ပေးပါ။</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>qgis_process<span class="w"> </span>run<span class="w"> </span>native:buffer<span class="w"> </span>--<span class="w"> </span><span class="nv">INPUT</span><span class="o">=</span>source.shp<span class="w"> </span><span class="nv">DISTANCE</span><span class="o">=</span><span class="m">2</span><span class="w"> </span><span class="nv">OUTPUT</span><span class="o">=</span>buffered.shp
+</pre></div>
+</div>
+<p>တန်ဖိုးများ၏ စာရင်းကို parameter ကလက်ခံသောအခါ တူညီသော variable ကိုအကြိမ်များစွာ သတ်မှတ်ပါ။</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>qgis_process<span class="w"> </span>run<span class="w"> </span>native:mergevectorlayers<span class="w"> </span>--<span class="w"> </span><span class="nv">LAYERS</span><span class="o">=</span>input1.shp<span class="w"> </span><span class="nv">LAYERS</span><span class="o">=</span>input2.shp<span class="w"> </span><span class="nv">OUTPUT</span><span class="o">=</span>merged.shp
+</pre></div>
+</div>
+<p>Algorithm ကိုစေခိုင်းလုပ်ဆောင်နေစဉ်တွင် စာသားဖြင့်ဖော်ပြသော အကြောင်းပြန်သည့် bar တစ်ခုပေါ်လာပြီး လုပ်ဆောင်နေမှုကို <kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">CTRL</kbd>+<kbd class="kbd docutils literal notranslate">C</kbd></kbd> မှတဆင့် ရပ်တန့်နိုင်ပါသည်။</p>
+<p><code class="docutils literal notranslate"><span class="pre">run</span></code> command သည် အခြား parameter များကိုလည်း လုပ်ဆောင်ပေးပါသည်။</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">--json</span></code> သည် JSON ဖွဲ့စည်းထားသော နည်းလမ်းတစ်ခုဖြင့် stdout ရလာဒ်ကို format ပြုလုပ်ပေးပါလိမ့်မည်။</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--ellipsoid</span></code> သည် သတ်မှတ်ပေးထားသော တစ်ခုဆီသို့ ellipsoid ကို ချမှတ်ပေးပါလိမ့်မည်။</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--distance_units</span></code> သည် သတ်မှတ်ထားသောအကွာအဝေးယူနစ်များကို အသုံးပြုပါလိမ့်မည်။</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--area_units</span></code> သည် သတ်မှတ်ထားသောဧရိယာယူနစ်များကို အသုံးပြုပါလိမ့်မည်။</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--project_path</span></code> သည် algorithm ကိုလုပ်ဆောင်ရန်အတွက် သတ်မှတ်ထားသော project ကို ခေါ်ယူထည့်သွင်းပေးပါလိမ့်မည်။</p></li>
+</ul>
+<p>ရှုပ်ထွေးသော ထည့်သွင်းအသုံးပြုသည့် parameter များ (algorithm များအတွက် dictionary အမျိုးအစား object တစ်ခုအဖြစ် ၎င်းတို့ကိုယ်တိုင် သတ်မှတ်ထားသော parameter အမျိုးအစားများကို ဆိုလိုပါသည်) ကို qgis_process မှလုပ်ဆောင်ပေးပါသည်။ stdin မှတဆင့် သတ်မှတ်မည့် parameter များကို ညွှန်ပြရန်အတွက် qgis_process command သည် format အတိုင်းလုပ်ဆောင်မည်ဖြစ်သည် (လုပ်ရိုးလုပ်စဉ် arguments စာရင်း၏ နေရာထဲရှိ <code class="docutils literal notranslate"><span class="pre">-</span></code> လမ်းကြောင်းတစ်ခုနှင့်)</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>qgis_process<span class="w"> </span>run<span class="w"> </span>algorithmId<span class="w"> </span>-
+</pre></div>
+</div>
+<p>JSON object တွင် ထည့်သွင်းအသုံးပြုသော parameter တန်ဖိုးများ၏ မြေပုံတစ်ခုဖြစ်သော “inputs” key တစ်ခု ပါဝင်ရပါမည်။ ဥပမာ-</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;{&#39;inputs&#39;: {&#39;INPUT&#39;: &#39;my_shape.shp&#39;, &#39;DISTANCE&#39;: 5}}&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>qgis_process<span class="w"> </span>run<span class="w"> </span>native:buffer<span class="w"> </span>-
+</pre></div>
+</div>
+<p>ထို့အပြင် အကွာအဝေးယူနစ်၊ ဧရိယာယူနစ်၊ ellipsoid နှင့် project လမ်းကြောင်းတို့လိုမျိုး အခြား setting များသည် ဤ JSON object ထဲတွင် ပါဝင်နိုင်ပါသည်-</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">{</span>
+<span class="w"> </span><span class="s1">&#39;ellipsoid&#39;</span>:<span class="w"> </span><span class="s1">&#39;EPSG:7019&#39;</span>,
+<span class="w"> </span><span class="s1">&#39;distance_units&#39;</span>:<span class="w"> </span><span class="s1">&#39;feet&#39;</span>,
+<span class="w"> </span><span class="s1">&#39;area_units&#39;</span>:<span class="w"> </span><span class="s1">&#39;ha&#39;</span>,
+<span class="w"> </span><span class="s1">&#39;project_path&#39;</span>:<span class="w"> </span><span class="s1">&#39;C:/temp/my_project.qgs&#39;</span>
+<span class="w"> </span><span class="s1">&#39;inputs&#39;</span>:<span class="w"> </span><span class="o">{</span><span class="s1">&#39;DISTANCE&#39;</span>:<span class="w"> </span><span class="m">5</span>,<span class="w"> </span><span class="s1">&#39;SEGMENTS&#39;</span>:<span class="w"> </span><span class="m">8</span><span class="w"> </span>...<span class="w"> </span><span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>stdin မှတဆင့် ထည့်သွင်းအသုံးပြုသည့် parameter များကို သတ်မှတ်ခြင်းသည် ရလာဒ်များအတွက် <code class="file docutils literal notranslate"><span class="pre">JSON</span></code> ရလာဒ် format ကို အလိုအလျှောက်ညွှန်းဆိုပေးပါသည်။</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="console.html" class="btn btn-neutral float-left" title="28.7. Console တွင် processing algorithm များကို အသုံးပြုခြင်း" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="scripts.html" class="btn btn-neutral float-right" title="28.9. Processing algorithm အသစ်များကို Python script များအဖြစ် ရေးသားခြင်း" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2002-now, QGIS project.
+      <span class="lastupdated">Last updated on 2024 May 13, 16:23 +0700.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- Transifex follows a particular logic to build target pages:
+Expected French translation link for https://docs.qgis.org/3.28/en/docs/user_manual/print_composer/overview_composer.html
+would return https://app.transifex.com/qgis/qgis-documentation/translate/#fr/aa6d8bc653526d38b295ca94bf8eee5e
+with the md5 value of "github#qgis/QGIS-Documentation#release_3.28#locale/en/LC_MESSAGES/docs/user_manual/print_composer/overview_composer.po"-->
+<!--Make sure that mismatching language codes between Transifex and Sphinx are converted-->
+
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-info-circle"> QGIS Documentation </span>
+      v: 3.28
+      <span class="fa fa-caret-down"></span>
+    </span>
+
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Languages</dt>
+        
+          <dd><a href="https://docs.qgis.org/3.28/en/docs/user_manual/processing/standalone.html">en</a></dd>
+        
+      </dl>
+
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/user_manual/processing/standalone.html">testing</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/latest/en/docs/user_manual/processing/standalone.html">latest</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.28/en/docs/user_manual/processing/standalone.html">3.28</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.22/en/docs/user_manual/processing/standalone.html">3.22</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.16/en/docs/user_manual/processing/standalone.html">3.16</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.10/en/docs/user_manual/processing/standalone.html">3.10</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.4/en/docs/user_manual/processing/standalone.html">3.4</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/2.18/en/docs/user_manual/processing/standalone.html">2.18</a></dd>
+        
+      </dl>
+
+       
+       <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="https://docs.qgis.org/3.28/pdf">PDF</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.28/zip">HTML</a></dd>
+        
+      </dl>
+      
+
+      
+       
+      <dl>
+        <dt>Contribute to Docs</dt>
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/edit/master/docs/user_manual/processing/standalone.rst" target="_blank" rel="noopener noreferrer">Edit on GitHub</a>
+          </dd>
+          
+          
+          <dd>
+            <a href="https://app.transifex.com/qgis/qgis-documentation/translate/#en/9586a24aa7a2cc30bfd2cbd7f8250873" target="_blank" rel="noopener noreferrer">Translate Page</a>
+          </dd>
+          
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/issues" target="_blank" rel="noopener noreferrer">Report Issue</a>
+          </dd>
+      </dl>
+      
+
+      <dl>
+        <dt>On QGIS Project</dt>
+          <dd>
+            <a href="https://qgis.org/en" target="_blank" rel="noopener noreferrer">Home</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/api/3.28" target="_blank" rel="noopener noreferrer">C++ API</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/pyqgis/3.28" target="_blank" rel="noopener noreferrer">PyQGIS API</a>
+          </dd>
+          <dd>
+            <a href="https://github.com/qgis/QGIS/tree/release-3_28" target="_blank" rel="noopener noreferrer">Source</a>
+          </dd>
+      </dl>
+
+    </div>
+  </div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

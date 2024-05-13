@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>11.3. မြေပြင်ကန်လန့်ဖြတ်ပိုင်းပုံပြမြင်ကွင်း (Elevation Profile View) &mdash; QGIS Documentation  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/qgis_docs.css?v=3fdf4c33" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/qgis_logo.ico"/>
+    <link rel="canonical" href="https://docs.qgis.org/latest/en/docs/user_manual/map_views/elevation_profile.html"/>
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../../_static/copybutton.js?v=f281be69"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="12. အထွေ‌ထွေ‌သုံးကိရိယာများ (General Tools)" href="../introduction/general_tools.html" />
+    <link rel="prev" title="11.2. ရုပ်လုံးကြွမြေပုံမြင်ကွင်း (3D Map View)" href="3d_map_view.html" />
+  <meta name="description" content="QGIS 3.28 documentation: 11.3. မြေပြင်ကန်လန့်ဖြတ်ပိုင်းပုံပြမြင်ကွင်း (Elevation Profile View)">
+</head>
+
+<body class="wy-body-for-nav">
+
+  <nav class="release_status_topbar">
+  </nav>
+
+   
+
+ 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+   
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            QGIS Documentation
+              <img src="../../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                3.28
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+   <a href= "../../../genindex.html">Index</a>
+ 
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">အသုံးပြုသူများအတွက်</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../preamble/preamble.html">1. စကားချီး (Preamble)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/foreword.html">2. အမှာစာ (Foreword)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/conventions.html">3. အသုံးအနှုန်းများ (Conventions)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/features.html">4. အသွင်အပြင်များ (Features)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/getting_started.html">5. စတင်အသုံးပြုခြင်း (Getting Started)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/project_files.html">6. Project Files များနှင့် အလုပ်လုပ်ခြင်း (Working with Project Files)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/qgis_gui.html">7. QGIS ၏အစိတ်အပိုင်းများ (QGIS GUI)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/browser.html">8. ဒေတာများရှာဖွေကြည့်ရှုနိုင်သည့်နေရာ (The Browser panel)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/qgis_configuration.html">9. QGIS ပြင်ဆင်သတ်မှတ်ခြင်း/အခင်းအကျင်း (QGIS Configuration)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_projections/working_with_projections.html">10. မြေပုံအရိပ်ချစနစ်များ နှင့် အလုပ်လုပ်ခြင်း (Working with Projections)</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">11. မြေပုံများအား ပုံဖော်ကြည့်ရှုခြင်း (Visualizing Maps)</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="map_view.html">11.1. ရိုးရိုးမြေပုံမြင်ကွင်း (2D Map View)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3d_map_view.html">11.2. ရုပ်လုံးကြွမြေပုံမြင်ကွင်း (3D Map View)</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">11.3. မြေပြင်ကန်လန့်ဖြတ်ပိုင်းပုံပြမြင်ကွင်း (Elevation Profile View)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#interface">11.3.1. ပါဝင်သည့်အရာများ (Interface)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#creating-an-elevation-profile">11.3.2. မြေပြင်ဖြတ်ပိုင်းပုံတစ်ခု ဖန်တီးခြင်း (Creating an elevation profile)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#profile-views-interacting-with-the-profile-views">11.3.3. Profile Views များနှင့် အပြန်အလှန်လုပ်ဆောင်ခြင်း (Interacting with the profile Views)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/general_tools.html">12. အထွေ‌ထွေ‌သုံးကိရိယာများ (General Tools)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../expressions/index.html">13. Expression များဖြင့် အဆင့်မြှင့်တင်ဆောင်ရွက်ခြင်း (Level up with Expressions)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../style_library/index.html">14. The Style Library (Style နှင့်ပတ်သက်သည်များ ထားရှိရာနေရာ)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../managing_data_source/index.html">15. ဒေတာအရင်းအမြစ်များအား စီမံခန့်ခွဲခြင်း (Managing Data Source)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_vector/index.html">16. Vector data များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_raster/index.html">17. Raster Data နှင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_mesh/mesh_properties.html">18. Working with Mesh Data (Mesh Data များနှင့် အလုပ်လုပ်ခြင်း)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_vector_tiles/vector_tiles_properties.html">19. Vector Tiles များနှင့်အလုပ်လုပ်ခြင်း (Working with Vector Tiles)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_point_clouds/point_clouds.html">20. Point Cloud များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../print_composer/index.html">21. မြေပုံအချောသပ်ပြင်ဆင်ခြင်း (Laying out the maps)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_ogc/ogc_client_support.html">22. OGC / ISO protocol များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_gps/index.html">23. GPS Data များနှင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../auth_system/auth_overview.html">24. အထောက်အထားစီစစ်ခြင်းအကြောင်းအကျဉ်း (Authentication System Overview)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../auth_system/auth_workflows.html">25. အသုံးပြုသူ အထောက်အထားစစ်ဆေးခြင်း လုပ်ငန်းအဆင့်များ (User Authentication Workflows)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../auth_system/auth_considerations.html">26. လုံခြုံရေးအတွက်စဉ်းစားရန်အချက်များ (Security Considerations)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../grass_integration/grass_integration.html">27. GRASS GIS နှင့်ပေါင်းစပ်အသုံးပြုခြင်း (GRASS GIS Integration)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing/index.html">28. QGIS processing framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing_algs/index.html">29. Processing ဆိုင်ရာ ထောက်ပံ့ပေးသူများနှင့် Algorithm များ (Processing providers and algorithms)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/plugins.html">30. QGIS Plugin များ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/core_plugins/index.html">31. QGIS ပင်မ Plugin များကို အသုံးပြုခြင်း (Using QGIS Core Plugins)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/python_console.html">32. QGIS တွင် Python code များရေးသားရန်နေရာ (QGIS Python console)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/help_and_support.html">33. အကူအညီနှင့်အထောက်အပံ့ (Help and Support)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/contributors.html">34. ပါဝင်အားဖြည့်သူများ (Contributors)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendices/index.html">35. နောက်ဆက်တွဲများ (Appendices)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../literature_web/literature_and_web_references.html">36. စာတမ်းများနှင့် Website ကိုးကားချက်များ (Literature and Web References)</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">QGIS Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">&lt;no title&gt;</a></li>
+          <li class="breadcrumb-item"><a href="index.html"><span class="section-number">11. </span>မြေပုံများအား ပုံဖော်ကြည့်ရှုခြင်း (Visualizing Maps)</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">11.3. </span>မြေပြင်ကန်လန့်ဖြတ်ပိုင်းပုံပြမြင်ကွင်း (Elevation Profile View)</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/qgis/QGIS-Documentation/blob/master/docs/user_manual/map_views/elevation_profile.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="3d_map_view.html" class="btn btn-neutral float-left" title="11.2. ရုပ်လုံးကြွမြေပုံမြင်ကွင်း (3D Map View)" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../introduction/general_tools.html" class="btn btn-neutral float-right" title="12. အထွေ‌ထွေ‌သုံးကိရိယာများ (General Tools)" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <blockquote>
+<div></div></blockquote>
+<section id="elevation-profile-view">
+<span id="label-elevation-profile-view"></span><span id="index-0"></span><h1><span class="section-number">11.3. </span>မြေပြင်ကန်လန့်ဖြတ်ပိုင်းပုံပြမြင်ကွင်း (Elevation Profile View)<a class="headerlink" href="#elevation-profile-view" title="Link to this heading"></a></h1>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#interface" id="id3">ပါဝင်သည့်အရာများ (Interface)</a></p></li>
+<li><p><a class="reference internal" href="#creating-an-elevation-profile" id="id4">မြေပြင်ဖြတ်ပိုင်းပုံတစ်ခု ဖန်တီးခြင်း (Creating an elevation profile)</a></p></li>
+<li><p><a class="reference internal" href="#profile-views-interacting-with-the-profile-views" id="id5">Profile Views များနှင့် အပြန်အလှန်လုပ်ဆောင်ခြင်း (Interacting with the profile Views)</a></p></li>
+</ul>
+</nav>
+<p><span class="guilabel">Elevation Profile</span> panel သည် line တစ်ခု၏တစ်လျှောက်တွင် elevation data များကို ကြည့်ရှုရန်အတွက် ဘေးဘက်မြင်ကွင်း (side view) များကို
+နေရာချထားသည့် plotting tool တစ်ခုဖြစ်ပါသည်။ Vector ၊ raster ၊ mesh နှင့် point cloud layer များကို ကြည့်ရှုနိုင်အောင် ပံ့ပိုးပေးထားပါသည်။ Data သည် 2D သို့မဟုတ် 3D အမျိုးအစားဖြစ်နိုင်ပါသည်။</p>
+<p>Elevation profile view တစ်ခုကိုထည့်သွင်းရန် <span class="menuselection">View ►</span> <a class="reference internal" href="../../../_images/mLayoutItem3DMap.png"><img alt="layoutItem3DMap" src="../../../_images/mLayoutItem3DMap.png" style="width: 1.5em;" /></a> <span class="menuselection">Elevation Profile</span> menu ကို သွားပါ။
+အလိုရှိသလောက် profile views များကို ထည့်သွင်းနိုင်ပြီး dock လုပ်ခြင်း၊ တစ်ခုနှင့်တစ်ခုထပ်နေခြင်းနှင့် လွင့်နေခြင်း (floating) များပြုလုပ်၍နေရာချထားနိုင်ပါသည်။</p>
+<figure class="align-center" id="id1">
+<span id="figure-elevation-tool-interaction"></span><img alt="../../../_images/elevation_tool_interaction.png" src="../../../_images/elevation_tool_interaction.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 11.29 </span><span class="caption-text">Elevation Profile dialog ကို main map canvas များ၏အောက်တွင် ထည့်သွင်းထားပုံ</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+<div class="legend">
+<p>ပုံတွင် sea-dike (ကုန်းတွင်းပိုင်းသို့ရေများဝင်ရောက်ခြင်းကို ကာကွယ်ရန် လူဖြင့်ဖန်တီးထားသည့် နံရံ) တစ်ခု၏နောက်ရှိ မြို့တစ်မြို့၏ ကမ်းရိုးတန်းတစ်ခုကိုပြသထားပါသည်။
+ကြီးမားသည့်ကွဲလွဲမှု (larger tolerance) ကို elevation profile line အပေါ်သို့သက်ရောက်ခြင်းသည် point cloud features များကို ပိုမိုဖြစ်ပေါ်စေပါသည်။</p>
+</div>
+</figcaption>
+</figure>
+<section id="interface">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink"><span class="section-number">11.3.1. </span>ပါဝင်သည့်အရာများ (Interface)</a><a class="headerlink" href="#interface" title="Link to this heading"></a></h2>
+<p><span class="guilabel">Elevation Profile</span> panel ၏ ထိပ်တွင် အောက်ဖော်ပြပါ tools များဖြင့် toolbar တစ်ခုကို ပံ့ပိုးပေးပါသည်-</p>
+<table class="longtable docutils align-default" id="id2">
+<caption><span class="caption-number">Table 11.4 </span><span class="caption-text">Elevation Profile View toolbar</span><a class="headerlink" href="#id2" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 10.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Tool</p></th>
+<th class="head"><p>ကီးခလုပ် အတွဲ</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="../../../_images/mIconLayerTree.png"><img alt="layerTree" src="../../../_images/mIconLayerTree.png" style="width: 1.5em;" /></a> <sup>Show Layer Tree</sup></p></td>
+<td></td>
+<td><p>Profile view ထဲတွင် rendering ပြုလုပ်ခြင်းကို သတ်မှတ်ရန် list of project layer များကို ပြခြင်း သို့မဟုတ် ဖျောက်ထားခြင်းကို ဆောင်ရွက်သည်။</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../../../_images/mActionCaptureLine.png"><img alt="captureLine" src="../../../_images/mActionCaptureLine.png" style="width: 1.5em;" /></a> <sup>Capture Curve</sup></p></td>
+<td></td>
+<td><p>Profile curve ကို ကိုယ်စားပြုဖော်ပြရန် map canvas အပေါ်တွင် line တစ်ခုကို ရေးဆွဲပါသည်။</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../../../_images/mActionCaptureCurveFromFeature.png"><img alt="captureCurveFromFeature" src="../../../_images/mActionCaptureCurveFromFeature.png" style="width: 1.5em;" /></a> <sup>Capture Curve From Feature</sup></p></td>
+<td></td>
+<td><p>Map canvas အပေါ်တွင် လက်ရှိတည်ရှိနေသည့် line feature တစ်ခုကို pick လုပ်ပြီး အဆိုပါ line တစ်လျှောက်တွင် profile curve တစ်ခုကို ထုတ်ပေးပါသည်။</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../../../_images/mActionArrowLeft.png"><img alt="arrowLeft" src="../../../_images/mActionArrowLeft.png" style="width: 1.2em;" /></a> <sup>Nudge Left</sup></p></td>
+<td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">Ctrl</kbd>+<kbd class="kbd docutils literal notranslate">Alt</kbd>+<kbd class="kbd docutils literal notranslate">,</kbd></kbd></p></td>
+<td><p>Map ကို ဖြတ်၍ ရိုက်ကူးထားသော line (capture line) အား ဘယ်ဘက်သို့ ဖြည်းညှင်းစွာ ရွှေ့ရန်ခွင့်ပြုသည်။
+(ဥပမာ - elevation အပေါ်အခြေခံ၍ အကောင်းဆုံး profile line တစ်ခုကို ရှာဖွေရန်)</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../../../_images/mActionArrowRight.png"><img alt="arrowRight" src="../../../_images/mActionArrowRight.png" style="width: 1.2em;" /></a> <sup>Nudge Right</sup></p></td>
+<td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">Ctrl</kbd>+<kbd class="kbd docutils literal notranslate">Alt</kbd>+<kbd class="kbd docutils literal notranslate">.</kbd></kbd></p></td>
+<td><p>Map ကို ဖြတ်၍ ရိုက်ကူးထားသော line (capture line) အား ညာဘက်သို့ ဖြည်းညှင်းစွာ ရွှေ့ရန်ခွင့်ပြုသည်။
+(ဥပမာ elevation အပေါ်အခြေခံ၍ အကောင်းဆုံး profile line တစ်ခုကို ရှာဖွေရန်)</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../../../_images/iconClearConsole.png"><img alt="clearConsole" src="../../../_images/iconClearConsole.png" style="width: 1.5em;" /></a> <sup>Clear</sup></p></td>
+<td></td>
+<td><p><span class="guilabel">Elevation Profile</span> view တွင် ဖော်ပြထားသည့် မည်သည့် plot မဆိုနှင့် profile ကို ဖယ်ရှားပါသည်။</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../../../_images/mActionIdentify.png"><img alt="identify" src="../../../_images/mActionIdentify.png" style="width: 1.5em;" /></a> <sup>Identify Features</sup></p></td>
+<td></td>
+<td><p>Single click တစ်ချက်နှိပ်ခြင်း သို့မဟုတ် ထောင်မှန်စတုဂံကို ဖိဆွဲခြင်း (click-and-drag) ဖြင့် plot canvas များရှိ features များကို identify ပြုလုပ်ပေးသည်။
+ရလဒ်များကို standard <a class="reference internal" href="../introduction/general_tools.html#identify"><span class="std std-ref">Identify Results</span></a> dock တွင် ဖော်ပြထားပါသည်။</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../../../_images/mActionPan.png"><img alt="pan" src="../../../_images/mActionPan.png" style="width: 1.5em;" /></a> <sup>Pan</sup></p></td>
+<td><p><kbd class="kbd docutils literal notranslate">Space</kbd></p></td>
+<td><p>Plot canvas များကို pan ဖြင့် ရွှေ့ရန် ဖိဆွဲပါ။ မောက်စ်၏ အလယ်ခလုတ်ဖြင့်လည်း ဆောင်ရွက်နိုင်ပါသည်။</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../../../_images/mActionZoomInXAxis.png"><img alt="zoomInXAxis" src="../../../_images/mActionZoomInXAxis.png" style="width: 1.5em;" /></a> <sup>Zoom X Axis</sup></p></td>
+<td></td>
+<td><p>Vertical ratio ကို နဂိုအတိုင်းသိမ်းထားပြီး horizontal axis တစ်လျှောက်တွင် Zooms ချဲ့ခြင်း/ချုံ့ခြင်း ပြုလုပ်ပါသည်။</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../../../_images/mActionZoomIn.png"><img alt="zoomIn" src="../../../_images/mActionZoomIn.png" style="width: 1.5em;" /></a> <sup>zoom</sup></p></td>
+<td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">Ctrl</kbd>+<kbd class="kbd docutils literal notranslate">Space</kbd></kbd></p></td>
+<td><p>Plot အပေါ်တွင် zoom ချဲ့ကြည့်ရန် ထောင်မှန်စတုဂံတစ်ခုကို Click နှိပ်ခြင်း သို့မဟုတ် ဖိဆွဲခြင်း (click-and-drag) ပြုလုပ်ပါသည်။ ချဲ့ကြည့်ရာမှ ချုံ့ကြည့်ရန် <kbd class="kbd docutils literal notranslate">Alt</kbd> ကို နှိပ်ပြီး click နှိပ်ပါ။</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../../../_images/mActionZoomFullExtent.png"><img alt="zoomFullExtent" src="../../../_images/mActionZoomFullExtent.png" style="width: 1.5em;" /></a> <sup>Zoom Full</sup></p></td>
+<td></td>
+<td><p>Capture line ၏ extent ကို ကြည့်ရှုရန် <span class="guilabel">Elevation Profile</span> view ကို Zoom ချဲ့ကြည့်သည်။</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../../../_images/mIconSnapping.png"><img alt="snapping" src="../../../_images/mIconSnapping.png" style="width: 1.5em;" /></a> <sup>Enable Snapping</sup></p></td>
+<td></td>
+<td><p>Profile view ထဲတွင် plot features များ၏ အစွန်း (edge) သို့မဟုတ် vertex ကို snap ဖမ်းရန်ခွင့်ပြုသည်။ အကွာအဝေးတိုင်းတာခြင်းများ သို့မဟုတ် ကိုဩဒိနိတ်များကို တိကျအောင်ပြန်လည်ရယူခြင်းတို့အတွက် အဆင်ပြေပါသည်။</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../../../_images/mActionMeasure.png"><img alt="measure" src="../../../_images/mActionMeasure.png" style="width: 1.5em;" /></a> <sup>Measure Distances</sup></p></td>
+<td></td>
+<td><p>Horizontal နှင့် vertical အကွာအဝေးများကို တိုင်းတာသည်။</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../../../_images/mActionSaveAsPDF.png"><img alt="saveAsPDF" src="../../../_images/mActionSaveAsPDF.png" style="width: 1.5em;" /></a> <sup>Export As PDF</sup></p></td>
+<td></td>
+<td><p>Plots များကို PDF (အရည်အသွေးမြင့်မားသည့် vector objects များအဖြစ်သို့) အဖြစ်သို့ export ထုတ်ပေးပါသည်။</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../../../_images/mActionSaveMapAsImage.png"><img alt="saveMapAsImage" src="../../../_images/mActionSaveMapAsImage.png" style="width: 1.5em;" /></a> <sup>Export As Image</sup></p></td>
+<td></td>
+<td><p>Plots များကို များစွာသော image formats များသို့ Export ထုတ်ပါသည်။</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../../../_images/mActionOptions.png"><img alt="options" src="../../../_images/mActionOptions.png" style="width: 1em;" /></a> <sup>Options</sup></p></td>
+<td></td>
+<td><p>Profile elevation line ၏ configuration settings များကို access ပေးပါသည်။</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../../../_images/dock.png"><img alt="dock" src="../../../_images/dock.png" style="width: 1.5em;" /></a> <sup>Dock Elevation Profile View</sup></p></td>
+<td></td>
+<td><p>View ၏ docked နှင့် floating အခြေအနေများအကြားတစ်ခုမှတစ်ခုသို့ ပြောင်းလဲပေးပါသည်။</p></td>
+</tr>
+</tbody>
+</table>
+<p>ဘယ်ဘက်အောက်ဘက်တွင် <a class="reference internal" href="../../../_images/mIconLayerTree.png"><img alt="layerTree" src="../../../_images/mIconLayerTree.png" style="width: 1.5em;" /></a> <span class="guilabel">Show Layer Tree</span> button ၏ ဘေးတိုက်တွင် <span class="guilabel">Layers</span> panel copy တစ်ခုကို ပြသနိုင်ပါသည်။</p>
+<p>သို့သော်လည်း ၎င်းသည် စိတ်ကြိုက်အစဉ်လိုက်ထားရှိနိုင်သည့် visible layer များပါဝင်သော သီးခြား widget တစ်ခုဖြစ်ပါသည်။
+၎င်းသည် plot canvas အတွင်း layer များ ပုံဖော်ပြသခြင်း နှင့် ပြုမူဆောင်ရွက်ပုံများကို ထိန်းချုပ်ခွင့်ပြုပါသည်-</p>
+<ul class="simple">
+<li><p>၎င်းကို plot canvas များအတွင်း render ဆောင်ရွက်မည်/မဆောင်ရွက်မည် ကို သတ်မှတ်ရန် layer name ၏ ဘေးရှိ box ကို အမှန်ခြစ်ပါ။</p></li>
+<li><p>Layers များ၏ အစဉ်များကို ပြောင်းလဲရန် အပေါ် သို့မဟုတ် အောက်သို့ ဆွဲ၍ရွှေ့ပါ (drag-and-drop )။</p></li>
+<li><p>Profile view ထဲရှိ layer များ၏ style rendering - Configuration ပြုလုပ်ရန်အတွက် layer ၏ <span class="guilabel">Elevation</span> properties tab ကို ဖွင့်ရန် layer တစ်ခုကို double-click သို့မဟုတ် right-click နှိပ်ပြီး <span class="guilabel">Properties…</span> ကို select လုပ်ပါ။</p></li>
+</ul>
+<p>Layer tree ၏ ညာဘက်တွင်ရှိသည့် plot canvas သည် ဖွင့်ထားသည့် layer များ၏ elevation profile များကို ကြိုတင်ကြည့်ရှုနိုင်သည့် အဓိကနေရာများဖြစ်သည်။
+၎င်းကို horizontal axis သည် profile line ၏ length ကို ဖော်ပြပြီး vertical axis သည်
+တွေ့ရှိထားသည့် features များ (observed features) ၏ Z elevation ကို ဖော်ပြသော graduated grid (အမျိုးအစားအလိုက်ခွဲခြားထားသည့် အကွက်) တွင် အခြေခံထားပါသည်။
+၎င်းသည် ထိပ်ဘက်ရှိ tools များကို အသုံးပြု၍ zooming ၊ panning ၊ measuring ၊ identifying features ၊ … များ လုပ်ဆောင်ခြင်းကိုလည်းခွင့်ပြုပါသည်။</p>
+</section>
+<section id="creating-an-elevation-profile">
+<span id="elevation-profile-create"></span><h2><a class="toc-backref" href="#id4" role="doc-backlink"><span class="section-number">11.3.2. </span>မြေပြင်ဖြတ်ပိုင်းပုံတစ်ခု ဖန်တီးခြင်း (Creating an elevation profile)</a><a class="headerlink" href="#creating-an-elevation-profile" title="Link to this heading"></a></h2>
+<p>Profile view တစ်ခုကို ဖန်တီးရန်-</p>
+<ol class="arabic simple">
+<li><p><span class="menuselection">View ►</span> <a class="reference internal" href="../../../_images/mActionNewElevationProfile.png"><img alt="newElevationProfile" src="../../../_images/mActionNewElevationProfile.png" style="width: 1.5em;" /></a> <span class="menuselection">Elevation Profile</span> menu ကို သွားပါ။
+<span class="guilabel">Elevation profile</span> panel သည် ပွင့်လာမည်ဖြစ်ပါသည်။</p></li>
+<li><p>Render ဆောင်ရွက်မည့် မြေပြင်အနေအထား (terrain) နှင့် feature များတစ်လျှောက်တွင်  profile line ကို ဖန်တီးပါ။
+Drawing tool တစ်ခုအား Select ပြုလုပ်ပါ-</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../../../_images/mActionCaptureLine.png"><img alt="captureLine" src="../../../_images/mActionCaptureLine.png" style="width: 1.5em;" /></a> <sup>Capture Curve</sup> - Vertices များ ထည့်သွင်းရန် main map canvas အပေါ်တွင် left click နှိပ်ပါ။
+ထို့နောက် profile line အဖြစ်သုံးမည့် line တစ်ခုကို အပြီးသတ်ရေးဆွဲရန် right click နှိပ်ပါ။</p></li>
+<li><p>သို့မဟုတ် <a class="reference internal" href="../../../_images/mActionCaptureCurveFromFeature.png"><img alt="captureCurveFromFeature" src="../../../_images/mActionCaptureCurveFromFeature.png" style="width: 1.5em;" /></a> <sup>Capture Curve From Feature</sup> -
+၎င်းကို profile line အဖြစ် select ပြုလုပ်ရန် map canvas ပေါ်ရှိ line feature တစ်ခုကို click နှိပ်ပါ။
+click လုပ်ထားသည့် အမှတ်၌  multiple features များရှိနေပါက  popup menu တစ်ခုပေါ်လာမည်ဖြစ်ပြီး ၎င်းတို့ထဲမှ တစ်ခုကို select ပြုလုပ်ရန် ခွင့်ပြုမည်ဖြစ်ပါသည်။</p></li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<div><p><a class="reference internal" href="../working_with_vector/editing_geometry_attributes.html#snapping-options"><span class="std std-ref">snapping options</span></a> ၊ <a class="reference internal" href="../working_with_vector/editing_geometry_attributes.html#tracing"><span class="std std-ref">tracing</span></a> ၊ <a class="reference internal" href="../working_with_vector/editing_geometry_attributes.html#drawing-methods"><span class="std std-ref">digitizing techniques</span></a>
+သို့မဟုတ် advanced <a class="reference internal" href="../working_with_vector/editing_geometry_attributes.html#advanced-digitizing-panel"><span class="std std-ref">digitizing panel</span></a> ကဲ့သို့သော line digitizing capabilities အားလုံးကို ရယူအသုံးပြုနိုင်ပါသည်။</p>
+<p>Plot canvas သည် အချို့သော feature များကို rendering စတင်ဆောင်ရွက်မည်ဖြစ်ပါသည်။</p>
+</div></blockquote>
+<ol class="arabic">
+<li><p>နောက်ထပ်အဆင့်သည် ကြည့်ရှုလိုသည့် layer များ၏ elevation properties များကို ပြင်ဆင်သတ်မှတ် (configure) သည့် အဆင့်ဖြစ်ပါသည်။</p>
+<ol class="arabic">
+<li><p>Layer များစာရင်းကို ပြသရန် <a class="reference internal" href="../../../_images/mIconLayerTree.png"><img alt="layerTree" src="../../../_images/mIconLayerTree.png" style="width: 1.5em;" /></a> <sup>Show Layer Tree</sup> ခလုတ်ကို ဖိထားပါ။</p></li>
+<li><p>အလိုရှိသည့် layer များ၏ visibility ကို အဖွင့်/အပိတ်လုပ်ပါ။
+၎င်းတို့သည် profile view တွင် render ဆောင်ရွက်ထားသည့် layer များဖြစ်ပြီး select ပြုလုပ်ထားသည့် layer များသည်
+main <span class="guilabel">Layers</span> panel ၏ layer များနှင့် မတူညီပဲ ကွဲပြားနေနိုင်ပါသည်။</p></li>
+<li><p>Layer name ကို Double-click သို့မဟုတ် right-click နှိပ်ပါ။ ထို့နောက် <span class="guilabel">Properties</span> ကို select လုပ်ပါ။
+Layer ၏ <span class="guilabel">Elevation</span> properties tab သည် ပွင့်လာမည်ဖြစ်ပါသည်။
+ဤနေရာတွင် profile view အပေါ်တွင် feature တစ်ခုချင်းစီ သို့မဟုတ် terrain ကို မည်ကဲ့သို့ ပုံဖော်ပြသမည်ကို သတ်မှတ်နိုင်ပါသည်။
+ရရှိနိုင်သည့် properties များသည် layer အမျိုးအစားအပေါ် မူတည်ပါသည်-</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../working_with_raster/raster_properties.html#raster-elevation"><span class="std std-ref">Raster Elevation Properties</span></a></p></li>
+<li><p><a class="reference internal" href="../working_with_vector/vector_properties.html#vectorelevationmenu"><span class="std std-ref">Vector Elevation Properties</span></a></p></li>
+<li><p><a class="reference internal" href="../working_with_point_clouds/point_clouds.html#point-clouds-elevation"><span class="std std-ref">Point Cloud Elevation Properties</span></a></p></li>
+<li><p><a class="reference internal" href="../working_with_mesh/mesh_properties.html#meshelevation"><span class="std std-ref">Mesh Elevation Properties</span></a></p></li>
+</ul>
+<p>Profile view  သည် elevation properties များကို သတ်မှတ်ပြီးသည်နှင့်တစ်ပြိုင်နက် ပေးထားသည့် profile curve ကို ဖြတ်၍
+active layers ၏ terrain သို့မဟုတ် features များကို rendering စတင် ပြုလုပ်မည်ဖြစ်ပါသည်။</p>
+</li>
+</ol>
+</li>
+<li><p><a class="reference internal" href="../../../_images/mActionOptions.png"><img alt="options" src="../../../_images/mActionOptions.png" style="width: 1em;" /></a> <sup>Options</sup> drop-down menu အောက်တွင် <span class="guilabel">Tolerance</span> တန်ဖိုးကို သတ်မှတ်နိုင်ပါသည်။
+အဆိုပါ တန်ဖိုးသည် main map canvas ပေါ်တွင် မြင်ရမည့် elevation profile line ပတ်လည်တွင် flat buffer တစ်ခုကို ဖန်တီးရန် အသုံးပြုပါသည်။
+အဆိုပါ buffer နှင့် ထပ်နေသည့် မြင်ရသည့် မည်သည့် visible point feature ကိုမဆို plot canvas တွင် capture လုပ်ထားမည်ဖြစ်ပါသည်။</p></li>
+</ol>
+</section>
+<section id="profile-views-interacting-with-the-profile-views">
+<span id="elevation-profile-interaction"></span><h2><a class="toc-backref" href="#id5" role="doc-backlink"><span class="section-number">11.3.3. </span>Profile Views များနှင့် အပြန်အလှန်လုပ်ဆောင်ခြင်း (Interacting with the profile Views)</a><a class="headerlink" href="#profile-views-interacting-with-the-profile-views" title="Link to this heading"></a></h2>
+<p>Elevation profile line တစ်ခုကို ဖန်တီးသည့်အခါတွင် plot canvas သည် ၎င်း၏ full extent အထိ zoom ချဲ့မည်ဖြစ်ပါသည်။
+X-axis အပေါ်တွင် profile ၏ အလျားကို မြင်နိုင်ပြီး Y-axis  အပေါ်တွင် အနိမ့်ဆုံးအမြင့်နှင့် အမြင့်ဆုံးအမြင့်အကြားရှိ ဖမ်းယူရရှိသည့် အမြင့်ပမာဏ ကို တွေ့မြင်နိုင်ပါသည်။ နှစ်ခုလုံးကို မြေပုံယူနစ်များဖြင့်ဖော်ပြမည်ဖြစ်ပါသည်။</p>
+<p>Elevation profile view တွင် mouse pointer ကို နေရာရွှေ့သည်အခါတွင် crossing dot lines နှစ်ခုကို တွေ့မြင်ရမည်ဖြစ်ပါသည်-</p>
+<ul class="simple">
+<li><p>Vertical line  သည် အမြင့်နှင့်သက်ဆိုင်သည့် အချက်အလက်ကို ပြသပါသည်။</p></li>
+<li><p>Horizontal line သည် elevation profile Line အစမှ အကွာအဝေးကို ဖော်ပြပါသည်။</p></li>
+</ul>
+<p>Elevation profile canvas တွင် mouse pointer ကို ရွှေ့သည့်အခါတွင် main map canvas ပေါ်တွင် elevation profile line တလျှောက် black dot တစ်ခုသည်
+ရွှေ့နေသည်ကို တွေ့မြင်ရမည်ဖြစ်ပါသည်။
+Profile line ၏ အလယ်တွင်  မြှားတစ်ခုသည် ၎င်း၏ ဦးတည်ရာကို ညွှန်းဆိုဖော်ပြပါသည်။</p>
+<p>Main map canvas အတွက် QGIS သည် plot canvas ပေါ်တွင် navigate လုပ်နိုင်ရန် နည်းလမ်းများကို ပံ့ပိုးပေးပါသည်-</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../../../_images/mActionPan.png"><img alt="pan" src="../../../_images/mActionPan.png" style="width: 1.5em;" /></a> <sup>Pan</sup> ကို အလိုရှိသည့် direction (လားရာ) အတိုင်း elevation profile extent ကို နေရာရွှေ့ရန်အသုံးပြုပါသည်။
+Mouse ကို ရွှေ့နေစဉ်အတွင်း <kbd class="kbd docutils literal notranslate">Space</kbd> key ကို ဖိထားခြင်းသည် vertical axis (the elevation) ၏ ratio ကို
+မပြောင်းလဲဘဲ plot canvas extent ကိုလည်း ရွေ့စေနိုင်ပါသည်။</p></li>
+<li><p><a class="reference internal" href="../../../_images/mActionZoomInXAxis.png"><img alt="zoomInXAxis" src="../../../_images/mActionZoomInXAxis.png" style="width: 1.5em;" /></a> <sup>Zoom X Axis</sup> သည် vertical axis (the elevation) ၏ ratio ကို
+မပြောင်းလဲဘဲ horizontal axis တစ်လျှောက်တွင် zoom ချဲ့ကြည့်ရန် အသုံးပြုပါသည်။
+Axis ၏ အလယ်ရှိ ကလစ်နှိပ်ထားသည့် အမှတ်နှင့်အတူ X axis တစ်လျှောက်တွင် plot ကို ဆွဲချဲ့ရန် left click ကို နှိပ်ပါ။ သို့မဟုတ်
+X axis တစ်လျှောက် plot ကို ထောင့်မှန်စတုဂံ၏ အကျယ်အတိုင်း ဆွဲဆန့်ရန်  ထောင့်မှန်စတုဂံတစ်ခုကို ဖိဆွဲပါ။
+Axis တစ်လျှောက် zoom ချုံ့ကြည့်ရန် <a class="reference internal" href="../../../_images/mActionZoomInXAxis.png"><img alt="zoomInXAxis" src="../../../_images/mActionZoomInXAxis.png" style="width: 1.5em;" /></a> <sup>Zoom X Axis</sup> ကို အသုံးပြုနေစဉ်တွင် <kbd class="kbd docutils literal notranslate">Alt</kbd> ကို နှိပ်ထားပါ။</p></li>
+<li><p><a class="reference internal" href="../../../_images/mActionZoomIn.png"><img alt="zoomIn" src="../../../_images/mActionZoomIn.png" style="width: 1.5em;" /></a> <sup>Zoom</sup> ကို သတ်မှတ်အမှတ်တစ်ခုအား zoom ချဲ့ကြည့်ရန် (left click အသုံးပြု၍) သို့မဟုတ်
+တိကျသည့် extent တစ်ခုကို zoom ချဲ့ကြည့်ရန် (ဧရိယာအပေါ်တွင် ထောင်မှန်စတုဂံကို ဖိဆွဲ၍) အသုံးပြုပါသည်။
+<a class="reference internal" href="../../../_images/mActionZoomIn.png"><img alt="zoomIn" src="../../../_images/mActionZoomIn.png" style="width: 1.5em;" /></a> <sup>Zoom</sup> အသုံးပြုနေစဉ် zoom out လုပ်ရန် <kbd class="kbd docutils literal notranslate">Alt</kbd> ကို ဖိထားပါ။
+<kbd class="kbd docutils literal notranslate">Ctrl</kbd> key နှင့်ပေါင်းစပ်၍ zoom ချဲခြင်း သို့မဟုတ် ချုံ့ခြင်း ကို ပိုမိုချောမွေ့စွာ ဆောင်ရွက်နိုင်မည်ဖြစ်ပါသည်။</p></li>
+<li><p><a class="reference internal" href="../../../_images/mActionZoomFullExtent.png"><img alt="zoomFullExtent" src="../../../_images/mActionZoomFullExtent.png" style="width: 1.5em;" /></a> <sup>Zoom Full</sup> သည် စတင်သည့်အချိန်တွင် အသုံးပြုသည့် default zoom level ဖြစ်ပြီး ပြန်ထွက်လာသည့် feature များအားလုံးနှင့်အတူ
+profile line ၏ full extent ကို ပြသပါသည်။
+Zoom level ကို မူလအတိုင်း reset ပြုလုပ်ရန် ၎င်းကိုအသုံးပြုပါသည်။</p></li>
+</ul>
+<p>Plot canvas တွင် ဖော်ပြထားသည့် elements များနှင့်လည်း ချိတ်ဆက်ဆောင်ရွက်မှုများပြုလုပ်နိုင်ပါသည်-</p>
+<ul class="simple">
+<li><p>တိကျသည့် အတိုင်းအတာများ သို့မဟုတ် ကိုဩဒိနိတ်အစီအရင်ခံစာ (coordinates report) များအတွက်
+feature များ၏ points ၊ vertices သို့မဟုတ် edge များကို တိကျစွာဖမ်းယူနိုင်ရန် <a class="reference internal" href="../../../_images/mIconSnapping.png"><img alt="snapping" src="../../../_images/mIconSnapping.png" style="width: 1.5em;" /></a> <sup>Enable snapping</sup> ခလုတ်ကို နှိပ်ပါ။</p></li>
+<li><p><a class="reference internal" href="../../../_images/mActionIdentify.png"><img alt="identify" src="../../../_images/mActionIdentify.png" style="width: 1.5em;" /></a> <sup>Identify Features</sup> ကို layer tree ထဲရှိ မြင်နိုင်သည့် visible layer များ၏ feature များကို ဖော်ထုတ်ရန် အသုံးပြုပါသည်။
+၎င်းတို့ကို query စစ်ထုတ်ရန် profile view ထဲတွင် များစွာသော feature များကိုဖြတ်၍ ထောင့်မှန်စတုဂံတစ်ခုကိုဖိဆွဲနိုင်ပါသည်။
+Format နှင့် ကိုက်ညီမှုရှိသည့်အခါ (ဥပမာ - vector ၊ point cloud) ဤ feature များသည် main map canvas တွင် သိသာထင်ရှားစွာဖော်ပြမည် (highlighted) ဖြစ်ပါသည်။</p></li>
+<li><p><a class="reference internal" href="../../../_images/mActionMeasure.png"><img alt="measure" src="../../../_images/mActionMeasure.png" style="width: 1.5em;" /></a> <sup>Measurement Distances</sup> - အမှတ်နှစ်ခုအကြားရှိ horizontal <span class="guilabel">Distance</span> ၊ <span class="guilabel">Elevation</span>
+နှင့် <span class="guilabel">Total distance</span> ကို ဖော်ပြရန် (map unit များဖြင့်) plot canvas ထဲရှိ အမှတ်နှစ်ခုကို click သို့မဟုတ် select လုပ်ပါ။</p></li>
+<li><p>Map canvas ထဲရှိ elevation profile line များ၏ တည်နေရာကို ဘယ်မှညာ သို့မဟုတ် ညာမှဘယ်သို့  ရွှေ့ရန် <a class="reference internal" href="../../../_images/mActionArrowLeft.png"><img alt="arrowLeft" src="../../../_images/mActionArrowLeft.png" style="width: 1.2em;" /></a> <sup>Nudge Left</sup> နှင့် <a class="reference internal" href="../../../_images/mActionArrowRight.png"><img alt="arrowRight" src="../../../_images/mActionArrowRight.png" style="width: 1.2em;" /></a> <sup>Nudge right</sup> များကို အသုံးပြုပါသည်။
+Plot canvas ကို profile line buffer နှင့်ထပ်တူကျနေသည့် features နှင့် terrain များကို ဖော်ပြပြီး ပြန်လည်ရေးဆွဲမည်ဖြစ်ပါသည်။
+<a class="reference internal" href="../../../_images/mActionOptions.png"><img alt="options" src="../../../_images/mActionOptions.png" style="width: 1em;" /></a> <sup>Options</sup> menu ထဲရှိ <span class="guilabel">Tolerance</span> တန်ဖိုးကို အသုံးပြုခြင်းဖြင့် line ကို ဘေးတိုက်ရွှေ့သည်။</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Elevation profile တစ်ခု သို့မဟုတ် project ကို ပိတ်လိုက်ခြင်းသည် project မှ လက်ရှိ view ကို ဖယ်ရှားလိုက်မည်ဖြစ်သည်။</p>
+</div>
+<p>အသေးစိတ်အချက်အလက်များအတွက် Nyall Dawson ၏ presentation <a class="reference external" href="https://www.youtube.com/watch?v=AknJjNPystU">QGIS elevation profile/cross section tool – a deep dive!</a> ကို ကြည့်ရှုပါ။</p>
+<p align="center"><iframe width="560" height="315" src="https://www.youtube.com/embed/AknJjNPystU" title="QGIS elevation profile/cross section tool -- a deep dive!" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="true"></iframe></p></section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="3d_map_view.html" class="btn btn-neutral float-left" title="11.2. ရုပ်လုံးကြွမြေပုံမြင်ကွင်း (3D Map View)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../introduction/general_tools.html" class="btn btn-neutral float-right" title="12. အထွေ‌ထွေ‌သုံးကိရိယာများ (General Tools)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2002-now, QGIS project.
+      <span class="lastupdated">Last updated on 2024 May 13, 16:23 +0700.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- Transifex follows a particular logic to build target pages:
+Expected French translation link for https://docs.qgis.org/3.28/en/docs/user_manual/print_composer/overview_composer.html
+would return https://app.transifex.com/qgis/qgis-documentation/translate/#fr/aa6d8bc653526d38b295ca94bf8eee5e
+with the md5 value of "github#qgis/QGIS-Documentation#release_3.28#locale/en/LC_MESSAGES/docs/user_manual/print_composer/overview_composer.po"-->
+<!--Make sure that mismatching language codes between Transifex and Sphinx are converted-->
+
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-info-circle"> QGIS Documentation </span>
+      v: 3.28
+      <span class="fa fa-caret-down"></span>
+    </span>
+
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Languages</dt>
+        
+          <dd><a href="https://docs.qgis.org/3.28/en/docs/user_manual/map_views/elevation_profile.html">en</a></dd>
+        
+      </dl>
+
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/user_manual/map_views/elevation_profile.html">testing</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/latest/en/docs/user_manual/map_views/elevation_profile.html">latest</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.28/en/docs/user_manual/map_views/elevation_profile.html">3.28</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.22/en/docs/user_manual/map_views/elevation_profile.html">3.22</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.16/en/docs/user_manual/map_views/elevation_profile.html">3.16</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.10/en/docs/user_manual/map_views/elevation_profile.html">3.10</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.4/en/docs/user_manual/map_views/elevation_profile.html">3.4</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/2.18/en/docs/user_manual/map_views/elevation_profile.html">2.18</a></dd>
+        
+      </dl>
+
+       
+       <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="https://docs.qgis.org/3.28/pdf">PDF</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.28/zip">HTML</a></dd>
+        
+      </dl>
+      
+
+      
+       
+      <dl>
+        <dt>Contribute to Docs</dt>
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/edit/master/docs/user_manual/map_views/elevation_profile.rst" target="_blank" rel="noopener noreferrer">Edit on GitHub</a>
+          </dd>
+          
+          
+          <dd>
+            <a href="https://app.transifex.com/qgis/qgis-documentation/translate/#en/f6917e5e456d96241612c4bf4dc8bc4d" target="_blank" rel="noopener noreferrer">Translate Page</a>
+          </dd>
+          
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/issues" target="_blank" rel="noopener noreferrer">Report Issue</a>
+          </dd>
+      </dl>
+      
+
+      <dl>
+        <dt>On QGIS Project</dt>
+          <dd>
+            <a href="https://qgis.org/en" target="_blank" rel="noopener noreferrer">Home</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/api/3.28" target="_blank" rel="noopener noreferrer">C++ API</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/pyqgis/3.28" target="_blank" rel="noopener noreferrer">PyQGIS API</a>
+          </dd>
+          <dd>
+            <a href="https://github.com/qgis/QGIS/tree/release-3_28" target="_blank" rel="noopener noreferrer">Source</a>
+          </dd>
+      </dl>
+
+    </div>
+  </div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

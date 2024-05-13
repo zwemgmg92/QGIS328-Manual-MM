@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>21.3. ရလာဒ်တစ်ခု ဖန်တီးခြင်း (Creating an Output) &mdash; QGIS Documentation  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/qgis_docs.css?v=3fdf4c33" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/qgis_logo.ico"/>
+    <link rel="canonical" href="https://docs.qgis.org/latest/en/docs/user_manual/print_composer/create_output.html"/>
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../../_static/copybutton.js?v=f281be69"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="21.4. အစီရင်ခံစာတစ်ခုဖန်တီးခြင်း (Creating a Report)" href="create_reports.html" />
+    <link rel="prev" title="21.2.11. အရာဝတ္ထုများ (The Shape Items)" href="composer_items/composer_shapes.html" />
+  <meta name="description" content="QGIS 3.28 documentation: 21.3. ရလာဒ်တစ်ခု ဖန်တီးခြင်း (Creating an Output)">
+</head>
+
+<body class="wy-body-for-nav">
+
+  <nav class="release_status_topbar">
+  </nav>
+
+   
+
+ 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+   
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            QGIS Documentation
+              <img src="../../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                3.28
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+   <a href= "../../../genindex.html">Index</a>
+ 
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">အသုံးပြုသူများအတွက်</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../preamble/preamble.html">1. စကားချီး (Preamble)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/foreword.html">2. အမှာစာ (Foreword)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/conventions.html">3. အသုံးအနှုန်းများ (Conventions)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/features.html">4. အသွင်အပြင်များ (Features)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/getting_started.html">5. စတင်အသုံးပြုခြင်း (Getting Started)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/project_files.html">6. Project Files များနှင့် အလုပ်လုပ်ခြင်း (Working with Project Files)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/qgis_gui.html">7. QGIS ၏အစိတ်အပိုင်းများ (QGIS GUI)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/browser.html">8. ဒေတာများရှာဖွေကြည့်ရှုနိုင်သည့်နေရာ (The Browser panel)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/qgis_configuration.html">9. QGIS ပြင်ဆင်သတ်မှတ်ခြင်း/အခင်းအကျင်း (QGIS Configuration)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_projections/working_with_projections.html">10. မြေပုံအရိပ်ချစနစ်များ နှင့် အလုပ်လုပ်ခြင်း (Working with Projections)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../map_views/index.html">11. မြေပုံများအား ပုံဖော်ကြည့်ရှုခြင်း (Visualizing Maps)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/general_tools.html">12. အထွေ‌ထွေ‌သုံးကိရိယာများ (General Tools)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../expressions/index.html">13. Expression များဖြင့် အဆင့်မြှင့်တင်ဆောင်ရွက်ခြင်း (Level up with Expressions)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../style_library/index.html">14. The Style Library (Style နှင့်ပတ်သက်သည်များ ထားရှိရာနေရာ)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../managing_data_source/index.html">15. ဒေတာအရင်းအမြစ်များအား စီမံခန့်ခွဲခြင်း (Managing Data Source)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_vector/index.html">16. Vector data များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_raster/index.html">17. Raster Data နှင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_mesh/mesh_properties.html">18. Working with Mesh Data (Mesh Data များနှင့် အလုပ်လုပ်ခြင်း)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_vector_tiles/vector_tiles_properties.html">19. Vector Tiles များနှင့်အလုပ်လုပ်ခြင်း (Working with Vector Tiles)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_point_clouds/point_clouds.html">20. Point Cloud များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">21. မြေပုံအချောသပ်ပြင်ဆင်ခြင်း (Laying out the maps)</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="overview_composer.html">21.1. ပုံထုတ်အပြင်အဆင်ဆိုင်ရာ ခြုံငုံသုံးသပ်ချက် (Overview of the Print Layout)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="composer_items/index.html">21.2. အချောထုတ်မြေပုံ၏အစိတ်အပိုင်းများ (Layout items )</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">21.3. ရလာဒ်တစ်ခု ဖန်တီးခြင်း (Creating an Output)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#export-setting-export-settings">21.3.1. Export ထုတ်ယူခြင်း setting များ (Export settings)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#export-as-image">21.3.2. ပုံအဖြစ် ထုတ်ယူခြင်း (Export as Image)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#export-as-svg-svg-export">21.3.3. Export as SVG (SVG အဖြစ် export ထုတ်ခြင်း)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pdf-export-as-pdf">21.3.4. PDF အဖြစ် ထုတ်ယူခြင်း (Export as PDF)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#generate-an-atlas">21.3.5. Generate an Atlas (မြေပုံစီးရီးတစ်ခု ထုတ်ယူခြင်း)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#control-map-by-atlas-atlas">21.3.5.1. Control map by atlas (Atlas ဖြင့် မြေပုံအား ထိန်းချုပ်ခြင်း)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#expression-customize-labels-with-expression">21.3.5.2. Expression ဖြင့် အညွှန်းများအား ပြင်ဆင်ခြင်း (Customize labels with expression)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#atlas-data-explore-data-defined-override-buttons-with-atlas">21.3.5.3. Atlas ရှိ data အရအစားထိုးလုပ်ဆောင်ခြင်းခလုတ်များအားလေ့လာခြင်း (Explore Data-defined override buttons with atlas)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#atlas-preview-and-generate-an-atlas">21.3.5.4. Atlas တစ်ခုအား အကြိုကြည့်ရှုခြင်းနှင့် ထုတ်လုပ်ခြင်း (Preview and generate an atlas)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#atlas-project-use-project-defined-relations-for-atlas-creation">21.3.5.5. Atlas ဖန်တီးရာတွင် project မှသတ်မှတ်ထားသော ဆက်နွယ်ချက်များကို အသုံးပြုခြင်း (Use project defined relations for atlas creation)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="create_reports.html">21.4. အစီရင်ခံစာတစ်ခုဖန်တီးခြင်း (Creating a Report)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_ogc/ogc_client_support.html">22. OGC / ISO protocol များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_gps/index.html">23. GPS Data များနှင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../auth_system/auth_overview.html">24. အထောက်အထားစီစစ်ခြင်းအကြောင်းအကျဉ်း (Authentication System Overview)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../auth_system/auth_workflows.html">25. အသုံးပြုသူ အထောက်အထားစစ်ဆေးခြင်း လုပ်ငန်းအဆင့်များ (User Authentication Workflows)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../auth_system/auth_considerations.html">26. လုံခြုံရေးအတွက်စဉ်းစားရန်အချက်များ (Security Considerations)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../grass_integration/grass_integration.html">27. GRASS GIS နှင့်ပေါင်းစပ်အသုံးပြုခြင်း (GRASS GIS Integration)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing/index.html">28. QGIS processing framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing_algs/index.html">29. Processing ဆိုင်ရာ ထောက်ပံ့ပေးသူများနှင့် Algorithm များ (Processing providers and algorithms)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/plugins.html">30. QGIS Plugin များ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/core_plugins/index.html">31. QGIS ပင်မ Plugin များကို အသုံးပြုခြင်း (Using QGIS Core Plugins)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/python_console.html">32. QGIS တွင် Python code များရေးသားရန်နေရာ (QGIS Python console)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/help_and_support.html">33. အကူအညီနှင့်အထောက်အပံ့ (Help and Support)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/contributors.html">34. ပါဝင်အားဖြည့်သူများ (Contributors)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendices/index.html">35. နောက်ဆက်တွဲများ (Appendices)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../literature_web/literature_and_web_references.html">36. စာတမ်းများနှင့် Website ကိုးကားချက်များ (Literature and Web References)</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">QGIS Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">&lt;no title&gt;</a></li>
+          <li class="breadcrumb-item"><a href="index.html"><span class="section-number">21. </span>မြေပုံအချောသပ်ပြင်ဆင်ခြင်း (Laying out the maps)</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">21.3. </span>ရလာဒ်တစ်ခု ဖန်တီးခြင်း (Creating an Output)</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/qgis/QGIS-Documentation/blob/master/docs/user_manual/print_composer/create_output.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="composer_items/composer_shapes.html" class="btn btn-neutral float-left" title="21.2.11. အရာဝတ္ထုများ (The Shape Items)" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="create_reports.html" class="btn btn-neutral float-right" title="21.4. အစီရင်ခံစာတစ်ခုဖန်တီးခြင်း (Creating a Report)" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <blockquote>
+<div></div></blockquote>
+<section id="creating-an-output">
+<span id="create-output"></span><span id="index-0"></span><h1><span class="section-number">21.3. </span>ရလာဒ်တစ်ခု ဖန်တီးခြင်း (Creating an Output)<a class="headerlink" href="#creating-an-output" title="Link to this heading"></a></h1>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#export-setting-export-settings" id="id7">Export ထုတ်ယူခြင်း setting များ (Export settings)</a></p></li>
+<li><p><a class="reference internal" href="#export-as-image" id="id8">ပုံအဖြစ် ထုတ်ယူခြင်း (Export as Image)</a></p></li>
+<li><p><a class="reference internal" href="#export-as-svg-svg-export" id="id9">Export as SVG (SVG အဖြစ် export ထုတ်ခြင်း)</a></p></li>
+<li><p><a class="reference internal" href="#pdf-export-as-pdf" id="id10">PDF အဖြစ် ထုတ်ယူခြင်း (Export as PDF)</a></p></li>
+<li><p><a class="reference internal" href="#generate-an-atlas" id="id11">Generate an Atlas (မြေပုံစီးရီးတစ်ခု ထုတ်ယူခြင်း)</a></p>
+<ul>
+<li><p><a class="reference internal" href="#control-map-by-atlas-atlas" id="id12">Control map by atlas (Atlas ဖြင့် မြေပုံအား ထိန်းချုပ်ခြင်း)</a></p></li>
+<li><p><a class="reference internal" href="#expression-customize-labels-with-expression" id="id13">Expression ဖြင့် အညွှန်းများအား ပြင်ဆင်ခြင်း (Customize labels with expression)</a></p></li>
+<li><p><a class="reference internal" href="#atlas-data-explore-data-defined-override-buttons-with-atlas" id="id14">Atlas ရှိ data အရအစားထိုးလုပ်ဆောင်ခြင်းခလုတ်များအားလေ့လာခြင်း (Explore Data-defined override buttons with atlas)</a></p></li>
+<li><p><a class="reference internal" href="#atlas-preview-and-generate-an-atlas" id="id15">Atlas တစ်ခုအား အကြိုကြည့်ရှုခြင်းနှင့် ထုတ်လုပ်ခြင်း (Preview and generate an atlas)</a></p></li>
+<li><p><a class="reference internal" href="#atlas-project-use-project-defined-relations-for-atlas-creation" id="id16">Atlas ဖန်တီးရာတွင် project မှသတ်မှတ်ထားသော ဆက်နွယ်ချက်များကို အသုံးပြုခြင်း (Use project defined relations for atlas creation)</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+<p><a class="reference internal" href="#figure-layout-output"><span class="std std-numref">Fig. 21.62</span></a> သည် ယခင် အပိုင်းတွင် ဖော်ပြခဲ့ပြီးသော layout item အမျိုးအစားအားလုံးပါဝင်သည့်
+print layout နမူနာတစ်ခုအား ပြသထားပါသည်။</p>
+<figure class="align-center" id="id1">
+<span id="figure-layout-output"></span><a class="reference internal image-reference" href="../../../_images/print_composer_complete.png"><img alt="../../../_images/print_composer_complete.png" src="../../../_images/print_composer_complete.png" style="width: 100%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 21.62 </span><span class="caption-text">ပေါင်းထည့်ထားသော HTML frame နှင့် စာသားများ၊ ကိုသြဒိနိတ်အမှတ်များ၊ စကေးဘား နှင့် ဓါတ်ပုံများ၊ မြေပုံရည်ညွှန်းချက်၊ မြေပုံမြင်ကွင်း များပါဝင်သော ပုံထုတ်အပြင်အဆင်</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p id="index-1"><span class="menuselection">Layout</span> menu သို့မဟုတ် toolbar မှ print layout များကို ဖိုင်ပုံစံအမျိုးမျိုးဖြင့် ထုတ်ယူနိုင်ပါသည်။ ထုတ်ယူမည့် စာရွက်အရွယ်အစားနှင့် ကြည်လင်ပြတ်သားမှု (ပုံထုတ် အရည်အသွေး) အား ပြုပြင်မွမ်းမံနိုင်ပါသည်။</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../../../_images/mActionFilePrint.png"><img alt="filePrint" src="../../../_images/mActionFilePrint.png" style="width: 1.5em;" /></a> <sup>Print</sup> သင်္ကေတသည် ထည့်သွင်းထားသော printer driver များပေါ်မူတည်၍ layout အား ချိတ်ဆက်ထားသော printer တစ်ခု သို့မဟုတ် PostScript ဖိုင်တစ်ခုသို့ print လုပ်နိုင်မည်ဖြစ်သည်။</p></li>
+<li><p><a class="reference internal" href="../../../_images/mActionSaveMapAsImage.png"><img alt="saveMapAsImage" src="../../../_images/mActionSaveMapAsImage.png" style="width: 1.5em;" /></a> <sup>Export as image</sup> သင်္ကေတသည် print layout အား <code class="file docutils literal notranslate"><span class="pre">PNG</span></code> ဖိုင်၊ <code class="file docutils literal notranslate"><span class="pre">BMP</span></code> ဖိုင်၊ <code class="file docutils literal notranslate"><span class="pre">TIF</span></code> ဖိုင်၊ <code class="file docutils literal notranslate"><span class="pre">JPG</span></code> ဖိုင်၊ နှင့် အခြားများစွာသော ဖိုင်များ ကဲ့သို့ ဓာတ်ပုံ format အဖြစ်သို့ ထုတ်ယူပေးပါသည်။</p></li>
+<li><p><a class="reference internal" href="../../../_images/mActionSaveAsSVG.png"><img alt="saveAsSVG" src="../../../_images/mActionSaveAsSVG.png" style="width: 1.5em;" /></a> <sup>Export as SVG</sup> သင်္ကေတသည် <code class="file docutils literal notranslate"><span class="pre">SVG</span></code> (Scalable Vector Graphic) တစ်ခုအဖြစ်
+print layout အား သိမ်းဆည်းပေးပါသည်။</p></li>
+<li><p><a class="reference internal" href="../../../_images/mActionSaveAsPDF.png"><img alt="saveAsPDF" src="../../../_images/mActionSaveAsPDF.png" style="width: 1.5em;" /></a> <sup>Export as PDF</sup> သင်္ကေတသည် သတ်မှတ်ထားသော print layout အား <code class="file docutils literal notranslate"><span class="pre">PDF</span></code> (Portable Document Format) ဖိုင်အဖြစ် တိုက်ရိုက် သိမ်းဆည်းပေးပါသည်။</p></li>
+</ul>
+<section id="export-setting-export-settings">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink"><span class="section-number">21.3.1. </span>Export ထုတ်ယူခြင်း setting များ (Export settings)</a><a class="headerlink" href="#export-setting-export-settings" title="Link to this heading"></a></h2>
+<p>Print layout တစ်ခုအား ထုတ်ယူသည့်အခါတိုင်း၊ အသင့်တော်ဆုံး ရလာဒ်တစ်ခုအား ရရှိရန်အတွက် QGIS မှ စစ်ဆေးရန်လိုအပ်သော ထုတ်ယူခြင်း setting များရှိပါသည်။ ထို configuration (ပြင်ဆင်သတ်မှတ်ချက်) များမှာ-</p>
+<ul class="simple">
+<li><p><span class="guilabel">Layout</span> panel ၏ <a class="reference internal" href="overview_composer.html#layout-export-settings"><span class="std std-ref">Export settings</span></a> များ ဥပမာအားဖြင့် - <span class="guilabel">Export resolution</span> (Export ၏ကြည်လင်ပြတ်သားမှု) ၊ <span class="guilabel">Print as raster</span> (Raster အဖြစ် print လုပ်ခြင်း) ၊ <span class="guilabel">Always export as vectors</span> (Vector များအဖြစ် အမြဲ export လုပ်ခြင်း) သို့မဟုတ်  <span class="guilabel">Save world file</span> (World file အဖြစ်သိမ်းဆည်းခြင်း)</p></li>
+<li><p><a class="reference internal" href="overview_composer.html#page-properties"><span class="std std-ref">စာမျက်နှာဆိုင်ရာဂုဏ်သတ္တိများ</span></a> panel ရှိ <span class="guilabel">Exclude page from exports</span> (စာမျက်နှာကို Export ထုတ်ခြင်းများမှ ချန်လှပ်ထားခြင်း)</p></li>
+<li><p><a class="reference internal" href="composer_items/composer_items_options.html#layout-rendering-mode"><span class="std std-ref">Item ဂုဏ်သတ္တိများ</span></a> panel ရှိ <span class="guilabel">Exclude item from exports</span> (Item ကို Export ထုတ်ခြင်းများမှ ချန်လှပ်ထားခြင်း)</p></li>
+</ul>
+<p>ထို့အပြင်၊ ကြိုတင်သတ်မှတ်ထားသော စစ်ဆေးမှုများအား layout ၌ အလိုအလျောက် အသုံးပြုသွားမည်ဖြစ်ပါသည်။ လက်ရှိတွင် အဆိုပါ စစ်ဆေးမှုများတွင် စမ်းသပ်မှုများပါဝင်ပါသည်။ ယင်းတွင် စကေးဘား သည် မြေပုံ item များနှင့် မှန်မှန်ကန်ကန်ချိတ်ဆက်နေခြင်း ရှိ/မရှိ နှင့် မြေပုံ overview item များသည်လည်း မြေပုံနှင့် မှန်မှန်ကန်ကန်ချိတ်ဆက်နေခြင်း ရှိ/မရှိ တို့ ပါဝင်သည်။ စစ်ဆေးမှုများသည် မအောင်မြင်လျှင်၊ ပြဿနာနှင့်ပတ်သက်သော သတိပေးအကြံပြုချက်တစ်ခုအား ပြသပေးပါလိမ့်မည်။</p>
+</section>
+<section id="export-as-image">
+<span id="export-layout-image"></span><h2><a class="toc-backref" href="#id8" role="doc-backlink"><span class="section-number">21.3.2. </span>ပုံအဖြစ် ထုတ်ယူခြင်း (Export as Image)</a><a class="headerlink" href="#export-as-image" title="Link to this heading"></a></h2>
+<p>ဓာတ်ပုံတစ်ခုအဖြစ် layout တစ်ခုအား export ထုတ်ယူရန်-</p>
+<ol class="arabic">
+<li><p><a class="reference internal" href="../../../_images/mActionSaveMapAsImage.png"><img alt="saveMapAsImage" src="../../../_images/mActionSaveMapAsImage.png" style="width: 1.5em;" /></a> <sup>Export as image</sup> icon အား နှိပ်ပါ။</p></li>
+<li><p>အသုံးပြုရန် ဓာတ်ပုံ format ၊ folder နှင့်  ဖိုင်အမည်အား ရွေးချယ်ပါ၊ (ဉပမာအားဖြင့် <code class="file docutils literal notranslate"><span class="pre">myill.png</span></code>) Layout တွင် စာမျက်နှာ တစ်ခုထက်မက ပါဝင်ပါက၊ စာမျက်နှာတစ်ခုစီအား စာမျက်နှာနံပါတ်နှင့်အတူ ပေးထားသော ဖိုင်အမည်ဖြင့် ဖိုင် တစ်ခုစီသို့ export လုပ်ပေးပါလိမ့်မည် (ဉပမာအားဖြင့် <code class="file docutils literal notranslate"><span class="pre">myill_2.png</span></code>)။</p></li>
+<li><p>နောက်တစ်ဆင့်အနေဖြင့် (<span class="guilabel">Image Export Options</span>) dialog တွင်-</p>
+<ul>
+<li><p>Print layout ၏ <span class="guilabel">Export resolution</span> နှင့် export ထုတ်ယူသော စာမျက်နှာ၏ အတိုင်းအတာများ (<span class="guilabel">Layout</span> panel ထဲတွင် သတ်မှတ်ထားသည့်အတိုင်း) အား အစားထိုးလုပ်ဆောင်နိုင်ပါသည်။</p></li>
+<li><p><span class="guilabel">Enable antialiasing</span> ရွေးချယ်မှုဖြင့် ဓာတ်ပုံ ပုံဖော်ပြသခြင်း အရည်အသွေးကိုလည်း ပိုမိုကောင်းမွန်စေနိုင်ပါသည်။</p></li>
+<li><p>မိမိ ပြုလုပ်ထားသော layout အား <strong>georeference ပြုလုပ်ထားသော ဓာတ်ပုံ</strong> တစ်ခုအဖြစ် (ဥပမာအားဖြင့်၊ အခြား project များအား မျှဝေရန်) export ထုတ်ယူလိုလျှင်၊ <a class="reference internal" href="../../../_images/unchecked.png"><img alt="unchecked" src="../../../_images/unchecked.png" style="width: 1.3em;" /></a> <span class="guilabel">Generate world file</span> option အား အမှန်ခြစ်ပါ။ Export ထုတ်ယူထားသောဓာတ်ပုံနှင့် နာမည်တူပြီး extension မတူသော <em>ESRI World File</em> တစ်ခု (TIFF ဖိုင်အတွက် <code class="file docutils literal notranslate"><span class="pre">.tfw</span></code>၊ PNG ဖိုင်အတွက် <code class="file docutils literal notranslate"><span class="pre">.pnw</span></code>၊ JPEG ဖိုင်အတွက် <code class="file docutils literal notranslate"><span class="pre">jgw</span></code> ၊ …) အား  ဖန်တီးပေးပါလိမ့်မည်။ ယခု option ကို <a class="reference internal" href="overview_composer.html#layout-panel"><span class="std std-ref">layout panel</span></a> ထဲတွင် default အနေဖြင့်လည်း အမှန်ခြစ်ထားနိုင်ပါသည်။</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>စာမျက်နှာများစွာထုတ်ယူမည်ဆိုလျှင်၊ <a class="reference internal" href="overview_composer.html#reference-map"><span class="std std-ref">အကိုးအကားမြေပုံ</span></a> ပါဝင်သော စာမျက်နှာတွင်သာ world file တစ်ခုရှိပါလိမ့်မည် (<span class="guilabel">Generate world file</span> option အား အမှန်ခြစ်ထားသည်ဟု ယူဆလျက်)။</p>
+</div>
+</li>
+</ul>
+<span id="index-2"></span><ul id="crop-to-content">
+<li><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">Crop to content</span> အား အမှန်ခြစ်ထားခြင်းအားဖြင့် layout ဓာတ်ပုံ output တွင် စာမျက်နှာတစ်ခုချင်းစီ၏ ပါဝင်သော အရာများ (မြေပုံ၊ မြေပုံရည်ညွှန်းချက်၊ စကေးဘား ၊ ပုံသဏ္ဍာန် ၊ အညွှန်း၊ ဓာတ်ပုံ…) အားလုံးအား ပူးတွဲထားသော အနည်းဆုံးဧရိယာ ပါဝင်သည်-</p>
+<ul>
+<li><dl>
+<dt>ဖွဲ့စည်းမှု (composition) တွင် စာမျက်နှာတစ်ခုသာပါလျှင်၊ ဖွဲ့စည်းမှု (composition) ရှိ အားလုံးပါဝင်ရန် output အား အရွယ်အစားချိန်ညှိပေးမည်ဖြစ်သည်။ ထို့နောက် ၎င်းတို့၏ နေရာတည်ရှိမှု (စာမျက်နှာ၏ အပေါ်၊ အထက်၊ အောက်၊ ဘယ်ဘက် သို့မဟုတ် ညာဘက်) အပေါ်မူတည်၍ item များအားလုံးပါဝင်စေရန် စာမျက်နှာအား လျှော့ချခြင်း သို့မဟုတ် တိုးချဲ့ခြင်း တို့ကို ပြုလုပ်နိုင်သည်။</dt><dd><ul class="simple">
+<li><p>စာမျက်နှာများစွာပါသော layout တစ်ခုအား ထုတ်ယူမည်ဆိုလျှင်၊ ၎င်းဧရိယာထဲတွင် item များပါဝင်စေရန် စာမျက်နှာ တစ်ခုချင်းစီအား အရွယ်အစားချိန်ညှိပေးပါလိမ့်မည် (စာမျက်နှာအားလုံးအတွက် ဘယ် နှင့် ညာဘက် အခြမ်းများ၊ ထို့အပြင် ပထမစာမျက်နှာအတွက် ထိပ်ပိုင်းနှင့် နောက်ဆုံးစာမျက်နှာအတွက် အောက်ပိုင်း)။ အရွယ်အစားချိန်ညှိထားပြီးသား စာမျက်နှာတစ်ခုချင်းစီအား သီးခြားဖိုင်တစ်ခုစီအဖြစ် export ထုတ်ယူမည်ဖြစ်သည်။</p></li>
+</ul>
+<p><span class="guilabel">Crop to content</span> dialog သည် ဖြတ်ထုတ်လိုက်သော အကျယ်အဝန်းတစ်လျှောက်တွင် အနားသတ် (margin) များကိုလည်း ပေါင်းထည့်ပေးစေပါသည်။</p>
+</dd>
+</dl>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<figure class="align-center" id="id2">
+<span id="figure-layout-output-image"></span><img alt="../../../_images/image_export_options.png" src="../../../_images/image_export_options.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 21.63 </span><span class="caption-text">ဓာတ်ပုံထုတ်ယူမှု ရွေးချယ်စရာများ၊ item များ၏ extent အတိုင်း output အား အရွယ်အစားချိန်ညှိမည်ဖြစ်သည်။</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><strong>Item များ၏ extent သည် စာရွက်၏ extent ထက်ကျော်လွန်နေသောအခါ transparency (အလင်းဖောက်နှုန်း) ကို ရရှိနိုင်သော ဓာတ်ပုံ format များကို အသုံးပြုပါ</strong></p>
+<p>Layout item များသည် စာရွက် extent အပြင်ဘက်တွင် ရောက်ရှိနေနိုင်ပါသည်။ <span class="guilabel">Crop to content</span> option ဖြင့် export ထုတ်ယူသောအခါ ရလာဒ် ဓာတ်ပုံသည် စာရွက် extent ထက် ကျော်လွန်နိုင်ပါသည်။ စာရွက် extent ၏ အပြင်ဘက် နောက်ခံများသည် transparent (အလင်းဖောက်နိုင်သော) ဖြစ်နေမည်ဖြစ်သောကြောင့် transparency (အလင်းဖောက်နှုန်း) မရရှိသော ဓာတ်ပုံ format များအတွက် (ဉပမာ၊ <code class="docutils literal notranslate"><span class="pre">BMP</span></code> နှင့် <code class="docutils literal notranslate"><span class="pre">JPG</span></code> များ)၊ transparent (အလင်းဖောက်နိုင်သော) ဖြစ်နေသော နောက်ခံအား အနက်ရောင်အပြည့်ဖြင့် ပုံဖော်ပြသပေးမည်ဖြစ်သည်။ ထိုသို့သောကိစ္စရပ်များတွင် transparency-compatible (အလင်းဖောက်မှု နှင့်တွဲဖက်သုံးနိုင်သော) format (ဉပမာ- <code class="docutils literal notranslate"><span class="pre">TIFF``နှင့်</span> <span class="pre">``PNG</span></code>) များအား အသုံးပြုပါ။</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>ရှိပြီးသား Qt library နှင့် format (ဉပမာ- <code class="file docutils literal notranslate"><span class="pre">PNG</span></code>) က လက်ခံသည့်အခါ၊ export ထုတ်ယူလိုက်သည့် ဓာတ်ပုံများတွင် <a class="reference internal" href="../introduction/qgis_configuration.html#project-metadata"><span class="std std-ref">project metadata</span></a> (ရေးဆွဲသူ၊ ခေါင်းစဉ်၊ ရက်စွဲ၊ ဖော်ပြချက်…) တို့ ပါဝင်နိုင်သည်။</p>
+</div>
+</section>
+<section id="export-as-svg-svg-export">
+<span id="export-layout-svg"></span><h2><a class="toc-backref" href="#id9" role="doc-backlink"><span class="section-number">21.3.3. </span>Export as SVG (SVG အဖြစ် export ထုတ်ခြင်း)</a><a class="headerlink" href="#export-as-svg-svg-export" title="Link to this heading"></a></h2>
+<p>SVG အဖြစ် layout တစ်ခုအား export ထုတ်ရန်-</p>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="../../../_images/mActionSaveAsSVG.png"><img alt="saveAsSVG" src="../../../_images/mActionSaveAsSVG.png" style="width: 1.5em;" /></a> <sup>Export as SVG</sup> သင်္ကေတအား နှိပ်ပါ။</p></li>
+<li><p>သိမ်းဆည်းမည့်လမ်းကြောင်း နှင့် ဖိုင်အမည် ဖြည့်ပါ (စာမျက်နှာတစ်ခုထက်မက ပါဝင်သော ဖိုင်များအတွက်ဆိုလျှင် ဖိုင်များအားလုံးအတွက် ဓာတ်ပုံ export ထုတ်ရာတွင် အခြေခံအမည်တစ်ခုအား အသုံးပြုမည်ဖြစ်သည်)</p></li>
+<li><p>ထို့နောက် <span class="guilabel">SVG Export Options</span> dialog ထဲတွင် layout default <a class="reference internal" href="overview_composer.html#layout-export-settings"><span class="std std-ref">export setting များ</span></a> အား အစားထိုးလုပ်ဆောင်နိုင်သည် သို့မဟုတ် အသစ်များအား ပြင်ဆင်သတ်မှတ်နိုင်ပါသည်။</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../../../_images/unchecked.png"><img alt="unchecked" src="../../../_images/unchecked.png" style="width: 1.3em;" /></a> <span class="guilabel">Export map layers as SVG groups</span> - QGIS မှ layer အမည်များနှင့် ကိုက်ညီသော export ထုတ်ထားသည့် item များအား layer များအတွင်း အုပ်စုဖွဲ့ပေးမည်ဖြစ်သည်။ ၎င်းသည် အကြောင်းအရာများအား လွယ်ကူစွာ နားလည်နိုင်စေပါသည်။</p></li>
+<li><p><a class="reference internal" href="../../../_images/unchecked.png"><img alt="unchecked" src="../../../_images/unchecked.png" style="width: 1.3em;" /></a> <span class="guilabel">Always export as vectors</span> - အချို့သော ပုံဖော်ပြသမှု option များသည် ပိုမိုကောင်းမွန်သောပုံဖော်ပြသမှုရရှိစေရန်အတွက် item များအား raster အဖြစ်သို့ပြောင်းလဲရန် လိုအပ်ပါသည်။ Output ဖိုင်သည် print layout အကြိုကြည့်ရှုမှု (preview) နှင့် ပုံပန်းသဏ္ဍာန်ကိုက်ညီမှုမရှိ ဖြစ်နိုင်သော vector များအဖြစ် object များကိုဆက်လက်ထားရှိရန် ယခု option အား အမှန်ခြစ်ပါ (ပိုမိုသောအသေးစိတ်များ အတွက် <a class="reference internal" href="overview_composer.html#layout-export-settings"><span class="std std-ref">Export ထုတ်ယူခြင်း setting များ (Export settings)</span></a> အား ကြည့်ပါ)။</p></li>
+<li><p>ခေါင်းစဉ်၊ ရေးဆွဲသူ၊ ရက်စွဲ၊ ဖော်ပြချက်…ကဲ့သို့သော RDF metadata များအား export ထုတ်ယူရန် <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">Export RDF metadata</span> ကိုအမှန်ခြစ်ပါ။</p></li>
+<li><p>Vertex များအားလုံးအား export ထုတ်ယူလျှင် အခြား application များ၌ ထည့်သွင်းအသုံးပြုရာတွင် အဆင်မပြေမှုများရှိနိုင်သော အလွန်ရှုပ်ထွေးပြီး ဖိုင်အရွယ်အစားကြီးမားသော ရလာဒ်များ ရရှိစေပါသည်၊ ထို့ကြောင့် <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">Simplify geometries to reduce output file size</span> ကို အမှန်ခြစ်ခြင်းဖြင့် ဂျီဩမေတြီ၏ vertex (မျဉ်းအဆစ်) များအားလုံးကို export ထုတ်ယူခြင်းမှ ရှောင်ရှားပေးပါသည်။ Export resolution (ကြည်လင်ပြတ်သားမှု) ၌ သိသိသာသာ ကွဲပြားမှုမရှိသော ပိုလျှံနေသည့် မည်သည့် vertex များကိုမဆို ဖယ်ရှားရန်အတွက် layout အား export ထုတ်ယူနေစဉ်တွင် ဂျီဩမေတြီများအား ရိုးရှင်းအောင်လုပ်ပေးမည်ဖြစ်သည် (ဥပမာအားဖြင့်- export resolution သည် <code class="docutils literal notranslate"><span class="pre">300</span> <span class="pre">dpi</span></code> ဖြစ်လျှင်၊ <code class="docutils literal notranslate"><span class="pre">1/600</span> <span class="pre">inch</span></code> ထက် သေးငယ်သော vertex များအား ဖယ်ရှားပေးပါလိမ့်မည်)။</p></li>
+<li><p><span class="guilabel">Text export</span> အား သတ်မှတ်ပါ- အညွှန်းစာသားများအား သင့်တော်သောစာသားများ (<span class="guilabel">Always export texts as text objects</span>) အဖြစ် သို့မဟုတ် လမ်းကြောင်းများအဖြစ်သာ (<span class="guilabel">Always export texts as paths</span>) export ထုတ်/မထုတ်ကို ထိန်းချုပ်ပေးပါသည်။ ၎င်းတို့အား စာသား အဖြစ် export ထုတ်လျှင် ပြင်ပ application များတွင် ပုံမှန် စာသား အဖြစ် (ဥပမာအားဖြင့်- Inkscape) တည်းဖြတ်ပြင်ဆင်နိုင်မည်ဖြစ်သည်။ သို့သော် ပုံဖော်ပြသမှု အရည်အသွေး လျော့ချစေပြီး၊ buffer များကဲ့သို့ အချို့သော စာသား setting များ ပြုလုပ်သည့်အခါ ပုံဖော်ပြသရာတွင် ပြဿနာများရှိမည်ဖြစ်သည်။ ထို့ကြောင့် လမ်းကြောင်းများ အနေဖြင့် export ထုတ်ခြင်းအား အကြံပြုပါသည်။</p></li>
+<li><dl class="simple">
+<dt><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">Crop to content</span> <a class="reference internal" href="#crop-to-content"><span class="std std-ref">option</span></a> အား အမှန်ခြစ်ပါ။</dt><dd><ul>
+<li><p><a class="reference internal" href="../../../_images/unchecked.png"><img alt="unchecked" src="../../../_images/unchecked.png" style="width: 1.3em;" /></a> <span class="guilabel">Disable tiled raster layer exports</span> - ဖိုင်များအား export ထုတ်ယူသည့်အခါ၊ ကွန်ပျူတာမှတ်ဉာဏ်ကို သက်သာစေသော built-in ပါရှိပြီးသားဖြစ်သည့် raster layer ကို tile (အကွက်) များဖြင့် ပုံဖော်ပြသခြင်းအား QGIS မှ အသုံးပြုပါသည်။ တခါတရံတွင် ၎င်းသည် ထုတ်ယူလိုက်သော ဖိုင်များအတွက် raster များထဲတွင် “ဆက်ကြောင်း” (seams) များကို ဖြစ်စေသည်။ ယခု option အား အမှန်ခြစ်ခြင်းသည် အဆိုပါ ပြဿနာအား ဖြေရှင်းနိုင်လိမ့်မည်ဖြစ်သော်လည်း Export ထုတ်ယူနေစဉ် ကွန်ပျူတာမှတ်ဉာဏ် သုံးစွဲမှုများပြားမည်ဖြစ်သည်။</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</li>
+</ol>
+<figure class="align-center" id="id3">
+<span id="figure-layout-output-svg"></span><img alt="../../../_images/svg_export_options.png" src="../../../_images/svg_export_options.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 21.64 </span><span class="caption-text">SVG Export ထုတ်ခြင်း ရွေးချယ်စရာများ</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>ယခုလက်ရှိတွင် SVG  ရလဒ်သည် အလွန် အခြေခံကျပါသည်။ ၎င်းသည် QGIS ပြဿနာတစ်ခုမဟုတ်ပေ၊ သို့သော် ရှိနေပြီးသား Qt library ၌ ပြဿနာတစ်ခုသာလျှင်ဖြစ်သည်။ အဆိုပါအရာအား အနာဂါတ် version များတွင် ဖြေရှင်းနိုင်မည်ဟု မျှော်လင့်ပါသည်။</p>
+</div>
+</section>
+<section id="pdf-export-as-pdf">
+<span id="export-layout-pdf"></span><h2><a class="toc-backref" href="#id10" role="doc-backlink"><span class="section-number">21.3.4. </span>PDF အဖြစ် ထုတ်ယူခြင်း (Export as PDF)</a><a class="headerlink" href="#pdf-export-as-pdf" title="Link to this heading"></a></h2>
+<p>PDF အဖြစ် layout တစ်ခုအား export ထုတ်ယူရန်-</p>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="../../../_images/mActionSaveAsPDF.png"><img alt="saveAsPDF" src="../../../_images/mActionSaveAsPDF.png" style="width: 1.5em;" /></a> <sup>Export as PDF</sup> သင်္ကေတအား နှိပ်ပါ။</p></li>
+<li><p>ဖိုင်လမ်းကြောင်းနှင့် ဖိုင်အမည်ကို ဖြည့်ပါ။ ပုံများ နှင့်  SVG export ထုတ်ယူမှုများနှင့်မတူပဲ layout ရှိ စာမျက်နှာများအားလုံးကို PDF ဖိုင်တစ်ခုထဲသို့ export ထုတ်ယူပေးပါသည်။</p></li>
+<li><p>နောက်ထပ် <span class="guilabel">PDF Export Options</span> dialog တွင် layout ၏ default <a class="reference internal" href="overview_composer.html#layout-export-settings"><span class="std std-ref">export settings</span></a> အား အစားထိုးလုပ်ဆောင်နိုင်သည် သို့မဟုတ် အသစ်များကို ပြင်ဆင်သတ်မှတ်ပေးနိုင်သည်-</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../../../_images/unchecked.png"><img alt="unchecked" src="../../../_images/unchecked.png" style="width: 1.3em;" /></a> <span class="guilabel">Always export as vectors</span> - အချို့သော ပုံဖော်ပြသမှု option များသည် ပိုမိုကောင်းမွန်သောပုံဖော်ပြသမှုရရှိစေရန်အတွက် item များအား raster အဖြစ်သို့ပြောင်းလဲရန် လိုအပ်ပါသည်။ Output ဖိုင်သည် print layout အကြိုကြည့်ရှုမှု (preview) နှင့် ပုံပန်းသဏ္ဍာန်ကိုက်ညီမှုမရှိ ဖြစ်နိုင်သော vector များအဖြစ် object များကိုဆက်လက်ထားရှိရန် ယခု option အား အမှန်ခြစ်ပါ (ပိုမိုသောအသေးစိတ်များ အတွက် <a class="reference internal" href="overview_composer.html#layout-export-settings"><span class="std std-ref">Export ထုတ်ယူခြင်း setting များ (Export settings)</span></a> အား ကြည့်ပါ)။</p></li>
+<li><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">Append georeference information</span> - အချက်အလက်များရယူသော <a class="reference internal" href="overview_composer.html#reference-map"><span class="std std-ref">reference map</span></a> သည် ပထမဆုံးစာမျက်နှာတွင် ရှိမှာသာ အသုံးပြုနိုင်မည်ဖြစ်သည်။</p></li>
+<li><p>ခေါင်းစဉ်၊ ရေးဆွဲသူ၊ ရက်စွဲ၊ ဖော်ပြချက်…အစရှိသည့် RDF metadata များကို export ထုတ်ယူရန် <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">Export RDF metadata</span> ကိုအမှန်ခြစ်ပါ။</p></li>
+<li><p><span class="guilabel">Text export</span> အား သတ်မှတ်ပါ- အညွှန်းစာသားများအား သင့်တော်သောစာသားများ (<span class="guilabel">Always export texts as text objects</span>) အဖြစ် သို့မဟုတ် လမ်းကြောင်းများအဖြစ်သာ (<span class="guilabel">Always export texts as paths</span>) export ထုတ်/မထုတ်ကို ထိန်းချုပ်ပေးပါသည်။ ၎င်းတို့အား စာသား အဖြစ် export ထုတ်လျှင် ပြင်ပ application များတွင် ပုံမှန် စာသား အဖြစ် (ဥပမာအားဖြင့်- Inkscape) တည်းဖြတ်ပြင်ဆင်နိုင်မည်ဖြစ်သည်။ သို့သော် ပုံဖော်ပြသမှု အရည်အသွေး လျော့ချစေပြီး၊ buffer များကဲ့သို့ အချို့သော စာသား setting များ ပြုလုပ်သည့်အခါ ပုံဖော်ပြသရာတွင် ပြဿနာများရှိမည်ဖြစ်သည်။ ထို့ကြောင့် လမ်းကြောင်းများ အနေဖြင့် export ထုတ်ခြင်းအား အကြံပြုပါသည်။</p></li>
+<li><p>အောက်ဖော်ပြပါ အရာများအား အသုံးပြုပြီး PDF <span class="guilabel">Image compression</span> ကို ထိန်းညှိပါ-</p>
+<ul>
+<li><p><span class="guilabel">Lossy (JPEG)</span> သည် default ဖြစ်သော ဖိုင်ချုံ့ခြင်း နည်းလမ်းဖြစ်သည်။</p></li>
+<li><p>သို့မဟုတ် <span class="guilabel">Lossless</span> သည် အများစုကိစ္စရပ်များတွင် ကြီးမားသော ဖိုင်များကို ဖန်တီးပေးသော်လည်း ၎င်းသည် output များကို ပုံနှိပ်ခြင်းပြုလုပ်ရန်အတွက် သို့မဟုတ် ပြင်ပ application များတွင် post-production (နောက်ပိုင်းလုပ်ငန်းစဉ်) အတွက် အလွန်သင့်လျော်ပါသည် (Qt 5.13 နှင့် နောက်ပိုင်း ဖြစ်ရန် လိုအပ်သည်)။</p></li>
+</ul>
+</li>
+<li><p>Georeferenced ပြုလုပ်ထားသော PDF ဖိုင်တစ်ခုအား ထုတ်ယူလိုလျှင် <a class="reference internal" href="../../../_images/unchecked.png"><img alt="unchecked" src="../../../_images/unchecked.png" style="width: 1.3em;" /></a> <span class="guilabel">Create Geospatial PDF (GeoPDF)</span> အား အမှန်ခြစ်ပါ။</p></li>
+<li><p><a class="reference internal" href="../../../_images/unchecked.png"><img alt="unchecked" src="../../../_images/unchecked.png" style="width: 1.3em;" /></a> <span class="guilabel">Disable tiled raster layer exports</span> - ဖိုင်များအား export ထုတ်ယူသည့်အခါ၊ ကွန်ပျူတာမှတ်ဉာဏ်ကို သက်သာစေသော built-in ပါရှိပြီးသားဖြစ်သည့် raster layer ကို tile (အကွက်) များဖြင့် ပုံဖော်ပြသခြင်းအား QGIS မှ အသုံးပြုပါသည်။ တခါတရံတွင် ၎င်းသည် ထုတ်ယူလိုက်သော ဖိုင်များအတွက် raster များထဲတွင် “ဆက်ကြောင်း” (seams) များကို ဖြစ်စေသည်။ ယခု option အား အမှန်ခြစ်ခြင်းသည် အဆိုပါ ပြဿနာအား ဖြေရှင်းနိုင်လိမ့်မည်ဖြစ်သော်လည်း Export ထုတ်ယူနေစဉ် ကွန်ပျူတာမှတ်ဉာဏ် သုံးစွဲမှုများပြားမည်ဖြစ်သည်။</p></li>
+<li><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">Simplify geometries to reduce output file size</span> ကို အမှန်ခြစ်ခြင်းဖြင့် Export resolution (ကြည်လင်ပြတ်သားမှု) ၌ သိသိသာသာ ကွဲပြားမှုမရှိသော vertex များကိုမဆို ဖယ်ရှားခြင်းဖြင့် layout အား export ထုတ်ယူနေစဉ်တွင် ဂျီဩမေတြီများအား ရိုးရှင်းအောင်လုပ်ပေးမည်ဖြစ်သည် (ဥပမာအားဖြင့်- export resolution သည် <code class="docutils literal notranslate"><span class="pre">300</span> <span class="pre">dpi</span></code> ဖြစ်လျှင်၊ <code class="docutils literal notranslate"><span class="pre">1/600</span> <span class="pre">inch</span></code> ထက် သေးငယ်သော vertex များအား ဖယ်ရှားပေးပါလိမ့်မည်)။ ၎င်းသည် export ထုတ်ယူသောဖိုင်၏ အရွယ်အစားနှင့် ရှုပ်ထွေးမှုကို လျော့ချပေးနိုင်ပါသည် (အရွယ်အစားအလွန်ကြီးမားသော ဖိုင်များသည် အခြား application များတွင် ထည့်သွင်းအသုံးပြုရာ၌ အဆင်မပြေဖြစ်စေနိုင်ပါသည်)။</p></li>
+</ul>
+</li>
+</ol>
+<figure class="align-center" id="id4">
+<span id="figure-layout-output-pdf"></span><img alt="../../../_images/pdf_export_options.png" src="../../../_images/pdf_export_options.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 21.65 </span><span class="caption-text">PDF Export ရွေးချယ်စရာများ</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>GeoPDF export ထုတ်ခြင်းအား ပံ့ပိုးပေးပြီး၊ သီးခြား GeoPDF ရွေးချယ်စရာအများအပြားလည်း ရရှိနိုင်ပါသည်။</p>
+<ul class="simple">
+<li><p><span class="guilabel">Format</span> (GeoPDF အမျိုးအစား - အချို့ကွဲပြားသော GeoPDF များရှိပါသည်)၊</p></li>
+<li><p><span class="guilabel">Include multiple map themes</span> (ပါဝင်စေမည့် မြေပုံ theme များကို သတ်မှတ်ပါ)၊</p></li>
+<li><p><span class="guilabel">Include vector feature information</span> (Layer များကို ရွေးချယ်ပြီး ၎င်းတို့အား ကျိုးကြောင်းဆီလျော်သော PDF အုပ်စုများအဖြစ်သို့ အုပ်စုဖွဲ့ပါ)</p></li>
+</ul>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Georeference ပြုလုပ်ခြင်းအား ပံ့ပိုးပေးသော format များသို့ print layout တစ်ခုအား export ထုတ်ယူခြင်း (ဉပမာအားဖြင့်- <code class="docutils literal notranslate"><span class="pre">PDF</span></code> နှင့် <code class="docutils literal notranslate"><span class="pre">TIFF</span></code>) သည် default အားဖြင့် georeference ပြုလုပ်ပြီးသား ရလာဒ်တစ်ခုကို ဖန်တီးပေးပါသည်။</p>
+</div>
+</section>
+<section id="generate-an-atlas">
+<span id="atlas-generation"></span><span id="index-3"></span><h2><a class="toc-backref" href="#id11" role="doc-backlink"><span class="section-number">21.3.5. </span>Generate an Atlas (မြေပုံစီးရီးတစ်ခု ထုတ်ယူခြင်း)</a><a class="headerlink" href="#generate-an-atlas" title="Link to this heading"></a></h2>
+<p>Atlas (မြေပုံစီးရီး) လုပ်ဆောင်ချက်များသည် အလိုအလျောက်နည်းလမ်းဖြင့် မြေပုံစာအုပ်များကို ဖန်တီးနိုင်စေပါသည်။ Atlas သည် ဇယား / layer ထဲရှိ feature တစ်ခုချင်းစီ (<strong>atlas feature</strong>) အတွက် ရလာဒ်တစ်ခုအား ဖန်တီးရန် vector layer တစ်ခု (<span class="guilabel">Coverage layer</span>) သို့မဟုတ် ဇယားတစ်ခု၏ feature များကို အသုံးပြုပါသည်။ အသုံးအများဆုံးအရာမှာ မြေပုံ item တစ်ခုကို လက်ရှိ atlas feature သို့ zoom (အကျယ်ချဲ့) ပြုလုပ်ရန်ဖြစ်ပါသည်။ နောက်ထပ်အသုံးပြုမှုများတွင် အောက်ပါအရာတို့ပါဝင်သည်-</p>
+<ul class="simple">
+<li><p>အခြား layer တစ်ခုအတွက် atlas feature ကဲ့သို့ တူညီသော attribute ကို မျှဝေသုံးစွဲသော သို့မဟုတ် ၎င်း၏ ဂျီဩမေတြီအတွင်းတွင်ရှိသော feature များကိုသာ ပြသသော မြေပုံ item တစ်ခု။</p></li>
+<li><p>Feature များကို ထပ်တလဲလဲလုပ်ဆောင်သည့်အတိုင်း ၎င်း၏စာသားကို အစားထိုးပေးသော အညွှန်းတစ်ခု သို့မဟုတ်  HTML item တစ်ခု။</p></li>
+<li><p>လက်ရှိ atlas feature ၏ ဆက်စပ်နေသည့် <a class="reference internal" href="../working_with_vector/attribute_table.html#vector-relations"><span class="std std-ref">parent သို့မဟုတ် children</span></a> feature များ၏ attribute များကို ပြသေသော ဇယား item တစ်ခု…</p></li>
+</ul>
+<p>Feature တစ်ခုချင်းစီအတွက်၊ ရလာဒ် သည် ၎င်းတို့၏ export setting များအတိုင်း စာမျက်နှာအားလုံးနှင့် item များအားလုံးအတွက် လုပ်ဆောင်မည်ဖြစ်သည်။</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><strong>ပိုမိုလိုက်လျောညီထွေဖြစ်စေရန်အတွက် variable (ကိန်းရှင်) များကိုအသုံးပြုပါ</strong></p>
+<p>QGIS တွင် များစွာသော လုပ်ဆောင်ချက်များနှင့် <a class="reference internal" href="../introduction/general_tools.html#general-tools-variables"><span class="std std-ref">variable (ကိန်းရှင်)</span></a> များအား ပံ့ပိုးပေးထားပါသည်။ ၎င်းတို့တွင် atlas အခြေအနေအရ layout item များကို ကိုင်တွယ်နိုင်သလို layer များ၏ သင်္ကေတဆိုင်ရာများကို ကိုင်တွယ်နိုင်သည့် atlas နှင့်သက်ဆိုင်သော လုပ်ဆောင်ချက်များနှင့် variable များပါဝင်ပါသည်။ အဆိုပါ feature များကိုပေါင်းစပ်ခြင်းဖြင့် အဆင့်မြင့် မြေပုံများထုတ်လုပ်ရာတွင် များစွာအဆင်ပြေလွယ်ကူစေမည်ဖြစ်ပါသည်။</p>
+</div>
+<p>Atlas တစ်ခုထုတ်ယူရန်နှင့် atlas parameter များကို အသုံးပြုရန် <span class="guilabel">Atlas</span> panel အား &amp;ရည်ညွှန်းပါ။ ၎င်း panel တွင် အောက်ပါတို့ ပါဝင်ပါသည် (<a class="reference internal" href="#figure-layout-atlas"><span class="std std-numref">Fig. 21.66</span></a> တွင် ကြည့်ပါ)-</p>
+<figure class="align-center" id="id5">
+<span id="figure-layout-atlas"></span><img alt="../../../_images/atlas_properties.png" src="../../../_images/atlas_properties.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 21.66 </span><span class="caption-text">Atlas Panel</span><a class="headerlink" href="#id5" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ul class="simple">
+<li><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">Generate an atlas</span> -  Atlas ထုတ်ယူခြင်းအား ဖွင့်ပေးနိုင်သည် သို့မဟုတ် ပိတ်ပေးနိုင်သည်</p></li>
+<li><p><span class="guilabel">ပြင်ဆင်သတ်မှတ်ခြင်း</span></p>
+<ul>
+<li><p><span class="guilabel">Coverage layer</span> <a class="reference internal" href="../../../_images/selectstring.png"><img alt="selectString" src="../../../_images/selectstring.png" style="width: 2.5em;" /></a> combo box တစ်ခုသည် ထပ်ခါတလဲလဲ လုပ်ဆောင်မည့် feature များပါဝင်သော ဇယား သို့မဟုတ် vector layer ကို ရွေးချယ်ခွင့်ပေးပါသည်။</p></li>
+<li><p>မဖြစ်မနေလုပ်ရန်မလိုသည့် <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">Hidden coverage layer</span> ကို အမှန်ခြစ်ထားလျှင် ထုတ်လုပ်မှုဆောင်ရွက်နေစဉ်တွင် coverage layer (အခြား layer များမပါဝင်ပါ) အား ဖျောက်ထားပေးပါလိမ့်မည်။</p></li>
+<li><p>မဖြစ်မနေလုပ်ရန်မလိုသည့် <span class="guilabel">Page name</span> combo box သည် feature စာမျက်နှာ (များ) ၏ နာမည်အတွက် သတ်မှတ်ရန်ဖြစ်သည်။ Coverage layer ၏ field တစ်ခုကို ရွေးချယ်နိုင်သလို      <a class="reference internal" href="../expressions/expression.html#vector-expressions"><span class="std std-ref">expression</span></a> တစ်ခုလည်း သတ်မှတ်ပေးနိုင်ပါသည်။ ဤ option သည် ဗလာဖြစ်နေပါက၊ layer တွင်အသုံးပြုထားသော filter (စစ်ထုတ်မှု) နှင့်/သို့မဟုတ် sort order (အစီအစဉ်) အရ QGIS သည် internal ID တစ်ခုကို အသုံးပြုပါလိမ့်မည်။</p></li>
+<li><p>မဖြစ်မနေလုပ်ရန်မလိုသည့် <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">Filter with</span> စာသားဧရိယာတွင် coverage layer မှ feature များကို စစ်ထုတ် (filter) ရန်အတွက် expression တစ်ခုကို သတ်မှတ်နိုင်ပါသည်။ Expression သည် ဗလာဖြစ်မနေပါက <code class="docutils literal notranslate"><span class="pre">True</span></code> ဖြစ်သော feature များကိုသာ ဆက်လက်လုပ်ဆောင်သွားမည်ဖြစ်သည်။</p></li>
+<li><p>မဖြစ်မနေလုပ်ရန်မလိုသည့် <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">Sort by</span> သည် coverage layer ၏ field တစ်ခု သို့မဟုတ် expression တစ်ခုကို အသုံးပြု၍ coverage layer ၏ feature များကို စီစဉ် (sort) ပေးနိုင်ပါသည်။ အစီအစဉ် (sort order) (ငယ်စဉ်ကြီးလိုက် သို့မဟုတ် ကြီးစဉ်ငယ်လိုက် တစ်ခုမဟုတ်တစ်ခု) အား အပေါ်အောက် မြှားတစ်ခုကိုပြသော <em>Sort direction</em> ခလုတ်ဖြင့် သတ်မှတ်ပေးပါသည်။</p></li>
+</ul>
+</li>
+<li><p><span class="guilabel">Output</span>- ၎င်းသည် atlas တစ်ခု၏ ရလာဒ်အား ပြင်ဆင်သတ်မှတ်နိုင်မည့် နေရာဖြစ်သည်-</p>
+<ul>
+<li><p>Atlas feature တစ်ခုချင်းစီအတွက် ဖိုင်အမည်တစ်ခုအား ပေးရန်အတွက် <span class="guilabel">Output filename expression</span> စာသားဘောက်အား အသုံးပြုပါသည်။ ၎င်းသည် expression များပေါ်တွင် အခြေခံထားပါသည်။ ၎င်းသည် ဖိုင်များစွာ သို့ ပုံဖော်ပြသခြင်းအတွက်သာလျှင် အဓိပ္ပါယ်ရှိပါသည်။</p></li>
+<li><p>ရွေးချယ်ထားသော ရလာဒ်ပုံစံသည် ဖြစ်နိုင်မှုရှိလျှင် (ဉပမာအားဖြင့်- <code class="docutils literal notranslate"><span class="pre">PDF</span></code>) <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">Single file export when possible</span> သည် ဖိုင်တစ်ခုတည်းကို ထုတ်ပေးနိုင်စေပါသည်။ ဤ field ကိုအမှန်ခြစ်ထားလျှင် <span class="guilabel">Output filename expression</span> field ၏တန်ဖိုးသည် အဓိပ္ပါယ်ရှိတော့မည်မဟုတ်ပါ။</p></li>
+<li><dl class="simple">
+<dt><a class="reference internal" href="../../../_images/mActionSaveMapAsImage.png"><img alt="saveMapAsImage" src="../../../_images/mActionSaveMapAsImage.png" style="width: 1.5em;" /></a> <sup>Export atlas as Images…</sup>  ခလုတ်အား အသုံးပြုသည့်အခါ</dt><dd><p>ရလာဒ်ပုံစံအား ရွေးချယ်ရန်အတွက် <span class="guilabel">Image export format</span> ရွေးချယ်နိုင်သည့်စာရင်းတစ်ခု။</p>
+</dd>
+</dl>
+</li>
+</ul>
+</li>
+</ul>
+<section id="control-map-by-atlas-atlas">
+<h3><a class="toc-backref" href="#id12" role="doc-backlink"><span class="section-number">21.3.5.1. </span>Control map by atlas (Atlas ဖြင့် မြေပုံအား ထိန်းချုပ်ခြင်း)</a><a class="headerlink" href="#control-map-by-atlas-atlas" title="Link to this heading"></a></h3>
+<p>Atlas ၏ အသုံးအများဆုံးဖြစ်သောအရာမှာ coverage layer ပေါ်တွင် ထပ်ခါတလဲလဲလုပ်ဆောင်သည့်အတိုင်း လက်ရှိ atlas feature သို့ zoom ချဲ့ပေးသော မြေပုံ item ဖြစ်ပါသည်။ ၎င်းဆောင်ရွက်ချက်အား မြေပုံ item ၏ <span class="guilabel">Controlled by atlas</span> အုပ်စု ဂုဏ်သတ္တိများထဲတွင် သတ်မှတ်ထားပါသည်။ မြေပုံ item များပေါ်တွင် အသုံးချနိုင်သော setting အမျိုးမျိုးအတွက် <a class="reference internal" href="composer_items/composer_map.html#controlled-atlas"><span class="std std-ref">Atlas ဖြင့်ထိန်းချုပ်ထားသည် (Controlled by atlas)</span></a> ကိုကြည့်ပါ။</p>
+</section>
+<section id="expression-customize-labels-with-expression">
+<span id="atlas-labels"></span><h3><a class="toc-backref" href="#id13" role="doc-backlink"><span class="section-number">21.3.5.2. </span>Expression ဖြင့် အညွှန်းများအား ပြင်ဆင်ခြင်း (Customize labels with expression)</a><a class="headerlink" href="#expression-customize-labels-with-expression" title="Link to this heading"></a></h3>
+<p>Atlas ထပ်တလဲလဲ လုပ်ဆောင်သော feature တွင် အညွှန်းများအား လိုက်လျောညီထွေဖြစ်စေရန်အတွက် expression များအား ထည့်သွင်းနိုင်ပါသည်။ Expression အစိတ်အပိုင်း (လုပ်ဆောင်ချက်များ၊ field များ သို့မဟုတ် variable များအပါအဝင်) အား <code class="docutils literal notranslate"><span class="pre">[%</span></code> နှင့် <code class="docutils literal notranslate"><span class="pre">%]</span></code> ကြားတွင် ထားရှိရပါမည် (ပိုမိုအသေးစိတ်များအတွက် <a class="reference internal" href="composer_items/composer_label.html#layout-label-item"><span class="std std-ref">အညွှန်းစာ (The Label Item)</span></a> ကိုကြည့်ပါ)။</p>
+<p>ဉပမာအားဖြင့်- <code class="docutils literal notranslate"><span class="pre">CITY_NAME</span></code> နှင့် <code class="docutils literal notranslate"><span class="pre">ZIPCODE</span></code> field များပါဝင်သော မြို့ layer တစ်ခုအတွက်
+အောက်ပါအတိုင်း ထည့်သွင်းနိုင်ပါသည်-</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>The area of [% concat( upper(CITY_NAME), &#39;,&#39;, ZIPCODE, &#39; is &#39;,
+format_number($area/1000000, 2) ) %] km2
+</pre></div>
+</div>
+<p>သို့မဟုတ်၊ နောက်ထပ် အခြား ပေါင်းစပ်ခြင်းအတွက်-</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>The area of [% upper(CITY_NAME)%],[%ZIPCODE%] is
+[%format_number($area/1000000,2) %] km2
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">[%</span> <span class="pre">concat(</span> <span class="pre">upper(CITY_NAME),</span> <span class="pre">',',</span> <span class="pre">ZIPCODE,</span> <span class="pre">'</span> <span class="pre">is</span> <span class="pre">',</span>&#160; <span class="pre">format_number($area/1000000,</span> <span class="pre">2)</span> <span class="pre">)</span> <span class="pre">%]</span></code> သည် အညွှန်းထဲတွင် အသုံးပြုသော expression တစ်ခုဖြစ်ပါသည်။ Expression နှစ်ခုစလုံးသည် ထုတ်လုပ်လိုက်သော atlas ထဲတွင် အောက်ဖော်ပြပါ အညွှန်းအမျိုးအစားဖြင့် ရလာဒ်ရရှိမည်ဖြစ်သည်-</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">The</span> <span class="n">area</span> <span class="n">of</span> <span class="n">PARIS</span><span class="p">,</span><span class="mi">75001</span> <span class="ow">is</span> <span class="mf">1.94</span> <span class="n">km2</span>
+</pre></div>
+</div>
+</section>
+<section id="atlas-data-explore-data-defined-override-buttons-with-atlas">
+<span id="atlas-data-defined-override"></span><h3><a class="toc-backref" href="#id14" role="doc-backlink"><span class="section-number">21.3.5.3. </span>Atlas ရှိ data အရအစားထိုးလုပ်ဆောင်ခြင်းခလုတ်များအားလေ့လာခြင်း (Explore Data-defined override buttons with atlas)</a><a class="headerlink" href="#atlas-data-explore-data-defined-override-buttons-with-atlas" title="Link to this heading"></a></h3>
+<p>ရွေးချယ်ထားသော setting အား အစားထိုးလုပ်ဆောင်ရန် <a class="reference internal" href="../../../_images/mIconDataDefine.png"><img alt="dataDefine" src="../../../_images/mIconDataDefine.png" style="width: 1.5em;" /></a><sup>Data defined override</sup> button အား အသုံးပြုနိုင်သော နေရာများစွာရှိပါသည်။ ၎င်း widget နှင့်ပတ်သက်သော အသေးစိတ်များအတွက် <a class="reference internal" href="../introduction/general_tools.html#data-defined"><span class="std std-ref">Data အရ အစားထိုးလုပ်ဆောင်ခြင်းဆိုင်ရာ ပြင်ဆင်ချက် (Data defined override setup)</span></a> တွင် ကြည့်နိုင်ပါသည်။</p>
+<p>အောက်ဖော်ပြပါနမူနာများအတွက် atlas ထုတ်ယူခြင်းတွင် QGIS နမူနာ dataset ၏ <code class="file docutils literal notranslate"><span class="pre">Regions</span></code> layer အားအသုံးပြု၍ <span class="guilabel">Coverage layer</span> အဖြစ် ရွေးချယ်ပါသည်။ မြေပုံ item တစ်ခုနှင့် အညွှန်း item တစ်ခုပါဝင်သော page layout တစ်ခုတည်းအဖြစ် ၎င်းကို ယူဆထားပါသည်။</p>
+<p>ဒေသ နယ်ပယ်အကျယ်အဝန်း၏အမြင့် (မြောက်-တောင်) သည် ၎င်း၏ အကျယ် (အရှ့-အနောက်) ထက် ပိုကြီးသည့်အခါ၊ စာရွက်အသုံးပြုမှုအနေအထားအား ကောင်းမွန်စေရန်အတွက် <em>Landscape</em> အား သုံးမည့်အစား <em>Portrait</em> အား အသုံးပြုသင့်ပါသည်။ <a class="reference internal" href="../../../_images/mIconDataDefine.png"><img alt="dataDefine" src="../../../_images/mIconDataDefine.png" style="width: 1.5em;" /></a> <sup>Data Defined Override</sup> ခလုတ်ဖြင့် စာရွက်အနေအထားကို ပြောင်းလဲသတ်မှတ်နိုင်ပါသည်။</p>
+<p>Panel အား ဖွင့်ရန် စာမျက်နှာပေါ်တွင် right-click နှိပ်ပြီး <span class="guilabel">Page Properties</span> အား ရွေးချယ်ပါ။ ဒေသ ဂျီဩမေတြီပေါ်တွင် မူတည်သော expression တစ်ခုအားအသုံးပြုပြီး ပြောင်းလဲနိုင်သော ဦးတည်ရာအဖြစ် သတ်မှတ်လိုလျှင် <span class="guilabel">Orientation</span> field ၏ <a class="reference internal" href="../../../_images/mIconDataDefine.png"><img alt="dataDefine" src="../../../_images/mIconDataDefine.png" style="width: 1.5em;" /></a> ခလုတ်ကိုနှိပ်၍ <span class="guilabel">Expression string builder</span> dialog ပွင့်လာစေရန် <span class="guilabel">Edit…</span> ကိုရွေးချယ်ပါ။ ထို့နောက် အောက်ဖော်ပြပါ expression ကို ရိုက်ထည့်ပါ-</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">CASE</span> <span class="n">WHEN</span> <span class="n">bounds_width</span><span class="p">(</span><span class="nd">@atlas_geometry</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">bounds_height</span><span class="p">(</span><span class="nd">@atlas_geometry</span><span class="p">)</span>
+<span class="n">THEN</span> <span class="s1">&#39;Landscape&#39;</span> <span class="n">ELSE</span> <span class="s1">&#39;Portrait&#39;</span> <span class="n">END</span>
+</pre></div>
+</div>
+<p>ယခုဆိုလျှင် <a class="reference internal" href="#atlas-preview"><span class="std std-ref">atlas အားအကြိုကြည့်ရှုခြင်း</span></a> ပြုလုပ်လျှင်၊ စာရွက်သည် ၎င်းဘာသာ အလိုအလျောက် ဦးတည်မည်ဖြစ်သည်၊ သို့သော် item နေရာချထားခြင်းများမှာ အကောင်းဆုံးအနေအထား ဖြစ်မည်မဟုတ်ပါ။ ဒေသတစ်ခုချင်းစီအတွက် layout item များ၏ တည်နေရာကိုလည်း ပြန်လည်နေရာချထားရန် လိုအပ်ပါသည်။ မြေပုံ item အတွက် ၎င်း၏ <span class="guilabel">Width</span> (အကျယ်) ဂုဏ်သတ္တိ၏ <a class="reference internal" href="../../../_images/mIconDataDefine.png"><img alt="dataDefine" src="../../../_images/mIconDataDefine.png" style="width: 1.5em;" /></a> ခလုတ်ကိုအသုံးပြု၍ အောက်ဖော်ပြပါ expression ဖြင့် ပြောင်းလဲနိုင်အောင် သတ်မှတ်နိုင်ပါသည်-</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@layout_pagewidth</span> <span class="o">-</span> <span class="mi">20</span>
+</pre></div>
+</div>
+<p>ထိုနည်းတူစွာပင်၊ မြေပုံ item အရွယ်အစားအား ကန့်သတ်ရန် <span class="guilabel">Height</span> (အမြင့်) ဂုဏ်သတ္တိ၏ <a class="reference internal" href="../../../_images/mIconDataDefine.png"><img alt="dataDefine" src="../../../_images/mIconDataDefine.png" style="width: 1.5em;" /></a> ခလုတ်ဖြင့် အောက်ဖော်ပြပါ expression အား အသုံးပြုပါ-</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@layout_pageheight</span> <span class="o">-</span> <span class="mi">20</span>
+</pre></div>
+</div>
+<p>မြေပုံ item များအား စာမျက်နှာအလယ်၌ ထားရှိရန်အတွက်၊ ၎င်း၏ <span class="guilabel">အကိုးအကား point</span> အား ဘယ်ဘက်အထက် radio ခလုတ်တွင် သတ်မှတ်ပြီး၊ ၎င်း <span class="guilabel">X</span> နှင့် <span class="guilabel">Y</span> တည်နေရာများ အတွက် <code class="docutils literal notranslate"><span class="pre">10</span></code> အား ရိုက်ထည့်ပါ။</p>
+<p>စာမျက်နှာအလယ်ရှိ မြေပုံအပေါ်တွင် ခေါင်းစဉ်တစ်ခုအား ပေါင်းထည့်ကြည့်ကြပါစို့။ အညွှန်း item အား ရွေးချယ်ပြီး၊ ရေပြင်ညီ ချိန်ညှိမှုအား <a class="reference internal" href="../../../_images/radiobuttonon.png"><img alt="radioButtonOn" src="../../../_images/radiobuttonon.png" style="width: 1.5em;" /></a> <span class="guilabel">Center</span> သို့ ထားပါ။ ထို့နောက် အညွှန်းများအား ညာဘက်သို့ ရွေ့ပြီး၊ <span class="guilabel">အကိုးအကား point</span> အတွက် အလယ် ခလုတ်ကို ရွေးချယ်ကာ <span class="guilabel">X</span> field အတွက် အောက်ဖော်ပြပါ expression ကိုထည့်ပါ-</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@layout_pagewidth</span> <span class="o">/</span> <span class="mi">2</span>
+</pre></div>
+</div>
+<p>အခြား layout item များအားလုံးအတွက် ၎င်းတို့အား အလျားလိုက်ပုံ (landscape) နှင့် ဒေါင်လိုက်ပုံ (portrait) နှစ်ခုစလုံးအတွက် မှန်ကန်စွာနေရာချထားစေရန် အလားတူနည်းလမ်းအတိုင်း တည်နေရာကို သတ်မှတ်နိုင်ပါသည်။ Feature attribute များဖြင့် ခေါင်းစဉ်ကို စိတ်ကြိုက်ပြင်ဆင်ခြင်း (<a class="reference internal" href="#atlas-labels"><span class="std std-ref">Expression ဖြင့် အညွှန်းများအား ပြင်ဆင်ခြင်း (Customize labels with expression)</span></a> ဥပမာကို ကြည့်ပါ)၊ ဓာတ်ပုံများပြောင်းလဲခြင်း၊ စာမျက်နှာအနေအထားအလိုက် မြေပုံရည်ညွှန်းချက် ကော်လံ အရေအတွက်များအား ပြန်လည်ချိန်ညှိခြင်းကဲ့သို့သော ထပ်မံချိန်ညှိမှုများကိုလည်း လုပ်ဆောင်နိုင်ပါသည်။</p>
+<p>ဤနေရာတွင် ဖော်ပြထားသော သတင်းအချက်အလက်များသည် data ဖြင့်သတ်မှတ်ပြီး အစားထိုးလုပ်ဆောင်သော option များ <a class="reference external" href="https://sigsemgrilhetas.wordpress.com/2014/11/09/series-de-mapas-com-formatos-multiplos-em-qgis-2-6-parte-1-multiple-format-map-series-using-qgis-2-6-part-1">Multiple_format_map_series_using_QGIS_2.6</a> နှင့်ပတ်သက်သော အကောင်းဆုံး blog (အင်္ဂလိပ်နှင့် ပေါ်တူဂီဘာသာ) ၏ နောက်ဆုံးအခြေအနေဖော်ပြချက်တစ်ခုဖြစ်ပါသည်။</p>
+<p>Data ဖြင့်သတ်မှတ်ပြီး အစားထိုးလုပ်ဆောင်မှု ခလုတ်များအား အသုံးပြုခြင်းအတွက် အခြားဥပမာမှာ  ပြောင်းလဲနိုင်သော ရုပ်ပုံအား အသုံးပြုခြင်းပင်ဖြစ်သည်။ အောက်ဖော်ပြပါ ဥပမာများအတွက်၊ binary field အမျိုးအစားဖြင့် <code class="docutils literal notranslate"><span class="pre">logo</span></code> ဟုခေါ်သော BLOB field တစ်ခုပါဝင်သော geopackage layer တစ်ခုကို အသုံးပြုထားပါသည် (<a class="reference internal" href="../managing_data_source/create_layers.html#vector-create-geopackage"><span class="std std-ref">GeoPackage layer အသစ်တစ်ခုဖန်တီးခြင်း</span></a> တွင် ကြည့်ပါ)။ Feature အားလုံးအတွက် <a class="reference internal" href="#atlas-preview"><span class="std std-ref">Atlas တစ်ခုအား အကြိုကြည့်ရှုခြင်းနှင့် ထုတ်လုပ်ခြင်း (Preview and generate an atlas)</span></a> တွင်ဖော်ပြထားသည့်အတိုင်း atlas အား ထပ်ခါတလဲလဲပြုလုပ်နိုင်စေရန် မတူညီသော ရုပ်ပုံတစ်ခုကို သတ်မှတ်ထားပါသည်။ ပြုလုပ်ရမည်မှာ print layout တွင် ရုပ်ပုံအား ထည့်ရန်ဖြစ်ပြီး၊ atlas မာတိကာရှိ ၎င်း၏ <span class="guilabel">Item properties</span> သို့သွားရောက်ရန်ဖြစ်သည်။ အဆိုပါနေရာတွင် <span class="guilabel">Main Properties</span> ၏ <span class="guilabel">Image source</span> ကဏ္ဍရှိ data-defined override ခလုတ်အား ရှာတွေ့နိုင်မည်ဖြစ်သည်။</p>
+<figure class="align-center" id="figure-image-source">
+<img alt="../../../_images/picture_image_source.png" src="../../../_images/picture_image_source.png" />
+</figure>
+<p><span class="guilabel">Expression String Builder</span> အား ဖွင့်ရန်အတွက် အောက်ဖော်ပြပါ window ထဲတွင် <span class="guilabel">Edit</span> အားရွေးချယ်ပါ။ <span class="guilabel">Fields and values</span> ကဏ္ဍမှ geopackage layer ထဲတွင် အဓိပ္ပါယ်သတ်မှတ်ထားသော BLOB field အား တွေ့ရှိနိုင်မည်ဖြစ်သည်။ Field နာမည် <code class="file docutils literal notranslate"><span class="pre">logo</span></code> အား click နှစ်ချက်နှိပ်ပြီး <span class="guilabel">OK</span> ကို နှိပ်ပါ။</p>
+<figure class="align-center" id="figure-expression-blob-picture-atlas">
+<img alt="../../../_images/expression_blob_picture_atlas.png" src="../../../_images/expression_blob_picture_atlas.png" />
+</figure>
+<p><span class="guilabel">Coverage layer</span> အဖြစ် ရွေးချယ်ထားသော geopackage layer မှ BLOB field ထဲရှိ ထည့်သွင်းထားသည့်အရာများပေါ်တွင် atlas သည် ထပ်ခါတလဲလဲ လုပ်ဆောင်မည်ဖြစ်သည် (<a class="reference internal" href="#atlas-preview"><span class="std std-ref">Atlas တစ်ခုအား အကြိုကြည့်ရှုခြင်းနှင့် ထုတ်လုပ်ခြင်း (Preview and generate an atlas)</span></a> တွင် အခြားညွှန်ကြားချက်များအား ရှာဖွေနိုင်ပါသည်)။</p>
+<p>ထိုဥပမာ ၂ ခုသည် Atlas ဖြင့် အဆင့်မြင့် setting အချို့အား မည်သို့ အသုံးပြုနိုင်သည်ကို ဖော်ပြထားသော ဥပမာ ၂ ခု ဖြစ်ပါသည်။</p>
+</section>
+<section id="atlas-preview-and-generate-an-atlas">
+<span id="atlas-preview"></span><h3><a class="toc-backref" href="#id15" role="doc-backlink"><span class="section-number">21.3.5.4. </span>Atlas တစ်ခုအား အကြိုကြည့်ရှုခြင်းနှင့် ထုတ်လုပ်ခြင်း (Preview and generate an atlas)</a><a class="headerlink" href="#atlas-preview-and-generate-an-atlas" title="Link to this heading"></a></h3>
+<figure class="align-center" id="id6">
+<span id="figure-layout-atlas-preview"></span><img alt="../../../_images/atlas_preview.png" src="../../../_images/atlas_preview.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 21.67 </span><span class="caption-text">Atlas အကြိုကြည့်ရှုခြင်း toolbar</span><a class="headerlink" href="#id6" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Atlas setting များအား ပြင်ဆင်သတ်မှတ်ပြီး layout item များ (မြေပုံ၊ ဇယား၊ ဓာတ်ပုံ…..) ကို ၎င်းနှင့် ချိတ်ဆက်ပြီးသည်နှင့် စာမျက်နှာအားလုံး၏ အကြိုကြည့်ရှုခြင်းတစ်ခုအား <span class="menuselection">Atlas ► Preview Atlas</span> ကိုရွေးချယ်ခြင်း သို့မဟုတ် <a class="reference internal" href="../../../_images/mIconAtlas.png"><img alt="atlas" src="../../../_images/mIconAtlas.png" style="width: 1.5em;" /></a> <sup>Preview Atlas</sup> icon အားနှိပ်ခြင်းဖြင့် ဖန်တီးနိုင်ပါသည်။ ထို့နောက် feature များအားလုံးကို လမ်းညွှန်ပြသနိုင်ရန် မြှားများကိုအသုံးပြုနိုင်မည်ဖြစ်ပါသည်။</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../../../_images/mActionAtlasFirst.png"><img alt="atlasFirst" src="../../../_images/mActionAtlasFirst.png" style="width: 1.5em;" /></a> <sup>First feature</sup> (ပထမဆုံး feature)</p></li>
+<li><p><a class="reference internal" href="../../../_images/mActionAtlasPrev.png"><img alt="atlasPrev" src="../../../_images/mActionAtlasPrev.png" style="width: 1.5em;" /></a> <sup>Previous feature</sup> (ပြီးခဲ့သော feature)</p></li>
+<li><p><a class="reference internal" href="../../../_images/mActionAtlasNext.png"><img alt="atlasNext" src="../../../_images/mActionAtlasNext.png" style="width: 1.5em;" /></a> <sup>Next feature</sup> (နောက်ထပ် feature)</p></li>
+<li><p><a class="reference internal" href="../../../_images/mActionAtlasLast.png"><img alt="atlasLast" src="../../../_images/mActionAtlasLast.png" style="width: 1.5em;" /></a> <sup>Last feature</sup> (နောက်ဆုံး feature)</p></li>
+</ul>
+<p>သီးခြား feature တစ်ခုကို ရွေးချယ်ပြီး အကြိုကြည့်ရှုရန် combo box အား အသုံးပြုနိုင်ပါသည်။ Atlas <span class="guilabel">Page name</span> option ထဲတွင် သတ်မှတ်ထားသော expression ပေါ်မူတည်ပြီး combo box သည် atlas feature နာမည်များကို ပြသပေးမည်ဖြစ်ပါသည်။</p>
+<p>ရိုးရှင်းသော ဖွဲ့စည်းမှုများအတွက်၊ atlas တစ်ခုအား နည်းလမ်းများစွာဖြင့် ထုတ်လုပ်နိုင်ပါသည် (ထပ်မံသိလိုပါက <a class="reference internal" href="#create-output"><span class="std std-ref">ရလာဒ်တစ်ခု ဖန်တီးခြင်း (Creating an Output)</span></a> တွင် ကြည့်ရှုပါ)- <span class="menuselection">Layout</span> menu အသုံးပြုမည့်အစား <span class="menuselection">Atlas</span> menu သို့မဟုတ် toolbar မှ tool များအား အသုံးပြုပါ။</p>
+<p><span class="menuselection">Atlas ► Print Atlas</span> ဖြင့် မြေပုံဖွဲ့စည်းမှုများကို တိုက်ရိုက် ပုံနှိပ်ထုတ်ယူနိုင်သည် ဟု ဆိုလိုပါသည်။ <span class="menuselection">Atlas ► Export Atlas as PDF…</span> အား အသုံးပြုပြီး PDF ဖိုင်လည်း ဖန်တီးနိုင်ပါသည်။ <a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">Single file export when possible</span> အား ရွေးချယ်ထားသည်မှလွဲ၍ ထုတ်လုပ်လိုက်သော PDF ဖိုင်များအားလုံးအတွက် သိမ်းဆည်းရန်လမ်းကြောင်းတစ်ခုအား ပေးရပါလိမ့်မည်။ ဤဖြစ်စဉ်တွင် ဖိုင်အမည်တစ်ခုအား ပေးရန် မေးမြန်းပါလိမ့်မည်။</p>
+<p><span class="menuselection">Atlas ► Export Atlas as Images…</span> သို့မဟုတ် <span class="menuselection">Atlas ► Export Atlas as SVG…</span> tool ဖြင့် folder တစ်ခုကိုရွေးချယ်ရပါမည်။ Atlas feature ဖွဲ့စည်းမှုတစ်ခုချင်းစီ၏ စာမျက်နှာတစ်ခုချင်းစီအား <span class="guilabel">Atlas</span> panel ထဲတွင် သတ်မှတ်ထားသော ဓာတ်ပုံဖိုင် format သို့မဟုတ် SVG format သို့ export ထုတ်ယူမည်ဖြစ်သည်။</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>စာမျက်နှာများစွာပါဝင်သော output များဖြင့်၊ atlas တစ်ခုသည် <a class="reference internal" href="overview_composer.html#reference-map"><span class="std std-ref">အထွေထွေ setting များ (General settings)</span></a> ပါဝင်ပြီး world file တစ်ခုရရှိမည့် စာမျက်နှာထဲတွင်သာ layout တစ်ခုကဲ့သို့ ပြုမူဆောင်ရွက်မည်ဖြစ်သည် (feature output တစ်ခုချင်းစီအတွက်)။</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><strong>သီးခြား atlas feature တစ်ခုကို print ပြုလုပ်ပါ</strong></p>
+<p>Atlas feature တစ်ခုတည်း၏ ဖွဲ့စည်းမှုအား print သို့မဟုတ် export ပြုလုပ်လိုလျှင် ကြိုတင် ကြည့်ရှုခြင်းအား စတင်ပါ၊ drop-down စာရင်းထဲရှိ အလိုရှိသော feature ကိုရွေးချယ်ပြီး <span class="menuselection">Layout ► Print</span> အား click နှိပ်ပါ (သို့မဟုတ် လက်ခံနိုင်သော ဖိုင် format တစ်ခုခုသို့ <span class="menuselection">Export…</span> ပြုလုပ်ပါ)။</p>
+</div>
+</section>
+<section id="atlas-project-use-project-defined-relations-for-atlas-creation">
+<span id="relations-in-atlas"></span><h3><a class="toc-backref" href="#id16" role="doc-backlink"><span class="section-number">21.3.5.5. </span>Atlas ဖန်တီးရာတွင် project မှသတ်မှတ်ထားသော ဆက်နွယ်ချက်များကို အသုံးပြုခြင်း (Use project defined relations for atlas creation)</a><a class="headerlink" href="#atlas-project-use-project-defined-relations-for-atlas-creation" title="Link to this heading"></a></h3>
+<p>HTML နှင့်  Javascript ကျွမ်းကျင်သူများအတွက် GeoJSON object များပေါ်တွင် လုပ်ဆောင်နိုင်မည်ဖြစ်ပြီး QGIS project မှ သတ်မှတ်ထားသော ဆက်နွယ်ချက်များအား အသုံးပြုနိုင်မည်ဖြစ်ပါသည်။ ဤနည်းလမ်းကိုအသုံးပြုခြင်းနှင့် HTML ထဲသို့ တိုက်ရိုက်ထည့်သွင်းသော expression များအား အသုံးပြုခြင်းအကြား ခြားနားချက်မှာ ဤနည်းလမ်းကိုအသုံးပြုခြင်းသည် ၎င်းနှင့်လုပ်ကိုင်ဆောင်ရွက်ရန် ဖွဲ့စည်းပုံသေချာမရှိသော GeoJSON feature အပြည့်အစုံအား ပေးထားခြင်းပင်ဖြစ်သည်။ ဆိုလိုသည်မှာ GeoJSON feature ကိုယ်စားပြုမှုများပေါ်တွင် လုပ်ကိုင်ဆောင်ရွက်နိုင်သော ရှိနေပြီးသား Javascript library များနှင့်လုပ်ဆောင်ချက်များအား အသုံးပြုနိုင်မည်ဖြစ်သည်။</p>
+<p>အောက်ဖော်ပြပါ code များတွင် သတ်မှတ်ထားသည့်ဆက်နွယ်ချက်မှ ဆက်စပ် child (အခွဲ) feature များအားလုံးပါဝင်ပါသည်။ JavaScript <code class="docutils literal notranslate"><span class="pre">setFeature</span></code> function အား အသုံးပြုခြင်းသည် မိမိနှစ်သက်ရာ format (စာရင်းများ၊ ဇယားများ၊ အစရှိသည်) ဖြင့် ဆက်နွယ်ချက်ကို ကိုယ်စားပြုသော လိုက်လျောညီထွေဖြစ်သော HTML အား ဖန်တီးနိုင်စေပါသည်။ နမူနာ code တွင် ဆက်စပ် child feature များ၏ ပြောင်းလဲနိုင်သော စာရင်းအား ဖန်တီးခြင်းဖြစ်ပါသည်။</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span>// Declare the two HTML div elements we will use for the parent feature id
+// and information about the children
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;parent&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;my_children&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span><span class="p">&gt;</span>
+<span class="w">   </span><span class="kd">function</span><span class="w"> </span><span class="nx">setFeature</span><span class="p">(</span><span class="nx">feature</span><span class="p">)</span>
+<span class="w">   </span><span class="p">{</span>
+<span class="w">     </span><span class="c1">// Show the parent feature&#39;s identifier (using its &quot;ID&quot; field)</span>
+<span class="w">     </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;parent&#39;</span><span class="p">).</span><span class="nx">innerHTML</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">feature</span><span class="p">.</span><span class="nx">properties</span><span class="p">.</span><span class="nx">ID</span><span class="p">;</span>
+<span class="w">     </span><span class="c1">//clear the existing relation contents</span>
+<span class="w">     </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;my_children&#39;</span><span class="p">).</span><span class="nx">innerHTML</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">;</span>
+<span class="w">     </span><span class="nx">feature</span><span class="p">.</span><span class="nx">properties</span><span class="p">.</span><span class="nx">my_relation</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">child_feature</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">     </span><span class="c1">// for each related child feature, create a list element</span>
+<span class="w">     </span><span class="c1">// with the feature&#39;s name (using its &quot;NAME&quot; field)</span>
+<span class="w">       </span><span class="kd">var</span><span class="w"> </span><span class="nx">node</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s2">&quot;li&quot;</span><span class="p">);</span>
+<span class="w">       </span><span class="nx">node</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">createTextNode</span><span class="p">(</span><span class="nx">child_feature</span><span class="p">.</span><span class="nx">NAME</span><span class="p">));</span>
+<span class="w">       </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;my_children&#39;</span><span class="p">).</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">node</span><span class="p">);</span>
+<span class="w">     </span><span class="p">});</span>
+<span class="w">   </span><span class="p">}</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>Atlas ဖန်တီးနေစဉ်အတွင်း၊ parent (မူရင်း) feature များပါဝင်သော coverage layer ပေါ်တွင် ထပ်ခါတလဲလဲ လုပ်ဆောင်မှုတစ်ခု ရှိပါလိမ့်မည်။ စာမျက်နှာတစ်ခုစီတွင် parent identifier နောက်၌ ဆက်စပ် child feature များ၏စာရင်းတစ်ခုအား တွေ့မြင်ရပါလိမ့်မည်။</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="composer_items/composer_shapes.html" class="btn btn-neutral float-left" title="21.2.11. အရာဝတ္ထုများ (The Shape Items)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="create_reports.html" class="btn btn-neutral float-right" title="21.4. အစီရင်ခံစာတစ်ခုဖန်တီးခြင်း (Creating a Report)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2002-now, QGIS project.
+      <span class="lastupdated">Last updated on 2024 May 13, 16:23 +0700.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- Transifex follows a particular logic to build target pages:
+Expected French translation link for https://docs.qgis.org/3.28/en/docs/user_manual/print_composer/overview_composer.html
+would return https://app.transifex.com/qgis/qgis-documentation/translate/#fr/aa6d8bc653526d38b295ca94bf8eee5e
+with the md5 value of "github#qgis/QGIS-Documentation#release_3.28#locale/en/LC_MESSAGES/docs/user_manual/print_composer/overview_composer.po"-->
+<!--Make sure that mismatching language codes between Transifex and Sphinx are converted-->
+
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-info-circle"> QGIS Documentation </span>
+      v: 3.28
+      <span class="fa fa-caret-down"></span>
+    </span>
+
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Languages</dt>
+        
+          <dd><a href="https://docs.qgis.org/3.28/en/docs/user_manual/print_composer/create_output.html">en</a></dd>
+        
+      </dl>
+
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/user_manual/print_composer/create_output.html">testing</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/latest/en/docs/user_manual/print_composer/create_output.html">latest</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.28/en/docs/user_manual/print_composer/create_output.html">3.28</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.22/en/docs/user_manual/print_composer/create_output.html">3.22</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.16/en/docs/user_manual/print_composer/create_output.html">3.16</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.10/en/docs/user_manual/print_composer/create_output.html">3.10</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.4/en/docs/user_manual/print_composer/create_output.html">3.4</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/2.18/en/docs/user_manual/print_composer/create_output.html">2.18</a></dd>
+        
+      </dl>
+
+       
+       <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="https://docs.qgis.org/3.28/pdf">PDF</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.28/zip">HTML</a></dd>
+        
+      </dl>
+      
+
+      
+       
+      <dl>
+        <dt>Contribute to Docs</dt>
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/edit/master/docs/user_manual/print_composer/create_output.rst" target="_blank" rel="noopener noreferrer">Edit on GitHub</a>
+          </dd>
+          
+          
+          <dd>
+            <a href="https://app.transifex.com/qgis/qgis-documentation/translate/#en/aaf9a0434547e7d07a7e1daf50d2ebd9" target="_blank" rel="noopener noreferrer">Translate Page</a>
+          </dd>
+          
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/issues" target="_blank" rel="noopener noreferrer">Report Issue</a>
+          </dd>
+      </dl>
+      
+
+      <dl>
+        <dt>On QGIS Project</dt>
+          <dd>
+            <a href="https://qgis.org/en" target="_blank" rel="noopener noreferrer">Home</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/api/3.28" target="_blank" rel="noopener noreferrer">C++ API</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/pyqgis/3.28" target="_blank" rel="noopener noreferrer">PyQGIS API</a>
+          </dd>
+          <dd>
+            <a href="https://github.com/qgis/QGIS/tree/release-3_28" target="_blank" rel="noopener noreferrer">Source</a>
+          </dd>
+      </dl>
+
+    </div>
+  </div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

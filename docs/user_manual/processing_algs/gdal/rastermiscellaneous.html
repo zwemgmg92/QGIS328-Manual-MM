@@ -1,0 +1,2125 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>29.2.4. Raster အကြောင်း အထွေအထွေ (Raster miscellaneous) &mdash; QGIS Documentation  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/qgis_docs.css?v=3fdf4c33" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
+
+  
+    <link rel="shortcut icon" href="../../../../_static/qgis_logo.ico"/>
+    <link rel="canonical" href="https://docs.qgis.org/latest/en/docs/user_manual/processing_algs/gdal/rastermiscellaneous.html"/>
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../../../_static/copybutton.js?v=f281be69"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../../../_static/togglebutton.js?v=4a39c7ea"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="29.2.5. Raster မြေပုံအရိပ်ချစနစ်များ (Raster projections)" href="rasterprojections.html" />
+    <link rel="prev" title="29.2.3. Raster ထဲမှဆွဲထုတ်ခြင်း (Raster extraction)" href="rasterextraction.html" />
+  <meta name="description" content="QGIS 3.28 documentation: 29.2.4. Raster အကြောင်း အထွေအထွေ (Raster miscellaneous)">
+</head>
+
+<body class="wy-body-for-nav">
+
+  <nav class="release_status_topbar">
+  </nav>
+
+   
+
+ 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+   
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            QGIS Documentation
+              <img src="../../../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                3.28
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+   <a href= "../../../../genindex.html">Index</a>
+ 
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">အသုံးပြုသူများအတွက်</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../preamble/preamble.html">1. စကားချီး (Preamble)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preamble/foreword.html">2. အမှာစာ (Foreword)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preamble/conventions.html">3. အသုံးအနှုန်းများ (Conventions)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preamble/features.html">4. အသွင်အပြင်များ (Features)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/getting_started.html">5. စတင်အသုံးပြုခြင်း (Getting Started)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/project_files.html">6. Project Files များနှင့် အလုပ်လုပ်ခြင်း (Working with Project Files)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/qgis_gui.html">7. QGIS ၏အစိတ်အပိုင်းများ (QGIS GUI)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/browser.html">8. ဒေတာများရှာဖွေကြည့်ရှုနိုင်သည့်နေရာ (The Browser panel)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/qgis_configuration.html">9. QGIS ပြင်ဆင်သတ်မှတ်ခြင်း/အခင်းအကျင်း (QGIS Configuration)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../working_with_projections/working_with_projections.html">10. မြေပုံအရိပ်ချစနစ်များ နှင့် အလုပ်လုပ်ခြင်း (Working with Projections)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../map_views/index.html">11. မြေပုံများအား ပုံဖော်ကြည့်ရှုခြင်း (Visualizing Maps)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/general_tools.html">12. အထွေ‌ထွေ‌သုံးကိရိယာများ (General Tools)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../expressions/index.html">13. Expression များဖြင့် အဆင့်မြှင့်တင်ဆောင်ရွက်ခြင်း (Level up with Expressions)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../style_library/index.html">14. The Style Library (Style နှင့်ပတ်သက်သည်များ ထားရှိရာနေရာ)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../managing_data_source/index.html">15. ဒေတာအရင်းအမြစ်များအား စီမံခန့်ခွဲခြင်း (Managing Data Source)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../working_with_vector/index.html">16. Vector data များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../working_with_raster/index.html">17. Raster Data နှင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../working_with_mesh/mesh_properties.html">18. Working with Mesh Data (Mesh Data များနှင့် အလုပ်လုပ်ခြင်း)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../working_with_vector_tiles/vector_tiles_properties.html">19. Vector Tiles များနှင့်အလုပ်လုပ်ခြင်း (Working with Vector Tiles)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../working_with_point_clouds/point_clouds.html">20. Point Cloud များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../print_composer/index.html">21. မြေပုံအချောသပ်ပြင်ဆင်ခြင်း (Laying out the maps)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../working_with_ogc/ogc_client_support.html">22. OGC / ISO protocol များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../working_with_gps/index.html">23. GPS Data များနှင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../auth_system/auth_overview.html">24. အထောက်အထားစီစစ်ခြင်းအကြောင်းအကျဉ်း (Authentication System Overview)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../auth_system/auth_workflows.html">25. အသုံးပြုသူ အထောက်အထားစစ်ဆေးခြင်း လုပ်ငန်းအဆင့်များ (User Authentication Workflows)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../auth_system/auth_considerations.html">26. လုံခြုံရေးအတွက်စဉ်းစားရန်အချက်များ (Security Considerations)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../grass_integration/grass_integration.html">27. GRASS GIS နှင့်ပေါင်းစပ်အသုံးပြုခြင်း (GRASS GIS Integration)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../processing/index.html">28. QGIS processing framework</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">29. Processing ဆိုင်ရာ ထောက်ပံ့ပေးသူများနှင့် Algorithm များ (Processing providers and algorithms)</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../qgis/index.html">29.1. QGIS algorithm ထောက်ပံ့ပေးသူ (QGIS algorithm provider)</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">29.2. GDAL algorithm ထောက်ပံ့ပေးသူ (GDAL algorithm provider)</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="rasteranalysis.html">29.2.1. Raster ဖြင့်ဆန်းစစ်လေ့လာခြင်း (Raster analysis)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rasterconversion.html">29.2.2. Raster များကို ပြောင်းလဲခြင်း (Raster conversion)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rasterextraction.html">29.2.3. Raster ထဲမှဆွဲထုတ်ခြင်း (Raster extraction)</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">29.2.4. Raster အကြောင်း အထွေအထွေ (Raster miscellaneous)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#pyramid-build-overviews">29.2.4.1. လွှမ်းခြုံမှုမြင်ကွင်းအဆင့်ဆင့်(pyramid)ပြုလုပ်ခြင်း (Build overviews)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#raster-build-virtual-raster">29.2.4.2. ယာယီ raster တစ်ခုဖန်တီးခြင်း (Build virtual raster)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gdal2tiles">29.2.4.3. gdal2tiles</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#merge">29.2.4.4. ပေါင်းခြင်း (Merge)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pansharpening">29.2.4.5. ကြည်လင်ပြတ်သားမှု ကောင်းအောင်လုပ်ဆောင်ခြင်း (Pansharpening)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#raster-raster-calculator">29.2.4.6. Raster တွက်စက် (Raster calculator)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#raster-raster-information">29.2.4.7. Raster အချက်အလက် (Raster information)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tile-retile">29.2.4.8. Tile ပြန်လုပ်ခြင်း (Retile)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tile-tile-index">29.2.4.9. Tile အညွှန်း (Tile index)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#viewshed">29.2.4.10. မြင်ကွင်းခွင် (Viewshed)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="rasterprojections.html">29.2.5. Raster မြေပုံအရိပ်ချစနစ်များ (Raster projections)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vectorconversion.html">29.2.6. Vector များကိုပြောင်းလဲခြင်း (Vector conversion)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vectorgeoprocessing.html">29.2.7. Vector တွက်ချက်ခြင်း (Vector geoprocessing)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vectormiscellaneous.html">29.2.8. Vector ဆိုင်ရာ အထွေထွေ (Vector miscellaneous)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../otb.html">29.3. OTB application များ ထောက်ပံ့ပေးသည့်အရာ (OTB applications provider)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../plugins/plugins.html">30. QGIS Plugin များ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../plugins/core_plugins/index.html">31. QGIS ပင်မ Plugin များကို အသုံးပြုခြင်း (Using QGIS Core Plugins)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../plugins/python_console.html">32. QGIS တွင် Python code များရေးသားရန်နေရာ (QGIS Python console)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preamble/help_and_support.html">33. အကူအညီနှင့်အထောက်အပံ့ (Help and Support)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preamble/contributors.html">34. ပါဝင်အားဖြည့်သူများ (Contributors)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendices/index.html">35. နောက်ဆက်တွဲများ (Appendices)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../literature_web/literature_and_web_references.html">36. စာတမ်းများနှင့် Website ကိုးကားချက်များ (Literature and Web References)</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">QGIS Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">&lt;no title&gt;</a></li>
+          <li class="breadcrumb-item"><a href="../index.html"><span class="section-number">29. </span>Processing ဆိုင်ရာ ထောက်ပံ့ပေးသူများနှင့် Algorithm များ (Processing providers and algorithms)</a></li>
+          <li class="breadcrumb-item"><a href="index.html"><span class="section-number">29.2. </span>GDAL algorithm ထောက်ပံ့ပေးသူ (GDAL algorithm provider)</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">29.2.4. </span>Raster အကြောင်း အထွေအထွေ (Raster miscellaneous)</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/qgis/QGIS-Documentation/blob/master/docs/user_manual/processing_algs/gdal/rastermiscellaneous.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="rasterextraction.html" class="btn btn-neutral float-left" title="29.2.3. Raster ထဲမှဆွဲထုတ်ခြင်း (Raster extraction)" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="rasterprojections.html" class="btn btn-neutral float-right" title="29.2.5. Raster မြေပုံအရိပ်ချစနစ်များ (Raster projections)" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <blockquote>
+<div></div></blockquote>
+<section id="raster-raster-miscellaneous">
+<h1><span class="section-number">29.2.4. </span>Raster အကြောင်း အထွေအထွေ (Raster miscellaneous)<a class="headerlink" href="#raster-raster-miscellaneous" title="Link to this heading"></a></h1>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#pyramid-build-overviews" id="id46">လွှမ်းခြုံမှုမြင်ကွင်းအဆင့်ဆင့်(pyramid)ပြုလုပ်ခြင်း (Build overviews)</a></p></li>
+<li><p><a class="reference internal" href="#raster-build-virtual-raster" id="id47">ယာယီ raster တစ်ခုဖန်တီးခြင်း (Build virtual raster)</a></p></li>
+<li><p><a class="reference internal" href="#gdal2tiles" id="id48">gdal2tiles</a></p></li>
+<li><p><a class="reference internal" href="#merge" id="id49">ပေါင်းခြင်း (Merge)</a></p></li>
+<li><p><a class="reference internal" href="#pansharpening" id="id50">ကြည်လင်ပြတ်သားမှု ကောင်းအောင်လုပ်ဆောင်ခြင်း (Pansharpening)</a></p></li>
+<li><p><a class="reference internal" href="#raster-raster-calculator" id="id51">Raster တွက်စက် (Raster calculator)</a></p></li>
+<li><p><a class="reference internal" href="#raster-raster-information" id="id52">Raster အချက်အလက် (Raster information)</a></p></li>
+<li><p><a class="reference internal" href="#tile-retile" id="id53">Tile ပြန်လုပ်ခြင်း (Retile)</a></p></li>
+<li><p><a class="reference internal" href="#tile-tile-index" id="id54">Tile အညွှန်း (Tile index)</a></p></li>
+<li><p><a class="reference internal" href="#viewshed" id="id55">မြင်ကွင်းခွင် (Viewshed)</a></p></li>
+</ul>
+</nav>
+<section id="pyramid-build-overviews">
+<span id="gdaloverviews"></span><h2><a class="toc-backref" href="#id46" role="doc-backlink"><span class="section-number">29.2.4.1. </span>လွှမ်းခြုံမှုမြင်ကွင်းအဆင့်ဆင့်(pyramid)ပြုလုပ်ခြင်း (Build overviews)</a><a class="headerlink" href="#pyramid-build-overviews" title="Link to this heading"></a></h2>
+<p>Raster layer များ ပုံဖော်ကြည့်ပြသချိန်ကို မြန်ဆန်စေရန် ခြုံငုံကြည့်ရှုနိုင်သော overview pyramid များကိုဖန်တီးနိုင်ပါသည်။ Overview များဆိုသည်မှာ zoom level ပေါ်မူတည်ပြီး QGIS မှ အသုံးပြုသော မူရင်း data ၏ resolution နိမ့်သော data မိတ္တူများဖြစ်ကြပါသည်။</p>
+<p>Algorithm ကို <a class="reference external" href="https://gdal.org/programs/gdaladdo.html">GDAL addo utility</a> မှ ရယူပါသည်။</p>
+<p><strong>Default menu</strong> - <span class="menuselection">Raster ► Miscellaneous</span></p>
+<section id="parameters">
+<h3>သတ်မှတ်ချက်များ (Parameters)<a class="headerlink" href="#parameters" title="Link to this heading"></a></h3>
+<section id="basic-parameters">
+<h4>အခြေခံ သတ်မှတ်ချက်များ (Basic parameters)<a class="headerlink" href="#basic-parameters" title="Link to this heading"></a></h4>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Input layers</strong> (<strong>ထည့်သွင်းအသုံးပြုသော layer များ</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">INPUT</span></code></p></td>
+<td><p>[raster]</p></td>
+<td><p>ထည့်သွင်းအသုံးပြုသော raster layer</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Remove all existing overviews</strong> (<strong>ရှိနေပြီးသား overview များကို ဖယ်ပစ်ခြင်း</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">CLEAN</span></code></p></td>
+<td><p>[boolean]</p>
+<p>Default: False</p>
+</td>
+<td><p>Raster မှရှိနေပြီးသား overview များကိုဖယ်ပစ်ပါသည်။ သာမန်အားဖြင့် ၎င်းတို့ကို ဖယ်ထုတ်မပစ်ပါ။</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="advanced-parameters">
+<h4>အဆင့်မြင့် သတ်မှတ်ချက်များ (Advanced parameters)<a class="headerlink" href="#advanced-parameters" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Overview levels</strong> (<strong>Overview အဆင့်များ</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">LEVELS</span></code></p></td>
+<td><p>[string]</p>
+<p>Default: ‘2 4 8 16’</p>
+</td>
+<td><p>Input raster layer ၏ မူရင်း resolution ဖြင့်တွက်ထုတ်ထားသော overview level အရေအတွက်ကို သတ်မှတ်ပေးပါသည်။ ဘာမှ သတ်မှတ်မပေးထားလျှင် သာမန်အားဖြင့် 4 levels ကို ယူသုံးပါလိမ့်မည်။</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Resampling method</strong> (<strong>Resolution ပြင်ဆင်ခြင်း နည်းလမ်း</strong>)</p>
+<p>Optional (မဖြစ်မနေလုပ်ဆောင်ရန် မလိုအပ်ပါ)</p>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">RESAMPLING</span></code></p></td>
+<td><p>[enumeration]</p>
+<p>Default: 0</p>
+</td>
+<td><p>သတ်မှတ်ထားသော resolution ပြင်ဆင်ခြင်း နည်းလမ်းဖြင့် overview ကိုတွက်ချက်ပေးပါသည်။ ဖြစ်နိုင်သော resolution ပြင်ဆင်ခြင်း နည်းလမ်းများမှာ -</p>
+<ul class="simple">
+<li><p>0 – Nearest Neighbour (<code class="docutils literal notranslate"><span class="pre">nearest</span></code>)</p></li>
+<li><p>1 – Average (<code class="docutils literal notranslate"><span class="pre">average</span></code>)</p></li>
+<li><p>2 – Gaussian (<code class="docutils literal notranslate"><span class="pre">gauss</span></code>)</p></li>
+<li><p>3 – Cubic Convolution (<code class="docutils literal notranslate"><span class="pre">cubic</span></code>)</p></li>
+<li><p>4 – B-Spline Convolution (<code class="docutils literal notranslate"><span class="pre">cubicspline</span></code>)</p></li>
+<li><p>5 – Lanczos Windowed Sinc (<code class="docutils literal notranslate"><span class="pre">lanczos</span></code>)</p></li>
+<li><p>6 – Average MP (<code class="docutils literal notranslate"><span class="pre">average_mp</span></code>)</p></li>
+<li><p>7 – Average in Mag/Phase Space (<code class="docutils literal notranslate"><span class="pre">average_magphase</span></code>)</p></li>
+<li><p>8 – Mode (<code class="docutils literal notranslate"><span class="pre">mode</span></code>)</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p><strong>Overviews format</strong> (<strong>Overview များ၏ format</strong>)</p>
+<p>Optional (မဖြစ်မနေလုပ်ဆောင်ရန် မလိုအပ်ပါ)</p>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">FORMAT</span></code></p></td>
+<td><p>[enumeration]</p>
+<p>Default: 0</p>
+</td>
+<td><p>Overview များကို GTiff သို့မဟုတ် ERDAS Imagine file အဖြစ် အတွင်းထဲတွင် သို့မဟုတ် အပြင်ဘက်တွင် သိမ်းဆည်းထားနိုင်ပါသည်။ သာမန်အားဖြင့် overview များကို output raster ထဲတွင် သိမ်းဆည်းထားပါသည်။ ဖြစ်နိုင်သော format နည်းလမ်းများမှာ-</p>
+<ul class="simple">
+<li><p>0 – Internal (if possible)</p></li>
+<li><p>1 – External (GTiff .ovr)</p></li>
+<li><p>2 – External (ERDAS Imagine .aux)</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p><strong>Additional command-line parameters</strong> (<strong>ထပ်ဆောင်း command-line parameter များ</strong>)</p>
+<p>Optional (မဖြစ်မနေလုပ်ဆောင်ရန် မလိုအပ်ပါ)</p>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">EXTRA</span></code></p></td>
+<td><p>[string]</p>
+<p>Default: None</p>
+</td>
+<td><p>ထပ်ဆောင်း GDAL command line ရွေးချယ်စရာများကို ထည့်ပေါင်းခြင်း</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="outputs">
+<h3>ရလာဒ်များ (Outputs)<a class="headerlink" href="#outputs" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Pyramidized</strong> (<strong>ပိရမစ်ဖန်တီးထားသော</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
+<td><p>[raster]</p></td>
+<td><p>Overview များဖြင့် output raster layer</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="python-code">
+<h3>Python code<a class="headerlink" href="#python-code" title="Link to this heading"></a></h3>
+<p><strong>Algorithm ID</strong>: <code class="docutils literal notranslate"><span class="pre">gdal:overviews</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">processing</span>
+<span class="n">processing</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;algorithm_id&quot;</span><span class="p">,</span> <span class="p">{</span><span class="n">parameter_dictionary</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>Processing Toolbox ထဲရှိ algorithm ပေါ်တွင် mouse ကိုတင်ထားလျှင် <em>algorithm id</em> ကိုပြသပေးပါသည်။ <em>parameter dictionary</em> သည် parameter နာမည်များနှင့် တန်ဖိုးများကို ပေးပါသည်။ Python console မှ algorithm များကို မည်သို့လုပ်ဆောင်ရမည် ဆိုသည့် အသေးစိတ်ကို သိရှိလိုလျှင် <a class="reference internal" href="../../processing/console.html#processing-console"><span class="std std-ref">Console တွင် processing algorithm များကို အသုံးပြုခြင်း</span></a> တွင်ကြည့်ပါ။</p>
+</section>
+</section>
+<section id="raster-build-virtual-raster">
+<span id="gdalbuildvirtualraster"></span><h2><a class="toc-backref" href="#id47" role="doc-backlink"><span class="section-number">29.2.4.2. </span>ယာယီ raster တစ်ခုဖန်တီးခြင်း (Build virtual raster)</a><a class="headerlink" href="#raster-build-virtual-raster" title="Link to this heading"></a></h2>
+<p>GDAL မှလုပ်ဆောင်ပေးနိုင်သော input raster များစာရင်း၏ mosaic (ပုံအများကိုပေါင်းစပ်ထားခြင်း) တစ်ခုဖြစ်သော VRT (Virtual Dataset) တစ်ခုကို ဖန်တီးပေးပါသည်။ Mosaic တစ်ခုဖြင့် raster file များစွာကိုပေါင်းနိုင်ပါသည်။</p>
+<p>Algorithm ကို <a class="reference external" href="https://gdal.org/programs/gdalbuildvrt.html">GDAL buildvrt utility</a> မှ ရယူပါသည်။</p>
+<p><strong>Default menu</strong> - <span class="menuselection">Raster ► Miscellaneous</span></p>
+<section id="id1">
+<h3>သတ်မှတ်ချက်များ (Parameters)<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
+<section id="id2">
+<h4>အခြေခံ သတ်မှတ်ချက်များ (Basic parameters)<a class="headerlink" href="#id2" title="Link to this heading"></a></h4>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Input layers</strong> (<strong>ထည့်သွင်းအသုံးပြုသော layer များ</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">INPUT</span></code></p></td>
+<td><p>[raster] [list]</p></td>
+<td><p>GDAL မှလုပ်ဆောင်ပေးနိုင်သော raster layer များ</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Resolution</strong> (<strong>ကြည်လင်ပြတ်သားမှု</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">RESOLUTION</span></code></p></td>
+<td><p>[enumeration]</p>
+<p>Default: 0</p>
+</td>
+<td><p>Mosaic ၏ output resolution ။ သာမန်အားဖြင့် raster file များ၏ပျမ်းမျှ resolution ကိုရွေးချယ်ပါလိမ့်မည်။ ရွေးချယ်စရာများမှာ -</p>
+<ul class="simple">
+<li><p>0 — Average (<code class="docutils literal notranslate"><span class="pre">average</span></code>) (ပျမ်းမျှ)</p></li>
+<li><p>1 — Highest (<code class="docutils literal notranslate"><span class="pre">highest</span></code>) (အမြင့်ဆုံး)</p></li>
+<li><p>2 — Lowest (<code class="docutils literal notranslate"><span class="pre">lowest</span></code>) (အနိမ့်ဆုံး)</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p><strong>Place each input file into a separate band</strong> (<strong>Input file တစ်ခုချင်းစီကို သီးခြား band တစ်ခုစီထဲတွင် ထားခြင်း</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">SEPARATE</span></code></p></td>
+<td><p>[boolean]</p>
+<p>Default: False</p>
+</td>
+<td><p>‘True’ ကိုရွေးချယ်ထားလျှင် raster file တစ်ခုချင်းစီသည် VRT band ထဲရှိ သီးခြားထပ်ထားသော band တစ်ခုထဲသို့သွားရန် သွားရန်သတ်မှတ်ပေးနိုင်ပါသည်။</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Allow projection difference</strong> (<strong>Projection ခြားနားချက်ကို ခွင့်ပြုပေးခြင်း</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">PROJ_DIFFERENCE</span></code></p></td>
+<td><p>[boolean]</p>
+<p>Default: False</p>
+</td>
+<td><p>Input raster layer များ၏ projection မှရယူထားသော projection အမျိုးမျိုးကို output band တွင်ရရှိနိုင်အောင် လုပ်ဆောင်ပေးပါသည်။</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Virtual</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
+<td><p>[raster]</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">[Save</span> <span class="pre">to</span> <span class="pre">temporary</span> <span class="pre">file]</span> <span class="pre">([ယာယီ</span> <span class="pre">file</span> <span class="pre">အဖြစ်သိမ်းဆည်းပါ])</span></code></p>
+</td>
+<td><p>Output raster layer ၏ သီးခြားသတ်မှတ်ချက်။ အောက်ပါတို့ထဲမှ တစ်ခုခုဖြစ်ပါသည် -</p>
+<ul class="simple">
+<li><p>ယာယီ file တစ်ခုတွင် သိမ်းဆည်းပါ</p></li>
+<li><p>File တွင်သိမ်းဆည်းပါ</p></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id3">
+<h4>အဆင့်မြင့် သတ်မှတ်ချက်များ (Advanced parameters)<a class="headerlink" href="#id3" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Add alpha mask band to VRT when source raster has none</strong> (<strong>ရင်းမြစ် raster သည်မည်သည့် band မှမရှိသောအခါ VRT တွင် alpha mask band ထည့်ပေါင်းခြင်း</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">ADD_ALPHA</span></code></p></td>
+<td><p>[boolean]</p>
+<p>Default: False</p>
+</td>
+<td><p>ရင်းမြစ် raster သည်မည်သည့် band မှမရှိသောအခါ VRT တွင် alpha mask band ထည့်ပေါင်းခြင်း။</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Override projection for the output file</strong> (<strong>Output file အတွက် projection ကို အစားထိုးပြင်ဆင်ခြင်း</strong>)</p>
+<p>Optional (မဖြစ်မနေလုပ်ဆောင်ရန် မလိုအပ်ပါ)</p>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">ASSIGN_CRS</span></code></p></td>
+<td><p>[crs]</p>
+<p>Default: None</p>
+</td>
+<td><p>Output file အတွက် projection ကို အစားထိုးပြင်ဆင်ပေးပါသည်။ Reprojection (Projection တစ်ခုမှတစ်ခုသို့ ပြောင်းလဲခြင်း) မလုပ်ဆောင်ပါ။</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Resampling algorithm</strong> (<strong>Resolution ပြင်ဆင်ခြင်း algorithm</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">RESAMPLING</span></code></p></td>
+<td><p>[enumeration]</p>
+<p>Default: 0</p>
+</td>
+<td><p>အသုံးပြုမည့် resolution ပြင်ဆင်သည့် algorithm ။ ရွေးချယ်စရာ နည်းလမ်းများမှာ -</p>
+<ul class="simple">
+<li><p>0 — Nearest Neighbour (<code class="docutils literal notranslate"><span class="pre">nearest</span></code>)</p></li>
+<li><p>1 — Bilinear (<code class="docutils literal notranslate"><span class="pre">bilinear</span></code>)</p></li>
+<li><p>2 — Cubic Convolution (<code class="docutils literal notranslate"><span class="pre">cubic</span></code>)</p></li>
+<li><p>3 — B-Spline Convolution (<code class="docutils literal notranslate"><span class="pre">cubicspline</span></code>)</p></li>
+<li><p>4 — Lanczos Windowed Sinc (<code class="docutils literal notranslate"><span class="pre">lanczos</span></code>)</p></li>
+<li><p>5 — Average (<code class="docutils literal notranslate"><span class="pre">average</span></code>)</p></li>
+<li><p>6 — Mode (<code class="docutils literal notranslate"><span class="pre">mode</span></code>)</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p><strong>Nodata value(s) for input bands (space separated)</strong> (<strong>Input band များအတွက် nodata တန်ဖိုးများ (space ဖြင့်ခြားထားသော)</strong>)</p>
+<p>Optional (မဖြစ်မနေလုပ်ဆောင်ရန် မလိုအပ်ပါ)</p>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">SRC_NODATA</span></code></p></td>
+<td><p>[string]</p>
+<p>Default: None</p>
+</td>
+<td><p>Input band များအတွက် space ဖြင့်ခြားထားသော Nodata တန်ဖိုးများ</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Additional command-line parameters</strong> (<strong>ထပ်ဆောင်း command-line parameter များ</strong>)</p>
+<p>Optional (မဖြစ်မနေလုပ်ဆောင်ရန် မလိုအပ်ပါ)</p>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">EXTRA</span></code></p></td>
+<td><p>[string]</p>
+<p>Default: None</p>
+</td>
+<td><p>ထပ်ဆောင်း GDAL command line ရွေးချယ်စရာများကို ထည့်ပေါင်းခြင်း</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="id4">
+<h3>ရလာဒ်များ (Outputs)<a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Virtual</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
+<td><p>[raster]</p></td>
+<td><p>Output raster layer</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id5">
+<h3>Python code<a class="headerlink" href="#id5" title="Link to this heading"></a></h3>
+<p><strong>Algorithm ID</strong>: <code class="docutils literal notranslate"><span class="pre">gdal:buildvirtualraster</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">processing</span>
+<span class="n">processing</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;algorithm_id&quot;</span><span class="p">,</span> <span class="p">{</span><span class="n">parameter_dictionary</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>Processing Toolbox ထဲရှိ algorithm ပေါ်တွင် mouse ကိုတင်ထားလျှင် <em>algorithm id</em> ကိုပြသပေးပါသည်။ <em>parameter dictionary</em> သည် parameter နာမည်များနှင့် တန်ဖိုးများကို ပေးပါသည်။ Python console မှ algorithm များကို မည်သို့လုပ်ဆောင်ရမည် ဆိုသည့် အသေးစိတ်ကို သိရှိလိုလျှင် <a class="reference internal" href="../../processing/console.html#processing-console"><span class="std std-ref">Console တွင် processing algorithm များကို အသုံးပြုခြင်း</span></a> တွင်ကြည့်ပါ။</p>
+</section>
+</section>
+<section id="gdal2tiles">
+<span id="gdalgdal2tiles"></span><h2><a class="toc-backref" href="#id48" role="doc-backlink"><span class="section-number">29.2.4.3. </span>gdal2tiles</a><a class="headerlink" href="#gdal2tiles" title="Link to this heading"></a></h2>
+<p>Tile (အကွက်) အသေးများနှင့် metadata တို့ပါဝင်သော လမ်းကြောင်းတစ်ခုကိုဖန်တီးပေးပါသည်၊ <a class="reference external" href="https://wiki.osgeo.org/wiki/Tile_Map_Service_Specification">OSGeo Tile Map Service Specification</a> အတိုင်းလုပ်ဆောင်ပါသည်။ <a class="reference external" href="https://www.ogc.org/standards/wmts">OpenGIS Web Map Tile Service Implementation Standard</a> တွင်လည်းကြည့်ရှုပါ။ Google Maps၊ OpenLayers နှင့် Leaflet များကိုအခြေခံထားသော viewer (ကြည့်ရှုနိုင်သည့်အရာ) များဖြင့် ရိုးရှင်းသော web စာမျက်နှာများကိုလည်း ဖန်တီးပေးပါသည်။ Web browser ထဲတွင် မိမိ၏မြေပုံကို on-line တွင်စူးစမ်းလေ့လာရန် web server ထဲသို့ ဖန်တီးထားသော လမ်းကြောင်းတစ်ခု ထည့်သွင်းပေးရန်သာ လိုအပ်ပါသည်။</p>
+<p>အသုံးပြုနိုင်သော မြေပုံသည် <code class="docutils literal notranslate"><span class="pre">EPSG:4326</span></code> projection ကိုအသုံးပြုလျှင် ယခု algorithm သည် Google Earth (KML SuperOVerlay) အတွက် မဖြစ်မနေလိုအပ်သော medadata ကိုလည်း ဖန်တီးပေးပါသည်။</p>
+<p>Tile ဖန်တီးစဉ်တွင် ESRI world file များနှင့် ထည့်မြှုပ်ထားသော georeferencing ကိုအသုံးပြုပါသည်။ သို့သော် ဓာတ်ပုံတစ်ပုံကို ကောင်းကောင်းမွန်မွန် georeference လုပ်ထားခြင်းမရှိပဲလည်း publish (ဖြန့်ဝေ) လုပ်နိုင်ပါသည်။</p>
+<p>Algorithm ကို <a class="reference external" href="https://gdal.org/programs/gdal2tiles.html">GDAL gdal2tiles utility</a> မှ ရယူပါသည်။</p>
+<section id="id6">
+<h3>သတ်မှတ်ချက်များ (Parameters)<a class="headerlink" href="#id6" title="Link to this heading"></a></h3>
+<section id="id7">
+<h4>အခြေခံ သတ်မှတ်ချက်များ (Basic parameters)<a class="headerlink" href="#id7" title="Link to this heading"></a></h4>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Input layers</strong> (<strong>ထည့်သွင်းအသုံးပြုသော layer များ</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">INPUT</span></code></p></td>
+<td><p>[raster]</p></td>
+<td><p>GDAL မှလုပ်ဆောင်ပေးနိုင်သော raster layer</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Tile cutting profile</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">PROFILE</span></code></p></td>
+<td><p>[enumeration]</p>
+<p>Default: 0</p>
+</td>
+<td><p>အောက်ပါတို့ထဲမှ တစ်ခုခုဖြစ်ပါသည်-</p>
+<ul class="simple">
+<li><p>0 — Mercator (<code class="docutils literal notranslate"><span class="pre">mercator</span></code>)</p></li>
+<li><p>1 — Geodetic (<code class="docutils literal notranslate"><span class="pre">geodetic</span></code>)</p></li>
+<li><p>2 — Raster (<code class="docutils literal notranslate"><span class="pre">raster</span></code>)</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p><strong>Zoom levels to render</strong> (<strong>ပုံဖော်ကြည့်ရှုရန် zoom level များ</strong>)</p>
+<p>Optional (မဖြစ်မနေလုပ်ဆောင်ရန် မလိုအပ်ပါ)</p>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">ZOOM</span></code></p></td>
+<td><p>[string]</p>
+<p>Default: ‘’</p>
+</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Web viewer to generate</strong> (<strong>ဖန်တီးရယူရန် Web viewer</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">VIEWER</span></code></p></td>
+<td><p>[enumerate]</p>
+<p>Default: 0</p>
+</td>
+<td><p>အောက်ပါတို့ထဲမှ တစ်ခုခုဖြစ်ပါသည်-</p>
+<ul class="simple">
+<li><p>0 — All (<code class="docutils literal notranslate"><span class="pre">all</span></code>)</p></li>
+<li><p>1 — GoogleMaps (<code class="docutils literal notranslate"><span class="pre">google</span></code>)</p></li>
+<li><p>2 — OpenLayers (<code class="docutils literal notranslate"><span class="pre">openlayers</span></code>)</p></li>
+<li><p>3 — Leaflet (<code class="docutils literal notranslate"><span class="pre">leaflet</span></code>)</p></li>
+<li><p>4 — None (<code class="docutils literal notranslate"><span class="pre">none</span></code>)</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p><strong>Title of the map</strong> (<strong>မြေပုံ၏ ခေါင်းစဉ်</strong>)</p>
+<p>Optional (မဖြစ်မနေလုပ်ဆောင်ရန် မလိုအပ်ပါ)</p>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">TITLE</span></code></p></td>
+<td><p>[string]</p>
+<p>Default: ‘’</p>
+</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Copyright of the map</strong> (<strong>မြေပုံ၏ မူပိုင်ခွင့်</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">COPYRIGHT</span></code></p></td>
+<td><p>[string]</p>
+<p>Default: ‘’</p>
+</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>Output directory</strong> (<strong>Output သိမ်းဆည့်မည့်နေရာ</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
+<td><p>[folder]</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">[Save</span> <span class="pre">to</span> <span class="pre">temporary</span> <span class="pre">folder]</span> <span class="pre">([ယာယီ</span> <span class="pre">folder</span> <span class="pre">ထဲတွင်</span> <span class="pre">သိမ်းဆည်းပါ])</span></code></p>
+</td>
+<td><p>Tile များအတွက် output folder ကိုသတ်မှတ်ပေးပါသည်။ အောက်ပါတို့ထဲမှ တစ်ခုခုဖြစ်ပါသည် -</p>
+<ul class="simple">
+<li><p>ယာယီ လမ်းကြောင်းတစ်ခုတွင် သိမ်းဆည်းပါ</p></li>
+<li><p>လမ်းကြောင်းတွင်သိမ်းဆည်းပါ</p></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id8">
+<h4>အဆင့်မြင့် သတ်မှတ်ချက်များ (Advanced parameters)<a class="headerlink" href="#id8" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Resampling method</strong> (<strong>Resolution ပြင်ဆင်ခြင်းနည်းလမ်း</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">RESAMPLING</span></code></p></td>
+<td><p>[enumeration]</p>
+<p>Default: 0</p>
+</td>
+<td><p>အသုံးပြုမည့် resolution ပြင်ဆင်ခြင်း algorithm။ ရွေးချယ်စရာများမှာ -</p>
+<ul class="simple">
+<li><p>0 — Average (<code class="docutils literal notranslate"><span class="pre">average</span></code>)</p></li>
+<li><p>1 — Nearest neighbour (<code class="docutils literal notranslate"><span class="pre">near</span></code>)</p></li>
+<li><p>2 — Bilinear (<code class="docutils literal notranslate"><span class="pre">bilinear</span></code>)</p></li>
+<li><p>3 — Cubic (<code class="docutils literal notranslate"><span class="pre">cubic</span></code>)</p></li>
+<li><p>4 — Cubic spline (<code class="docutils literal notranslate"><span class="pre">cubicspline</span></code>)</p></li>
+<li><p>5 — Lanczos Windowed sinc (<code class="docutils literal notranslate"><span class="pre">lanczos</span></code>)</p></li>
+<li><p>6 — Antialias (<code class="docutils literal notranslate"><span class="pre">antialias</span></code>)</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p><strong>The spatial reference system used for the source input data</strong> (<strong>ရင်းမြစ် input data အတွက် အသုံးပြုမည့် spatial reference system</strong>)</p>
+<p>Optional (မဖြစ်မနေလုပ်ဆောင်ရန် မလိုအပ်ပါ)</p>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">SOURCE_CRS</span></code></p></td>
+<td><p>[crs]</p>
+<p>Default: None</p>
+</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>Transparency value to assign to the input data</strong> (<strong>Input data တွင်သတ်မှတ်မည့် ဖောက်ထွင်းမြင်ရနိုင်မှုတန်ဖိုး</strong>)</p>
+<p>Optional (မဖြစ်မနေလုပ်ဆောင်ရန် မလိုအပ်ပါ)</p>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">NODATA</span></code></p></td>
+<td><p>[number]</p>
+<p>Default: 0.0</p>
+</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>URL address where the generated tiles are going to be published</strong> (<strong>ဖန်တီးထားသော tile များကိုဖြန့်ဝေပေးမည့် URL လိပ်စာ</strong>)</p>
+<p>Optional (မဖြစ်မနေလုပ်ဆောင်ရန် မလိုအပ်ပါ)</p>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">URL</span></code></p></td>
+<td><p>[string]</p>
+<p>Default: ‘’</p>
+</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>Google Maps API key (http://code.google.com/apis/maps/signup.html)</strong></p>
+<p>Optional (မဖြစ်မနေလုပ်ဆောင်ရန် မလိုအပ်ပါ)</p>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">GOOGLE_KEY</span></code></p></td>
+<td><p>[string]</p>
+<p>Default: ‘’</p>
+</td>
+<td><p>သင့် Google maps API key</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Bing Maps API key (https://www.bingmapsportal.com/)</strong></p>
+<p>Optional (မဖြစ်မနေလုပ်ဆောင်ရန် မလိုအပ်ပါ)</p>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">BING_KEY</span></code></p></td>
+<td><p>[string]</p>
+<p>Default: ‘’</p>
+</td>
+<td><p>သင့် Bing maps API key.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Generate only missing files</strong> (<strong>ပျောက်နေသော file များကိုသာ ဖန်တီးပါ</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">RESUME</span></code></p></td>
+<td><p>[boolean]</p>
+<p>Default: False</p>
+</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Generate KML for Google Earth</strong> (<strong>Google Earth အတွက် KML ကိုဖန်တီးခြင်း</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">KML</span></code></p></td>
+<td><p>[boolean]</p>
+<p>Default: False</p>
+</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>Avoid automatic generation of KML files for EPSG:4326</strong> (<strong>EPSG:4326 အတွက် KML file များအလိုအလျှောက်ဖန်တီးမှုကို ရှောင်ရှားခြင်း</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">NO_KML</span></code></p></td>
+<td><p>[boolean]</p>
+<p>Default: False</p>
+</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="id9">
+<h3>ရလာဒ်များ (Outputs)<a class="headerlink" href="#id9" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Output directory</strong> (<strong>Output သိမ်းထားမည့်နေရာ</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
+<td><p>[folder]</p></td>
+<td><p>Output folder (Tile များအတွက်)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id10">
+<h3>Python code<a class="headerlink" href="#id10" title="Link to this heading"></a></h3>
+<p><strong>Algorithm ID</strong>: <code class="docutils literal notranslate"><span class="pre">gdal:gdal2tiles</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">processing</span>
+<span class="n">processing</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;algorithm_id&quot;</span><span class="p">,</span> <span class="p">{</span><span class="n">parameter_dictionary</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>Processing Toolbox ထဲရှိ algorithm ပေါ်တွင် mouse ကိုတင်ထားလျှင် <em>algorithm id</em> ကိုပြသပေးပါသည်။ <em>parameter dictionary</em> သည် parameter နာမည်များနှင့် တန်ဖိုးများကို ပေးပါသည်။ Python console မှ algorithm များကို မည်သို့လုပ်ဆောင်ရမည် ဆိုသည့် အသေးစိတ်ကို သိရှိလိုလျှင် <a class="reference internal" href="../../processing/console.html#processing-console"><span class="std std-ref">Console တွင် processing algorithm များကို အသုံးပြုခြင်း</span></a> တွင်ကြည့်ပါ။</p>
+</section>
+</section>
+<section id="merge">
+<span id="gdalmerge"></span><h2><a class="toc-backref" href="#id49" role="doc-backlink"><span class="section-number">29.2.4.4. </span>ပေါင်းခြင်း (Merge)</a><a class="headerlink" href="#merge" title="Link to this heading"></a></h2>
+<p>Raster file များကို ရိုးရှင်းစွာ ပေါင်းပေးပါသည်။ Input raster တစ်ခုမှ pseudocolor table ကိုအသုံးပြုနိုင်ပြီး output raster အမျိုးအစားကို သတ်မှတ်နိုင်ပါသည်။ ဓာတ်ပုံများအားလုံးသည် ကိုဩဒိနိတ်စနစ် တူရပါမည်။</p>
+<p>Algorithm ကို <a class="reference external" href="https://gdal.org/programs/gdal_merge.html">GDAL merge utility</a> မှ ရယူပါသည်။</p>
+<p><strong>Default menu</strong> - <span class="menuselection">Raster ► Miscellaneous</span></p>
+<section id="id11">
+<h3>သတ်မှတ်ချက်များ (Parameters)<a class="headerlink" href="#id11" title="Link to this heading"></a></h3>
+<section id="id12">
+<h4>အခြေခံ သတ်မှတ်ချက်များ (Basic parameters)<a class="headerlink" href="#id12" title="Link to this heading"></a></h4>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Input layers</strong> (<strong>ထည့်သွင်းအသုံးပြုသော layer များ</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">INPUT</span></code></p></td>
+<td><p>[raster] [list]</p></td>
+<td><p>ထည့်သွင်းအသုံးပြုသော raster layer များ</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Grab pseudocolor table from first layer</strong> (<strong>ပထမ layer မှ pseudocolor ဇယားကို ယူပါ</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">PCT</span></code></p></td>
+<td><p>[boolean]</p>
+<p>Default: False</p>
+</td>
+<td><p>အရောင်ခြယ်သခြင်းအတွက် အသုံးပြုမည့် ပထမ layer မှ pseudocolor ဇယား</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Place each input file into a separate band</strong> (<strong>Input file တစ်ခုချင်းစီကို သီးခြား band တစ်ခုစီတွင် ထားခြင်း</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">SEPARATE</span></code></p></td>
+<td><p>[boolean]</p>
+<p>Default: False</p>
+</td>
+<td><p>Input file တစ်ခုချင်းစီကို သီးခြား band တစ်ခုစီတွင် ထားပေးပါသည်</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Output data type</strong> (<strong>Output data အမျိုးအစား</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">DATA_TYPE</span></code></p></td>
+<td><p>[enumeration]</p>
+<p>Default: 5</p>
+</td>
+<td><p>Output raster file ၏ format ကိုသတ်မှတ်ပေးပါသည်။ ရွေးချယ်စရာများမှာ -</p>
+<ul class="simple">
+<li><p>0 — Byte        (Eight bit unsigned integer (quint8))</p></li>
+<li><p>1 — Int16       (Sixteen bit signed integer (qint16))</p></li>
+<li><p>2 — UInt16      (Sixteen bit unsigned integer (quint16))</p></li>
+<li><p>3 — UInt32      (Thirty two bit unsigned integer (quint32))</p></li>
+<li><p>4 — Int32       (Thirty two bit signed integer (qint32))</p></li>
+<li><p>5 — Float32     (Thirty two bit floating point (float))</p></li>
+<li><p>6 — Float64     (Sixty four bit floating point (double))</p></li>
+<li><p>7 — CInt16      (Complex Int16)</p></li>
+<li><p>8 — CInt32      (Complex Int32)</p></li>
+<li><p>9 — CFloat32    (Complex Float32)</p></li>
+<li><p>10 — CFloat64   (Complex Float64)</p></li>
+<li><p>11 — Int8       (Eight bit signed integer (qint8))</p></li>
+</ul>
+<p>အသုံးပြုနိုင်သော နည်းလမ်းများမှာ QGIS ထဲတွင်ပါသော GDAL version ပေါ်တွင်မူတည်ပါသည် (<span class="menuselection">Help ► About</span> menu တွင်ကြည့်ပါ)။</p>
+</td>
+</tr>
+<tr class="row-even"><td><p><strong>Merged</strong> (<strong>ပေါင်းထားသော</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
+<td><p>[raster]</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">[Save</span> <span class="pre">to</span> <span class="pre">temporary</span> <span class="pre">file]</span> <span class="pre">([ယာယီ</span> <span class="pre">file</span> <span class="pre">အဖြစ်သိမ်းဆည်းပါ])</span></code></p>
+</td>
+<td><p>Output raster layer ၏ သီးခြားသတ်မှတ်ချက်။ အောက်ပါတို့ထဲမှ တစ်ခုခုဖြစ်ပါသည် -</p>
+<ul class="simple">
+<li><p>ယာယီ file တစ်ခုတွင် သိမ်းဆည်းပါ</p></li>
+<li><p>File တွင်သိမ်းဆည်းပါ</p></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id13">
+<h4>အဆင့်မြင့် သတ်မှတ်ချက်များ (Advanced parameters)<a class="headerlink" href="#id13" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Input pixel value to treat as “nodata”</strong> (<strong>“nodata” အဖြစ်လုပ်ဆောင်မည့် Input pixel တန်ဖိုး</strong>)</p>
+<p>Optional (မဖြစ်မနေလုပ်ဆောင်ရန် မလိုအပ်ပါ)</p>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">NODATA_INPUT</span></code></p></td>
+<td><p>[number]</p>
+<p>Default: None</p>
+</td>
+<td><p>ဤ pixel တန်ဖိုးနှင့်တူသော ပေါင်းစပ်မည့် file များမှ pixel များကို လျစ်လျူရှုပေးပါသည်</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Assign specified “nodata” value to output</strong> (<strong>Output တွင် “nodata” တန်ဖိုးကို သတ်မှတ်ခြင်း</strong>)</p>
+<p>Optional (မဖြစ်မနေလုပ်ဆောင်ရန် မလိုအပ်ပါ)</p>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">NODATA_OUTPUT</span></code></p></td>
+<td><p>[number]</p>
+<p>Default: None</p>
+</td>
+<td><p>Output band များတွင် nodata တန်ဖိုးကို သတ်မှတ်ပေးပါသည်</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Additional creation options</strong> (<strong>ထပ်ဆောင်း ဖန်တီးမှုနည်းလမ်းများ</strong>)</p>
+<p>Optional (မဖြစ်မနေလုပ်ဆောင်ရန် မလိုအပ်ပါ)</p>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OPTIONS</span></code></p></td>
+<td><p>[string]</p>
+<p>Default: ‘’</p>
+</td>
+<td><p>Raster ဖန်တီးခြင်းကို ထိန်းချုပ်သော ဖန်တီးခြင်းနည်းလမ်းများကို ပိုမိုပေါင်းထည့်ရန် (အရောင်၊ block အရွယ်အစား၊ file ချုံ့ခြင်း)။ လွယ်ကူစေရန် ကြိုတင်သတ်မှတ်ထားသော profile များကိုအသုံးပြုနိုင်ပါသည် (<a class="reference internal" href="../../introduction/qgis_configuration.html#gdal-createoptions"><span class="std std-ref">GDAL driver options section</span></a> တွင်ကြည့်ပါ)။ အစုလိုက်လုပ်ဆောင်ခြင်း (Batch process) နှင့် Model Designer - နည်းလမ်းများစွာကို pipe character (<code class="docutils literal notranslate"><span class="pre">|</span></code>) ဖြင့်ပိုင်းခြားထားပါသည်။</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Additional command-line parameters</strong> (<strong>ထပ်ဆောင်း command-line parameter များ</strong>)</p>
+<p>Optional (မဖြစ်မနေလုပ်ဆောင်ရန် မလိုအပ်ပါ)</p>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">EXTRA</span></code></p></td>
+<td><p>[string]</p>
+<p>Default: None</p>
+</td>
+<td><p>ထပ်ဆောင်း GDAL command line ရွေးချယ်စရာများကို ထည့်ပေါင်းခြင်း</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="id14">
+<h3>ရလာဒ်များ (Outputs)<a class="headerlink" href="#id14" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Merged</strong> (<strong>ပေါင်းထားသော</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
+<td><p>[raster]</p></td>
+<td><p>Output raster layer</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id15">
+<h3>Python code<a class="headerlink" href="#id15" title="Link to this heading"></a></h3>
+<p><strong>Algorithm ID</strong>: <code class="docutils literal notranslate"><span class="pre">gdal:merge</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">processing</span>
+<span class="n">processing</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;algorithm_id&quot;</span><span class="p">,</span> <span class="p">{</span><span class="n">parameter_dictionary</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>Processing Toolbox ထဲရှိ algorithm ပေါ်တွင် mouse ကိုတင်ထားလျှင် <em>algorithm id</em> ကိုပြသပေးပါသည်။ <em>parameter dictionary</em> သည် parameter နာမည်များနှင့် တန်ဖိုးများကို ပေးပါသည်။ Python console မှ algorithm များကို မည်သို့လုပ်ဆောင်ရမည် ဆိုသည့် အသေးစိတ်ကို သိရှိလိုလျှင် <a class="reference internal" href="../../processing/console.html#processing-console"><span class="std std-ref">Console တွင် processing algorithm များကို အသုံးပြုခြင်း</span></a> တွင်ကြည့်ပါ။</p>
+</section>
+</section>
+<section id="pansharpening">
+<span id="gdalpansharp"></span><h2><a class="toc-backref" href="#id50" role="doc-backlink"><span class="section-number">29.2.4.5. </span>ကြည်လင်ပြတ်သားမှု ကောင်းအောင်လုပ်ဆောင်ခြင်း (Pansharpening)</a><a class="headerlink" href="#pansharpening" title="Link to this heading"></a></h2>
+<p>Pan-sharpening လုပ်ဆောင်မှုကို ဆောင်ရွက်ပေးပါသည်။ GeoTIFF ကဲ့သို့သော “classic” output dataset တစ်ခုကိုဖန်တီးနိုင်ပါသည် သို့မဟုတ် pan-sharpening လုပ်ဆောင်မှုကို ဖော်ပြသော VRT dataset တစ်ခုကို ဖန်တီးနိုင်ပါသည်။</p>
+<p><a class="reference external" href="https://gdal.org/programs/gdal_pansharpen.html">GDAL Pansharpen</a> တွင်ကြည့်ပါ။</p>
+<section id="id16">
+<h3>သတ်မှတ်ချက်များ (Parameters)<a class="headerlink" href="#id16" title="Link to this heading"></a></h3>
+<section id="id17">
+<h4>အခြေခံ သတ်မှတ်ချက်များ (Basic parameters)<a class="headerlink" href="#id17" title="Link to this heading"></a></h4>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Spectral dataset</strong> (<strong>ရောင်စဉ်လှိုင်း dataset</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">SPECTRAL</span></code></p></td>
+<td><p>[raster]</p></td>
+<td><p>ထည့်သွင်းအသုံးပြုသော (spectral) raster layer</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Panchromatic dataset</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">PANCHROMATIC</span></code></p></td>
+<td><p>[raster]</p></td>
+<td><p>ထည့်သွင်းအသုံးပြုသော (panchromatic) raster layer</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Output</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
+<td><p>[raster]</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">[Save</span> <span class="pre">to</span> <span class="pre">temporary</span> <span class="pre">file]</span> <span class="pre">([ယာယီ</span> <span class="pre">file</span> <span class="pre">အဖြစ်သိမ်းဆည်းပါ])</span></code></p>
+</td>
+<td><p>Output (ကြည်လင်ပြတ်သားအောင် sharpen လုပ်ထားသော) raster layer ကိုသတ်မှတ်ပါ။ အောက်ပါတို့ထဲမှ တစ်ခုခုဖြစ်ပါသည် -</p>
+<ul class="simple">
+<li><p>ယာယီ file တစ်ခုတွင် သိမ်းဆည်းပါ</p></li>
+<li><p>File တွင်သိမ်းဆည်းပါ</p></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id18">
+<h4>အဆင့်မြင့် သတ်မှတ်ချက်များ (Advanced parameters)<a class="headerlink" href="#id18" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Resampling algorithm</strong> (<strong>Resolution ပြင်ဆင်ခြင်း algorithm</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">RESAMPLING</span></code></p></td>
+<td><p>[enumeration]</p>
+<p>Default: 2</p>
+</td>
+<td><p>အသုံးပြုမည့် resolution ပြင်ဆင်သည့် algorithm ။ ရွေးချယ်စရာ နည်းလမ်းများမှာ -</p>
+<ul class="simple">
+<li><p>0 — Nearest Neighbour (<code class="docutils literal notranslate"><span class="pre">nearest</span></code>)</p></li>
+<li><p>1 — Bilinear (<code class="docutils literal notranslate"><span class="pre">bilinear</span></code>)</p></li>
+<li><p>2 — Cubic (<code class="docutils literal notranslate"><span class="pre">cubic</span></code>)</p></li>
+<li><p>3 — Cubic Spline (<code class="docutils literal notranslate"><span class="pre">cubicspline</span></code>)</p></li>
+<li><p>4 — Lanczos Windowed Sinc (<code class="docutils literal notranslate"><span class="pre">lanczos</span></code>)</p></li>
+<li><p>5 — Average (<code class="docutils literal notranslate"><span class="pre">average</span></code>)</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p><strong>Additional creation options</strong> (<strong>ထပ်ဆောင်း ဖန်တီးမှုနည်းလမ်းများ</strong>)</p>
+<p>Optional (မဖြစ်မနေလုပ်ဆောင်ရန် မလိုအပ်ပါ)</p>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OPTIONS</span></code></p></td>
+<td><p>[string]</p>
+<p>Default: ‘’</p>
+</td>
+<td><p>Raster ဖန်တီးခြင်းကို ထိန်းချုပ်သော ဖန်တီးခြင်းနည်းလမ်းများကို ပိုမိုပေါင်းထည့်ရန် (အရောင်၊ block အရွယ်အစား၊ file ချုံ့ခြင်း)။ လွယ်ကူစေရန် ကြိုတင်သတ်မှတ်ထားသော profile များကိုအသုံးပြုနိုင်ပါသည် (<a class="reference internal" href="../../introduction/qgis_configuration.html#gdal-createoptions"><span class="std std-ref">GDAL driver options section</span></a> တွင်ကြည့်ပါ)။ အစုလိုက်လုပ်ဆောင်ခြင်း (Batch process) နှင့် Model Designer - နည်းလမ်းများစွာကို pipe character (<code class="docutils literal notranslate"><span class="pre">|</span></code>) ဖြင့်ပိုင်းခြားထားပါသည်။</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Additional command-line parameters</strong> (<strong>ထပ်ဆောင်း command-line parameter များ</strong>)</p>
+<p>Optional (မဖြစ်မနေလုပ်ဆောင်ရန် မလိုအပ်ပါ)</p>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">EXTRA</span></code></p></td>
+<td><p>[string]</p>
+<p>Default: None</p>
+</td>
+<td><p>ထပ်ဆောင်း GDAL command line ရွေးချယ်စရာများကို ထည့်ပေါင်းခြင်း</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="id19">
+<h3>ရလာဒ်များ (Outputs)<a class="headerlink" href="#id19" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Output</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
+<td><p>[raster]</p></td>
+<td><p>Output (ကြည်လင်ပြတ်သားအောင် sharpen လုပ်ထားသော) raster layer</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id20">
+<h3>Python code<a class="headerlink" href="#id20" title="Link to this heading"></a></h3>
+<p><strong>Algorithm ID</strong>: <code class="docutils literal notranslate"><span class="pre">gdal:pansharp</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">processing</span>
+<span class="n">processing</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;algorithm_id&quot;</span><span class="p">,</span> <span class="p">{</span><span class="n">parameter_dictionary</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>Processing Toolbox ထဲရှိ algorithm ပေါ်တွင် mouse ကိုတင်ထားလျှင် <em>algorithm id</em> ကိုပြသပေးပါသည်။ <em>parameter dictionary</em> သည် parameter နာမည်များနှင့် တန်ဖိုးများကို ပေးပါသည်။ Python console မှ algorithm များကို မည်သို့လုပ်ဆောင်ရမည် ဆိုသည့် အသေးစိတ်ကို သိရှိလိုလျှင် <a class="reference internal" href="../../processing/console.html#processing-console"><span class="std std-ref">Console တွင် processing algorithm များကို အသုံးပြုခြင်း</span></a> တွင်ကြည့်ပါ။</p>
+</section>
+</section>
+<section id="raster-raster-calculator">
+<span id="gdalrastercalculator"></span><h2><a class="toc-backref" href="#id51" role="doc-backlink"><span class="section-number">29.2.4.6. </span>Raster တွက်စက် (Raster calculator)</a><a class="headerlink" href="#raster-raster-calculator" title="Link to this heading"></a></h2>
+<p>Numpy syntax အသုံးပြု၍ command ဖြင့်ရေးရသော raster calculator ။ Logical သင်္ကေတများ (ဥပမာ- &gt;) အပါအဝင် (+) ၊ (-) ၊ (*)၊ နှင့် (/) ကဲ့သို့သော numpy array များမှ လုပ်ဆောင်ပေးနိုင်သော အခြေခံ arithmetic ကိုမဆို အသုံးပြုပါသည်။ Input raster များအားလုံးသည် တူညီသော အကျယ်အဝန်းရှိရပါမည်၊ သို့သော် projection စစ်ဆေးမှုကိုတော့ လုပ်ဆောင်မည်မဟုတ်ပါ။</p>
+<p><a class="reference external" href="https://gdal.org/programs/gdal_calc.html">GDAL Raster Calculator utility docs</a> တွင်ကြည့်ပါ။</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="../qgis/rasteranalysis.html#qgisrastercalculator"><span class="std std-ref">Raster တွက်စက် (Raster calculator)</span></a></p>
+</div>
+<section id="id21">
+<h3>သတ်မှတ်ချက်များ (Parameters)<a class="headerlink" href="#id21" title="Link to this heading"></a></h3>
+<section id="id22">
+<h4>အခြေခံ သတ်မှတ်ချက်များ (Basic parameters)<a class="headerlink" href="#id22" title="Link to this heading"></a></h4>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Input layer A</strong> (<strong>ထည့်သွင်းအသုံးပြုသော layer A</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">INPUT_A</span></code></p></td>
+<td><p>[raster]</p></td>
+<td><p>ပထမဆုံး ထည့်သွင်းအသုံးပြုသော raster layer (မဖြစ်မနေထည့်သွင်းရန်လိုအပ်ပါသည်)</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Number of raster band for A</strong> (<strong>A အတွက် raster band နံပါတ်</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">BAND_A</span></code></p></td>
+<td><p>[raster band]</p></td>
+<td><p>Input layer A အတွက် band (မဖြစ်မနေထည့်သွင်းရန်လိုအပ်ပါသည်)</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Input layer B</strong> (<strong>ထည့်သွင်းအသုံးပြုသော layer B</strong>)</p>
+<p>Optional (မဖြစ်မနေလုပ်ဆောင်ရန် မလိုအပ်ပါ)</p>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">INPUT_B</span></code></p></td>
+<td><p>[raster]</p>
+<p>Default: None</p>
+</td>
+<td><p>ဒုတိယ ထည့်သွင်းအသုံးပြုသော raster layer</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Number of raster band for B</strong> (<strong>B အတွက် raster band နံပါတ်</strong>)</p>
+<p>Optional (မဖြစ်မနေလုပ်ဆောင်ရန် မလိုအပ်ပါ)</p>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">BAND_B</span></code></p></td>
+<td><p>[raster band]</p></td>
+<td><p>Input layer B အတွက် band</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Input layer C</strong> (<strong>ထည့်သွင်းအသုံးပြုသော layer C</strong>)</p>
+<p>Optional (မဖြစ်မနေလုပ်ဆောင်ရန် မလိုအပ်ပါ)</p>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">INPUT_C</span></code></p></td>
+<td><p>[raster]</p>
+<p>Default: None</p>
+</td>
+<td><p>တတိယ ထည့်သွင်းအသုံးပြုသော raster layer</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Number of raster band for C</strong> (<strong>C အတွက် raster band နံပါတ်</strong>)</p>
+<p>Optional (မဖြစ်မနေလုပ်ဆောင်ရန် မလိုအပ်ပါ)</p>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">BAND_C</span></code></p></td>
+<td><p>[raster band]</p></td>
+<td><p>Input layer C အတွက် band</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Input layer D</strong> (<strong>ထည့်သွင်းအသုံးပြုသော layer D</strong>)</p>
+<p>Optional (မဖြစ်မနေလုပ်ဆောင်ရန် မလိုအပ်ပါ)</p>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">INPUT_D</span></code></p></td>
+<td><p>[raster]</p>
+<p>Default: None</p>
+</td>
+<td><p>စတုတ္ထ ထည့်သွင်းအသုံးပြုသော raster layer</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Number of raster band for D</strong> (<strong>D အတွက် raster band နံပါတ်</strong>)</p>
+<p>Optional (မဖြစ်မနေလုပ်ဆောင်ရန် မလိုအပ်ပါ)</p>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">BAND_D</span></code></p></td>
+<td><p>[raster band]</p></td>
+<td><p>Input layer D အတွက် band</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Input layer E</strong> (<strong>ထည့်သွင်းအသုံးပြုသော layer E</strong>)</p>
+<p>Optional (မဖြစ်မနေလုပ်ဆောင်ရန် မလိုအပ်ပါ)</p>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">INPUT_E</span></code></p></td>
+<td><p>[raster]</p>
+<p>Default: None</p>
+</td>
+<td><p>ပဥ္စမ ထည့်သွင်းအသုံးပြုသော raster layer</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Number of raster band for E</strong> (<strong>E အတွက် raster band နံပါတ်</strong>)</p>
+<p>Optional (မဖြစ်မနေလုပ်ဆောင်ရန် မလိုအပ်ပါ)</p>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">BAND_E</span></code></p></td>
+<td><p>[raster band]</p></td>
+<td><p>Input layer E အတွက် band</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Input layer F</strong> (<strong>ထည့်သွင်းအသုံးပြုသော layer F</strong>)</p>
+<p>Optional (မဖြစ်မနေလုပ်ဆောင်ရန် မလိုအပ်ပါ)</p>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">INPUT_F</span></code></p></td>
+<td><p>[raster]</p></td>
+<td><p>ဆဌမ ထည့်သွင်းအသုံးပြုသော raster layer</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Number of raster band for F</strong> (<strong>F အတွက် raster band နံပါတ်</strong>)</p>
+<p>Optional (မဖြစ်မနေလုပ်ဆောင်ရန် မလိုအပ်ပါ)</p>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">BAND_F</span></code></p></td>
+<td><p>[raster band]</p>
+<p>Default: None</p>
+</td>
+<td><p>Input layer F အတွက် band</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Calculation in gdalnumeric syntax using +-/* or any numpy array functions (i.e. logical_and())</strong> (<strong>(+-/*) သို့မဟုတ် numpy array functions (ဥပမာ- logical_and()) ကိုအသုံးပြုပြီး gdalnumeric syntax ထဲတွင် တွက်ချက်ခြင်း</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">FORMULA</span></code></p></td>
+<td><p>[string]</p>
+<p>Default: ‘’</p>
+</td>
+<td><p>တွက်ချက်ခြင်း formula ။ ဥပမာများမှာ -</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">A*(A&gt;0)</span></code> — A ၏တန်ဖိုးသည် 0 ထက်ကြီးလျှင် raster A ၏ တန်ဖိုးကို output ထုတ်ပေးပါသည်။ ထိုသို့မဟုတ်လျှင် 0 ကို output ထုတ်ပေးမည်ဖြစ်သည်။</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">A*(A&gt;0</span> <span class="pre">and</span> <span class="pre">A&gt;B)</span></code>— A ၏တန်ဖိုးသည် 0 ထက်ပိုကြီးပြီး B ၏တန်ဖိုးထက်လည်းပိုကြီးနေလျှင် ထို A ၏ တန်ဖိုးကို output ထုတ်ပေးပါသည်။ ထိုသို့မဟုတ်လျှင် 0 ကို output ထုတ်ပေးမည်ဖြစ်သည်။</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">A*logical_or(A&lt;=177,A&gt;=185)</span></code> — A &lt;= 177 သို့မဟုတ် A &gt;= 185 ဖြစ်လျှင် A ၏ တန်ဖိုးကို output ထုတ်ပေးပါသည်။ ထိုသို့မဟုတ်လျှင် 0 ကို output ထုတ်ပေးမည်ဖြစ်သည်။</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sqrt(A*A+B*B)</span></code> — A နှစ်ထပ်ကိန်းတန်ဖိုးနှင့် B နှစ်ထပ်ကိန်းတန်ဖိုးများ၏ ပေါင်းလာဒ်၏ square root တန်ဖိုးကို ထုတ်ပေးပါသည်။</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p><strong>Set output nodata value</strong> (<strong>Output nodata တန်ဖိုးကို သတ်မှတ်ခြင်း</strong>)</p>
+<p>Optional (မဖြစ်မနေလုပ်ဆောင်ရန် မလိုအပ်ပါ)</p>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">NO_DATA</span></code></p></td>
+<td><p>[number]</p>
+<p>Default: None</p>
+</td>
+<td><p>Nodata အတွက်အသုံးပြုမည့် တန်ဖိုး</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Output extent</strong> (<strong>Output အကျယ်အဝန်း</strong>)</p>
+<p>Optional (မဖြစ်မနေလုပ်ဆောင်ရန် မလိုအပ်ပါ)</p>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">INPUT</span></code></p></td>
+<td><p>[extent]</p></td>
+<td><p>Output raster ၏ ကိုယ်တိုင်သတ်မှတ်သော အကျယ်အဝန်း။ GDAL 3.3 အထက်ဖြင့်သာလုပ်ဆောင်ပါသည်။</p>
+<p>အသုံးပြုနိုင်သော နည်းလမ်းများမှာ -</p>
+<ul class="simple">
+<li><p>Layer မှ တွက်ချက်ခြင်း - လက်ရှိ project ထဲတွင်ထည့်သွင်းထားသော layer ၏ extent (နယ်ပယ်အကျယ်အဝန်း)ကိုအသုံးပြုပါသည်။</p></li>
+<li><p>Layout map မှ တွက်ချက်ခြင်း - အသုံးပြုနေသော project ထဲရှိ <a class="reference internal" href="../../print_composer/composer_items/composer_map.html#layout-map-item"><span class="std std-ref">layout map item</span></a> တစ်ခု၏ extent အသုံးပြုပါသည်။</p></li>
+<li><p>Bookmark မှ တွက်ချက်ခြင်း - မှတ်ထားသော <a class="reference internal" href="../../map_views/map_view.html#sec-bookmarks"><span class="std std-ref">bookmark</span></a> တစ်ခု၏ extent ကိုအသုံးပြုပါသည်။</p></li>
+<li><p>မြေပုံ canvas extent ကိုအသုံးပြုခြင်း</p></li>
+<li><p>Canvas ပေါ်တွင်ရေးဆွဲခြင်း - တွက်ချက်လိုသည့် ဧရိယာကို ထောင့်မှန်စတုဂံပုံဆွဲခြင်း။</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">အနည်းဆုံး၊</span> <span class="pre">x</span> <span class="pre">အများဆုံး၊</span> <span class="pre">y</span> <span class="pre">အနည်းဆုံး၊</span>&#160; <span class="pre">y</span> <span class="pre">အများဆုံး</span></code> တို့အဖြစ် ကိုဩဒိနိတ်များကို ထည့်သွင်းခြင်း။</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p><strong>Output raster type</strong> (<strong>Output raster အမျိုးအစား</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">RTYPE</span></code></p></td>
+<td><p>[enumeration]</p>
+<p>Default: 5</p>
+</td>
+<td><p>Output raster file ၏ data အမျိုးအစားကို သတ်မှတ်ပေးပါသည်။ ရွေးချယ်စရာများမှာ -</p>
+<ul class="simple">
+<li><p>0 — Byte        (Eight bit unsigned integer (quint8))</p></li>
+<li><p>1 — Int16       (Sixteen bit signed integer (qint16))</p></li>
+<li><p>2 — UInt16      (Sixteen bit unsigned integer (quint16))</p></li>
+<li><p>3 — UInt32      (Thirty two bit unsigned integer (quint32))</p></li>
+<li><p>4 — Int32       (Thirty two bit signed integer (qint32))</p></li>
+<li><p>5 — Float32     (Thirty two bit floating point (float))</p></li>
+<li><p>6 — Float64     (Sixty four bit floating point (double))</p></li>
+<li><p>7 — CInt16      (Complex Int16)</p></li>
+<li><p>8 — CInt32      (Complex Int32)</p></li>
+<li><p>9 — CFloat32    (Complex Float32)</p></li>
+<li><p>10 — CFloat64   (Complex Float64)</p></li>
+<li><p>11 — Int8       (Eight bit signed integer (qint8))</p></li>
+</ul>
+<p>အသုံးပြုနိုင်သော နည်းလမ်းများမှာ QGIS ထဲတွင်ပါသော GDAL version ပေါ်တွင်မူတည်ပါသည် (<span class="menuselection">Help ► About</span> menu တွင်ကြည့်ပါ)။</p>
+</td>
+</tr>
+<tr class="row-even"><td><p><strong>Calculated</strong> (<strong>တွက်ချက်ထားသော</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
+<td><p>[raster]</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">[Save</span> <span class="pre">to</span> <span class="pre">temporary</span> <span class="pre">file]</span> <span class="pre">([ယာယီ</span> <span class="pre">file</span> <span class="pre">အဖြစ်သိမ်းဆည်းပါ])</span></code></p>
+</td>
+<td><p>Output (တွက်ထုတ်ထားသော) raster layer ကိုသတ်မှတ်ပါ။ အောက်ပါတို့ထဲမှ တစ်ခုခုဖြစ်ပါသည် -</p>
+<ul class="simple">
+<li><p>ယာယီ file တစ်ခုတွင် သိမ်းဆည်းပါ</p></li>
+<li><p>File တွင်သိမ်းဆည်းပါ</p></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id23">
+<h4>အဆင့်မြင့် သတ်မှတ်ချက်များ (Advanced parameters)<a class="headerlink" href="#id23" title="Link to this heading"></a></h4>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Additional creation options</strong> (<strong>ထပ်ဆောင်း ဖန်တီးမှုနည်းလမ်းများ</strong>)</p>
+<p>Optional (မဖြစ်မနေလုပ်ဆောင်ရန် မလိုအပ်ပါ)</p>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OPTIONS</span></code></p></td>
+<td><p>[string]</p>
+<p>Default: ‘’</p>
+</td>
+<td><p>Raster ဖန်တီးခြင်းကို ထိန်းချုပ်သော ဖန်တီးခြင်းနည်းလမ်းများကို ပိုမိုပေါင်းထည့်ရန် (အရောင်၊ block အရွယ်အစား၊ file ချုံ့ခြင်း)။ လွယ်ကူစေရန် ကြိုတင်သတ်မှတ်ထားသော profile များကိုအသုံးပြုနိုင်ပါသည် (<a class="reference internal" href="../../introduction/qgis_configuration.html#gdal-createoptions"><span class="std std-ref">GDAL driver options section</span></a> တွင်ကြည့်ပါ)။ အစုလိုက်လုပ်ဆောင်ခြင်း (Batch process) နှင့် Model Designer - နည်းလမ်းများစွာကို pipe character (<code class="docutils literal notranslate"><span class="pre">|</span></code>) ဖြင့်ပိုင်းခြားထားပါသည်။</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Additional command-line parameters</strong> (<strong>ထပ်ဆောင်း command-line parameter များ</strong>)</p>
+<p>Optional (မဖြစ်မနေလုပ်ဆောင်ရန် မလိုအပ်ပါ)</p>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">EXTRA</span></code></p></td>
+<td><p>[string]</p>
+<p>Default: None</p>
+</td>
+<td><p>ထပ်ဆောင်း GDAL command line ရွေးချယ်စရာများကို ထည့်ပေါင်းခြင်း</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="id24">
+<h3>ရလာဒ်များ (Outputs)<a class="headerlink" href="#id24" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Calculated</strong> (<strong>တွက်ထုတ်ထားသော</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
+<td><p>[raster]</p></td>
+<td><p>Output (တွက်ထုတ်ထားသော) raster layer</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id25">
+<h3>Python code<a class="headerlink" href="#id25" title="Link to this heading"></a></h3>
+<p><strong>Algorithm ID</strong>: <code class="docutils literal notranslate"><span class="pre">gdal:rastercalculator</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">processing</span>
+<span class="n">processing</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;algorithm_id&quot;</span><span class="p">,</span> <span class="p">{</span><span class="n">parameter_dictionary</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>Processing Toolbox ထဲရှိ algorithm ပေါ်တွင် mouse ကိုတင်ထားလျှင် <em>algorithm id</em> ကိုပြသပေးပါသည်။ <em>parameter dictionary</em> သည် parameter နာမည်များနှင့် တန်ဖိုးများကို ပေးပါသည်။ Python console မှ algorithm များကို မည်သို့လုပ်ဆောင်ရမည် ဆိုသည့် အသေးစိတ်ကို သိရှိလိုလျှင် <a class="reference internal" href="../../processing/console.html#processing-console"><span class="std std-ref">Console တွင် processing algorithm များကို အသုံးပြုခြင်း</span></a> တွင်ကြည့်ပါ။</p>
+</section>
+</section>
+<section id="raster-raster-information">
+<span id="gdalgdalinfo"></span><h2><a class="toc-backref" href="#id52" role="doc-backlink"><span class="section-number">29.2.4.7. </span>Raster အချက်အလက် (Raster information)</a><a class="headerlink" href="#raster-raster-information" title="Link to this heading"></a></h2>
+<p>Gdalinfo program သည် GDAL မှလုပ်ဆောင်ပေးနိုင်သော raster dataset အကြောင်း သတင်းအချက်အလက်မျိုးစုံကို စာရင်းပြုစုပေးပါသည်။</p>
+<p>Algorithm ကို <a class="reference external" href="https://gdal.org/programs/gdalinfo.html">GDAL info utility</a> မှ ရယူပါသည်။</p>
+<p><strong>Default menu</strong> - <span class="menuselection">Raster ► Miscellaneous</span></p>
+<section id="id26">
+<h3>သတ်မှတ်ချက်များ (Parameters)<a class="headerlink" href="#id26" title="Link to this heading"></a></h3>
+<section id="id27">
+<h4>အခြေခံ သတ်မှတ်ချက်များ (Basic parameters)<a class="headerlink" href="#id27" title="Link to this heading"></a></h4>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Input layers</strong> (<strong>ထည့်သွင်းအသုံးပြုသော layer</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">INPUT</span></code></p></td>
+<td><p>[raster]</p></td>
+<td><p>ထည့်သွင်းအသုံးပြုသော raster layer</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Force computation of the actual min/max values for each band</strong> (<strong>Band တစ်ခုချင်းစီအတွက် တကယ်လက်ရှိ အနည်းဆုံး/အများဆုံး တန်ဖိုးများတွက်ချက်ခြင်းကို တွန်းအားပေး လုပ်ဆောင်ခြင်း</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">MIN_MAX</span></code></p></td>
+<td><p>[boolean]</p>
+<p>Default: False</p>
+</td>
+<td><p>Dataset ထဲရှိ band တစ်ခုချင်းစီအတွက် တကယ်လက်ရှိ အနည်းဆုံး/အများဆုံး တန်ဖိုးများတွက်ချက်ခြင်းကို တွန်းအားပေး လုပ်ဆောင်ပါသည်။</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Read and display image statistics (force computation if necessary)</strong> (<strong>ဓာတ်ပုံစာရင်းအင်းကိန်းဂဏန်းများကို ဖတ်ခြင်းနှင့် ပြသခြင်း (လိုအပ်လျှင် တွန်းအားပေးတွက်ချက်နိုင်ပါသည်)</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">STATS</span></code></p></td>
+<td><p>[boolean]</p>
+<p>Default: False</p>
+</td>
+<td><p>ဓာတ်ပုံစာရင်းအင်းကိန်းဂဏန်းများကို ဖတ်ခြင်းနှင့် ပြသခြင်းများ လုပ်ဆောင်ပေးပါသည်။ ဓာတ်ပုံတစ်ခုထဲတွင် စာရင်းအင်းကိန်းဂဏန်းများကို သိမ်းဆည်းမထားလျှင် တွန်းအားပေးတွက်ချက်ခြင်းကို လုပ်ဆောင်ပါသည်။</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Suppress GCP info</strong> (<strong>GCP သတင်းအချက်အလက်ကို ချုံ့ထားခြင်း</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">NO_GCP</span></code></p></td>
+<td><p>[boolean]</p>
+<p>Default: False</p>
+</td>
+<td><p>Ground control point (မြေပြင်ထိန်းချုပ်မှတ်) များစာရင်း ပြသခြင်းကို ချုံ့ထားပေးပါသည်။ L1B AVHRR သို့မဟုတ် HDF4 MODIS ကဲ့သို့ထောင်ချီသော GCP ပမာဏအများကြီးပါသော dataset များအတွက် အသုံးဝင်ပါသည်။</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Suppress metadata info</strong> (<strong>metdata သတင်းအချက်အလက်ကို ချုံ့ထားခြင်း</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">NO_METADATA</span></code></p></td>
+<td><p>[boolean]</p>
+<p>Default: False</p>
+</td>
+<td><p>Metadata ပြသခြင်းကို ချုံ့ထားပေးပါသည်။ အချို့သော dataset များသည် metadata စာသားများ များစွာပါဝင်နိုင်ပါသည်။</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Layer information</strong> (<strong>Layer သတင်းအချက်အလက်</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
+<td><p>[html]</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">[Save</span> <span class="pre">to</span> <span class="pre">temporary</span> <span class="pre">file]</span> <span class="pre">([ယာယီ</span> <span class="pre">file</span> <span class="pre">အဖြစ်သိမ်းဆည်းပါ])</span></code></p>
+</td>
+<td><p>Output အတွက် HTML file ကိုသတ်မှတ်ပါ။ အောက်ပါတို့ထဲမှ တစ်ခုခုဖြစ်ပါသည် -</p>
+<ul class="simple">
+<li><p>ယာယီ file တစ်ခုတွင် သိမ်းဆည်းပါ</p></li>
+<li><p>File တွင်သိမ်းဆည်းပါ</p></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id28">
+<h4>အဆင့်မြင့် သတ်မှတ်ချက်များ (Advanced parameters)<a class="headerlink" href="#id28" title="Link to this heading"></a></h4>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Additional command-line parameters</strong> (<strong>ထပ်ဆောင်း command-line parameter များ</strong>)</p>
+<p>Optional (မဖြစ်မနေလုပ်ဆောင်ရန် မလိုအပ်ပါ)</p>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">EXTRA</span></code></p></td>
+<td><p>[string]</p>
+<p>Default: None</p>
+</td>
+<td><p>ထပ်ဆောင်း GDAL command line ရွေးချယ်စရာများကို ထည့်ပေါင်းခြင်း</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="id29">
+<h3>ရလာဒ်များ (Outputs)<a class="headerlink" href="#id29" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Layer information</strong> (<strong>Layer သတင်းအချက်အလက်</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
+<td><p>[html]</p></td>
+<td><p>Input raster layer အကြောင်း သတင်းအချက်အလက်များပါဝင်သော HTML file</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id30">
+<h3>Python code<a class="headerlink" href="#id30" title="Link to this heading"></a></h3>
+<p><strong>Algorithm ID</strong>: <code class="docutils literal notranslate"><span class="pre">gdal:gdalinfo</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">processing</span>
+<span class="n">processing</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;algorithm_id&quot;</span><span class="p">,</span> <span class="p">{</span><span class="n">parameter_dictionary</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>Processing Toolbox ထဲရှိ algorithm ပေါ်တွင် mouse ကိုတင်ထားလျှင် <em>algorithm id</em> ကိုပြသပေးပါသည်။ <em>parameter dictionary</em> သည် parameter နာမည်များနှင့် တန်ဖိုးများကို ပေးပါသည်။ Python console မှ algorithm များကို မည်သို့လုပ်ဆောင်ရမည် ဆိုသည့် အသေးစိတ်ကို သိရှိလိုလျှင် <a class="reference internal" href="../../processing/console.html#processing-console"><span class="std std-ref">Console တွင် processing algorithm များကို အသုံးပြုခြင်း</span></a> တွင်ကြည့်ပါ။</p>
+</section>
+</section>
+<section id="tile-retile">
+<span id="gdalretile"></span><h2><a class="toc-backref" href="#id53" role="doc-backlink"><span class="section-number">29.2.4.8. </span>Tile ပြန်လုပ်ခြင်း (Retile)</a><a class="headerlink" href="#tile-retile" title="Link to this heading"></a></h2>
+<p>Input tile များအစုတစ်ခုကို tile များပြန်လုပ်ပေးပါသည်။ Input tile များအားလုံးကို ကိုဩဒိနိတ်စနစ်တစ်ခုတည်းဖြင့် georeference လုပ်ရမည်ဖြစ်ပြီး band အရေအတွက်လည်း ကိုက်ညီရပါမည်။ Pyramid level များကို လိုအပ်လျှင် ဖန်တီးထားနိုင်ပါသည်။</p>
+<p>Algorithm ကို <a class="reference external" href="https://gdal.org/programs/gdal_retile.html">GDAL Retile utility</a> မှ ရယူပါသည်။</p>
+<section id="id31">
+<h3>သတ်မှတ်ချက်များ (Parameters)<a class="headerlink" href="#id31" title="Link to this heading"></a></h3>
+<section id="id32">
+<h4>အခြေခံ သတ်မှတ်ချက်များ (Basic parameters)<a class="headerlink" href="#id32" title="Link to this heading"></a></h4>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Input files</strong> (<strong>ထည့်သွင်းအသုံးပြုသော file များ</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">INPUT</span></code></p></td>
+<td><p>[raster] [list]</p></td>
+<td><p>ထည့်သွင်းအသုံးပြုသော raster file များ</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Tile width</strong> (<strong>Tile အကျယ်</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">TILE_SIZE_X</span></code></p></td>
+<td><p>[number]</p>
+<p>Default: 256</p>
+</td>
+<td><p>Pixel ဖြင့် tile များ၏အကျယ် (အနည်းဆုံး 0)</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Tile height</strong> (<strong>Tile အမြင့်</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">TILE_SIZE_Y</span></code></p></td>
+<td><p>[number]</p>
+<p>Default: 256</p>
+</td>
+<td><p>Pixel ဖြင့် tile များ၏အမြင့် (အနည်းဆုံး 0)</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Overlap in pixels between consecutive tiles</strong> (<strong>ကပ်လျှက်ရှိသော tile နှစ်ခုကြား pixel များကိုထပ်ခြင်း</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OVERLAP</span></code></p></td>
+<td><p>[number]</p>
+<p>Default: 0</p>
+</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>Number of pyramid levels to build</strong> (<strong>တည်ဆောက်ရမည့် pyramid level အရေအတွက်</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">LEVELS</span></code></p></td>
+<td><p>[number]</p>
+<p>Default: 1</p>
+</td>
+<td><p>အနည်းဆုံး- 0</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Output directory</strong> (<strong>Output သိမ်းထားမည့်နေရာ</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
+<td><p>[folder]</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">[Save</span> <span class="pre">to</span> <span class="pre">temporary</span> <span class="pre">folder]</span> <span class="pre">([ယာယီ</span> <span class="pre">folder</span> <span class="pre">ထဲတွင်</span> <span class="pre">သိမ်းဆည်းပါ])</span></code></p>
+</td>
+<td><p>Tile များအတွက် output folder ကိုသတ်မှတ်ပါ။ အောက်ပါတို့ထဲမှ တစ်ခုခုဖြစ်ပါသည် -</p>
+<ul class="simple">
+<li><p>ယာယီ လမ်းကြောင်းတစ်ခုတွင် သိမ်းဆည်းပါ</p></li>
+<li><p>လမ်းကြောင်းတွင်သိမ်းဆည်းပါ</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p><strong>CSV file containing the tile(s) georeferencing information</strong> (<strong>Tile များကို georeference ပြုလုပ်သော အချက်အလက်များပါဝင်သည့် CSV file</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT_CSV</span></code></p></td>
+<td><p>[file]</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">[Skip</span> <span class="pre">output]</span> <span class="pre">([Output</span> <span class="pre">များကိုကျော်ပစ်ပါ])</span></code></p>
+</td>
+<td><p>Tile များအတွက် output file ကိုသတ်မှတ်ပါ။ အောက်ပါတို့ထဲမှ တစ်ခုခုဖြစ်ပါသည် -</p>
+<ul class="simple">
+<li><p>Output ကိုကျော်ပစ်ခြင်း</p></li>
+<li><p>ယာယီ file တစ်ခုတွင် သိမ်းဆည်းပါ</p></li>
+<li><p>File တွင်သိမ်းဆည်းပါ</p></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id33">
+<h4>အဆင့်မြင့် သတ်မှတ်ချက်များ (Advanced parameters)<a class="headerlink" href="#id33" title="Link to this heading"></a></h4>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Source coordinate reference system</strong> (<strong>ရင်းမြစ် ကိုဩဒိနိတ်ရည်ညွှန်းစနစ်</strong>)</p>
+<p>Optional (မဖြစ်မနေလုပ်ဆောင်ရန် မလိုအပ်ပါ)</p>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">SOURCE_CRS</span></code></p></td>
+<td><p>[crs]</p>
+<p>Default: None</p>
+</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Resampling method</strong> (<strong>Resolution ပြင်ဆင်ခြင်း နည်းလမ်း</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">RESAMPLING</span></code></p></td>
+<td><p>[enumeration]</p>
+<p>Default: 0</p>
+</td>
+<td><p>အသုံးပြုမည့် resolution ပြင်ဆင်သည့် algorithm ။ ရွေးချယ်စရာ နည်းလမ်းများမှာ -</p>
+<ul class="simple">
+<li><p>0 — Nearest Neighbour (<code class="docutils literal notranslate"><span class="pre">nearest</span></code>)</p></li>
+<li><p>1 — Bilinear (<code class="docutils literal notranslate"><span class="pre">bilinear</span></code>)</p></li>
+<li><p>2 — Cubic (<code class="docutils literal notranslate"><span class="pre">cubic</span></code>)</p></li>
+<li><p>3 — Cubic Spline (<code class="docutils literal notranslate"><span class="pre">cubicspline</span></code>)</p></li>
+<li><p>4 — Lanczos Windowed Sinc (<code class="docutils literal notranslate"><span class="pre">lanczos</span></code>)</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p><strong>Column delimiter used in the CSV file</strong> (<strong>CSV file ထဲတွင် အသုံးပြုထားသော column ခွဲခြားကန့်သတ်သည့်အရာ</strong>)</p>
+<p>Optional (မဖြစ်မနေလုပ်ဆောင်ရန် မလိုအပ်ပါ)</p>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">DELIMITER</span></code></p></td>
+<td><p>[string]</p>
+<p>Default: ‘;’</p>
+</td>
+<td><p>Tile များ georeferencing လုပ်ထားသော အချက်အလက်များပါဝင်သည့် CSV file ထဲတွင် အသုံးပြုသည့် delimiter</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Additional creation options</strong> (<strong>ထပ်ဆောင်း ဖန်တီးမှုနည်းလမ်းများ</strong>)</p>
+<p>Optional (မဖြစ်မနေလုပ်ဆောင်ရန် မလိုအပ်ပါ)</p>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OPTIONS</span></code></p></td>
+<td><p>[string]</p>
+<p>Default: ‘’</p>
+</td>
+<td><p>Raster ဖန်တီးခြင်းကို ထိန်းချုပ်သော ဖန်တီးခြင်းနည်းလမ်းများကို ပိုမိုပေါင်းထည့်ရန် (အရောင်၊ block အရွယ်အစား၊ file ချုံ့ခြင်း)။ လွယ်ကူစေရန် ကြိုတင်သတ်မှတ်ထားသော profile များကိုအသုံးပြုနိုင်ပါသည် (<a class="reference internal" href="../../introduction/qgis_configuration.html#gdal-createoptions"><span class="std std-ref">GDAL driver options section</span></a> တွင်ကြည့်ပါ)။ အစုလိုက်လုပ်ဆောင်ခြင်း (Batch process) နှင့် Model Designer - နည်းလမ်းများစွာကို pipe character (<code class="docutils literal notranslate"><span class="pre">|</span></code>) ဖြင့်ပိုင်းခြားထားပါသည်။</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Additional command-line parameters</strong> (<strong>ထပ်ဆောင်း command-line parameter များ</strong>)</p>
+<p>Optional (မဖြစ်မနေလုပ်ဆောင်ရန် မလိုအပ်ပါ)</p>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">EXTRA</span></code></p></td>
+<td><p>[string]</p>
+<p>Default: None</p>
+</td>
+<td><p>ထပ်ဆောင်း GDAL command line ရွေးချယ်စရာများကို ထည့်ပေါင်းခြင်း</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Output data type</strong> (<strong>Output data အမျိုးအစား</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">DATA_TYPE</span></code></p></td>
+<td><p>[enumeration]</p>
+<p>Default: 5</p>
+</td>
+<td><p>Output raster file ၏ format ကိုသတ်မှတ်ပေးပါသည်။ ရွေးချယ်စရားများမှာ -</p>
+<ul class="simple">
+<li><p>0 — Byte        (Eight bit unsigned integer (quint8))</p></li>
+<li><p>1 — Int16       (Sixteen bit signed integer (qint16))</p></li>
+<li><p>2 — UInt16      (Sixteen bit unsigned integer (quint16))</p></li>
+<li><p>3 — UInt32      (Thirty two bit unsigned integer (quint32))</p></li>
+<li><p>4 — Int32       (Thirty two bit signed integer (qint32))</p></li>
+<li><p>5 — Float32     (Thirty two bit floating point (float))</p></li>
+<li><p>6 — Float64     (Sixty four bit floating point (double))</p></li>
+<li><p>7 — CInt16      (Complex Int16)</p></li>
+<li><p>8 — CInt32      (Complex Int32)</p></li>
+<li><p>9 — CFloat32    (Complex Float32)</p></li>
+<li><p>10 — CFloat64   (Complex Float64)</p></li>
+<li><p>11 — Int8       (Eight bit signed integer (qint8))</p></li>
+</ul>
+<p>အသုံးပြုနိုင်သော နည်းလမ်းများမှာ QGIS ထဲတွင်ပါသော GDAL version ပေါ်တွင်မူတည်ပါသည် (<span class="menuselection">Help ► About</span> menu တွင်ကြည့်ပါ)။</p>
+</td>
+</tr>
+<tr class="row-even"><td><p><strong>Build only the pyramids</strong> (<strong>Pyramid များကိုသာ တည်ဆောက်ခြင်း</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">ONLY_PYRAMIDS</span></code></p></td>
+<td><p>[boolean]</p>
+<p>Default: False</p>
+</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Use separate directory for each tile row</strong> (<strong>Tile row တစ်ခုချင်းစီအတွက် သီးခြား လမ်းကြောင်းကို အသုံးပြုခြင်း</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">DIR_FOR_ROW</span></code></p></td>
+<td><p>[boolean]</p>
+<p>Default: False</p>
+</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="id34">
+<h3>ရလာဒ်များ (Outputs)<a class="headerlink" href="#id34" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Output directory</strong> (<strong>Output သိမ်းဆည်းရန်နေရာ</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
+<td><p>[folder]</p></td>
+<td><p>Tile များအတွက် output folder</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>CSV file containing the tile(s) georeferencing information</strong> (<strong>Tile များကို georeference လုပ်ထားသော သတင်းအချက်အလက်များပါဝင်သည့် CSV file</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT_CSV</span></code></p></td>
+<td><p>[file]</p></td>
+<td><p>Tile များအတွက် georeferencန လုပ်ထားသော သတင်းအချက်အလက်များပါဝင်သည့် CSV file</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id35">
+<h3>Python code<a class="headerlink" href="#id35" title="Link to this heading"></a></h3>
+<p><strong>Algorithm ID</strong>: <code class="docutils literal notranslate"><span class="pre">gdal:retile</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">processing</span>
+<span class="n">processing</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;algorithm_id&quot;</span><span class="p">,</span> <span class="p">{</span><span class="n">parameter_dictionary</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>Processing Toolbox ထဲရှိ algorithm ပေါ်တွင် mouse ကိုတင်ထားလျှင် <em>algorithm id</em> ကိုပြသပေးပါသည်။ <em>parameter dictionary</em> သည် parameter နာမည်များနှင့် တန်ဖိုးများကို ပေးပါသည်။ Python console မှ algorithm များကို မည်သို့လုပ်ဆောင်ရမည် ဆိုသည့် အသေးစိတ်ကို သိရှိလိုလျှင် <a class="reference internal" href="../../processing/console.html#processing-console"><span class="std std-ref">Console တွင် processing algorithm များကို အသုံးပြုခြင်း</span></a> တွင်ကြည့်ပါ။</p>
+</section>
+</section>
+<section id="tile-tile-index">
+<span id="gdaltileindex"></span><h2><a class="toc-backref" href="#id54" role="doc-backlink"><span class="section-number">29.2.4.9. </span>Tile အညွှန်း (Tile index)</a><a class="headerlink" href="#tile-tile-index" title="Link to this heading"></a></h2>
+<p>Input raster file တစ်ခုချင်းစီအတွက် file နာမည်ပါဝင်သော attribute တစ်ခုနှင့် raster ကို အနားသတ်ပေးသော polygon geometry တစ်ခုတို့ပါဝင်သော vector layer တစ်ခုဖန်တီးပေးပါသည်။ ဤ output သည် raster tileindex တစ်ခုအဖြစ် Mapserver နှင့် အသုံးပြုရန် သင့်တော်ပါသည်။</p>
+<p>Algorithm ကို <a class="reference external" href="https://gdal.org/programs/gdaltindex.html">GDAL Tile Index utility</a> မှ ရယူပါသည်။</p>
+<p><strong>Default menu</strong> - <span class="menuselection">Raster ► Miscellaneous</span></p>
+<section id="id36">
+<h3>သတ်မှတ်ချက်များ (Parameters)<a class="headerlink" href="#id36" title="Link to this heading"></a></h3>
+<section id="id37">
+<h4>အခြေခံ သတ်မှတ်ချက်များ (Basic parameters)<a class="headerlink" href="#id37" title="Link to this heading"></a></h4>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Input files</strong> (<strong>ထည့်သွင်းအသုံးပြုသော file များ</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">LAYERS</span></code></p></td>
+<td><p>[raster] [list]</p></td>
+<td><p>ထည့်သွင်းအသုံးပြုသော raster file များ။ File များစွာလည်း ဖြစ်နိုင်ပါသည်။</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Field name to hold the file path to the indexed rasters</strong> (<strong>Indexed raster များဆီသို့ file လမ်းကြောင်းကို ထိန်းသိမ်းထားရန် field အမည်</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">PATH_FIELD_NAME</span></code>
+Optional (မဖြစ်မနေလုပ်ဆောင်ရန် မလိုအပ်ပါ)</p></td>
+<td><p>[string]</p>
+<p>Default: ‘location’ (‘တည်နေရာ’)</p>
+</td>
+<td><p>Indexed raster များဆီသို့ file လမ်းကြောင်းကို ထိန်းသိမ်းထားရန် output field အမည်</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Store absolute path to the indexed rasters</strong> (<strong>Indexed raster များထဲတွင် ပကတိလမ်းကြောင်းကို ထည့်သွင်းသိမ်းထားခြင်း</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">ABSOLUTE_PATH</span></code></p></td>
+<td><p>[boolean]</p>
+<p>Default: False</p>
+</td>
+<td><p>Raster file သို့ ပကတိလမ်းကြောင်းကို tile index file ထဲတွင် သိမ်းထား/မထား သတ်မှတ်ပေးပါသည်။ သာမန်အားဖြင့် raster file အမည်များကို command ထဲတွင် သတ်မှတ်ပေးသည့်အတိုင်း အတိအကျသိမ်းဆည်းပေးပါမည်။</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Skip files with different projection reference</strong> (<strong>Projection reference မတူသော file များကိုကျော်ပစ်ပါ</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">PROJ_DIFFERENCE</span></code></p></td>
+<td><p>[boolean]</p>
+<p>Default: False</p>
+</td>
+<td><p>Tile index ထဲတွင် ထည့်သွင်းထားပြီးဖြစ်သော file များနှင့် projection တူသော file များကိုသာ ထည့်သွင်းပါမည်။ သာမန်အားဖြင့် projection ကိုမစစ်ဆေးဘဲ input အားလုံးကို လက်ခံပါသည်။</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Tile index</strong> (<strong>Tile အညွှန်းကိန်း</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
+<td><p>[vector: polygon]</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">[Save</span> <span class="pre">to</span> <span class="pre">temporary</span> <span class="pre">file]</span> <span class="pre">([ယာယီ</span> <span class="pre">file</span> <span class="pre">အဖြစ်သိမ်းဆည်းပါ])</span></code></p>
+</td>
+<td><p>Index ရေးဆွဲမည့် polygon vector layer ကိုသတ်မှတ်ပါ။ အောက်ပါတို့ထဲမှ တစ်ခုခုဖြစ်ပါသည် -</p>
+<ul class="simple">
+<li><p>ယာယီ file တစ်ခုတွင် သိမ်းဆည်းပါ</p></li>
+<li><p>File တွင်သိမ်းဆည်းပါ</p></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id38">
+<h4>အဆင့်မြင့် သတ်မှတ်ချက်များ (Advanced parameters)<a class="headerlink" href="#id38" title="Link to this heading"></a></h4>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Transform geometries to the given CRS</strong> (<strong>အသုံးပြုထားသော CRS သို့ geometry များကိုပြောင်းလဲခြင်း</strong>)</p>
+<p>Optional (မဖြစ်မနေလုပ်ဆောင်ရန် မလိုအပ်ပါ)</p>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">TARGET_CRS</span></code></p></td>
+<td><p>[crs]</p></td>
+<td><p>Input file များ၏ geometry များကို သတ်မှတ်ထားသော ကိုဩဒိနိတ်စနစ်သို့ ပြောင်းလဲပေးပါမည်။ သာမန်အားဖြင့် input raster များ၏ ကိုဩဒိနိတ်စနစ်အတိုင်း ရိုးရှင်းသည့် ထောင့်မှန်စတုဂံ polygon များကို ဖန်တီးပေးပါသည်။</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>The name of the field to store the SRS of each tile</strong> (<strong>Tile တစ်ခုချင်းစီ၏ SRS ကိုသိမ်းဆည်းရန် column ၏အမည်</strong>)</p>
+<p>Optional (မဖြစ်မနေလုပ်ဆောင်ရန် မလိုအပ်ပါ)</p>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">CRS_FIELD_NAME</span></code></p></td>
+<td><p>[string]</p></td>
+<td><p>Tile တစ်ခုချင်းစီ၏ SRS ကိုသိမ်းဆည်းရန် column ၏အမည်</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>The format in which the CRS of each tile must be written</strong> (<strong>Tile တစ်ခုချင်းစီ၏ CRS ကို ရေးသားရမည့် format</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">CRS_FORMAT</span></code></p></td>
+<td><p>[enumeration]</p>
+<p>Default: 0</p>
+</td>
+<td><p>CRS အတွက် format ။ အောက်ပါတို့ထဲမှ တစ်ခုခုဖြစ်ပါသည် -</p>
+<ul class="simple">
+<li><p>0 – Auto (<code class="docutils literal notranslate"><span class="pre">AUTO</span></code>)</p></li>
+<li><p>1 – Well-known text (<code class="docutils literal notranslate"><span class="pre">WKT</span></code>)</p></li>
+<li><p>2 – EPSG (<code class="docutils literal notranslate"><span class="pre">EPSG</span></code>)</p></li>
+<li><p>3 – Proj.4 (<code class="docutils literal notranslate"><span class="pre">PROJ</span></code>)</p></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="id39">
+<h3>ရလာဒ်များ (Outputs)<a class="headerlink" href="#id39" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Tile index</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
+<td><p>[vector: polygon]</p></td>
+<td><p>Tile index ဖြင့် polygon vector layer</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id40">
+<h3>Python code<a class="headerlink" href="#id40" title="Link to this heading"></a></h3>
+<p><strong>Algorithm ID</strong>: <code class="docutils literal notranslate"><span class="pre">gdal:tileindex</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">processing</span>
+<span class="n">processing</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;algorithm_id&quot;</span><span class="p">,</span> <span class="p">{</span><span class="n">parameter_dictionary</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>Processing Toolbox ထဲရှိ algorithm ပေါ်တွင် mouse ကိုတင်ထားလျှင် <em>algorithm id</em> ကိုပြသပေးပါသည်။ <em>parameter dictionary</em> သည် parameter နာမည်များနှင့် တန်ဖိုးများကို ပေးပါသည်။ Python console မှ algorithm များကို မည်သို့လုပ်ဆောင်ရမည် ဆိုသည့် အသေးစိတ်ကို သိရှိလိုလျှင် <a class="reference internal" href="../../processing/console.html#processing-console"><span class="std std-ref">Console တွင် processing algorithm များကို အသုံးပြုခြင်း</span></a> တွင်ကြည့်ပါ။</p>
+</section>
+</section>
+<section id="viewshed">
+<span id="gdalviewshed"></span><h2><a class="toc-backref" href="#id55" role="doc-backlink"><span class="section-number">29.2.4.10. </span>မြင်ကွင်းခွင် (Viewshed)</a><a class="headerlink" href="#viewshed" title="Link to this heading"></a></h2>
+<p>အသုံးပြုသူသတ်မှတ်ထားသော point တစ်ခုအတွက် <a class="reference external" href="https://gdal.org/programs/gdal_viewshed.html#wang2000">Wang2000</a> ထဲတွင် သတ်မှတ်ထားသော နည်းလမ်းကိုအသုံးပြုပြီး input raster DEM တစ်ခုမှ viewshed raster တစ်ခုကိုတွက်ထုတ်ပေးပါသည်။</p>
+<section id="id41">
+<h3>သတ်မှတ်ချက်များ (Parameters)<a class="headerlink" href="#id41" title="Link to this heading"></a></h3>
+<section id="id42">
+<h4>အခြေခံ သတ်မှတ်ချက်များ (Basic parameters)<a class="headerlink" href="#id42" title="Link to this heading"></a></h4>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Input layers</strong> (<strong>ထည့်သွင်းအသုံးပြုသော layer များ</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">INPUT</span></code></p></td>
+<td><p>[raster]</p></td>
+<td><p>ထည့်သွင်းအသုံးပြုသော မြေမျက်နှာသွင်ပြင်အနိမ့်အမြင့် raster layer</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Band number</strong> (<strong>Band နံပါတ်</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">BAND</span></code></p></td>
+<td><p>[raster band]</p>
+<p>Default: 1</p>
+</td>
+<td><p>မြေမျက်နှာသွင်ပြင်အနိမ့်အမြင့် အဖြစ်အသုံးပြုမည့် band နံပါတ်</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Observer location</strong> (<strong>ကြည့်ရှုရမည့် တည်နေရာ</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OBSERVER</span></code></p></td>
+<td><p>[point]</p></td>
+<td><p>Observer ၏တည်နေရာ</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Observer height</strong> (<strong>ကြည့်ရှုရမည့် အမြင့်</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OBSERVER_HEIGHT</span></code></p></td>
+<td><p>[number]</p>
+<p>Default: 1.0</p>
+</td>
+<td><p>DEM ယူနစ်များဖြင့် observer ၏အမြင့်</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Target height</strong> (<strong>ကြည့်ရှုမည့်နေရာ အမြင့်</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">TARGET_HEIGHT</span></code></p></td>
+<td><p>[number]</p>
+<p>Default: 1.0</p>
+</td>
+<td><p>DEM ယူနစ်များဖြင့် ကြည့်ရှုမည့် element ၏ အမြင့်</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Maximum distance from observer to compute visibility</strong> (<strong>မြင်ရနိုင်စွမ်းကို တွက်ချက်ရန် observer မှ အဝေးဆုံးအကွာအဝေး</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">MAX_DISTANCE</span></code></p></td>
+<td><p>[number]</p>
+<p>Default: 100.0</p>
+</td>
+<td><p>DEM ယူနစ်များဖြင့် မြင်ရနိုင်စွမ်းကို တွက်ချက်ရန် observer မှ အဝေးဆုံးအကွာအဝေး</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Output</strong> (<strong>ရလာဒ်</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
+<td><p>[raster]</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">[Save</span> <span class="pre">to</span> <span class="pre">temporary</span> <span class="pre">file]</span> <span class="pre">([ယာယီ</span> <span class="pre">file</span> <span class="pre">အဖြစ်သိမ်းဆည်းပါ])</span></code></p>
+</td>
+<td><p>Output raster layer ။ အောက်ပါတို့မှ တစ်ခုခုဖြစ်ပါသည်-</p>
+<ul class="simple">
+<li><p>ယာယီ file တစ်ခုတွင် သိမ်းဆည်းပါ</p></li>
+<li><p>File တွင်သိမ်းဆည်းပါ</p></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id43">
+<h4>အဆင့်မြင့် သတ်မှတ်ချက်များ (Advanced parameters)<a class="headerlink" href="#id43" title="Link to this heading"></a></h4>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Additional creation options</strong> (<strong>ထပ်ဆောင်း ဖန်တီးမှုနည်းလမ်းများ</strong>)</p>
+<p>Optional (မဖြစ်မနေလုပ်ဆောင်ရန် မလိုအပ်ပါ)</p>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OPTIONS</span></code></p></td>
+<td><p>[string]</p>
+<p>Default: ‘’</p>
+</td>
+<td><p>Raster ဖန်တီးခြင်းကို ထိန်းချုပ်သော ဖန်တီးခြင်းနည်းလမ်းများကို ပိုမိုပေါင်းထည့်ရန် (အရောင်၊ block အရွယ်အစား၊ file ချုံ့ခြင်း)။ လွယ်ကူစေရန် ကြိုတင်သတ်မှတ်ထားသော profile များကိုအသုံးပြုနိုင်ပါသည် (<a class="reference internal" href="../../introduction/qgis_configuration.html#gdal-createoptions"><span class="std std-ref">GDAL driver options section</span></a> တွင်ကြည့်ပါ)။ အစုလိုက်လုပ်ဆောင်ခြင်း (Batch process) နှင့် Model Designer - နည်းလမ်းများစွာကို pipe character (<code class="docutils literal notranslate"><span class="pre">|</span></code>) ဖြင့်ပိုင်းခြားထားပါသည်။</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Additional command-line parameters</strong> (<strong>ထပ်ဆောင်း command-line parameter များ</strong>)</p>
+<p>Optional (မဖြစ်မနေလုပ်ဆောင်ရန် မလိုအပ်ပါ)</p>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">EXTRA</span></code></p></td>
+<td><p>[string]</p>
+<p>Default: None</p>
+</td>
+<td><p>ထပ်ဆောင်း GDAL command line ရွေးချယ်စရာများကို ထည့်ပေါင်းခြင်း</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="id44">
+<h3>ရလာဒ်များ (Outputs)<a class="headerlink" href="#id44" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Output</strong> (<strong>ရလာဒ်</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
+<td><p>[raster]</p></td>
+<td><p>Viewshed ကိုပြသသော raster layer</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id45">
+<h3>Python code<a class="headerlink" href="#id45" title="Link to this heading"></a></h3>
+<p><strong>Algorithm ID</strong>: <code class="docutils literal notranslate"><span class="pre">gdal:viewshed</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">processing</span>
+<span class="n">processing</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;algorithm_id&quot;</span><span class="p">,</span> <span class="p">{</span><span class="n">parameter_dictionary</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>Processing Toolbox ထဲရှိ algorithm ပေါ်တွင် mouse ကိုတင်ထားလျှင် <em>algorithm id</em> ကိုပြသပေးပါသည်။ <em>parameter dictionary</em> သည် parameter နာမည်များနှင့် တန်ဖိုးများကို ပေးပါသည်။ Python console မှ algorithm များကို မည်သို့လုပ်ဆောင်ရမည် ဆိုသည့် အသေးစိတ်ကို သိရှိလိုလျှင် <a class="reference internal" href="../../processing/console.html#processing-console"><span class="std std-ref">Console တွင် processing algorithm များကို အသုံးပြုခြင်း</span></a> တွင်ကြည့်ပါ။</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="rasterextraction.html" class="btn btn-neutral float-left" title="29.2.3. Raster ထဲမှဆွဲထုတ်ခြင်း (Raster extraction)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="rasterprojections.html" class="btn btn-neutral float-right" title="29.2.5. Raster မြေပုံအရိပ်ချစနစ်များ (Raster projections)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2002-now, QGIS project.
+      <span class="lastupdated">Last updated on 2024 May 13, 16:23 +0700.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- Transifex follows a particular logic to build target pages:
+Expected French translation link for https://docs.qgis.org/3.28/en/docs/user_manual/print_composer/overview_composer.html
+would return https://app.transifex.com/qgis/qgis-documentation/translate/#fr/aa6d8bc653526d38b295ca94bf8eee5e
+with the md5 value of "github#qgis/QGIS-Documentation#release_3.28#locale/en/LC_MESSAGES/docs/user_manual/print_composer/overview_composer.po"-->
+<!--Make sure that mismatching language codes between Transifex and Sphinx are converted-->
+
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-info-circle"> QGIS Documentation </span>
+      v: 3.28
+      <span class="fa fa-caret-down"></span>
+    </span>
+
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Languages</dt>
+        
+          <dd><a href="https://docs.qgis.org/3.28/en/docs/user_manual/processing_algs/gdal/rastermiscellaneous.html">en</a></dd>
+        
+      </dl>
+
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/user_manual/processing_algs/gdal/rastermiscellaneous.html">testing</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/latest/en/docs/user_manual/processing_algs/gdal/rastermiscellaneous.html">latest</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.28/en/docs/user_manual/processing_algs/gdal/rastermiscellaneous.html">3.28</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.22/en/docs/user_manual/processing_algs/gdal/rastermiscellaneous.html">3.22</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.16/en/docs/user_manual/processing_algs/gdal/rastermiscellaneous.html">3.16</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.10/en/docs/user_manual/processing_algs/gdal/rastermiscellaneous.html">3.10</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.4/en/docs/user_manual/processing_algs/gdal/rastermiscellaneous.html">3.4</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/2.18/en/docs/user_manual/processing_algs/gdal/rastermiscellaneous.html">2.18</a></dd>
+        
+      </dl>
+
+       
+       <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="https://docs.qgis.org/3.28/pdf">PDF</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.28/zip">HTML</a></dd>
+        
+      </dl>
+      
+
+      
+       
+      <dl>
+        <dt>Contribute to Docs</dt>
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/edit/master/docs/user_manual/processing_algs/gdal/rastermiscellaneous.rst" target="_blank" rel="noopener noreferrer">Edit on GitHub</a>
+          </dd>
+          
+          
+          <dd>
+            <a href="https://app.transifex.com/qgis/qgis-documentation/translate/#en/fed14e5595b4be34f12d73a47e91bd3d" target="_blank" rel="noopener noreferrer">Translate Page</a>
+          </dd>
+          
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/issues" target="_blank" rel="noopener noreferrer">Report Issue</a>
+          </dd>
+      </dl>
+      
+
+      <dl>
+        <dt>On QGIS Project</dt>
+          <dd>
+            <a href="https://qgis.org/en" target="_blank" rel="noopener noreferrer">Home</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/api/3.28" target="_blank" rel="noopener noreferrer">C++ API</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/pyqgis/3.28" target="_blank" rel="noopener noreferrer">PyQGIS API</a>
+          </dd>
+          <dd>
+            <a href="https://github.com/qgis/QGIS/tree/release-3_28" target="_blank" rel="noopener noreferrer">Source</a>
+          </dd>
+      </dl>
+
+    </div>
+  </div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

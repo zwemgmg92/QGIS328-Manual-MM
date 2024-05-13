@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>32. QGIS တွင် Python code များရေးသားရန်နေရာ (QGIS Python console) &mdash; QGIS Documentation  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/qgis_docs.css?v=3fdf4c33" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/qgis_logo.ico"/>
+    <link rel="canonical" href="https://docs.qgis.org/latest/en/docs/user_manual/plugins/python_console.html"/>
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../../_static/copybutton.js?v=f281be69"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="33. အကူအညီနှင့်အထောက်အပံ့ (Help and Support)" href="../preamble/help_and_support.html" />
+    <link rel="prev" title="31.5. ဆက်စပ်တည်ရှိမှုကိုစစ်ဆေးသည့် Plugin (Topology Checker Plugin)" href="core_plugins/plugins_topology_checker.html" />
+  <meta name="description" content="QGIS 3.28 documentation: 32. QGIS တွင် Python code များရေးသားရန်နေရာ (QGIS Python console)">
+</head>
+
+<body class="wy-body-for-nav">
+
+  <nav class="release_status_topbar">
+  </nav>
+
+   
+
+ 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+   
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            QGIS Documentation
+              <img src="../../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                3.28
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+   <a href= "../../../genindex.html">Index</a>
+ 
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">အသုံးပြုသူများအတွက်</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../preamble/preamble.html">1. စကားချီး (Preamble)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/foreword.html">2. အမှာစာ (Foreword)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/conventions.html">3. အသုံးအနှုန်းများ (Conventions)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/features.html">4. အသွင်အပြင်များ (Features)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/getting_started.html">5. စတင်အသုံးပြုခြင်း (Getting Started)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/project_files.html">6. Project Files များနှင့် အလုပ်လုပ်ခြင်း (Working with Project Files)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/qgis_gui.html">7. QGIS ၏အစိတ်အပိုင်းများ (QGIS GUI)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/browser.html">8. ဒေတာများရှာဖွေကြည့်ရှုနိုင်သည့်နေရာ (The Browser panel)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/qgis_configuration.html">9. QGIS ပြင်ဆင်သတ်မှတ်ခြင်း/အခင်းအကျင်း (QGIS Configuration)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_projections/working_with_projections.html">10. မြေပုံအရိပ်ချစနစ်များ နှင့် အလုပ်လုပ်ခြင်း (Working with Projections)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../map_views/index.html">11. မြေပုံများအား ပုံဖော်ကြည့်ရှုခြင်း (Visualizing Maps)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/general_tools.html">12. အထွေ‌ထွေ‌သုံးကိရိယာများ (General Tools)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../expressions/index.html">13. Expression များဖြင့် အဆင့်မြှင့်တင်ဆောင်ရွက်ခြင်း (Level up with Expressions)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../style_library/index.html">14. The Style Library (Style နှင့်ပတ်သက်သည်များ ထားရှိရာနေရာ)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../managing_data_source/index.html">15. ဒေတာအရင်းအမြစ်များအား စီမံခန့်ခွဲခြင်း (Managing Data Source)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_vector/index.html">16. Vector data များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_raster/index.html">17. Raster Data နှင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_mesh/mesh_properties.html">18. Working with Mesh Data (Mesh Data များနှင့် အလုပ်လုပ်ခြင်း)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_vector_tiles/vector_tiles_properties.html">19. Vector Tiles များနှင့်အလုပ်လုပ်ခြင်း (Working with Vector Tiles)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_point_clouds/point_clouds.html">20. Point Cloud များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../print_composer/index.html">21. မြေပုံအချောသပ်ပြင်ဆင်ခြင်း (Laying out the maps)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_ogc/ogc_client_support.html">22. OGC / ISO protocol များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_gps/index.html">23. GPS Data များနှင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../auth_system/auth_overview.html">24. အထောက်အထားစီစစ်ခြင်းအကြောင်းအကျဉ်း (Authentication System Overview)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../auth_system/auth_workflows.html">25. အသုံးပြုသူ အထောက်အထားစစ်ဆေးခြင်း လုပ်ငန်းအဆင့်များ (User Authentication Workflows)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../auth_system/auth_considerations.html">26. လုံခြုံရေးအတွက်စဉ်းစားရန်အချက်များ (Security Considerations)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../grass_integration/grass_integration.html">27. GRASS GIS နှင့်ပေါင်းစပ်အသုံးပြုခြင်း (GRASS GIS Integration)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing/index.html">28. QGIS processing framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing_algs/index.html">29. Processing ဆိုင်ရာ ထောက်ပံ့ပေးသူများနှင့် Algorithm များ (Processing providers and algorithms)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">30. QGIS Plugin များ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="core_plugins/index.html">31. QGIS ပင်မ Plugin များကို အသုံးပြုခြင်း (Using QGIS Core Plugins)</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">32. QGIS တွင် Python code များရေးသားရန်နေရာ (QGIS Python console)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#console-the-interactive-console">32.1. အပြန်အလှန် လုပ်ဆောင်နိုင်သော Console (The Interactive Console)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#toolbar">32.1.1. Toolbar</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">32.1.2. ခိုင်းစေချက်များ ရိုက်ထည့်ရန်နေရာ (Console)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#code-the-code-editor">32.2. Code ပြင်ဆင်တည်းဖြတ်ရာနေရာ (The Code Editor)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/help_and_support.html">33. အကူအညီနှင့်အထောက်အပံ့ (Help and Support)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/contributors.html">34. ပါဝင်အားဖြည့်သူများ (Contributors)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendices/index.html">35. နောက်ဆက်တွဲများ (Appendices)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../literature_web/literature_and_web_references.html">36. စာတမ်းများနှင့် Website ကိုးကားချက်များ (Literature and Web References)</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">QGIS Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">&lt;no title&gt;</a></li>
+          <li class="breadcrumb-item"><a href="index.html">&lt;no title&gt;</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">32. </span>QGIS တွင် Python code များရေးသားရန်နေရာ (QGIS Python console)</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/qgis/QGIS-Documentation/blob/master/docs/user_manual/plugins/python_console.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="core_plugins/plugins_topology_checker.html" class="btn btn-neutral float-left" title="31.5. ဆက်စပ်တည်ရှိမှုကိုစစ်ဆေးသည့် Plugin (Topology Checker Plugin)" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../preamble/help_and_support.html" class="btn btn-neutral float-right" title="33. အကူအညီနှင့်အထောက်အပံ့ (Help and Support)" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <blockquote>
+<div></div></blockquote>
+<section id="qgis-python-code-qgis-python-console">
+<span id="console"></span><span id="index-0"></span><h1><span class="section-number">32. </span>QGIS တွင် Python code များရေးသားရန်နေရာ (QGIS Python console)<a class="headerlink" href="#qgis-python-code-qgis-python-console" title="Link to this heading"></a></h1>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#console-the-interactive-console" id="id4">အပြန်အလှန် လုပ်ဆောင်နိုင်သော Console (The Interactive Console)</a></p>
+<ul>
+<li><p><a class="reference internal" href="#toolbar" id="id5">Toolbar</a></p></li>
+<li><p><a class="reference internal" href="#id1" id="id6">ခိုင်းစေချက်များ ရိုက်ထည့်ရန်နေရာ (Console)</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#code-the-code-editor" id="id7">Code ပြင်ဆင်တည်းဖြတ်ရာနေရာ (The Code Editor)</a></p></li>
+</ul>
+</nav>
+<p>ဤအခန်း၏ နောက်ပိုင်းတွင် တွေ့မြင်ရမည့်အတိုင်း QGIS ကို plugin တည်ဆောက်မှုပုံစံဖြင့် ဒီဇိုင်းရေးဆွဲထားပါသည်။ Plugin များကို ပထဝီဝင်ဆိုင်ရာ နယ်ပယ်တွင် ‌အလွန်လူသိများသော ဘာသာစကားဖြစ်သည့် Python ဖြင့် ရေးသားနိုင်ပါသည်။</p>
+<p>QGIS သည် အသုံးပြုသူများကို ၎င်း၏ object များ (layer များ၊ feature သို့မဟုတ် အသုံးပြုသူမျက်နှာပြင်) နှင့် အပြန်အလှန်လုပ်ဆောင်နိုင်စေရန် Python API တစ်ခုကို ဆောင်ကျဉ်းပေးပါသည်။ (Code နမူနာများအတွက် <span class="xref std std-ref">PyQGIS Developer Cookbook</span> တွင် ကြည့်ရှုလေ့လာနိုင်ပါသည်။) QGIS တွင် Python console တစ်ခုလည်း ရှိပါသည်။</p>
+<p>QGIS Python Console သည် python ညွှန်ကြားချက်များကို ဆောင်ရွက်ရန် အပြန်အလှန်လုပ်ဆောင်နိုင်သော နေရာတစ်ခုဖြစ်ပါသည်။ ၎င်းတွင် python script များကို ပြင်ဆင်တည်းဖြတ်ခြင်းနှင့် သိမ်းဆည်းခြင်းများ လုပ်ဆောင်နိုင်သော python ဖိုင်ပြင်ဆင်တည်းဖြတ်ပေးသည့်အရာလည်း ရှိပါသည်။ Console နှင့် editor (ပြင်ဆင်တည်းဖြတ်မှုပေးသည့်အရာ) နှစ်ခုလုံးသည် PyQScintilla2 package ပေါ်တွင် အခြေခံထားပါသည်။ Console ကို ဖွင့်လှစ်ရန် <span class="menuselection">Plugins ► Python Console</span> သို့ ဝင်ရောက်ပါ (<kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">Ctrl</kbd>+<kbd class="kbd docutils literal notranslate">Alt</kbd>+<kbd class="kbd docutils literal notranslate">P</kbd></kbd> ကိုအသုံးပြု၍ ဖွင့်နိုင်ပါသည်)။</p>
+<section id="console-the-interactive-console">
+<span id="interactive-console"></span><h2><a class="toc-backref" href="#id4" role="doc-backlink"><span class="section-number">32.1. </span>အပြန်အလှန် လုပ်ဆောင်နိုင်သော Console (The Interactive Console)</a><a class="headerlink" href="#console-the-interactive-console" title="Link to this heading"></a></h2>
+<p>အပြန်အလှန် လုပ်ဆောင်နိုင်သော Console တွင် လုပ်ဆောင်ချက်ဘား (toolbar)၊ input ထည့်သွင်းနိုင်သည့်နေရာနှင့် ရလာဒ်ထုတ်ပေးသည့်နေရာတို့ ပါဝင်ပါသည်။</p>
+<section id="toolbar">
+<h3><a class="toc-backref" href="#id5" role="doc-backlink"><span class="section-number">32.1.1. </span>Toolbar</a><a class="headerlink" href="#toolbar" title="Link to this heading"></a></h3>
+<p>Toolbar တွင် အောက်ပါ tool များပါရှိပါသည်-</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../../../_images/iconClearConsole.png"><img alt="clearConsole" src="../../../_images/iconClearConsole.png" style="width: 1.5em;" /></a> <sup>Clear Console</sup> (Console အား ရှင်းလင်းခြင်း) သည် ရလာဒ်ဧရိယာကို ရှင်းလင်းရန် ဖြစ်ပါသည်၊</p></li>
+<li><p><a class="reference internal" href="../../../_images/iconRunConsole.png"><img alt="runConsole" src="../../../_images/iconRunConsole.png" style="width: 1.5em;" /></a> <sup>Run Command</sup> (Command ကိုလုပ်ဆောင်ခြင်း) ကို input ထည့်သွင်းသည့်နေရာတွင် တွေ့နိုင်ပြီး ကီးဘုတ်တွင် <kbd class="kbd docutils literal notranslate">Enter</kbd> ကိုနှိပ်ခြင်းနှင့်အတူတူပင်ဖြစ်ပါသည်၊</p></li>
+<li><p><a class="reference internal" href="../../../_images/iconShowEditorConsole.png"><img alt="showEditorConsole" src="../../../_images/iconShowEditorConsole.png" style="width: 1.5em;" /></a> <sup>Show Editor</sup> (ပြင်ဆင်တည်းဖြတ်ပေးသည့်အရာကိုပြသခြင်း) သည် <a class="reference internal" href="#console-editor"><span class="std std-ref">Code ပြင်ဆင်တည်းဖြတ်ရာနေရာ (The Code Editor)</span></a> ၏ မြင်ကွင်းကို အဖွင့်အပိတ်ပြုလုပ်နိုင်ပါသည်၊</p></li>
+<li><p><a class="reference internal" href="../../../_images/mActionOptions.png"><img alt="options" src="../../../_images/mActionOptions.png" style="width: 1em;" /></a> <sup>Options…</sup> (ရွေးချယ်စရာများ) သည် console ၏ ဂုဏ်သတ္တိများကို ပြင်ဆင်သတ်မှတ်ရန် dialog တစ်ခုကို ပွင့်လာစေပါသည် (<a class="reference internal" href="../introduction/qgis_configuration.html#console-options"><span class="std std-ref">Python Console setting များ</span></a> ကိုကြည့်ပါ)၊</p></li>
+<li><p><a class="reference internal" href="../../../_images/mActionHelpContents.png"><img alt="helpContents" src="../../../_images/mActionHelpContents.png" style="width: 1.5em;" /></a> <sup>Help…</sup> (အကူအညီ) တွင် လက်ရှိမှတ်တမ်းမှတ်ရာများကို ရှာဖွေနိုင်ပါသည်။</p></li>
+</ul>
+</section>
+<section id="id1">
+<h3><a class="toc-backref" href="#id6" role="doc-backlink"><span class="section-number">32.1.2. </span>ခိုင်းစေချက်များ ရိုက်ထည့်ရန်နေရာ (Console)</a><a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
+<p>Console ၏ အဓိကအင်္ဂါရပ်များမှာ-</p>
+<ul class="simple">
+<li><p>အောက်ပါ API များအတွက် ကုဒ်ပြီးမြောက်စေခြင်း၊ ဝါကျဖွဲ့ပုံ (syntax) အား ထင်ရှားအောင်ပြသခြင်းနှင့်အကြံပြုချက်များ တို့ဖြစ်သည်-</p>
+<ul>
+<li><p>Python</p></li>
+<li><p>PyQGIS</p></li>
+<li><p>PyQt5</p></li>
+<li><p>QScintilla2</p></li>
+<li><p>osgeo-gdal-ogr</p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="../introduction/qgis_configuration.html#console-options"><span class="std std-ref">Python Console setting များ</span></a> ကိုဖွင့်ထားပါက အလိုအလျောက် ပြီးမြောက်ခြင်း (auto-completion) စာရင်းကို ကြည့်ရှုရန် <kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">Ctrl</kbd>+<kbd class="kbd docutils literal notranslate">Alt</kbd>+<kbd class="kbd docutils literal notranslate">Space</kbd></kbd> ကို နှိပ်ပါ။</p></li>
+<li><p>Input ထည့်သွင်းသည့် နေရာတွင် စာရိုက်၍ <kbd class="kbd docutils literal notranslate">Enter</kbd> သို့မဟုတ် <span class="guilabel">Run Command</span> ကို နှိပ်၍ code အပိုင်းအစများကို စေခိုင်းလုပ်ဆောင် (execute) ပါ-</p></li>
+<li><p>Contextual menu (အကြောင်းအရာ မီနူး) မှ <span class="guilabel">Enter Selected</span> ကို အသုံးပြုခြင်း သို့မဟုတ် <kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">Ctrl</kbd>+<kbd class="kbd docutils literal notranslate">E</kbd></kbd> ကို နှိပ်ခြင်းဖြင့် ရလာဒ်ထုတ်ပေးသော နေရာမှ code အပိုင်းအစများကို စေခိုင်းလုပ်ဆောင်ပါ၊</p></li>
+<li><p>Input ထည့်သွင်းသည့်နေရာတွင် <kbd class="kbd docutils literal notranslate">Up</kbd> (အပေါ်) နှင့် <kbd class="kbd docutils literal notranslate">Down</kbd> (အောက်) မြှားများကိုအသုံးပြု၍ command မှတ်တမ်းကို ရှာဖွေပြီးနောက် အလိုရှိသော command ကို စေခိုင်းလုပ်ဆောင်ပါ။</p></li>
+<li><p>Command မှတ်တမ်းကို ကြည့်ရှုရန် <kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">Ctrl</kbd>+<kbd class="kbd docutils literal notranslate">Shift</kbd>+<kbd class="kbd docutils literal notranslate">Space</kbd></kbd> ကို နှိပ်ပြီး row (အတန်း) တစ်ခုကို click နှစ်ချက်နှိပ်လိုက်ပါက ထို command ကို စေခိုင်းလုပ်ဆောင်ပါလိမ့်မည်။ <span class="guilabel">Command History</span> dialog ကို input ထည့်သွင်းသည့် နေရာ၏ context menu (အကြောင်းအရာ menu) မှလည်း ဝင်ရောက်နိုင်ပါသည်။</p></li>
+<li><p>Command မှတ်တမ်းကို သိမ်းဆည်းပြီးနောက် ရှင်းလင်းပါ။ ထိုမှတ်တမ်းကို လက်ရှိအသုံးပြုနေသော <a class="reference internal" href="../introduction/qgis_configuration.html#user-profiles"><span class="std std-ref">user profile (အသုံးပြုသူလမ်းကြောင်း)</span></a> folder အောက်ရှိ <code class="file docutils literal notranslate"><span class="pre">console_history.txt</span></code> ဖိုင်ထဲတွင် သိမ်းဆည်းသွားမည်ဖြစ်ပါသည်၊</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">_api</span></code>  ဟု စာရိုက်၍ <a class="reference external" href="https://api.qgis.org/api/3.28/">QGIS C++ API</a> မှတ်တမ်းမှတ်ရာများကိုဖွင့်နိုင်သည်။</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">_pyqgis</span></code> ဟု စာရိုက်၍ <a class="reference external" href="https://qgis.org/pyqgis/3.28/">QGIS Python API</a> မှတ်တမ်းမှတ်ရာကို ဖွင့်နိုင်သည်။</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">_cookbook</span></code> ဟု စာရိုက်၍ <span class="xref std std-ref">PyQGIS Cookbook</span> ကိုဖွင့်နိုင်သည်။</p></li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><strong>ရလာဒ် panel မှ လုပ်ဆောင်ပြီးသား command များကို ပြန်လည်အသုံးပြုခြင်း</strong></p>
+<p>ရလာဒ် panel မှ code အချို့ကို ရွေးချယ်၍ <kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">Ctrl</kbd>+<kbd class="kbd docutils literal notranslate">E</kbd></kbd> ကို နှိပ်ခြင်းဖြင့် code အပိုင်းအစများကို စေခိုင်းလုပ်ဆောင်နိုင်ပါသည်။ အကယ်၍ ရွေးချယ်ထားသော စာသားတွင် interpreter prompt (ကြားခံလမ်းညွှန်ချက်) (<code class="docutils literal notranslate"><span class="pre">&gt;&gt;&gt;</span></code> ၊ <code class="docutils literal notranslate"><span class="pre">...</span></code>) များပါဝင်နေပါကလည်း ပြဿနာတစ်စုံတစ်ရာမရှိပေ။</p>
+</div>
+<figure class="align-center" id="id2">
+<span id="figure-python-console"></span><img alt="../../../_images/python_console.png" src="../../../_images/python_console.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 32.1 </span><span class="caption-text">Python Console</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="code-the-code-editor">
+<span id="console-editor"></span><h2><a class="toc-backref" href="#id7" role="doc-backlink"><span class="section-number">32.2. </span>Code ပြင်ဆင်တည်းဖြတ်ရာနေရာ (The Code Editor)</a><a class="headerlink" href="#code-the-code-editor" title="Link to this heading"></a></h2>
+<p>Editor widget ကို ဖွင့်ရန် <a class="reference internal" href="../../../_images/iconShowEditorConsole.png"><img alt="showEditorConsole" src="../../../_images/iconShowEditorConsole.png" style="width: 1.5em;" /></a> <sup>Show Editor</sup> ခလုတ်ကို အသုံးပြုပါ။ ၎င်းသည် Python ဖိုင်များကို ပြင်ဆင်တည်းဖြတ်ခြင်းနှင့် သိမ်းဆည်းခြင်းများကို လုပ်ဆောင်နိုင်ပြီး မိမိ၏ code များကို ကိုင်တွယ်စီမံရန် အဆင်မြင့်လုပ်ဆောင်ချက်များကိုလည်း ပေးစွမ်းနိုင်ပါသည် (code များကိုမှတ်ချက်ပေးခြင်း နှင့် မှတ်ချက်ပြန်ဖျက်ခြင်း၊ ဝါကျဖွဲ့ပုံ (syntax) ကိုစစ်ဆေးခြင်း၊ GitHub မှတဆင့် code မျှဝေခြင်းနှင့် အခြားသောအရာများ)။ အဓိကအင်္ဂါရပ်များမှာ-</p>
+<ul class="simple">
+<li><p>အောက်ပါ API များအတွက် code ပြီးမြောက်စေခြင်း၊ syntax များနှင့်အကြံပြုချက်များအား ထင်ရှားအောင်ပြသခြင်း တို့ဖြစ်သည်-</p>
+<ul>
+<li><p>Python</p></li>
+<li><p>PyQGIS</p></li>
+<li><p>PyQt5</p></li>
+<li><p>QScintilla2</p></li>
+<li><p>osgeo-gdal-ogr</p></li>
+</ul>
+</li>
+<li><p>အလိုအလျောက်ပြီးမြောက်ခြင်း (auto-completion) စာရင်းကို ကြည့်ရှုရန် <kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">Ctrl</kbd>+<kbd class="kbd docutils literal notranslate">Space</kbd></kbd> ကိုနှိပ်ပါ။</p></li>
+<li><p><a class="reference internal" href="../introduction/qgis_configuration.html#console-options"><span class="std std-ref">GitHub</span></a> မှ တဆင့် code များကို မျှဝေခြင်း။</p></li>
+<li><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">Ctrl</kbd>+<kbd class="kbd docutils literal notranslate">4</kbd></kbd> ဖြင့် syntax စစ်ဆေးခြင်း</p></li>
+<li><p>ရှာဖွေမှုဘား (Default ကွန်ပျူတာ ဖြတ်လမ်းနည်း ဖြစ်သော <kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">Ctrl</kbd>+<kbd class="kbd docutils literal notranslate">F</kbd></kbd> ဖြင့် ဖွင့်ပါ)-</p>
+<ul>
+<li><p>နောက်ထပ်/ ယခင်က အရာများကို ရှာဖွေရန် default ကွန်ပျူတာဖြတ်လမ်းနည်းဖြစ်သော (<kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">Ctrl</kbd>+<kbd class="kbd docutils literal notranslate">G</kbd></kbd> နှင့် <kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">Shift</kbd>+<kbd class="kbd docutils literal notranslate">Ctrl</kbd>+<kbd class="kbd docutils literal notranslate">G</kbd></kbd>) တို့ကို အသုံးပြုပါ၊</p></li>
+<li><p>ရှာဖွေမှု box တွင် စာရိုက်ထည့်သည့်အခါ ပထမဆုံး ကိုက်ညီမှုကို အလိုအလျောက် ရှာဖွေပါ၊</p></li>
+<li><p>ရှာဖွေမှုကို ဖွင့်သောအခါ ရွေးချယ်မှုတွင် အစရှာဖွေမှုစာလုံးကို သတ်မှတ်ပါ၊</p></li>
+<li><p>ရှာဖွေမှုဘားကို ပိတ်ရန် <kbd class="kbd docutils literal notranslate">Esc</kbd> ကို နှိပ်ပါ။</p></li>
+</ul>
+</li>
+<li><p>Object inspector- အတန်းအစား (class) နှင့် လုပ်ဆောင်ချက် (function) ကို ရှာဖွေနိုင်သည့်အရာ၊</p></li>
+<li><p>Object အဓိပ္ပါယ်သတ်မှတ်ချက်ကို သိရှိရန် မောက်စ်ဖြင့်တစ်ချက်နှိပ်ပါ (Object inspector မှ)၊</p></li>
+<li><p>Contextual menu (အကြောင်းအရာ menu) ထဲရှိ <a class="reference internal" href="../../../_images/iconRunConsole.png"><img alt="runConsole" src="../../../_images/iconRunConsole.png" style="width: 1.5em;" /></a> <span class="guilabel">Run Selected</span> command ဖြင့် code အပိုင်းအစများကို စေခိုင်းလုပ်ဆောင်ပါ၊</p></li>
+<li><p><a class="reference internal" href="../../../_images/mActionStart.png"><img alt="start" src="../../../_images/mActionStart.png" style="width: 1.5em;" /></a> <span class="guilabel">Run Script</span> command ဖြင့် script တစ်ခုလုံးကို စေခိုင်းလုပ်ဆောင်ပါ (၎င်းသည် <code class="file docutils literal notranslate"><span class="pre">.pyc</span></code> extension ဖြင့် byte-compiled ဖိုင် (byte များစုစည်းထားသည့်ဖိုင်) တစ်ခုကို ဖန်တီးပေးပါသည်)</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><span class="guilabel">Code Editor</span> မှ script တစိတ်တပိုင်းကို ဖြစ်စေ၊ script အားလုံးကိုဖြစ်စေ လုပ်ဆောင်ပါက Console ရလာဒ်ဧရိယာတွင် ရလာဒ်များကို ထုတ်ပေးမည်ဖြစ်ပါသည်။</p>
+</div>
+<figure class="align-center" id="id3">
+<span id="figure-python-console-editor"></span><img alt="../../../_images/python_console_editor.png" src="../../../_images/python_console_editor.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 32.2 </span><span class="caption-text">Python Console editor</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><strong>ရွေးချယ်စရာများကို သိမ်းဆည်းခြင်း</strong></p>
+<p>Console ရှိ widget များ၏ အခြေအနေကို သိမ်းဆည်းရန် Python Console ကို close button (ပိတ်သည့် ခလုတ်) မှ ပိတ်ရပါမည်။ ထိုသို့ပြုလုပ်ခြင်းသည် ဂျီဩမေတြီကို သိမ်းဆည်းပေးနိုင်ပြီး နောက်တစ်ကြိမ်ပြန်လည်စတင်ရာတွင် ၎င်းတို့ကို ပြန်လည်ရယူနိုင်ပါသည်။</p>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="core_plugins/plugins_topology_checker.html" class="btn btn-neutral float-left" title="31.5. ဆက်စပ်တည်ရှိမှုကိုစစ်ဆေးသည့် Plugin (Topology Checker Plugin)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../preamble/help_and_support.html" class="btn btn-neutral float-right" title="33. အကူအညီနှင့်အထောက်အပံ့ (Help and Support)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2002-now, QGIS project.
+      <span class="lastupdated">Last updated on 2024 May 13, 16:23 +0700.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- Transifex follows a particular logic to build target pages:
+Expected French translation link for https://docs.qgis.org/3.28/en/docs/user_manual/print_composer/overview_composer.html
+would return https://app.transifex.com/qgis/qgis-documentation/translate/#fr/aa6d8bc653526d38b295ca94bf8eee5e
+with the md5 value of "github#qgis/QGIS-Documentation#release_3.28#locale/en/LC_MESSAGES/docs/user_manual/print_composer/overview_composer.po"-->
+<!--Make sure that mismatching language codes between Transifex and Sphinx are converted-->
+
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-info-circle"> QGIS Documentation </span>
+      v: 3.28
+      <span class="fa fa-caret-down"></span>
+    </span>
+
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Languages</dt>
+        
+          <dd><a href="https://docs.qgis.org/3.28/en/docs/user_manual/plugins/python_console.html">en</a></dd>
+        
+      </dl>
+
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/user_manual/plugins/python_console.html">testing</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/latest/en/docs/user_manual/plugins/python_console.html">latest</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.28/en/docs/user_manual/plugins/python_console.html">3.28</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.22/en/docs/user_manual/plugins/python_console.html">3.22</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.16/en/docs/user_manual/plugins/python_console.html">3.16</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.10/en/docs/user_manual/plugins/python_console.html">3.10</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.4/en/docs/user_manual/plugins/python_console.html">3.4</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/2.18/en/docs/user_manual/plugins/python_console.html">2.18</a></dd>
+        
+      </dl>
+
+       
+       <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="https://docs.qgis.org/3.28/pdf">PDF</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.28/zip">HTML</a></dd>
+        
+      </dl>
+      
+
+      
+       
+      <dl>
+        <dt>Contribute to Docs</dt>
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/edit/master/docs/user_manual/plugins/python_console.rst" target="_blank" rel="noopener noreferrer">Edit on GitHub</a>
+          </dd>
+          
+          
+          <dd>
+            <a href="https://app.transifex.com/qgis/qgis-documentation/translate/#en/363b9cb17217848fbab586355ee2c099" target="_blank" rel="noopener noreferrer">Translate Page</a>
+          </dd>
+          
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/issues" target="_blank" rel="noopener noreferrer">Report Issue</a>
+          </dd>
+      </dl>
+      
+
+      <dl>
+        <dt>On QGIS Project</dt>
+          <dd>
+            <a href="https://qgis.org/en" target="_blank" rel="noopener noreferrer">Home</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/api/3.28" target="_blank" rel="noopener noreferrer">C++ API</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/pyqgis/3.28" target="_blank" rel="noopener noreferrer">PyQGIS API</a>
+          </dd>
+          <dd>
+            <a href="https://github.com/qgis/QGIS/tree/release-3_28" target="_blank" rel="noopener noreferrer">Source</a>
+          </dd>
+      </dl>
+
+    </div>
+  </div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

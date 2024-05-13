@@ -1,0 +1,1436 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>29.1.7. ဝါယာကွန်ယက်(Mesh) &mdash; QGIS Documentation  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/qgis_docs.css?v=3fdf4c33" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
+
+  
+    <link rel="shortcut icon" href="../../../../_static/qgis_logo.ico"/>
+    <link rel="canonical" href="https://docs.qgis.org/latest/en/docs/user_manual/processing_algs/qgis/mesh.html"/>
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../../../_static/copybutton.js?v=f281be69"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../../../_static/togglebutton.js?v=4a39c7ea"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="29.1.8. Modeler ကိရိယာများ (Modeler tools)" href="modelertools.html" />
+    <link rel="prev" title="29.1.6. Layer ကိရိယာများ (Layer tools)" href="layertools.html" />
+  <meta name="description" content="QGIS 3.28 documentation: 29.1.7. ဝါယာကွန်ယက်(Mesh)">
+</head>
+
+<body class="wy-body-for-nav">
+
+  <nav class="release_status_topbar">
+  </nav>
+
+   
+
+ 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+   
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            QGIS Documentation
+              <img src="../../../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                3.28
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+   <a href= "../../../../genindex.html">Index</a>
+ 
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">အသုံးပြုသူများအတွက်</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../preamble/preamble.html">1. စကားချီး (Preamble)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preamble/foreword.html">2. အမှာစာ (Foreword)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preamble/conventions.html">3. အသုံးအနှုန်းများ (Conventions)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preamble/features.html">4. အသွင်အပြင်များ (Features)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/getting_started.html">5. စတင်အသုံးပြုခြင်း (Getting Started)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/project_files.html">6. Project Files များနှင့် အလုပ်လုပ်ခြင်း (Working with Project Files)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/qgis_gui.html">7. QGIS ၏အစိတ်အပိုင်းများ (QGIS GUI)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/browser.html">8. ဒေတာများရှာဖွေကြည့်ရှုနိုင်သည့်နေရာ (The Browser panel)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/qgis_configuration.html">9. QGIS ပြင်ဆင်သတ်မှတ်ခြင်း/အခင်းအကျင်း (QGIS Configuration)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../working_with_projections/working_with_projections.html">10. မြေပုံအရိပ်ချစနစ်များ နှင့် အလုပ်လုပ်ခြင်း (Working with Projections)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../map_views/index.html">11. မြေပုံများအား ပုံဖော်ကြည့်ရှုခြင်း (Visualizing Maps)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/general_tools.html">12. အထွေ‌ထွေ‌သုံးကိရိယာများ (General Tools)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../expressions/index.html">13. Expression များဖြင့် အဆင့်မြှင့်တင်ဆောင်ရွက်ခြင်း (Level up with Expressions)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../style_library/index.html">14. The Style Library (Style နှင့်ပတ်သက်သည်များ ထားရှိရာနေရာ)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../managing_data_source/index.html">15. ဒေတာအရင်းအမြစ်များအား စီမံခန့်ခွဲခြင်း (Managing Data Source)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../working_with_vector/index.html">16. Vector data များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../working_with_raster/index.html">17. Raster Data နှင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../working_with_mesh/mesh_properties.html">18. Working with Mesh Data (Mesh Data များနှင့် အလုပ်လုပ်ခြင်း)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../working_with_vector_tiles/vector_tiles_properties.html">19. Vector Tiles များနှင့်အလုပ်လုပ်ခြင်း (Working with Vector Tiles)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../working_with_point_clouds/point_clouds.html">20. Point Cloud များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../print_composer/index.html">21. မြေပုံအချောသပ်ပြင်ဆင်ခြင်း (Laying out the maps)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../working_with_ogc/ogc_client_support.html">22. OGC / ISO protocol များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../working_with_gps/index.html">23. GPS Data များနှင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../auth_system/auth_overview.html">24. အထောက်အထားစီစစ်ခြင်းအကြောင်းအကျဉ်း (Authentication System Overview)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../auth_system/auth_workflows.html">25. အသုံးပြုသူ အထောက်အထားစစ်ဆေးခြင်း လုပ်ငန်းအဆင့်များ (User Authentication Workflows)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../auth_system/auth_considerations.html">26. လုံခြုံရေးအတွက်စဉ်းစားရန်အချက်များ (Security Considerations)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../grass_integration/grass_integration.html">27. GRASS GIS နှင့်ပေါင်းစပ်အသုံးပြုခြင်း (GRASS GIS Integration)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../processing/index.html">28. QGIS processing framework</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">29. Processing ဆိုင်ရာ ထောက်ပံ့ပေးသူများနှင့် Algorithm များ (Processing providers and algorithms)</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">29.1. QGIS algorithm ထောက်ပံ့ပေးသူ (QGIS algorithm provider)</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="cartography.html">29.1.1. မြေပုံရေးဆွဲခြင်းအတတ်ပညာ (Cartography)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="database.html">29.1.2. Database</a></li>
+<li class="toctree-l3"><a class="reference internal" href="filetools.html">29.1.3. File ကိရိယာများ (File tools)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gps.html">29.1.4. ကမ္ဘာလုံးဆိုင်ရာတည်နေရာပြစနစ် (GPS)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="interpolation.html">29.1.5. သွယ်ဝိုက်တွက်ချက်ခြင်း (Interpolation)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="layertools.html">29.1.6. Layer ကိရိယာများ (Layer tools)</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">29.1.7. ဝါယာကွန်ယက်(Mesh)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#export-contours">29.1.7.1. ကွန်တိုများထုတ်ယူခြင်း (Export contours)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mesh-line-export-cross-section-dataset-values-on-lines-from-mesh">29.1.7.2. Mesh မှ line များပေါ်မှ ဖြတ်ပိုင်းပုံဒေတာများကို ထုတ်ယူခြင်း (Export cross section dataset values on lines from mesh)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mesh-export-mesh-edges">29.1.7.3. Mesh အနားသတ်များကိုထုတ်ယူခြင်း (Export mesh edges)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mesh-export-mesh-faces">29.1.7.4. Mesh မျက်နှာပြင်များထုတ်ယူခြင်း (Export mesh faces)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#grid-mesh-export-mesh-on-grid">29.1.7.5. Grid ပေါ်ရှိ mesh ကိုထုတ်ယူခြင်း (Export mesh on grid)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mesh-export-mesh-vertices">29.1.7.6. Mesh မျဉ်းအဆစ်ထောင့်များကိုထုတ်ယူခြင်း (Export mesh vertices)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mesh-dataset-point-export-time-series-values-from-points-of-a-mesh-dataset">29.1.7.7. Mesh dataset တစ်ခု၏ point များမှ အချိန်တန်ဖိုးများကို ထုတ်ယူခြင်း (Export time series values from points of a mesh dataset)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mesh-dataset-raster-rasterize-mesh-dataset">29.1.7.8. Mesh dataset ကို raster အဖြစ်ပြောင်းလဲခြင်း (Rasterize mesh dataset)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tin-mesh-tin-mesh-creation">29.1.7.9. TIN mesh ဖန်တီးခြင်း (TIN mesh creation)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="modelertools.html">29.1.8. Modeler ကိရိယာများ (Modeler tools)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="networkanalysis.html">29.1.9. လမ်းကြောင်းကွန်ယက်ဆိုင်ရာ တွက်ချက်မှု (Network analysis)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plots.html">29.1.10. Plot များ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rasteranalysis.html">29.1.11. Raster ဖြင့်ဆန်းစစ်လေ့လာခြင်း (Raster analysis)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rastercreation.html">29.1.12. Raster Creation (Raster ဖန်တီးခြင်း)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rasterterrainanalysis.html">29.1.13. Raster မြေမျက်နှာသွင်ပြင် ဆန်းစစ်လေ့လာခြင်း (Raster terrain analysis)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rastertools.html">29.1.14. Raster ကိရိယာများ (Raster tools)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vectoranalysis.html">29.1.15. Vector ဆန်းစစ်လေ့လာခြင်း (Vector analysis)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vectorcreation.html">29.1.16. Vector ဖန်တီးခြင်း (Vector creation)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vectorgeneral.html">29.1.17. Vector ဆိုင်ရာ အထွေထွေ (Vector general)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vectorgeometry.html">29.1.18. Vector ဂျီဩမေတြီ (Vector geometry)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vectoroverlay.html">29.1.19. Vector အလွှာထပ်တွက်ချက်ခြင်း (Vector overlay)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vectorselection.html">29.1.20. Vector တွင်ရွေးချယ်ခြင်း (Vector selection)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vectortable.html">29.1.21. Vector ဇယား (Vector table)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vectortiles.html">29.1.22. Vector tile များ</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../gdal/index.html">29.2. GDAL algorithm ထောက်ပံ့ပေးသူ (GDAL algorithm provider)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../otb.html">29.3. OTB application များ ထောက်ပံ့ပေးသည့်အရာ (OTB applications provider)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../plugins/plugins.html">30. QGIS Plugin များ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../plugins/core_plugins/index.html">31. QGIS ပင်မ Plugin များကို အသုံးပြုခြင်း (Using QGIS Core Plugins)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../plugins/python_console.html">32. QGIS တွင် Python code များရေးသားရန်နေရာ (QGIS Python console)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preamble/help_and_support.html">33. အကူအညီနှင့်အထောက်အပံ့ (Help and Support)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preamble/contributors.html">34. ပါဝင်အားဖြည့်သူများ (Contributors)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendices/index.html">35. နောက်ဆက်တွဲများ (Appendices)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../literature_web/literature_and_web_references.html">36. စာတမ်းများနှင့် Website ကိုးကားချက်များ (Literature and Web References)</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">QGIS Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">&lt;no title&gt;</a></li>
+          <li class="breadcrumb-item"><a href="../index.html"><span class="section-number">29. </span>Processing ဆိုင်ရာ ထောက်ပံ့ပေးသူများနှင့် Algorithm များ (Processing providers and algorithms)</a></li>
+          <li class="breadcrumb-item"><a href="index.html"><span class="section-number">29.1. </span>QGIS algorithm ထောက်ပံ့ပေးသူ (QGIS algorithm provider)</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">29.1.7. </span>ဝါယာကွန်ယက်(Mesh)</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/qgis/QGIS-Documentation/blob/master/docs/user_manual/processing_algs/qgis/mesh.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="layertools.html" class="btn btn-neutral float-left" title="29.1.6. Layer ကိရိယာများ (Layer tools)" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="modelertools.html" class="btn btn-neutral float-right" title="29.1.8. Modeler ကိရိယာများ (Modeler tools)" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <blockquote>
+<div></div></blockquote>
+<section id="mesh">
+<h1><span class="section-number">29.1.7. </span>ဝါယာကွန်ယက်(Mesh)<a class="headerlink" href="#mesh" title="Link to this heading"></a></h1>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#export-contours" id="id25">ကွန်တိုများထုတ်ယူခြင်း (Export contours)</a></p></li>
+<li><p><a class="reference internal" href="#mesh-line-export-cross-section-dataset-values-on-lines-from-mesh" id="id26">Mesh မှ line များပေါ်မှ ဖြတ်ပိုင်းပုံဒေတာများကို ထုတ်ယူခြင်း (Export cross section dataset values on lines from mesh)</a></p></li>
+<li><p><a class="reference internal" href="#mesh-export-mesh-edges" id="id27">Mesh အနားသတ်များကိုထုတ်ယူခြင်း (Export mesh edges)</a></p></li>
+<li><p><a class="reference internal" href="#mesh-export-mesh-faces" id="id28">Mesh မျက်နှာပြင်များထုတ်ယူခြင်း (Export mesh faces)</a></p></li>
+<li><p><a class="reference internal" href="#grid-mesh-export-mesh-on-grid" id="id29">Grid ပေါ်ရှိ mesh ကိုထုတ်ယူခြင်း (Export mesh on grid)</a></p></li>
+<li><p><a class="reference internal" href="#mesh-export-mesh-vertices" id="id30">Mesh မျဉ်းအဆစ်ထောင့်များကိုထုတ်ယူခြင်း (Export mesh vertices)</a></p></li>
+<li><p><a class="reference internal" href="#mesh-dataset-point-export-time-series-values-from-points-of-a-mesh-dataset" id="id31">Mesh dataset တစ်ခု၏ point များမှ အချိန်တန်ဖိုးများကို ထုတ်ယူခြင်း (Export time series values from points of a mesh dataset)</a></p></li>
+<li><p><a class="reference internal" href="#mesh-dataset-raster-rasterize-mesh-dataset" id="id32">Mesh dataset ကို raster အဖြစ်ပြောင်းလဲခြင်း (Rasterize mesh dataset)</a></p></li>
+<li><p><a class="reference internal" href="#tin-mesh-tin-mesh-creation" id="id33">TIN mesh ဖန်တီးခြင်း (TIN mesh creation)</a></p></li>
+</ul>
+</nav>
+<section id="export-contours">
+<span id="qgismeshcontours"></span><h2><a class="toc-backref" href="#id25" role="doc-backlink"><span class="section-number">29.1.7.1. </span>ကွန်တိုများထုတ်ယူခြင်း (Export contours)</a><a class="headerlink" href="#export-contours" title="Link to this heading"></a></h2>
+<p>Mesh scalar dataset တစ်ခုမှ vector layer တစ်ခုအနေဖြင့် ကွန်တိုများကိုဖန်တီးပေးပါသည်။</p>
+<section id="parameters">
+<h3>သတ်မှတ်ချက်များ (Parameters)<a class="headerlink" href="#parameters" title="Link to this heading"></a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Input mesh layer</strong> (<strong>ထည့်သွင်းအသုံးပြုသော mesh layer</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">INPUT</span></code></p></td>
+<td><p>[mesh]</p></td>
+<td><p>Data ထုတ်ယူမည့် mesh layer</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Dataset groups</strong> (<strong>Dataset အုပ်စုများ</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">DATASET_GROUPS</span></code></p></td>
+<td><p>[layer] [list]</p></td>
+<td><p>Dataset အုပ်စုများ</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Dataset time</strong> (<strong>Dataset အချိန်</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">DATASET_TIME</span></code></p></td>
+<td><p>[datetime]</p></td>
+<td><p>လုပ်ဆောင်မည့် အချိန်အပိုင်းအခြား</p>
+<ul class="simple">
+<li><p>0 — Current canvas time (လက်ရှိ canvas အချိန်)</p></li>
+<li><p>1 — Defined date/time (သတ်မှတ်ထားသော ရက်စွဲ/အချိန်)</p></li>
+<li><p>2 — Dataset group time step (Dataset အုပ်စု အချိန်အဆင့်)</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p><strong>Increment between contour levels</strong> (<strong>ကွန်တို level နှစ်ခုအကြား တိုးလာမှု</strong>)</p>
+<p>Optional (မဖြစ်မနေလုပ်ဆောင်ရန် မလိုအပ်ပါ)</p>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">INCREMENT</span></code></p></td>
+<td><p>[number]</p>
+<p>Default: <em>Not set</em></p>
+</td>
+<td><p>ဖန်တီးထားသော level များ၏ ကြားအကွာအဝေး</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Minimum contour level</strong> (<strong>အနည်းဆုံး ကွန်တို level</strong>)</p>
+<p>Optional (မဖြစ်မနေလုပ်ဆောင်ရန် မလိုအပ်ပါ)</p>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">MINIMUM</span></code></p></td>
+<td><p>[number]</p>
+<p>Default: <em>Not set</em></p>
+</td>
+<td><p>ကွန်တိုများ၏ အစ level တန်ဖိုးများ</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Maximum contour level</strong> (<strong>အများဆုံး ကွန်တို level</strong>)</p>
+<p>Optional (မဖြစ်မနေလုပ်ဆောင်ရန် မလိုအပ်ပါ)</p>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">MAXIMUM</span></code></p></td>
+<td><p>[number]</p>
+<p>Default: <em>Not set</em></p>
+</td>
+<td><p>ကွန်တိုများ၏ အများဆုံးတန်ဖိုး၊ ဖန်တီးပေးသော တန်ဖိုးများသည် ၎င်းတန်ဖိုးထက်ပိုကြီးလိမ့်မည်မဟုတ်ပါ ဟု ဆိုလိုပါသည်။</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>List of contours level</strong> (<strong>ကွန်တို level များ၏စာရင်း</strong>)</p>
+<p>Optional (မဖြစ်မနေလုပ်ဆောင်ရန် မလိုအပ်ပါ)</p>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">CONTOUR_LEVEL_LIST</span></code></p></td>
+<td><p>[number]</p>
+<p>Default: <em>Not set</em></p>
+</td>
+<td><p>လိုချင်သော ကွန်တို level များစာရင်း (commas ဖြင့်ပိုင်းခြားထားပါသည်)။ ဖြည့်ထားလျှင် တိုးလာမှု၊ အနည်းဆုံး နှင့် အများဆုံး field များကို ထည့်သွင်းစဉ်းစားမည် မဟုတ်ပါ။</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Output coordinate system</strong> (<strong>Output ကိုဩဒိနိတ်စနစ်</strong>)</p>
+<p>Optional (မဖြစ်မနေလုပ်ဆောင်ရန် မလိုအပ်ပါ)</p>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">CRS_OUTPUT</span></code></p></td>
+<td><p>[crs]</p></td>
+<td><p>Output တွင်သတ်မှတ်မည့် ကိုဩဒိနိတ်စနစ်</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Exported contour lines</strong> (<strong>ထုတ်ယူထားသော ကွန်တို line များ</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT_LINES</span></code></p></td>
+<td><p>[vector: line]</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">[Create</span> <span class="pre">temporary</span> <span class="pre">layer]</span> <span class="pre">([ယာယီ</span> <span class="pre">layer</span> <span class="pre">ဖန်တီးခြင်း])</span></code></p>
+</td>
+<td><p>Mesh layer ၏ ကွန်တိုများကို ကိုယ်စားပြုသော output line layer ကိုသတ်မှတ်ပါ။ အောက်ပါတို့ထဲမှ တစ်ခုခုဖြစ်ပါသည် -</p>
+<ul class="simple">
+<li><p>ယာယီ layer ဖန်တီးပါ (<code class="docutils literal notranslate"><span class="pre">TEMPORARY_OUTPUT</span></code>)</p></li>
+<li><p>File တွင်သိမ်းဆည်းပါ</p></li>
+<li><p>Geopackage တွင် သိမ်းဆည်းပါ</p></li>
+<li><p>Database ဇယားတွင် သိမ်းဆည်းပါ</p></li>
+</ul>
+<p>File encoding ကိုလည်းဤနေရာတွင်ပြောင်းလဲနိုင်ပါသည်။</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p><strong>Exported contour polygons</strong> (<strong>ထုတ်ယူထားသော ကွန်တို polygon များ</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT_POLYGONS</span></code></p></td>
+<td><p>[vector: polygon]</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">[Create</span> <span class="pre">temporary</span> <span class="pre">layer]</span> <span class="pre">([ယာယီ</span> <span class="pre">layer</span> <span class="pre">ဖန်တီးခြင်း])</span></code></p>
+</td>
+<td><p>Mesh layer ၏ ကွန်တိုများကို ကိုယ်စားပြုသော output polygon layer ကိုသတ်မှတ်ပါ။ အောက်ပါတို့ထဲမှ တစ်ခုခုဖြစ်ပါသည် -</p>
+<ul class="simple">
+<li><p>ယာယီ layer ဖန်တီးပါ (<code class="docutils literal notranslate"><span class="pre">TEMPORARY_OUTPUT</span></code>)</p></li>
+<li><p>File တွင်သိမ်းဆည်းပါ</p></li>
+<li><p>Geopackage တွင် သိမ်းဆည်းပါ</p></li>
+<li><p>Database ဇယားတွင် သိမ်းဆည်းပါ</p></li>
+</ul>
+<p>File encoding ကိုလည်းဤနေရာတွင်ပြောင်းလဲနိုင်ပါသည်။</p>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="outputs">
+<h3>ရလာဒ်များ (Outputs)<a class="headerlink" href="#outputs" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Exported contour lines</strong> (<strong>ထုတ်ယူထားသော ကွန်တို line များ</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT_LINES</span></code></p></td>
+<td><p>[vector: line]</p></td>
+<td><p>Mesh layer ၏ ကွန်တိုများကို ကိုယ်စားပြုသော line layer</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Exported contour polygons</strong> (<strong>ထုတ်ယူထားသော ကွန်တို polygon များ</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT_POLYGONS</span></code></p></td>
+<td><p>[vector: polygon]</p></td>
+<td><p>Mesh layer ၏ ကွန်တိုများကို ကိုယ်စားပြုသော polygon layer</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="python-code">
+<h3>Python code<a class="headerlink" href="#python-code" title="Link to this heading"></a></h3>
+<p><strong>Algorithm ID</strong>: <code class="docutils literal notranslate"><span class="pre">native:meshcontours</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">processing</span>
+<span class="n">processing</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;algorithm_id&quot;</span><span class="p">,</span> <span class="p">{</span><span class="n">parameter_dictionary</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>Processing Toolbox ထဲရှိ algorithm ပေါ်တွင် mouse ကိုတင်ထားလျှင် <em>algorithm id</em> ကိုပြသပေးပါသည်။ <em>parameter dictionary</em> သည် parameter နာမည်များနှင့် တန်ဖိုးများကို ပေးပါသည်။ Python console မှ algorithm များကို မည်သို့လုပ်ဆောင်ရမည် ဆိုသည့် အသေးစိတ်ကို သိရှိလိုလျှင် <a class="reference internal" href="../../processing/console.html#processing-console"><span class="std std-ref">Console တွင် processing algorithm များကို အသုံးပြုခြင်း</span></a> တွင်ကြည့်ပါ။</p>
+</section>
+</section>
+<section id="mesh-line-export-cross-section-dataset-values-on-lines-from-mesh">
+<span id="qgismeshexportcrosssection"></span><h2><a class="toc-backref" href="#id26" role="doc-backlink"><span class="section-number">29.1.7.2. </span>Mesh မှ line များပေါ်မှ ဖြတ်ပိုင်းပုံဒေတာများကို ထုတ်ယူခြင်း (Export cross section dataset values on lines from mesh)</a><a class="headerlink" href="#mesh-line-export-cross-section-dataset-values-on-lines-from-mesh" title="Link to this heading"></a></h2>
+<p>Vector layer တစ်ခုထဲတွင်ပါဝင်သော line များမှ mesh dataset တစ်ခု၏တန်ဖိုးများကို ဆွဲထုတ်ပေးပါသည်။</p>
+<p>Line တစ်ခုချင်းစီ၏ မျဉ်းအဆစ် (vertex) များပေါ်ရှိ တန်ဖိုးများကိုဆွဲထုတ်ခြင်းအတွက် resolution အကွာအဝေး parameter တစ်ခုဖြင့် line တစ်ကြောင်းစီကို ခွဲခြားပါသည်။</p>
+<section id="id1">
+<h3>သတ်မှတ်ချက်များ (Parameters)<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Input mesh layer</strong> (<strong>ထည့်သွင်းအသုံးပြုသော mesh layer</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">INPUT</span></code></p></td>
+<td><p>[mesh]</p></td>
+<td><p>Data ထုတ်ယူမည့် mesh layer</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Dataset groups</strong> (<strong>Dataset အုပ်စုများ</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">DATASET_GROUPS</span></code></p></td>
+<td><p>[layer] [list]</p></td>
+<td><p>Dataset အုပ်စုများ</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Dataset time</strong> (<strong>Dataset အချိန်</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">DATASET_TIME</span></code></p></td>
+<td><p>[datetime]</p></td>
+<td><p>လုပ်ဆောင်မည့် အချိန်အပိုင်းအခြား</p>
+<ul class="simple">
+<li><p>0 — Current canvas time (လက်ရှိ canvas အချိန်)</p></li>
+<li><p>1 — Defined date/time (သတ်မှတ်ထားသော ရက်စွဲ/အချိန်)</p></li>
+<li><p>2 — Dataset group time step (Dataset အုပ်စု အချိန်အဆင့်)</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p><strong>Lines for data export</strong> (<strong>Data ထုတ်ခြင်းအတွက် line များ</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">INPUT_LINES</span></code></p></td>
+<td><p>[vector: line]</p></td>
+<td><p>Dataset mesh မှ data များကိုဆွဲထုတ်မည့် line များ</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Line segmentation resolution</strong> (<strong>Line အပိုင်းများ၏ ကြည်လင်ပြတ်သားမှု</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">RESOLUTION</span></code></p></td>
+<td><p>[number]</p>
+<p>Default: 10.0</p>
+</td>
+<td><p>Dataset mesh မှ data များကိုဆွဲထုတ်မည့် line များပေါ်ရှိ point နှစ်ခုအကြား အကွာအဝေး</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Digits count for dataset value</strong> (<strong>Dataset တန်ဖိုးအတွက် ဂဏန်းများအရေအတွက်</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">DATASET_DIGITS</span></code></p></td>
+<td><p>[number]</p>
+<p>Default: 2</p>
+</td>
+<td><p>Dataset တန်ဖိုးများကို ဒသမနေရာထားရှိမည့် ဂဏန်းအရေအတွက်</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Exported data CSV file</strong> (<strong>ထုတ်ယူထားသော Data CSV file</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
+<td><p>[file]</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">[Save</span> <span class="pre">to</span> <span class="pre">temporary</span> <span class="pre">file]</span> <span class="pre">([ယာယီ</span> <span class="pre">file</span> <span class="pre">ထဲတွင်သိမ်းဆည်းပါ])</span></code></p>
+</td>
+<td><p>Output file ၏ သီးခြားသတ်မှတ်ချက်။ အောက်ပါတို့ထဲမှ တစ်ခုခုဖြစ်ပါသည် -</p>
+<ul class="simple">
+<li><p>ယာယီ file တစ်ခုတွင် သိမ်းဆည်းပါ</p></li>
+<li><p>File တွင်သိမ်းဆည်းပါ</p></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id2">
+<h3>ရလာဒ်များ (Outputs)<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Exported data CSV file</strong> (<strong>ထုတ်ယူထားသော data CSV file</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
+<td><p>[file]</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id3">
+<h3>Python code<a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
+<p><strong>Algorithm ID</strong>: <code class="docutils literal notranslate"><span class="pre">native:meshexportcrosssection</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">processing</span>
+<span class="n">processing</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;algorithm_id&quot;</span><span class="p">,</span> <span class="p">{</span><span class="n">parameter_dictionary</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>Processing Toolbox ထဲရှိ algorithm ပေါ်တွင် mouse ကိုတင်ထားလျှင် <em>algorithm id</em> ကိုပြသပေးပါသည်။ <em>parameter dictionary</em> သည် parameter နာမည်များနှင့် တန်ဖိုးများကို ပေးပါသည်။ Python console မှ algorithm များကို မည်သို့လုပ်ဆောင်ရမည် ဆိုသည့် အသေးစိတ်ကို သိရှိလိုလျှင် <a class="reference internal" href="../../processing/console.html#processing-console"><span class="std std-ref">Console တွင် processing algorithm များကို အသုံးပြုခြင်း</span></a> တွင်ကြည့်ပါ။</p>
+</section>
+</section>
+<section id="mesh-export-mesh-edges">
+<span id="qgisexportmeshedges"></span><h2><a class="toc-backref" href="#id27" role="doc-backlink"><span class="section-number">29.1.7.3. </span>Mesh အနားသတ်များကိုထုတ်ယူခြင်း (Export mesh edges)</a><a class="headerlink" href="#mesh-export-mesh-edges" title="Link to this heading"></a></h2>
+<p>အချက်အလက်တန်ဖိုးများအဖြစ် edge များပေါ်ရှိ dataset တန်ဖိုးများဖြင့် mesh layer တစ်ခု၏ edge များကို line vector layer တစ်ခုအဖြစ် ထုတ်ယူပေးပါသည်။</p>
+<section id="id4">
+<h3>သတ်မှတ်ချက်များ (Parameters)<a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Input mesh layer</strong> (<strong>ထည့်သွင်းအသုံးပြုသော mesh layer</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">INPUT</span></code></p></td>
+<td><p>[mesh]</p></td>
+<td><p>Data ထုတ်ယူမည့် mesh layer</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Dataset groups</strong> (<strong>Dataset အုပ်စုများ</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">DATASET_GROUPS</span></code></p></td>
+<td><p>[layer] [list]</p></td>
+<td><p>Dataset အုပ်စုများ</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Dataset time</strong> (<strong>Dataset အချိန်</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">DATASET_TIME</span></code></p></td>
+<td><p>[datetime]</p></td>
+<td><p>လုပ်ဆောင်မည့် အချိန်အပိုင်းအခြား</p>
+<ul class="simple">
+<li><p>0 — Current canvas time (လက်ရှိ canvas အချိန်)</p></li>
+<li><p>1 — Defined date/time (သတ်မှတ်ထားသော ရက်စွဲ/အချိန်)</p></li>
+<li><p>2 — Dataset group time step (Dataset အုပ်စု အချိန်အဆင့်)</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p><strong>Output coordinate system</strong> (<strong>Output ကိုဩဒိနိတ်စနစ်</strong>)</p>
+<p>Optional (မဖြစ်မနေလုပ်ဆောင်ရန် မလိုအပ်ပါ)</p>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">CRS_OUTPUT</span></code></p></td>
+<td><p>[crs]</p></td>
+<td><p>Output တွင်သတ်မှတ်ရန် ကိုဩဒိနိတ်စနစ်</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Export vector option</strong> (<strong>Vector ရွေးချယ်စရာများကိုထုတ်ယူခြင်း</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">VECTOR_OPTION</span></code></p></td>
+<td><p>[enumeration]</p></td>
+<td><p>Vector တန်ဖိုး ထုတ်ယူခြင်း၏ ကိုဩဒိနိတ်အမျိုးအစား</p>
+<ul class="simple">
+<li><p>0 — Cartesian (x,y)</p></li>
+<li><p>1 — Polar (ပြင်းအားပမာဏ ၊ ဒီဂရီ)</p></li>
+<li><p>2 — Cartesian နှင့် polar</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p><strong>Output vector layer</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
+<td><p>[vector: line]</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">[Create</span> <span class="pre">temporary</span> <span class="pre">layer]</span> <span class="pre">([ယာယီ</span> <span class="pre">layer</span> <span class="pre">ဖန်တီးခြင်း])</span></code></p>
+</td>
+<td><p>Output file ၏ သီးခြားသတ်မှတ်ချက်။ အောက်ပါတို့ထဲမှ တစ်ခုခုဖြစ်ပါသည် -</p>
+<ul class="simple">
+<li><p>ယာယီ layer ဖန်တီးပါ (<code class="docutils literal notranslate"><span class="pre">TEMPORARY_OUTPUT</span></code>)</p></li>
+<li><p>File တွင်သိမ်းဆည်းပါ</p></li>
+<li><p>Geopackage တွင် သိမ်းဆည်းပါ</p></li>
+<li><p>Database ဇယားတွင် သိမ်းဆည်းပါ</p></li>
+</ul>
+<p>File encoding ကိုလည်းဤနေရာတွင်ပြောင်းလဲနိုင်ပါသည်။</p>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id5">
+<h3>ရလာဒ်များ (Outputs)<a class="headerlink" href="#id5" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Output vector layer</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
+<td><p>[vector: line]</p></td>
+<td><p>ဆက်စပ် dataset တန်ဖိုးများဖြင့် input mesh layer ၏ edge များပါဝင်သော output vector line layer</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id6">
+<h3>Python code<a class="headerlink" href="#id6" title="Link to this heading"></a></h3>
+<p><strong>Algorithm ID</strong>: <code class="docutils literal notranslate"><span class="pre">native:exportmeshedges</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">processing</span>
+<span class="n">processing</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;algorithm_id&quot;</span><span class="p">,</span> <span class="p">{</span><span class="n">parameter_dictionary</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>Processing Toolbox ထဲရှိ algorithm ပေါ်တွင် mouse ကိုတင်ထားလျှင် <em>algorithm id</em> ကိုပြသပေးပါသည်။ <em>parameter dictionary</em> သည် parameter နာမည်များနှင့် တန်ဖိုးများကို ပေးပါသည်။ Python console မှ algorithm များကို မည်သို့လုပ်ဆောင်ရမည် ဆိုသည့် အသေးစိတ်ကို သိရှိလိုလျှင် <a class="reference internal" href="../../processing/console.html#processing-console"><span class="std std-ref">Console တွင် processing algorithm များကို အသုံးပြုခြင်း</span></a> တွင်ကြည့်ပါ။</p>
+</section>
+</section>
+<section id="mesh-export-mesh-faces">
+<span id="qgisexportmeshfaces"></span><h2><a class="toc-backref" href="#id28" role="doc-backlink"><span class="section-number">29.1.7.4. </span>Mesh မျက်နှာပြင်များထုတ်ယူခြင်း (Export mesh faces)</a><a class="headerlink" href="#mesh-export-mesh-faces" title="Link to this heading"></a></h2>
+<p>အချက်အလက်တန်ဖိုးများအဖြစ် မျက်နှာပြင် (face) များပေါ်ရှိ dataset တန်ဖိုးများဖြင့် mesh layer တစ်ခု၏ မျက်နှာပြင်များကို polygon vector layer အဖြစ်ထုတ်ယူပေးပါသည်။</p>
+<section id="id7">
+<h3>သတ်မှတ်ချက်များ (Parameters)<a class="headerlink" href="#id7" title="Link to this heading"></a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Input mesh layer</strong> (<strong>ထည့်သွင်းအသုံးပြုသော mesh layer</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">INPUT</span></code></p></td>
+<td><p>[mesh]</p></td>
+<td><p>Data ထုတ်ယူမည့် mesh layer</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Dataset groups</strong> (<strong>Dataset အုပ်စုများ</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">DATASET_GROUPS</span></code></p></td>
+<td><p>[layer] [list]</p></td>
+<td><p>Dataset အုပ်စုများ</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Dataset time</strong> (<strong>Dataset အချိန်</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">DATASET_TIME</span></code></p></td>
+<td><p>[datetime]</p></td>
+<td><p>လုပ်ဆောင်မည့် အချိန်အပိုင်းအခြား</p>
+<ul class="simple">
+<li><p>0 — Current canvas time (လက်ရှိ canvas အချိန်)</p></li>
+<li><p>1 — Defined date/time (သတ်မှတ်ထားသော ရက်စွဲ/အချိန်)</p></li>
+<li><p>2 — Dataset group time step (Dataset အုပ်စု အချိန်အဆင့်)</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p><strong>Output coordinate system</strong> (<strong>Output ကိုဩဒိနိတ်စနစ်</strong>)</p>
+<p>Optional (မဖြစ်မနေလုပ်ဆောင်ရန် မလိုအပ်ပါ)</p>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">CRS_OUTPUT</span></code></p></td>
+<td><p>[crs]</p></td>
+<td><p>Output တွင်သတ်မှတ်ရန် ကိုဩဒိနိတ်စနစ်</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Export vector option</strong> (<strong>Vector ရွေးချယ်စရာများကိုထုတ်ယူခြင်း</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">VECTOR_OPTION</span></code></p></td>
+<td><p>[enumeration]</p></td>
+<td><p>Vector တန်ဖိုး ထုတ်ယူခြင်း၏ ကိုဩဒိနိတ်အမျိုးအစား</p>
+<ul class="simple">
+<li><p>0 — Cartesian (x,y)</p></li>
+<li><p>1 — Polar (ပြင်းအားပမာဏ ၊ ဒီဂရီ)</p></li>
+<li><p>2 — Cartesian နှင့် polar</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p><strong>Output vector layer</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
+<td><p>[vector: polygon]</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">[Create</span> <span class="pre">temporary</span> <span class="pre">layer]</span> <span class="pre">([ယာယီ</span> <span class="pre">layer</span> <span class="pre">ဖန်တီးခြင်း])</span></code></p>
+</td>
+<td><p>Output file ၏ သီးခြားသတ်မှတ်ချက်။ အောက်ပါတို့ထဲမှ တစ်ခုခုဖြစ်ပါသည် -</p>
+<ul class="simple">
+<li><p>ယာယီ layer ဖန်တီးပါ (<code class="docutils literal notranslate"><span class="pre">TEMPORARY_OUTPUT</span></code>)</p></li>
+<li><p>File တွင်သိမ်းဆည်းပါ</p></li>
+<li><p>Geopackage တွင် သိမ်းဆည်းပါ</p></li>
+<li><p>Database ဇယားတွင် သိမ်းဆည်းပါ</p></li>
+</ul>
+<p>File encoding ကိုလည်းဤနေရာတွင်ပြောင်းလဲနိုင်ပါသည်။</p>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id8">
+<h3>ရလာဒ်များ (Outputs)<a class="headerlink" href="#id8" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Output vector layer</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
+<td><p>[vector: polygon]</p></td>
+<td><p>ဆက်စပ် dataset တန်ဖိုးများဖြင့် input mesh layer ၏ မျက်နှာပြင်များပါဝင်သော output vector polygon layer</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id9">
+<h3>Python code<a class="headerlink" href="#id9" title="Link to this heading"></a></h3>
+<p><strong>Algorithm ID</strong>: <code class="docutils literal notranslate"><span class="pre">native:exportmeshfaces</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">processing</span>
+<span class="n">processing</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;algorithm_id&quot;</span><span class="p">,</span> <span class="p">{</span><span class="n">parameter_dictionary</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>Processing Toolbox ထဲရှိ algorithm ပေါ်တွင် mouse ကိုတင်ထားလျှင် <em>algorithm id</em> ကိုပြသပေးပါသည်။ <em>parameter dictionary</em> သည် parameter နာမည်များနှင့် တန်ဖိုးများကို ပေးပါသည်။ Python console မှ algorithm များကို မည်သို့လုပ်ဆောင်ရမည် ဆိုသည့် အသေးစိတ်ကို သိရှိလိုလျှင် <a class="reference internal" href="../../processing/console.html#processing-console"><span class="std std-ref">Console တွင် processing algorithm များကို အသုံးပြုခြင်း</span></a> တွင်ကြည့်ပါ။</p>
+</section>
+</section>
+<section id="grid-mesh-export-mesh-on-grid">
+<span id="qgisexportmeshongrid"></span><h2><a class="toc-backref" href="#id29" role="doc-backlink"><span class="section-number">29.1.7.5. </span>Grid ပေါ်ရှိ mesh ကိုထုတ်ယူခြင်း (Export mesh on grid)</a><a class="headerlink" href="#grid-mesh-export-mesh-on-grid" title="Link to this heading"></a></h2>
+<p>Mesh layer dataset တစ်ခု၏ တန်ဖိုးများကို grid ပြုလုပ်ထားသော point vector layer တစ်ခုသို့ ထုတ်ယူပေးပြီး ၎င်း point ပေါ်ရှိ dataset တန်ဖိုးများကို attribute တန်ဖိုးများအဖြစ်ထားရှိပေးပါသည်။</p>
+<p>ထုထည် (သုံးဘက်မြင် ထပ်ထားသော dataset တန်ဖိုးများ) ပေါ်ရှိ data အတွက် <a class="reference internal" href="../../working_with_mesh/mesh_properties.html#mesh-stacked-averaging"><span class="std std-ref">the mesh layer properties</span></a> (Default သည် အဆင့်များစွာကို ပျမ်းမျှလုပ်သော နည်းလမ်း ဖြစ်သည်) ထဲတွင် သတ်မှတ်ထားသော နည်းလမ်းကိုအသုံးပြုပြီး မျက်နှာပြင်များပေါ်တွင် ထုတ်ယူထားသော dataset တန်ဖိုးများကို ပျမ်းမျှတွက်ပေးပါသည်။</p>
+<section id="id10">
+<h3>သတ်မှတ်ချက်များ (Parameters)<a class="headerlink" href="#id10" title="Link to this heading"></a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Input mesh layer</strong> (<strong>ထည့်သွင်းအသုံးပြုသော mesh layer</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">INPUT</span></code></p></td>
+<td><p>[mesh]</p></td>
+<td><p>Data ထုတ်ယူမည့် mesh layer</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Dataset groups</strong> (<strong>Dataset အုပ်စုများ</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">DATASET_GROUPS</span></code></p></td>
+<td><p>[layer] [list]</p></td>
+<td><p>Dataset အုပ်စုများ</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Dataset time</strong> (<strong>Dataset အချိန်</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">DATASET_TIME</span></code></p></td>
+<td><p>[datetime]</p></td>
+<td><p>လုပ်ဆောင်မည့် အချိန်အပိုင်းအခြား</p>
+<ul class="simple">
+<li><p>0 — Current canvas time (လက်ရှိ canvas အချိန်)</p></li>
+<li><p>1 — Defined date/time (သတ်မှတ်ထားသော ရက်စွဲ/အချိန်)</p></li>
+<li><p>2 — Dataset group time step (Dataset အုပ်စု အချိန်အဆင့်)</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p><strong>Extent</strong> (<strong>နယ်ပယ်အကျယ်အဝန်း</strong>)</p>
+<p>Optional (မဖြစ်မနေလုပ်ဆောင်ရန် မလိုအပ်ပါ)</p>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">EXTENT</span></code></p></td>
+<td><p>[extent]</p></td>
+<td><p>Data ကို လုပ်ဆောင်မည့် extent ကိုသတ်မှတ်ပါ။ အသုံးပြုနိုင်သော နည်းလမ်းများမှာ-</p>
+<p>အသုံးပြုနိုင်သော နည်းလမ်းများမှာ -</p>
+<ul class="simple">
+<li><p>Layer မှ တွက်ချက်ခြင်း - လက်ရှိ project ထဲတွင်ထည့်သွင်းထားသော layer ၏ extent (နယ်ပယ်အကျယ်အဝန်း)ကိုအသုံးပြုပါသည်။</p></li>
+<li><p>Layout map မှ တွက်ချက်ခြင်း - အသုံးပြုနေသော project ထဲရှိ <a class="reference internal" href="../../print_composer/composer_items/composer_map.html#layout-map-item"><span class="std std-ref">layout map item</span></a> တစ်ခု၏ extent အသုံးပြုပါသည်။</p></li>
+<li><p>Bookmark မှ တွက်ချက်ခြင်း - မှတ်ထားသော <a class="reference internal" href="../../map_views/map_view.html#sec-bookmarks"><span class="std std-ref">bookmark</span></a> တစ်ခု၏ extent ကိုအသုံးပြုပါသည်။</p></li>
+<li><p>မြေပုံ canvas extent ကိုအသုံးပြုခြင်း</p></li>
+<li><p>Canvas ပေါ်တွင်ရေးဆွဲခြင်း - တွက်ချက်လိုသည့် ဧရိယာကို ထောင့်မှန်စတုဂံပုံဆွဲခြင်း။</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">အနည်းဆုံး၊</span> <span class="pre">x</span> <span class="pre">အများဆုံး၊</span> <span class="pre">y</span> <span class="pre">အနည်းဆုံး၊</span>&#160; <span class="pre">y</span> <span class="pre">အများဆုံး</span></code> တို့အဖြစ် ကိုဩဒိနိတ်များကို ထည့်သွင်းခြင်း။</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p><strong>Grid spacing</strong> (<strong>Grid အစိတ်အကျဲပမာဏ</strong>)</p>
+<p>Optional (မဖြစ်မနေလုပ်ဆောင်ရန် မလိုအပ်ပါ)</p>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">GRID_SPACING</span></code></p></td>
+<td><p>[number]</p>
+<p>Default: 10.0</p>
+</td>
+<td><p>အသုံးပြုမည့် နမူနာအမှတ်များအကြား အကျယ်</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Output coordinate system</strong> (<strong>Output ကိုဩဒိနိတ်စနစ်</strong>)</p>
+<p>Optional (မဖြစ်မနေလုပ်ဆောင်ရန် မလိုအပ်ပါ)</p>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">CRS_OUTPUT</span></code></p></td>
+<td><p>[crs]</p></td>
+<td><p>Output တွင်သတ်မှတ်ရန် ကိုဩဒိနိတ်စနစ်</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Export vector option</strong> (<strong>Vector ရွေးချယ်စရာများကို ထုတ်ယူခြင်း</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">VECTOR_OPTION</span></code></p></td>
+<td><p>[enumeration]</p></td>
+<td><p>Vector တန်ဖိုး ထုတ်ယူခြင်း၏ ကိုဩဒိနိတ်အမျိုးအစား</p>
+<ul class="simple">
+<li><p>0 — Cartesian (x,y)</p></li>
+<li><p>1 — Polar (ပြင်းအားပမာဏ ၊ ဒီဂရီ)</p></li>
+<li><p>2 — Cartesian နှင့် polar</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p><strong>Output vector layer</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
+<td><p>[vector: point]</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">[Create</span> <span class="pre">temporary</span> <span class="pre">layer]</span> <span class="pre">([ယာယီ</span> <span class="pre">layer</span> <span class="pre">ဖန်တီးခြင်း])</span></code></p>
+</td>
+<td><p>Output file ၏ သီးခြားသတ်မှတ်ချက်။ အောက်ပါတို့ထဲမှ တစ်ခုခုဖြစ်ပါသည် -</p>
+<ul class="simple">
+<li><p>ယာယီ layer ဖန်တီးပါ (<code class="docutils literal notranslate"><span class="pre">TEMPORARY_OUTPUT</span></code>)</p></li>
+<li><p>File တွင်သိမ်းဆည်းပါ</p></li>
+<li><p>Geopackage တွင် သိမ်းဆည်းပါ</p></li>
+<li><p>Database ဇယားတွင် သိမ်းဆည်းပါ</p></li>
+</ul>
+<p>File encoding ကိုလည်းဤနေရာတွင်ပြောင်းလဲနိုင်ပါသည်။</p>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id11">
+<h3>ရလာဒ်များ (Outputs)<a class="headerlink" href="#id11" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Output vector layer</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
+<td><p>[vector: point]</p></td>
+<td><p>ထပ်နေသော မျက်နှာပြင် မှတွက်ထုတ်ထားသော dataset တန်ဖိုးများဖြင့် output vector point layer</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id12">
+<h3>Python code<a class="headerlink" href="#id12" title="Link to this heading"></a></h3>
+<p><strong>Algorithm ID</strong>: <code class="docutils literal notranslate"><span class="pre">native:exportmeshongrid</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">processing</span>
+<span class="n">processing</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;algorithm_id&quot;</span><span class="p">,</span> <span class="p">{</span><span class="n">parameter_dictionary</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>Processing Toolbox ထဲရှိ algorithm ပေါ်တွင် mouse ကိုတင်ထားလျှင် <em>algorithm id</em> ကိုပြသပေးပါသည်။ <em>parameter dictionary</em> သည် parameter နာမည်များနှင့် တန်ဖိုးများကို ပေးပါသည်။ Python console မှ algorithm များကို မည်သို့လုပ်ဆောင်ရမည် ဆိုသည့် အသေးစိတ်ကို သိရှိလိုလျှင် <a class="reference internal" href="../../processing/console.html#processing-console"><span class="std std-ref">Console တွင် processing algorithm များကို အသုံးပြုခြင်း</span></a> တွင်ကြည့်ပါ။</p>
+</section>
+</section>
+<section id="mesh-export-mesh-vertices">
+<span id="qgisexportmeshvertices"></span><h2><a class="toc-backref" href="#id30" role="doc-backlink"><span class="section-number">29.1.7.6. </span>Mesh မျဉ်းအဆစ်ထောင့်များကိုထုတ်ယူခြင်း (Export mesh vertices)</a><a class="headerlink" href="#mesh-export-mesh-vertices" title="Link to this heading"></a></h2>
+<p>Mesh layer တစ်ခု၏ မျဉ်းအဆစ် (vertex) များကို point vector layer တစ်ခုသို့ ထုတ်ယူပေးပြီး မျဉ်းအဆစ် (vertex) များပေါ်ရှိ dataset တန်ဖိုးများကို attribute တန်ဖိုးများအဖြစ်ထားရှိပေးပါသည်။</p>
+<section id="id13">
+<h3>သတ်မှတ်ချက်များ (Parameters)<a class="headerlink" href="#id13" title="Link to this heading"></a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Input mesh layer</strong> (<strong>ထည့်သွင်းအသုံးပြုသော mesh layer</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">INPUT</span></code></p></td>
+<td><p>[mesh]</p></td>
+<td><p>Data ထုတ်ယူမည့် mesh layer</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Dataset groups</strong> (<strong>Dataset အုပ်စုများ</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">DATASET_GROUPS</span></code></p></td>
+<td><p>[layer] [list]</p></td>
+<td><p>Dataset အုပ်စုများ</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Dataset time</strong> (<strong>Dataset အချိန်</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">DATASET_TIME</span></code></p></td>
+<td><p>[datetime]</p></td>
+<td><p>လုပ်ဆောင်မည့် အချိန်အပိုင်းအခြား</p>
+<ul class="simple">
+<li><p>0 — Current canvas time (လက်ရှိ canvas အချိန်)</p></li>
+<li><p>1 — Defined date/time (သတ်မှတ်ထားသော ရက်စွဲ/အချိန်)</p></li>
+<li><p>2 — Dataset group time step (Dataset အုပ်စု အချိန်အဆင့်)</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p><strong>Output coordinate system</strong></p>
+<p>Optional (မဖြစ်မနေလုပ်ဆောင်ရန် မလိုအပ်ပါ)</p>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">CRS_OUTPUT</span></code></p></td>
+<td><p>[crs]</p></td>
+<td><p>Output တွင်သတ်မှတ်ရန် ကိုဩဒိနိတ်စနစ်</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Export vector option</strong> (<strong>Vector ရွေးချယ်စရာများကို ထုတ်ယူခြင်း</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">VECTOR_OPTION</span></code></p></td>
+<td><p>[enumeration]</p></td>
+<td><p>Vector တန်ဖိုး ထုတ်ယူခြင်း၏ ကိုဩဒိနိတ်အမျိုးအစား</p>
+<ul class="simple">
+<li><p>0 — Cartesian (x,y)</p></li>
+<li><p>1 — Polar (ပြင်းအားပမာဏ ၊ ဒီဂရီ)</p></li>
+<li><p>2 — Cartesian နှင့် polar</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p><strong>Output vector layer</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
+<td><p>[vector: point]</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">[Create</span> <span class="pre">temporary</span> <span class="pre">layer]</span> <span class="pre">([ယာယီ</span> <span class="pre">layer</span> <span class="pre">ဖန်တီးခြင်း])</span></code></p>
+</td>
+<td><p>Output file ၏ သီးခြားသတ်မှတ်ချက်။ အောက်ပါတို့ထဲမှ တစ်ခုခုဖြစ်ပါသည် -</p>
+<ul class="simple">
+<li><p>ယာယီ layer ဖန်တီးပါ (<code class="docutils literal notranslate"><span class="pre">TEMPORARY_OUTPUT</span></code>)</p></li>
+<li><p>File တွင်သိမ်းဆည်းပါ</p></li>
+<li><p>Geopackage တွင် သိမ်းဆည်းပါ</p></li>
+<li><p>Database ဇယားတွင် သိမ်းဆည်းပါ</p></li>
+</ul>
+<p>File encoding ကိုလည်းဤနေရာတွင်ပြောင်းလဲနိုင်ပါသည်။</p>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id14">
+<h3>ရလာဒ်များ (Outputs)<a class="headerlink" href="#id14" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Output vector layer</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
+<td><p>[vector: point]</p></td>
+<td><p>ဆက်စပ် dataset တန်ဖိုးများဖြင့် input mesh layer ၏ vertex များပါဝင်သော output vector point layer</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id15">
+<h3>Python code<a class="headerlink" href="#id15" title="Link to this heading"></a></h3>
+<p><strong>Algorithm ID</strong>: <code class="docutils literal notranslate"><span class="pre">native:exportmeshvertices</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">processing</span>
+<span class="n">processing</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;algorithm_id&quot;</span><span class="p">,</span> <span class="p">{</span><span class="n">parameter_dictionary</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>Processing Toolbox ထဲရှိ algorithm ပေါ်တွင် mouse ကိုတင်ထားလျှင် <em>algorithm id</em> ကိုပြသပေးပါသည်။ <em>parameter dictionary</em> သည် parameter နာမည်များနှင့် တန်ဖိုးများကို ပေးပါသည်။ Python console မှ algorithm များကို မည်သို့လုပ်ဆောင်ရမည် ဆိုသည့် အသေးစိတ်ကို သိရှိလိုလျှင် <a class="reference internal" href="../../processing/console.html#processing-console"><span class="std std-ref">Console တွင် processing algorithm များကို အသုံးပြုခြင်း</span></a> တွင်ကြည့်ပါ။</p>
+</section>
+</section>
+<section id="mesh-dataset-point-export-time-series-values-from-points-of-a-mesh-dataset">
+<span id="qgismeshexporttimeseries"></span><h2><a class="toc-backref" href="#id31" role="doc-backlink"><span class="section-number">29.1.7.7. </span>Mesh dataset တစ်ခု၏ point များမှ အချိန်တန်ဖိုးများကို ထုတ်ယူခြင်း (Export time series values from points of a mesh dataset)</a><a class="headerlink" href="#mesh-dataset-point-export-time-series-values-from-points-of-a-mesh-dataset" title="Link to this heading"></a></h2>
+<p>Vector layer တစ်ခုထဲတွင် ပါဝင်သော point များမှ mesh dataset တစ်ခု၏ time series (အချိန်ကိန်းစဉ်အချက်အလက်) တန်ဖိုးများကိုဆွဲထုတ်ပေးပါသည်။</p>
+<p>Time step (အချိန်အဆင့်) ကို ၎င်း၏မူရင်းတန်ဖိုး (0 နာရီ) တွင်ထားလျှင် အသုံးပြုသော time step သည် ဦးဆုံးရွေးချယ်ထားသော dataset အုပ်စု၏ ပထမဆုံး dataset နှစ်ခုထဲမှ တစ်ခုဖြစ်ပါသည်။</p>
+<section id="id16">
+<h3>သတ်မှတ်ချက်များ (Parameters)<a class="headerlink" href="#id16" title="Link to this heading"></a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Input mesh layer</strong> (<strong>ထည့်သွင်းအသုံးပြုသော mesh layer</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">INPUT</span></code></p></td>
+<td><p>[mesh]</p></td>
+<td><p>Data ဆွဲထုတ်ယူမည့် mesh layer</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Dataset groups</strong> (<strong>Dataset အုပ်စုများ</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">DATASET_GROUPS</span></code></p></td>
+<td><p>[layer] [list]</p></td>
+<td><p>Dataset အုပ်စုများ</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Starting time</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">STARTING_TIME</span></code></p></td>
+<td><p>[datetime]</p></td>
+<td><p>လုပ်ဆောင်မည့် အချိန်အပိုင်းအခြား၏ အစ</p>
+<ul class="simple">
+<li><p>0 — Current canvas time (လက်ရှိ canvas အချိန်)</p></li>
+<li><p>1 — Defined date/time (သတ်မှတ်ထားသော ရက်စွဲ/အချိန်)</p></li>
+<li><p>2 — Dataset group time step (Dataset အုပ်စု အချိန်အဆင့်)</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p><strong>Finishing time</strong> (<strong>ပြီးဆုံးသည့်အချိန်</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">FINISHING_TIME</span></code></p></td>
+<td><p>[datetime]</p></td>
+<td><p>လုပ်ဆောင်မည့် အချိန်အပိုင်းအခြား၏အဆုံး</p>
+<ul class="simple">
+<li><p>0 — Current canvas time (လက်ရှိ canvas အချိန်)</p></li>
+<li><p>1 — Defined date/time (သတ်မှတ်ထားသော ရက်စွဲ/အချိန်)</p></li>
+<li><p>2 — Dataset group time step (Dataset အုပ်စု အချိန်အဆင့်)</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p><strong>Time step (hours)</strong></p>
+<p>Optional (မဖြစ်မနေလုပ်ဆောင်ရန် မလိုအပ်ပါ)</p>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">TIME_STEP</span></code></p></td>
+<td><p>[number]</p>
+<p>Default: 0</p>
+</td>
+<td><p>ကပ်လျှက်ရှိသော အဆင့်နှစ်ခုကြားမှ အချိန်ကို ဆွဲထုတ်ပေးပါသည်။ ပထမဆုံးရွေးချယ်ထားသော dataset အုပ်စု၏ အချိန်အဆင့် ကိုအသုံးပြုရန် <code class="docutils literal notranslate"><span class="pre">0</span></code> အတိုင်းထားရှိပါ။</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Points for data export</strong> (<strong>Data ထုတ်ယူခြင်းအတွက် point များ</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">INPUT_POINTS</span></code></p></td>
+<td><p>[vector: point]</p></td>
+<td><p>Dataset mesh မှ data များဆွဲထုတ်မည့် point များပါဝင်သော vector layer</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Digits count for coordinates</strong> (<strong>ကိုဩဒိနိတ်များအတွက် ဂဏန်းအရေအတွက်</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">COORDINATES_DIGITS</span></code></p></td>
+<td><p>[number]</p></td>
+<td><p>ကိုဩဒိနိတ် တန်ဖိုးများကို ဒဿမနေရာထားရှိမည့် ဂဏန်းအရေအတွက်</p>
+<p>Default: 2</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p><strong>Digits count for dataset value</strong>  (<strong>Dataset တန်ဖိုးများအတွက် ဂဏန်းအရေအတွက်</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">DATASET_DIGITS</span></code></p></td>
+<td><p>[number]</p>
+<p>Default: 2</p>
+</td>
+<td><p>Dataset တန်ဖိုးများကို ဒဿမနေရာထားရှိမည့် ဂဏန်းအရေအတွက်</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Exported data CSV file</strong> (<strong>ထုတ်ထားသော CSV file အမျိုးအစား data</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
+<td><p>[file]</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">[Save</span> <span class="pre">to</span> <span class="pre">temporary</span> <span class="pre">file]</span></code></p>
+</td>
+<td><p>Output file ၏ သီးခြားသတ်မှတ်ချက်။ အောက်ပါတို့ထဲမှ တစ်ခုခုဖြစ်ပါသည် -</p>
+<ul class="simple">
+<li><p>ယာယီ file တစ်ခုတွင် သိမ်းဆည်းပါ</p></li>
+<li><p>File တွင်သိမ်းဆည်းပါ</p></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id17">
+<h3>ရလာဒ်များ (Outputs)<a class="headerlink" href="#id17" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Exported data CSV file</strong> (<strong>ထုတ်ယူထားသော data CSV file</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
+<td><p>[file]</p></td>
+<td><p>ထပ်နေသော point feature များရှိ mesh dataset time series တန်ဖိုးများပါဝင်သော <code class="file docutils literal notranslate"><span class="pre">.CSV</span></code> file</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id18">
+<h3>Python code<a class="headerlink" href="#id18" title="Link to this heading"></a></h3>
+<p><strong>Algorithm ID</strong>: <code class="docutils literal notranslate"><span class="pre">native:meshexporttimeseries</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">processing</span>
+<span class="n">processing</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;algorithm_id&quot;</span><span class="p">,</span> <span class="p">{</span><span class="n">parameter_dictionary</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>Processing Toolbox ထဲရှိ algorithm ပေါ်တွင် mouse ကိုတင်ထားလျှင် <em>algorithm id</em> ကိုပြသပေးပါသည်။ <em>parameter dictionary</em> သည် parameter နာမည်များနှင့် တန်ဖိုးများကို ပေးပါသည်။ Python console မှ algorithm များကို မည်သို့လုပ်ဆောင်ရမည် ဆိုသည့် အသေးစိတ်ကို သိရှိလိုလျှင် <a class="reference internal" href="../../processing/console.html#processing-console"><span class="std std-ref">Console တွင် processing algorithm များကို အသုံးပြုခြင်း</span></a> တွင်ကြည့်ပါ။</p>
+</section>
+</section>
+<section id="mesh-dataset-raster-rasterize-mesh-dataset">
+<span id="qgismeshrasterize"></span><h2><a class="toc-backref" href="#id32" role="doc-backlink"><span class="section-number">29.1.7.8. </span>Mesh dataset ကို raster အဖြစ်ပြောင်းလဲခြင်း (Rasterize mesh dataset)</a><a class="headerlink" href="#mesh-dataset-raster-rasterize-mesh-dataset" title="Link to this heading"></a></h2>
+<p>Mesh dataset တစ်ခုမှ raster layer တစ်ခုဖန်တီးပေးပါသည်။</p>
+<p>ထုထည် (သုံးဘက်မြင် ထပ်ထားသော dataset တန်ဖိုးများ) ပေါ်ရှိ data အတွက် <a class="reference internal" href="../../working_with_mesh/mesh_properties.html#mesh-stacked-averaging"><span class="std std-ref">the mesh layer properties</span></a> (Default သည် အဆင့်များစွာကို ပျမ်းမျှလုပ်သော နည်းလမ်း ဖြစ်သည်) ထဲတွင် သတ်မှတ်ထားသော နည်းလမ်းကိုအသုံးပြုပြီး မျက်နှာပြင်များပေါ်တွင် ထုတ်ယူထားသော dataset တန်ဖိုးများကို ပျမ်းမျှတွက်ပေးပါသည်။ 1D (၁ဘက်မြင်) mesh များအတွက် မလုပ်ဆောင်နိုင်ပါ။</p>
+<section id="id19">
+<h3>သတ်မှတ်ချက်များ (Parameters)<a class="headerlink" href="#id19" title="Link to this heading"></a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Input mesh layer</strong> (<strong>ထည့်သွင်းအသုံးပြုသော mesh layer</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">INPUT</span></code></p></td>
+<td><p>[mesh]</p></td>
+<td><p>Data ထုတ်ယူမည့် mesh layer</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Dataset groups</strong> (<strong>Dataset အုပ်စုများ</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">DATASET_GROUPS</span></code></p></td>
+<td><p>[layer] [list]</p></td>
+<td><p>Dataset အုပ်စုများ</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Dataset time</strong> (<strong>Dataset အချိန်</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">DATASET_TIME</span></code></p></td>
+<td><p>[datetime]</p></td>
+<td><p>လုပ်ဆောင်မည့် အချိန်အပိုင်းအခြား</p>
+<ul class="simple">
+<li><p>0 — Current canvas time (လက်ရှိ canvas အချိန်)</p></li>
+<li><p>1 — Defined date/time (သတ်မှတ်ထားသော ရက်စွဲ/အချိန်)</p></li>
+<li><p>2 — Dataset group time step (Dataset အုပ်စုအချိန် အဆင့်)</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p><strong>Extent</strong> (<strong>နယ်ပယ်အကျယ်အဝန်း</strong>)</p>
+<p>Optional (မဖြစ်မနေလုပ်ဆောင်ရန် မလိုအပ်ပါ)</p>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">EXTENT</span></code></p></td>
+<td><p>[extent]</p></td>
+<td><p>Data ကိုလုပ်ဆောင်မည့် extent ကိုသတ်မှတ်ပါ။ အသုံးပြုနိုင်သော နည်းလမ်းများမှာ-</p>
+<p>အသုံးပြုနိုင်သော နည်းလမ်းများမှာ -</p>
+<ul class="simple">
+<li><p>Layer မှ တွက်ချက်ခြင်း - လက်ရှိ project ထဲတွင်ထည့်သွင်းထားသော layer ၏ extent (နယ်ပယ်အကျယ်အဝန်း)ကိုအသုံးပြုပါသည်။</p></li>
+<li><p>Layout map မှ တွက်ချက်ခြင်း - အသုံးပြုနေသော project ထဲရှိ <a class="reference internal" href="../../print_composer/composer_items/composer_map.html#layout-map-item"><span class="std std-ref">layout map item</span></a> တစ်ခု၏ extent အသုံးပြုပါသည်။</p></li>
+<li><p>Bookmark မှ တွက်ချက်ခြင်း - မှတ်ထားသော <a class="reference internal" href="../../map_views/map_view.html#sec-bookmarks"><span class="std std-ref">bookmark</span></a> တစ်ခု၏ extent ကိုအသုံးပြုပါသည်။</p></li>
+<li><p>မြေပုံ canvas extent ကိုအသုံးပြုခြင်း</p></li>
+<li><p>Canvas ပေါ်တွင်ရေးဆွဲခြင်း - တွက်ချက်လိုသည့် ဧရိယာကို ထောင့်မှန်စတုဂံပုံဆွဲခြင်း။</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">အနည်းဆုံး၊</span> <span class="pre">x</span> <span class="pre">အများဆုံး၊</span> <span class="pre">y</span> <span class="pre">အနည်းဆုံး၊</span>&#160; <span class="pre">y</span> <span class="pre">အများဆုံး</span></code> တို့အဖြစ် ကိုဩဒိနိတ်များကို ထည့်သွင်းခြင်း။</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p><strong>Pixel size</strong> (<strong>Pixel အရွယ်အစား</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">PIXEL_SIZE</span></code></p></td>
+<td><p>[number]</p>
+<p>Default: 1.0</p>
+</td>
+<td><p>Output raster layer ၏ pixel အရွယ်အစား</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Output coordinate system</strong> (<strong>Output ကိုဩဒိနိတ်စနစ်</strong>)</p>
+<p>Optional (မဖြစ်မနေလုပ်ဆောင်ရန် မလိုအပ်ပါ)</p>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">CRS_OUTPUT</span></code></p></td>
+<td><p>[crs]</p></td>
+<td><p>Output တွင်သတ်မှတ်မည့် ကိုဩဒိနိတ်စနစ်</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Output raster layer</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
+<td><p>[raster]</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">[Save</span> <span class="pre">to</span> <span class="pre">temporary</span> <span class="pre">file]</span> <span class="pre">([ယာယီ</span> <span class="pre">file</span> <span class="pre">ထဲတွင်သိမ်းဆည်းပါ])</span></code></p>
+</td>
+<td><p>Output file ၏ သီးခြားသတ်မှတ်ချက်။ အောက်ပါတို့ထဲမှ တစ်ခုခုဖြစ်ပါသည် -</p>
+<ul class="simple">
+<li><p>ယာယီ file တစ်ခုတွင် သိမ်းဆည်းပါ</p></li>
+<li><p>File တွင်သိမ်းဆည်းပါ</p></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id20">
+<h3>ရလာဒ်များ (Outputs)<a class="headerlink" href="#id20" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Output raster layer</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
+<td><p>[raster]</p></td>
+<td><p>Mesh layer မှတွက်ထုတ်ထားသော dataset တန်ဖိုးများပါဝင်သော output raster layer</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id21">
+<h3>Python code<a class="headerlink" href="#id21" title="Link to this heading"></a></h3>
+<p><strong>Algorithm ID</strong>: <code class="docutils literal notranslate"><span class="pre">native:meshrasterize</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">processing</span>
+<span class="n">processing</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;algorithm_id&quot;</span><span class="p">,</span> <span class="p">{</span><span class="n">parameter_dictionary</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>Processing Toolbox ထဲရှိ algorithm ပေါ်တွင် mouse ကိုတင်ထားလျှင် <em>algorithm id</em> ကိုပြသပေးပါသည်။ <em>parameter dictionary</em> သည် parameter နာမည်များနှင့် တန်ဖိုးများကို ပေးပါသည်။ Python console မှ algorithm များကို မည်သို့လုပ်ဆောင်ရမည် ဆိုသည့် အသေးစိတ်ကို သိရှိလိုလျှင် <a class="reference internal" href="../../processing/console.html#processing-console"><span class="std std-ref">Console တွင် processing algorithm များကို အသုံးပြုခြင်း</span></a> တွင်ကြည့်ပါ။</p>
+</section>
+</section>
+<section id="tin-mesh-tin-mesh-creation">
+<span id="qgistinmeshcreation"></span><h2><a class="toc-backref" href="#id33" role="doc-backlink"><span class="section-number">29.1.7.9. </span>TIN mesh ဖန်တီးခြင်း (TIN mesh creation)</a><a class="headerlink" href="#tin-mesh-tin-mesh-creation" title="Link to this heading"></a></h2>
+<p>Vector layer များမှ TIN mesh layer တစ်ခုကိုဖန်တီးပေးပါသည်။ Delaunay triangulation ကိုအသုံးပြုပြီး TIN mesh ကိုဖန်တီးပါသည်။</p>
+<section id="id22">
+<h3>သတ်မှတ်ချက်များ (Parameters)<a class="headerlink" href="#id22" title="Link to this heading"></a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Input layers</strong> (<strong>ထည့်သွင်းအသုံးပြုသော layer များ</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">SOURCE_DATA</span></code></p></td>
+<td><p>[vector: any] [list]</p></td>
+<td><p>Mesh layer ကိုဖန်တီးရန် ပေါင်းစည်းရမည့် vector layer များ</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Vector layer</strong></p></td>
+<td><p>GUI ONLY</p></td>
+<td><p>[vector: any] [list]</p></td>
+<td><p>Mesh layer ကိုဖန်တီးရန် ပေါင်းစည်းရမည့် vector layer များ ရွေးချယ်ပေးသည့်အရာ (selector)</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Value on vertex</strong> (<strong>မျဉ်းအဆစ်ပေါ်ရှိတန်ဖိုး</strong>)</p></td>
+<td><p>GUI ONLY</p></td>
+<td><p>[tablefield: any]</p></td>
+<td><p>ရွေးချယ်ထားသော layer မှ အသုံးပြုမည့် field ရွေးချယ်ပေးသည့်အရာ။ မျဉ်းအဆစ်တစ်ခုချင်းစီတွင် ၎င်း၏မူရင်း feature ၏သက်ဆိုင်ရာတန်ဖိုးကို သတ်မှတ်ပေးပါသည်။</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Use Z-coordinate for value on vertex</strong> (<strong>မျဉ်းအဆစ်ပေါ်ရှိ တန်ဖိုးအတွက် အမြင့် Z-coordinate ကိုအသုံးပြုခြင်း</strong>)</p></td>
+<td><p>GUI ONLY</p></td>
+<td><p>[boolean]</p>
+<p>Default: False</p>
+</td>
+<td><p>အမှန် (TRUE) ကိုထားလျှင် vector layer point များ သို့မဟုတ် polygons/lines မျဉ်းအဆစ်များ၏ အမြင့် Z တန်ဖိုးများကို vertex mesh layer ၏ အမြင့် Z တန်ဖိုးကိုသတ်မှတ်ရန်အတွက် အသုံးပြုပါလိမ့်သည်။ Input layer များသည် သုံးဖက်မြင် (3D) များဖြစ်မှသာ အသုံးပြုနိုင်ပါသည်။</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Output format</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">MESH_FORMAT</span></code></p></td>
+<td><p>[enumeration]</p>
+<p>Default: 2DM</p>
+</td>
+<td><p>ဖန်တီးထားသော layer ၏ output format</p>
+<ul class="simple">
+<li><p>0 — 2DM</p></li>
+<li><p>1 — SELAFIN</p></li>
+<li><p>2 — PLY</p></li>
+<li><p>3 — Ugrid</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p><strong>Output coordinate system</strong> (<strong>Output ကိုဩဒိနိတ်စနစ်</strong>)</p>
+<p>Optional (မဖြစ်မနေလုပ်ဆောင်ရန် မလိုအပ်ပါ)</p>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">CRS_OUTPUT</span></code></p></td>
+<td><p>[crs]</p></td>
+<td><p>Output တွင်သတ်မှတ်မည့် ကိုဩဒိနိတ်စနစ်</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Output file</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT_MESH</span></code></p></td>
+<td><p>[mesh]</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">[Save</span> <span class="pre">to</span> <span class="pre">temporary</span> <span class="pre">file]</span> <span class="pre">([ယာယီ</span> <span class="pre">file</span> <span class="pre">ထဲတွင်သိမ်းဆည်းပါ])</span></code></p>
+</td>
+<td><p>Output file ၏ သီးခြားသတ်မှတ်ချက်။ အောက်ပါတို့ထဲမှ တစ်ခုခုဖြစ်ပါသည် -</p>
+<ul class="simple">
+<li><p>ယာယီ file တစ်ခုတွင် သိမ်းဆည်းပါ</p></li>
+<li><p>File တွင်သိမ်းဆည်းပါ</p></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id23">
+<h3>ရလာဒ်များ (Outputs)<a class="headerlink" href="#id23" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Output file</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT_MESH</span></code></p></td>
+<td><p>[mesh]</p></td>
+<td><p>Vector layer များမှ တွက်ထုတ်ထားသော dataset တန်ဖိုးများပါဝင်သော output mesh layer</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id24">
+<h3>Python code<a class="headerlink" href="#id24" title="Link to this heading"></a></h3>
+<p><strong>Algorithm ID</strong>: <code class="docutils literal notranslate"><span class="pre">native:tinmeshcreation</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">processing</span>
+<span class="n">processing</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;algorithm_id&quot;</span><span class="p">,</span> <span class="p">{</span><span class="n">parameter_dictionary</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>Processing Toolbox ထဲရှိ algorithm ပေါ်တွင် mouse ကိုတင်ထားလျှင် <em>algorithm id</em> ကိုပြသပေးပါသည်။ <em>parameter dictionary</em> သည် parameter နာမည်များနှင့် တန်ဖိုးများကို ပေးပါသည်။ Python console မှ algorithm များကို မည်သို့လုပ်ဆောင်ရမည် ဆိုသည့် အသေးစိတ်ကို သိရှိလိုလျှင် <a class="reference internal" href="../../processing/console.html#processing-console"><span class="std std-ref">Console တွင် processing algorithm များကို အသုံးပြုခြင်း</span></a> တွင်ကြည့်ပါ။</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="layertools.html" class="btn btn-neutral float-left" title="29.1.6. Layer ကိရိယာများ (Layer tools)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="modelertools.html" class="btn btn-neutral float-right" title="29.1.8. Modeler ကိရိယာများ (Modeler tools)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2002-now, QGIS project.
+      <span class="lastupdated">Last updated on 2024 May 13, 16:23 +0700.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- Transifex follows a particular logic to build target pages:
+Expected French translation link for https://docs.qgis.org/3.28/en/docs/user_manual/print_composer/overview_composer.html
+would return https://app.transifex.com/qgis/qgis-documentation/translate/#fr/aa6d8bc653526d38b295ca94bf8eee5e
+with the md5 value of "github#qgis/QGIS-Documentation#release_3.28#locale/en/LC_MESSAGES/docs/user_manual/print_composer/overview_composer.po"-->
+<!--Make sure that mismatching language codes between Transifex and Sphinx are converted-->
+
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-info-circle"> QGIS Documentation </span>
+      v: 3.28
+      <span class="fa fa-caret-down"></span>
+    </span>
+
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Languages</dt>
+        
+          <dd><a href="https://docs.qgis.org/3.28/en/docs/user_manual/processing_algs/qgis/mesh.html">en</a></dd>
+        
+      </dl>
+
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/user_manual/processing_algs/qgis/mesh.html">testing</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/latest/en/docs/user_manual/processing_algs/qgis/mesh.html">latest</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.28/en/docs/user_manual/processing_algs/qgis/mesh.html">3.28</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.22/en/docs/user_manual/processing_algs/qgis/mesh.html">3.22</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.16/en/docs/user_manual/processing_algs/qgis/mesh.html">3.16</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.10/en/docs/user_manual/processing_algs/qgis/mesh.html">3.10</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.4/en/docs/user_manual/processing_algs/qgis/mesh.html">3.4</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/2.18/en/docs/user_manual/processing_algs/qgis/mesh.html">2.18</a></dd>
+        
+      </dl>
+
+       
+       <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="https://docs.qgis.org/3.28/pdf">PDF</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.28/zip">HTML</a></dd>
+        
+      </dl>
+      
+
+      
+       
+      <dl>
+        <dt>Contribute to Docs</dt>
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/edit/master/docs/user_manual/processing_algs/qgis/mesh.rst" target="_blank" rel="noopener noreferrer">Edit on GitHub</a>
+          </dd>
+          
+          
+          <dd>
+            <a href="https://app.transifex.com/qgis/qgis-documentation/translate/#en/5bbf1b90400e86fa3b01b72d483ebc97" target="_blank" rel="noopener noreferrer">Translate Page</a>
+          </dd>
+          
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/issues" target="_blank" rel="noopener noreferrer">Report Issue</a>
+          </dd>
+      </dl>
+      
+
+      <dl>
+        <dt>On QGIS Project</dt>
+          <dd>
+            <a href="https://qgis.org/en" target="_blank" rel="noopener noreferrer">Home</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/api/3.28" target="_blank" rel="noopener noreferrer">C++ API</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/pyqgis/3.28" target="_blank" rel="noopener noreferrer">PyQGIS API</a>
+          </dd>
+          <dd>
+            <a href="https://github.com/qgis/QGIS/tree/release-3_28" target="_blank" rel="noopener noreferrer">Source</a>
+          </dd>
+      </dl>
+
+    </div>
+  </div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>1. စကားချီး (Preamble) &mdash; QGIS Documentation  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/qgis_docs.css?v=3fdf4c33" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/qgis_logo.ico"/>
+    <link rel="canonical" href="https://docs.qgis.org/latest/en/docs/user_manual/preamble/preamble.html"/>
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../../_static/copybutton.js?v=f281be69"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="2. အမှာစာ (Foreword)" href="foreword.html" />
+    <link rel="prev" title="&lt;no title&gt;" href="../index.html" />
+  <meta name="description" content="QGIS 3.28 documentation: 1. စကားချီး (Preamble)">
+</head>
+
+<body class="wy-body-for-nav">
+
+  <nav class="release_status_topbar">
+  </nav>
+
+   
+
+ 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+   
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            QGIS Documentation
+              <img src="../../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                3.28
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+   <a href= "../../../genindex.html">Index</a>
+ 
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">အသုံးပြုသူများအတွက်</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">1. စကားချီး (Preamble)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#qgis-current-what-is-new-in-qgis-current">1.1. QGIS 3.28 ၏အသွင်အပြင်သစ်များ (What is new in QGIS 3.28)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="foreword.html">2. အမှာစာ (Foreword)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conventions.html">3. အသုံးအနှုန်းများ (Conventions)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features.html">4. အသွင်အပြင်များ (Features)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/getting_started.html">5. စတင်အသုံးပြုခြင်း (Getting Started)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/project_files.html">6. Project Files များနှင့် အလုပ်လုပ်ခြင်း (Working with Project Files)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/qgis_gui.html">7. QGIS ၏အစိတ်အပိုင်းများ (QGIS GUI)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/browser.html">8. ဒေတာများရှာဖွေကြည့်ရှုနိုင်သည့်နေရာ (The Browser panel)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/qgis_configuration.html">9. QGIS ပြင်ဆင်သတ်မှတ်ခြင်း/အခင်းအကျင်း (QGIS Configuration)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_projections/working_with_projections.html">10. မြေပုံအရိပ်ချစနစ်များ နှင့် အလုပ်လုပ်ခြင်း (Working with Projections)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../map_views/index.html">11. မြေပုံများအား ပုံဖော်ကြည့်ရှုခြင်း (Visualizing Maps)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/general_tools.html">12. အထွေ‌ထွေ‌သုံးကိရိယာများ (General Tools)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../expressions/index.html">13. Expression များဖြင့် အဆင့်မြှင့်တင်ဆောင်ရွက်ခြင်း (Level up with Expressions)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../style_library/index.html">14. The Style Library (Style နှင့်ပတ်သက်သည်များ ထားရှိရာနေရာ)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../managing_data_source/index.html">15. ဒေတာအရင်းအမြစ်များအား စီမံခန့်ခွဲခြင်း (Managing Data Source)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_vector/index.html">16. Vector data များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_raster/index.html">17. Raster Data နှင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_mesh/mesh_properties.html">18. Working with Mesh Data (Mesh Data များနှင့် အလုပ်လုပ်ခြင်း)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_vector_tiles/vector_tiles_properties.html">19. Vector Tiles များနှင့်အလုပ်လုပ်ခြင်း (Working with Vector Tiles)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_point_clouds/point_clouds.html">20. Point Cloud များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../print_composer/index.html">21. မြေပုံအချောသပ်ပြင်ဆင်ခြင်း (Laying out the maps)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_ogc/ogc_client_support.html">22. OGC / ISO protocol များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_gps/index.html">23. GPS Data များနှင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../auth_system/auth_overview.html">24. အထောက်အထားစီစစ်ခြင်းအကြောင်းအကျဉ်း (Authentication System Overview)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../auth_system/auth_workflows.html">25. အသုံးပြုသူ အထောက်အထားစစ်ဆေးခြင်း လုပ်ငန်းအဆင့်များ (User Authentication Workflows)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../auth_system/auth_considerations.html">26. လုံခြုံရေးအတွက်စဉ်းစားရန်အချက်များ (Security Considerations)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../grass_integration/grass_integration.html">27. GRASS GIS နှင့်ပေါင်းစပ်အသုံးပြုခြင်း (GRASS GIS Integration)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing/index.html">28. QGIS processing framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing_algs/index.html">29. Processing ဆိုင်ရာ ထောက်ပံ့ပေးသူများနှင့် Algorithm များ (Processing providers and algorithms)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/plugins.html">30. QGIS Plugin များ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/core_plugins/index.html">31. QGIS ပင်မ Plugin များကို အသုံးပြုခြင်း (Using QGIS Core Plugins)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/python_console.html">32. QGIS တွင် Python code များရေးသားရန်နေရာ (QGIS Python console)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="help_and_support.html">33. အကူအညီနှင့်အထောက်အပံ့ (Help and Support)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributors.html">34. ပါဝင်အားဖြည့်သူများ (Contributors)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendices/index.html">35. နောက်ဆက်တွဲများ (Appendices)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../literature_web/literature_and_web_references.html">36. စာတမ်းများနှင့် Website ကိုးကားချက်များ (Literature and Web References)</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">QGIS Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">&lt;no title&gt;</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">1. </span>စကားချီး (Preamble)</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/qgis/QGIS-Documentation/blob/master/docs/user_manual/preamble/preamble.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="../index.html" class="btn btn-neutral float-left" title="&lt;no title&gt;" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="foreword.html" class="btn btn-neutral float-right" title="2. အမှာစာ (Foreword)" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <blockquote>
+<div></div></blockquote>
+<section id="preamble">
+<span id="qgis-documentation-preamble"></span><h1><span class="section-number">1. </span>စကားချီး (Preamble)<a class="headerlink" href="#preamble" title="Link to this heading"></a></h1>
+<p>ဤအသုံးပြုသူလမ်းညွှန်သည် ပထဝီဝင်ဆိုင်ရာသတင်းအချက်အလက်စနစ် (GIS) Software တစ်ခုဖြစ်သော QGIS ၏အသုံးပြုနည်းဖြစ်ပါသည်။
+QGIS ကို  GNU General Public License (အထွေထွေပြည်သူပိုင်လိုင်စင်) အောက်တွင် ထုတ်ဝေထားခြင်းဖြစ်ပါသည်။
+အချက်အလက်များပိုမို၍သိရှိလိုပါက QGIS ၏ ပင်မအင်တာနက်စာမျက်နှာဖြစ်သည့် <a class="reference external" href="https://www.qgis.org">https://www.qgis.org</a> တွင်ကြည့်ရှုနိုင်ပါသည်။</p>
+<p>ဤလမ်းညွှန်ပါ အကြောင်းအရာများကို စာရေးသူများနှင့် အယ်ဒီတာများ၏ ဗဟုဟုတအသိအမြင်များဖြင့်အကောင်းဆုံး ရေးသားစိစစ်ထားခြင်းဖြစ်ပါသည်။
+ထိုသို့ဖြစ်လင့်ကစား အမှားများ ပါရှိကောင်းပါရှိနိုင်ပါသည်။</p>
+<p>ထို့ကြောင့် စာရေးသူများ၊ အယ်ဒီတာများနှင့် ထုတ်ဝေသူများသည် ဤစာအုပ်ပါ မည်သည့် အမှားများနှင့် အမှားများ၏နောက်ဆက်တွဲ အကျိုးဆက်များကိုမဆို တာဝန်ယူမည်မဟုတ်ပါ။</p>
+<p>အမှားများတွေ့ရှိခဲ့ပါက အကြောင်းကြားတင်ပြနိုင်ရန် တိုက်တွန်းအပ်ပါသည်။</p>
+<p>ဤလမ်းညွှန်အား  reStructuredText (reST) အသုံးပြု၍ ရိုက်နှိပ်ထားခြင်းဖြစ်ပါသည်။
+၎င်းအား reST source code အဖြစ်
+<a class="reference external" href="https://github.com/qgis/QGIS-Documentation">github</a> တွင်ရယူနိုင်
+သကဲ့သို့ HTML နှင့် PDFအဖြစ်  <a class="reference external" href="https://www.qgis.org/en/docs/">https://www.qgis.org/en/docs/</a> မှတစ်ဆင့် အွန်လိုင်းဖတ်ရှုနိုင်ပါသည်။
+ဤလမ်းညွှန်၏ ဘာသာပြန်မူများအား  QGIS project ၏ documentation area မှတစ်ဆင့်လည်း ရှာဖွေ၍ ဒေါင်းလုဒ်ရယူနိုင်ပါသည်။</p>
+<p>ဤလမ်းညွှန် ဖြစ်မြောက်ရေးနှင့် ဘာသာပြန်ခြင်းကိစ္စရပ်များကိုပိုမိုသိရှိလိုပါက
+<a class="reference external" href="https://qgis.org/en/site/getinvolved/index.html">https://qgis.org/en/site/getinvolved/index.html</a> တွင်သွားရောက်ကြည့်ရှုနိုင်ပါသည်။</p>
+<p><strong>လမ်းညွှန်အတွင်း ပါရှိသည့် Link များ (Links in this Document)</strong></p>
+<p>ဤလမ်းညွှန်တွင် စာအုပ်တွင်းလင့်ခ် (internal link) နှင့် ပြင်ပလင့်ခ် (external link) များပါဝင်ပါသည်။
+Internal link ပေါ်တွင် click နှိပ်သည့်အခါ ဤလမ်းညွှန်ထဲတွင်ပင် ရွေ့လျားပြသပေးမည်ဖြစ်ပြီး external link ပေါ်တွင် click နှိပ်ပါက အင်တာနက်လိပ်စာတစ်ခုဖြင့်ပွင့်သွားမည်ဖြစ်ပါသည်။</p>
+<p>** လမ်းညွှန် ရေးသားသူများနှင့် တည်းဖြတ်ပြင်ဆင်သူများ (Documentation Authors and Editors)**</p>
+<p>အောက်ဖော်ပြပါ လမ်းညွှန် ဖြစ်မြောက်ရေးအတွက် ရေးသားခြင်း၊ စိစစ်သုံးသပ်ခြင်းနှင့် ဘာသာပြန်ခြင်းများပြုလုပ်၍ပါဝင်အားဖြည့်ခဲ့ကြသည့် ပုဂ္ဂိုလ်များ၏ အမည်စာရင်းကို
+<a class="reference internal" href="contributors.html#doc-contributors"><span class="std std-ref">ပါဝင်အားဖြည့်သူများ (Contributors)</span></a> တွင်ကြည့်ရှုနိုင်ပါသည်။</p>
+<p>Copyright (c) 2004 - 2020 QGIS Development Team</p>
+<p><strong>Internet:</strong> <a class="reference external" href="https://www.qgis.org">https://www.qgis.org</a></p>
+<p><strong>လမ်းညွှန်အတွက် လိုင်စင် (License of this document)</strong></p>
+<p>Free Software Foundation မှ ဖြန့်ချိထားသော Version 1.3 နှင့် နောက်ပိုင်း version များ အတွက် GNU Free Documentation License ၏ စည်းမျဉ်းများနှင့်အညီ ဤလမ်းညွှန်အား မိတ္တူကူးခွင့်၊ ဖြန့်ဝေခွင့်နှင့် ပြင်ဆင်ခွင့်ပြုထားပါသည်။
+မပြောင်းလဲ မပြင်ဆင်နိုင်သောအပိုင်းများ (Invariant Sections) သတ်မှတ်ထားခြင်းမရှိသကဲ့သို့ မျက်နှာဖုံးစာသားနှင့်နောက်ကျောဖုံးစာသားများကို မပြောင်းလဲရဟုသတ်မှတ်ချက်မရှိပါ။
+လိုင်စင်၏ မိတ္တူကို နောက်ဆက်တွဲ <a class="reference internal" href="../appendices/GNU_FDL.html#gfl-appendix"><span class="std std-ref">နောက်ဆက်တွဲ (ခ) - GNU အခမဲ့ စာရွက်စာတမ်း လိုင်စင် (Appendix B: GNU Free Documentation Licens)</span></a> တွင်ထည့်သွင်းဖော်ပြထားပါသည်။</p>
+<section id="qgis-current-what-is-new-in-qgis-current">
+<span id="qgis-documentation-whatsnew"></span><h2><span class="section-number">1.1. </span>QGIS 3.28 ၏အသွင်အပြင်သစ်များ (What is new in QGIS 3.28)<a class="headerlink" href="#qgis-current-what-is-new-in-qgis-current" title="Link to this heading"></a></h2>
+<p>QGIS 3.28 နှင့်နှိုင်းယှဉ်ပါက ယခုထုတ်ဝေသည့် QGIS version တွင် ရာနှင့်ချီသော ချို့ယွင်းချက်များအားပြုပြင်ပြီးဖြစ်၍
+အသွင်အပြင်သစ်များနှင့် အဆင့်မြှင့်တင်မှုများစွာ ပါဝင်လာပါသည်။
+အသွင်အပြင်သစ်များအား သိရှိလိုပါက
+<a class="reference external" href="https://qgis.org/en/site/forusers/visualchangelogs.html">https://qgis.org/en/site/forusers/visualchangelogs.html</a> မှတစ်ဆင့် visual changelogs တွင်သွားရောက်ကြည့်ရှုနိုင်ပါသည်။</p>
+<p>ယခင်ထုတ် version များထက် ယခု version ကို အသုံးပြုရန် တိုက်တွန်းပါသည်။</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../index.html" class="btn btn-neutral float-left" title="&lt;no title&gt;" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="foreword.html" class="btn btn-neutral float-right" title="2. အမှာစာ (Foreword)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2002-now, QGIS project.
+      <span class="lastupdated">Last updated on 2024 May 13, 16:23 +0700.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- Transifex follows a particular logic to build target pages:
+Expected French translation link for https://docs.qgis.org/3.28/en/docs/user_manual/print_composer/overview_composer.html
+would return https://app.transifex.com/qgis/qgis-documentation/translate/#fr/aa6d8bc653526d38b295ca94bf8eee5e
+with the md5 value of "github#qgis/QGIS-Documentation#release_3.28#locale/en/LC_MESSAGES/docs/user_manual/print_composer/overview_composer.po"-->
+<!--Make sure that mismatching language codes between Transifex and Sphinx are converted-->
+
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-info-circle"> QGIS Documentation </span>
+      v: 3.28
+      <span class="fa fa-caret-down"></span>
+    </span>
+
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Languages</dt>
+        
+          <dd><a href="https://docs.qgis.org/3.28/en/docs/user_manual/preamble/preamble.html">en</a></dd>
+        
+      </dl>
+
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/user_manual/preamble/preamble.html">testing</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/latest/en/docs/user_manual/preamble/preamble.html">latest</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.28/en/docs/user_manual/preamble/preamble.html">3.28</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.22/en/docs/user_manual/preamble/preamble.html">3.22</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.16/en/docs/user_manual/preamble/preamble.html">3.16</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.10/en/docs/user_manual/preamble/preamble.html">3.10</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.4/en/docs/user_manual/preamble/preamble.html">3.4</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/2.18/en/docs/user_manual/preamble/preamble.html">2.18</a></dd>
+        
+      </dl>
+
+       
+       <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="https://docs.qgis.org/3.28/pdf">PDF</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.28/zip">HTML</a></dd>
+        
+      </dl>
+      
+
+      
+       
+      <dl>
+        <dt>Contribute to Docs</dt>
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/edit/master/docs/user_manual/preamble/preamble.rst" target="_blank" rel="noopener noreferrer">Edit on GitHub</a>
+          </dd>
+          
+          
+          <dd>
+            <a href="https://app.transifex.com/qgis/qgis-documentation/translate/#en/545835e4a964a2a5a920545a9c479b9e" target="_blank" rel="noopener noreferrer">Translate Page</a>
+          </dd>
+          
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/issues" target="_blank" rel="noopener noreferrer">Report Issue</a>
+          </dd>
+      </dl>
+      
+
+      <dl>
+        <dt>On QGIS Project</dt>
+          <dd>
+            <a href="https://qgis.org/en" target="_blank" rel="noopener noreferrer">Home</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/api/3.28" target="_blank" rel="noopener noreferrer">C++ API</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/pyqgis/3.28" target="_blank" rel="noopener noreferrer">PyQGIS API</a>
+          </dd>
+          <dd>
+            <a href="https://github.com/qgis/QGIS/tree/release-3_28" target="_blank" rel="noopener noreferrer">Source</a>
+          </dd>
+      </dl>
+
+    </div>
+  </div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

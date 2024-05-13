@@ -1,0 +1,1179 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>29.1.8. Modeler ကိရိယာများ (Modeler tools) &mdash; QGIS Documentation  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/qgis_docs.css?v=3fdf4c33" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
+
+  
+    <link rel="shortcut icon" href="../../../../_static/qgis_logo.ico"/>
+    <link rel="canonical" href="https://docs.qgis.org/latest/en/docs/user_manual/processing_algs/qgis/modelertools.html"/>
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../../../_static/copybutton.js?v=f281be69"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../../../_static/togglebutton.js?v=4a39c7ea"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="29.1.9. လမ်းကြောင်းကွန်ယက်ဆိုင်ရာ တွက်ချက်မှု (Network analysis)" href="networkanalysis.html" />
+    <link rel="prev" title="29.1.7. ဝါယာကွန်ယက်(Mesh)" href="mesh.html" />
+  <meta name="description" content="QGIS 3.28 documentation: 29.1.8. Modeler ကိရိယာများ (Modeler tools)">
+</head>
+
+<body class="wy-body-for-nav">
+
+  <nav class="release_status_topbar">
+  </nav>
+
+   
+
+ 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+   
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            QGIS Documentation
+              <img src="../../../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                3.28
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+   <a href= "../../../../genindex.html">Index</a>
+ 
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">အသုံးပြုသူများအတွက်</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../preamble/preamble.html">1. စကားချီး (Preamble)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preamble/foreword.html">2. အမှာစာ (Foreword)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preamble/conventions.html">3. အသုံးအနှုန်းများ (Conventions)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preamble/features.html">4. အသွင်အပြင်များ (Features)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/getting_started.html">5. စတင်အသုံးပြုခြင်း (Getting Started)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/project_files.html">6. Project Files များနှင့် အလုပ်လုပ်ခြင်း (Working with Project Files)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/qgis_gui.html">7. QGIS ၏အစိတ်အပိုင်းများ (QGIS GUI)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/browser.html">8. ဒေတာများရှာဖွေကြည့်ရှုနိုင်သည့်နေရာ (The Browser panel)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/qgis_configuration.html">9. QGIS ပြင်ဆင်သတ်မှတ်ခြင်း/အခင်းအကျင်း (QGIS Configuration)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../working_with_projections/working_with_projections.html">10. မြေပုံအရိပ်ချစနစ်များ နှင့် အလုပ်လုပ်ခြင်း (Working with Projections)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../map_views/index.html">11. မြေပုံများအား ပုံဖော်ကြည့်ရှုခြင်း (Visualizing Maps)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/general_tools.html">12. အထွေ‌ထွေ‌သုံးကိရိယာများ (General Tools)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../expressions/index.html">13. Expression များဖြင့် အဆင့်မြှင့်တင်ဆောင်ရွက်ခြင်း (Level up with Expressions)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../style_library/index.html">14. The Style Library (Style နှင့်ပတ်သက်သည်များ ထားရှိရာနေရာ)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../managing_data_source/index.html">15. ဒေတာအရင်းအမြစ်များအား စီမံခန့်ခွဲခြင်း (Managing Data Source)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../working_with_vector/index.html">16. Vector data များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../working_with_raster/index.html">17. Raster Data နှင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../working_with_mesh/mesh_properties.html">18. Working with Mesh Data (Mesh Data များနှင့် အလုပ်လုပ်ခြင်း)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../working_with_vector_tiles/vector_tiles_properties.html">19. Vector Tiles များနှင့်အလုပ်လုပ်ခြင်း (Working with Vector Tiles)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../working_with_point_clouds/point_clouds.html">20. Point Cloud များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../print_composer/index.html">21. မြေပုံအချောသပ်ပြင်ဆင်ခြင်း (Laying out the maps)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../working_with_ogc/ogc_client_support.html">22. OGC / ISO protocol များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../working_with_gps/index.html">23. GPS Data များနှင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../auth_system/auth_overview.html">24. အထောက်အထားစီစစ်ခြင်းအကြောင်းအကျဉ်း (Authentication System Overview)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../auth_system/auth_workflows.html">25. အသုံးပြုသူ အထောက်အထားစစ်ဆေးခြင်း လုပ်ငန်းအဆင့်များ (User Authentication Workflows)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../auth_system/auth_considerations.html">26. လုံခြုံရေးအတွက်စဉ်းစားရန်အချက်များ (Security Considerations)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../grass_integration/grass_integration.html">27. GRASS GIS နှင့်ပေါင်းစပ်အသုံးပြုခြင်း (GRASS GIS Integration)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../processing/index.html">28. QGIS processing framework</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">29. Processing ဆိုင်ရာ ထောက်ပံ့ပေးသူများနှင့် Algorithm များ (Processing providers and algorithms)</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">29.1. QGIS algorithm ထောက်ပံ့ပေးသူ (QGIS algorithm provider)</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="cartography.html">29.1.1. မြေပုံရေးဆွဲခြင်းအတတ်ပညာ (Cartography)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="database.html">29.1.2. Database</a></li>
+<li class="toctree-l3"><a class="reference internal" href="filetools.html">29.1.3. File ကိရိယာများ (File tools)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gps.html">29.1.4. ကမ္ဘာလုံးဆိုင်ရာတည်နေရာပြစနစ် (GPS)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="interpolation.html">29.1.5. သွယ်ဝိုက်တွက်ချက်ခြင်း (Interpolation)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="layertools.html">29.1.6. Layer ကိရိယာများ (Layer tools)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mesh.html">29.1.7. ဝါယာကွန်ယက်(Mesh)</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">29.1.8. Modeler ကိရိယာများ (Modeler tools)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#conditional-branch">29.1.8.1. အခြေအနေ အခွဲ (Conditional branch)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#create-directory">29.1.8.2. ဖိုင်လမ်းကြောင်းကိုဖန်တီးခြင်း (Create directory)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#feature-feature-filter">29.1.8.3. Feature များကိုစစ်ထုတ်ရာ (Feature filter)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#layers-filter-layers-by-type">29.1.8.4. Layers အမျိုးအစားဖြင့် စစ်ထုတ်ခြင်း (Filter layers by type)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#layer-project-load-layer-into-project">29.1.8.5. Layer ကို project ထဲသို့ထည့်သွင်းခြင်း (Load layer into project)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#raise-exception">29.1.8.6. ချွင်းချက်ထုတ်ခြင်း (Raise exception)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#raise-message">29.1.8.7. စာတိုဖော်ပြခြင်း (Raise message)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#raise-warning">29.1.8.8. သတိပေးချက် ဖော်ပြခြင်း (Raise warning)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#layer-rename-layer">29.1.8.9. Layer အမည်ပြောင်းခြင်း (Rename layer)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#log-file-save-log-to-file">29.1.8.10. Log ကို file အဖြစ် သိမ်းဆည်းခြင်း (Save log to file)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#project-set-project-variable">29.1.8.11. Project ကိန်းရှင်ကို သတ်မှတ်ခြင်း (Set project variable)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#string-concatenation">29.1.8.12. စာသားများချိတ်ဆက်ပေါင်းစပ်ခြင်း (String concatenation)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#variable-distance-buffer">29.1.8.13. အကျယ်မတူသည့် ကြားခံနယ်များ ပြုလုပ်ခြင်း (Variable distance buffer)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="networkanalysis.html">29.1.9. လမ်းကြောင်းကွန်ယက်ဆိုင်ရာ တွက်ချက်မှု (Network analysis)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plots.html">29.1.10. Plot များ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rasteranalysis.html">29.1.11. Raster ဖြင့်ဆန်းစစ်လေ့လာခြင်း (Raster analysis)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rastercreation.html">29.1.12. Raster Creation (Raster ဖန်တီးခြင်း)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rasterterrainanalysis.html">29.1.13. Raster မြေမျက်နှာသွင်ပြင် ဆန်းစစ်လေ့လာခြင်း (Raster terrain analysis)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rastertools.html">29.1.14. Raster ကိရိယာများ (Raster tools)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vectoranalysis.html">29.1.15. Vector ဆန်းစစ်လေ့လာခြင်း (Vector analysis)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vectorcreation.html">29.1.16. Vector ဖန်တီးခြင်း (Vector creation)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vectorgeneral.html">29.1.17. Vector ဆိုင်ရာ အထွေထွေ (Vector general)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vectorgeometry.html">29.1.18. Vector ဂျီဩမေတြီ (Vector geometry)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vectoroverlay.html">29.1.19. Vector အလွှာထပ်တွက်ချက်ခြင်း (Vector overlay)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vectorselection.html">29.1.20. Vector တွင်ရွေးချယ်ခြင်း (Vector selection)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vectortable.html">29.1.21. Vector ဇယား (Vector table)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vectortiles.html">29.1.22. Vector tile များ</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../gdal/index.html">29.2. GDAL algorithm ထောက်ပံ့ပေးသူ (GDAL algorithm provider)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../otb.html">29.3. OTB application များ ထောက်ပံ့ပေးသည့်အရာ (OTB applications provider)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../plugins/plugins.html">30. QGIS Plugin များ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../plugins/core_plugins/index.html">31. QGIS ပင်မ Plugin များကို အသုံးပြုခြင်း (Using QGIS Core Plugins)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../plugins/python_console.html">32. QGIS တွင် Python code များရေးသားရန်နေရာ (QGIS Python console)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preamble/help_and_support.html">33. အကူအညီနှင့်အထောက်အပံ့ (Help and Support)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preamble/contributors.html">34. ပါဝင်အားဖြည့်သူများ (Contributors)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendices/index.html">35. နောက်ဆက်တွဲများ (Appendices)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../literature_web/literature_and_web_references.html">36. စာတမ်းများနှင့် Website ကိုးကားချက်များ (Literature and Web References)</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">QGIS Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">&lt;no title&gt;</a></li>
+          <li class="breadcrumb-item"><a href="../index.html"><span class="section-number">29. </span>Processing ဆိုင်ရာ ထောက်ပံ့ပေးသူများနှင့် Algorithm များ (Processing providers and algorithms)</a></li>
+          <li class="breadcrumb-item"><a href="index.html"><span class="section-number">29.1. </span>QGIS algorithm ထောက်ပံ့ပေးသူ (QGIS algorithm provider)</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">29.1.8. </span>Modeler ကိရိယာများ (Modeler tools)</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/qgis/QGIS-Documentation/blob/master/docs/user_manual/processing_algs/qgis/modelertools.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="mesh.html" class="btn btn-neutral float-left" title="29.1.7. ဝါယာကွန်ယက်(Mesh)" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="networkanalysis.html" class="btn btn-neutral float-right" title="29.1.9. လမ်းကြောင်းကွန်ယက်ဆိုင်ရာ တွက်ချက်မှု (Network analysis)" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <blockquote>
+<div></div></blockquote>
+<section id="modeler-modeler-tools">
+<h1><span class="section-number">29.1.8. </span>Modeler ကိရိယာများ (Modeler tools)<a class="headerlink" href="#modeler-modeler-tools" title="Link to this heading"></a></h1>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Model designer ထဲတွင်သာ ယခု tool များကိုအသုံးပြုနိုင်ပါသည်။ Processing Toolbox ထဲတွင် ၎င်းတို့ကိုအသုံးပြု၍မရပါ။</p>
+</div>
+<nav class="contents toc-columns local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#conditional-branch" id="id39">အခြေအနေ အခွဲ (Conditional branch)</a></p></li>
+<li><p><a class="reference internal" href="#create-directory" id="id40">ဖိုင်လမ်းကြောင်းကိုဖန်တီးခြင်း (Create directory)</a></p></li>
+<li><p><a class="reference internal" href="#feature-feature-filter" id="id41">Feature များကိုစစ်ထုတ်ရာ (Feature filter)</a></p></li>
+<li><p><a class="reference internal" href="#layers-filter-layers-by-type" id="id42">Layers အမျိုးအစားဖြင့် စစ်ထုတ်ခြင်း (Filter layers by type)</a></p></li>
+<li><p><a class="reference internal" href="#layer-project-load-layer-into-project" id="id43">Layer ကို project ထဲသို့ထည့်သွင်းခြင်း (Load layer into project)</a></p></li>
+<li><p><a class="reference internal" href="#raise-exception" id="id44">ချွင်းချက်ထုတ်ခြင်း (Raise exception)</a></p></li>
+<li><p><a class="reference internal" href="#raise-message" id="id45">စာတိုဖော်ပြခြင်း (Raise message)</a></p></li>
+<li><p><a class="reference internal" href="#raise-warning" id="id46">သတိပေးချက် ဖော်ပြခြင်း (Raise warning)</a></p></li>
+<li><p><a class="reference internal" href="#layer-rename-layer" id="id47">Layer အမည်ပြောင်းခြင်း (Rename layer)</a></p></li>
+<li><p><a class="reference internal" href="#log-file-save-log-to-file" id="id48">Log ကို file အဖြစ် သိမ်းဆည်းခြင်း (Save log to file)</a></p></li>
+<li><p><a class="reference internal" href="#project-set-project-variable" id="id49">Project ကိန်းရှင်ကို သတ်မှတ်ခြင်း (Set project variable)</a></p></li>
+<li><p><a class="reference internal" href="#string-concatenation" id="id50">စာသားများချိတ်ဆက်ပေါင်းစပ်ခြင်း (String concatenation)</a></p></li>
+<li><p><a class="reference internal" href="#variable-distance-buffer" id="id51">အကျယ်မတူသည့် ကြားခံနယ်များ ပြုလုပ်ခြင်း (Variable distance buffer)</a></p></li>
+</ul>
+</nav>
+<section id="conditional-branch">
+<span id="qgiscondition"></span><h2><a class="toc-backref" href="#id39" role="doc-backlink"><span class="section-number">29.1.8.1. </span>အခြေအနေ အခွဲ (Conditional branch)</a><a class="headerlink" href="#conditional-branch" title="Link to this heading"></a></h2>
+<p>Model တစ်ခုထဲသို့ conditional branch (အခြေအနေအရ ကွဲထွက်မှု) တစ်ခုကိုပေါင်းထည့်ခြင်းဖြင့် expression အကဲဖြတ်ခြင်းတစ်ခု၏ရလာဒ်ပေါ်တွင် အခြေခံပြီး model ၏အစိတ်အပိုင်းများကို စေခိုင်းလုပ်ဆောင်နိုင်အောင် ဖန်တီးပေးပါသည်။ Model တစ်ခု၏လုပ်ငန်းဆောင်တာများကို ထိန်းချုပ်ရန် tool dependency (အမှီအခို) များကို များသောအားဖြင့် အသုံးပြုပါသည်။</p>
+<section id="parameters">
+<h3>သတ်မှတ်ချက်များ (Parameters)<a class="headerlink" href="#parameters" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Field</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">BRANCH</span></code></p></td>
+<td><p>[string]</p></td>
+<td><p>အခြေအနေ၏ အမည်</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Field</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">CONDITION</span></code></p></td>
+<td><p>[expression]</p></td>
+<td><p>အကဲဖြတ်ရန် expression</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="outputs">
+<h3>ရလာဒ်များ (Outputs)<a class="headerlink" href="#outputs" title="Link to this heading"></a></h3>
+<p>ဘာမှမရှိပါ။</p>
+</section>
+<section id="python-code">
+<h3>Python code<a class="headerlink" href="#python-code" title="Link to this heading"></a></h3>
+<p><strong>Algorithm ID</strong>: <code class="docutils literal notranslate"><span class="pre">native:condition</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">processing</span>
+<span class="n">processing</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;algorithm_id&quot;</span><span class="p">,</span> <span class="p">{</span><span class="n">parameter_dictionary</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>Processing Toolbox ထဲရှိ algorithm ပေါ်တွင် mouse ကိုတင်ထားလျှင် <em>algorithm id</em> ကိုပြသပေးပါသည်။ <em>parameter dictionary</em> သည် parameter နာမည်များနှင့် တန်ဖိုးများကို ပေးပါသည်။ Python console မှ algorithm များကို မည်သို့လုပ်ဆောင်ရမည် ဆိုသည့် အသေးစိတ်ကို သိရှိလိုလျှင် <a class="reference internal" href="../../processing/console.html#processing-console"><span class="std std-ref">Console တွင် processing algorithm များကို အသုံးပြုခြင်း</span></a> တွင်ကြည့်ပါ။</p>
+</section>
+</section>
+<section id="create-directory">
+<span id="qgiscreatedirectory"></span><h2><a class="toc-backref" href="#id40" role="doc-backlink"><span class="section-number">29.1.8.2. </span>ဖိုင်လမ်းကြောင်းကိုဖန်တီးခြင်း (Create directory)</a><a class="headerlink" href="#create-directory" title="Link to this heading"></a></h2>
+<p>File system တစ်ခုထဲတွင် လမ်းကြောင်းအသစ်တစ်ခုဖန်တီးပေးပါသည်။ လမ်းကြောင်းများကို အဆင့်ဆင့်ဖန်တီးမည်ဖြစ်ပြီး အတိအကျလမ်းကြောင်းအပြည့်ကို တည်ဆောက်ရန်အတွက် လိုအပ်သော parent (ပင်မ) လမ်းကြောင်းများအားလုံးကို ဖန်တီးမည်ဖြစ်သည်။ လမ်းကြောင်းရှိနေပြီးသား ဖြစ်နေလျှင် အမှားနှင့်ပြဿနာ ရှိမည်မဟုတ်ပါ။</p>
+<section id="id1">
+<h3>သတ်မှတ်ချက်များ (Parameters)<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Directory path</strong> (<strong>လမ်းကြောင်း</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">PATH</span></code></p></td>
+<td><p>[string]</p></td>
+<td><p>ဖန်တီးမည့် folder လမ်းကြောင်း</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id2">
+<h3>ရလာဒ်များ (Outputs)<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Output</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
+<td><p>[folder]</p></td>
+<td><p>ဖန်တီးထားသော folder</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id3">
+<h3>Python code<a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
+<p><strong>Algorithm ID</strong>: <code class="docutils literal notranslate"><span class="pre">native:createdirectory</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">processing</span>
+<span class="n">processing</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;algorithm_id&quot;</span><span class="p">,</span> <span class="p">{</span><span class="n">parameter_dictionary</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>Processing Toolbox ထဲရှိ algorithm ပေါ်တွင် mouse ကိုတင်ထားလျှင် <em>algorithm id</em> ကိုပြသပေးပါသည်။ <em>parameter dictionary</em> သည် parameter နာမည်များနှင့် တန်ဖိုးများကို ပေးပါသည်။ Python console မှ algorithm များကို မည်သို့လုပ်ဆောင်ရမည် ဆိုသည့် အသေးစိတ်ကို သိရှိလိုလျှင် <a class="reference internal" href="../../processing/console.html#processing-console"><span class="std std-ref">Console တွင် processing algorithm များကို အသုံးပြုခြင်း</span></a> တွင်ကြည့်ပါ။</p>
+</section>
+</section>
+<section id="feature-feature-filter">
+<span id="qgisfilter"></span><h2><a class="toc-backref" href="#id41" role="doc-backlink"><span class="section-number">29.1.8.3. </span>Feature များကိုစစ်ထုတ်ရာ (Feature filter)</a><a class="headerlink" href="#feature-feature-filter" title="Link to this heading"></a></h2>
+<p>Input layer မှ feature များကိုရွေးချယ်စစ်ထုတ်ပြီး ၎င်းတို့ကို တစ်ခု သို့မဟုတ် များစွာသော output များဆီသို့ပြန်လည်လမ်းညွှန်ပေးပါသည်။ ဖြစ်နိုင်သော input layer အားလုံး၏ အသုံးများသော အချက်အလက်နာမည်များကို မသိလျှင် <code class="docutils literal notranslate"><span class="pre">$id</span></code> နှင့် <code class="docutils literal notranslate"><span class="pre">uuid</span></code> ကဲ့သို့သော feature geometry နှင့် အထွေထွေ မှတ်တမ်းအစိတ်အပိုင်းများထဲတွင်သာ ရွေးချယ်စစ်ထုတ်နိုင်ပါသည်။</p>
+<section id="id4">
+<h3>သတ်မှတ်ချက်များ (Parameters)<a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Input layer</strong> (<strong>ထည့်သွင်းအသုံးပြုသော layer</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">INPUT</span></code></p></td>
+<td><p>[vector: any]</p></td>
+<td><p>ထည့်သွင်းအသုံးပြုသော layer</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Outputs and filters</strong> (<strong>Output များနှင့် ရွေးချယ်စစ်ထုတ်မှုများ</strong>)
+(တစ်ခု သို့မဟုတ် တစ်ခုထက်ပိုသော)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT_&lt;name</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">filter&gt;</span></code></p></td>
+<td><p>[input နှင့်အတူတူဖြစ်ပါသည်]</p></td>
+<td><p>ရွေးချယ်စစ်ထုတ်မှုများ (ရွေးချယ်စစ်ထုတ်မှုများနိုင်သမျှ များများ) ဖြင့် output layer များ</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id5">
+<h3>ရလာဒ်များ (Outputs)<a class="headerlink" href="#id5" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Output</strong> (<strong>ရလာဒ်</strong>)
+(တစ်ခု သို့မဟုတ် တစ်ခုထက်ပိုသော)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">native:filter_1:OUTPUT_&lt;name</span> <span class="pre">of</span> <span class="pre">filter&gt;</span></code></p></td>
+<td><p>[input နှင့်အတူတူဖြစ်ပါသည်]</p></td>
+<td><p>ရွေးချယ်စစ်ထုတ်မှုများ (ရွေးချယ်စစ်ထုတ်မှုများနိုင်သမျှ များများ) ဖြင့် output layer များ</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id6">
+<h3>Python code<a class="headerlink" href="#id6" title="Link to this heading"></a></h3>
+<p><strong>Algorithm ID</strong>: <code class="docutils literal notranslate"><span class="pre">native:filter</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">processing</span>
+<span class="n">processing</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;algorithm_id&quot;</span><span class="p">,</span> <span class="p">{</span><span class="n">parameter_dictionary</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>Processing Toolbox ထဲရှိ algorithm ပေါ်တွင် mouse ကိုတင်ထားလျှင် <em>algorithm id</em> ကိုပြသပေးပါသည်။ <em>parameter dictionary</em> သည် parameter နာမည်များနှင့် တန်ဖိုးများကို ပေးပါသည်။ Python console မှ algorithm များကို မည်သို့လုပ်ဆောင်ရမည် ဆိုသည့် အသေးစိတ်ကို သိရှိလိုလျှင် <a class="reference internal" href="../../processing/console.html#processing-console"><span class="std std-ref">Console တွင် processing algorithm များကို အသုံးပြုခြင်း</span></a> တွင်ကြည့်ပါ။</p>
+</section>
+</section>
+<section id="layers-filter-layers-by-type">
+<span id="qgisfilterlayersbytype"></span><h2><a class="toc-backref" href="#id42" role="doc-backlink"><span class="section-number">29.1.8.4. </span>Layers အမျိုးအစားဖြင့် စစ်ထုတ်ခြင်း (Filter layers by type)</a><a class="headerlink" href="#layers-filter-layers-by-type" title="Link to this heading"></a></h2>
+<p>Layer များကို ၎င်းတို့၏အမျိုးအစားဖြင့် ရွေးချယ်စစ်ထုတ်ပေးပါသည်။ ဝင်လာသော layer များကို vector ဖြစ်သည် သို့မဟုတ် raster ဖြစ်သည် အပေါ်မူတည်ပြီး output အမျိုးမျိုးသို့ လမ်းညွှန်ပေးပါလိမ့်မည်။</p>
+<section id="id7">
+<h3>သတ်မှတ်ချက်များ (Parameters)<a class="headerlink" href="#id7" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Input layer</strong> (<strong>ထည့်သွင်းအသုံးပြုသော layer</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">INPUT</span></code></p></td>
+<td><p>[layer]</p></td>
+<td><p>ယေဘုယျ မြေပုံ layer</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id8">
+<h3>ရလာဒ်များ (Outputs)<a class="headerlink" href="#id8" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Vector features</strong> (<strong>Vector feature များ</strong>)</p>
+<p>Optional (မဖြစ်မနေလုပ်ဆောင်ရန် မလိုအပ်ပါ)</p>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">VECTOR</span></code></p></td>
+<td><p>[vector]</p></td>
+<td><p>ကိုက်ညီမှုရှိလျှင် input ၏ vector layer တစ်ခု</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Raster layer</strong></p>
+<p>Optional (မဖြစ်မနေလုပ်ဆောင်ရန် မလိုအပ်ပါ)</p>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">RASTER</span></code></p></td>
+<td><p>[raster]</p></td>
+<td><p>ကိုက်ညီမှုရှိလျှင် input ၏ raser layer တစ်ခု</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id9">
+<h3>Python code<a class="headerlink" href="#id9" title="Link to this heading"></a></h3>
+<p><strong>Algorithm ID</strong>: <code class="docutils literal notranslate"><span class="pre">native:filterlayersbytype</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">processing</span>
+<span class="n">processing</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;algorithm_id&quot;</span><span class="p">,</span> <span class="p">{</span><span class="n">parameter_dictionary</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>Processing Toolbox ထဲရှိ algorithm ပေါ်တွင် mouse ကိုတင်ထားလျှင် <em>algorithm id</em> ကိုပြသပေးပါသည်။ <em>parameter dictionary</em> သည် parameter နာမည်များနှင့် တန်ဖိုးများကို ပေးပါသည်။ Python console မှ algorithm များကို မည်သို့လုပ်ဆောင်ရမည် ဆိုသည့် အသေးစိတ်ကို သိရှိလိုလျှင် <a class="reference internal" href="../../processing/console.html#processing-console"><span class="std std-ref">Console တွင် processing algorithm များကို အသုံးပြုခြင်း</span></a> တွင်ကြည့်ပါ။</p>
+</section>
+</section>
+<section id="layer-project-load-layer-into-project">
+<span id="qgisloadlayer"></span><h2><a class="toc-backref" href="#id43" role="doc-backlink"><span class="section-number">29.1.8.5. </span>Layer ကို project ထဲသို့ထည့်သွင်းခြင်း (Load layer into project)</a><a class="headerlink" href="#layer-project-load-layer-into-project" title="Link to this heading"></a></h2>
+<p>လက်ရှိ project ထဲသို့ layer တစ်ခုခေါ်ယူထည့်သွင်းပေးပါသည်။</p>
+<section id="id10">
+<h3>သတ်မှတ်ချက်များ (Parameters)<a class="headerlink" href="#id10" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Layer</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">INPUT</span></code></p></td>
+<td><p>[layer]</p></td>
+<td><p>ရည်ညွှန်းချက်ထဲတွင် ထည့်သွင်းမည့် layer</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Loaded layer name</strong> (<strong>ထည့်သွင်းထားသော layer အမည်</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">NAME</span></code></p></td>
+<td><p>[string]</p></td>
+<td><p>ထည့်သွင်းထားသော layer ၏အမည်</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id11">
+<h3>ရလာဒ်များ (Outputs)<a class="headerlink" href="#id11" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Layer</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
+<td><p>[input နှင့်အတူတူဖြစ်ပါသည်]</p></td>
+<td><p>ထည့်သွင်းထားသော layer (နာမည်ပြန်ပေးထားသော)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id12">
+<h3>Python code<a class="headerlink" href="#id12" title="Link to this heading"></a></h3>
+<p><strong>Algorithm ID</strong>: <code class="docutils literal notranslate"><span class="pre">native:loadlayer</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">processing</span>
+<span class="n">processing</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;algorithm_id&quot;</span><span class="p">,</span> <span class="p">{</span><span class="n">parameter_dictionary</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>Processing Toolbox ထဲရှိ algorithm ပေါ်တွင် mouse ကိုတင်ထားလျှင် <em>algorithm id</em> ကိုပြသပေးပါသည်။ <em>parameter dictionary</em> သည် parameter နာမည်များနှင့် တန်ဖိုးများကို ပေးပါသည်။ Python console မှ algorithm များကို မည်သို့လုပ်ဆောင်ရမည် ဆိုသည့် အသေးစိတ်ကို သိရှိလိုလျှင် <a class="reference internal" href="../../processing/console.html#processing-console"><span class="std std-ref">Console တွင် processing algorithm များကို အသုံးပြုခြင်း</span></a> တွင်ကြည့်ပါ။</p>
+</section>
+</section>
+<section id="raise-exception">
+<span id="qgisraiseexception"></span><h2><a class="toc-backref" href="#id44" role="doc-backlink"><span class="section-number">29.1.8.6. </span>ချွင်းချက်ထုတ်ခြင်း (Raise exception)</a><a class="headerlink" href="#raise-exception" title="Link to this heading"></a></h2>
+<p>ချွင်းချက် (exception) တစ်ခုလုပ်ဆောင်ပြီး model ကိုစေခိုင်းလုပ်ဆောင်ခြင်းမှ ရပ်တန့်ပေးပါသည်။ ချွင်းချက်အတွက်ဖော်ပြမှုစာသားကို စိတ်ကြိုက်ပြင်ဆင်နိုင်ပြီး expression ကိုအခြေခံသော အခြေအနေတစ်ခုကို သတ်မှတ်နိုင်ပါသည်။ Expression အခြေအနေတစ်ခုကို အသုံးပြုထားလျှင် expression ရလာဒ်သည် မှန်မှသာ ချွင်းချက်ကို လုပ်ဆောင်ပေးမည် ဖြစ်ပါသည်။ Expression ရလာဒ်အမှားသည် ချွင်းချက်ကို လုပ်ဆောင်မည်မဟုတ်ပဲ model စေခိုင်းလုပ်ဆောင်ခြင်းကို အနှောင့်အယှက်မရှိပဲ ဆက်လက်လုပ်ဆောင်နိုင်ပါသည်။</p>
+<section id="id13">
+<h3>သတ်မှတ်ချက်များ (Parameters)<a class="headerlink" href="#id13" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Message</strong> (<strong>စာတို</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">MESSAGE</span></code></p></td>
+<td><p>[string]</p></td>
+<td><p>ဖော်ပြမည့်စာတို</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Condition</strong> (<strong>အခြေအနေ</strong>)</p>
+<p>Optional (မဖြစ်မနေလုပ်ဆောင်ရန် မလိုအပ်ပါ)</p>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">CONDITION</span></code></p></td>
+<td><p>[expression]</p></td>
+<td><p>အမှန်ဖြစ်လျှင် အကဲဖြတ်မည့် expression</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id14">
+<h3>ရလာဒ်များ (Outputs)<a class="headerlink" href="#id14" title="Link to this heading"></a></h3>
+<p>Log (မှတ်တမ်း) panel ထဲတွင် ဖော်ပြသည့် စာသား။</p>
+</section>
+<section id="id15">
+<h3>Python code<a class="headerlink" href="#id15" title="Link to this heading"></a></h3>
+<p><strong>Algorithm ID</strong>: <code class="docutils literal notranslate"><span class="pre">native:raiseexception</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">processing</span>
+<span class="n">processing</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;algorithm_id&quot;</span><span class="p">,</span> <span class="p">{</span><span class="n">parameter_dictionary</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>Processing Toolbox ထဲရှိ algorithm ပေါ်တွင် mouse ကိုတင်ထားလျှင် <em>algorithm id</em> ကိုပြသပေးပါသည်။ <em>parameter dictionary</em> သည် parameter နာမည်များနှင့် တန်ဖိုးများကို ပေးပါသည်။ Python console မှ algorithm များကို မည်သို့လုပ်ဆောင်ရမည် ဆိုသည့် အသေးစိတ်ကို သိရှိလိုလျှင် <a class="reference internal" href="../../processing/console.html#processing-console"><span class="std std-ref">Console တွင် processing algorithm များကို အသုံးပြုခြင်း</span></a> တွင်ကြည့်ပါ။</p>
+</section>
+</section>
+<section id="raise-message">
+<span id="qgisraisemessage"></span><h2><a class="toc-backref" href="#id45" role="doc-backlink"><span class="section-number">29.1.8.7. </span>စာတိုဖော်ပြခြင်း (Raise message)</a><a class="headerlink" href="#raise-message" title="Link to this heading"></a></h2>
+<p>Log ထဲတွင် သတင်းအချက်အလက်စာတိုတစ်ခုကိုဖော်ပြပေးပါသည်။ ဖော်ပြမည့်စာတိုကို စိတ်ကြိုက်ပြင်ဆင်နိုင်ပြီး expression ကိုအခြေခံသော အခြေအနေတစ်ခုကို သတ်မှတ်နိုင်ပါသည်။ Expression အခြေအနေတစ်ခုကို အသုံးပြုထားလျှင် expression ရလာဒ်သည် မှန်မှသာ စာတိုကို ဖော်ပြပေးမည် ဖြစ်ပါသည်။ Expression ရလာဒ်အမှားသည် စာတိုကိုဖော်ပြမည်မဟုတ်ပါ။</p>
+<section id="id16">
+<h3>သတ်မှတ်ချက်များ (Parameters)<a class="headerlink" href="#id16" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Information message</strong> (<strong>သတင်းအချက်အလက် စာတို</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">MESSAGE</span></code></p></td>
+<td><p>[string]</p></td>
+<td><p>ဖော်ပြမည့်စာတို</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Condition</strong> (<strong>အခြေအနေ</strong>)</p>
+<p>Optional (မဖြစ်မနေလုပ်ဆောင်ရန် မလိုအပ်ပါ)</p>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">CONDITION</span></code></p></td>
+<td><p>[expression]</p></td>
+<td><p>အမှန်ဖြစ်လျှင် အကဲဖြတ်မည့် expression</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id17">
+<h3>ရလာဒ်များ (Outputs)<a class="headerlink" href="#id17" title="Link to this heading"></a></h3>
+<p>Log panel ထဲရှိ စာတိုတစ်ခု။</p>
+</section>
+<section id="id18">
+<h3>Python code<a class="headerlink" href="#id18" title="Link to this heading"></a></h3>
+<p><strong>Algorithm ID</strong>: <code class="docutils literal notranslate"><span class="pre">native:raisemessage</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">processing</span>
+<span class="n">processing</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;algorithm_id&quot;</span><span class="p">,</span> <span class="p">{</span><span class="n">parameter_dictionary</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>Processing Toolbox ထဲရှိ algorithm ပေါ်တွင် mouse ကိုတင်ထားလျှင် <em>algorithm id</em> ကိုပြသပေးပါသည်။ <em>parameter dictionary</em> သည် parameter နာမည်များနှင့် တန်ဖိုးများကို ပေးပါသည်။ Python console မှ algorithm များကို မည်သို့လုပ်ဆောင်ရမည် ဆိုသည့် အသေးစိတ်ကို သိရှိလိုလျှင် <a class="reference internal" href="../../processing/console.html#processing-console"><span class="std std-ref">Console တွင် processing algorithm များကို အသုံးပြုခြင်း</span></a> တွင်ကြည့်ပါ။</p>
+</section>
+</section>
+<section id="raise-warning">
+<span id="qgisraisewarning"></span><h2><a class="toc-backref" href="#id46" role="doc-backlink"><span class="section-number">29.1.8.8. </span>သတိပေးချက် ဖော်ပြခြင်း (Raise warning)</a><a class="headerlink" href="#raise-warning" title="Link to this heading"></a></h2>
+<p>Log ထဲတွင် သတိပေးစာသားတစ်ခုကို ဖော်ပြပေးပါသည်။ ဖော်ပြမည့်သတိပေးစာသားကို စိတ်ကြိုက်ပြင်ဆင်နိုင်ပြီး expression ကိုအခြေခံသော အခြေအနေတစ်ခုကို သတ်မှတ်နိုင်ပါသည်။ Expression အခြေအနေတစ်ခုကို အသုံးပြုထားလျှင် expression ရလာဒ်သည် မှန်မှသာ သတိပေးချက်ကို ဖော်ပြပေးမည် ဖြစ်ပါသည်။ Expression ရလာဒ်အမှားသည် သတိပေးချက်ကိုဖော်ပြမည်မဟုတ်ပါ။</p>
+<section id="id19">
+<h3>သတ်မှတ်ချက်များ (Parameters)<a class="headerlink" href="#id19" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Message</strong> (<strong>စာတို</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">MESSAGE</span></code></p></td>
+<td><p>[string]</p></td>
+<td><p>ဖော်ပြမည့်စာတို</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Condition</strong> (<strong>အခြေအနေ</strong>)</p>
+<p>Optional (မဖြစ်မနေလုပ်ဆောင်ရန် မလိုအပ်ပါ)</p>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">CONDITION</span></code></p></td>
+<td><p>[expression]</p></td>
+<td><p>အမှန်ဖြစ်လျှင် အကဲဖြတ်မည့် expression</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id20">
+<h3>ရလာဒ်များ (Outputs)<a class="headerlink" href="#id20" title="Link to this heading"></a></h3>
+<p>Log panel ထဲတွင် ဖော်ပြသည့် စာတိုတစ်ခု။</p>
+</section>
+<section id="id21">
+<h3>Python code<a class="headerlink" href="#id21" title="Link to this heading"></a></h3>
+<p><strong>Algorithm ID</strong>: <code class="docutils literal notranslate"><span class="pre">native:raisewarning</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">processing</span>
+<span class="n">processing</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;algorithm_id&quot;</span><span class="p">,</span> <span class="p">{</span><span class="n">parameter_dictionary</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>Processing Toolbox ထဲရှိ algorithm ပေါ်တွင် mouse ကိုတင်ထားလျှင် <em>algorithm id</em> ကိုပြသပေးပါသည်။ <em>parameter dictionary</em> သည် parameter နာမည်များနှင့် တန်ဖိုးများကို ပေးပါသည်။ Python console မှ algorithm များကို မည်သို့လုပ်ဆောင်ရမည် ဆိုသည့် အသေးစိတ်ကို သိရှိလိုလျှင် <a class="reference internal" href="../../processing/console.html#processing-console"><span class="std std-ref">Console တွင် processing algorithm များကို အသုံးပြုခြင်း</span></a> တွင်ကြည့်ပါ။</p>
+</section>
+</section>
+<section id="layer-rename-layer">
+<span id="qgisrenamelayer"></span><h2><a class="toc-backref" href="#id47" role="doc-backlink"><span class="section-number">29.1.8.9. </span>Layer အမည်ပြောင်းခြင်း (Rename layer)</a><a class="headerlink" href="#layer-rename-layer" title="Link to this heading"></a></h2>
+<p>Layer တစ်ခုကို နာမည်ပြန်ပေးပါသည်။</p>
+<section id="id22">
+<h3>သတ်မှတ်ချက်များ (Parameters)<a class="headerlink" href="#id22" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Layer</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">INPUT</span></code></p></td>
+<td><p>[layer]</p></td>
+<td><p>အမည်ပြန်ပေးမည့် layer</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>New name</strong> (<strong>အမည်အသစ်</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">NAME</span></code></p></td>
+<td><p>[string]</p></td>
+<td><p>Layer ၏အမည်အသစ်</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id23">
+<h3>ရလာဒ်များ (Outputs)<a class="headerlink" href="#id23" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Layer</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
+<td><p>[input နှင့်အတူတူဖြစ်ပါသည်]</p></td>
+<td><p>Output layer (အမည်ပြန်ပေးထားသော)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id24">
+<h3>Python code<a class="headerlink" href="#id24" title="Link to this heading"></a></h3>
+<p><strong>Algorithm ID</strong>: <code class="docutils literal notranslate"><span class="pre">native:renamelayer</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">processing</span>
+<span class="n">processing</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;algorithm_id&quot;</span><span class="p">,</span> <span class="p">{</span><span class="n">parameter_dictionary</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>Processing Toolbox ထဲရှိ algorithm ပေါ်တွင် mouse ကိုတင်ထားလျှင် <em>algorithm id</em> ကိုပြသပေးပါသည်။ <em>parameter dictionary</em> သည် parameter နာမည်များနှင့် တန်ဖိုးများကို ပေးပါသည်။ Python console မှ algorithm များကို မည်သို့လုပ်ဆောင်ရမည် ဆိုသည့် အသေးစိတ်ကို သိရှိလိုလျှင် <a class="reference internal" href="../../processing/console.html#processing-console"><span class="std std-ref">Console တွင် processing algorithm များကို အသုံးပြုခြင်း</span></a> တွင်ကြည့်ပါ။</p>
+</section>
+</section>
+<section id="log-file-save-log-to-file">
+<span id="qgissavelog"></span><h2><a class="toc-backref" href="#id48" role="doc-backlink"><span class="section-number">29.1.8.10. </span>Log ကို file အဖြစ် သိမ်းဆည်းခြင်း (Save log to file)</a><a class="headerlink" href="#log-file-save-log-to-file" title="Link to this heading"></a></h2>
+<p>Model ကိုစေခိုင်းလုပ်ဆောင်ခြင်း log ကို file တစ်ခုအဖြစ်သိမ်းဆည်းပေးပါသည်။ HTML format ဖြင့်ပြင်ဆင်ထားသော version အဖြစ်လည်း log ကိုသိမ်းဆည်းနိုင်ပါသည်။</p>
+<section id="id25">
+<h3>သတ်မှတ်ချက်များ (Parameters)<a class="headerlink" href="#id25" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Use HTML</strong> (<strong>HTML ကိုအသုံးပြုခြင်း</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">USE_HTML</span></code></p></td>
+<td><p>[Boolean]</p>
+<p>Default: False</p>
+</td>
+<td><p>HTML format ကိုအသုံးပြုပါ</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id26">
+<h3>ရလာဒ်များ (Outputs)<a class="headerlink" href="#id26" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>File</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
+<td><p>[string]</p></td>
+<td><p>Log ၏တည်နေရာ</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id27">
+<h3>Python code<a class="headerlink" href="#id27" title="Link to this heading"></a></h3>
+<p><strong>Algorithm ID</strong>: <code class="docutils literal notranslate"><span class="pre">native:savelog</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">processing</span>
+<span class="n">processing</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;algorithm_id&quot;</span><span class="p">,</span> <span class="p">{</span><span class="n">parameter_dictionary</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>Processing Toolbox ထဲရှိ algorithm ပေါ်တွင် mouse ကိုတင်ထားလျှင် <em>algorithm id</em> ကိုပြသပေးပါသည်။ <em>parameter dictionary</em> သည် parameter နာမည်များနှင့် တန်ဖိုးများကို ပေးပါသည်။ Python console မှ algorithm များကို မည်သို့လုပ်ဆောင်ရမည် ဆိုသည့် အသေးစိတ်ကို သိရှိလိုလျှင် <a class="reference internal" href="../../processing/console.html#processing-console"><span class="std std-ref">Console တွင် processing algorithm များကို အသုံးပြုခြင်း</span></a> တွင်ကြည့်ပါ။</p>
+</section>
+</section>
+<section id="project-set-project-variable">
+<span id="qgissetprojectvariable"></span><h2><a class="toc-backref" href="#id49" role="doc-backlink"><span class="section-number">29.1.8.11. </span>Project ကိန်းရှင်ကို သတ်မှတ်ခြင်း (Set project variable)</a><a class="headerlink" href="#project-set-project-variable" title="Link to this heading"></a></h2>
+<p>လက်ရှိ project အတွက် expression variable (ကိန်းရှင်) တစ်ခုကို သတ်မှတ်ပေးပါသည်။</p>
+<section id="id28">
+<h3>သတ်မှတ်ချက်များ (Parameters)<a class="headerlink" href="#id28" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Variable name</strong> (<strong>Variable အမည်</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">NAME</span></code></p></td>
+<td><p>[string]</p></td>
+<td><p>Variable ၏အမည်</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Variable value</strong> (<strong>Variable တန်ဖိုး</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">VALUE</span></code></p></td>
+<td><p>[string]</p></td>
+<td><p>သိမ်းဆည်းမည့် တန်ဖိုး</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id29">
+<h3>ရလာဒ်များ (Outputs)<a class="headerlink" href="#id29" title="Link to this heading"></a></h3>
+<p>ဘာမှမရှိပါ။</p>
+</section>
+<section id="id30">
+<h3>Python code<a class="headerlink" href="#id30" title="Link to this heading"></a></h3>
+<p><strong>Algorithm ID</strong>: <code class="docutils literal notranslate"><span class="pre">native:setprojectvariable</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">processing</span>
+<span class="n">processing</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;algorithm_id&quot;</span><span class="p">,</span> <span class="p">{</span><span class="n">parameter_dictionary</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>Processing Toolbox ထဲရှိ algorithm ပေါ်တွင် mouse ကိုတင်ထားလျှင် <em>algorithm id</em> ကိုပြသပေးပါသည်။ <em>parameter dictionary</em> သည် parameter နာမည်များနှင့် တန်ဖိုးများကို ပေးပါသည်။ Python console မှ algorithm များကို မည်သို့လုပ်ဆောင်ရမည် ဆိုသည့် အသေးစိတ်ကို သိရှိလိုလျှင် <a class="reference internal" href="../../processing/console.html#processing-console"><span class="std std-ref">Console တွင် processing algorithm များကို အသုံးပြုခြင်း</span></a> တွင်ကြည့်ပါ။</p>
+</section>
+</section>
+<section id="string-concatenation">
+<span id="qgisstringconcatenation"></span><h2><a class="toc-backref" href="#id50" role="doc-backlink"><span class="section-number">29.1.8.12. </span>စာသားများချိတ်ဆက်ပေါင်းစပ်ခြင်း (String concatenation)</a><a class="headerlink" href="#string-concatenation" title="Link to this heading"></a></h2>
+<p>Processing Modeler ထဲတွင် စာသားနှစ်ခုကို တစ်ခုတည်းအဖြစ် ချိတ်ဆက်ပေါင်းစပ်ပေးပါသည်။</p>
+<section id="id31">
+<h3>သတ်မှတ်ချက်များ (Parameters)<a class="headerlink" href="#id31" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Input 1</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">INPUT_1</span></code></p></td>
+<td><p>[string]</p></td>
+<td><p>ပထမစာသား</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Input 2</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">INPUT_2</span></code></p></td>
+<td><p>[string]</p></td>
+<td><p>ဒုတိယစာသား</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id32">
+<h3>ရလာဒ်များ (Outputs)<a class="headerlink" href="#id32" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Concatenation</strong> (<strong>ချိတ်ဆက်ပေါင်းစပ်ပေးခြင်း</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">CONCATENATION</span></code></p></td>
+<td><p>[string]</p></td>
+<td><p>ချိတ်ဆက်ပေါင်းစပ်ထားသော စာသား</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id33">
+<h3>Python code<a class="headerlink" href="#id33" title="Link to this heading"></a></h3>
+<p><strong>Algorithm ID</strong>: <code class="docutils literal notranslate"><span class="pre">native:stringconcatenation</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">processing</span>
+<span class="n">processing</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;algorithm_id&quot;</span><span class="p">,</span> <span class="p">{</span><span class="n">parameter_dictionary</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>Processing Toolbox ထဲရှိ algorithm ပေါ်တွင် mouse ကိုတင်ထားလျှင် <em>algorithm id</em> ကိုပြသပေးပါသည်။ <em>parameter dictionary</em> သည် parameter နာမည်များနှင့် တန်ဖိုးများကို ပေးပါသည်။ Python console မှ algorithm များကို မည်သို့လုပ်ဆောင်ရမည် ဆိုသည့် အသေးစိတ်ကို သိရှိလိုလျှင် <a class="reference internal" href="../../processing/console.html#processing-console"><span class="std std-ref">Console တွင် processing algorithm များကို အသုံးပြုခြင်း</span></a> တွင်ကြည့်ပါ။</p>
+</section>
+</section>
+<section id="variable-distance-buffer">
+<span id="qgisvariabledistancebuffer"></span><h2><a class="toc-backref" href="#id51" role="doc-backlink"><span class="section-number">29.1.8.13. </span>အကျယ်မတူသည့် ကြားခံနယ်များ ပြုလုပ်ခြင်း (Variable distance buffer)</a><a class="headerlink" href="#variable-distance-buffer" title="Link to this heading"></a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>ယခု algorithm ကို တိုးတက်မှုတစ်စုံတရာထပ်မံလုပ်ဆောင်ခြင်းမရှိတော့၍ အချိန်မရွေးဖယ်ထုတ်ပစ်ခံရနိုင်ပါသည်။ ၎င်းအစား <a class="reference internal" href="vectorgeometry.html#qgisbuffer"><span class="std std-ref">ကြားခံဇုံ (Buffer)</span></a> algorithm ကိုဦးစားပေး အသုံးပြုပါ။</p>
+</div>
+<p>Input layer တစ်ခုထဲရှိ feature များအားလုံးအတွက် buffer ဧရိယာတစ်ခုကိုတွက်ချက်ပေးပါသည်။</p>
+<p>အသုံးပြုထားသော feature အတွက် buffer အရွယ်အစားကို attribute တစ်ခုဖြင့် သတ်မှတ်ပြီး feature အမျိုးမျိုးကို buffer အရွယ်အစား အမျိုးမျိုး ရရှိအောင်လုပ်ဆောင်ပေးပါသည်။</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="vectorgeometry.html#qgisbuffer"><span class="std std-ref">ကြားခံဇုံ (Buffer)</span></a></p>
+</div>
+<section id="id34">
+<h3>သတ်မှတ်ချက်များ (Parameters)<a class="headerlink" href="#id34" title="Link to this heading"></a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Input layer</strong> (<strong>ထည့်သွင်းအသုံးပြုသော layer</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">INPUT</span></code></p></td>
+<td><p>[vector: any]</p></td>
+<td><p>ထည့်သွင်းအသုံးပြုသော vector layer</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Distance field</strong> (<strong>အကွာအဝေး field</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">DISTANCE</span></code></p></td>
+<td><p>[tablefield: numeric]</p></td>
+<td><p>Buffer ၏ အချင်းဝက်အကွာအဝေးအတွက် attribute</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Segments</strong> (<strong>မျဉ်းပိုင်းများ</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">SEGMENTS</span></code></p></td>
+<td><p>[number]</p>
+<p>Default: <em>5</em></p>
+</td>
+<td><p>လုံးဝန်းသော offset (အရွေ့) များကိုဖန်တီးသောအခါ စက်ဝိုင်းလေးပုံတစ်ပုံကို ခန့်မှန်းရန်အတွက်အသုံးပြုမည့် မျဉ်းပိုင်းများ၏ အရေအတွက်ကို ထိန်းချုပ်ပေးပါသည်။</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Dissolve result</strong> (<strong>ပေါင်းထားသောရလာဒ်</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">DISSOLVE</span></code></p></td>
+<td><p>[boolean]</p>
+<p>Default: <em>False</em></p>
+</td>
+<td><p>နောက်ဆုံး buffer ကို dissolve ပြုလုပ်ရန် ရွေးချယ်ခြင်းသည် input feature များအားလုံးကိုလွှမ်းခြုံသော feature တစ်ခုတည်းကို ရရှိစေပါသည်။</p>
+<figure class="align-center" id="id37">
+<img alt="../../../../_images/buffer_dissolve.png" src="../../../../_images/buffer_dissolve.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 29.8 </span><span class="caption-text">ပုံမှန် buffer နှင့် dissolve လုပ်ထားသော buffer</span><a class="headerlink" href="#id37" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</td>
+</tr>
+<tr class="row-even"><td><p><strong>End cap style</strong> (<strong>အဆုံးသတ်အပိတ် style</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">END_CAP_STYLE</span></code></p></td>
+<td><p>[enumeration]</p>
+<p>Default: Round (လုံးဝန်းသော)</p>
+</td>
+<td><p>Buffer ထဲတွင် line အဆုံးသတ်များကို မည်သို့လုပ်ဆောင်သည်ကို ထိန်းချုပ်ပေးပါသည်။</p>
+<figure class="align-center" id="id38">
+<img alt="../../../../_images/buffer_cap_style.png" src="../../../../_images/buffer_cap_style.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 29.9 </span><span class="caption-text">လုံးဝန်းသောအဝိုက်၊ အပြားနှင့် စတုရန်းပုံ အပိတ် style များ</span><a class="headerlink" href="#id38" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</td>
+</tr>
+<tr class="row-odd"><td><p><strong>Join style</strong> (<strong>ချိတ်ဆက်သော style</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">JOIN_STYLE</span></code></p></td>
+<td><p>[enumeration]</p>
+<p>Default: Round (လုံးဝန်းသောအဝိုက်)</p>
+</td>
+<td><p>Line တစ်ခု၏ ထောင့်စွန်းများကို offset လုပ်သောအခါ round (စောင်းလုံး) ၊ miter (စောင်းတိ) သို့မဟုတ် bevel (စောင်းသတ်) ချိတ်ဆက်ခြင်းများကို အသုံးပြုသင့်သလား ဆိုသည်ကို သတ်မှတ်ပေးပါသည်။</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Miter limit</strong> (<strong>Miter ကန့်သတ်ချက်</strong>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">MITER_LIMIT</span></code></p></td>
+<td><p>[number]</p>
+<p>Default: 2.0</p>
+</td>
+<td><p>Miter ဖြင့်ချိတ်ဆက်သော style များအတွက်သာအသုံးပြုနိုင်ပြီး miter ဖြင့်ချိတ်ဆက်မှုတစ်ခုကို ဖန်တီးသောအခါ အသုံးပြုသည့် offset curve မှ အများဆုံးအကွာအဝေးကို ထိန်းချုပ်ပေးပါသည်။</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id35">
+<h3>ရလာဒ်များ (Outputs)<a class="headerlink" href="#id35" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Buffer</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
+<td><p>[vector: polygon]</p></td>
+<td><p>Buffer ပြုလုပ်ထားသော polygon vector layer</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id36">
+<h3>Python code<a class="headerlink" href="#id36" title="Link to this heading"></a></h3>
+<p><strong>Algorithm ID</strong>: <code class="docutils literal notranslate"><span class="pre">qgis:variabledistancebuffer</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">processing</span>
+<span class="n">processing</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;algorithm_id&quot;</span><span class="p">,</span> <span class="p">{</span><span class="n">parameter_dictionary</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>Processing Toolbox ထဲရှိ algorithm ပေါ်တွင် mouse ကိုတင်ထားလျှင် <em>algorithm id</em> ကိုပြသပေးပါသည်။ <em>parameter dictionary</em> သည် parameter နာမည်များနှင့် တန်ဖိုးများကို ပေးပါသည်။ Python console မှ algorithm များကို မည်သို့လုပ်ဆောင်ရမည် ဆိုသည့် အသေးစိတ်ကို သိရှိလိုလျှင် <a class="reference internal" href="../../processing/console.html#processing-console"><span class="std std-ref">Console တွင် processing algorithm များကို အသုံးပြုခြင်း</span></a> တွင်ကြည့်ပါ။</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="mesh.html" class="btn btn-neutral float-left" title="29.1.7. ဝါယာကွန်ယက်(Mesh)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="networkanalysis.html" class="btn btn-neutral float-right" title="29.1.9. လမ်းကြောင်းကွန်ယက်ဆိုင်ရာ တွက်ချက်မှု (Network analysis)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2002-now, QGIS project.
+      <span class="lastupdated">Last updated on 2024 May 13, 16:23 +0700.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- Transifex follows a particular logic to build target pages:
+Expected French translation link for https://docs.qgis.org/3.28/en/docs/user_manual/print_composer/overview_composer.html
+would return https://app.transifex.com/qgis/qgis-documentation/translate/#fr/aa6d8bc653526d38b295ca94bf8eee5e
+with the md5 value of "github#qgis/QGIS-Documentation#release_3.28#locale/en/LC_MESSAGES/docs/user_manual/print_composer/overview_composer.po"-->
+<!--Make sure that mismatching language codes between Transifex and Sphinx are converted-->
+
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-info-circle"> QGIS Documentation </span>
+      v: 3.28
+      <span class="fa fa-caret-down"></span>
+    </span>
+
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Languages</dt>
+        
+          <dd><a href="https://docs.qgis.org/3.28/en/docs/user_manual/processing_algs/qgis/modelertools.html">en</a></dd>
+        
+      </dl>
+
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/user_manual/processing_algs/qgis/modelertools.html">testing</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/latest/en/docs/user_manual/processing_algs/qgis/modelertools.html">latest</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.28/en/docs/user_manual/processing_algs/qgis/modelertools.html">3.28</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.22/en/docs/user_manual/processing_algs/qgis/modelertools.html">3.22</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.16/en/docs/user_manual/processing_algs/qgis/modelertools.html">3.16</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.10/en/docs/user_manual/processing_algs/qgis/modelertools.html">3.10</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.4/en/docs/user_manual/processing_algs/qgis/modelertools.html">3.4</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/2.18/en/docs/user_manual/processing_algs/qgis/modelertools.html">2.18</a></dd>
+        
+      </dl>
+
+       
+       <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="https://docs.qgis.org/3.28/pdf">PDF</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.28/zip">HTML</a></dd>
+        
+      </dl>
+      
+
+      
+       
+      <dl>
+        <dt>Contribute to Docs</dt>
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/edit/master/docs/user_manual/processing_algs/qgis/modelertools.rst" target="_blank" rel="noopener noreferrer">Edit on GitHub</a>
+          </dd>
+          
+          
+          <dd>
+            <a href="https://app.transifex.com/qgis/qgis-documentation/translate/#en/1ebe49b06551899dd89b7ad039dca470" target="_blank" rel="noopener noreferrer">Translate Page</a>
+          </dd>
+          
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/issues" target="_blank" rel="noopener noreferrer">Report Issue</a>
+          </dd>
+      </dl>
+      
+
+      <dl>
+        <dt>On QGIS Project</dt>
+          <dd>
+            <a href="https://qgis.org/en" target="_blank" rel="noopener noreferrer">Home</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/api/3.28" target="_blank" rel="noopener noreferrer">C++ API</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/pyqgis/3.28" target="_blank" rel="noopener noreferrer">PyQGIS API</a>
+          </dd>
+          <dd>
+            <a href="https://github.com/qgis/QGIS/tree/release-3_28" target="_blank" rel="noopener noreferrer">Source</a>
+          </dd>
+      </dl>
+
+    </div>
+  </div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

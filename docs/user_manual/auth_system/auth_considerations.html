@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>26. လုံခြုံရေးအတွက်စဉ်းစားရန်အချက်များ (Security Considerations) &mdash; QGIS Documentation  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/qgis_docs.css?v=3fdf4c33" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/qgis_logo.ico"/>
+    <link rel="canonical" href="https://docs.qgis.org/latest/en/docs/user_manual/auth_system/auth_considerations.html"/>
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../../_static/copybutton.js?v=f281be69"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="27. GRASS GIS နှင့်ပေါင်းစပ်အသုံးပြုခြင်း (GRASS GIS Integration)" href="../grass_integration/grass_integration.html" />
+    <link rel="prev" title="25. အသုံးပြုသူ အထောက်အထားစစ်ဆေးခြင်း လုပ်ငန်းအဆင့်များ (User Authentication Workflows)" href="auth_workflows.html" />
+  <meta name="description" content="QGIS 3.28 documentation: 26. လုံခြုံရေးအတွက်စဉ်းစားရန်အချက်များ (Security Considerations)">
+</head>
+
+<body class="wy-body-for-nav">
+
+  <nav class="release_status_topbar">
+  </nav>
+
+   
+
+ 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+   
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            QGIS Documentation
+              <img src="../../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                3.28
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+   <a href= "../../../genindex.html">Index</a>
+ 
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">အသုံးပြုသူများအတွက်</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../preamble/preamble.html">1. စကားချီး (Preamble)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/foreword.html">2. အမှာစာ (Foreword)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/conventions.html">3. အသုံးအနှုန်းများ (Conventions)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/features.html">4. အသွင်အပြင်များ (Features)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/getting_started.html">5. စတင်အသုံးပြုခြင်း (Getting Started)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/project_files.html">6. Project Files များနှင့် အလုပ်လုပ်ခြင်း (Working with Project Files)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/qgis_gui.html">7. QGIS ၏အစိတ်အပိုင်းများ (QGIS GUI)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/browser.html">8. ဒေတာများရှာဖွေကြည့်ရှုနိုင်သည့်နေရာ (The Browser panel)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/qgis_configuration.html">9. QGIS ပြင်ဆင်သတ်မှတ်ခြင်း/အခင်းအကျင်း (QGIS Configuration)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_projections/working_with_projections.html">10. မြေပုံအရိပ်ချစနစ်များ နှင့် အလုပ်လုပ်ခြင်း (Working with Projections)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../map_views/index.html">11. မြေပုံများအား ပုံဖော်ကြည့်ရှုခြင်း (Visualizing Maps)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/general_tools.html">12. အထွေ‌ထွေ‌သုံးကိရိယာများ (General Tools)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../expressions/index.html">13. Expression များဖြင့် အဆင့်မြှင့်တင်ဆောင်ရွက်ခြင်း (Level up with Expressions)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../style_library/index.html">14. The Style Library (Style နှင့်ပတ်သက်သည်များ ထားရှိရာနေရာ)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../managing_data_source/index.html">15. ဒေတာအရင်းအမြစ်များအား စီမံခန့်ခွဲခြင်း (Managing Data Source)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_vector/index.html">16. Vector data များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_raster/index.html">17. Raster Data နှင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_mesh/mesh_properties.html">18. Working with Mesh Data (Mesh Data များနှင့် အလုပ်လုပ်ခြင်း)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_vector_tiles/vector_tiles_properties.html">19. Vector Tiles များနှင့်အလုပ်လုပ်ခြင်း (Working with Vector Tiles)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_point_clouds/point_clouds.html">20. Point Cloud များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../print_composer/index.html">21. မြေပုံအချောသပ်ပြင်ဆင်ခြင်း (Laying out the maps)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_ogc/ogc_client_support.html">22. OGC / ISO protocol များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_gps/index.html">23. GPS Data များနှင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="auth_overview.html">24. အထောက်အထားစီစစ်ခြင်းအကြောင်းအကျဉ်း (Authentication System Overview)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="auth_workflows.html">25. အသုံးပြုသူ အထောက်အထားစစ်ဆေးခြင်း လုပ်ငန်းအဆင့်များ (User Authentication Workflows)</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">26. လုံခြုံရေးအတွက်စဉ်းစားရန်အချက်များ (Security Considerations)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#restrictions">26.1. ကန့်သတ်ချက်များ (Restrictions)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../grass_integration/grass_integration.html">27. GRASS GIS နှင့်ပေါင်းစပ်အသုံးပြုခြင်း (GRASS GIS Integration)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing/index.html">28. QGIS processing framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing_algs/index.html">29. Processing ဆိုင်ရာ ထောက်ပံ့ပေးသူများနှင့် Algorithm များ (Processing providers and algorithms)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/plugins.html">30. QGIS Plugin များ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/core_plugins/index.html">31. QGIS ပင်မ Plugin များကို အသုံးပြုခြင်း (Using QGIS Core Plugins)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/python_console.html">32. QGIS တွင် Python code များရေးသားရန်နေရာ (QGIS Python console)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/help_and_support.html">33. အကူအညီနှင့်အထောက်အပံ့ (Help and Support)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/contributors.html">34. ပါဝင်အားဖြည့်သူများ (Contributors)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendices/index.html">35. နောက်ဆက်တွဲများ (Appendices)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../literature_web/literature_and_web_references.html">36. စာတမ်းများနှင့် Website ကိုးကားချက်များ (Literature and Web References)</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">QGIS Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">&lt;no title&gt;</a></li>
+          <li class="breadcrumb-item"><a href="index.html">&lt;no title&gt;</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">26. </span>လုံခြုံရေးအတွက်စဉ်းစားရန်အချက်များ (Security Considerations)</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/qgis/QGIS-Documentation/blob/master/docs/user_manual/auth_system/auth_considerations.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="auth_workflows.html" class="btn btn-neutral float-left" title="25. အသုံးပြုသူ အထောက်အထားစစ်ဆေးခြင်း လုပ်ငန်းအဆင့်များ (User Authentication Workflows)" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../grass_integration/grass_integration.html" class="btn btn-neutral float-right" title="27. GRASS GIS နှင့်ပေါင်းစပ်အသုံးပြုခြင်း (GRASS GIS Integration)" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <blockquote>
+<div></div></blockquote>
+<section id="security-considerations">
+<span id="authentication-security-considerations"></span><h1><span class="section-number">26. </span>လုံခြုံရေးအတွက်စဉ်းစားရန်အချက်များ (Security Considerations)<a class="headerlink" href="#security-considerations" title="Link to this heading"></a></h1>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#restrictions" id="id1">ကန့်သတ်ချက်များ (Restrictions)</a></p></li>
+</ul>
+</nav>
+<p>မာစတာ စကားဝှက်အားရိုက်ထည့်ပြီးသည်နှင့် authentication (စစ်မှန်ကြောင်းအသိအမှတ်ပြုခြင်း) database ထဲရှိ authentication configs များသို့ဝင်ရောက်ခွင့်ရရှိရန် API (Application Programming Interface) ပွင့်လာမည်ဖြစ်ပြီး ၎င်းသည် Firefox အလုပ်လုပ်ပုံနှင့်ဆင်တူသည်။ သို့​သော် ကနဦး အကောင်အထည်ဖော်သည့်အဆင့်တွင် PyQGIS သို့ဝင်ရောက်ခွင့်ပိတ်ပင်မည့် wall များသတ်မှတ်မထားသည့်အတွက် authentication credentials များကို ဝင်ရောက်ယူဆောင်သွားနိုင်သော အဖျက် PyQGIS plugin သို့မဟုတ် standalone app တစ်ခုကို  download လုပ်မိခြင်း/install လုပ်မိခြင်း တို့ကိုဖြစ်စေနိုင်သည်။</p>
+<p>Feature ၏ ကနဦး ထုတ်ဝေမှုအတွက် မြန်ဆန်သော အဖြေမှာ PyQGIS bindings အများစုအား authentication system ထဲတွင်ထည့်သွင်းမထားရန်ဖြစ်သည်။</p>
+<p>ထိရောက်ခိုင်မာသောနည်းလမ်းမဟုတ်သော်လည်း အခြားရိုးရှင်းသော ဖြေရှင်းရန် နည်းလမ်းတစ်ခုမှာ <span class="menuselection">Settings► Options ► Authentication</span> ထဲတွင် combobox တစ်ခုကိုထည့်သွင်းခြင်းဖြစ်သည်။ (defaults အား “ဘယ်တော့မှ”ဟုထားပါ)-</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;Allow Python access to authentication system&quot;</span>
+<span class="n">Choices</span><span class="p">:</span> <span class="p">[</span> <span class="n">confirm</span> <span class="n">once</span> <span class="n">per</span> <span class="n">session</span> <span class="o">|</span> <span class="n">always</span> <span class="n">confirm</span> <span class="o">|</span> <span class="n">always</span> <span class="n">allow</span> <span class="o">|</span> <span class="n">never</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;Authentication system အား Python access ခွင့်ပြုပေးခြင်း&quot;</span>
+<span class="n">ရွေးချယ်ရန်များ</span><span class="o">-</span> <span class="p">[</span> <span class="n">လုပ်ငန်းစဉ်တစ်ခုလျှင်တစ်ကြိမ်သာအတည်ပြုခြင်း</span> <span class="o">|</span> <span class="n">အမြဲတမ်းအတည်ပြုခြင်း</span> <span class="o">|</span> <span class="n">အမြဲတမ်းခွင့်ပြုခြင်း</span> <span class="o">|</span> <span class="n">ဘယ်တော့မှ</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>ထိုကဲ့သို့ ရွေးချယ်စရာတစ်ခုအတွက် setting ကို Python မှဝင်ရောက်၍မရသည့်နေရာတစ်ခု၊ ဥပမာ- authentication database တွင် သိမ်းဆည်းရန်လိုအပ်ပြီး မာစတာစကားဝှက်ဖြင့် encrypt (လုံခြုံအောင်ကုဒ်ဖြင့်ဝှက်ထား) ပြုလုပ်ထားရန် လိုအပ်ပါသည်။</p>
+<ul class="simple">
+<li><p>နောက်ရွေးချယ်စရာတစ်ခုမှာ အသုံးပြုသူအနေဖြင့် authentication စနစ်သို့ ဝင်ရောက်ရန် သီးသန့် ခွင့်ပြုခဲ့သည့် plugin များကိုနောက်ယောင်ခံလိုက်ရန်ဖြစ်ပါသည်။ သို့သော်လည်း အမှန်တကယ် လုပ်ဆောင်နေသည့် plugin အား ကောက်နှုတ်ရွေးထုတ်ရန်မှာ ရိုးရှင်းမှုမရှိနိုင်ပါ။</p></li>
+<li><p>Plugin များအား ၎င်းတို့၏ကိုယ်ပိုင် virtual environment များတွင် Sandboxing (plugin တစ်ခုစီကို ၎င်း၏ကိုယ်ပိုင် virtual space သို့မဟုတ် သီးခြားပတ်ဝန်းကျင်တွင် ထည့်သွင်းထားခြင်း) လုပ်ခြင်းဖြင့် authentication configs များကို ခွင့်ပြုထားသော နောက်ထပ် plugin တစ်ခုမှ ‘cross-plugin’ hacking (Plugin များ တစ်ခုနှင့်တစ်ခု အတွင်းသို့ ခိုးဝင်ခြင်း) လုပ်ခြင်းအား လျှော့ချပေးနိုင်မည်။ ဤသို့ပြုလုပ်လိုက်ခြင်းသည် cross-plugin communication (plugin တစ်ခုနှင့်တစ်ခု ဆက်သွယ်ချိတ်ဆက်ခြင်း) ကို ကန့်သတ်ကောင်းကန့်သတ်နိုင်သော်လည်း တတိယပါတီ plugin များအကြားတွင်သာ ဖြစ်နိုင်ပါသည်။</p></li>
+<li><p>နောက်ထပ်ကောင်းသောဖြေရှင်းနည်းတစ်ခုမှာ ယုံကြည်စိတ်ချရသော plugin ဖန်တီးသူများကို code ထည့်သွင်းထားသည့် certificate (လက်မှတ်)များထုတ်ပေးထားရန်ဖြစ်သည်။ ထို့နောက် plugin ကိုဖွင့်သောအခါ ၎င်းတွင်ပါရှိသော လက်မှတ် မှန်မမှန်စစ်ဆေးနိုင်မည်ဖြစ်သည်။ အကယ်၍ လိုအပ်ပါက အသုံးပြုသူအနေဖြင့် ရှိရင်း certificate management dialogs များအားအသုံးပြု၍ plugin နှင့်ဆက်စပ်သည့် လက်မှတ်အတွက် မယုံကြည်အပ်သော policy တစ်ခုကိုလည်း တိုက်ရိုက် သတ်မှတ်ထားနိုင်သည်။</p></li>
+<li><p>အခြားနည်းလမ်းတစ်ခုမှာ Python အား အထိခိုက်မခံသော authentication စနစ်မှ အချက်အလက်များသို့ မည်သည့်အခါမျှဝင်ရောက်ခွင့်မပြုပဲ QGIS ပင်မ widget များ အသုံးပြုခြင်းကိုသာ ခွင့်ပြုပေးထားခြင်း သို့မဟုတ် plugin အား authentication configuration တစ်ခုရှိသည့် အရင်းအမြစ်များနှင့်အလုပ်လုပ်ရန်အတွက် authentication စနစ်ပေါင်းစပ်ခြင်းများကို ပုံစံပွားခြင်း (duplicate) တို့ဖြစ်ပြီး ပင်မ app တွင်ထည့်သွင်းထားသော authentication config နှင့် မာစတာစကားဝှက်ကို ဆက်လက်ထားရှိမည်ဖြစ်သည်။</p></li>
+</ul>
+<p>လုံခြုံရေး ပူပန်စရာများသည် C++ plugin များအတွက် အတူတူပင်ဖြစ်သော်လည်း C++ တွင် Python ကဲ့သို့ အလွယ်တကူ ဖယ်ရှားရန် လွယ်ကူသော လုပ်ဆောင်မှု ပေါင်းစပ်ထားခြင်း မရှိသောကြောင့် ဝင်ရောက်မှုကို ကန့်သတ်ရန် ပိုမိုခက်ခဲမည်ဖြစ်သည်။</p>
+<section id="restrictions">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink"><span class="section-number">26.1. </span>ကန့်သတ်ချက်များ (Restrictions)</a><a class="headerlink" href="#restrictions" title="Link to this heading"></a></h2>
+<p>OpenSSL နှင့်ဆက်စပ်သည့် ရှုပ်ထွေးနေသော <a class="reference external" href="https://www.openssl.org/docs/faq.html">licensing and exporting</a> ပြဿနာများအတွက် အသုံးပြုပါသည်။ Qt သည် SSL လက်မှတ်များကို ကိုင်တွယ်အလုပ်လုပ်နိုင်ရန်အတွက် OpenSSL library များကို အသုံးပြုရပါမည်။ Qt ကို ပေါင်းစည်းပုံပေါ် မူတည်၍ ဆော့ဖ်ဝဲလည်ပတ်နေချိန်တွင် ပုံမှန်အားဖြင့် OpenSSL library များသို့ ချိတ်ဆက်ထားသည်။ (Export လုပ်ခြင်း ကန့်သတ်ချက်များကိုရှောင်ရှားရန်)</p>
+<p>QCA သည်လည်း အလားတူပင်ဖြစ်သည်၊ အဘယ့်ကြောင့်ဆိုသော် ဆော့ဖ်ဝဲလည်ပတ်နေချိန်တွင် qca-ossl (OpenSSL) plugin အား ဖွင့်ထားသောကြောင့် QCA နှင့်ချိတ်ဆက်သောအခါ   မည်သည့်ကန့်သတ်ချက်မျှ ပေါ်ပေါက်မည်မဟုတ်ပါ။ qca-ossl plugin ကို OpenSSL libs နှင့် တိုက်ရိုက်ချိတ်ဆက်ထားခြင်းဖြစ်သည်။ Packager (plugin ဖြန့်ဖြူးမည့်သူများ) များသည် plugin ဖြန့်ဖြူးရာတွင် OpenSSL ချိတ်ဆက်ခြင်းဆိုင်ရာ ကန့်သတ်ချက်များအတိုင်းဖြစ်စေရန် လိုအပ်သူများဖြစ်နိုင်ပါသည်။ ဖြစ်ကောင်းဖြစ်နိုင်ပါသည်။ ကျွန်ုပ်တကယ်မသိပါ။ ရှေ့နေတစ်ယောက်မဟုတ်၍သေချာမပြောနိုင်ပါ။</p>
+<p>ဆော့ဖ်ဝဲလည်ပတ်နေချိန်တွင် <code class="docutils literal notranslate"><span class="pre">qca-ossl</span></code> အားမတွေ့ပါက authentication စနစ်သည် ၎င်းဘာသာ လုံခြုံစွာပိတ်သွားမည်ဖြစ်သည်။</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="auth_workflows.html" class="btn btn-neutral float-left" title="25. အသုံးပြုသူ အထောက်အထားစစ်ဆေးခြင်း လုပ်ငန်းအဆင့်များ (User Authentication Workflows)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../grass_integration/grass_integration.html" class="btn btn-neutral float-right" title="27. GRASS GIS နှင့်ပေါင်းစပ်အသုံးပြုခြင်း (GRASS GIS Integration)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2002-now, QGIS project.
+      <span class="lastupdated">Last updated on 2024 May 13, 16:23 +0700.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- Transifex follows a particular logic to build target pages:
+Expected French translation link for https://docs.qgis.org/3.28/en/docs/user_manual/print_composer/overview_composer.html
+would return https://app.transifex.com/qgis/qgis-documentation/translate/#fr/aa6d8bc653526d38b295ca94bf8eee5e
+with the md5 value of "github#qgis/QGIS-Documentation#release_3.28#locale/en/LC_MESSAGES/docs/user_manual/print_composer/overview_composer.po"-->
+<!--Make sure that mismatching language codes between Transifex and Sphinx are converted-->
+
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-info-circle"> QGIS Documentation </span>
+      v: 3.28
+      <span class="fa fa-caret-down"></span>
+    </span>
+
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Languages</dt>
+        
+          <dd><a href="https://docs.qgis.org/3.28/en/docs/user_manual/auth_system/auth_considerations.html">en</a></dd>
+        
+      </dl>
+
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/user_manual/auth_system/auth_considerations.html">testing</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/latest/en/docs/user_manual/auth_system/auth_considerations.html">latest</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.28/en/docs/user_manual/auth_system/auth_considerations.html">3.28</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.22/en/docs/user_manual/auth_system/auth_considerations.html">3.22</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.16/en/docs/user_manual/auth_system/auth_considerations.html">3.16</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.10/en/docs/user_manual/auth_system/auth_considerations.html">3.10</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.4/en/docs/user_manual/auth_system/auth_considerations.html">3.4</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/2.18/en/docs/user_manual/auth_system/auth_considerations.html">2.18</a></dd>
+        
+      </dl>
+
+       
+       <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="https://docs.qgis.org/3.28/pdf">PDF</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.28/zip">HTML</a></dd>
+        
+      </dl>
+      
+
+      
+       
+      <dl>
+        <dt>Contribute to Docs</dt>
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/edit/master/docs/user_manual/auth_system/auth_considerations.rst" target="_blank" rel="noopener noreferrer">Edit on GitHub</a>
+          </dd>
+          
+          
+          <dd>
+            <a href="https://app.transifex.com/qgis/qgis-documentation/translate/#en/27794068d6f80d22736b602c74c72fcb" target="_blank" rel="noopener noreferrer">Translate Page</a>
+          </dd>
+          
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/issues" target="_blank" rel="noopener noreferrer">Report Issue</a>
+          </dd>
+      </dl>
+      
+
+      <dl>
+        <dt>On QGIS Project</dt>
+          <dd>
+            <a href="https://qgis.org/en" target="_blank" rel="noopener noreferrer">Home</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/api/3.28" target="_blank" rel="noopener noreferrer">C++ API</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/pyqgis/3.28" target="_blank" rel="noopener noreferrer">PyQGIS API</a>
+          </dd>
+          <dd>
+            <a href="https://github.com/qgis/QGIS/tree/release-3_28" target="_blank" rel="noopener noreferrer">Source</a>
+          </dd>
+      </dl>
+
+    </div>
+  </div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

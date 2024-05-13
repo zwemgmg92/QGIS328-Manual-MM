@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>35.4. နောက်ဆက်တွဲ (ဃ) - QGIS R script ဝါကျဖွဲ့ပုံ (Appendix D: QGIS R script syntax) &mdash; QGIS Documentation  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/qgis_docs.css?v=3fdf4c33" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/qgis_logo.ico"/>
+    <link rel="canonical" href="https://docs.qgis.org/latest/en/docs/user_manual/appendices/qgis_r_syntax.html"/>
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../../_static/copybutton.js?v=f281be69"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="35.5. နောက်ဆက်တွဲ (င) - QGIS Application ကွန်ရက် ချိတ်ဆက်မှုများ (Appendix E: QGIS Application Network Connections)" href="qgis_desktop_network_connections.html" />
+    <link rel="prev" title="35.3. နောက်ဆက်တွဲ (ဂ) - QGIS file အမျိုးအစားများ (Appendix C: QGIS File Formats)" href="qgis_file_formats.html" />
+  <meta name="description" content="QGIS 3.28 documentation: 35.4. နောက်ဆက်တွဲ (ဃ) - QGIS R script ဝါကျဖွဲ့ပုံ (Appendix D: QGIS R script syntax)">
+</head>
+
+<body class="wy-body-for-nav">
+
+  <nav class="release_status_topbar">
+  </nav>
+
+   
+
+ 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+   
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            QGIS Documentation
+              <img src="../../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                3.28
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+   <a href= "../../../genindex.html">Index</a>
+ 
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">အသုံးပြုသူများအတွက်</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../preamble/preamble.html">1. စကားချီး (Preamble)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/foreword.html">2. အမှာစာ (Foreword)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/conventions.html">3. အသုံးအနှုန်းများ (Conventions)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/features.html">4. အသွင်အပြင်များ (Features)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/getting_started.html">5. စတင်အသုံးပြုခြင်း (Getting Started)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/project_files.html">6. Project Files များနှင့် အလုပ်လုပ်ခြင်း (Working with Project Files)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/qgis_gui.html">7. QGIS ၏အစိတ်အပိုင်းများ (QGIS GUI)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/browser.html">8. ဒေတာများရှာဖွေကြည့်ရှုနိုင်သည့်နေရာ (The Browser panel)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/qgis_configuration.html">9. QGIS ပြင်ဆင်သတ်မှတ်ခြင်း/အခင်းအကျင်း (QGIS Configuration)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_projections/working_with_projections.html">10. မြေပုံအရိပ်ချစနစ်များ နှင့် အလုပ်လုပ်ခြင်း (Working with Projections)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../map_views/index.html">11. မြေပုံများအား ပုံဖော်ကြည့်ရှုခြင်း (Visualizing Maps)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/general_tools.html">12. အထွေ‌ထွေ‌သုံးကိရိယာများ (General Tools)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../expressions/index.html">13. Expression များဖြင့် အဆင့်မြှင့်တင်ဆောင်ရွက်ခြင်း (Level up with Expressions)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../style_library/index.html">14. The Style Library (Style နှင့်ပတ်သက်သည်များ ထားရှိရာနေရာ)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../managing_data_source/index.html">15. ဒေတာအရင်းအမြစ်များအား စီမံခန့်ခွဲခြင်း (Managing Data Source)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_vector/index.html">16. Vector data များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_raster/index.html">17. Raster Data နှင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_mesh/mesh_properties.html">18. Working with Mesh Data (Mesh Data များနှင့် အလုပ်လုပ်ခြင်း)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_vector_tiles/vector_tiles_properties.html">19. Vector Tiles များနှင့်အလုပ်လုပ်ခြင်း (Working with Vector Tiles)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_point_clouds/point_clouds.html">20. Point Cloud များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../print_composer/index.html">21. မြေပုံအချောသပ်ပြင်ဆင်ခြင်း (Laying out the maps)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_ogc/ogc_client_support.html">22. OGC / ISO protocol များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_gps/index.html">23. GPS Data များနှင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../auth_system/auth_overview.html">24. အထောက်အထားစီစစ်ခြင်းအကြောင်းအကျဉ်း (Authentication System Overview)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../auth_system/auth_workflows.html">25. အသုံးပြုသူ အထောက်အထားစစ်ဆေးခြင်း လုပ်ငန်းအဆင့်များ (User Authentication Workflows)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../auth_system/auth_considerations.html">26. လုံခြုံရေးအတွက်စဉ်းစားရန်အချက်များ (Security Considerations)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../grass_integration/grass_integration.html">27. GRASS GIS နှင့်ပေါင်းစပ်အသုံးပြုခြင်း (GRASS GIS Integration)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing/index.html">28. QGIS processing framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing_algs/index.html">29. Processing ဆိုင်ရာ ထောက်ပံ့ပေးသူများနှင့် Algorithm များ (Processing providers and algorithms)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/plugins.html">30. QGIS Plugin များ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/core_plugins/index.html">31. QGIS ပင်မ Plugin များကို အသုံးပြုခြင်း (Using QGIS Core Plugins)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/python_console.html">32. QGIS တွင် Python code များရေးသားရန်နေရာ (QGIS Python console)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/help_and_support.html">33. အကူအညီနှင့်အထောက်အပံ့ (Help and Support)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/contributors.html">34. ပါဝင်အားဖြည့်သူများ (Contributors)</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">35. နောက်ဆက်တွဲများ (Appendices)</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="GNU_GPL.html">35.1. နောက်ဆက်တွဲ (က) - GNU အထွေထွေ အများပြည်သူသုံးလိုင်စင် (Appendix A: GNU General Public License)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GNU_FDL.html">35.2. နောက်ဆက်တွဲ (ခ) - GNU အခမဲ့ စာရွက်စာတမ်း လိုင်စင် (Appendix B: GNU Free Documentation Licens)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qgis_file_formats.html">35.3. နောက်ဆက်တွဲ (ဂ) - QGIS file အမျိုးအစားများ (Appendix C: QGIS File Formats)</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">35.4. နောက်ဆက်တွဲ (ဃ) - QGIS R script ဝါကျဖွဲ့ပုံ (Appendix D: QGIS R script syntax)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#input-types">35.4.1. ထည့်သွင်းအသုံးပြုမည့်အရာများ (Input types)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#outputs">35.4.2. ရလာဒ်များ (Outputs)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#qgis-r-script-syntax-syntax-summary-for-qgis-r-scripts">35.4.3. QGIS R script များအတွက် Syntax အနှစ်ချုပ် (Syntax Summary for QGIS R scripts)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#input-parameter">35.4.3.1. Input parameter အမျိုးအစားများ</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#parameter">35.4.3.2. ရလာဒ် parameter အမျိုးအစားများ</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#script-script-body">35.4.3.3. ပင်မ Script အပိုင်း (Script body)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#index-2">35.4.4. ဥပမာများ</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#vector-output">35.4.4.1. Vector output ဥပမာ</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#raster-output">35.4.4.2. Raster output ဥပမာ</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#example-with-table-output">35.4.4.3. ဇယားရလာဒ် ဥပမာ (Example with Table output)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#console-output">35.4.4.4. Console output ဥပမာ</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot">35.4.4.5. Plot ဥပမာ</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="qgis_desktop_network_connections.html">35.5. နောက်ဆက်တွဲ (င) - QGIS Application ကွန်ရက် ချိတ်ဆက်မှုများ (Appendix E: QGIS Application Network Connections)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../literature_web/literature_and_web_references.html">36. စာတမ်းများနှင့် Website ကိုးကားချက်များ (Literature and Web References)</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">QGIS Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">&lt;no title&gt;</a></li>
+          <li class="breadcrumb-item"><a href="index.html"><span class="section-number">35. </span>နောက်ဆက်တွဲများ (Appendices)</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">35.4. </span>နောက်ဆက်တွဲ (ဃ) - QGIS R script ဝါကျဖွဲ့ပုံ (Appendix D: QGIS R script syntax)</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/qgis/QGIS-Documentation/blob/master/docs/user_manual/appendices/qgis_r_syntax.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="qgis_file_formats.html" class="btn btn-neutral float-left" title="35.3. နောက်ဆက်တွဲ (ဂ) - QGIS file အမျိုးအစားများ (Appendix C: QGIS File Formats)" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="qgis_desktop_network_connections.html" class="btn btn-neutral float-right" title="35.5. နောက်ဆက်တွဲ (င) - QGIS Application ကွန်ရက် ချိတ်ဆက်မှုများ (Appendix E: QGIS Application Network Connections)" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <blockquote>
+<div></div></blockquote>
+<section id="qgis-r-script-appendix-d-qgis-r-script-syntax">
+<span id="r-syntax"></span><span id="index-0"></span><h1><span class="section-number">35.4. </span>နောက်ဆက်တွဲ (ဃ) - QGIS R script ဝါကျဖွဲ့ပုံ (Appendix D: QGIS R script syntax)<a class="headerlink" href="#qgis-r-script-appendix-d-qgis-r-script-syntax" title="Link to this heading"></a></h1>
+<p>Matteo Ghetta မှ ပါဝင်ကူညီထားပြီး <a class="reference external" href="https://www.santannapisa.it/en/istituto/scienze-della-vita/istituto-di-scienze-della-vita">Scuola Superiore Sant’Anna</a> မှ ငွေကြေးထောက်ပံ့ပေးထားပါသည်။</p>
+<p>လုပ်ငန်းဆောင်တာများလုပ်ဆောင်ခြင်း (Processing) တွင် R script များရေးသားခြင်းသည် အထူးဝါကျရေးဖွဲ့ပုံ (special syntax) များကြောင့် အနည်းငယ်ရှုပ်ထွေးပါသည်။</p>
+<p>Processing R script တစ်ခုသည် ၎င်း၏ <strong>Inputs (ထည့်သွင်းချက်များ)</strong> နှင့် <strong>Outputs (ရလာဒ်များ)</strong> ကို သတ်မှတ်ပေးခြင်းနှင့်စတင်ပြီး တစ်ခုချင်းစီ၏ရှေ့တွင် (<code class="docutils literal notranslate"><span class="pre">##</span></code>) သင်္ကေတများပါဝင်ပါသည်။</p>
+<p>Input များ မစတင်မီတွင် algorithm ထားရှိမည့် အုပ်စုကို သတ်မှတ်ပေးနိုင်ပါသည်။ အုပ်စုသည် ရှိနေပြီးသားဖြစ်လျှင် algorithm ကို ၎င်းရှိပြီးသား အုပ်စုထဲသို့ ပေါင်းထည့်သွားမည်ဖြစ်ပြီး မရှိသေးလျှင် အုပ်စုကို ဖန်တီးပါလိမ့်မည်။ အောက်ဖော်ပြပါ ဥပမာတွင် အုပ်စု၏အမည်သည် <em>My group</em> ဖြစ်ပါသည်-</p>
+<p><code class="docutils literal notranslate"><span class="pre">##My</span> <span class="pre">Group=group</span></code></p>
+<section id="input-types">
+<h2><span class="section-number">35.4.1. </span>ထည့်သွင်းအသုံးပြုမည့်အရာများ (Input types)<a class="headerlink" href="#input-types" title="Link to this heading"></a></h2>
+<p>ထည့်သွင်းမည့် data နှင့် parameter (သတ်မှတ်ချက်) များအားလုံးကို သီးခြားသတ်မှတ်ပေးရပါမည်။ Input အမျိုးအစား များစွာရှိပါသည်-</p>
+<ul class="simple">
+<li><p>vector: <code class="docutils literal notranslate"><span class="pre">##Layer</span> <span class="pre">=</span> <span class="pre">vector</span></code></p></li>
+<li><p>vector field: <code class="docutils literal notranslate"><span class="pre">##F</span> <span class="pre">=</span> <span class="pre">Field</span> <span class="pre">Layer</span></code> (<cite>Layer</cite> သည် field နှင့်သက်ဆိုင်သည့် input vector layer ၏ အမည်ဖြစ်သည်)</p></li>
+<li><p>raster: <code class="docutils literal notranslate"><span class="pre">##r</span> <span class="pre">=</span> <span class="pre">raster</span></code></p></li>
+<li><p>table (ဇယား): <code class="docutils literal notranslate"><span class="pre">##t</span> <span class="pre">=</span> <span class="pre">table</span></code></p></li>
+<li><p>number (ကိန်းဂဏန်း): <code class="docutils literal notranslate"><span class="pre">##Num</span> <span class="pre">=</span> <span class="pre">number</span></code></p></li>
+<li><p>string (စာသား): <code class="docutils literal notranslate"><span class="pre">##Str</span> <span class="pre">=</span> <span class="pre">string</span></code></p></li>
+<li><p>boolean (အမှန်/အမှား): <code class="docutils literal notranslate"><span class="pre">##Bol</span> <span class="pre">=</span> <span class="pre">boolean</span></code></p></li>
+<li><p>Drop down (ရွေးချယ်ရန်စရာ) menu ထဲရှိ element များ။ Item များကို semicolons <code class="docutils literal notranslate"><span class="pre">;</span></code> ဖြင့် ပိုင်းခြားထားရမည်ဖြစ်သည်: <code class="docutils literal notranslate"><span class="pre">##type=selection</span> <span class="pre">point;lines;point+lines</span></code></p></li>
+</ul>
+</section>
+<section id="outputs">
+<h2><span class="section-number">35.4.2. </span>ရလာဒ်များ (Outputs)<a class="headerlink" href="#outputs" title="Link to this heading"></a></h2>
+<p>Input များအတွက်ကဲ့သို့ပင် output (ရလာဒ်) တစ်ခုချင်းစီကို Script ၏အစပိုင်းတွင် သတ်မှတ်ပေးထားရမည်ဖြစ်သည်-</p>
+<ul class="simple">
+<li><p>vector: <code class="docutils literal notranslate"><span class="pre">##output=</span> <span class="pre">output</span> <span class="pre">vector</span></code></p></li>
+<li><p>raster: <code class="docutils literal notranslate"><span class="pre">##output=</span> <span class="pre">output</span> <span class="pre">raster</span></code></p></li>
+<li><p>table (ဇယား): <code class="docutils literal notranslate"><span class="pre">##output=</span> <span class="pre">output</span> <span class="pre">table</span></code></p></li>
+<li><p>plots (အကွက်များ): <code class="docutils literal notranslate"><span class="pre">##output_plots_to_html</span></code> (အစောပိုင်း version များတွင် ##showplots ဖြစ်သည်)</p></li>
+<li><p><em>Result Viewer</em> (ရလာဒ်ကြည့်ရှုသည့်နေရာ) ထဲတွင် R output များကိုပြသရန်အတွက် ပြသလိုသည့် output ၏ command ရှေ့တွင် <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> ကိုထည့်ပေးပါ။</p></li>
+</ul>
+</section>
+<section id="qgis-r-script-syntax-syntax-summary-for-qgis-r-scripts">
+<span id="r-syntax-table"></span><span id="index-1"></span><h2><span class="section-number">35.4.3. </span>QGIS R script များအတွက် Syntax အနှစ်ချုပ် (Syntax Summary for QGIS R scripts)<a class="headerlink" href="#qgis-r-script-syntax-syntax-summary-for-qgis-r-scripts" title="Link to this heading"></a></h2>
+<p>Input နှင့် output parameter အမျိုးအစားများစွာ ရှိပါသည်။</p>
+<section id="input-parameter">
+<h3><span class="section-number">35.4.3.1. </span>Input parameter အမျိုးအစားများ<a class="headerlink" href="#input-parameter" title="Link to this heading"></a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Syntax ဥပမာ</p></th>
+<th class="head"><p>ပြန်လည်ရရှိလာမည့် object များ</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>vector</p></td>
+<td><p>Layer = vector</p></td>
+<td><p>sf object (သို့မဟုတ် SpatialDataFrame object ၊ ##load_vector_using_rgdal ကို သီးခြားသတ်မှတ်ထားလျှင်)</p></td>
+</tr>
+<tr class="row-odd"><td><p>vector point</p></td>
+<td><p>Layer = vector point</p></td>
+<td><p>sf object (သို့မဟုတ် SpatialDataFrame object ၊ ##load_vector_using_rgdal ကို သီးခြားသတ်မှတ်ထားလျှင်)</p></td>
+</tr>
+<tr class="row-even"><td><p>vector line</p></td>
+<td><p>Layer = vector line</p></td>
+<td><p>sf object (သို့မဟုတ် SpatialDataFrame object ၊ ##load_vector_using_rgdal ကို သီးခြားသတ်မှတ်ထားလျှင်)</p></td>
+</tr>
+<tr class="row-odd"><td><p>vector polygon</p></td>
+<td><p>Layer = vector polygon</p></td>
+<td><p>sf object (သို့မဟုတ် SpatialPolygonsDataFrame object ၊ ##load_vector_using_rgdal ကို သီးခြားသတ်မှတ်ထားလျှင်)</p></td>
+</tr>
+<tr class="row-even"><td><p>multiple vector</p></td>
+<td><p>Layer = multiple vector</p></td>
+<td><p>sf object (သို့မဟုတ် SpatialDataFrame objects ၊ ##load_vector_using_rgdal ကို သီးခြားသတ်မှတ်ထားလျှင်)</p></td>
+</tr>
+<tr class="row-odd"><td><p>table</p></td>
+<td><p>Layer = table</p></td>
+<td><p>CSV မှ dataframe သို့ပြောင်းလဲခြင်း ၊ <code class="docutils literal notranslate"><span class="pre">read.csv</span></code> function ၏ ပုံမှန် object</p></td>
+</tr>
+<tr class="row-even"><td><p>field</p></td>
+<td><p>Field = Field Layer</p></td>
+<td><p>ရွေးချယ်ထားသော Field ၏အမည် ၊ ဥပမာ- <code class="docutils literal notranslate"><span class="pre">&quot;Area&quot;</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>raster</p></td>
+<td><p>Layer = raster</p></td>
+<td><p>RasterBrick object ၊ <code class="docutils literal notranslate"><span class="pre">raster</span></code> package ၏ ပုံမှန် object</p></td>
+</tr>
+<tr class="row-even"><td><p>multiple raster</p></td>
+<td><p>Layer = multiple raster</p></td>
+<td><p>RasterBrick objects ၊ <code class="docutils literal notranslate"><span class="pre">raster</span></code> package ၏ ပုံမှန် object</p></td>
+</tr>
+<tr class="row-odd"><td><p>number</p></td>
+<td><p>N = number</p></td>
+<td><p>ရွေးချယ်ထားသော integer (ကိန်းပြည့်) သို့မဟုတ် floating (ဒဿမကိန်း) ဂဏန်း</p></td>
+</tr>
+<tr class="row-even"><td><p>string</p></td>
+<td><p>S = string</p></td>
+<td><p>Box ထဲတွင် ထည့်သွင်းထားသော စာသား</p></td>
+</tr>
+<tr class="row-odd"><td><p>longstring</p></td>
+<td><p>LS = longstring</p></td>
+<td><p>Box ထဲတွင် ထည့်သွင်းထားသော စာသား ၊ ပုံမှန်စာသားထက် ပိုမိုရှည်နိုင်သည်</p></td>
+</tr>
+<tr class="row-even"><td><p>selection</p></td>
+<td><p>S = selection first;second;third</p></td>
+<td><p>Dropdown menu ထဲတွင် ရွေးချယ်ထားသော item ၏ စာသား</p></td>
+</tr>
+<tr class="row-odd"><td><p>crs</p></td>
+<td><p>C = crs</p></td>
+<td><p>ရွေးချယ်ထားသော CRS ၏စာသား ။ <code class="docutils literal notranslate"><span class="pre">&quot;EPSG:4326&quot;</span></code> format ဖြင့်</p></td>
+</tr>
+<tr class="row-even"><td><p>extent</p></td>
+<td><p>E = extent</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">raster</span></code> package ၏ extent ၊ <code class="docutils literal notranslate"><span class="pre">E&#64;xmin</span></code> အနေဖြင့် တန်ဖိုးကို ထုတ်ယူနိုင်သည်</p></td>
+</tr>
+<tr class="row-odd"><td><p>point</p></td>
+<td><p>P = point</p></td>
+<td><p>မြေပုံပေါ်တွင် click နှိပ်သောအခါ point ၏ ကိုဩဒိနိတ်ကို ရရှိမည်ဖြစ်သည်</p></td>
+</tr>
+<tr class="row-even"><td><p>file</p></td>
+<td><p>F = file</p></td>
+<td><p>ရွေးချယ်ထားသော ဖိုင်လမ်းကြောင်း ၊ ဥပမာ- “/home/matteo/file.txt”</p></td>
+</tr>
+<tr class="row-odd"><td><p>folder</p></td>
+<td><p>F = folder</p></td>
+<td><p>ရွေးချယ်ထားသော folder လမ်းကြောင်း ၊ ဥပမာ- “/home/matteo/Downloads”</p></td>
+</tr>
+</tbody>
+</table>
+<p>Parameter တစ်ခုသည် <strong>OPTIONAL</strong> (ရွေးချယ်ခွင့်ရှိသော) ဖြစ်နိုင်သည်။ ဆိုလိုသည်မှာ မည်သည့်အရာမှ မရွေးချယ်ပဲ လျစ်လျူရှုထားနိုင်သည်။</p>
+<p>Input တစ်ခုကို optional အနေဖြင့် သတ်မှတ်ရန်အတွက် input ရှေ့တွင် <code class="docutils literal notranslate"><span class="pre">optional</span></code> စာသားကို ထည့်ပေးပါ။ ဥပမာ-</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">##Layer = vector</span>
+<span class="c1">##Field1 = Field Layer</span>
+<span class="c1">##Field2 = optional Field Layer</span>
+</pre></div>
+</div>
+</section>
+<section id="parameter">
+<h3><span class="section-number">35.4.3.2. </span>ရလာဒ် parameter အမျိုးအစားများ<a class="headerlink" href="#parameter" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Syntax ဥပမာ</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>vector</p></td>
+<td><p>Output = output vector</p></td>
+</tr>
+<tr class="row-odd"><td><p>raster</p></td>
+<td><p>Output = output raster</p></td>
+</tr>
+<tr class="row-even"><td><p>table</p></td>
+<td><p>Output = output table</p></td>
+</tr>
+<tr class="row-odd"><td><p>file</p></td>
+<td><p>Output = output file</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Plot များကို <em>Processing Result Viewer</em> မှတဆင့် <code class="docutils literal notranslate"><span class="pre">png</span></code> အနေဖြင့် သိမ်းဆည်းနိုင်ပါသည်၊ သို့မဟုတ် algorithm interface (မျက်နှာပြင်) မှ plot များကို တိုက်ရိုက်သိမ်းဆည်းနိုင်ပါသည်။</p>
+</div>
+</section>
+<section id="script-script-body">
+<h3><span class="section-number">35.4.3.3. </span>ပင်မ Script အပိုင်း (Script body)<a class="headerlink" href="#script-script-body" title="Link to this heading"></a></h3>
+<p>Script body သည် R syntax အတိုင်းလုပ်ဆောင်ပြီး script နှင့်ပတ်သက်ပြီး အမှားတစ်စုံတရာ ရှိမရှိကို <strong>Log</strong> panel တွင်ကြည့်ရှုနိုင်ပါသည်။</p>
+<p>Script ထဲတွင် ထပ်ဆောင်း library များအားလုံးကို ထည့်သွင်းထားရမည်ကို <strong>သတိရပါ</strong>။</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">library</span><span class="p">(</span><span class="n">sp</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="index-2">
+<span id="id1"></span><h2><span class="section-number">35.4.4. </span>ဥပမာများ<a class="headerlink" href="#index-2" title="Link to this heading"></a></h2>
+<section id="vector-output">
+<h3><span class="section-number">35.4.4.1. </span>Vector output ဥပမာ<a class="headerlink" href="#vector-output" title="Link to this heading"></a></h3>
+<p>Input layer တစ်ခု၏ extent (အကျယ်အဝန်းအတိုင်းအတာ) မှ ကျပန်း point များကို ဖန်တီးပေးမည့် online မှ algorithm တစ်ခုကို ယူသုံးကြည့်ကြပါစို့-</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">##Point pattern analysis=group</span>
+<span class="c1">##Layer=vector polygon</span>
+<span class="c1">##Size=number 10</span>
+<span class="c1">##Output=output vector</span>
+<span class="n">library</span><span class="p">(</span><span class="n">sp</span><span class="p">)</span>
+<span class="n">spatpoly</span> <span class="o">=</span> <span class="k">as</span><span class="p">(</span><span class="n">Layer</span><span class="p">,</span> <span class="s2">&quot;Spatial&quot;</span><span class="p">)</span>
+<span class="n">pts</span><span class="o">=</span><span class="n">spsample</span><span class="p">(</span><span class="n">spatpoly</span><span class="p">,</span><span class="n">Size</span><span class="p">,</span><span class="nb">type</span><span class="o">=</span><span class="s2">&quot;random&quot;</span><span class="p">)</span>
+<span class="n">spdf</span><span class="o">=</span><span class="n">SpatialPointsDataFrame</span><span class="p">(</span><span class="n">pts</span><span class="p">,</span> <span class="k">as</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">frame</span><span class="p">(</span><span class="n">pts</span><span class="p">))</span>
+<span class="n">Output</span><span class="o">=</span><span class="n">st_as_sf</span><span class="p">(</span><span class="n">spdf</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>ရှင်းလင်းချက် (Script ထဲရှိ လိုင်းတစ်ကြောင်းချင်းစီအတွက်)-</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Point</span> <span class="pre">pattern</span> <span class="pre">analysis</span></code> သည် algorithm ၏အုပ်စုဖြစ်သည်။</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Layer</span></code> သည် input <strong>vector</strong> layer ဖြစ်သည်။</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Size</span></code> သည် ပုံသေတန်ဖိုးအနေဖြင့် ၁၀ ဖြစ်သော <strong>numerical (ကိန်းဂဏန်း)</strong> parameter တစ်ခုဖြစ်သည်။</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Output</span></code> သည် algorithm မှ ဖန်တီးပေးမည့် <strong>vector</strong> layer ဖြစ်သည်။</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">library(sp)</span></code> သည် <strong>sp</strong> ဟုခေါ်သော library ကိုထည့်သွင်းခြင်းဖြစ်သည်။</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">spatpoly</span> <span class="pre">=</span> <span class="pre">as(Layer,</span> <span class="pre">&quot;Spatial&quot;)</span></code> သည် sp object တစ်ခုသို့ ဘာသာပြန်ဆိုခြင်းဖြစ်သည်။</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sp</span></code> library ၏ <code class="docutils literal notranslate"><span class="pre">spsample</span></code> function ကိုခေါ်ယူပြီး အထက်တွင်သတ်မှတ်ထားသော input များ (<code class="docutils literal notranslate"><span class="pre">Layer</span></code> နှင့် <code class="docutils literal notranslate"><span class="pre">Size</span></code>) ကိုအသုံးပြု၍ လုပ်ဆောင် (run) စေသည်။</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SpatialPointsDataFrame</span></code> function ကိုအသုံးပြု၍ <em>SpatialPointsDataFrame</em> object တစ်ခုကို ဖန်တီးပါသည်။</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">st_as_sf</span></code> function ကိုအသုံးပြု၍ output vector layer ကိုဖန်တီးပါသည်။</p></li>
+</ol>
+<p>ဒါပါပဲ။ QGIS legend (ရည်ညွှန်းချက်) ထဲရှိ vector layer တစ်ခုဖြင့် algorithm ကို run ပြီး ကျပန်း point အရေအတွက်ကို ရွေးချယ်ပေးပါ။ ထွက်ရှိလာသော ရလာဒ် layer ကို မြေပုံထဲသို့ ထည့်သွင်းပေးပါလိမ့်မည်။</p>
+</section>
+<section id="raster-output">
+<h3><span class="section-number">35.4.4.2. </span>Raster output ဥပမာ<a class="headerlink" href="#raster-output" title="Link to this heading"></a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">automap</span></code> R package ၏ <code class="docutils literal notranslate"><span class="pre">autoKrige</span></code> function ကို အသုံးပြုပြီး input point vector layer ၏ သီးခြား field တစ်ခုမှ interpolate  (ရှိပြီးသားတန်ဖိုးများကိုသုံး၍မရှိသေးသောတန်ဖိုးများကိုတွက်ထုတ်ပေးသော) လုပ်ထားသောတန်ဖိုးများ၏ raster မြေပုံတစ်ခုကို ဖန်တီးရန် အောက်ဖော်ပြပါ script သည် အခြေခံ ordinay kriging ကို လုပ်ဆောင်ပေးပါလိမ့်မည်-</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>##Basic statistics=group
+##Layer=vector point
+##Field=Field Layer
+##Output=output raster
+##load_vector_using_rgdal
+require(&quot;automap&quot;)
+require(&quot;sp&quot;)
+require(&quot;raster&quot;)
+table=as.data.frame(Layer)
+coordinates(table)= ~coords.x1+coords.x2
+c = Layer[[Field]]
+kriging_result = autoKrige(c~1, table)
+prediction = raster(kriging_result$krige_output)
+Output&lt;-prediction
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">##load_vector_using_rgdal</span></code> ကိုအသုံးပြုခြင်းအားဖြင့် input vector layer ကို <code class="docutils literal notranslate"><span class="pre">SpatialDataFrame</span></code> object တစ်ခုအနေဖြင့် ရရှိစေမည်ဖြစ်သောကြောင့် ၎င်းကို <code class="docutils literal notranslate"><span class="pre">sf</span></code> object တစ်ခုမှ ဘာသာပြန်ဆိုခြင်းအားလုပ်ဆောင်ရန်မလိုအပ်တော့ပါ။</p>
+</section>
+<section id="example-with-table-output">
+<h3><span class="section-number">35.4.4.3. </span>ဇယားရလာဒ် ဥပမာ (Example with Table output)<a class="headerlink" href="#example-with-table-output" title="Link to this heading"></a></h3>
+<p>Output သည် table file (csv) တစ်ခုဖြစ်စေရန်အလို့ငှာ <code class="docutils literal notranslate"><span class="pre">Summary</span> <span class="pre">Statistics</span></code> algorithm ကို ပြင်ဆင်ကြည့်ကြပါစို့။</p>
+<p>Script body သည် အောက်ပါအတိုင်းဖြစ်သည်-</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">##Basic statistics=group</span>
+<span class="c1">##Layer=vector</span>
+<span class="c1">##Field=Field Layer</span>
+<span class="c1">##Stat=Output table</span>
+<span class="n">Summary_statistics</span><span class="o">&lt;-</span><span class="n">data</span><span class="o">.</span><span class="n">frame</span><span class="p">(</span><span class="n">rbind</span><span class="p">(</span>
+    <span class="nb">sum</span><span class="p">(</span><span class="n">Layer</span><span class="p">[[</span><span class="n">Field</span><span class="p">]]),</span>
+    <span class="n">length</span><span class="p">(</span><span class="n">Layer</span><span class="p">[[</span><span class="n">Field</span><span class="p">]]),</span>
+    <span class="n">length</span><span class="p">(</span><span class="n">unique</span><span class="p">(</span><span class="n">Layer</span><span class="p">[[</span><span class="n">Field</span><span class="p">]])),</span>
+    <span class="nb">min</span><span class="p">(</span><span class="n">Layer</span><span class="p">[[</span><span class="n">Field</span><span class="p">]]),</span>
+    <span class="nb">max</span><span class="p">(</span><span class="n">Layer</span><span class="p">[[</span><span class="n">Field</span><span class="p">]]),</span>
+    <span class="nb">max</span><span class="p">(</span><span class="n">Layer</span><span class="p">[[</span><span class="n">Field</span><span class="p">]])</span><span class="o">-</span><span class="nb">min</span><span class="p">(</span><span class="n">Layer</span><span class="p">[[</span><span class="n">Field</span><span class="p">]]),</span>
+    <span class="n">mean</span><span class="p">(</span><span class="n">Layer</span><span class="p">[[</span><span class="n">Field</span><span class="p">]]),</span>
+    <span class="n">median</span><span class="p">(</span><span class="n">Layer</span><span class="p">[[</span><span class="n">Field</span><span class="p">]]),</span>
+    <span class="n">sd</span><span class="p">(</span><span class="n">Layer</span><span class="p">[[</span><span class="n">Field</span><span class="p">]])),</span>
+  <span class="n">row</span><span class="o">.</span><span class="n">names</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="s2">&quot;Sum:&quot;</span><span class="p">,</span><span class="s2">&quot;Count:&quot;</span><span class="p">,</span><span class="s2">&quot;Unique values:&quot;</span><span class="p">,</span><span class="s2">&quot;Minimum value:&quot;</span><span class="p">,</span><span class="s2">&quot;Maximum value:&quot;</span><span class="p">,</span><span class="s2">&quot;Range:&quot;</span><span class="p">,</span><span class="s2">&quot;Mean value:&quot;</span><span class="p">,</span><span class="s2">&quot;Median value:&quot;</span><span class="p">,</span><span class="s2">&quot;Standard deviation:&quot;</span><span class="p">))</span>
+<span class="n">colnames</span><span class="p">(</span><span class="n">Summary_statistics</span><span class="p">)</span><span class="o">&lt;-</span><span class="n">c</span><span class="p">(</span><span class="n">Field</span><span class="p">)</span>
+<span class="n">Stat</span><span class="o">&lt;-</span><span class="n">Summary_statistics</span>
+</pre></div>
+</div>
+<p>တတိယမြောက်စာကြောင်းသည် input ထဲရှိ <strong>Vector Field</strong> ကိုသတ်မှတ်ခြင်းဖြစ်ပြီး စတုတ္ထစာကြောင်းသည် algorithm ၏ output သည် table တစ်ခုဖြစ်သင့်ကြောင်း ပြောခြင်းဖြစ်သည်။</p>
+<p>နောက်ဆုံးစာကြောင်းသည် script မှ ဖန်တီးထားသော <code class="docutils literal notranslate"><span class="pre">Stat</span></code> object ကိုယူ၍ <code class="docutils literal notranslate"><span class="pre">csv</span></code> table အဖြစ်သို့ ပြောင်းလဲပေးမည်ဖြစ်သည်။</p>
+</section>
+<section id="console-output">
+<h3><span class="section-number">35.4.4.4. </span>Console output ဥပမာ<a class="headerlink" href="#console-output" title="Link to this heading"></a></h3>
+<p>အရှေ့ ဥပမာကို အသုံးပြု၍ table တစ်ခုဖန်တီးမည့်အစား <strong>Result Viewer</strong> ထဲတွင် ရလာဒ်ကို print ပြုလုပ်နိုင်ပါသည်-</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">##Basic statistics=group</span>
+<span class="c1">##Layer=vector</span>
+<span class="c1">##Field=Field Layer</span>
+<span class="n">Summary_statistics</span><span class="o">&lt;-</span><span class="n">data</span><span class="o">.</span><span class="n">frame</span><span class="p">(</span><span class="n">rbind</span><span class="p">(</span>
+<span class="nb">sum</span><span class="p">(</span><span class="n">Layer</span><span class="p">[[</span><span class="n">Field</span><span class="p">]]),</span>
+<span class="n">length</span><span class="p">(</span><span class="n">Layer</span><span class="p">[[</span><span class="n">Field</span><span class="p">]]),</span>
+<span class="n">length</span><span class="p">(</span><span class="n">unique</span><span class="p">(</span><span class="n">Layer</span><span class="p">[[</span><span class="n">Field</span><span class="p">]])),</span>
+<span class="nb">min</span><span class="p">(</span><span class="n">Layer</span><span class="p">[[</span><span class="n">Field</span><span class="p">]]),</span>
+<span class="nb">max</span><span class="p">(</span><span class="n">Layer</span><span class="p">[[</span><span class="n">Field</span><span class="p">]]),</span>
+<span class="nb">max</span><span class="p">(</span><span class="n">Layer</span><span class="p">[[</span><span class="n">Field</span><span class="p">]])</span><span class="o">-</span><span class="nb">min</span><span class="p">(</span><span class="n">Layer</span><span class="p">[[</span><span class="n">Field</span><span class="p">]]),</span>
+<span class="n">mean</span><span class="p">(</span><span class="n">Layer</span><span class="p">[[</span><span class="n">Field</span><span class="p">]]),</span>
+<span class="n">median</span><span class="p">(</span><span class="n">Layer</span><span class="p">[[</span><span class="n">Field</span><span class="p">]]),</span>
+<span class="n">sd</span><span class="p">(</span><span class="n">Layer</span><span class="p">[[</span><span class="n">Field</span><span class="p">]])),</span><span class="n">row</span><span class="o">.</span><span class="n">names</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="s2">&quot;Sum:&quot;</span><span class="p">,</span><span class="s2">&quot;Count:&quot;</span><span class="p">,</span><span class="s2">&quot;Unique values:&quot;</span><span class="p">,</span><span class="s2">&quot;Minimum value:&quot;</span><span class="p">,</span><span class="s2">&quot;Maximum value:&quot;</span><span class="p">,</span><span class="s2">&quot;Range:&quot;</span><span class="p">,</span><span class="s2">&quot;Mean value:&quot;</span><span class="p">,</span><span class="s2">&quot;Median value:&quot;</span><span class="p">,</span><span class="s2">&quot;Standard deviation:&quot;</span><span class="p">))</span>
+<span class="n">colnames</span><span class="p">(</span><span class="n">Summary_statistics</span><span class="p">)</span><span class="o">&lt;-</span><span class="n">c</span><span class="p">(</span><span class="n">Field</span><span class="p">)</span>
+<span class="o">&gt;</span><span class="n">Summary_statistics</span>
+</pre></div>
+</div>
+<p>Script တွင် ပြင်ဆင်မှု နှစ်ခုပြုလုပ်သည်မှလွဲ၍ အထက်ဖော်ပြပါ script နှင့်တထပ်တည်းဖြစ်ပါသည်-</p>
+<ol class="arabic simple">
+<li><p>Output ကိုသီးခြားမသတ်မှတ်ထားပါ (စတုတ္ထမြောက်စာကြောင်းကို ဖယ်ရှားလိုက်ပါသည်)</p></li>
+<li><p>နောက်ဆုံးစာကြောင်းကို <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> ဖြင့် အစပြုထားပါသည်။ Result viewer ထဲတွင် output ကို ကြည့်ရှုနိုင်စေရန်အတွက် Processing (လုပ်ဆောင်မှု) ကို ခိုင်းစေလိုက်ခြင်းဖြစ်ပါသည်။</p></li>
+</ol>
+</section>
+<section id="plot">
+<h3><span class="section-number">35.4.4.5. </span>Plot ဥပမာ<a class="headerlink" href="#plot" title="Link to this heading"></a></h3>
+<p>Plot များဖန်တီးရန် အောက်ဖော်ပြပါ script အတိုင်း <code class="docutils literal notranslate"><span class="pre">##output_plots_to_html</span></code> parameter ကို အသုံးပြုရပါမည်-</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">##Basic statistics=group</span>
+<span class="c1">##Layer=vector</span>
+<span class="c1">##Field=Field Layer</span>
+<span class="c1">##output_plots_to_html</span>
+<span class="c1">####output_plots_to_html</span>
+<span class="n">qqnorm</span><span class="p">(</span><span class="n">Layer</span><span class="p">[[</span><span class="n">Field</span><span class="p">]])</span>
+<span class="n">qqline</span><span class="p">(</span><span class="n">Layer</span><span class="p">[[</span><span class="n">Field</span><span class="p">]])</span>
+</pre></div>
+</div>
+<p>Script သည် input အနေဖြင့် vector layer (<code class="docutils literal notranslate"><span class="pre">Layer</span></code>) တစ်ခု၏ field (<code class="docutils literal notranslate"><span class="pre">Field</span></code>) တစ်ခုကို အသုံးပြုပြီး <em>QQ Plot</em> တစ်ခုကို ဖန်တီးပေးပါသည်။ (ပြန့်နှံ့မှု ပုံမှန်ဖြစ်မဖြစ် (Normality of the distribution) ကို စမ်းသပ်ရန်)</p>
+<p>Processing <em>Result Viewer</em> ထဲတွင် plot ကို အလိုအလျောက်ထည့်သွင်းပေးသွားပါသည်။</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="qgis_file_formats.html" class="btn btn-neutral float-left" title="35.3. နောက်ဆက်တွဲ (ဂ) - QGIS file အမျိုးအစားများ (Appendix C: QGIS File Formats)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="qgis_desktop_network_connections.html" class="btn btn-neutral float-right" title="35.5. နောက်ဆက်တွဲ (င) - QGIS Application ကွန်ရက် ချိတ်ဆက်မှုများ (Appendix E: QGIS Application Network Connections)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2002-now, QGIS project.
+      <span class="lastupdated">Last updated on 2024 May 13, 16:23 +0700.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- Transifex follows a particular logic to build target pages:
+Expected French translation link for https://docs.qgis.org/3.28/en/docs/user_manual/print_composer/overview_composer.html
+would return https://app.transifex.com/qgis/qgis-documentation/translate/#fr/aa6d8bc653526d38b295ca94bf8eee5e
+with the md5 value of "github#qgis/QGIS-Documentation#release_3.28#locale/en/LC_MESSAGES/docs/user_manual/print_composer/overview_composer.po"-->
+<!--Make sure that mismatching language codes between Transifex and Sphinx are converted-->
+
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-info-circle"> QGIS Documentation </span>
+      v: 3.28
+      <span class="fa fa-caret-down"></span>
+    </span>
+
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Languages</dt>
+        
+          <dd><a href="https://docs.qgis.org/3.28/en/docs/user_manual/appendices/qgis_r_syntax.html">en</a></dd>
+        
+      </dl>
+
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/user_manual/appendices/qgis_r_syntax.html">testing</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/latest/en/docs/user_manual/appendices/qgis_r_syntax.html">latest</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.28/en/docs/user_manual/appendices/qgis_r_syntax.html">3.28</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.22/en/docs/user_manual/appendices/qgis_r_syntax.html">3.22</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.16/en/docs/user_manual/appendices/qgis_r_syntax.html">3.16</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.10/en/docs/user_manual/appendices/qgis_r_syntax.html">3.10</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.4/en/docs/user_manual/appendices/qgis_r_syntax.html">3.4</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/2.18/en/docs/user_manual/appendices/qgis_r_syntax.html">2.18</a></dd>
+        
+      </dl>
+
+       
+       <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="https://docs.qgis.org/3.28/pdf">PDF</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.28/zip">HTML</a></dd>
+        
+      </dl>
+      
+
+      
+       
+      <dl>
+        <dt>Contribute to Docs</dt>
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/edit/master/docs/user_manual/appendices/qgis_r_syntax.rst" target="_blank" rel="noopener noreferrer">Edit on GitHub</a>
+          </dd>
+          
+          
+          <dd>
+            <a href="https://app.transifex.com/qgis/qgis-documentation/translate/#en/1b76477377cf7871fbaef1ef66f95703" target="_blank" rel="noopener noreferrer">Translate Page</a>
+          </dd>
+          
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/issues" target="_blank" rel="noopener noreferrer">Report Issue</a>
+          </dd>
+      </dl>
+      
+
+      <dl>
+        <dt>On QGIS Project</dt>
+          <dd>
+            <a href="https://qgis.org/en" target="_blank" rel="noopener noreferrer">Home</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/api/3.28" target="_blank" rel="noopener noreferrer">C++ API</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/pyqgis/3.28" target="_blank" rel="noopener noreferrer">PyQGIS API</a>
+          </dd>
+          <dd>
+            <a href="https://github.com/qgis/QGIS/tree/release-3_28" target="_blank" rel="noopener noreferrer">Source</a>
+          </dd>
+      </dl>
+
+    </div>
+  </div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

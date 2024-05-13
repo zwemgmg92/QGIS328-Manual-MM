@@ -1,0 +1,1729 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>29.1.21. Vector ဇယား (Vector table) &mdash; QGIS Documentation  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/qgis_docs.css?v=3fdf4c33" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
+
+  
+    <link rel="shortcut icon" href="../../../../_static/qgis_logo.ico"/>
+    <link rel="canonical" href="https://docs.qgis.org/latest/en/docs/user_manual/processing_algs/qgis/vectortable.html"/>
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../../../_static/copybutton.js?v=f281be69"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../../../_static/togglebutton.js?v=4a39c7ea"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="29.1.22. Vector tile များ" href="vectortiles.html" />
+    <link rel="prev" title="29.1.20. Vector တွင်ရွေးချယ်ခြင်း (Vector selection)" href="vectorselection.html" />
+  <meta name="description" content="QGIS 3.28 documentation: 29.1.21. Vector ဇယား (Vector table)">
+</head>
+
+<body class="wy-body-for-nav">
+
+  <nav class="release_status_topbar">
+  </nav>
+
+   
+
+ 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+   
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            QGIS Documentation
+              <img src="../../../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                3.28
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+   <a href= "../../../../genindex.html">Index</a>
+ 
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">အသုံးပြုသူများအတွက်</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../preamble/preamble.html">1. စကားချီး (Preamble)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preamble/foreword.html">2. အမှာစာ (Foreword)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preamble/conventions.html">3. အသုံးအနှုန်းများ (Conventions)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preamble/features.html">4. အသွင်အပြင်များ (Features)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/getting_started.html">5. စတင်အသုံးပြုခြင်း (Getting Started)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/project_files.html">6. Project Files များနှင့် အလုပ်လုပ်ခြင်း (Working with Project Files)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/qgis_gui.html">7. QGIS ၏အစိတ်အပိုင်းများ (QGIS GUI)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/browser.html">8. ဒေတာများရှာဖွေကြည့်ရှုနိုင်သည့်နေရာ (The Browser panel)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/qgis_configuration.html">9. QGIS ပြင်ဆင်သတ်မှတ်ခြင်း/အခင်းအကျင်း (QGIS Configuration)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../working_with_projections/working_with_projections.html">10. မြေပုံအရိပ်ချစနစ်များ နှင့် အလုပ်လုပ်ခြင်း (Working with Projections)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../map_views/index.html">11. မြေပုံများအား ပုံဖော်ကြည့်ရှုခြင်း (Visualizing Maps)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/general_tools.html">12. အထွေ‌ထွေ‌သုံးကိရိယာများ (General Tools)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../expressions/index.html">13. Expression များဖြင့် အဆင့်မြှင့်တင်ဆောင်ရွက်ခြင်း (Level up with Expressions)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../style_library/index.html">14. The Style Library (Style နှင့်ပတ်သက်သည်များ ထားရှိရာနေရာ)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../managing_data_source/index.html">15. ဒေတာအရင်းအမြစ်များအား စီမံခန့်ခွဲခြင်း (Managing Data Source)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../working_with_vector/index.html">16. Vector data များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../working_with_raster/index.html">17. Raster Data နှင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../working_with_mesh/mesh_properties.html">18. Working with Mesh Data (Mesh Data များနှင့် အလုပ်လုပ်ခြင်း)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../working_with_vector_tiles/vector_tiles_properties.html">19. Vector Tiles များနှင့်အလုပ်လုပ်ခြင်း (Working with Vector Tiles)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../working_with_point_clouds/point_clouds.html">20. Point Cloud များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../print_composer/index.html">21. မြေပုံအချောသပ်ပြင်ဆင်ခြင်း (Laying out the maps)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../working_with_ogc/ogc_client_support.html">22. OGC / ISO protocol များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../working_with_gps/index.html">23. GPS Data များနှင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../auth_system/auth_overview.html">24. အထောက်အထားစီစစ်ခြင်းအကြောင်းအကျဉ်း (Authentication System Overview)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../auth_system/auth_workflows.html">25. အသုံးပြုသူ အထောက်အထားစစ်ဆေးခြင်း လုပ်ငန်းအဆင့်များ (User Authentication Workflows)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../auth_system/auth_considerations.html">26. လုံခြုံရေးအတွက်စဉ်းစားရန်အချက်များ (Security Considerations)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../grass_integration/grass_integration.html">27. GRASS GIS နှင့်ပေါင်းစပ်အသုံးပြုခြင်း (GRASS GIS Integration)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../processing/index.html">28. QGIS processing framework</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">29. Processing ဆိုင်ရာ ထောက်ပံ့ပေးသူများနှင့် Algorithm များ (Processing providers and algorithms)</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">29.1. QGIS algorithm ထောက်ပံ့ပေးသူ (QGIS algorithm provider)</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="cartography.html">29.1.1. မြေပုံရေးဆွဲခြင်းအတတ်ပညာ (Cartography)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="database.html">29.1.2. Database</a></li>
+<li class="toctree-l3"><a class="reference internal" href="filetools.html">29.1.3. File ကိရိယာများ (File tools)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gps.html">29.1.4. ကမ္ဘာလုံးဆိုင်ရာတည်နေရာပြစနစ် (GPS)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="interpolation.html">29.1.5. သွယ်ဝိုက်တွက်ချက်ခြင်း (Interpolation)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="layertools.html">29.1.6. Layer ကိရိယာများ (Layer tools)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mesh.html">29.1.7. ဝါယာကွန်ယက်(Mesh)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelertools.html">29.1.8. Modeler ကိရိယာများ (Modeler tools)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="networkanalysis.html">29.1.9. လမ်းကြောင်းကွန်ယက်ဆိုင်ရာ တွက်ချက်မှု (Network analysis)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plots.html">29.1.10. Plot များ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rasteranalysis.html">29.1.11. Raster ဖြင့်ဆန်းစစ်လေ့လာခြင်း (Raster analysis)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rastercreation.html">29.1.12. Raster Creation (Raster ဖန်တီးခြင်း)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rasterterrainanalysis.html">29.1.13. Raster မြေမျက်နှာသွင်ပြင် ဆန်းစစ်လေ့လာခြင်း (Raster terrain analysis)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rastertools.html">29.1.14. Raster ကိရိယာများ (Raster tools)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vectoranalysis.html">29.1.15. Vector ဆန်းစစ်လေ့လာခြင်း (Vector analysis)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vectorcreation.html">29.1.16. Vector ဖန်တီးခြင်း (Vector creation)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vectorgeneral.html">29.1.17. Vector ဆိုင်ရာ အထွေထွေ (Vector general)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vectorgeometry.html">29.1.18. Vector ဂျီဩမေတြီ (Vector geometry)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vectoroverlay.html">29.1.19. Vector အလွှာထပ်တွက်ချက်ခြင်း (Vector overlay)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vectorselection.html">29.1.20. Vector တွင်ရွေးချယ်ခြင်း (Vector selection)</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">29.1.21. Vector ဇယား (Vector table)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#field-add-autoincremental-field">29.1.21.1. နံပါတ်စဉ်အလိုအလျောက်တိုးပေးသည့် field ထည့်ခြင်း (Add autoincremental field)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#field-add-field-to-attributes-table">29.1.21.2. အချက်အလက်ဇယားတွင် field အသစ်တစ်ခုထည့်ခြင်း (Add field to attributes table)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#field-add-unique-value-index-field">29.1.21.3. ထပ်တူမရှိအညွှန်းကိန်း field ထည့်ခြင်း (Add unique value index field)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#x-y-field-add-x-y-fields-to-layer">29.1.21.4. X/Y field များ ထည့်ခြင်း (Add X/Y fields to layer)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#python-field-advanced-python-field-calculator">29.1.21.5. အဆင့်မြင့် Python field ဂဏန်းတွက်စက် (Advanced Python field calculator)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#field-drop-field-s">29.1.21.6. Field (များ) ကို ချန်ထားခြင်း (Drop field(s) )</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#hstore-field-explode-hstore-field">29.1.21.7. HStore Field ကို ခွဲထုတ်ခြင်း (Explode HStore Field)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#binary-field-extract-binary-field">29.1.21.8. Binary field ကို ထုတ်ယူခြင်း (Extract binary field)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#field-field-calculator">29.1.21.9. Field တွက်ချက်ရာ (Field calculator)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#field-refactor-fields">29.1.21.10. Field များပြန်လည်ပြုပြင်ခြင်း (Refactor fields)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#field-rename-field">29.1.21.11. Field အမည်ပြောင်းခြင်း (Rename field)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#field-retain-fields">29.1.21.12. Field များကို ဆက်လက်ထိန်းသိမ်းထားခြင်း (Retain fields)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#text-to-float">29.1.21.13. စာသားမှ ဒဿမဂဏန်းသို့ (Text to float)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="vectortiles.html">29.1.22. Vector tile များ</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../gdal/index.html">29.2. GDAL algorithm ထောက်ပံ့ပေးသူ (GDAL algorithm provider)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../otb.html">29.3. OTB application များ ထောက်ပံ့ပေးသည့်အရာ (OTB applications provider)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../plugins/plugins.html">30. QGIS Plugin များ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../plugins/core_plugins/index.html">31. QGIS ပင်မ Plugin များကို အသုံးပြုခြင်း (Using QGIS Core Plugins)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../plugins/python_console.html">32. QGIS တွင် Python code များရေးသားရန်နေရာ (QGIS Python console)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preamble/help_and_support.html">33. အကူအညီနှင့်အထောက်အပံ့ (Help and Support)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preamble/contributors.html">34. ပါဝင်အားဖြည့်သူများ (Contributors)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendices/index.html">35. နောက်ဆက်တွဲများ (Appendices)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../literature_web/literature_and_web_references.html">36. စာတမ်းများနှင့် Website ကိုးကားချက်များ (Literature and Web References)</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">QGIS Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">&lt;no title&gt;</a></li>
+          <li class="breadcrumb-item"><a href="../index.html"><span class="section-number">29. </span>Processing ဆိုင်ရာ ထောက်ပံ့ပေးသူများနှင့် Algorithm များ (Processing providers and algorithms)</a></li>
+          <li class="breadcrumb-item"><a href="index.html"><span class="section-number">29.1. </span>QGIS algorithm ထောက်ပံ့ပေးသူ (QGIS algorithm provider)</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">29.1.21. </span>Vector ဇယား (Vector table)</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/qgis/QGIS-Documentation/blob/master/docs/user_manual/processing_algs/qgis/vectortable.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="vectorselection.html" class="btn btn-neutral float-left" title="29.1.20. Vector တွင်ရွေးချယ်ခြင်း (Vector selection)" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="vectortiles.html" class="btn btn-neutral float-right" title="29.1.22. Vector tile များ" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <blockquote>
+<div></div></blockquote>
+<section id="vector-vector-table">
+<h1><span class="section-number">29.1.21. </span>Vector ဇယား (Vector table)<a class="headerlink" href="#vector-vector-table" title="Link to this heading"></a></h1>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#field-add-autoincremental-field" id="id38">နံပါတ်စဉ်အလိုအလျောက်တိုးပေးသည့် field ထည့်ခြင်း (Add autoincremental field)</a></p></li>
+<li><p><a class="reference internal" href="#field-add-field-to-attributes-table" id="id39">အချက်အလက်ဇယားတွင် field အသစ်တစ်ခုထည့်ခြင်း (Add field to attributes table)</a></p></li>
+<li><p><a class="reference internal" href="#field-add-unique-value-index-field" id="id40">ထပ်တူမရှိအညွှန်းကိန်း field ထည့်ခြင်း (Add unique value index field)</a></p></li>
+<li><p><a class="reference internal" href="#x-y-field-add-x-y-fields-to-layer" id="id41">X/Y field များ ထည့်ခြင်း (Add X/Y fields to layer)</a></p></li>
+<li><p><a class="reference internal" href="#python-field-advanced-python-field-calculator" id="id42">အဆင့်မြင့် Python field ဂဏန်းတွက်စက် (Advanced Python field calculator)</a></p></li>
+<li><p><a class="reference internal" href="#field-drop-field-s" id="id43">Field (များ) ကို ချန်ထားခြင်း (Drop field(s) )</a></p></li>
+<li><p><a class="reference internal" href="#hstore-field-explode-hstore-field" id="id44">HStore Field ကို ခွဲထုတ်ခြင်း (Explode HStore Field)</a></p></li>
+<li><p><a class="reference internal" href="#binary-field-extract-binary-field" id="id45">Binary field ကို ထုတ်ယူခြင်း (Extract binary field)</a></p></li>
+<li><p><a class="reference internal" href="#field-field-calculator" id="id46">Field တွက်ချက်ရာ (Field calculator)</a></p></li>
+<li><p><a class="reference internal" href="#field-refactor-fields" id="id47">Field များပြန်လည်ပြုပြင်ခြင်း (Refactor fields)</a></p></li>
+<li><p><a class="reference internal" href="#field-rename-field" id="id48">Field အမည်ပြောင်းခြင်း (Rename field)</a></p></li>
+<li><p><a class="reference internal" href="#field-retain-fields" id="id49">Field များကို ဆက်လက်ထိန်းသိမ်းထားခြင်း (Retain fields)</a></p></li>
+<li><p><a class="reference internal" href="#text-to-float" id="id50">စာသားမှ ဒဿမဂဏန်းသို့ (Text to float)</a></p></li>
+</ul>
+</nav>
+<section id="field-add-autoincremental-field">
+<span id="qgisaddautoincrementalfield"></span><h2><a class="toc-backref" href="#id38" role="doc-backlink"><span class="section-number">29.1.21.1. </span>နံပါတ်စဉ်အလိုအလျောက်တိုးပေးသည့် field ထည့်ခြင်း (Add autoincremental field)</a><a class="headerlink" href="#field-add-autoincremental-field" title="Link to this heading"></a></h2>
+<p>Feature တစ်ခုချင်းစီအတွက် အစီအစဉ်တကျဖြစ်သောတန်ဖိုးတစ်ခုဖြင့် vector layer တစ်ခုထဲသို့ ဂဏန်းဆိုင်ရာ integer (ကိန်းပြည့်) field အသစ်တစ်ခု ပေါင်းထည့်ပေးပါသည်။။</p>
+<p>အဆိုပါ field ကို layer ထဲရှိ feature များအတွက် unique ID တစ်ခုအဖြစ် အသုံးပြုနိုင်ပါသည်။ အချက်အလက် (attribute) အသစ်ကို input layer ထဲတွင် ပေါင်းထည့်မည်မဟုတ်ပဲ layer အသစ်တစ်ခု ပေါ်ထွက်လာမည်ဖြစ်သည်။</p>
+<p>တိုးလာမည့်ကိန်းစဉ် အတွက် ကနဦးစတင်မည့်တန်ဖိုးကို သတ်မှတ်နိုင်ပါသည်။ အခြားနည်းအနေဖြင့် တိုးလာမည့်ကိန်းစဉ် ကို field များအုပ်စုဖွဲ့ခြင်းပေါ်တွင် အခြေခံနိုင်ပြီး feature များအတွက် sort order (မျိုးတူစုခြင်း အစီအစဉ်) ကိုလည်းသတ်မှတ်နိုင်ပါသည်။</p>
+<section id="parameters">
+<h3>သတ်မှတ်ချက်များ (Parameters)<a class="headerlink" href="#parameters" title="Link to this heading"></a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Input layer</strong> <strong>(ထည့်သွင်းအသုံးပြုသော layer)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">INPUT</span></code></p></td>
+<td><p>[vector: any]</p></td>
+<td><p>ထည့်သွင်းအသုံးပြုသော vector layer</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Field name</strong> <strong>(Field အမည်)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">FIELD_NAME</span></code></p></td>
+<td><p>[string]</p>
+<p>Default: ‘AUTO’</p>
+</td>
+<td><p>အလိုအလျောက်တိုးလာမည့် တန်ဖိုးများပါဝင်မည့် field ၏အမည်</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Start values at</strong> <strong>(အစတန်ဖိုး)</strong></p>
+<p>Optional (မဖြစ်မနေလုပ်ဆောင်ရန်မလိုပါ)</p>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">START</span></code></p></td>
+<td><p>[number]</p>
+<p>Default: 0</p>
+</td>
+<td><p>တိုးလာမည့်အရေအတွက်၏ ကနဦးဂဏန်းကို ရွေးချယ်ပါ</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Modulus value</strong> <strong>(ပကတိတန်ဖိုး)</strong></p>
+<p>Optional (မဖြစ်မနေလုပ်ဆောင်ရန်မလိုပါ)</p>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">MODULUS</span></code></p></td>
+<td><p>[number]</p>
+<p>Default: 0</p>
+</td>
+<td><p>စိတ်ကြိုက် modulus တန်ဖိုးတစ်ခုကို သတ်မှတ်ခြင်းသည် Field တန်ဖိုးသည် modulus တန်ဖိုးသို့ရောက်သည့်အချိန်တိုင်း အရေအတွက်ကို ပြန်လည်စတင်မည် ဖြစ်သည်။ <code class="docutils literal notranslate"><span class="pre">0</span></code> ဆိုပါက ပြန်လည်စတင်မည် မဟုတ်ပါ။</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Group values by</strong> <strong>(တန်ဖိုးများကို အုပ်စုဖွဲ့ခြင်း)</strong></p>
+<p>Optional (မဖြစ်မနေလုပ်ဆောင်ရန်မလိုပါ)</p>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">GROUP_FIELDS</span></code></p></td>
+<td><p>[tablefield: any] [list]</p></td>
+<td><p>အုပ်စုဖွဲ့မည့် field များကို ရွေးချယ်ပါ - layer တစ်ခုလုံးအတွက် ရေတွက်မှုတစ်ခုတည်းဖြင့် လုပ်ဆောင်ခြင်းအစား အဆိုပါ field များပေါင်းစပ်ခြင်းမှ ရရှိလာသော တန်ဖိုးတစ်ခုချင်းစီအတွက် သီးခြား ရေတွက်မှုတစ်ခုကို လုပ်ဆောင်မည်ဖြစ်သည်။</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Sort expression</strong> <strong>(မျိုးတူစုခြင်း expression)</strong></p>
+<p>Optional (မဖြစ်မနေလုပ်ဆောင်ရန်မလိုပါ)</p>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">SORT_EXPRESSION</span></code></p></td>
+<td><p>[expression]</p></td>
+<td><p>အုပ်စု field များအပေါ်အခြေခံပြီး layer အတွင်းရှိ feature များကို sort (မျိုးတူစု) လုပ်ရန် Expression တစ်ခုကို အသုံးပြုပါ။</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Sort ascending</strong> <strong>(မျိုးတူစုခြင်း ငယ်စဉ်ကြီးလိုက်)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">SORT_ASCENDING</span></code></p></td>
+<td><p>[boolean]</p>
+<p>Default: True</p>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">sort</span> <span class="pre">expression</span></code> တစ်ခုကို သတ်မှတ်ထားသောအခါတွင် feature များတွင် တန်ဖိုးများသတ်မှတ်မည့် အစီအစဉ် (order) ကိုထိန်းချူပ်ရန် ဤ option ကို အသုံးပြုပါ။</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Sort nulls first</strong> <strong>(Null များကို ဦးစွာ စီပါ)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">SORT_NULLS_FIRST</span></code></p></td>
+<td><p>[boolean]</p>
+<p>Default: False</p>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">sort</span> <span class="pre">expression</span></code> တစ်ခုကို သတ်မှတ်ထားသောအခါတွင် <em>Null</em> တန်ဖိုးများကို ပထမဆုံး သို့မဟုတ် နောက်ဆုံး အဖြစ် ရေတွက်ခြင်းကို သတ်မှတ်ရန် ဤ option ကို အသုံးပြုပါ။</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Incremented</strong> <strong>(တိုးလာပြီးသော)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
+<td><p>[input နှင့်အတူတူဖြစ်ပါသည်]</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">[Create</span> <span class="pre">temporary</span> <span class="pre">layer]</span></code></p>
+</td>
+<td><p>အလိုအလျောက်တိုးလာသော field ပါဝင်သည့် output vector layer ကို သတ်မှတ်ပါ။ အောက်ပါတို့ထဲမှ တစ်ခုဖြစ်ပါသည်-</p>
+<ul class="simple">
+<li><p>ယာယီ layer ဖန်တီးပါ (<code class="docutils literal notranslate"><span class="pre">TEMPORARY_OUTPUT</span></code>)</p></li>
+<li><p>File တွင်သိမ်းဆည်းပါ</p></li>
+<li><p>Geopackage တွင် သိမ်းဆည်းပါ</p></li>
+<li><p>Database ဇယားတွင် သိမ်းဆည်းပါ</p></li>
+<li><p>Layer သို့ဆက်တွဲပေါင်းထည့်ပါ (append)</p></li>
+</ul>
+<p>File encoding ကိုလည်းဤနေရာတွင်ပြောင်းလဲနိုင်ပါသည်။</p>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="outputs">
+<h3>ရလာဒ်များ (Outputs)<a class="headerlink" href="#outputs" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Incremented</strong> <strong>(တိုးလာပြီးသော)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
+<td><p>[input နှင့်အတူတူဖြစ်ပါသည်]</p></td>
+<td><p>အလိုအလျောက်တိုးလာသော field ပါဝင်သည့် vector layer</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="python-code">
+<h3>Python code<a class="headerlink" href="#python-code" title="Link to this heading"></a></h3>
+<p><strong>Algorithm ID</strong>: <code class="docutils literal notranslate"><span class="pre">native:addautoincrementalfield</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">processing</span>
+<span class="n">processing</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;algorithm_id&quot;</span><span class="p">,</span> <span class="p">{</span><span class="n">parameter_dictionary</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>Processing Toolbox ထဲရှိ algorithm ပေါ်တွင် mouse ကိုတင်ထားလျှင် <em>algorithm id</em> ကိုပြသပေးပါသည်။ <em>parameter dictionary</em> သည် parameter နာမည်များနှင့် တန်ဖိုးများကို ပေးပါသည်။ Python console မှ algorithm များကို မည်သို့လုပ်ဆောင်ရမည် ဆိုသည့် အသေးစိတ်ကို သိရှိလိုလျှင် <a class="reference internal" href="../../processing/console.html#processing-console"><span class="std std-ref">Console တွင် processing algorithm များကို အသုံးပြုခြင်း</span></a> တွင်ကြည့်ပါ။</p>
+</section>
+</section>
+<section id="field-add-field-to-attributes-table">
+<span id="qgisaddfieldtoattributestable"></span><h2><a class="toc-backref" href="#id39" role="doc-backlink"><span class="section-number">29.1.21.2. </span>အချက်အလက်ဇယားတွင် field အသစ်တစ်ခုထည့်ခြင်း (Add field to attributes table)</a><a class="headerlink" href="#field-add-field-to-attributes-table" title="Link to this heading"></a></h2>
+<p>Vector layer တစ်ခုထဲသို့ field အသစ်တစ်ခု ပေါင်းထည့်ပေးပါသည်။</p>
+<p>Attribute ၏ အမည်နှင့် ဝိသေသလက္ခဏာများကို parameter (သတ်မှတ်ချက်) များအဖြစ်သတ်မှတ်မည် ဖြစ်ပါသည်။</p>
+<p>Attribute အသစ်ကို input layer ထဲတွင် ပေါင်းထည့်မည်မဟုတ်ပဲ layer အသစ်တစ်ခု ပေါ်ထွက်လာမည်ဖြစ်သည်။</p>
+<section id="id1">
+<h3>သတ်မှတ်ချက်များ (Parameters)<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Input layer</strong> <strong>(ထည့်သွင်းအသုံးပြုသော layer)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">INPUT</span></code></p></td>
+<td><p>[vector: any]</p></td>
+<td><p>ထည့်သွင်းအသုံးပြုသော layer</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Field name</strong> <strong>(Field အမည်)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">FIELD_NAME</span></code></p></td>
+<td><p>[string]</p></td>
+<td><p>Field အသစ်၏ အမည်</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Field type</strong> <strong>(Field အမျိုးအစား)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">FIELD_TYPE</span></code></p></td>
+<td><p>[enumeration]</p>
+<p>Default: 0</p>
+</td>
+<td><p>Field အသစ်၏ အမျိုးအစား။ အောက်ပါတို့ထဲမှ ရွေးချယ်နိုင်ပါသည်-</p>
+<ul class="simple">
+<li><p>0 — Integer (ကိန်းပြည့်ဂဏန်း)</p></li>
+<li><p>1 — Float (ဒဿမဂဏန်း)</p></li>
+<li><p>2 — String (စာသား)</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p><strong>Field length</strong> <strong>(Field အရှည်)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">FIELD_LENGTH</span></code></p></td>
+<td><p>[number]</p>
+<p>Default: 10</p>
+</td>
+<td><p>Field ၏ အရှည်</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Field precision</strong> <strong>(Field ၏တိကျမှု)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">FIELD_PRECISION</span></code></p></td>
+<td><p>[number]</p>
+<p>Default: 0</p>
+</td>
+<td><p>Field ၏ တိကျမှု ။ float field အမျိုးအစားများတွင် အသုံးဝင်ပါသည်။</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Field alias</strong> <strong>(Field ၏ အမည်ပွား)</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">NEW</span> <span class="pre">in</span> <span class="pre">3.32</span></code></p>
+<p>Optional (မဖြစ်မနေလုပ်ဆောင်ရန်မလိုပါ)</p>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">FIELD_ALIAS</span></code></p></td>
+<td><p>[string]</p></td>
+<td><p>Field အတွက် အမည်ပွား (alias) အဖြစ်အသုံးပြုမည့် အမည်တစ်ခုကို သတ်မှတ်ပါ။ Format အမျိုးအစားများအားလုံးတွင် အသုံးမပြုနိုင်ပါ။</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Field comment</strong> <strong>(Field မှတ်ချက်)</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">NEW</span> <span class="pre">in</span> <span class="pre">3.32</span></code></p>
+<p>Optional (မဖြစ်မနေလုပ်ဆောင်ရန်မလိုပါ)</p>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">FIELD_COMMENT</span></code></p></td>
+<td><p>[string]</p></td>
+<td><p>Field ကို ဖော်ပြသော မှတ်ချက်တစ်ခုကို သိမ်းဆည်းမည်ဖြစ်သည်။ Format အမျိုးအစားများအားလုံးတွင် အသုံးမပြုနိုင်ပါ။</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Added</strong> <strong>(ပေါင်းထည့်ထားပြီးသော)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
+<td><p>[input နှင့်အတူတူဖြစ်ပါသည်]</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">[Create</span> <span class="pre">temporary</span> <span class="pre">layer]</span></code></p>
+</td>
+<td><p>Output vector layer ကို သတ်မှတ်ပါ။ အောက်ပါတို့ထဲမှ တစ်ခုဖြစ်ပါသည်-</p>
+<ul class="simple">
+<li><p>ယာယီ layer ဖန်တီးပါ (<code class="docutils literal notranslate"><span class="pre">TEMPORARY_OUTPUT</span></code>)</p></li>
+<li><p>File တွင်သိမ်းဆည်းပါ</p></li>
+<li><p>Geopackage တွင် သိမ်းဆည်းပါ</p></li>
+<li><p>Database ဇယားတွင် သိမ်းဆည်းပါ</p></li>
+<li><p>Layer သို့ဆက်တွဲပေါင်းထည့်ပါ (append)</p></li>
+</ul>
+<p>File encoding ကိုလည်းဤနေရာတွင်ပြောင်းလဲနိုင်ပါသည်။</p>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id2">
+<h3>ရလာဒ်များ (Outputs)<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Added</strong> <strong>(ပေါင်းထည့်ထားပြီးသော)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
+<td><p>[input နှင့်အတူတူဖြစ်ပါသည်]</p></td>
+<td><p>Field အသစ် ပေါင်းထည့်ထားသော vector layer</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id3">
+<h3>Python code<a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
+<p><strong>Algorithm ID</strong>: <code class="docutils literal notranslate"><span class="pre">native:addfieldtoattributestable</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">processing</span>
+<span class="n">processing</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;algorithm_id&quot;</span><span class="p">,</span> <span class="p">{</span><span class="n">parameter_dictionary</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>Processing Toolbox ထဲရှိ algorithm ပေါ်တွင် mouse ကိုတင်ထားလျှင် <em>algorithm id</em> ကိုပြသပေးပါသည်။ <em>parameter dictionary</em> သည် parameter နာမည်များနှင့် တန်ဖိုးများကို ပေးပါသည်။ Python console မှ algorithm များကို မည်သို့လုပ်ဆောင်ရမည် ဆိုသည့် အသေးစိတ်ကို သိရှိလိုလျှင် <a class="reference internal" href="../../processing/console.html#processing-console"><span class="std std-ref">Console တွင် processing algorithm များကို အသုံးပြုခြင်း</span></a> တွင်ကြည့်ပါ။</p>
+</section>
+</section>
+<section id="field-add-unique-value-index-field">
+<span id="qgisadduniquevalueindexfield"></span><h2><a class="toc-backref" href="#id40" role="doc-backlink"><span class="section-number">29.1.21.3. </span>ထပ်တူမရှိအညွှန်းကိန်း field ထည့်ခြင်း (Add unique value index field)</a><a class="headerlink" href="#field-add-unique-value-index-field" title="Link to this heading"></a></h2>
+<p>Vector layer တစ်ခုနှင့် attribute တစ်ခု ယူပြီး ဂဏန်းဆိုင်ရာ field အသစ်တစ်ခု ပေါင်းထည့်ပေးပါသည်။</p>
+<p>အဆိုပါ field ထဲရှိ တန်ဖိုးများသည် သတ်မှတ်ထားသော attribute ထဲရှိ တန်ဖိုးများနှင့် သက်ဆိုင်နေမည် ဖြစ်ပါသည်။ ထို့ကြောင့် attribute တန်ဖိုးတူညီသည့် feature များသည် ဂဏန်းဆိုင်ရာ field အသစ်ထဲတွင် တန်ဖိုးများ တူညီနေပါလိမ့်မည်။</p>
+<p>ထိုအချက်သည် သတ်မှတ်ထားသော attribute နှင့် ကိန်းဂဏန်းညီမျှမည်ဖြစ်ပြီး၊ တူညီသောအတန်းအစားများကို သတ်မှတ်မည်ဖြစ်သည်။</p>
+<p>Attribute အသစ်ကို input layer ထဲတွင် ပေါင်းထည့်မည်မဟုတ်ပဲ layer အသစ်တစ်ခု ပေါ်ထွက်လာမည်ဖြစ်သည်။</p>
+<section id="id4">
+<h3>သတ်မှတ်ချက်များ (Parameters)<a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Input layer</strong> <strong>(ထည့်သွင်းအသုံးပြုသော layer)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">INPUT</span></code></p></td>
+<td><p>[vector: any]</p></td>
+<td><p>ထည့်သွင်းအသုံးပြုသော layer</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Class field</strong> <strong>(အတန်းအစား field)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">FIELD</span></code></p></td>
+<td><p>[tablefield: any]</p></td>
+<td><p>ဤ field တွင် တန်ဖိုးများတူညီသည့် feature များသည် တူညီသည့် အညွှန်းကိန်း (index) များရရှိမည် ဖြစ်သည်။</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Output field name</strong> <strong>(ရလာဒ် field အမည်)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">FIELD_NAME</span></code></p></td>
+<td><p>[string]</p>
+<p>Default: ‘NUM_FIELD’</p>
+</td>
+<td><p>အညွှန်းကိန်း (index) များပါရှိသည့် field အသစ်၏ အမည်</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Layer with index field</strong> <strong>(Index field ပါဝင်သော layer)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
+<td><p>[vector: any]</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">[Create</span> <span class="pre">temporary</span> <span class="pre">layer]</span></code></p>
+</td>
+<td><p>အညွှန်းကိန်း (index) များပါရှိသည့် ဂဏန်းဆိုင်ရာ field များပါဝင်သော vector layer ။ အောက်ပါတို့ထဲမှ တစ်ခုဖြစ်ပါသည်-</p>
+<ul class="simple">
+<li><p>Output ကိုကျော်ပစ်ပါ</p></li>
+<li><p>ယာယီ layer ဖန်တီးပါ (<code class="docutils literal notranslate"><span class="pre">TEMPORARY_OUTPUT</span></code>)</p></li>
+<li><p>File တွင်သိမ်းဆည်းပါ</p></li>
+<li><p>Geopackage တွင် သိမ်းဆည်းပါ</p></li>
+<li><p>Database ဇယားတွင် သိမ်းဆည်းပါ</p></li>
+</ul>
+<p>File encoding ကိုလည်းဤနေရာတွင်ပြောင်းလဲနိုင်ပါသည်။</p>
+</td>
+</tr>
+<tr class="row-even"><td><p><strong>Class summary</strong> <strong>(အတန်းအစား အကျဉ်းချုပ်)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">SUMMARY_OUTPUT</span></code></p></td>
+<td><p>[table]</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">[Skip</span> <span class="pre">output]</span></code></p>
+</td>
+<td><p>သက်ဆိုင်ရာ unique တန်ဖိုးကို ဖော်ပြသော အတန်းအစား field ၏အကျဉ်းချုပ်ပါဝင်ရန် table (ဇယား) ကို သတ်မှတ်ပါ။ အောက်ပါတို့ထဲမှ တစ်ခုဖြစ်ပါသည်-</p>
+<ul class="simple">
+<li><p>Output ကိုကျော်ပစ်ပါ</p></li>
+<li><p>ယာယီ layer ဖန်တီးပါ (<code class="docutils literal notranslate"><span class="pre">TEMPORARY_OUTPUT</span></code>)</p></li>
+<li><p>File တွင်သိမ်းဆည်းပါ</p></li>
+<li><p>Geopackage တွင် သိမ်းဆည်းပါ</p></li>
+<li><p>Database ဇယားတွင် သိမ်းဆည်းပါ</p></li>
+</ul>
+<p>File encoding ကိုလည်းဤနေရာတွင်ပြောင်းလဲနိုင်ပါသည်။</p>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id5">
+<h3>ရလာဒ်များ (Outputs)<a class="headerlink" href="#id5" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Layer with index field</strong> <strong>(Index field ပါဝင်သော layer)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
+<td><p>[input နှင့်အတူတူဖြစ်ပါသည်]</p></td>
+<td><p>အညွှန်းကိန်း (index) များပါဝင်သည့် ဂဏန်းဆိုင်ရာ field များပါဝင်သော vector layer ။</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Class summary</strong> <strong>(အတန်းအစား အကျဉ်းချုပ်)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">SUMMARY_OUTPUT</span></code></p></td>
+<td><p>[table]</p></td>
+<td><p>သက်ဆိုင်ရာ unique တန်ဖိုးကို ဖော်ပြသော အတန်းအစား field ၏အကျဉ်းချုပ်ပါဝင်သည့် table (ဇယား)။</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id6">
+<h3>Python code<a class="headerlink" href="#id6" title="Link to this heading"></a></h3>
+<p><strong>Algorithm ID</strong>: <code class="docutils literal notranslate"><span class="pre">native:adduniquevalueindexfield</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">processing</span>
+<span class="n">processing</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;algorithm_id&quot;</span><span class="p">,</span> <span class="p">{</span><span class="n">parameter_dictionary</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>Processing Toolbox ထဲရှိ algorithm ပေါ်တွင် mouse ကိုတင်ထားလျှင် <em>algorithm id</em> ကိုပြသပေးပါသည်။ <em>parameter dictionary</em> သည် parameter နာမည်များနှင့် တန်ဖိုးများကို ပေးပါသည်။ Python console မှ algorithm များကို မည်သို့လုပ်ဆောင်ရမည် ဆိုသည့် အသေးစိတ်ကို သိရှိလိုလျှင် <a class="reference internal" href="../../processing/console.html#processing-console"><span class="std std-ref">Console တွင် processing algorithm များကို အသုံးပြုခြင်း</span></a> တွင်ကြည့်ပါ။</p>
+</section>
+</section>
+<section id="x-y-field-add-x-y-fields-to-layer">
+<span id="qgisaddxyfieldstolayer"></span><h2><a class="toc-backref" href="#id41" role="doc-backlink"><span class="section-number">29.1.21.4. </span>X/Y field များ ထည့်ခြင်း (Add X/Y fields to layer)</a><a class="headerlink" href="#x-y-field-add-x-y-fields-to-layer" title="Link to this heading"></a></h2>
+<p>Point layer တစ်ခုထဲသို့ X နှင့် Y (သို့မဟုတ် လတ္တီကျု/ လောင်ဂျီကျု) field များကို ပေါင်းထည့်ပေးပါသည်။ X/Y field များကို layer ထဲသို့ထည့်ရာတွင် မတူညီသော CRS တစ်ခုဖြင့် တွက်ချက်နိုင်ပါသည် (ဥပမာ- projected CRS တစ်ခုသုံးထားသော layer တစ်ခုအတွက် လတ္တီကျု/လောင်ဂျီကျု field များဖန်တီးခြင်း)။</p>
+<p><a class="reference internal" href="../../../../_images/checkbox.png"><img alt="checkbox" src="../../../../_images/checkbox.png" style="width: 1.3em;" /></a> သည် Point feature များ၏ <a class="reference internal" href="../../working_with_vector/editing_geometry_attributes.html#processing-inplace-edit"><span class="std std-ref">features in-place modification (နေရာတွင် feature များကို မွမ်းမံပြင်ဆင်ခြင်း</span></a> ကို လုပ်ဆောင်နိုင်ပါသည်။</p>
+<section id="id7">
+<h3>သတ်မှတ်ချက်များ (Parameters)<a class="headerlink" href="#id7" title="Link to this heading"></a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Input layer</strong> <strong>(ထည့်သွင်းအသုံးပြုသော layer)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">INPUT</span></code></p></td>
+<td><p>[vector: point]</p></td>
+<td><p>ထည့်သွင်းအသုံးပြုသော layer</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Coordinate system</strong> <strong>(ကိုဩဒိနိတ်စနစ်)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">CRS</span></code></p></td>
+<td><p>[crs]</p>
+<p>Default: “EPSG:4326”</p>
+</td>
+<td><p>ထုတ်ထားသော x နှင့် y field များအတွက် အသုံးပြုရန် ကိုဩဒိနိတ်ရည်ညွှန်းစနစ် (CRS)</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Field prefix</strong> <strong>(Field ၏ ရှေ့ဆက်စာလုံး)</strong></p>
+<p>Optional (မဖြစ်မနေလုပ်ဆောင်ရန်မလိုပါ)</p>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">PREFIX</span></code></p></td>
+<td><p>[string]</p></td>
+<td><p>Input layer ထဲရှိ field များနှင့် အမည်တူနေမှုများကို ရှောင်ရှားရန် field အသစ်၏အမည်များတွင် ပေါင်းထည့်မည့် prefix (ရှေ့ဆက်စာလုံး)။</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Added fields</strong> <strong>(ပေါင်းထည့်ထားသော field များ)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
+<td><p>[vector: point]</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">[Create</span> <span class="pre">temporary</span> <span class="pre">layer]</span></code></p>
+</td>
+<td><p>Output layer ကို သတ်မှတ်ပါ။ အောက်ပါတို့ထဲမှ တစ်ခုဖြစ်ပါသည်-</p>
+<ul class="simple">
+<li><p>ယာယီ layer ဖန်တီးပါ (<code class="docutils literal notranslate"><span class="pre">TEMPORARY_OUTPUT</span></code>)</p></li>
+<li><p>File တွင်သိမ်းဆည်းပါ</p></li>
+<li><p>Geopackage တွင် သိမ်းဆည်းပါ</p></li>
+<li><p>Database ဇယားတွင် သိမ်းဆည်းပါ</p></li>
+<li><p>Layer သို့ဆက်တွဲပေါင်းထည့်ပါ (append)</p></li>
+</ul>
+<p>File encoding ကိုလည်းဤနေရာတွင်ပြောင်းလဲနိုင်ပါသည်။</p>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id8">
+<h3>ရလာဒ်များ (Outputs)<a class="headerlink" href="#id8" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Added fields</strong> <strong>(ပေါင်းထည့်ထားသော field များ)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
+<td><p>[vector: point]</p></td>
+<td><p>Output layer - input layer နှင့် တစ်ထပ်တည်းတူညီသော်လည်း output layer တွင် <code class="docutils literal notranslate"><span class="pre">x</span></code> နှင့် <code class="docutils literal notranslate"><span class="pre">y</span></code> field အသစ်နှစ်ခုပါဝင်မည်ဖြစ်သည်။</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id9">
+<h3>Python code<a class="headerlink" href="#id9" title="Link to this heading"></a></h3>
+<p><strong>Algorithm ID</strong>: <code class="docutils literal notranslate"><span class="pre">native:addxyfieldstolayer</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">processing</span>
+<span class="n">processing</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;algorithm_id&quot;</span><span class="p">,</span> <span class="p">{</span><span class="n">parameter_dictionary</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>Processing Toolbox ထဲရှိ algorithm ပေါ်တွင် mouse ကိုတင်ထားလျှင် <em>algorithm id</em> ကိုပြသပေးပါသည်။ <em>parameter dictionary</em> သည် parameter နာမည်များနှင့် တန်ဖိုးများကို ပေးပါသည်။ Python console မှ algorithm များကို မည်သို့လုပ်ဆောင်ရမည် ဆိုသည့် အသေးစိတ်ကို သိရှိလိုလျှင် <a class="reference internal" href="../../processing/console.html#processing-console"><span class="std std-ref">Console တွင် processing algorithm များကို အသုံးပြုခြင်း</span></a> တွင်ကြည့်ပါ။</p>
+</section>
+</section>
+<section id="python-field-advanced-python-field-calculator">
+<span id="qgisadvancedpythonfieldcalculator"></span><h2><a class="toc-backref" href="#id42" role="doc-backlink"><span class="section-number">29.1.21.5. </span>အဆင့်မြင့် Python field ဂဏန်းတွက်စက် (Advanced Python field calculator)</a><a class="headerlink" href="#python-field-advanced-python-field-calculator" title="Link to this heading"></a></h2>
+<p>Feature တစ်ခုချင်းစီတွင် expression တစ်ခုအသုံးပြုခြင်းမှ ရရှိလာသော တန်ဖိုးများပါဝင်သည့် အချက်အလက်အသစ်တစ်ခုကို vector layer တစ်ခုထဲသို့ ပေါင်းထည့်ပေးပါသည်။</p>
+<p>Expression ကို Python function တစ်ခုအဖြစ် သတ်မှတ်ပါသည်။</p>
+<section id="id10">
+<h3>သတ်မှတ်ချက်များ (Parameters)<a class="headerlink" href="#id10" title="Link to this heading"></a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Input layer</strong> <strong>(ထည့်သွင်းအသုံးပြုသော layer)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">INPUT</span></code></p></td>
+<td><p>[vector: any]</p></td>
+<td><p>ထည့်သွင်းအသုံးပြုသော vector layer</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Result field name</strong> <strong>(ရလာဒ် field အမည်)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">FIELD_NAME</span></code></p></td>
+<td><p>[string]</p>
+<p>Default: ‘NewField’</p>
+</td>
+<td><p>Field အသစ်၏ အမည်</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Field type</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">FIELD_TYPE</span></code></p></td>
+<td><p>[enumeration]</p>
+<p>Default: 0</p>
+</td>
+<td><p>Field အသစ်အမျိုးအစား။ အောက်ပါတို့ထဲမှ တစ်ခုဖြစ်ပါသည်-</p>
+<ul class="simple">
+<li><p>0 — Integer (ကိန်းပြည့်ဂဏန်း)</p></li>
+<li><p>1 — Float (ဒဿမဂဏန်း)</p></li>
+<li><p>2 — String (စာသား)</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p><strong>Field length</strong> <strong>(Field အရှည်)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">FIELD_LENGTH</span></code></p></td>
+<td><p>[number]</p>
+<p>Default: 10</p>
+</td>
+<td><p>Field ၏ အရှည်</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Field precision</strong> <strong>(Field ၏တိကျမှု)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">FIELD_PRECISION</span></code></p></td>
+<td><p>[number]</p>
+<p>Default: 3</p>
+</td>
+<td><p>Field ၏ တိကျမှု။ Float field အမျိုးအစားများတွင် အသုံးဝင်ပါသည်။</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Global expression</strong></p>
+<p>Optional (မဖြစ်မနေလုပ်ဆောင်ရန်မလိုပါ)</p>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">GLOBAL</span></code></p></td>
+<td><p>[string]</p></td>
+<td><p>Calculator သည် input layer ၏ feature များအားလုံးကို ထပ်ခါထပ်ခါ စတင်ဆောင်ရွက်ခြင်း မပြုမီတွင် Global expression အခန်းတွင်ရှိသော ကုဒ်ကို တစ်ကြိမ်သာလျှင် အလုပ်လုပ်ဆောင်စေမည်ဖြစ်သည်။ ထို့ကြောင့် လိုအပ်သည့် module များ ထည့်သွင်းရန် သို့မဟုတ် နောက်ပိုင်းတွက်ချက်ခြင်းများတွင် အသုံးပြုမည့် variable များကို တွက်ချက်ရန် ဤအရာသည် မှန်ကန်သည့် နေရာတစ်ခုဖြစ်ပါသည်။</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Formula</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">FORMULA</span></code></p></td>
+<td><p>[string]</p></td>
+<td><p>အကဲဖြတ်ရန် Python formula ။ ဥပမာ - ထည့်သွင်းထားသည့် polygon layer တစ်ခု၏ ဧရိယာကို တွက်ချက်ရန် အောက်ပါအတိုင်းထည့်သွင်းနိုင်သည်-</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>value = $geom.area()
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p><strong>Calculated</strong> <strong>(တွက်ချက်ထားပြီးသော)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
+<td><p>[input နှင့်အတူတူဖြစ်ပါသည်]</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">[Create</span> <span class="pre">temporary</span> <span class="pre">layer]</span></code></p>
+</td>
+<td><p>တွက်ချက်ထားသော field အသစ်ပါဝင်သည့် vector layer ကို သတ်မှတ်ပါ။ အောက်ပါတို့ထဲမှ တစ်ခုဖြစ်ပါသည်-</p>
+<ul class="simple">
+<li><p>ယာယီ layer ဖန်တီးပါ (<code class="docutils literal notranslate"><span class="pre">TEMPORARY_OUTPUT</span></code>)</p></li>
+<li><p>File တွင်သိမ်းဆည်းပါ</p></li>
+<li><p>Geopackage တွင် သိမ်းဆည်းပါ</p></li>
+<li><p>Database ဇယားတွင် သိမ်းဆည်းပါ</p></li>
+</ul>
+<p>File encoding ကိုလည်းဤနေရာတွင်ပြောင်းလဲနိုင်ပါသည်။</p>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id11">
+<h3>ရလာဒ်များ (Outputs)<a class="headerlink" href="#id11" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Calculated</strong> <strong>(တွက်ချက်ထားပြီးသော)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
+<td><p>[input နှင့်အတူတူဖြစ်ပါသည်]</p></td>
+<td><p>တွက်ချက်ထားသော field အသစ်ပါဝင်သည့် vector layer</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id12">
+<h3>Python code<a class="headerlink" href="#id12" title="Link to this heading"></a></h3>
+<p><strong>Algorithm ID</strong>: <code class="docutils literal notranslate"><span class="pre">qgis:advancedpythonfieldcalculator</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">processing</span>
+<span class="n">processing</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;algorithm_id&quot;</span><span class="p">,</span> <span class="p">{</span><span class="n">parameter_dictionary</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>Processing Toolbox ထဲရှိ algorithm ပေါ်တွင် mouse ကိုတင်ထားလျှင် <em>algorithm id</em> ကိုပြသပေးပါသည်။ <em>parameter dictionary</em> သည် parameter နာမည်များနှင့် တန်ဖိုးများကို ပေးပါသည်။ Python console မှ algorithm များကို မည်သို့လုပ်ဆောင်ရမည် ဆိုသည့် အသေးစိတ်ကို သိရှိလိုလျှင် <a class="reference internal" href="../../processing/console.html#processing-console"><span class="std std-ref">Console တွင် processing algorithm များကို အသုံးပြုခြင်း</span></a> တွင်ကြည့်ပါ။</p>
+</section>
+</section>
+<section id="field-drop-field-s">
+<span id="qgisdeletecolumn"></span><h2><a class="toc-backref" href="#id43" role="doc-backlink"><span class="section-number">29.1.21.6. </span>Field (များ) ကို ချန်ထားခြင်း (Drop field(s) )</a><a class="headerlink" href="#field-drop-field-s" title="Link to this heading"></a></h2>
+<p>Vector layer တစ်ခုယူပြီး ရွေးချယ်ထားသည့် column များမပါဝင်သည့် တူညီသော feature များရှိသော layer အသစ်တစ်ခုကို ထုတ်ပေးပါသည်။</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="#qgisretainfields"><span class="std std-ref">Field များကို ဆက်လက်ထိန်းသိမ်းထားခြင်း (Retain fields)</span></a></p>
+</div>
+<section id="id13">
+<h3>သတ်မှတ်ချက်များ (Parameters)<a class="headerlink" href="#id13" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Input layer</strong> <strong>(ထည့်သွင်းအသုံးပြုသော layer)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">INPUT</span></code></p></td>
+<td><p>[vector: any]</p></td>
+<td><p>Field (များ) ကို ဖြုတ်ချန် (drop) ထားမည့် input vector layer</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Fields to drop</strong> <strong>(ဖြုတ်ချန်မည့် field များ)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">COLUMN</span></code></p></td>
+<td><p>[tablefield: any] [list]</p></td>
+<td><p>ဖြုတ်ချန် (drop) လုပ်ရန် field များ</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Remaining fields</strong> <strong>(ကျန်ရှိနေသော field များ)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
+<td><p>[input နှင့်အတူတူဖြစ်ပါသည်]</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">[Create</span> <span class="pre">temporary</span> <span class="pre">layer]</span></code></p>
+</td>
+<td><p>ကျန်ရှိနေသော field များပါဝင်သည့် output vector layer ကို သတ်မှတ်ပါ။ အောက်ပါတို့ထဲမှ တစ်ခုဖြစ်ပါသည်-</p>
+<ul class="simple">
+<li><p>ယာယီ layer ဖန်တီးပါ (<code class="docutils literal notranslate"><span class="pre">TEMPORARY_OUTPUT</span></code>)</p></li>
+<li><p>File တွင်သိမ်းဆည်းပါ</p></li>
+<li><p>Geopackage တွင် သိမ်းဆည်းပါ</p></li>
+<li><p>Database ဇယားတွင် သိမ်းဆည်းပါ</p></li>
+<li><p>Layer သို့ဆက်တွဲပေါင်းထည့်ပါ (append)</p></li>
+</ul>
+<p>File encoding ကိုလည်းဤနေရာတွင်ပြောင်းလဲနိုင်ပါသည်။</p>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id14">
+<h3>ရလာဒ်များ (Outputs)<a class="headerlink" href="#id14" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Remaining fields</strong> <strong>(ကျန်ရှိနေသော field များ)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
+<td><p>[input နှင့်အတူတူဖြစ်ပါသည်]</p></td>
+<td><p>ကျန်ရှိနေသော field များပါဝင်သည့် vector layer</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id15">
+<h3>Python code<a class="headerlink" href="#id15" title="Link to this heading"></a></h3>
+<p><strong>Algorithm ID</strong>: <code class="docutils literal notranslate"><span class="pre">native:deletecolumn</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">processing</span>
+<span class="n">processing</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;algorithm_id&quot;</span><span class="p">,</span> <span class="p">{</span><span class="n">parameter_dictionary</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>Processing Toolbox ထဲရှိ algorithm ပေါ်တွင် mouse ကိုတင်ထားလျှင် <em>algorithm id</em> ကိုပြသပေးပါသည်။ <em>parameter dictionary</em> သည် parameter နာမည်များနှင့် တန်ဖိုးများကို ပေးပါသည်။ Python console မှ algorithm များကို မည်သို့လုပ်ဆောင်ရမည် ဆိုသည့် အသေးစိတ်ကို သိရှိလိုလျှင် <a class="reference internal" href="../../processing/console.html#processing-console"><span class="std std-ref">Console တွင် processing algorithm များကို အသုံးပြုခြင်း</span></a> တွင်ကြည့်ပါ။</p>
+</section>
+</section>
+<section id="hstore-field-explode-hstore-field">
+<span id="qgisexplodehstorefield"></span><h2><a class="toc-backref" href="#id44" role="doc-backlink"><span class="section-number">29.1.21.7. </span>HStore Field ကို ခွဲထုတ်ခြင်း (Explode HStore Field)</a><a class="headerlink" href="#hstore-field-explode-hstore-field" title="Link to this heading"></a></h2>
+<p>Input layer ၏ မိတ္တူပွားတစ်ခု ဖန်တီးပေးပြီး HStore field ထဲရှိ unique key တိုင်းအတွက် field အသစ်တစ်ခုကို ပေါင်းထည့်ပေးပါသည်။</p>
+<p>မျှော်မှန်းသော field စာရင်းသည် comma ဖြင့်ပိုင်းခြားထားသော စာရင်းတစ်ခုဖြစ်ပါသည်။ အဆိုပါ စာရင်းကို သတ်မှတ်ထားပြီးဖြစ်လျှင် ထို field များကိုသာလျှင် ပေါင်းထည့်သွားမည်ဖြစ်ပြီး HStore field သည် update ဖြစ်သွားမည်ဖြစ်သည်။ Default အားဖြင့် unique key များအားလုံးကို ပေါင်းထည့်မည်ဖြစ်သည်။</p>
+<p>PostgreSQL <a class="reference external" href="https://www.postgresql.org/docs/10/hstore.html">HStore</a> သည် တစ်ခုသာပါသော key-value store တစ်ခုဖြစ်ပြီး PostgreSQL နှင့် GDAL (<code class="docutils literal notranslate"><span class="pre">other_tags</span></code> field ပါသော <a class="reference external" href="https://gdal.org/drivers/vector/osm.html#other-tags-field">OSM file</a>  တစ်ခုကို ဖတ်သောအခါ) ထဲတွင်အသုံးပြုပါသည်။</p>
+<section id="id16">
+<h3>သတ်မှတ်ချက်များ (Parameters)<a class="headerlink" href="#id16" title="Link to this heading"></a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Input layer</strong> <strong>(ထည့်သွင်းအသုံးပြုသော layer)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">INPUT</span></code></p></td>
+<td><p>[vector: any]</p></td>
+<td><p>ထည့်သွင်းအသုံးပြုသော vector layer</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>HStore field</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">FIELD</span></code></p></td>
+<td><p>[tablefield: any]</p></td>
+<td><p>ဖြုတ်ချန် (Drop) လုပ်ရန် field များ</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Expected list of fields separated by a comma</strong> <strong>(Comma ဖြင့်ပိုင်းခြားထားသော မျှော်မှန်း field များစာရင်း)</strong></p>
+<p>Optional (မဖြစ်မနေလုပ်ဆောင်ရန်မလိုပါ)</p>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">EXPECTED_FIELDS</span></code></p></td>
+<td><p>[string]</p>
+<p>Default: ‘’</p>
+</td>
+<td><p>ထုတ်ယူရန် field များ၏ Comma ဖြင့်ပိုင်းခြားထားသောစာရင်းကို။ အဆိုပါ key များကို ဖယ်ရှားခြင်းအားဖြင့် HStore field ကို update လုပ်မည် ဖြစ်သည်။</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Exploded</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
+<td><p>[input နှင့်အတူတူဖြစ်ပါသည်]</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">[Create</span> <span class="pre">temporary</span> <span class="pre">layer]</span></code></p>
+</td>
+<td><p>Output vector layer ကို သတ်မှတ်ပါ။ အောက်ပါတို့ထဲမှ တစ်ခုဖြစ်ပါသည်-</p>
+<ul class="simple">
+<li><p>ယာယီ layer ဖန်တီးပါ (<code class="docutils literal notranslate"><span class="pre">TEMPORARY_OUTPUT</span></code>)</p></li>
+<li><p>File တွင်သိမ်းဆည်းပါ</p></li>
+<li><p>Geopackage တွင် သိမ်းဆည်းပါ</p></li>
+<li><p>Database ဇယားတွင် သိမ်းဆည်းပါ</p></li>
+</ul>
+<p>File encoding ကိုလည်းဤနေရာတွင်ပြောင်းလဲနိုင်ပါသည်။</p>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id17">
+<h3>ရလာဒ်များ (Outputs)<a class="headerlink" href="#id17" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Exploded</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
+<td><p>[input နှင့်အတူတူဖြစ်ပါသည်]</p></td>
+<td><p>Output vector layer</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id18">
+<h3>Python code<a class="headerlink" href="#id18" title="Link to this heading"></a></h3>
+<p><strong>Algorithm ID</strong>: <code class="docutils literal notranslate"><span class="pre">native:explodehstorefield</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">processing</span>
+<span class="n">processing</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;algorithm_id&quot;</span><span class="p">,</span> <span class="p">{</span><span class="n">parameter_dictionary</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>Processing Toolbox ထဲရှိ algorithm ပေါ်တွင် mouse ကိုတင်ထားလျှင် <em>algorithm id</em> ကိုပြသပေးပါသည်။ <em>parameter dictionary</em> သည် parameter နာမည်များနှင့် တန်ဖိုးများကို ပေးပါသည်။ Python console မှ algorithm များကို မည်သို့လုပ်ဆောင်ရမည် ဆိုသည့် အသေးစိတ်ကို သိရှိလိုလျှင် <a class="reference internal" href="../../processing/console.html#processing-console"><span class="std std-ref">Console တွင် processing algorithm များကို အသုံးပြုခြင်း</span></a> တွင်ကြည့်ပါ။</p>
+</section>
+</section>
+<section id="binary-field-extract-binary-field">
+<span id="qgisextractbinary"></span><h2><a class="toc-backref" href="#id45" role="doc-backlink"><span class="section-number">29.1.21.8. </span>Binary field ကို ထုတ်ယူခြင်း (Extract binary field)</a><a class="headerlink" href="#binary-field-extract-binary-field" title="Link to this heading"></a></h2>
+<p>Binary field တစ်ခုမှ ပါဝင်သည့်အကြောင်းအရာများကို ထုတ်ယူပေးပါသည်။ ၎င်းတို့ကို သီးခြားဖိုင်များတွင် သိမ်းဆည်းမည်ဖြစ်သည်။ ဖိုင်အမည်များကို ရင်းမြစ်ဇယားထဲရှိ အချက်အလက်မှ ယူထားသော တန်ဖိုးများကိုအသုံးပြုခြင်း သို့မဟုတ် ပိုမိုရှုပ်ထွေးသော expression တစ်ခုအပေါ် အခြေခံ၍ ထုတ်ယူသတ်မှတ်နိုင်ပါသည်။</p>
+<section id="id19">
+<h3>သတ်မှတ်ချက်များ (Parameters)<a class="headerlink" href="#id19" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Input layer</strong> <strong>(ထည့်သွင်းအသုံးပြုသော layer)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">INPUT</span></code></p></td>
+<td><p>[vector: any]</p></td>
+<td><p>Binary ဒေတာပါဝင်သည့် input vector layer</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Binary field</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">FIELD</span></code></p></td>
+<td><p>[tablefield: any]</p></td>
+<td><p>Binary ဒေတာပါဝင်သည့် field</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>File name</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">FILENAME</span></code></p></td>
+<td><p>[expression]</p></td>
+<td><p>Output ဖိုင်တစ်ခုချင်းစီကို အမည်ပေးရန် Field သို့မဟုတ် expression အခြေခံသော စာသား</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Destination folder</strong> <strong>(သိမ်းဆည်းမည့် folder)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">FOLDER</span></code></p></td>
+<td><p>[folder]</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">[Save</span> <span class="pre">to</span> <span class="pre">temporary</span> <span class="pre">folder]</span></code></p>
+</td>
+<td><p>Output ဖိုင်များကို သိမ်းဆည်းရန် Folder ။ အောက်ပါတို့ထဲမှ တစ်ခုဖြစ်ပါသည်-</p>
+<ul class="simple">
+<li><p>ယာယီ လမ်းကြောင်းတစ်ခုတွင် သိမ်းဆည်းပါ</p></li>
+<li><p>လမ်းကြောင်းတွင်သိမ်းဆည်းပါ</p></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id20">
+<h3>ရလာဒ်များ (Outputs)<a class="headerlink" href="#id20" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Folder</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">FOLDER</span></code></p></td>
+<td><p>[folder]</p></td>
+<td><p>Output ဖိုင်များပါဝင်သည့် folder</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id21">
+<h3>Python code<a class="headerlink" href="#id21" title="Link to this heading"></a></h3>
+<p><strong>Algorithm ID</strong>: <code class="docutils literal notranslate"><span class="pre">native:extractbinary</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">processing</span>
+<span class="n">processing</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;algorithm_id&quot;</span><span class="p">,</span> <span class="p">{</span><span class="n">parameter_dictionary</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>Processing Toolbox ထဲရှိ algorithm ပေါ်တွင် mouse ကိုတင်ထားလျှင် <em>algorithm id</em> ကိုပြသပေးပါသည်။ <em>parameter dictionary</em> သည် parameter နာမည်များနှင့် တန်ဖိုးများကို ပေးပါသည်။ Python console မှ algorithm များကို မည်သို့လုပ်ဆောင်ရမည် ဆိုသည့် အသေးစိတ်ကို သိရှိလိုလျှင် <a class="reference internal" href="../../processing/console.html#processing-console"><span class="std std-ref">Console တွင် processing algorithm များကို အသုံးပြုခြင်း</span></a> တွင်ကြည့်ပါ။</p>
+</section>
+</section>
+<section id="field-field-calculator">
+<span id="qgisfieldcalculator"></span><h2><a class="toc-backref" href="#id46" role="doc-backlink"><span class="section-number">29.1.21.9. </span>Field တွက်ချက်ရာ (Field calculator)</a><a class="headerlink" href="#field-field-calculator" title="Link to this heading"></a></h2>
+<p>Field calculator (<a class="reference internal" href="../../expressions/expression.html#vector-expressions"><span class="std std-ref">စေခိုင်းချက်များ (Expressions)</span></a> တွင်ကြည့်ပါ) ကိုဖွင့်ပါ။ ပံ့ပိုးပေးထားသည့် expression များနှင့် function များကို အသုံးပြုနိုင်ပါသည်။</p>
+<p>Expression ရလာဒ်များဖြင့် layer အသစ်တစ်ခုကို ဖန်တီးပါမည်။</p>
+<p><a class="reference internal" href="../../processing/modeler.html#processing-modeler"><span class="std std-ref">Model design ပြုလုပ်ရာနေရာ (The model designer)</span></a> ထဲတွင် field calculator ကို အသုံးပြုသောအခါ အလွန်အသုံးဝင်ပါသည်။</p>
+<section id="id22">
+<h3>သတ်မှတ်ချက်များ (Parameters)<a class="headerlink" href="#id22" title="Link to this heading"></a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Input layer</strong> <strong>(ထည့်သွင်းအသုံးပြုသော layer)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">INPUT</span></code></p></td>
+<td><p>[vector: any]</p></td>
+<td><p>တွက်ချက်ရန် layer</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Output field name</strong> <strong>(ရလာဒ် field ၏အမည်)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">FIELD_NAME</span></code></p></td>
+<td><p>[string]</p></td>
+<td><p>ရလာဒ်များအတွက် field ၏အမည်</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Output field type</strong> <strong>(ရလာဒ် field အမျိုးအစား)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">FIELD_TYPE</span></code></p></td>
+<td><p>[enumeration]</p>
+<p>Default: 0</p>
+</td>
+<td><p>Field အမျိုးအစား။ အောက်ပါတို့ထဲမှ တစ်ခုဖြစ်ပါသည်-</p>
+<ul class="simple">
+<li><p>0 — Float (ဒဿမဂဏန်း)</p></li>
+<li><p>1 — Integer (ကိန်းပြည့်ဂဏန်း)</p></li>
+<li><p>2 — String (စာသား)</p></li>
+<li><p>3 — Date (နေ့စွဲ)</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p><strong>Output field width</strong> <strong>(ရလာဒ် field အကျယ်)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">FIELD_LENGTH</span></code></p></td>
+<td><p>[number]</p>
+<p>Default: 10</p>
+</td>
+<td><p>ရလာဒ် field ၏ အရှည် (အနည်းဆုံး 0)</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Field precision</strong> <strong>(Field ၏တိကျမှု)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">FIELD_PRECISION</span></code></p></td>
+<td><p>[number]</p>
+<p>Default: 3</p>
+</td>
+<td><p>ရလာဒ် field ၏ တိကျမှု (အနည်းဆုံး 0 ၊ အများဆုံး 15)</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Create new field</strong> <strong>(Field အသစ်ဖန်တီးခြင်း)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">NEW_FIELD</span></code></p></td>
+<td><p>[boolean]</p>
+<p>Default: True</p>
+</td>
+<td><p>ရလာဒ် field သည် field အသစ်တစ်ခု ဖြစ်သင့်/မဖြစ်သင့် ဆုံးဖြတ်ပါသည်</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Formula</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">FORMULA</span></code></p></td>
+<td><p>[expression]</p></td>
+<td><p>ရလာဒ်များ တွက်ချက်ရန်အတွက် အသုံးပြုမည့် formula</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Output file</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
+<td><p>[vector: any]</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">[Create</span> <span class="pre">temporary</span> <span class="pre">layer]</span></code></p>
+</td>
+<td><p>Output layer ၏ သီးခြားသတ်မှတ်ချက်။</p>
+<ul class="simple">
+<li><p>ယာယီ layer ဖန်တီးပါ (<code class="docutils literal notranslate"><span class="pre">TEMPORARY_OUTPUT</span></code>)</p></li>
+<li><p>File တွင်သိမ်းဆည်းပါ</p></li>
+<li><p>Geopackage တွင် သိမ်းဆည်းပါ</p></li>
+<li><p>Database ဇယားတွင် သိမ်းဆည်းပါ</p></li>
+<li><p>Layer သို့ဆက်တွဲပေါင်းထည့်ပါ (append)</p></li>
+</ul>
+<p>File encoding ကိုလည်းဤနေရာတွင်ပြောင်းလဲနိုင်ပါသည်။</p>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id23">
+<h3>ရလာဒ်များ (Outputs)<a class="headerlink" href="#id23" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Calculated</strong> <strong>(တွက်ချက်ထားပြီးသော)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
+<td><p>[vector: any]</p></td>
+<td><p>တွက်ချက်ထားသော နယ်ပယ်တန်ဖိုးများပါဝင်သော ရလဒ် layer</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id24">
+<h3>Python code<a class="headerlink" href="#id24" title="Link to this heading"></a></h3>
+<p><strong>Algorithm ID</strong>: <code class="docutils literal notranslate"><span class="pre">native:fieldcalculator</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">processing</span>
+<span class="n">processing</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;algorithm_id&quot;</span><span class="p">,</span> <span class="p">{</span><span class="n">parameter_dictionary</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>Processing Toolbox ထဲရှိ algorithm ပေါ်တွင် mouse ကိုတင်ထားလျှင် <em>algorithm id</em> ကိုပြသပေးပါသည်။ <em>parameter dictionary</em> သည် parameter နာမည်များနှင့် တန်ဖိုးများကို ပေးပါသည်။ Python console မှ algorithm များကို မည်သို့လုပ်ဆောင်ရမည် ဆိုသည့် အသေးစိတ်ကို သိရှိလိုလျှင် <a class="reference internal" href="../../processing/console.html#processing-console"><span class="std std-ref">Console တွင် processing algorithm များကို အသုံးပြုခြင်း</span></a> တွင်ကြည့်ပါ။</p>
+</section>
+</section>
+<section id="field-refactor-fields">
+<span id="qgisrefactorfields"></span><h2><a class="toc-backref" href="#id47" role="doc-backlink"><span class="section-number">29.1.21.10. </span>Field များပြန်လည်ပြုပြင်ခြင်း (Refactor fields)</a><a class="headerlink" href="#field-refactor-fields" title="Link to this heading"></a></h2>
+<p>Vector layer တစ်ခုထဲရှိ attribute ဇယား၏ တည်ဆောက်ပုံကို ပြင်ဆင်ခြင်းများပြုလုပ်နိုင်ပါသည်။</p>
+<p>Field mapping တစ်ခုကို အသုံးပြုခြင်းဖြင့် field များကို ၎င်းတို့၏ အမျိုးအစားနှင့် အမည်ထဲတွင် ပြင်ဆင်သတ်မှတ်နိုင်ပါသည်။</p>
+<p>မူလ layer အား ပြင်ဆင်ပြောင်းလဲသွားမည် မဟုတ်ပါ။ Layer အသစ်တစ်ခု ထွက်ပေါ်လာမည်ဖြစ်ပြီး၊ ထိုထဲတွင် ထောက်ပံ့ပေးထားသည့် field mapping အရ ပြင်ဆင်ထားသော attribute ဇယားတစ်ခု ပါဝင်မည်ဖြစ်ပါသည်။</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Field များတွင် <a class="reference internal" href="../../working_with_vector/vector_properties.html#constraints"><span class="std std-ref">constraints</span></a> ဖြင့် template layer တစ်ခုအသုံးပြုသောအခါ သတင်းအချက်အလက်ကို နောက်ခံအရောင်နှင့် tooltip တစ်ခုဖြင့် widget ထဲတွင် ဖော်ပြပေးမည်ဖြစ်ပါသည်။ အဆိုပါသတင်းအချက်အလက်ကို configure ပြုလုပ်နေစဉ်အတွင်း အရိပ်အမြွက်အဖြစ် မှတ်ယူရမည်။ Output layer တစ်ခုတွင် အကန့်အသတ် (constraints) ကို ထည့်သွင်းမည်မဟုတ်ပဲ ၎င်းတို့ကို algorithm ဖြင့် စစ်ဆေးခြင်း သို့မဟုတ် တွန်းအားပေးခြင်း ပြုလုပ်မည် မဟုတ်ပါ။</p>
+</div>
+<p>Refactor fields algorithm သည် အောက်ပါတို့ကို လုပ်ဆောင်ခွင့်ပြုပေးမည်ဖြစ်သည်-</p>
+<ul class="simple">
+<li><p>Field ၏ အမည်နှင့် အမျိုးအစားများကို ပြောင်းလဲခြင်း</p></li>
+<li><p>Field များကို ပေါင်းထည့်ခြင်းနှင့် ဖယ်ရှားခြင်း</p></li>
+<li><p>Field များကို ပြန်လည်စီစဉ်ခြင်း</p></li>
+<li><p>Expression များအပေါ် အခြေခံ၍ field အသစ်များကို တွက်ချက်ခြင်း</p></li>
+<li><p>အခြား layer မှ field စာရင်းကို ထည့်သွင်းခြင်း</p></li>
+</ul>
+<figure class="align-center" id="id37">
+<img alt="../../../../_images/refactor_fields.png" src="../../../../_images/refactor_fields.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 29.125 </span><span class="caption-text">Refactor fields dialog</span><a class="headerlink" href="#id37" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<section id="id25">
+<h3>သတ်မှတ်ချက်များ (Parameters)<a class="headerlink" href="#id25" title="Link to this heading"></a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Input layer</strong> <strong>(ထည့်သွင်းအသုံးပြုသော layer)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">INPUT</span></code></p></td>
+<td><p>[vector: any]</p></td>
+<td><p>မွမ်းမံပြင်ဆင်ရန် layer</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Fields mapping</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">FIELDS_MAPPING</span></code></p></td>
+<td><p>[list]</p></td>
+<td><p>အဓိပ္ပါယ်ဖွင့်ဆိုချက်များပါဝင်သော output field များ၏ စာရင်း။ ချိတ်တွဲထားသော ဇယားသည် ရင်းမြစ် layer ၏ field များအားလုံးကို စာရင်းပြုစုထားမည်ဖြစ်ပြီး ၎င်းတို့ကို ပြင်ဆင်တည်းဖြတ်ခြင်းများ ပြုလုပ်နိုင်ပါသည်-</p>
+<ul class="simple">
+<li><p>Field အသစ်တစ်ခု ဖန်တီးရန် <a class="reference internal" href="../../../../_images/mActionNewAttribute.png"><img alt="newAttribute" src="../../../../_images/mActionNewAttribute.png" style="width: 1.5em;" /></a> ကို နှိပ်ပါ။</p></li>
+<li><p>Field တစ်ခုကို ဖယ်ရှားရန် <a class="reference internal" href="../../../../_images/mActionDeleteAttribute.png"><img alt="deleteAttribute" src="../../../../_images/mActionDeleteAttribute.png" style="width: 1.5em;" /></a> ကို နှိပ်ပါ။</p></li>
+<li><p>ရွေးချယ်ထားသည့် field အစီအစဉ်များကို ပြောင်းလဲရန် <a class="reference internal" href="../../../../_images/mActionArrowUp.png"><img alt="arrowUp" src="../../../../_images/mActionArrowUp.png" style="width: 1.5em;" /></a> နှင့် <a class="reference internal" href="../../../../_images/mActionArrowDown.png"><img alt="arrowDown" src="../../../../_images/mActionArrowDown.png" style="width: 1.5em;" /></a> ကို အသုံးပြုပါ။</p></li>
+<li><p>မူလမြင်ကွင်းသို့ ပြန်သွားရန်အတွက် <a class="reference internal" href="../../../../_images/mIconClearText.png"><img alt="clearText" src="../../../../_images/mIconClearText.png" style="width: 1.5em;" /></a> ကို နှိပ်ပါ။</p></li>
+<li><p>Field များစာရင်းထဲရှိ ရွေးချယ်မှုများကို ပြောင်းပြန်လှန်ရန် <a class="reference internal" href="../../../../_images/mActionInvertSelection.png"><img alt="invertSelection" src="../../../../_images/mActionInvertSelection.png" style="width: 1.5em;" /></a> ကို နှိပ်ပါ။</p></li>
+</ul>
+<p>ပြန်လည်အသုံးပြုလိုသည့် field တစ်ခုချင်းစီအတွက် အောက်ပါ ရွေးချယ်စရာ (option) များကို ဖြည့်ရန်လိုအပ်ပါသည်-</p>
+<dl class="simple">
+<dt><span class="guilabel">Source expression</span> (<code class="docutils literal notranslate"><span class="pre">expression</span></code>) [expression]</dt><dd><p>Input layer မှ field သို့မဟုတ် expression။</p>
+</dd>
+<dt><span class="guilabel">Field name</span> (<code class="docutils literal notranslate"><span class="pre">name</span></code>) [string]</dt><dd><p>Output layer ထဲရှိ field ၏ အမည်။ Default အားဖြင့် input field အမည်အတိုင်း ထားမည်ဖြစ်သည်။</p>
+</dd>
+<dt><span class="guilabel">Type</span> (<code class="docutils literal notranslate"><span class="pre">type</span></code>) [enumeration]</dt><dd><p>Output field ၏ ဒေတာအမျိုးအစား။ ရရှိနိုင်သော အမျိုးအစားများသည် output layer ပံ့ပိုးပေးသူပေါ်တွင် မူတည်ပါသည်။</p>
+</dd>
+<dt><span class="guilabel">Length</span> (<code class="docutils literal notranslate"><span class="pre">length</span></code>) [number]</dt><dd><p>Output field ၏ အလျား။</p>
+</dd>
+<dt><span class="guilabel">Precision</span> (<code class="docutils literal notranslate"><span class="pre">precision</span></code>) [number]</dt><dd><p>Output field ၏ တိကျမှု။</p>
+</dd>
+<dt><span class="guilabel">Constraints</span> (<code class="docutils literal notranslate"><span class="pre">constraints</span></code>) [string]</dt><dd><p>Template layer တစ်ခုအသုံးပြုသောအခါ template field တစ်ခုတွင် constraint (ကန့်သတ်ချက်) များ အသုံးချထားခြင်း ရှိ/မရှိကို ညွှန်ပြပေးမည်ဖြစ်သည်။ Cell ကွက်တွင် မောက်စ် cursor ကိုတင်ကြည့်လျှင် constraint များကို ပြသပေးမည်ဖြစ်သည်။</p>
+</dd>
+<dt><span class="guilabel">Field alias</span> (<code class="docutils literal notranslate"><span class="pre">field_alias</span></code>) [string] <code class="docutils literal notranslate"><span class="pre">NEW</span> <span class="pre">in</span> <span class="pre">3.32</span></code></dt><dd><p>Field အတွက် အမည်ပွား (alias) အဖြစ်အသုံးပြုရန် အမည်တစ်ခု သတ်မှတ်ပါ။ Format အမျိုးအစားအားလုံးကို အသုံးမပြုနိုင်ပါ။ အကယ်၍ အသုံးပြုနိုင်လျှင် ရှိနေပြီးသား အမည်ပွားများကို ပြသပေးမည်ဖြစ်ပြီး ၎င်းတို့ကို ဦးတည် (destination) layer သို့ ကော်ပီကူးမည် ဖြစ်ပါသည်။</p>
+</dd>
+<dt><span class="guilabel">Field comment</span> (<code class="docutils literal notranslate"><span class="pre">field_comment</span></code>) [string] <code class="docutils literal notranslate"><span class="pre">NEW</span> <span class="pre">in</span> <span class="pre">3.32</span></code></dt><dd><p>Field များကို ဖော်ပြသည့် မှတ်ချက်တစ်ခုကို သိမ်းဆည်းပါ။ Format အမျိုးအစားအားလုံးကို အသုံးမပြုနိုင်ပါ။ အကယ်၍ အသုံးပြုနိုင်လျှင် ရှိနေပြီးသား မှတ်ချက်များကို ပြသပေးမည်ဖြစ်ပြီး ၎င်းတို့ကို ဦးတည် (destination) layer သို့ ကော်ပီကူးမည် ဖြစ်ပါသည်။</p>
+</dd>
+<dt><span class="guilabel">Load fields from template layer</span></dt><dd><p>လက်ရှိ ပရောဂျက်မှ layer တစ်ခုကို template တစ်ခုအဖြစ် ရွေးချယ်ရန် ခွင့်ပြုပေးမည်ဖြစ်ပြီး (<span class="guilabel">Load fields</span> ဖြင့်) ထိုအရာ၏ field များနှင့် အဓိပ္ပါယ်ဖွင့်ဆိုချက်များပါဝင်သည့် အထက်ဖော်ပြပါ “Fields mapping” option များတွင် ဖြည့်ပေးမည်ဖြစ်သည်။</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-even"><td><p><strong>Refactored</strong> <strong>(ပြန်လည်ပြုပြင်ထားသော)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
+<td><p>[vector: any]</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">[Create</span> <span class="pre">temporary</span> <span class="pre">layer]</span></code></p>
+</td>
+<td><p>Output layer ၏ သီးခြားသတ်မှတ်ချက်။ အောက်ပါတို့ထဲမှ တစ်ခုဖြစ်ပါသည်-</p>
+<ul class="simple">
+<li><p>ယာယီ layer ဖန်တီးပါ (<code class="docutils literal notranslate"><span class="pre">TEMPORARY_OUTPUT</span></code>)</p></li>
+<li><p>File တွင်သိမ်းဆည်းပါ</p></li>
+<li><p>Geopackage တွင် သိမ်းဆည်းပါ</p></li>
+<li><p>Database ဇယားတွင် သိမ်းဆည်းပါ</p></li>
+<li><p>Layer သို့ဆက်တွဲပေါင်းထည့်ပါ (append)</p></li>
+</ul>
+<p>File encoding ကိုလည်းဤနေရာတွင်ပြောင်းလဲနိုင်ပါသည်။</p>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id26">
+<h3>ရလာဒ်များ (Outputs)<a class="headerlink" href="#id26" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Refactored</strong> <strong>(ပြန်လည်ပြုပြင်ထားသော)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
+<td><p>[vector: any]</p></td>
+<td><p>ပြန်လည်ပြုပြင်ထားသော field များပါဝင်သည့် output layer</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id27">
+<h3>Python code<a class="headerlink" href="#id27" title="Link to this heading"></a></h3>
+<p><strong>Algorithm ID</strong>: <code class="docutils literal notranslate"><span class="pre">native:refactorfields</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">processing</span>
+<span class="n">processing</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;algorithm_id&quot;</span><span class="p">,</span> <span class="p">{</span><span class="n">parameter_dictionary</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>Processing Toolbox ထဲရှိ algorithm ပေါ်တွင် mouse ကိုတင်ထားလျှင် <em>algorithm id</em> ကိုပြသပေးပါသည်။ <em>parameter dictionary</em> သည် parameter နာမည်များနှင့် တန်ဖိုးများကို ပေးပါသည်။ Python console မှ algorithm များကို မည်သို့လုပ်ဆောင်ရမည် ဆိုသည့် အသေးစိတ်ကို သိရှိလိုလျှင် <a class="reference internal" href="../../processing/console.html#processing-console"><span class="std std-ref">Console တွင် processing algorithm များကို အသုံးပြုခြင်း</span></a> တွင်ကြည့်ပါ။</p>
+</section>
+</section>
+<section id="field-rename-field">
+<span id="qgisrenametablefield"></span><h2><a class="toc-backref" href="#id48" role="doc-backlink"><span class="section-number">29.1.21.11. </span>Field အမည်ပြောင်းခြင်း (Rename field)</a><a class="headerlink" href="#field-rename-field" title="Link to this heading"></a></h2>
+<p>Vector layer တစ်ခုမှ လက်ရှိရှိနေသော field တစ်ခုကို အမည်ပြောင်းပေးပါသည်။</p>
+<p>မူလ layer ကို ပြင်ဆင်ပြောင်းလဲမည် မဟုတ်ပါ။ အမည်ပြောင်းထားသော နယ်ပယ်များပါဝင်သည့် attribute ဇယားပါဝင်သော layer အသစ်တစ်ခု ထုတ်ပေးမည် ဖြစ်ပါသည်။</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="#qgisrefactorfields"><span class="std std-ref">Field များပြန်လည်ပြုပြင်ခြင်း (Refactor fields)</span></a></p>
+</div>
+<section id="id28">
+<h3>သတ်မှတ်ချက်များ (Parameters)<a class="headerlink" href="#id28" title="Link to this heading"></a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Input layer</strong> <strong>(ထည့်သွင်းအသုံးပြုသော layer)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">INPUT</span></code></p></td>
+<td><p>[vector: any]</p></td>
+<td><p>ထည့်သွင်းအသုံးပြုသော vector layer</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Field to rename</strong> <strong>(အမည်ပြောင်းရန် field)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">FIELD</span></code></p></td>
+<td><p>[tablefield: any]</p></td>
+<td><p>ပြောင်းလဲမည့် field</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>New field name</strong> <strong>(Field အမည်အသစ်)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">NEW_NAME</span></code></p></td>
+<td><p>[string]</p></td>
+<td><p>Field အမည် အသစ်</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Renamed</strong> <strong>(အမည်ပြောင်းထားပြီးသော)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
+<td><p>[vector: input နှင့်အတူတူဖြစ်ပါသည်]</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">[Create</span> <span class="pre">temporary</span> <span class="pre">layer]</span></code></p>
+</td>
+<td><p>Output layer ၏ သီးခြားသတ်မှတ်ချက်။ အောက်ပါတို့ထဲမှ တစ်ခုဖြစ်ပါသည်-</p>
+<ul class="simple">
+<li><p>ယာယီ layer ဖန်တီးပါ (<code class="docutils literal notranslate"><span class="pre">TEMPORARY_OUTPUT</span></code>)</p></li>
+<li><p>File တွင်သိမ်းဆည်းပါ</p></li>
+<li><p>Geopackage တွင် သိမ်းဆည်းပါ</p></li>
+<li><p>Database ဇယားတွင် သိမ်းဆည်းပါ</p></li>
+<li><p>Layer သို့ဆက်တွဲပေါင်းထည့်ပါ (append)</p></li>
+</ul>
+<p>File encoding ကိုလည်းဤနေရာတွင်ပြောင်းလဲနိုင်ပါသည်။</p>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id29">
+<h3>ရလာဒ်များ (Outputs)<a class="headerlink" href="#id29" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Renamed</strong> <strong>(အမည်ပြောင်းထားပြီးသော)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
+<td><p>[vector: input နှင့်အတူတူဖြစ်ပါသည်]</p></td>
+<td><p>အမည်ပြောင်းလဲထားသည့် field ပါဝင်သည့် output layer</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id30">
+<h3>Python code<a class="headerlink" href="#id30" title="Link to this heading"></a></h3>
+<p><strong>Algorithm ID</strong>: <code class="docutils literal notranslate"><span class="pre">qgis:renametablefield</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">processing</span>
+<span class="n">processing</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;algorithm_id&quot;</span><span class="p">,</span> <span class="p">{</span><span class="n">parameter_dictionary</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>Processing Toolbox ထဲရှိ algorithm ပေါ်တွင် mouse ကိုတင်ထားလျှင် <em>algorithm id</em> ကိုပြသပေးပါသည်။ <em>parameter dictionary</em> သည် parameter နာမည်များနှင့် တန်ဖိုးများကို ပေးပါသည်။ Python console မှ algorithm များကို မည်သို့လုပ်ဆောင်ရမည် ဆိုသည့် အသေးစိတ်ကို သိရှိလိုလျှင် <a class="reference internal" href="../../processing/console.html#processing-console"><span class="std std-ref">Console တွင် processing algorithm များကို အသုံးပြုခြင်း</span></a> တွင်ကြည့်ပါ။</p>
+</section>
+</section>
+<section id="field-retain-fields">
+<span id="qgisretainfields"></span><h2><a class="toc-backref" href="#id49" role="doc-backlink"><span class="section-number">29.1.21.12. </span>Field များကို ဆက်လက်ထိန်းသိမ်းထားခြင်း (Retain fields)</a><a class="headerlink" href="#field-retain-fields" title="Link to this heading"></a></h2>
+<p>Vector layer အသစ်တစ်ခုယူပြီး ရွေးချယ်ထားသည့် field များသာ ဆက်လက်ထိန်းသိမ်းထားရှိသော layer အသစ်တစ်ခု ထုတ်ပေးပါသည်။ အခြား field များအားလုံးကို ဖြုတ်ချန် (drop) လိုက်မည် ဖြစ်သည်။</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="#qgisdeletecolumn"><span class="std std-ref">Field (များ) ကို ချန်ထားခြင်း (Drop field(s) )</span></a></p>
+</div>
+<section id="id31">
+<h3>သတ်မှတ်ချက်များ (Parameters)<a class="headerlink" href="#id31" title="Link to this heading"></a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Input layer</strong> <strong>(ထည့်သွင်းအသုံးပြုသော layer)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">INPUT</span></code></p></td>
+<td><p>[vector: any]</p></td>
+<td><p>ထည့်သွင်းအသုံးပြုသော vector layer</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Fields to retain</strong> <strong>(ဆက်လက်ထိန်းသိမ်းထားရှိမည့် field များ)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">FIELDS</span></code></p></td>
+<td><p>[tablefield: any] [list]</p></td>
+<td><p>Layer ထဲတွင် ဆက်လက်ထားရှိမည့် field များစာရင်း</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Retained fields</strong> <strong>(ဆက်လက်ထိန်းသိမ်းထားရှိသော field များ)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
+<td><p>[vector: input နှင့်အတူတူဖြစ်ပါသည်]</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">[Create</span> <span class="pre">temporary</span> <span class="pre">layer]</span></code></p>
+</td>
+<td><p>Output layer ၏ သီးခြားသတ်မှတ်ချက်။ အောက်ပါတို့ထဲမှ တစ်ခုဖြစ်ပါသည်-</p>
+<ul class="simple">
+<li><p>ယာယီ layer ဖန်တီးပါ (<code class="docutils literal notranslate"><span class="pre">TEMPORARY_OUTPUT</span></code>)</p></li>
+<li><p>File တွင်သိမ်းဆည်းပါ</p></li>
+<li><p>Geopackage တွင် သိမ်းဆည်းပါ</p></li>
+<li><p>Database ဇယားတွင် သိမ်းဆည်းပါ</p></li>
+<li><p>Layer သို့ဆက်တွဲပေါင်းထည့်ပါ (append)</p></li>
+</ul>
+<p>File encoding ကိုလည်းဤနေရာတွင်ပြောင်းလဲနိုင်ပါသည်။</p>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id32">
+<h3>ရလာဒ်များ (Outputs)<a class="headerlink" href="#id32" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Retained fields</strong> <strong>(ဆက်လက်ထိန်းသိမ်းထားရှိသော field များ)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
+<td><p>[vector: input နှင့်အတူတူဖြစ်ပါသည်]</p></td>
+<td><p>ဆက်လက်ထိန်းသိမ်းထားသည့် field များပါဝင်သည့် output layer</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id33">
+<h3>Python code<a class="headerlink" href="#id33" title="Link to this heading"></a></h3>
+<p><strong>Algorithm ID</strong>: <code class="docutils literal notranslate"><span class="pre">native:retainfields</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">processing</span>
+<span class="n">processing</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;algorithm_id&quot;</span><span class="p">,</span> <span class="p">{</span><span class="n">parameter_dictionary</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>Processing Toolbox ထဲရှိ algorithm ပေါ်တွင် mouse ကိုတင်ထားလျှင် <em>algorithm id</em> ကိုပြသပေးပါသည်။ <em>parameter dictionary</em> သည် parameter နာမည်များနှင့် တန်ဖိုးများကို ပေးပါသည်။ Python console မှ algorithm များကို မည်သို့လုပ်ဆောင်ရမည် ဆိုသည့် အသေးစိတ်ကို သိရှိလိုလျှင် <a class="reference internal" href="../../processing/console.html#processing-console"><span class="std std-ref">Console တွင် processing algorithm များကို အသုံးပြုခြင်း</span></a> တွင်ကြည့်ပါ။</p>
+</section>
+</section>
+<section id="text-to-float">
+<span id="qgistexttofloat"></span><h2><a class="toc-backref" href="#id50" role="doc-backlink"><span class="section-number">29.1.21.13. </span>စာသားမှ ဒဿမဂဏန်းသို့ (Text to float)</a><a class="headerlink" href="#text-to-float" title="Link to this heading"></a></h2>
+<p>Vector layer တစ်ခုထဲရှိ ပေးထားသည့် attribute တစ်ခု၏ အမျိုးအစားကို မွမ်းမံပြင်ဆင်ပေးပါသည်၊ ဂဏန်းဆိုင်ရာ (numeric) string များပါဝင်သည့် စာသား attribute တစ်ခုကို ဂဏန်းဆိုင်ရာ (numeric) attribute တစ်ခုအဖြစ်သို့ ပြောင်းလဲပေးခြင်းဖြစ်ပါသည် (ဥပမာ၊ ‘1’ မှ <code class="docutils literal notranslate"><span class="pre">1.0</span></code>)။</p>
+<p>Algorithm သည် vector layer အသစ်တစ်ခုကို ဖန်တီးမည်ဖြစ်သောကြောင့် မူလ layer ကို မွမ်းမံပြင်ဆင်မည်မဟုတ်ပါ။</p>
+<p>ပြောင်းလဲမှုသည် မဖြစ်နိုင်ပါက ရွေးချယ်ထားသည့် column တွင် <code class="docutils literal notranslate"><span class="pre">NULL</span></code> တန်ဖိုးများ ရှိနေပါလိမ့်မည်။</p>
+<section id="id34">
+<h3>သတ်မှတ်ချက်များ (Parameters)<a class="headerlink" href="#id34" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Input layer</strong> <strong>(ထည့်သွင်းအသုံးပြုသော layer)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">INPUT</span></code></p></td>
+<td><p>[vector: any]</p></td>
+<td><p>ထည့်သွင်းအသုံးပြုသော vector layer</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Text attribute to convert to float</strong> <strong>(Float သို့ပြောင်းလဲရန် စာသား attribute)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">FIELD</span></code></p></td>
+<td><p>[tablefield: string]</p></td>
+<td><p>Float field တစ်ခုအဖြစ်သို့ပြောင်းလဲရန် input layer အတွက် စာသား (string) field</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Float from text</strong> <strong>(စာသားမှ Float သို့)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
+<td><p>[input နှင့်အတူတူဖြစ်ပါသည်]</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">[Create</span> <span class="pre">Temporary</span> <span class="pre">Layer]</span></code></p>
+</td>
+<td><p>Output layer ကိုသတ်မှတ်ပါ။ အောက်ပါတို့ထဲမှ တစ်ခုဖြစ်ပါသည်-</p>
+<ul class="simple">
+<li><p>ယာယီ layer ဖန်တီးပါ (<code class="docutils literal notranslate"><span class="pre">TEMPORARY_OUTPUT</span></code>)</p></li>
+<li><p>File တွင်သိမ်းဆည်းပါ</p></li>
+<li><p>Geopackage တွင် သိမ်းဆည်းပါ</p></li>
+<li><p>Database ဇယားတွင် သိမ်းဆည်းပါ</p></li>
+<li><p>Layer သို့ဆက်တွဲပေါင်းထည့်ပါ (append)</p></li>
+</ul>
+<p>File encoding ကိုလည်းဤနေရာတွင်ပြောင်းလဲနိုင်ပါသည်။</p>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id35">
+<h3>ရလာဒ်များ (Outputs)<a class="headerlink" href="#id35" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Float from text</strong> <strong>(စာသားမှ Float သို့)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
+<td><p>[input နှင့်အတူတူဖြစ်ပါသည်]</p></td>
+<td><p>စာသား (string) field မှ float (ဒဿမဂဏန်း) field တစ်ခုသို့ ပြောင်းလဲထားသည်များပါဝင်သော output vector layer</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id36">
+<h3>Python code<a class="headerlink" href="#id36" title="Link to this heading"></a></h3>
+<p><strong>Algorithm ID</strong>: <code class="docutils literal notranslate"><span class="pre">qgis:texttofloat</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">processing</span>
+<span class="n">processing</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;algorithm_id&quot;</span><span class="p">,</span> <span class="p">{</span><span class="n">parameter_dictionary</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>Processing Toolbox ထဲရှိ algorithm ပေါ်တွင် mouse ကိုတင်ထားလျှင် <em>algorithm id</em> ကိုပြသပေးပါသည်။ <em>parameter dictionary</em> သည် parameter နာမည်များနှင့် တန်ဖိုးများကို ပေးပါသည်။ Python console မှ algorithm များကို မည်သို့လုပ်ဆောင်ရမည် ဆိုသည့် အသေးစိတ်ကို သိရှိလိုလျှင် <a class="reference internal" href="../../processing/console.html#processing-console"><span class="std std-ref">Console တွင် processing algorithm များကို အသုံးပြုခြင်း</span></a> တွင်ကြည့်ပါ။</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="vectorselection.html" class="btn btn-neutral float-left" title="29.1.20. Vector တွင်ရွေးချယ်ခြင်း (Vector selection)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="vectortiles.html" class="btn btn-neutral float-right" title="29.1.22. Vector tile များ" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2002-now, QGIS project.
+      <span class="lastupdated">Last updated on 2024 May 13, 16:23 +0700.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- Transifex follows a particular logic to build target pages:
+Expected French translation link for https://docs.qgis.org/3.28/en/docs/user_manual/print_composer/overview_composer.html
+would return https://app.transifex.com/qgis/qgis-documentation/translate/#fr/aa6d8bc653526d38b295ca94bf8eee5e
+with the md5 value of "github#qgis/QGIS-Documentation#release_3.28#locale/en/LC_MESSAGES/docs/user_manual/print_composer/overview_composer.po"-->
+<!--Make sure that mismatching language codes between Transifex and Sphinx are converted-->
+
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-info-circle"> QGIS Documentation </span>
+      v: 3.28
+      <span class="fa fa-caret-down"></span>
+    </span>
+
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Languages</dt>
+        
+          <dd><a href="https://docs.qgis.org/3.28/en/docs/user_manual/processing_algs/qgis/vectortable.html">en</a></dd>
+        
+      </dl>
+
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/user_manual/processing_algs/qgis/vectortable.html">testing</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/latest/en/docs/user_manual/processing_algs/qgis/vectortable.html">latest</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.28/en/docs/user_manual/processing_algs/qgis/vectortable.html">3.28</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.22/en/docs/user_manual/processing_algs/qgis/vectortable.html">3.22</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.16/en/docs/user_manual/processing_algs/qgis/vectortable.html">3.16</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.10/en/docs/user_manual/processing_algs/qgis/vectortable.html">3.10</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.4/en/docs/user_manual/processing_algs/qgis/vectortable.html">3.4</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/2.18/en/docs/user_manual/processing_algs/qgis/vectortable.html">2.18</a></dd>
+        
+      </dl>
+
+       
+       <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="https://docs.qgis.org/3.28/pdf">PDF</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.28/zip">HTML</a></dd>
+        
+      </dl>
+      
+
+      
+       
+      <dl>
+        <dt>Contribute to Docs</dt>
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/edit/master/docs/user_manual/processing_algs/qgis/vectortable.rst" target="_blank" rel="noopener noreferrer">Edit on GitHub</a>
+          </dd>
+          
+          
+          <dd>
+            <a href="https://app.transifex.com/qgis/qgis-documentation/translate/#en/9f22326f3a1859bf80cc66c2e4f0c061" target="_blank" rel="noopener noreferrer">Translate Page</a>
+          </dd>
+          
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/issues" target="_blank" rel="noopener noreferrer">Report Issue</a>
+          </dd>
+      </dl>
+      
+
+      <dl>
+        <dt>On QGIS Project</dt>
+          <dd>
+            <a href="https://qgis.org/en" target="_blank" rel="noopener noreferrer">Home</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/api/3.28" target="_blank" rel="noopener noreferrer">C++ API</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/pyqgis/3.28" target="_blank" rel="noopener noreferrer">PyQGIS API</a>
+          </dd>
+          <dd>
+            <a href="https://github.com/qgis/QGIS/tree/release-3_28" target="_blank" rel="noopener noreferrer">Source</a>
+          </dd>
+      </dl>
+
+    </div>
+  </div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

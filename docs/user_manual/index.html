@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>&lt;no title&gt; &mdash; QGIS Documentation  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/qgis_docs.css?v=3fdf4c33" />
+      <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+
+  
+    <link rel="shortcut icon" href="../../_static/qgis_logo.ico"/>
+    <link rel="canonical" href="https://docs.qgis.org/latest/en/docs/user_manual/index.html"/>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../_static/copybutton.js?v=f281be69"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="1. စကားချီး (Preamble)" href="preamble/preamble.html" />
+    <link rel="prev" title="QGIS 3.28 အတွက် မှတ်တမ်း (Documentation)" href="../index.html" />
+  <meta name="description" content="QGIS 3.28 documentation: &lt;no title&gt;">
+</head>
+
+<body class="wy-body-for-nav">
+
+  <nav class="release_status_topbar">
+  </nav>
+
+   
+
+ 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+   
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            QGIS Documentation
+              <img src="../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                3.28
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+   <a href= "../../genindex.html">Index</a>
+ 
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">အသုံးပြုသူများအတွက်</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="preamble/preamble.html">1. စကားချီး (Preamble)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="preamble/foreword.html">2. အမှာစာ (Foreword)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="preamble/conventions.html">3. အသုံးအနှုန်းများ (Conventions)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="preamble/features.html">4. အသွင်အပြင်များ (Features)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction/getting_started.html">5. စတင်အသုံးပြုခြင်း (Getting Started)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction/project_files.html">6. Project Files များနှင့် အလုပ်လုပ်ခြင်း (Working with Project Files)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction/qgis_gui.html">7. QGIS ၏အစိတ်အပိုင်းများ (QGIS GUI)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction/browser.html">8. ဒေတာများရှာဖွေကြည့်ရှုနိုင်သည့်နေရာ (The Browser panel)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction/qgis_configuration.html">9. QGIS ပြင်ဆင်သတ်မှတ်ခြင်း/အခင်းအကျင်း (QGIS Configuration)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="working_with_projections/working_with_projections.html">10. မြေပုံအရိပ်ချစနစ်များ နှင့် အလုပ်လုပ်ခြင်း (Working with Projections)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="map_views/index.html">11. မြေပုံများအား ပုံဖော်ကြည့်ရှုခြင်း (Visualizing Maps)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction/general_tools.html">12. အထွေ‌ထွေ‌သုံးကိရိယာများ (General Tools)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="expressions/index.html">13. Expression များဖြင့် အဆင့်မြှင့်တင်ဆောင်ရွက်ခြင်း (Level up with Expressions)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="style_library/index.html">14. The Style Library (Style နှင့်ပတ်သက်သည်များ ထားရှိရာနေရာ)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="managing_data_source/index.html">15. ဒေတာအရင်းအမြစ်များအား စီမံခန့်ခွဲခြင်း (Managing Data Source)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="working_with_vector/index.html">16. Vector data များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="working_with_raster/index.html">17. Raster Data နှင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="working_with_mesh/mesh_properties.html">18. Working with Mesh Data (Mesh Data များနှင့် အလုပ်လုပ်ခြင်း)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="working_with_vector_tiles/vector_tiles_properties.html">19. Vector Tiles များနှင့်အလုပ်လုပ်ခြင်း (Working with Vector Tiles)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="working_with_point_clouds/point_clouds.html">20. Point Cloud များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="print_composer/index.html">21. မြေပုံအချောသပ်ပြင်ဆင်ခြင်း (Laying out the maps)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="working_with_ogc/ogc_client_support.html">22. OGC / ISO protocol များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="working_with_gps/index.html">23. GPS Data များနှင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="auth_system/auth_overview.html">24. အထောက်အထားစီစစ်ခြင်းအကြောင်းအကျဉ်း (Authentication System Overview)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="auth_system/auth_workflows.html">25. အသုံးပြုသူ အထောက်အထားစစ်ဆေးခြင်း လုပ်ငန်းအဆင့်များ (User Authentication Workflows)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="auth_system/auth_considerations.html">26. လုံခြုံရေးအတွက်စဉ်းစားရန်အချက်များ (Security Considerations)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="grass_integration/grass_integration.html">27. GRASS GIS နှင့်ပေါင်းစပ်အသုံးပြုခြင်း (GRASS GIS Integration)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="processing/index.html">28. QGIS processing framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="processing_algs/index.html">29. Processing ဆိုင်ရာ ထောက်ပံ့ပေးသူများနှင့် Algorithm များ (Processing providers and algorithms)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins/plugins.html">30. QGIS Plugin များ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins/core_plugins/index.html">31. QGIS ပင်မ Plugin များကို အသုံးပြုခြင်း (Using QGIS Core Plugins)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins/python_console.html">32. QGIS တွင် Python code များရေးသားရန်နေရာ (QGIS Python console)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="preamble/help_and_support.html">33. အကူအညီနှင့်အထောက်အပံ့ (Help and Support)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="preamble/contributors.html">34. ပါဝင်အားဖြည့်သူများ (Contributors)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendices/index.html">35. နောက်ဆက်တွဲများ (Appendices)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="literature_web/literature_and_web_references.html">36. စာတမ်းများနှင့် Website ကိုးကားချက်များ (Literature and Web References)</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">QGIS Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">&lt;no title&gt;</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/qgis/QGIS-Documentation/blob/master/docs/user_manual/index.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="../index.html" class="btn btn-neutral float-left" title="QGIS 3.28 အတွက် မှတ်တမ်း (Documentation)" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="preamble/preamble.html" class="btn btn-neutral float-right" title="1. စကားချီး (Preamble)" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <blockquote>
+<div></div></blockquote>
+<p id="qgis-manual-index-reference">=
+QGIS အသုံးပြုသူလမ်းညွှန် (QGIS User Guide)
+===========================================</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="preamble/preamble.html">1. စကားချီး (Preamble)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="preamble/preamble.html#qgis-current-what-is-new-in-qgis-current">1.1. QGIS 3.28 ၏အသွင်အပြင်သစ်များ (What is new in QGIS 3.28)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="preamble/foreword.html">2. အမှာစာ (Foreword)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="preamble/conventions.html">3. အသုံးအနှုန်းများ (Conventions)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="preamble/conventions.html#gui-conventions">3.1. အစိတ်အပိုင်းအခေါ်အဝေါ်များ (GUI Conventions)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="preamble/conventions.html#text-or-keyboard-conventions">3.2. စာသား သို့မဟုတ် ကီးဘုတ်လက်ကွက် အသုံးအနှုန်းများ (Text or Keyboard Conventions)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="preamble/conventions.html#platform-specific-instructions">3.3. ကွန်ပြူတာစနစ် အလိုက်ညွှန်ကြားချက်များ (Platform-specific instructions)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="preamble/features.html">4. အသွင်အပြင်များ (Features)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="preamble/features.html#view-data">4.1. ဒေတာများအား ကြည့်ရှုခြင်း (View data)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="preamble/features.html#data-explore-data-and-compose-maps">4.2. Data များကိုလေ့လာခြင်းနှင့် မြေပုံများပြုလုပ်ခြင်း (Explore data and compose maps)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="preamble/features.html#data-create-edit-manage-and-export-data">4.3. Data များကို ဖန်တီးခြင်း၊ တည်းဖြတ်ပြင်ဆင်ခြင်း၊ စီမံခြင်းနှင့် ထုတ်ယူခြင်း (Create, edit, manage and export data)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="preamble/features.html#analyze-data">4.4. ဒေတာများကိုခွဲခြမ်းစိတ်ဖြာခြင်း (Analyze data)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="preamble/features.html#publish-maps-on-the-internet">4.5. အင်တာနက်ပေါ်တွင်မြေပုံများထုတ်ဝေဖြန့်ဖြူးခြင်း (Publish maps on the Internet)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="preamble/features.html#plugin-qgis-extend-qgis-functionality-through-plugins">4.6. Plugin များသုံး၍QGIS ၏ လုပ်ဆောင်နိုင်စွမ်းကိုတိုးမြှင့်ခြင်း (Extend QGIS functionality through plugins)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="preamble/features.html#python-python-console">4.7. Python ကုဒ်ဖြင့်ရေးသားခိုင်းစေရန်နေရာ (Python Console)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="preamble/features.html#known-issues">4.8. ကြုံတွေ့သည့် ပြဿနာများ (Known Issues)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="introduction/getting_started.html">5. စတင်အသုံးပြုခြင်း (Getting Started)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="introduction/getting_started.html#qgis-software-installing-qgis">5.1. QGIS Software ထည့်သွင်းအသုံးပြုခြင်း (Installing QGIS)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction/getting_started.html#qgis-starting-and-stopping-qgis">5.2. QGIS ဖွင့်ခြင်း/ပိတ်ခြင်း (Starting and stopping QGIS)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction/getting_started.html#raster-vector-layer-sample-session-loading-raster-and-vector-layers">5.3. နမူနာကဏ္ဍ - Raster နှင့် Vector Layer များကို ထည့်သွင်းခြင်း (Sample Session: Loading raster and vector layers)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="introduction/project_files.html">6. Project Files များနှင့် အလုပ်လုပ်ခြင်း (Working with Project Files)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="introduction/project_files.html#qgis-project-introducing-qgis-projects">6.1. QGIS Project များအကြောင်းမိတ်ဆက်ခြင်း (Introducing QGIS projects)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction/project_files.html#handling-broken-file-paths">6.2. ဖိုင်လမ်းကြောင်းအပျက်များကိုဖြေရှင်းခြင်း (Handling broken file paths)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction/project_files.html#generating-output">6.3. ရလာဒ်များထုတ်ခြင်း (Generating output)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="introduction/qgis_gui.html">7. QGIS ၏အစိတ်အပိုင်းများ (QGIS GUI)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="introduction/qgis_gui.html#menu-bar">7.1. Menu bar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction/qgis_gui.html#panel-toolbar">7.2. Panel များ Toolbar များ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction/qgis_gui.html#status-bar">7.3. အခြေအနေပြဘား (Status Bar)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="introduction/browser.html">8. ဒေတာများရှာဖွေကြည့်ရှုနိုင်သည့်နေရာ (The Browser panel)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="introduction/browser.html#browser-resources-that-can-be-opened-run-from-the-browser">8.1. Browser မှ ဖွင့်နိုင်/လုပ်ဆောင်နိုင်သော အရင်းအမြစ်များ (Resources that can be opened / run from the Browser)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction/browser.html#browser-panel-browser-panel-top-level-entries">8.2. Browser panel ရှိ ထိပ်ပိုင်းအဆင့် အရာများ (Browser panel top-level entries)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction/browser.html#resources">8.3. အရင်းအမြစ်များ (Resources)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="introduction/qgis_configuration.html">9. QGIS ပြင်ဆင်သတ်မှတ်ခြင်း/အခင်းအကျင်း (QGIS Configuration)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="introduction/qgis_configuration.html#options">9.1. ရွေးချယ်စရာများ (Options)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction/qgis_configuration.html#working-with-user-profiles">9.2. အသုံးပြုသူပရိုဖိုင်များ ကို ကိုင်တွယ်ဆောင်ရွက်ခြင်း (Working with User Profiles)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction/qgis_configuration.html#project-project-properties">9.3. Project ဂုဏ်သတ္တိများ (Project Properties)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction/qgis_configuration.html#customization">9.4. စိတ်ကြိုက်ပြင်ဆင်ခြင်း (Customization)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction/qgis_configuration.html#keyboard-shortcuts">9.5. Keyboard shortcuts (ကီးဘုတ်ဖြတ်လမ်းနည်းများ)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction/qgis_configuration.html#setting-qgis-running-qgis-with-advanced-settings">9.6. အဆင့်မြင့် setting များဖြင့် QGIS အသုံးပြုခြင်း (Running QGIS with advanced settings)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="working_with_projections/working_with_projections.html">10. မြေပုံအရိပ်ချစနစ်များ နှင့် အလုပ်လုပ်ခြင်း (Working with Projections)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="working_with_projections/working_with_projections.html#projection-overview-of-projection-support">10.1. Projection ပံ့ပိုးမှုများအကြောင်း (Overview of Projection Support)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="working_with_projections/working_with_projections.html#layer-coordinate-reference-system">10.2. Layer ၏ Coordinate Reference System များ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="working_with_projections/working_with_projections.html#project-coordinate-reference-system">10.3. Project Coordinate Reference System များ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="working_with_projections/working_with_projections.html#coordinate-reference-system-selector">10.4. ကိုသြဒိနိတ်ရည်ညွှန်းစနစ်ရွေးချယ်ရာ (Coordinate Reference System Selector)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="working_with_projections/working_with_projections.html#crs-custom-coordinate-reference-system">10.5. ကိုယ်တိုင်ဆောက် CRS စနစ် (Custom Coordinate Reference System)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="working_with_projections/working_with_projections.html#datum-transformations">10.6. ရည်ညွှန်းမျက်နှာပြင် ပြောင်းခြင်း (Datum Transformations)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="map_views/index.html">11. မြေပုံများအား ပုံဖော်ကြည့်ရှုခြင်း (Visualizing Maps)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="map_views/map_view.html">11.1. ရိုးရိုးမြေပုံမြင်ကွင်း (2D Map View)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="map_views/3d_map_view.html">11.2. ရုပ်လုံးကြွမြေပုံမြင်ကွင်း (3D Map View)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="map_views/elevation_profile.html">11.3. မြေပြင်ကန်လန့်ဖြတ်ပိုင်းပုံပြမြင်ကွင်း (Elevation Profile View)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="introduction/general_tools.html">12. အထွေ‌ထွေ‌သုံးကိရိယာများ (General Tools)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="introduction/general_tools.html#context-help">12.1. အကြောင်းအရာပေါ်မူတည်ပြီး ပြသည့်အကူအညီ (Context help)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction/general_tools.html#panel">12.2. Panel များ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction/general_tools.html#project-layer-embedding-layers-from-external-projects">12.3. ပြင်ပ project များမှ layer များကို ထည့်သွင်းခြင်း (Embedding layers from external projects)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction/general_tools.html#feature-interacting-with-features">12.4. Feature များနှင့် အပြန်အလှန်လုပ်ဆောင်ခြင်း (Interacting with features)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction/general_tools.html#layer-properties-save-and-share-layer-properties">12.5. Layer Properties များကို သိမ်းဆည်းခြင်းနှင့်မျှဝေခြင်း (Save and Share Layer Properties)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction/general_tools.html#data-documenting-your-data">12.6. Data များကို မှတ်တမ်းတင်ခြင်း (Documenting your data)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction/general_tools.html#variables-storing-values-in-variables">12.7. Variables များတွင် တန်ဖိုးများကို သိမ်းဆည်းခြင်း (Storing values in Variables)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction/general_tools.html#authentication">12.8. အထောက်အထားစီစစ်ခြင်း (Authentication)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction/general_tools.html#widget-common-widgets">12.9. အသုံးများသည့် widget များ (Common widgets)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="expressions/index.html">13. Expression များဖြင့် အဆင့်မြှင့်တင်ဆောင်ရွက်ခြင်း (Level up with Expressions)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="expressions/expression.html">13.1. စေခိုင်းချက်များ (Expressions)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="expressions/functions_list.html">13.2. Function များ စာရင်း (List of functions)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="style_library/index.html">14. The Style Library (Style နှင့်ပတ်သက်သည်များ ထားရှိရာနေရာ)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="style_library/style_manager.html">14.1. Style များစီမံခန့်ခွဲရာ (Style Manager)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="style_library/symbol_selector.html">14.2. သင်္ကေတရွေးချယ်သည့်အရာ (The Symbol Seclector)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="style_library/label_settings.html">14.3. အညွှန်းစာတစ်ခု သတ်မှတ်ခြင်း (Setting a label)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="style_library/3d_symbols.html">14.4. ရုပ်ကြွသင်္ကေတများ ဖန်တီးခြင်း (Creating 3D Symbols)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="managing_data_source/index.html">15. ဒေတာအရင်းအမြစ်များအား စီမံခန့်ခွဲခြင်း (Managing Data Source)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="managing_data_source/opening_data.html">15.1. Data ဖွင့်ခြင်း (Opening Data)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="managing_data_source/create_layers.html">15.2. Layer များဖန်တီးခြင်း (Creating Layers)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="managing_data_source/supported_data.html">15.3. Data Format များနှင့် Field များကို လေ့လာခြင်း (Exploring Data Formats and Fields)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="working_with_vector/index.html">16. Vector data များဖြင့် အလုပ်လုပ်ခြင်း</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="working_with_vector/vector_properties.html">16.1. Vector ၏ ဂုဏ်သတ္တိများပြ dialog (The Vector Properties Dialog)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="working_with_vector/attribute_table.html">16.2. အချက်အလက်ပြဇယား နှင့် အလုပ်လုပ်ခြင်း (Working with the Attribute Table)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="working_with_vector/editing_geometry_attributes.html">16.3. တည်းဖြတ်ပြင်ဆင်ခြင်း (Editing)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="working_with_raster/index.html">17. Raster Data နှင့် အလုပ်လုပ်ခြင်း</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="working_with_raster/raster_properties.html">17.1. Raster ဂုဏ်သတ္တိများပြ Dialog (Raster Properties Dialog)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="working_with_raster/raster_analysis.html">17.2. Raster များအား ဆန်းစစ်လေ့လာခြင်း</a></li>
+<li class="toctree-l2"><a class="reference internal" href="working_with_raster/georeferencer.html">17.3. မြေပုံမြေပြင်မှတ်ပုံတင်ရာ (Georeferencer)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="working_with_mesh/mesh_properties.html">18. Working with Mesh Data (Mesh Data များနှင့် အလုပ်လုပ်ခြင်း)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="working_with_mesh/mesh_properties.html#mesh-what-s-a-mesh">18.1. Mesh ဆိုတာဘာလဲ (What’s a mesh?)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="working_with_mesh/mesh_properties.html#format-supported-formats">18.2. အသုံးပြုနိုင်သော format များ (Supported formats)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="working_with_mesh/mesh_properties.html#mesh-dataset-mesh-dataset-properties">18.3. Mesh dataset ၏ ဂုဏ်သတ္တိများ (Mesh Dataset Properties)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="working_with_mesh/mesh_properties.html#mesh-layer-editing-a-mesh-layer">18.4. Mesh layer တစ်ခုကို တည်းဖြတ်ပြင်ဆင်ခြင်း (Editing a mesh layer)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="working_with_mesh/mesh_properties.html#mesh-mesh-calculator">18.5. Mesh များ တွက်ချက်ပေးသည့်အရာ (Mesh Calculator)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="working_with_vector_tiles/vector_tiles_properties.html">19. Vector Tiles များနှင့်အလုပ်လုပ်ခြင်း (Working with Vector Tiles)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="working_with_vector_tiles/vector_tiles_properties.html#vector-tile-what-are-vector-tiles">19.1. Vector Tile ဆိုသည်မှာ ဘယ်လိုအရာတွေလဲ (What are Vector Tiles?)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="working_with_vector_tiles/vector_tiles_properties.html#format-supported-formats">19.2. အသုံးပြုနိုင်သည့် Format များ (Supported Formats)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="working_with_vector_tiles/vector_tiles_properties.html#vector-tiles-vector-tiles-dataset-properties">19.3. Vector Tiles ဂုဏ်သတ္တိများ (Vector Tiles Dataset Properties)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="working_with_point_clouds/point_clouds.html">20. Point Cloud များဖြင့် အလုပ်လုပ်ခြင်း</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="working_with_point_clouds/point_clouds.html#point-clouds-introduction">20.1. Point Cloud မိတ်ဆက်</a></li>
+<li class="toctree-l2"><a class="reference internal" href="working_with_point_clouds/point_clouds.html#point-cloud-point-clouds-properties">20.2. Point cloud များ၏ ဂုဏ်သတ္တိများ (Point Clouds Properties)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="working_with_point_clouds/point_clouds.html#virtual-point-cloud">20.3. Virtual point cloud</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="print_composer/index.html">21. မြေပုံအချောသပ်ပြင်ဆင်ခြင်း (Laying out the maps)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="print_composer/overview_composer.html">21.1. ပုံထုတ်အပြင်အဆင်ဆိုင်ရာ ခြုံငုံသုံးသပ်ချက် (Overview of the Print Layout)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="print_composer/composer_items/index.html">21.2. အချောထုတ်မြေပုံ၏အစိတ်အပိုင်းများ (Layout items )</a></li>
+<li class="toctree-l2"><a class="reference internal" href="print_composer/create_output.html">21.3. ရလာဒ်တစ်ခု ဖန်တီးခြင်း (Creating an Output)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="print_composer/create_reports.html">21.4. အစီရင်ခံစာတစ်ခုဖန်တီးခြင်း (Creating a Report)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="working_with_ogc/ogc_client_support.html">22. OGC / ISO protocol များဖြင့် အလုပ်လုပ်ခြင်း</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="working_with_ogc/ogc_client_support.html#wms-wmts-client">22.1. WMS/WMTS Client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="working_with_ogc/ogc_client_support.html#wcs-client">22.2. WCS Client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="working_with_ogc/ogc_client_support.html#wfs-and-wfs-t-client">22.3. WFS and WFS-T Client</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="working_with_gps/index.html">23. GPS Data များနှင့် အလုပ်လုပ်ခြင်း</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="working_with_gps/plugins_gps.html">23.1. GNSS/GPS data များကိုမိတ်ဆက်ခြင်း (Introducing GNSS/GPS Data)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="working_with_gps/live_GPS_tracking.html">23.2. အချိန်တစ်ပြေးညီ လမ်းကြောင်းဆွဲခြင်း (Live GPS tracking)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="auth_system/auth_overview.html">24. အထောက်အထားစီစစ်ခြင်းအကြောင်းအကျဉ်း (Authentication System Overview)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="auth_system/auth_overview.html#database-authentication-database">24.1. အထောက်အထားစီစစ်ခြင်းဆိုင်ရာ database (Authentication database)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auth_system/auth_overview.html#master-password">24.2. ပင်မစကားဝှက် (Master password)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auth_system/auth_overview.html#authentication-configurations">24.3. အထောက်အထားစီစစ်ရန်သတ်မှတ်ခြင်းများ (Authentication Configurations)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auth_system/auth_overview.html#authentication-methods">24.4. အထောက်အထားစီစစ်ခြင်းနည်းလမ်းများ (Authentication Methods)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auth_system/auth_overview.html#master-password-and-auth-config-utilities">24.5. ပင်မစကားဝှက် နှင့် အထောက်အထားစီစစ်ခြင်းလုပ်ငန်းများ (Master Password and Auth Config Utilities)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auth_system/auth_overview.html#authentication-configuration">24.6. Authentication configuration များကို အသုံးပြုခြင်း</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auth_system/auth_overview.html#python-python-bindings">24.7. Python စည်းနှောင်ခြင်းများ (Python bindings)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="auth_system/auth_workflows.html">25. အသုံးပြုသူ အထောက်အထားစစ်ဆေးခြင်း လုပ်ငန်းအဆင့်များ (User Authentication Workflows)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="auth_system/auth_workflows.html#http-s-http-s-authentication">25.1. HTTP(S) စနစ်တွင် အထောက်အထား စစ်ဆေးမှု (HTTP(S) authentication )</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auth_system/auth_workflows.html#database-database-authentication">25.2. Database တွင် အထောက်အထားစစ်ဆေးခြင်း (Database authentication)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auth_system/auth_workflows.html#pki-pki-authentication">25.3. PKI စစ်ဆေးခြင်း (PKI authentication)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auth_system/auth_workflows.html#layer-handling-bad-layers">25.4. layerအညံ့များကိုကိုင်တွယ်ခြင်း (Handling bad layers)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auth_system/auth_workflows.html#id-changing-authentication-config-id">25.5. အထောက်အထားစီစစ်မည့် ID အားပြောင်းလဲခြင်း (Changing authentication config ID)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auth_system/auth_workflows.html#qgis-qgis-server-support">25.6. QGIS ဆာဗာ အကူအညီ (QGIS Server support)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auth_system/auth_workflows.html#ssl-server-ssl-server-exceptions">25.7. SSL server ခြွင်းချက်များ (SSL server exceptions)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="auth_system/auth_considerations.html">26. လုံခြုံရေးအတွက်စဉ်းစားရန်အချက်များ (Security Considerations)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="auth_system/auth_considerations.html#restrictions">26.1. ကန့်သတ်ချက်များ (Restrictions)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="grass_integration/grass_integration.html">27. GRASS GIS နှင့်ပေါင်းစပ်အသုံးပြုခြင်း (GRASS GIS Integration)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="grass_integration/grass_integration.html#dataset-demo-dataset">27.1. အစမ်းသရုပ်ပြ dataset (Demo dataset)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="grass_integration/grass_integration.html#grass-raster-vector-layer-loading-grass-raster-and-vector-layers">27.2. GRASS raster နှင့် vector layer များကို ထည့်သွင်းခြင်း (Loading GRASS raster and vector layers)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="grass_integration/grass_integration.html#grass-location-importing-data-into-a-grass-location-via-drag-and-drop">27.3. ဖိဆွဲချနည်းဖြင့် GRASS LOCATION ထဲသို့အချက်အလက်များ ထည့်သွင်းခြင်း (Importing data into a GRASS LOCATION via drag and drop)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="grass_integration/grass_integration.html#qgis-browser-grass-data-managing-grass-data-in-qgis-browser">27.4. QGIS Browser ဖြင့် GRASS Data များအားစီမံခန့်ခွဲခြင်း (Managing GRASS data in QGIS Browser)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="grass_integration/grass_integration.html#grass-grass-options">27.5. GRASS ၏ ရွေးချယ်စရာများ (GRASS Options)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="grass_integration/grass_integration.html#grass-plugin-starting-the-grass-plugin">27.6. GRASS plugin အားစတင်အသုံးပြုခြင်း (Starting the GRASS plugin)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="grass_integration/grass_integration.html#grass-mapset-opening-grass-mapset">27.7. GRASS mapset ကိုဖွင့်ခြင်း (Opening GRASS mapset)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="grass_integration/grass_integration.html#grass-location-mapset">27.8. GRASS LOCATION နှင့် MAPSET</a></li>
+<li class="toctree-l2"><a class="reference internal" href="grass_integration/grass_integration.html#grass-location-data-importing-data-into-a-grass-location">27.9. GRASS LOCATION တစ်ခုထဲသို့ Data များ ထည့်သွင်းခြင်း (Importing data into a GRASS LOCATION)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="grass_integration/grass_integration.html#the-grass-vector-data-model">27.10. The GRASS vector data model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="grass_integration/grass_integration.html#grass-vector-layer-creating-a-new-grass-vector-layer">27.11. GRASS vector layer အသစ်တစ်ခု ဖန်တီးခြင်း (Creating a new GRASS vector layer)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="grass_integration/grass_integration.html#grass-vector-layer-digitizing-and-editing-a-grass-vector-layer">27.12. GRASS vector layer တစ်ခုအား ရေးဆွဲခြင်းနှင့် တည်းဖြတ်ပြင်ဆင်ခြင်း (Digitizing and editing a GRASS vector layer)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="grass_integration/grass_integration.html#the-grass-region-tool">27.13. The GRASS region tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="grass_integration/grass_integration.html#the-grass-toolbox">27.14. The GRASS Toolbox</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="processing/index.html">28. QGIS processing framework</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="processing/intro.html">28.1. မိတ်ဆက် (Introduction)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="processing/configuration.html">28.2. Processing Framework ကို ပြင်ဆင်သတ်မှတ်ခြင်း (Configuring the Processing Framework)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="processing/toolbox.html">28.3. ကိရိယာများအစု (The Toolbox)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="processing/history.html">28.4. ရှေတွင်လုပ်ခဲ့သည့်အဆင့်များကို စီမံခန့်ခွဲရာနေရာ (The history manager)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="processing/modeler.html">28.5. Model design ပြုလုပ်ရာနေရာ (The model designer)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="processing/batch.html">28.6. လုပ်ဆောင်ချက်များ အပြိုင်ပြုလုပ်ရန်နေရာ (The batch processing interface)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="processing/console.html">28.7. Console တွင် processing algorithm များကို အသုံးပြုခြင်း</a></li>
+<li class="toctree-l2"><a class="reference internal" href="processing/standalone.html">28.8. Command line မှ processing ပြုလုပ်ခြင်း</a></li>
+<li class="toctree-l2"><a class="reference internal" href="processing/scripts.html">28.9. Processing algorithm အသစ်များကို Python script များအဖြစ် ရေးသားခြင်း</a></li>
+<li class="toctree-l2"><a class="reference internal" href="processing/3rdParty.html">28.10. ပြင်ပ application များကို ပြင်ဆင်သတ်မှတ်ခြင်း (Configuring external applications)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="processing_algs/index.html">29. Processing ဆိုင်ရာ ထောက်ပံ့ပေးသူများနှင့် Algorithm များ (Processing providers and algorithms)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="processing_algs/qgis/index.html">29.1. QGIS algorithm ထောက်ပံ့ပေးသူ (QGIS algorithm provider)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="processing_algs/gdal/index.html">29.2. GDAL algorithm ထောက်ပံ့ပေးသူ (GDAL algorithm provider)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="processing_algs/otb.html">29.3. OTB application များ ထောက်ပံ့ပေးသည့်အရာ (OTB applications provider)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="plugins/plugins.html">30. QGIS Plugin များ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="plugins/plugins.html#plugin-core-and-external-plugins">30.1. ပင်မနှင့်ပြင်ပ plugin များ (Core and External plugins)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugins/plugins.html#the-plugins-dialog">30.2. The Plugins Dialog</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="plugins/core_plugins/index.html">31. QGIS ပင်မ Plugin များကို အသုံးပြုခြင်း (Using QGIS Core Plugins)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="plugins/core_plugins/plugins_db_manager.html">31.1. Database စီမံခန့်ခွဲရာ Plugin (DB Manager Plugin)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugins/core_plugins/plugins_geometry_checker.html">31.2. ဂျီဩမေတြီ စစ်ဆေးပေးသည့် Plugin (Geometry Checker Plugin)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugins/core_plugins/plugins_metasearch.html">31.3. MetaSearch Catalog Client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugins/core_plugins/plugins_offline_editing.html">31.4. အင်တာနက်မလိုအပ်သော ပြင်ဆင်တည်းဖြတ်ခြင်း Plugin (Offline Editing Plugin)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugins/core_plugins/plugins_topology_checker.html">31.5. ဆက်စပ်တည်ရှိမှုကိုစစ်ဆေးသည့် Plugin (Topology Checker Plugin)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="plugins/python_console.html">32. QGIS တွင် Python code များရေးသားရန်နေရာ (QGIS Python console)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="plugins/python_console.html#console-the-interactive-console">32.1. အပြန်အလှန် လုပ်ဆောင်နိုင်သော Console (The Interactive Console)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugins/python_console.html#code-the-code-editor">32.2. Code ပြင်ဆင်တည်းဖြတ်ရာနေရာ (The Code Editor)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="preamble/help_and_support.html">33. အကူအညီနှင့်အထောက်အပံ့ (Help and Support)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="preamble/help_and_support.html#mailing-lists">33.1. အီးမေးလ်စာရင်း (Mailing lists)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="preamble/help_and_support.html#matrix-irc">33.2. Matrix / IRC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="preamble/help_and_support.html#commercial-support">33.3. အခပေးဖြင့်ရယူနိုင်သော အကူအညီ (Commercial support)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="preamble/help_and_support.html#bugtracker">33.4. ချို့ယွင်းမှုမှတ်တမ်း (BugTracker)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="preamble/help_and_support.html#blog">33.5. ဘလော့ဂ် (Blog)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="preamble/help_and_support.html#plugin">33.6. Plugin များ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="preamble/help_and_support.html#wiki">33.7. Wiki</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="preamble/contributors.html">34. ပါဝင်အားဖြည့်သူများ (Contributors)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="preamble/contributors.html#authors">34.1. ရေးသားပြုစုသူများ (Authors)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="preamble/contributors.html#translators">34.2. ဘာသာပြန်ဆိုသူများ (Translators)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="preamble/contributors.html#statistics-of-translation">34.3. Statistics of translation (ဘာသာပြန်ဆိုပြီးစီးမှု စာရင်းဇယား)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="appendices/index.html">35. နောက်ဆက်တွဲများ (Appendices)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="appendices/GNU_GPL.html">35.1. နောက်ဆက်တွဲ (က) - GNU အထွေထွေ အများပြည်သူသုံးလိုင်စင် (Appendix A: GNU General Public License)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendices/GNU_FDL.html">35.2. နောက်ဆက်တွဲ (ခ) - GNU အခမဲ့ စာရွက်စာတမ်း လိုင်စင် (Appendix B: GNU Free Documentation Licens)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendices/qgis_file_formats.html">35.3. နောက်ဆက်တွဲ (ဂ) - QGIS file အမျိုးအစားများ (Appendix C: QGIS File Formats)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendices/qgis_r_syntax.html">35.4. နောက်ဆက်တွဲ (ဃ) - QGIS R script ဝါကျဖွဲ့ပုံ (Appendix D: QGIS R script syntax)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendices/qgis_desktop_network_connections.html">35.5. နောက်ဆက်တွဲ (င) - QGIS Application ကွန်ရက် ချိတ်ဆက်မှုများ (Appendix E: QGIS Application Network Connections)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="literature_web/literature_and_web_references.html">36. စာတမ်းများနှင့် Website ကိုးကားချက်များ (Literature and Web References)</a></li>
+</ul>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../index.html" class="btn btn-neutral float-left" title="QGIS 3.28 အတွက် မှတ်တမ်း (Documentation)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="preamble/preamble.html" class="btn btn-neutral float-right" title="1. စကားချီး (Preamble)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2002-now, QGIS project.
+      <span class="lastupdated">Last updated on 2024 May 13, 16:23 +0700.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- Transifex follows a particular logic to build target pages:
+Expected French translation link for https://docs.qgis.org/3.28/en/docs/user_manual/print_composer/overview_composer.html
+would return https://app.transifex.com/qgis/qgis-documentation/translate/#fr/aa6d8bc653526d38b295ca94bf8eee5e
+with the md5 value of "github#qgis/QGIS-Documentation#release_3.28#locale/en/LC_MESSAGES/docs/user_manual/print_composer/overview_composer.po"-->
+<!--Make sure that mismatching language codes between Transifex and Sphinx are converted-->
+
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-info-circle"> QGIS Documentation </span>
+      v: 3.28
+      <span class="fa fa-caret-down"></span>
+    </span>
+
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Languages</dt>
+        
+          <dd><a href="https://docs.qgis.org/3.28/en/docs/user_manual/index.html">en</a></dd>
+        
+      </dl>
+
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/user_manual/index.html">testing</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/latest/en/docs/user_manual/index.html">latest</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.28/en/docs/user_manual/index.html">3.28</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.22/en/docs/user_manual/index.html">3.22</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.16/en/docs/user_manual/index.html">3.16</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.10/en/docs/user_manual/index.html">3.10</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.4/en/docs/user_manual/index.html">3.4</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/2.18/en/docs/user_manual/index.html">2.18</a></dd>
+        
+      </dl>
+
+       
+       <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="https://docs.qgis.org/3.28/pdf">PDF</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.28/zip">HTML</a></dd>
+        
+      </dl>
+      
+
+      
+       
+      <dl>
+        <dt>Contribute to Docs</dt>
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/edit/master/docs/user_manual/index.rst" target="_blank" rel="noopener noreferrer">Edit on GitHub</a>
+          </dd>
+          
+          
+          <dd>
+            <a href="https://app.transifex.com/qgis/qgis-documentation/translate/#en/b10773f76dff05ed07c6cccff84926dc" target="_blank" rel="noopener noreferrer">Translate Page</a>
+          </dd>
+          
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/issues" target="_blank" rel="noopener noreferrer">Report Issue</a>
+          </dd>
+      </dl>
+      
+
+      <dl>
+        <dt>On QGIS Project</dt>
+          <dd>
+            <a href="https://qgis.org/en" target="_blank" rel="noopener noreferrer">Home</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/api/3.28" target="_blank" rel="noopener noreferrer">C++ API</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/pyqgis/3.28" target="_blank" rel="noopener noreferrer">PyQGIS API</a>
+          </dd>
+          <dd>
+            <a href="https://github.com/qgis/QGIS/tree/release-3_28" target="_blank" rel="noopener noreferrer">Source</a>
+          </dd>
+      </dl>
+
+    </div>
+  </div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

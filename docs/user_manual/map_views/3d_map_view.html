@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>11.2. ရုပ်လုံးကြွမြေပုံမြင်ကွင်း (3D Map View) &mdash; QGIS Documentation  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/qgis_docs.css?v=3fdf4c33" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/qgis_logo.ico"/>
+    <link rel="canonical" href="https://docs.qgis.org/latest/en/docs/user_manual/map_views/3d_map_view.html"/>
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../../_static/copybutton.js?v=f281be69"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="11.3. မြေပြင်ကန်လန့်ဖြတ်ပိုင်းပုံပြမြင်ကွင်း (Elevation Profile View)" href="elevation_profile.html" />
+    <link rel="prev" title="11.1. ရိုးရိုးမြေပုံမြင်ကွင်း (2D Map View)" href="map_view.html" />
+  <meta name="description" content="QGIS 3.28 documentation: 11.2. ရုပ်လုံးကြွမြေပုံမြင်ကွင်း (3D Map View)">
+</head>
+
+<body class="wy-body-for-nav">
+
+  <nav class="release_status_topbar">
+  </nav>
+
+   
+
+ 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+   
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            QGIS Documentation
+              <img src="../../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                3.28
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+   <a href= "../../../genindex.html">Index</a>
+ 
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">အသုံးပြုသူများအတွက်</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../preamble/preamble.html">1. စကားချီး (Preamble)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/foreword.html">2. အမှာစာ (Foreword)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/conventions.html">3. အသုံးအနှုန်းများ (Conventions)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/features.html">4. အသွင်အပြင်များ (Features)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/getting_started.html">5. စတင်အသုံးပြုခြင်း (Getting Started)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/project_files.html">6. Project Files များနှင့် အလုပ်လုပ်ခြင်း (Working with Project Files)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/qgis_gui.html">7. QGIS ၏အစိတ်အပိုင်းများ (QGIS GUI)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/browser.html">8. ဒေတာများရှာဖွေကြည့်ရှုနိုင်သည့်နေရာ (The Browser panel)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/qgis_configuration.html">9. QGIS ပြင်ဆင်သတ်မှတ်ခြင်း/အခင်းအကျင်း (QGIS Configuration)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_projections/working_with_projections.html">10. မြေပုံအရိပ်ချစနစ်များ နှင့် အလုပ်လုပ်ခြင်း (Working with Projections)</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">11. မြေပုံများအား ပုံဖော်ကြည့်ရှုခြင်း (Visualizing Maps)</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="map_view.html">11.1. ရိုးရိုးမြေပုံမြင်ကွင်း (2D Map View)</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">11.2. ရုပ်လုံးကြွမြေပုံမြင်ကွင်း (3D Map View)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#scene-scene-configuration">11.2.1. Scene ပြင်ဆင်ခြင်း (Scene Configuration)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#terrain">11.2.1.1. မြေပြင်အနေအထား (Terrain)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lights">11.2.1.2. အလင်းများ (Lights)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#shadow">11.2.1.3. အရိပ် (Shadow)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#camera-skybox-box">11.2.1.4. Camera &amp; Skybox (ကင်မရာနှင့် မြင်ကွင်းများကိုကြည့်ရှုရန် ထိပ်ဘက်တွင်သီးသန့်ရှိသည့် box)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#advanced">11.2.1.5. အဆင့်မြင့်အပိုင်း (Advanced)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#navigation-options">11.2.2. မြေပုံကြည့်ရှုရာတွင် ရွေးချယ်စရာများ (Navigation options)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#creating-an-animation">11.2.3. လှုပ်ရှားပုံရိပ်တစ်ခု ဖန်တီးခြင်း (Creating an animation)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vector-layer-3d-vector-layers">11.2.4. ရုပ်လုံးကြွ Vector layer များ (3D vector layers)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="elevation_profile.html">11.3. မြေပြင်ကန်လန့်ဖြတ်ပိုင်းပုံပြမြင်ကွင်း (Elevation Profile View)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/general_tools.html">12. အထွေ‌ထွေ‌သုံးကိရိယာများ (General Tools)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../expressions/index.html">13. Expression များဖြင့် အဆင့်မြှင့်တင်ဆောင်ရွက်ခြင်း (Level up with Expressions)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../style_library/index.html">14. The Style Library (Style နှင့်ပတ်သက်သည်များ ထားရှိရာနေရာ)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../managing_data_source/index.html">15. ဒေတာအရင်းအမြစ်များအား စီမံခန့်ခွဲခြင်း (Managing Data Source)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_vector/index.html">16. Vector data များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_raster/index.html">17. Raster Data နှင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_mesh/mesh_properties.html">18. Working with Mesh Data (Mesh Data များနှင့် အလုပ်လုပ်ခြင်း)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_vector_tiles/vector_tiles_properties.html">19. Vector Tiles များနှင့်အလုပ်လုပ်ခြင်း (Working with Vector Tiles)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_point_clouds/point_clouds.html">20. Point Cloud များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../print_composer/index.html">21. မြေပုံအချောသပ်ပြင်ဆင်ခြင်း (Laying out the maps)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_ogc/ogc_client_support.html">22. OGC / ISO protocol များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_gps/index.html">23. GPS Data များနှင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../auth_system/auth_overview.html">24. အထောက်အထားစီစစ်ခြင်းအကြောင်းအကျဉ်း (Authentication System Overview)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../auth_system/auth_workflows.html">25. အသုံးပြုသူ အထောက်အထားစစ်ဆေးခြင်း လုပ်ငန်းအဆင့်များ (User Authentication Workflows)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../auth_system/auth_considerations.html">26. လုံခြုံရေးအတွက်စဉ်းစားရန်အချက်များ (Security Considerations)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../grass_integration/grass_integration.html">27. GRASS GIS နှင့်ပေါင်းစပ်အသုံးပြုခြင်း (GRASS GIS Integration)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing/index.html">28. QGIS processing framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing_algs/index.html">29. Processing ဆိုင်ရာ ထောက်ပံ့ပေးသူများနှင့် Algorithm များ (Processing providers and algorithms)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/plugins.html">30. QGIS Plugin များ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/core_plugins/index.html">31. QGIS ပင်မ Plugin များကို အသုံးပြုခြင်း (Using QGIS Core Plugins)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/python_console.html">32. QGIS တွင် Python code များရေးသားရန်နေရာ (QGIS Python console)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/help_and_support.html">33. အကူအညီနှင့်အထောက်အပံ့ (Help and Support)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preamble/contributors.html">34. ပါဝင်အားဖြည့်သူများ (Contributors)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendices/index.html">35. နောက်ဆက်တွဲများ (Appendices)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../literature_web/literature_and_web_references.html">36. စာတမ်းများနှင့် Website ကိုးကားချက်များ (Literature and Web References)</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">QGIS Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">&lt;no title&gt;</a></li>
+          <li class="breadcrumb-item"><a href="index.html"><span class="section-number">11. </span>မြေပုံများအား ပုံဖော်ကြည့်ရှုခြင်း (Visualizing Maps)</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">11.2. </span>ရုပ်လုံးကြွမြေပုံမြင်ကွင်း (3D Map View)</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/qgis/QGIS-Documentation/blob/master/docs/user_manual/map_views/3d_map_view.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="map_view.html" class="btn btn-neutral float-left" title="11.1. ရိုးရိုးမြေပုံမြင်ကွင်း (2D Map View)" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="elevation_profile.html" class="btn btn-neutral float-right" title="11.3. မြေပြင်ကန်လန့်ဖြတ်ပိုင်းပုံပြမြင်ကွင်း (Elevation Profile View)" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <blockquote>
+<div></div></blockquote>
+<section id="d-map-view">
+<span id="label-3dmapview"></span><span id="index-0"></span><h1><span class="section-number">11.2. </span>ရုပ်လုံးကြွမြေပုံမြင်ကွင်း (3D Map View)<a class="headerlink" href="#d-map-view" title="Link to this heading"></a></h1>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#scene-scene-configuration" id="id7">Scene ပြင်ဆင်ခြင်း (Scene Configuration)</a></p>
+<ul>
+<li><p><a class="reference internal" href="#terrain" id="id8">မြေပြင်အနေအထား (Terrain)</a></p></li>
+<li><p><a class="reference internal" href="#lights" id="id9">အလင်းများ (Lights)</a></p></li>
+<li><p><a class="reference internal" href="#shadow" id="id10">အရိပ် (Shadow)</a></p></li>
+<li><p><a class="reference internal" href="#camera-skybox-box" id="id11">Camera &amp; Skybox (ကင်မရာနှင့် မြင်ကွင်းများကိုကြည့်ရှုရန် ထိပ်ဘက်တွင်သီးသန့်ရှိသည့် box)</a></p></li>
+<li><p><a class="reference internal" href="#advanced" id="id12">အဆင့်မြင့်အပိုင်း (Advanced)</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#navigation-options" id="id13">မြေပုံကြည့်ရှုရာတွင် ရွေးချယ်စရာများ (Navigation options)</a></p></li>
+<li><p><a class="reference internal" href="#creating-an-animation" id="id14">လှုပ်ရှားပုံရိပ်တစ်ခု ဖန်တီးခြင်း (Creating an animation)</a></p></li>
+<li><p><a class="reference internal" href="#vector-layer-3d-vector-layers" id="id15">ရုပ်လုံးကြွ Vector layer များ (3D vector layers)</a></p></li>
+</ul>
+</nav>
+<p>3D visualization (သုံးဘက်မြင်ပုံရိပ်ဖြင့်ကြည့်ရှုခြင်း) ကို 3D map view (သုံးဘက်မြင်ပုံရိပ်ဖြင့်ကြည့်ရှုနိုင်သည့်မြေပုံမြင်ကွင်း) မှ တဆင့်ကြည့်ရှုနိုင်အောင် ဆောင်ရွက်ပေးထားပါသည်။
+<span class="menuselection">View ► 3D Map Views ►</span> menu မှတဆင့် 3D map view များကို ဖန်တီးခြင်း၊ စီမံခန့်ခွဲခြင်း နှင့် ဖွင့်ခြင်းများ ပြုလုပ်နိုင်ပါသည်-</p>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="../../../_images/mActionNew3DMap.png"><img alt="new3DMap" src="../../../_images/mActionNew3DMap.png" style="width: 1.5em;" /></a> <span class="menuselection">New 3D Map View</span> ကို နှိပ်ခြင်းဖြင့် 3D map view အသစ်တစ်ခုကို ဖန်တီးနိုင်မည်ဖြစ်ပါသည်။
+မိမိစိတ်ကြိုက် နေရာရွှေ့ပြောင်းချထားနိုင်သည့် (floating and dockable) QGIS panel (QGIS ဘောင်) တစ်ခုသည် ပေါ်လာမည်ဖြစ်ပါသည်။ (ကြည့်ရှုရန် <a class="reference internal" href="#figure-3dmapview"><span class="std std-ref">သုံးဘက်မြင်ပုံရိပ်ဖြင့်ကြည့်ရှုနိုင်သည့်မြေပုံမြင်ကွင်း dialog</span></a>)
+၎င်းသည် 2D မြေပုံရေးဆွဲသည့်နေရာ (2D main map canvas) ကဲ့သို့ပင် တူညီသည့် extent (နယ်ပယ်အတိုင်းအတာပမာဏ) နှင့် view (မြင်ကွင်း) ရှိပါသည်။
+ထို့အပြင် view များကို 3D သို့ပြောင်းလဲကြည့်ရှုနိုင်ရန် navigation tools (လမ်းညွှန်ပြသခြင်းဆိုင်ရာ tools) များအား ထည့်သွင်းထားပါသည်။</p></li>
+<li><p><span class="menuselection">Manage 3D Map Views</span> ကိုနှိပ်ခြင်းအားဖြင့် 3D Map Views Manager (3D Map Views များကို စီမံခန့်ခွဲသည့်နေရာ) ထဲသို့ ရောက်ရှိမည်ဖြစ်ပါသည်။
+အဆိုပါနေရာတွင် 3D map views များကို ဖွင့်ခြင်း၊ နှစ်ခုပြုလုပ်ခြင်း/ပွားခြင်း၊ ဖယ်ရှားခြင်းနှင့် အမည်ပြန်လည်သတ်မှတ်ခြင်းများကို ဆောင်ရွက်နိုင်မည်ဖြစ်ပါသည်။</p></li>
+<li><p>သုံးဘက်မြင်ပုံရိပ်ဖြင့်ကြည့်ရှုနိုင်သည့် 3D map views များကို တစ်ခု သို့မဟုတ် တစ်ခုထက်ပို၍ ဖန်တီးခဲ့ပါက ၎င်းတို့ကို <span class="menuselection">3D Map Views</span> တွင် အစဉ်လိုက်တွေ့မြင်ရမည်ဖြစ်ပါသည်။
+၎င်းတို့ကို နှိပ်၍ ဖွင့်ခြင်းနှင့်ပိတ်ခြင်းများကို ဆောင်ရွက်နိုင်မည်ဖြစ်ပါသည်။ အကယ်၍ ၎င်းတို့ကို ပိတ်ထားစေကာမူ project ကို သိမ်းဆည်းခြင်းဖြင့် ၎င်းတို့ကိုပါ တပြိုင်တည်းသိမ်းဆည်းနိုင်မည်ဖြစ်ပါသည်။</p></li>
+</ol>
+<figure class="align-center" id="id1">
+<span id="figure-3dmapview"></span><img alt="../../../_images/3dmapview.png" src="../../../_images/3dmapview.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 11.23 </span><span class="caption-text">သုံးဘက်မြင်ပုံရိပ်ဖြင့်ကြည့်ရှုနိုင်သည့်မြေပုံမြင်ကွင်း dialog</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>အောက်ဖော်ပြပါ tools များကို 3D map view panel ၏ အပေါ်ဘက်ထိပ်တွင် ထည့်သွင်းပေးထားပါသည်-</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../../../_images/mActionPan.png"><img alt="pan" src="../../../_images/mActionPan.png" style="width: 1.5em;" /></a> <sup>Camera Control</sup> - ကင်မရာ၏ လမ်းကြောင်းနှင့် ရှုထောင့် ကို နဂိုအတိုင်းထား၍ view ကိုရွေ့သည်။</p></li>
+<li><p><a class="reference internal" href="../../../_images/mActionZoomFullExtent.png"><img alt="zoomFullExtent" src="../../../_images/mActionZoomFullExtent.png" style="width: 1.5em;" /></a> <sup>Zoom Full</sup> - Layer’s extent တစ်ခုလုံးအထိ view ကို အရွယ်အစားပြန်လည်ချိန်ညှိ (resize) သည်။</p></li>
+<li><p><a class="reference internal" href="../../../_images/mAction3DNavigation.png"><img alt="3dNavigation" src="../../../_images/mAction3DNavigation.png" style="width: 1.3em;" /></a> <sup>Toggle On-Screen Notification</sup> - Navigation widget ကို ဖော်ပြခြင်း/ဖျောက်ထားခြင်းလုပ်သည်။ (Map view အား ကိုင်တွယ်ဆောင်ရွက်ရာတွင် လွယ်ကူစေရန်အတွက် ဖြစ်သည်။)</p></li>
+<li><p><a class="reference internal" href="../../../_images/mActionIdentify.png"><img alt="identify" src="../../../_images/mActionIdentify.png" style="width: 1.5em;" /></a> <sup>Identify</sup> - မြေပြင်အနေအထား (terrain) ၏ ကလစ်နှိပ်ထားသည့်အမှတ်ပေါ်ရှိ အချက်အလက်များ သို့မဟုတ် ကလစ်နှိပ်ထားသည့် 3D feature(s) (3D များ၏သိသာထင်ရှားသည့် ဝိသေသများ) ၏ အချက်အလက်များ (information) ကိုဖော်ပြသည်။
+<a class="reference internal" href="../introduction/general_tools.html#identify"><span class="std std-ref">Featurer များ၏အချက်အလက်များကို ကြည့်ခြင်း (Identifying Features)</span></a> တွင် အသေးစိတ်ကိုကြည့်ရှုပါ။</p></li>
+<li><p><a class="reference internal" href="../../../_images/mActionMeasure.png"><img alt="measure" src="../../../_images/mActionMeasure.png" style="width: 1.5em;" /></a> <sup>Measurement Line</sup> - အမှတ်နှစ်ခုအကြားရှိ horizontal distance (မြေပြင်ညီအကွာအဝေး) ကို တိုင်းတာသည်။</p></li>
+<li><p><a class="reference internal" href="../../../_images/mActionPlay.png"><img alt="play" src="../../../_images/mActionPlay.png" style="width: 1.5em;" /></a> <sup>Animations</sup> - <a class="reference internal" href="#create-animation"><span class="std std-ref">animation player</span></a> widget ကို ဖော်ခြင်း/ဖျောက်ထားခြင်း</p></li>
+<li><p><a class="reference internal" href="../../../_images/mActionSaveMapAsImage.png"><img alt="saveMapAsImage" src="../../../_images/mActionSaveMapAsImage.png" style="width: 1.5em;" /></a> <sup>Save as Image…</sup> - လက်ရှိ view အား image ဖိုင်ပုံစံဖြင့် export ထုတ်သည်။</p></li>
+<li><p><a class="reference internal" href="../../../_images/3d.png"><img alt="3d" src="../../../_images/3d.png" style="width: 1.5em;" /></a> <sup>Export 3D Scene</sup> - Blender… ကဲ့သို့ applications များတွင် post-processing (နောက်ပိုင်းလုပ်ငန်းများထပ်မံလုပ်ဆောင်ခြင်း) ဆောင်ရွက်ခြင်းကိုခွင့်ပြုပေးပြီး လက်ရှိ view အား
+3D မြင်ကွင်း (3D scene) (<code class="file docutils literal notranslate"><span class="pre">.obj</span></code> ဖိုင်) အဖြစ်သို့ export ထုတ်သည်။
+မြေပြင်အနေအထား (terrain) နှင့် vector features များကို 3D objects (3D အရာဝတ္ထု) များအဖြစ်သို့ export ထုတ်သည်။
+Export setting များ၊ layers <a class="reference internal" href="../working_with_vector/vector_properties.html#sec-3-d-view"><span class="std std-ref">properties</span></a> များကို ပြန်လည်ပြင်ဆင်ရေးသားခြင်း
+သို့မဟုတ် map view <a class="reference internal" href="#scene-configuration"><span class="std std-ref">configuration</span></a> တွင် အောက်ပါတို့ပါဝင်ပါသည်-</p>
+<ul>
+<li><p><span class="guilabel">Scene name</span> နှင့် <span class="guilabel">Folder</span> တည်နေရာ</p></li>
+<li><p><span class="guilabel">Terrain resolution</span> (မြေပြင်အနေအထား ကြည်လင်ပြတ်သားမှု)</p></li>
+<li><p><span class="guilabel">Terrain texture resolution</span> (မြေပြင်အနေအထား၏ texture ကြည်လင်ပြတ်သားမှု)</p></li>
+<li><p><span class="guilabel">Model scale</span></p></li>
+<li><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">Smooth edges</span> (ချောမွေ့သည့်အစွန်းများ)</p></li>
+<li><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">Export normals</span> (normals များကို export ပြုလုပ်ခြင်း)</p></li>
+<li><p><a class="reference internal" href="../../../_images/checkbox.png"><img alt="checkbox" src="../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">Export textures</span> (textures များကို export ပြုလုပ်ခြင်း)</p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="../../../_images/mActionShowPresets.png"><img alt="showPresets" src="../../../_images/mActionShowPresets.png" style="width: 1.5em;" /></a> <sup>Set View Theme</sup>: ကြိုတင်သတ်မှတ်ထားသည့် <a class="reference internal" href="../introduction/general_tools.html#map-themes"><span class="std std-ref">map themes</span></a> (မြေပုံအမျိုးအစားများ) မှ map view ထဲတွင်ပြသရန် layers များကို select (ရွေးချယ်သတ်မှတ်ခြင်း) ပြုလုပ်ခြင်းအား ခွင့်ပြုသည်။</p></li>
+<li><p><a class="reference internal" href="../../../_images/mActionOptions.png"><img alt="options" src="../../../_images/mActionOptions.png" style="width: 1em;" /></a> <sup>Options</sup> menu သည် အောက်ပါတို့အတွက် shortcuts (အလွယ်တကူ မြန်မြန်လုပ်ဆောင်နိုင်သည့် အရာများ) များပံ့ပိုးပေးထားပါသည်။</p>
+<ul>
+<li><p>3D rendering (3D ပုံဖော်ပြသခြင်း) ထဲသို့ <a class="reference internal" href="#shadows"><span class="std std-ref">shadows</span></a> (အရိပ်များ) ၊ <a class="reference internal" href="#eye-dome-lighting"><span class="std std-ref">eye dome lighting</span></a> (depth perception ရရှိစေရန် အနီးကပ်ရှိသည့် အရာဝတ္ထုများကို အုပ်စုဖွဲ့ပြီး ၎င်းတို့၏ပုံသဏ္ဍာန်များကို ပေါ်လွင်စေသည့်
+အလင်းရောင်ပုံစံ) သို့မဟုတ် <a class="reference internal" href="#ambient-occlusion"><span class="std std-ref">ambient occlusion</span></a> (scene တစ်ခုထဲရှိ အမှတ်တစ်ခုချင်းစီသည် ambient lighting ကို မည်မျှထိတွေ့နိုင်မည်ကို တွက်ချက်သည့် rendering technique) ပြသခြင်း ကဲ့သို့သော  visual effects (မြင်ကွင်းဆိုင်ရာ အထူးပြုလုပ်ချက်) များထည့်သွင်းခြင်း</p></li>
+<li><p>မြင်ကွင်းများကို synchronize (တစ်ချိန်ထဲတွင်တစ်ပြိုင်တည်း) ဖြစ်စေသည်။ (<span class="guilabel">2D map view follows 3D camera</span> နှင့်/သို့မဟုတ် <span class="guilabel">3D camera follows 2D Map view</span>)</p></li>
+<li><p><span class="guilabel">Show visible camera area in 2D map view</span></p></li>
+<li><p>3D map view <a class="reference internal" href="#scene-configuration"><span class="std std-ref">settings</span></a> အား <a class="reference internal" href="../../../_images/mActionOptions.png"><img alt="options" src="../../../_images/mActionOptions.png" style="width: 1em;" /></a> <sup>Configure</sup> ပြုလုပ်ခြင်း</p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="../../../_images/dock.png"><img alt="dock" src="../../../_images/dock.png" style="width: 1.5em;" /></a> <sup>Dock 3D Map View</sup> - docked widget (နေရာချထားသည့် widget) မှ top level window (window manager အောက်တွင် သီးခြားရှိသည့် window) သို့ တစ်ခုမှတစ်ခုသို့ ပြောင်းလဲသည်။</p></li>
+</ul>
+<section id="scene-scene-configuration">
+<span id="scene-configuration"></span><h2><a class="toc-backref" href="#id7" role="doc-backlink"><span class="section-number">11.2.1. </span>Scene ပြင်ဆင်ခြင်း (Scene Configuration)</a><a class="headerlink" href="#scene-scene-configuration" title="Link to this heading"></a></h2>
+<p>3D map view သည် စိတ်ကြိုက်ပြုပြင်ပြောင်းလဲမှုများပြုလုပ်နိုင်သည့် ပုံမှန်သတ်မှတ်ထားသော setting (default settings) ဖြင့် ပွင့်လာမည်ဖြစ်ပါသည်။
+စိတ်ကြိုက်ပြုပြင်ပြောင်းလဲနိုင်ရန် 3D canvas panel (3D Canvas ဘောင်) ၏ အပေါ်ဘက်တွင် ရှိသည့် <a class="reference internal" href="../../../_images/mActionOptions.png"><img alt="options" src="../../../_images/mActionOptions.png" style="width: 1em;" /></a> <sup>Options</sup> menu ကို ဖြည်ချပါ။ ထို့နောက်
+<span class="guilabel">3D configuration</span> window (သုံးဘက်မြင်ပုံရိပ်များအား ဖန်တီးသတ်မှတ်သည့် window) ကို ဖွင့်ရန် <a class="reference internal" href="../../../_images/mActionOptions.png"><img alt="options" src="../../../_images/mActionOptions.png" style="width: 1em;" /></a> <span class="menuselection">Configure</span> ခလုတ်ကိုနှိပ်ပါ။</p>
+<figure class="align-center" id="id2">
+<span id="figure-3dmap-config"></span><img alt="../../../_images/3dmapconfiguration.png" src="../../../_images/3dmapconfiguration.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 11.24 </span><span class="caption-text">3D မြေပုံ ဖန်တီးသတ်မှတ်ခြင်း Dialog</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>3D Configuration window တွင် အကောင်းမွန်ဆုံးသော 3D scene ကို ဖန်တီးနိုင်ရန် များစွာသော options (ရွေးချယ်မှုများ) ပါရှိပါသည်။</p>
+<section id="terrain">
+<h3><a class="toc-backref" href="#id8" role="doc-backlink"><span class="section-number">11.2.1.1. </span>မြေပြင်အနေအထား (Terrain)</a><a class="headerlink" href="#terrain" title="Link to this heading"></a></h3>
+<ul>
+<li><p><span class="guilabel">Terrain</span> - အသေးစိတ်အကြောင်းအရာများကိုမလေ့လာမီတွင် 3D view ရှိ မြေပြင်အနေအထားသည်  terrain tiles (ကွန်တိုလိုင်းများနှင့် hill shade mapping များပါဝင်သည့် image tiles) များ၏ အဆင့်အတန်း (hierarchy)အပေါ်မူတည်၍
+ပြသမည်ဖြစ်ပြီး ကင်မရာသည် မြေပြင်အနေအထားနှင့် နီးကပ်လာသည်နှင့်အမျှ လုံလောက်သည့်အသေးစိတ်အချက်များမပါဝင်သည့် လက်ရှိရှိနေသည့် tiles များကို အသေးစိတ်အချက်များပါဝင်သည့်
+ပို၍သေးငယ်သော tiles များဖြင့် အစားထိုးသည်ကို သတိပြုရမည်ဖြစ်ပါသည်။
+Tile တစ်ခုချင်းစီတွင် elevation raster layer (အညီအမျှ နေရာချထားသော grid တစ်ခုတွင် ပေးထားသောဧရိယာအတွက် အမြင့်များပါရှိသည့် layer) များနှင့်
+2D map layers များမှ texture များထံမှ တွက်ချက်ရယူထားသည့် mesh geometry (မျက်နှာပြင်တစ်ခုသို့မဟုတ်
+အစိုင်အခဲအရာဝတ္တုတစ်ခုကို ကိုယ်စားပြုဖော်ပြနိုင်သည့် ထောင့်များနှင့် တြိဂံများပါရှိသည့်အစုအဝေး) ပါရှိပါသည်။</p>
+<ul>
+<li><p>Elevation terrain အမျိုးအစား <span class="guilabel">Type</span> သည်</p>
+<ul class="simple">
+<li><p><span class="guilabel">Flat terrain</span> (ပြန့်ပြူးမှုရှိသည့် မြေပြင်အနေအထား)</p></li>
+<li><p><span class="guilabel">DEM (Raster Layer)</span> (သစ်ပင်များ၊ အဆောက်အဦများနှင့် အခြားသော surface object များမပါရှိသည့် ကမ္ဘာမြေမျက်နှာပြင်)</p></li>
+<li><p><span class="guilabel">Online</span> service, Mapzen tools ဖြင့် ထုတ်လုပ်ဆောင်ရွက်ထားသည့် <cite>elevation tiles
+http://s3.amazonaws.com/elevation-tiles-prod/&gt;</cite> များကို ထည့်သွင်းခြင်း။
+အသေးစိတ်ကြည့်ရှုရန် <a class="reference external" href="https://registry.opendata.aws/terrain-tiles/">https://registry.opendata.aws/terrain-tiles/</a></p></li>
+<li><p>ထည့်သွင်းထားသည့် <span class="guilabel">Mesh</span> dataset</p></li>
+</ul>
+</li>
+<li><p><span class="guilabel">Elevation</span> - Raster (ဓါတ်ပုံများကဲ့သို့ pixels များပါရှိသည့် layer အမျိုးအစား) သို့မဟုတ် mesh layer ကို မြေပြင်အနေအထား (terrain) များ ထုတ်လုပ်ရန်အတွက်အသုံးပြုပါသည်။
+raster layer သည် အမြင့်ကိုဖော်ပြသည့် band (မတူညီသောရောင်စဉ်) တစ်ခုပါဝင်ရမည်ဖြစ်ပါသည်။
+mesh layer အတွက်မူ vertices များ၏ Z တန်ဖိုးများကိုအသုံးပြုပါသည်။</p></li>
+<li><p><span class="guilabel">Vertical scale</span> - ဒေါင်လိုက်ဝင်ရိုး (vertical axis) အတွက်  Scale factor
+စကေးအရွယ်အစားကို တိုးမြှင့်ခြင်းသည် မြေမျက်နှာသွင်ပြင်ပုံစံ၏ အမြင့်ကို ပိုမိုချဲ့ကားစေမည်ဖြစ်ပါသည်။</p></li>
+<li><p><span class="guilabel">Tile resolution</span> - Tile တစ်ခုချင်းစီအတွက် terrain raster layer မှ sample (နမူနာ) မည်မျှကိုအသုံးပြုမည်။
+16px တစ်ခု၏ တန်ဖိုးဆိုသည်မှာ tile တစ်ခုချင်းစီ၏ geometry (ဂျီဩမေတြီ)တွင် 16x16 elevation samples များပါဝင်သည်ကိုဆိုလိုခြင်းဖြစ်ပါသည်။
+မြင့်မားသည့်ကိန်းဂဏန်းတန်ဖိုးများသည် ပို၍အသေးစိတ်ကျသည့် terrain tiles များကိုဖန်တီးပြီး ပိုမိုရှုပ်ထွေးသည့် rendering (2D သို့မဟုတ် 3D model မှ ဓါတ်ပုံရိုက်ကူးထားသကဲ့သို့ဖြစ်အောင်
+ဆောင်ရွက်ခြင်းလုပ်ငန်းစဉ်) ကို ဖြစ်ပေါ်စေပါသည်။</p></li>
+<li><p><span class="guilabel">Skirt height</span> - တစ်ခါတစ်ရံတွင် terrain ၏ tile များအကြားတွင် သေးငယ်သည့်အက်ကြောင်းလေးများကို တွေ့မြင်ကောင်းတွေ့မြင်နိုင်မည်ဖြစ်ပါသည်။
+ဤတန်ဖိုးကိုမြှင့်တင်ခြင်းသည် အက်ကြောင်းများကိုဖုံးကွယ်စေနိုင်ရန်အတွက် terrain tile များ၏အနီးတစ်ဝိုက်တွင် ဒေါင်လိုက်နံရံများ (vertical walls (“skirts”)) ထပ်မံထည့်သွင်းပေးမည်ဖြစ်ပါသည်။</p></li>
+<li><p><span class="guilabel">Offset</span> - မြေပြင်အနေအထားကို အပေါ် သို့မဟုတ် အောက် ရွှေ့ကြည့်ပါ။ ဥပမာ ၎င်း၏အမြင့်ပေအား မြင်ကွင်း
+(scene) ထဲရှိ အခြားသော အရာဝတ္ထုများ၏ ground level (မြေပြင်အနိမ့်အမြင့်) ကို လိုက်၍ ချိန်ညှိခြင်းကိုဆိုလိုပါသည်။</p>
+<p>Scene ထဲတွင် layers များ၏ အမြင့်နှင့် terrain အမြင့်အကြား ကွဲလွဲမှုရှိပါက ၎င်းသည် များစွာအသုံးဝင်မည်ဖြစ်ပါသည်။ (ဥပမာ- နှိုင်းရဖြစ်သော ဒေါင်လိုက်အမြင့်ကိုသာအသုံးပြုသည့် point cloud များ)
+ထိုသို့ဖြစ်ပွားပါက မြေပြင်အနေအထား၏ အမြင့် (terrain elevation) ကို scene ထဲရှိ အရာဝတ္ထုများ၏ အမြင့်နှင့်ချိန်ညှိခြင်းသည် ကို navigation
+experience (ညွှန်ပြခြင်းအတွေ့အကြုံ) ပိုမိုတိုးတက်လာစေမည်ဖြစ်ပါသည်။</p>
+</li>
+</ul>
+</li>
+<li><p>Mesh layer ကို terrain အဖြစ်အသုံးပြုပါက Traingle setting <span class="guilabel">Triangles settings</span> (wireframe display (အရာဝတ္ထုတစ်ခု၏ ဖွဲ့စည်းထားမှုပုံစံ)၊ smooth triangles (ချောမွေ့သောတြိဂံများ)၊
+level of detail (အသေးစိတ်မြင်နိုင်သည့်အဆင့်)) နှင့် <span class="guilabel">Rendering colors settings</span> (uniform color (တူညီသည့်အရောင်)
+သို့မဟုတ် <a class="reference internal" href="../working_with_raster/raster_properties.html#color-ramp-shader"><span class="std std-ref">color ramp based (အရောင်အမျိုးမျိုး)</span></a> အဖြစ်) တို့ကို စီစဉ်သတ်မှတ်ဆောင်ရွက်နိုင်ပါသည်။ အသေးစိတ်ကို <a class="reference internal" href="../working_with_mesh/mesh_properties.html#mesh3dview"><span class="std std-ref">Mesh layer 3D properties</span></a> section တွင်ကြည့်ရှုနိုင်ပါသည်။</p></li>
+<li><p><a class="reference internal" href="../../../_images/unchecked.png"><img alt="unchecked" src="../../../_images/unchecked.png" style="width: 1.3em;" /></a> <span class="guilabel">Terrain shading</span> - သည် terrain ကို မည်ကဲ့သို့ ပုံဖော်ပြသမည်ကို ရွေးချယ်ဆောင်ရွက်ခွင့်ပြုပါသည်။</p>
+<ul class="simple">
+<li><p>Shading ပိတ်ထားခြင်း - Terrain color ကို map texture ဖြင့်သာ ဆုံးဖြတ်သည်။</p></li>
+<li><p>Shading ဖွင့်ထားခြင်း -  Map texture (မြေပုံ၏ပုံပန်းသဏ္ဍာန်အသွင်အပြင်နှင့်အသားအနား) ၊ terrain normal vector (အမှတ်တစ်ခု၌ မျက်နှာပြင်နှင့်ထောင့်မှန်ကျရှိသည့် vector တစ်ခု)၊ scene light(s) (မြင်ကွင်းအလင်း) နှင့် terrain material ၏ <span class="guilabel">Ambient</span> (အရာဝတ္ထုတစ်ခု၏အနီးပတ်ဝန်းကျင်ရှိ အလင်းရောင်)၊
+<span class="guilabel">Specular</span> အရောင်များ (ပြန်လင်းတန်းများ၏အရောင်များ) နှင့် <span class="guilabel">Shininess</span> (တောက်ပမှု) တို့ကိုထည့်သွင်းစဉ်းစား၍ မြေပြင်အနေအထား၏အရောင် (terrain color) ကို
+Phong ၏ shading model အသုံးပြု၍ ဆုံးဖြတ်ပါသည်။</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="lights">
+<h3><a class="toc-backref" href="#id9" role="doc-backlink"><span class="section-number">11.2.1.2. </span>အလင်းများ (Lights)</a><a class="headerlink" href="#lights" title="Link to this heading"></a></h3>
+<p>အောက်ပါတို့ကိုထည့်သွင်းရန် <span class="guilabel">Lights</span> tab မှ <a class="reference internal" href="../../../_images/symbologyAdd.png"><img alt="symbologyAdd" src="../../../_images/symbologyAdd.png" style="width: 1.5em;" /></a> menu ကိုနှိပ်ပါ။</p>
+<ul class="simple">
+<li><p><span class="guilabel">Point lights</span> (၈)ခုအထိ ထည့်သွင်းနိုင်ပါသည် - ဧရိယာတစ်ခုအား စက်လုံးပုံစံအလင်း (sphere of light) ဖြင့် အလင်းပေးသကဲ့သို့ အလင်းရောင်အား
+နေရာအနှံ့သို့ထုတ်လွှတ်ပါသည်။ အလင်းနှင့်နီးကပ်စွာရှိသည့်အရာဝတ္ထုသည် ပိုမိုတောက်ပမည်ဖြစ်ပြီး ဝေးကွာသည့်နေရာတွင်
+ရှိသည့် အရာဝတ္ထုသည် မှောင်နေမည်ဖြစ်ပါသည်။ Point light (အလင်းသည် အမှတ်တစ်ခုမှလာပြီး နေရာအနှံ့သို့ လင်းစေသည့်အလင်း) တစ်ခုတွင် သတ်မှတ်ထားသည့် တည်နေရာ
+(<span class="guilabel">X</span> ၊ <span class="guilabel">Y</span> နှင့် <span class="guilabel">Z</span>)၊ <span class="guilabel">Color</span>၊
+<span class="guilabel">Intensity</span> (ပြင်းအား) နှင့် <span class="guilabel">Attenuation</span> (အလင်းရောင်အား မှေးမှိန်စေနိုင်ခြင်း) တို့ပါရှိပါသည်။</p></li>
+<li><p><span class="guilabel">Directional lights</span> (၄)ခုအထိထည့်သွင်းနိုင်ပါသည် - အမြဲတမ်းလင်းနေသည့် (ဥပမာ - နေ) နေရာတစ်ခုကိုသာဗဟိုပြုထားပြီး အရာဝတ္ထုများနှင့်အလွန်ဝေးသည့်အကွာအဝေးရှိ  ဖလက်ရှ်မီးကြီးမှ ရရှိသည့်အလင်းရောင်အား နမူနာယူထားပါသည်။ ၎င်းသည် ပြိုင်လင်းတန်းများကို ဦးတည်ရာတစ်ခုဖြင့်သာ ထုတ်လွှတ်သော်လည်း နေရာအနှံ့ကို အလင်းရရှိစေပါသည်။
+Directional light (အရပ်မျက်နှာတစ်ခုကိုဦးတည်သော အလင်း) တစ်ခုသည် <span class="guilabel">Azimuth</span> (မြောက်အရပ်မှ လက်ယာရစ် တိုင်းတာရသောထောင့်) အရ rotate (လှည့်ပတ်ခြင်း) ပြုလုပ်နိုင်ပြီး <span class="guilabel">Altitude</span> (အမြင့်)၊
+<span class="guilabel">Color</span> (အရောင်) နှင့် <span class="guilabel">Intensity</span> (ပြင်းအား) တို့ပါရှိပါသည်။</p></li>
+</ul>
+<figure class="align-center" id="id3">
+<span id="figure-3dmap-configlights"></span><img alt="../../../_images/3dmapconfiguration_lights.png" src="../../../_images/3dmapconfiguration_lights.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 11.25 </span><span class="caption-text">3D မြေပုံအလင်းများ သတ်မှတ်ခြင်း Dialog</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="shadow">
+<span id="shadows"></span><h3><a class="toc-backref" href="#id10" role="doc-backlink"><span class="section-number">11.2.1.3. </span>အရိပ် (Shadow)</a><a class="headerlink" href="#shadow" title="Link to this heading"></a></h3>
+<p>Scene အတွင်း အရိပ်များကို ပြသရန် <a class="reference internal" href="../../../_images/unchecked.png"><img alt="unchecked" src="../../../_images/unchecked.png" style="width: 1.3em;" /></a> <span class="guilabel">Show shadows</span> ကို အမှန်ခြစ်ပါ။</p>
+<ul class="simple">
+<li><p><span class="guilabel">Directional light</span></p></li>
+<li><p><span class="guilabel">Shadow rendering maximum distance</span> - အထူးသဖြင့် ကင်မရာကို ရေပြင်ညီတစ်လျှောက်ကြည့်ရှုပါက အလွန်
+ဝေးကွာသည့် အရာဝတ္ထုများ၏ အရိပ်များကို rendering ပြုလုပ်ခြင်းကို ရှောင်ရှားရန်။</p></li>
+<li><p><span class="guilabel">Shadow bias</span> - မြေပုံအရွယ်အစားအကြားကွာခြားချက်များရှိခြင်းကြောင့် ဖြစ်ပေါ်လာနိုင်သည့် အချို့သောဧရိယာများကို အခြားဧရိယာများထက် ပိုမိုမှောင်စေသည့် self-shadowing effects ကို ရှောင်ရှားရန်။ နည်းလေ ပိုကောင်းလေ ဖြစ်သည်။</p></li>
+<li><p><span class="guilabel">Shadow map resolution</span> - အရိပ်များကိုပိုမိုထင်ရှားပြတ်သားအောင်ပြုလုပ်ရန်။ ၎င်းသည်
+resolution parameter (resolution သတ်မှတ်ချက်များ) အလွန်မြင့်မားနေပါက ကောင်းမွန်ခြင်းမရှိသည့်သရုပ်ဖော်ပြမှု (performance) ကို ဖြစ်ပေါ်စေနိုင်ပါသည်။</p></li>
+</ul>
+</section>
+<section id="camera-skybox-box">
+<h3><a class="toc-backref" href="#id11" role="doc-backlink"><span class="section-number">11.2.1.4. </span>Camera &amp; Skybox (ကင်မရာနှင့် မြင်ကွင်းများကိုကြည့်ရှုရန် ထိပ်ဘက်တွင်သီးသန့်ရှိသည့် box)</a><a class="headerlink" href="#camera-skybox-box" title="Link to this heading"></a></h3>
+<p>ယခု tab တွင် ကင်မရာ၊ 3D axis (3D ဝင်ရိုး)၊  navigation synchronization (လမ်းညွှန်ပြသခြင်းဆိုင်ရာများ တစ်ပြိုင်နက်ဖြစ်စေခြင်း)နှင့် skybox ကဲ့သို့သော အမျိုးမျိုးသောသတ်မှတ်ချက် (parameter) များကိုကိုင်တွယ်ဆောင်ရွက်နိုင်ပါသည်။</p>
+<figure class="align-center" id="id4">
+<span id="figure-3dmap-config-camera"></span><img alt="../../../_images/3dmapconfiguration_camera.png" src="../../../_images/3dmapconfiguration_camera.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 11.26 </span><span class="caption-text">3D မြေပုံ Camera သတ်မှတ်ခြင်း Dialog</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ul class="simple">
+<li><p><span class="guilabel">Camera</span> parameter group သည် <span class="menuselection">Settings ► Options ► 3D</span> dialog တွင်
+ရှိနေသည့် <a class="reference internal" href="../introduction/qgis_configuration.html#d-options"><span class="std std-ref">default camera settings</span></a> အချို့ကို ပြန်လည်ပြင်ဆင်မွမ်းမံပါသည်။</p></li>
+<li><p>3D axis tool ကို ဖွင့်ရန် <a class="reference internal" href="../../../_images/unchecked.png"><img alt="unchecked" src="../../../_images/unchecked.png" style="width: 1.3em;" /></a> <span class="guilabel">Show 3D Axis</span> ကို အမှန်ခြစ်ပါ။ ဤ parameter group သည်  axis အမျိုးအစားနှင့် ၎င်း၏ တည်နေရာသတ်မှတ်ဆောင်ရွက်ခြင်းများပြုလုပ်နိုင်ရန်ခွင့်ပြုထားပါသည်-</p>
+<ul>
+<li><p><span class="guilabel">Coordinate Reference System</span> type ဖြင့် orthogonal axis (တစ်ခုနှင့်တစ်ခုထောင့်မှန်ကျနေသည့်ဝင်ရိုး) တစ်ခုအား ဖော်ပြသွားမည်ဖြစ်သည်။</p></li>
+<li><p><span class="guilabel">Cube</span> type ဖြင့် 3D ကုဗတုံး (3D cube) တစ်ခုကို ကိုယ်စားပြုဖော်ပြမည်ဖြစ်သည်။ အဆိုပါကုဗတုံး၏ မျက်နှာပြင်များအား ကင်မရာမြင်ကွင်းများ ပြောင်းလဲကြည့်ရှုရာတွင် အသုံးပြုနိုင်မည်ဖြစ်သည်။
+ဥပမာ - မြောက်ဘက်အရပ်မှ ကြည့်ရှုရန် <span class="guilabel">north</span> ကိုနှိပ်၍ ကင်မရာကို သတ်မှတ်ပေးပါ။</p></li>
+</ul>
+</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>၎င်း၏တည်နေရာ၊ အမျိုးအစားနှင့် ကင်မရာမြင်ကွင်းကို အမြန်သတ်မှတ်ရန် 3D ဝင်ရိုးကို ညာဖက်ကလစ်နှိပ်ပါ။</p>
+<figure class="align-center" id="id5">
+<span id="figure-3dmap-config-3daxis-menu"></span><img alt="../../../_images/3dmapconfiguration_3daxis_menu.png" src="../../../_images/3dmapconfiguration_3daxis_menu.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 11.27 </span><span class="caption-text">3D ဝင်ရိုး အကြောင်းအရာများနှင့်သက်ဆိုင်သည့် menu</span><a class="headerlink" href="#id5" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</div>
+<ul>
+<li><p><span class="guilabel">Navigation Synchronization</span> parameter group သည် 2D view အား 3D camera position နှင့်ဖြစ်စေ
+3D camera position အား 2D view နှင့်ဖြစ်စေ သို့မဟုတ် bi directional synchronization (ဦးတည်ရာနှစ်ခုကိုတစ်ပြိုင်နက်ဖြစ်စေခြင်း) ကို တစ်ပြိုင်နက်ပြောင်းလဲရန် (synchronize) option များကို ထည့်သွင်းထားပါသည်။
+နောက်ဆုံး option သည် 2D map view အပေါ်တွင် 3D camera မှ မြင်နိုင်သည့် extent ကိုပြသပါသည်။</p></li>
+<li><p>Scene ထဲတွင် skybox rendering ကို ဖွင့်ရန် <a class="reference internal" href="../../../_images/unchecked.png"><img alt="unchecked" src="../../../_images/unchecked.png" style="width: 1.3em;" /></a> <span class="guilabel">Show skybox</span> ကိုအမှန်ခြစ်ပါ။ skybox အမျိုးအစားသည် -</p>
+<ul class="simple">
+<li><p>360° မြင်ကွင်းကို ထောက်ပံ့ထားသည့်ဖိုင်တစ်ခု (single file) တစ်ခုနှင့်အတူ <span class="guilabel">Panoramic texture</span>၊</p></li>
+<li><p>Scene ပါဝင်သည့် box ၏ မျက်နှာခြောက်ဖက်လုံးအတွက် texture file နှင့်အတူ <span class="guilabel">Distinct faces</span>၊</p></li>
+</ul>
+<p>Skybox ၏ texture image file များသည် disk ပေါ်ရှိဖိုင်များ၊  remote URLs များ သို့မဟုတ် project အတွင်းတွင် မထင်မရှားရှိနေသည့် ဖိုင်များဖြစ်နိုင်ပါသည်။
+(<a class="reference internal" href="../introduction/general_tools.html#embedded-file-selector"><span class="std std-ref">more details</span></a>)</p>
+</li>
+</ul>
+</section>
+<section id="advanced">
+<h3><a class="toc-backref" href="#id12" role="doc-backlink"><span class="section-number">11.2.1.5. </span>အဆင့်မြင့်အပိုင်း (Advanced)</a><a class="headerlink" href="#advanced" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><span class="guilabel">Map tile resolution</span> - 2D map images များ၏ အကျယ်နှင့် အမြင့်ကို terrain tiles များအတွက် texture အဖြစ်အသုံးပြုပါသည်။
+256px သည် tile တစ်ခုချင်းစီသည် 256x256 pixels ရှိ image အဖြစ်သို့ render ပြုလုပ်မည်ကိုဆိုလိုပါသည်။
+မြင့်မားသည့်ကိန်းဂဏန်းတန်ဖိုးများသည် ပို၍အသေးစိတ်သည့် terrain tiles များကို ဖန်တီးနိုင်ပြီး rendering complexity (rendering ဖြစ်စဉ်ရှုပ်ထွေးမှု) အား ပိုမိုမြင့်မားစေပါသည်။</p></li>
+<li><p><span class="guilabel">Max. screen error</span> - Terrain tiles များအား ပိုမိုအသေးစိတ်သည့် tiles များဖြင့်
+အပြောင်းအလဲပြုလုပ်ရာတွင် threshold (တန်ဖိုးသတ်မှတ်ချက်) အားဆုံးဖြတ်ပေးပါသည် (အပြန်အလှန်အားဖြင့်) - ဆိုလိုသည်မှာ 3D view သည် အရည်အသွေးမြင့်မားသည့် tiles များကို မည်ကဲ့သို့အသုံးပြုမည်ကိုဆုံးဖြတ်ခြင်းဖြစ်ပါသည်။
+နည်းပါးသည့် ကိန်းဂဏန်းတန်ဖိုးသည် scene အတွင်းတွင်ပို၍အသေးစိတ်ပြီး rendering complexity အား ပိုမိုမြင့်မားစေပါသည်။</p></li>
+<li><p><span class="guilabel">Max. ground error</span> - tiles များအား ပိုမိုအသေးစိတ်သည့် tiles များအဖြစ်သို့ ခွဲခြမ်းစိတ်ဖြာသည့် terrain tiles များ၏
+ကြည်လင်ပြတ်သားမှု  (resolution) သည် ရပ်တံ့သွားမည်ဖြစ်ပါသည်။ (၎င်းတို့အားခွဲခြားစိတ်ဖြာခြင်းသည် မည့်သည့် အသေးစိတ်ကိုမျှ ထပ်မံမရရှိနိုင်တော့ပါ)
+အဆိုပါ ကိန်းဂဏန်းတန်ဖိုးသည် tiles များ၏ ့hierarchy ၏ အနက်ကို ကန့်သတ်ထားပါသည် - နည်းပါးသည့် ကိန်းဂဏန်းတန်ဖိုးသည် hierarchy ၏ အနက် (depth) ပိုမိုဖြစ်စေပြီး
+rendering complexity အား ပိုမိုမြင့်မားစေပါသည်။</p></li>
+<li><p><span class="guilabel">Zoom levels</span> - zoom levels များ၏ ကိန်းဂဏန်းများကိုဖော်ပြပါသည်။ (map tile resolution နှင့် max. ground error (အမြင့်ဆုံးမြေပြင်ကွဲလွဲမှု) အပေါ်မူတည်ပါသည်)</p></li>
+<li><p><a class="reference internal" href="../../../_images/unchecked.png"><img alt="unchecked" src="../../../_images/unchecked.png" style="width: 1.3em;" /></a> <span class="guilabel">Show labels</span> - Map labels (မြေပုံအညွှန်းများ) ကို အဖွင့်/အပိတ် ပြုလုပ်သည်။</p></li>
+<li><p><a class="reference internal" href="../../../_images/unchecked.png"><img alt="unchecked" src="../../../_images/unchecked.png" style="width: 1.3em;" /></a> <span class="guilabel">Show map tile info</span> - Terrain tiles များအတွက် border (နယ်နိမိတ်) နှင့် tile အရေအတွက်များပါဝင်ပါသည်။ (terrain issues များကိုဖြေရှင်းရာတွင်အသုံးဝင်ပါသည်။)</p></li>
+<li><p><a class="reference internal" href="../../../_images/unchecked.png"><img alt="unchecked" src="../../../_images/unchecked.png" style="width: 1.3em;" /></a> <span class="guilabel">Show bounding boxes</span> - Terrain tiles များ၏ 3D bounding boxes (3D model တစ်ခုလုံးကိုဖော်ပြသည့် ထောင့်မှန်စတုဂံ) ကိုဖော်ပြပါသည်။
+(terrain issues များကိုဖြေရှင်းရာတွင်အသုံးဝင်ပါသည်။)</p></li>
+<li><p><a class="reference internal" href="../../../_images/unchecked.png"><img alt="unchecked" src="../../../_images/unchecked.png" style="width: 1.3em;" /></a> <span class="guilabel">Show camera’s view center</span></p></li>
+<li><p><a class="reference internal" href="../../../_images/unchecked.png"><img alt="unchecked" src="../../../_images/unchecked.png" style="width: 1.3em;" /></a> <span class="guilabel">Show camera’s rotation center</span></p></li>
+<li><p><a class="reference internal" href="../../../_images/unchecked.png"><img alt="unchecked" src="../../../_images/unchecked.png" style="width: 1.3em;" /></a> <span class="guilabel">Show light sources</span> - အလင်းအရင်းအမြစ် စက်လုံးတစ်ခုကိုဖော်ပြပါသည်။ Scene contents (မြင်ကွင်းပါအကြောင်းအရာများ) နှင့်လိုက်လျောညီထွေရှိအောင်
+အလင်းအရင်းအမြစ်များထားရှိမှုများအား ပြန်လည်နေရာချထားခြင်းကို ပိုမိုလွယ်ကူစေပါသည်။</p></li>
+<li><p><a class="reference internal" href="../../../_images/unchecked.png"><img alt="unchecked" src="../../../_images/unchecked.png" style="width: 1.3em;" /></a> <span class="guilabel">Show frames per second (FPS)</span> (စက္ကန့်အလိုက် frame များကိုပြသခြင်း)</p></li>
+<li><p><a class="reference internal" href="../../../_images/unchecked.png"><img alt="unchecked" src="../../../_images/unchecked.png" style="width: 1.3em;" /></a> <span class="guilabel">Show debug overlay</span> - အချို့အသုံးဝင်သည့် debugging နှင့် profiling information (ကွန်ပျူတာ hardware နှင့် software များမှတွေ့ရှိသည့် အမှားများကို ပြင်ဆင်ခြင်းများနှင့် ရှိပြီးသားအကြောင်းအရာများကို အခြေခံ၍ သတင်းအချက်အလက်များကို လေ့လာဆန်းစစ်သိမ်းဆည်းခြင်း) ကို ပြသနိုင်သည့်
+visual overlay။ အထူးသဖြင့် ၎င်းသည် frame graph (ရှုပ်ထွေးသည့် rendering pipelines များကို ကိုင်တွယ်ထိန်းချုပ်သည့် ဒီဇိုင်းပုံစံ) နှင့် scene graph (scene ထဲရှိ အရာဝတ္ထုများ၊ ဆက်စပ် attributes များနှင့် ၎င်းတို့အကြားရှိဆက်နွယ်မှုများကို သေချာဖော်ပြထားမှု) တို့ကို လွယ်ကူလျင်မြန်စွာတွေ့ရှိစေနိုင်ပါသည်။</p></li>
+</ul>
+<ul class="simple" id="eye-dome-lighting">
+<li><p><a class="reference internal" href="../../../_images/unchecked.png"><img alt="unchecked" src="../../../_images/unchecked.png" style="width: 1.3em;" /></a> <span class="guilabel">Show Eye Dome Lighting</span> (EDL) - အနက် (depth) ကို ပိုမိုသိသာထင်ရှားစွာမြင်စေသည့် post processing effect တစ်ခုဖြစ်ပါသည်။ Pixel တစ်ခုချင်းစီ၏ အနက် (ကင်မရာအကွာအဝေး) ကို ၎င်း၏အနီးတွင်ရှိသည့် pixel များ၏ အနက်နှင့် နှိုင်းယှဉ်ပြီး အနက်ကွာခြားချက်အပေါ်မူတည်၍ highlight (သိသာထင်ရှားအောင်ပြသ) လုပ်ခြင်းခံရပြီး သိသာနေသည့်အစွန်းများကို ထင်ရှားပေါ်လွင်စေပါသည်။ Scene တစ်ခုလုံးအပေါ်တွင် သက်ရောက်မှုရှိပြီး <a class="reference internal" href="#eye-dome-lighting"><span class="std std-ref">Eye dome Lighting</span></a> နှင့် ပေါင်းစပ်နိုင်ပါသည်။ အောက်ဖော်ပြပါ ကန့်သတ်ချက်များကို ထိန်းချုပ်ဆောင်ရွက်နိုင်ပါသည်-</p>
+<ul>
+<li><p><span class="guilabel">Lighting strength</span> - အလင်းအမှောင် (contrast) ကိုတိုးစေပြီး ပိုမိုကောင်းမွန်သည့် အနက်အမြင်ရှုထောင့် (depth perception) ကိုရရှိစေသည်။</p></li>
+<li><p><span class="guilabel">Lighting distance</span> - Center pixels မှ အသုံးပြုထားသည့် pixels များကြားရှိ အကွာအဝေးကို ကိုယ်စားပြုဖော်ပြပြီး အနားသတ်များကို ထူစေသည့် သက်ရောက်မှုရှိပါသည်။</p></li>
+</ul>
+</li>
+</ul>
+<ul class="simple" id="ambient-occlusion">
+<li><p>Screen-space <a class="reference internal" href="../../../_images/unchecked.png"><img alt="unchecked" src="../../../_images/unchecked.png" style="width: 1.3em;" /></a> <span class="guilabel">Ambient Occlusion</span> (SSAO) ကိုပေါင်းထည့်ခြင်း : ambient lightning ထိတွေ့မှုနည်းသည့်ဧရိယာများကို ပိုမိုမှောင်သည့် အရိပ်ချခြင်းကို
+အသုံးပြု၍ depth perception ကို တိုးမြှင့်ရရှိစေသည့် post processing effect တစ်ခုဖြစ်ပါသည်။ Scene တစ်ခုလုံးအား သက်ရောက်မှုရှိပြီး <a class="reference internal" href="#eye-dome-lighting"><span class="std std-ref">Eye dome Lighting</span></a> နှင့်ပေါင်းစပ်နိုင်ပါသည်။
+အောက်ဖော်ပြပါသတ်မှတ်ချက်များကို ထိန်းချုပ်ကိုင်တွယ်ဆောင်ရွက်နိုင်ပါသည်-</p>
+<ul>
+<li><p><span class="guilabel">Radius</span> - Ambient occlusion တွက်ချက်ရန် မည်မျှအထိရောက်ရှိမည်။</p></li>
+<li><p><span class="guilabel">Intensity</span> - Effect (အကျိုးသက်ရောက်မှု) မည်မျှပြင်းထန်သင့်သည်။  (မြင့်မားသည့် ပမာဏတန်ဖိုးသည် အရာဝတ္ထုများကို ပိုမိုမှောင်မဲစေပါသည်)</p></li>
+<li><p><span class="guilabel">Occlusion threshold</span> - Effect ဖြစ်ပေါ်လာစေရန် အနီးနားရှိအမှတ် မည်မျှကို ပိတ်ထားရန်လိုအပ်သည်။
+(ပမာဏတန်ဖိုး ၅၀% အောက်နည်းပါးပါက ထွက်လာသည့်ရလဒ်ကို ပို၍မှောင်စေမည်ဖြစ်ပါသည်။ သို့ရာတွင် ပိုမိုကြီးမားသည့် occlusion အကွာအဝေးပမာဏကို ပေးစွမ်းနိုင်စွမ်းရှိပါသည်။)</p></li>
+</ul>
+</li>
+</ul>
+<figure class="align-center" id="id6">
+<span id="figure-3dmaps-edl-ssao"></span><img alt="../../../_images/3dmap_edl_ssao.png" src="../../../_images/3dmap_edl_ssao.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 11.28 </span><span class="caption-text">Eye Dome Lighting (EDL) နှင့်/သို့မဟုတ် Screen-Space Ambient Occlusion (SSAO) အသုံးပြု၍ 3D map အတွင်းရှိ Point clouds များအား ပုံဖော်ပြသခြင်း</span><a class="headerlink" href="#id6" title="Link to this image"></a></p>
+<div class="legend">
+<p>အထက်မှ၊ ဘယ်ဘက်မှညာဘက်သို့ - Effect အသုံးပြုထားခြင်းမရှိပါ။ – SSAO တစ်ခုတည်းသာ – EDL တစ်ခုတည်းသာ – SSAO နှင့် EDL</p>
+</div>
+</figcaption>
+</figure>
+<ul class="simple">
+<li><p><a class="reference internal" href="../../../_images/unchecked.png"><img alt="unchecked" src="../../../_images/unchecked.png" style="width: 1.3em;" /></a> <span class="guilabel">Debug Shadow Map</span> သည်  scene အား အရိပ်များအတွက်အသုံးပြုသည့် အလင်း၏ ရှုထောင့်မှ
+red-black image အဖြစ် render ပြုလုပ်ပုံဖော်ပါသည်။ (ပြဿနာများဖြေရှင်းရန်အတွက်)
+Widget ကို 3D map view ၏ <span class="guilabel">Size</span> နှင့်အညီ အချိုးကျသတ်မှတ်ထားပြီး <span class="guilabel">Corner</span> တွင် dock (နေရာအထိုင်ချထား) ပြုလုပ်ထားပါသည်။</p></li>
+<li><p><a class="reference internal" href="../../../_images/unchecked.png"><img alt="unchecked" src="../../../_images/unchecked.png" style="width: 1.3em;" /></a> <span class="guilabel">Debug Depth Map</span> သည် အနီးကပ်ရှိသည့် pixels များကို ပို၍မှောင်စေပြီး scene ၏ depth map အား image တစ်ခုအဖြစ် render ပြုလုပ်ပေးသည်။ (ပြဿနာများဖြေရှင်းရန်အတွက်)
+Widget ကို 3D map view ၏ <span class="guilabel">Size</span> နှင့်အညီ အချိုးကျသတ်မှတ်ထားပြီး <span class="guilabel">Corner</span> (ထောင့်) တစ်ခုတွင် dock ပြုလုပ်ထားပါသည်။</p></li>
+</ul>
+</section>
+</section>
+<section id="navigation-options">
+<span id="d-navigation"></span><h2><a class="toc-backref" href="#id13" role="doc-backlink"><span class="section-number">11.2.2. </span>မြေပုံကြည့်ရှုရာတွင် ရွေးချယ်စရာများ (Navigation options)</a><a class="headerlink" href="#navigation-options" title="Link to this heading"></a></h2>
+<p>Map view အား 3D တွင် ကြည့်ရှုကိုင်တွယ်ဆောင်ရွက်ခြင်းများပြုလုပ်ရန်-</p>
+<ul class="simple">
+<li><p>Terrain ကိုစောင်း (Tilt) ပါ။ (Window ၏ center ကိုဖြတ်၍ horizonal axis (ရေပြင်ညီဝင်ရိုး) အတိုင်း လှည့်ခြင်း)</p>
+<ul>
+<li><p><a class="reference internal" href="../../../_images/mActionTiltUp.png"><img alt="tiltUp" src="../../../_images/mActionTiltUp.png" style="width: 1.5em;" /></a> <sup>Tilt up</sup> နှင့် <a class="reference internal" href="../../../_images/mActionTiltDown.png"><img alt="tiltDown" src="../../../_images/mActionTiltDown.png" style="width: 1.5em;" /></a> <sup>Tilt down</sup> tools များကို နှိပ်ပါ။</p></li>
+<li><p><kbd class="kbd docutils literal notranslate">Shift</kbd> ကို ဖိ၍ up/down keys များကို အသုံးပြုပါ။</p></li>
+<li><p>မောက်စ်၏ အလယ်ရှိခလုတ်ကိုဖိထားပြီး မောက်စ်ကို forward (ရှေ့သို့ရွှေ့ခြင်း)/ backward (နောက်သို့သို့ရွှေ့ခြင်း) လုပ်ဆောင်ပါ။</p></li>
+<li><p><kbd class="kbd docutils literal notranslate">Shift</kbd> ကိုဖိ၍ မောက်စ်၏ ဘယ်ဘက်ခလုတ်အားဖိထားပြီး forward (ရှေ့သို့ရွှေ့ခြင်း)/ backward (နောက်သို့သို့ရွှေ့ခြင်း) လုပ်ဆောင်ပါ။</p></li>
+</ul>
+</li>
+<li><p>Terrain ကို လှည့်ရန် (Window ၏ ဗဟိုကိုဖြတ်၍  ဒေါင်လိုက်ဝင်ရိုးအတိုင်း)</p>
+<ul>
+<li><p>ကြည့်ရှုမည့်ဦးတည်ရာ (watching direction) အတိုင်း navigation widget ၏ သံလိုက်အိမ်မြှောင်အား လှည့်ပါ။</p></li>
+<li><p><kbd class="kbd docutils literal notranslate">Shift</kbd> ကိုဖိ၍ left (ဘယ်) /right (ညာ) keys များကို အသုံးပြုပါ။</p></li>
+<li><p>မောက်စ်၏ အလယ်ရှိခလုတ်ကိုဖိထားပြီး မောက်စ်ကို ဘယ်/ညာသို့ ဆွဲရွှေ့ပါ။</p></li>
+<li><p><kbd class="kbd docutils literal notranslate">Shift</kbd> ကိုဖိ၍ မောက်စ်၏ ဘယ်ဘက်ခလုတ်အားဖိထားပြီး မောက်စ်ကို ဘယ်/ညာသို့ ဆွဲရွှေ့ပါ။</p></li>
+</ul>
+</li>
+<li><p>ကင်မရာ၏တည်နေရာ (view center နှင့်အတူ) အား ပြင်ဆင်ပြောင်းလဲမှုများပြုလုပ်ရန်၊ ၎င်းအား ရေပြင်ညီ (horizontal plan) အတွင်း အပြောင်းအရွှေ့ပြုလုပ်ရန်။</p>
+<ul>
+<li><p>မောက်စ်၏ ဘယ်ဘက်ခလုတ်အား ဖိထား၍ မောက်စ်ကိုဆွဲရွှေ့ပါ။  <sup>Camera control</sup> button ကို ဖွင့်ထားရမည်ဖြစ်ပါသည်။</p></li>
+<li><p>navigation widget ၏ ဦးတည်ရာပြမြှားများ (directional arrows) များကို နှိပ်ထားပါ။</p></li>
+<li><p>ကင်မရာအား အရှေ့နှင့်အနောက်၊ ဘယ်နှင့်ညာ အသီးသီးသို့ ရွှေ့ရန် up/down/left/right (ပေါ်/အောက်/ဘယ်/ညာ) keys များကိုအသုံးပြုပါ။</p></li>
+</ul>
+</li>
+<li><p>ကင်မရာ၏ altitude (အမြင့်) အားပြောင်းလဲပြင်ဆင်ခြင်း - ကီးဘုတ်ရှိ <kbd class="kbd docutils literal notranslate">Page Up</kbd>/<kbd class="kbd docutils literal notranslate">Page Down</kbd> keys ကိုနှိပ်ပါ။</p></li>
+<li><p>ကင်မရာ၏ ဦးတည်ချက်အား ပြောင်းလဲပြင်ဆင်ခြင်း (ကင်မရာသည် ၎င်း၏တည်နေရာတွင်သာရှိနေမည်ဖြစ်သော်လည်း view center point မှာမူ ရွေ့နေမည်ဖြစ်ပါသည်။)</p>
+<ul>
+<li><p>ကင်မရာအား အပေါ်/အောက် နှင့် ဘယ်/ညာ ရွှေ့ရန် ကီးဘုတ်ရှိ <kbd class="kbd docutils literal notranslate">Ctrl</kbd> ကို ဖိ၍ the arrow keys ကို အသုံးပြုပါ။</p></li>
+<li><p>ကီးဘုတ်ရှိ <kbd class="kbd docutils literal notranslate">Ctrl</kbd> ကို ဖိထားပြီး မောက်စ်၏ ဘယ်ဘက်ခလုတ်အား ဖိထား၍ မောက်စ်ကို ဆွဲရွှေ့ပါ။</p></li>
+</ul>
+</li>
+<li><p>Zoom ချဲ့ခြင်းနှင့်ချုံ့ခြင်း</p>
+<ul>
+<li><p>Navigation widget တွင်ပါရှိသည့် သက်ဆိုင်ရာ <a class="reference internal" href="../../../_images/mActionZoomIn.png"><img alt="zoomIn" src="../../../_images/mActionZoomIn.png" style="width: 1.5em;" /></a> <sup>Zoom In</sup> နှင့် <a class="reference internal" href="../../../_images/mActionZoomOut.png"><img alt="zoomOut" src="../../../_images/mActionZoomOut.png" style="width: 1.5em;" /></a> <sup>Zoom Out</sup> ကို ဖိထားပါ။</p></li>
+<li><p>မောက်စ်၏ ဘီးလုံးကို scroll လုပ်ပါ။ (ပိုမိုကောင်းမွန်သည့် မြင်ကွင်းများ ရရှိစေရန် <kbd class="kbd docutils literal notranslate">Ctrl</kbd> key ကို နှိပ်ထားပါ)</p></li>
+<li><p>Zoom in (အောက်ဘက်သို့ဖိဆွဲပါ) နှင့် zoom out (အပေါ်ဘက်သို့ဖိဆွဲပါ) ပြုလုပ်ရန် မောက်စ်၏ ညာဘက်ရှိခလုတ်ကိုဖိ၍ မောက်စ်အား ဖိဆွဲပါ။</p></li>
+</ul>
+</li>
+</ul>
+<p>ကင်မရာ၏မြင်ကွင်းအား နဂိုမူလအနေအထားသို့ ပြန်လည်ရောက်ရှိရန် 3D canvas panel ၏ အပေါ်ဘက်ထိပ်တွင် ရှိသည့် <a class="reference internal" href="../../../_images/mActionZoomFullExtent.png"><img alt="zoomFullExtent" src="../../../_images/mActionZoomFullExtent.png" style="width: 1.5em;" /></a> <sup>Zoom Full</sup> button ကိုနှိပ်ပါ။</p>
+</section>
+<section id="creating-an-animation">
+<span id="create-animation"></span><h2><a class="toc-backref" href="#id14" role="doc-backlink"><span class="section-number">11.2.3. </span>လှုပ်ရှားပုံရိပ်တစ်ခု ဖန်တီးခြင်း (Creating an animation)</a><a class="headerlink" href="#creating-an-animation" title="Link to this heading"></a></h2>
+<p>Animation တစ်ခုသည် keyframes - သတ်မှတ်ထားသည့်အချိန်များအတွင်းရှိသည့် ကင်မရာ၏တည်နေရာပေါ်တွင် အခြေခံထားပါသည်။
+Animation တစ်ခုအားဖန်တီးရန်-</p>
+<ol class="arabic">
+<li><p>Animation player widget ကို ပြသရန် <a class="reference internal" href="../../../_images/mActionPlay.png"><img alt="play" src="../../../_images/mActionPlay.png" style="width: 1.5em;" /></a> <sup>Animations</sup> tool ကို ဖွင့်ပါ။</p></li>
+<li><p><a class="reference internal" href="../../../_images/symbologyAdd.png"><img alt="symbologyAdd" src="../../../_images/symbologyAdd.png" style="width: 1.5em;" /></a> <sup>Add keyframe</sup> button ကို ကလစ်နှိပ်ပြီး  <span class="guilabel">Keyframe time</span> ကို စက္ကန့် ဖြင့်ထည့်သွင်းပါ။
+လက်ရှိတွင် <span class="guilabel">Keyframe</span> combo box သည် သတ်မှတ်ထားသည့်အချိန် (set time) ကို ပြသမည်ဖြစ်ပါသည်။</p></li>
+<li><p>Navigation tools ကို အသုံးပြု၍ လက်ရှိ keyframe time နှင့် ဆက်စပ်မှုရှိစေရန် ကင်မရာ၏ တည်နေရာကို ရွှေ့ပါ။</p></li>
+<li><p>Keyframes (အချိန်နှင့် တည်နေရာများနှင့်အတူ) များကို လိုအပ်သလိုထပ်မံထည့်သွင်းလိုပါက အထက်တွင်ဖော်ပြခဲ့သည့်အဆင့်များအတိုင်းဆောင်ရွက်ပါ။</p></li>
+<li><p>Animation ကို preview ကြည့်ရှုရန် <a class="reference internal" href="../../../_images/mActionPlay.png"><img alt="play" src="../../../_images/mActionPlay.png" style="width: 1.5em;" /></a> button ကိုနှိပ်ပါ။
+QGIS သည် ကင်မရာ၏ တည်နေရာ/အလှည့် များကို အသုံးပြု၍ သတ်မှတ်ထားသည့်အချိန်များအတွင်း scene များကို ထုတ်ပေးမည်ဖြစ်ပြီး ၎င်းတို့အား ထို keyframes များအကြားတွင် interpolation (ရှိပြီးသားအရာများကိုအခြေခံပြီး မရှိသေးသောအရာများကိုဖော်ဆောင်ခြင်း) ဆောင်ရွက်သွားမည်ဖြစ်ပါသည်။
+Animation များအတွက် အမျိုးမျိုးသော <span class="guilabel">Interpolation</span> mode များကို ရရှိနိုင်ပါသည်။ (ဥပမာ - linear ၊ inQuad ၊ outQuad ၊ inCirc… – အသေးစိတ်အား
+<a class="reference external" href="https://doc.qt.io/qt-5/qeasingcurve.html#EasingFunction-typedef">https://doc.qt.io/qt-5/qeasingcurve.html#EasingFunction-typedef</a> တွင်ကြည့်ရှုရန်)</p>
+<p>Animation အား time slider (အချိန်ကိုဆွဲ၍ရွှေ့နိုင်သည့်အရာ) ကို ရွှေ့၍ ကြိုတင်ကြည့်ရှုခြင်း (preview) ဆောင်ရွက်နိုင်ပါသည်။
+<span class="guilabel">Loop</span> box အား အမှန်ခြစ်ထားခြင်းဖြင့် animation အား ထပ်ခါတလဲပြန်လည်ပြသခြင်းကို
+ဆောင်ရွက်နိုင်မည်ဖြစ်ပြီး animation အား ရပ်လိုပါက <a class="reference internal" href="../../../_images/mActionPlay.png"><img alt="play" src="../../../_images/mActionPlay.png" style="width: 1.5em;" /></a> ကို ကလစ်နှိပ်၍ ရပ်တံ့နိုင်ပါသည်။</p>
+</li>
+</ol>
+<p>Scene များကို ကိုယ်စားပြုဖော်ပြသည့် series of images (အတွဲလိုက်ပုံရိပ်) များကို ထုတ်လုပ်နိုင်ရန်အတွက် <a class="reference internal" href="../../../_images/mActionFileSave.png"><img alt="fileSave" src="../../../_images/mActionFileSave.png" style="width: 1.5em;" /></a> <sup>Export animation frames</sup> ကို ကလစ်နှိပ်ပါ။
+ဖိုင်နာမည် filename <span class="guilabel">Template</span> နှင့် သိမ်းဆည်းရန်လမ်းကြောင်း <span class="guilabel">Output directory</span> စသည်တို့အပြင် <span class="guilabel">Frames persecond</span> အရေအတွက်၊  <span class="guilabel">Output width</span> နှင့် <span class="guilabel">Output height</span> တို့ကိုပါ ပြုပြင်သတ်မှတ်ဆောင်ရွက်နိုင်ပါသည်။</p>
+</section>
+<section id="vector-layer-3d-vector-layers">
+<h2><a class="toc-backref" href="#id15" role="doc-backlink"><span class="section-number">11.2.4. </span>ရုပ်လုံးကြွ Vector layer များ (3D vector layers)</a><a class="headerlink" href="#vector-layer-3d-vector-layers" title="Link to this heading"></a></h2>
+<p>3D map view တွင် အမြင့်တန်ဖိုးများပါဝင်သည့် vector layer တစ်ခုကို vector layer properties ၏ <span class="guilabel">3D View</span> section တွင်ပါရှိသည့်
+<span class="guilabel">Enable 3D Renderer</span> ကို အမှန်ခြစ်ပေးခြင်းဖြင့် ပြသနိုင်ပါသည်။
+3D vector layer အား ပုံဖော်ပြသခြင်း ဆောင်ရွက်နိုင်ရန်အတွက် မြောက်များစွာသော option များပါဝင်ပါသည်။</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="map_view.html" class="btn btn-neutral float-left" title="11.1. ရိုးရိုးမြေပုံမြင်ကွင်း (2D Map View)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="elevation_profile.html" class="btn btn-neutral float-right" title="11.3. မြေပြင်ကန်လန့်ဖြတ်ပိုင်းပုံပြမြင်ကွင်း (Elevation Profile View)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2002-now, QGIS project.
+      <span class="lastupdated">Last updated on 2024 May 13, 16:23 +0700.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- Transifex follows a particular logic to build target pages:
+Expected French translation link for https://docs.qgis.org/3.28/en/docs/user_manual/print_composer/overview_composer.html
+would return https://app.transifex.com/qgis/qgis-documentation/translate/#fr/aa6d8bc653526d38b295ca94bf8eee5e
+with the md5 value of "github#qgis/QGIS-Documentation#release_3.28#locale/en/LC_MESSAGES/docs/user_manual/print_composer/overview_composer.po"-->
+<!--Make sure that mismatching language codes between Transifex and Sphinx are converted-->
+
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-info-circle"> QGIS Documentation </span>
+      v: 3.28
+      <span class="fa fa-caret-down"></span>
+    </span>
+
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Languages</dt>
+        
+          <dd><a href="https://docs.qgis.org/3.28/en/docs/user_manual/map_views/3d_map_view.html">en</a></dd>
+        
+      </dl>
+
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/user_manual/map_views/3d_map_view.html">testing</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/latest/en/docs/user_manual/map_views/3d_map_view.html">latest</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.28/en/docs/user_manual/map_views/3d_map_view.html">3.28</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.22/en/docs/user_manual/map_views/3d_map_view.html">3.22</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.16/en/docs/user_manual/map_views/3d_map_view.html">3.16</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.10/en/docs/user_manual/map_views/3d_map_view.html">3.10</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.4/en/docs/user_manual/map_views/3d_map_view.html">3.4</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/2.18/en/docs/user_manual/map_views/3d_map_view.html">2.18</a></dd>
+        
+      </dl>
+
+       
+       <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="https://docs.qgis.org/3.28/pdf">PDF</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.28/zip">HTML</a></dd>
+        
+      </dl>
+      
+
+      
+       
+      <dl>
+        <dt>Contribute to Docs</dt>
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/edit/master/docs/user_manual/map_views/3d_map_view.rst" target="_blank" rel="noopener noreferrer">Edit on GitHub</a>
+          </dd>
+          
+          
+          <dd>
+            <a href="https://app.transifex.com/qgis/qgis-documentation/translate/#en/55d1f99d10b5c71ecf65eb6328e0b251" target="_blank" rel="noopener noreferrer">Translate Page</a>
+          </dd>
+          
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/issues" target="_blank" rel="noopener noreferrer">Report Issue</a>
+          </dd>
+      </dl>
+      
+
+      <dl>
+        <dt>On QGIS Project</dt>
+          <dd>
+            <a href="https://qgis.org/en" target="_blank" rel="noopener noreferrer">Home</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/api/3.28" target="_blank" rel="noopener noreferrer">C++ API</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/pyqgis/3.28" target="_blank" rel="noopener noreferrer">PyQGIS API</a>
+          </dd>
+          <dd>
+            <a href="https://github.com/qgis/QGIS/tree/release-3_28" target="_blank" rel="noopener noreferrer">Source</a>
+          </dd>
+      </dl>
+
+    </div>
+  </div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

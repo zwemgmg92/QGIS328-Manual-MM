@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>21.2.6. စကေးဘား (The Scale Bar Item) &mdash; QGIS Documentation  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/qgis_docs.css?v=3fdf4c33" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
+
+  
+    <link rel="shortcut icon" href="../../../../_static/qgis_logo.ico"/>
+    <link rel="canonical" href="https://docs.qgis.org/latest/en/docs/user_manual/print_composer/composer_items/composer_scale_bar.html"/>
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../../../_static/copybutton.js?v=f281be69"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../../../_static/togglebutton.js?v=4a39c7ea"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="21.2.7. ဇယားများ (The Table Items)" href="composer_tables.html" />
+    <link rel="prev" title="21.2.5. မြေပုံရည်ညွှန်းချက် Item (The Legend Item)" href="composer_legend.html" />
+  <meta name="description" content="QGIS 3.28 documentation: 21.2.6. စကေးဘား (The Scale Bar Item)">
+</head>
+
+<body class="wy-body-for-nav">
+
+  <nav class="release_status_topbar">
+  </nav>
+
+   
+
+ 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+   
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            QGIS Documentation
+              <img src="../../../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                3.28
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+   <a href= "../../../../genindex.html">Index</a>
+ 
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">အသုံးပြုသူများအတွက်</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../preamble/preamble.html">1. စကားချီး (Preamble)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preamble/foreword.html">2. အမှာစာ (Foreword)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preamble/conventions.html">3. အသုံးအနှုန်းများ (Conventions)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preamble/features.html">4. အသွင်အပြင်များ (Features)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/getting_started.html">5. စတင်အသုံးပြုခြင်း (Getting Started)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/project_files.html">6. Project Files များနှင့် အလုပ်လုပ်ခြင်း (Working with Project Files)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/qgis_gui.html">7. QGIS ၏အစိတ်အပိုင်းများ (QGIS GUI)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/browser.html">8. ဒေတာများရှာဖွေကြည့်ရှုနိုင်သည့်နေရာ (The Browser panel)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/qgis_configuration.html">9. QGIS ပြင်ဆင်သတ်မှတ်ခြင်း/အခင်းအကျင်း (QGIS Configuration)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../working_with_projections/working_with_projections.html">10. မြေပုံအရိပ်ချစနစ်များ နှင့် အလုပ်လုပ်ခြင်း (Working with Projections)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../map_views/index.html">11. မြေပုံများအား ပုံဖော်ကြည့်ရှုခြင်း (Visualizing Maps)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/general_tools.html">12. အထွေ‌ထွေ‌သုံးကိရိယာများ (General Tools)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../expressions/index.html">13. Expression များဖြင့် အဆင့်မြှင့်တင်ဆောင်ရွက်ခြင်း (Level up with Expressions)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../style_library/index.html">14. The Style Library (Style နှင့်ပတ်သက်သည်များ ထားရှိရာနေရာ)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../managing_data_source/index.html">15. ဒေတာအရင်းအမြစ်များအား စီမံခန့်ခွဲခြင်း (Managing Data Source)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../working_with_vector/index.html">16. Vector data များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../working_with_raster/index.html">17. Raster Data နှင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../working_with_mesh/mesh_properties.html">18. Working with Mesh Data (Mesh Data များနှင့် အလုပ်လုပ်ခြင်း)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../working_with_vector_tiles/vector_tiles_properties.html">19. Vector Tiles များနှင့်အလုပ်လုပ်ခြင်း (Working with Vector Tiles)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../working_with_point_clouds/point_clouds.html">20. Point Cloud များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">21. မြေပုံအချောသပ်ပြင်ဆင်ခြင်း (Laying out the maps)</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../overview_composer.html">21.1. ပုံထုတ်အပြင်အဆင်ဆိုင်ရာ ခြုံငုံသုံးသပ်ချက် (Overview of the Print Layout)</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">21.2. အချောထုတ်မြေပုံ၏အစိတ်အပိုင်းများ (Layout items )</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="composer_items_options.html">21.2.1. Layout Item တိုင်းတွင်ရှိသည့်ရွေးချယ်စရာများ (Layout Items Common Options)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="composer_map.html">21.2.2. မြေပုံထည့်ရန် (The Map Item)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="composer_map3d.html">21.2.3. ရုပ်ကြွမြေပုံ (The 3D Map Item)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="composer_label.html">21.2.4. အညွှန်းစာ (The Label Item)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="composer_legend.html">21.2.5. မြေပုံရည်ညွှန်းချက် Item (The Legend Item)</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">21.2.6. စကေးဘား (The Scale Bar Item)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#main-properties">21.2.6.1. အဓိကဂုဏ်သတ္တိများ (Main properties)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#units">21.2.6.2. ယူနစ်များ (Units)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#segments">21.2.6.3. မျဉ်းပိုင်းများ (Segments)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#display">21.2.6.4. ပြသမှု (Display)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="composer_tables.html">21.2.7. ဇယားများ (The Table Items)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="composer_image.html">21.2.8. အမှတ်အသား၊ ရုပ်ပုံနှင့် မြောက်အရပ်ပြမြှား များ (The Marker,  Picture and North Arrow Items)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="layout_elevation_profile.html">21.2.9. မြေပြင်ဖြတ်ပိုင်းပုံပြ Item (The Elevation Profile Item)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="composer_html_frame.html">21.2.10. HTML အကွက် (The HTML Frame Item)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="composer_shapes.html">21.2.11. အရာဝတ္ထုများ (The Shape Items)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../create_output.html">21.3. ရလာဒ်တစ်ခု ဖန်တီးခြင်း (Creating an Output)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../create_reports.html">21.4. အစီရင်ခံစာတစ်ခုဖန်တီးခြင်း (Creating a Report)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../working_with_ogc/ogc_client_support.html">22. OGC / ISO protocol များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../working_with_gps/index.html">23. GPS Data များနှင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../auth_system/auth_overview.html">24. အထောက်အထားစီစစ်ခြင်းအကြောင်းအကျဉ်း (Authentication System Overview)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../auth_system/auth_workflows.html">25. အသုံးပြုသူ အထောက်အထားစစ်ဆေးခြင်း လုပ်ငန်းအဆင့်များ (User Authentication Workflows)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../auth_system/auth_considerations.html">26. လုံခြုံရေးအတွက်စဉ်းစားရန်အချက်များ (Security Considerations)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../grass_integration/grass_integration.html">27. GRASS GIS နှင့်ပေါင်းစပ်အသုံးပြုခြင်း (GRASS GIS Integration)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../processing/index.html">28. QGIS processing framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../processing_algs/index.html">29. Processing ဆိုင်ရာ ထောက်ပံ့ပေးသူများနှင့် Algorithm များ (Processing providers and algorithms)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../plugins/plugins.html">30. QGIS Plugin များ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../plugins/core_plugins/index.html">31. QGIS ပင်မ Plugin များကို အသုံးပြုခြင်း (Using QGIS Core Plugins)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../plugins/python_console.html">32. QGIS တွင် Python code များရေးသားရန်နေရာ (QGIS Python console)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preamble/help_and_support.html">33. အကူအညီနှင့်အထောက်အပံ့ (Help and Support)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preamble/contributors.html">34. ပါဝင်အားဖြည့်သူများ (Contributors)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendices/index.html">35. နောက်ဆက်တွဲများ (Appendices)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../literature_web/literature_and_web_references.html">36. စာတမ်းများနှင့် Website ကိုးကားချက်များ (Literature and Web References)</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">QGIS Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">&lt;no title&gt;</a></li>
+          <li class="breadcrumb-item"><a href="../index.html"><span class="section-number">21. </span>မြေပုံအချောသပ်ပြင်ဆင်ခြင်း (Laying out the maps)</a></li>
+          <li class="breadcrumb-item"><a href="index.html"><span class="section-number">21.2. </span>အချောထုတ်မြေပုံ၏အစိတ်အပိုင်းများ (Layout items )</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">21.2.6. </span>စကေးဘား (The Scale Bar Item)</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/qgis/QGIS-Documentation/blob/master/docs/user_manual/print_composer/composer_items/composer_scale_bar.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="composer_legend.html" class="btn btn-neutral float-left" title="21.2.5. မြေပုံရည်ညွှန်းချက် Item (The Legend Item)" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="composer_tables.html" class="btn btn-neutral float-right" title="21.2.7. ဇယားများ (The Table Items)" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <blockquote>
+<div></div></blockquote>
+<section id="the-scale-bar-item">
+<span id="layout-scalebar-item"></span><span id="index-0"></span><h1><span class="section-number">21.2.6. </span>စကေးဘား (The Scale Bar Item)<a class="headerlink" href="#the-scale-bar-item" title="Link to this heading"></a></h1>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#main-properties" id="id6">အဓိကဂုဏ်သတ္တိများ (Main properties)</a></p></li>
+<li><p><a class="reference internal" href="#units" id="id7">ယူနစ်များ (Units)</a></p></li>
+<li><p><a class="reference internal" href="#segments" id="id8">မျဉ်းပိုင်းများ (Segments)</a></p></li>
+<li><p><a class="reference internal" href="#display" id="id9">ပြသမှု (Display)</a></p></li>
+</ul>
+</nav>
+<p>စကေးဘားများသည် မြေပုံပေါ်ရှိ feature များ၏အရွယ်အစားနှင့် feature များကြားအကွာအဝေး ကိုသရုပ်ဖော်ညွှန်ပြပေးသည်။ စကေးဘား တစ်ခုထည့်ရန် မြေပုံ item တစ်ခုလိုအပ်ပါသည်။ <a class="reference internal" href="composer_items_options.html#create-layout-item"><span class="std std-ref">Item များဖန်တီးခြင်းဆိုင်ရာညွှန်ကြားချက်များ</span></a> ကိုလိုက်နာပြီး <a class="reference internal" href="../../../../_images/mActionScaleBar.png"><img alt="scaleBar" src="../../../../_images/mActionScaleBar.png" style="width: 1.5em;" /></a> <span class="guilabel">Add Scale Bar</span> tool ကိုအသုံးပြု၍ <a class="reference internal" href="composer_items_options.html#interact-layout-item"><span class="std std-ref">Layout item များနှင့် အပြန်အလှန်လုပ်ဆောင်ခြင်း (Interacting with layout items)</span></a> တွင်ဖော်ပြထားသည့် နည်းလမ်းအတိုင်းကိုင်တွယ်နိုင်မည့် စကေးဘားအသစ်တစ်ခုကိုထည့်နိုင်ပါသည်။</p>
+<p>Default အားဖြင့် စကေးဘား အသစ်တစ်ခုသည် ၎င်းအားတင်ဆွဲထားသော မြေပုံ၏ စကေးကိုပြသခြင်းဖြစ်ပါသည်။ ၎င်းတွင် အောက်ခံမြေပုံမရှိခဲ့ပါက <a class="reference internal" href="../overview_composer.html#reference-map"><span class="std std-ref">reference map</span></a> (ရည်ညွှန်းမြေပုံ) ကိုရယူသုံးစွဲမည်ဖြစ်သည်။ ၎င်းကို <span class="guilabel">Item Properties</span> panel ထဲတွင်စိတ်ကြိုက်ပြင်ဆင်နိုင်ပါသည်။ ဤ feature တွင် <a class="reference internal" href="composer_items_options.html#item-common-properties"><span class="std std-ref">item များ၏ common ဂုဏ်သတ္တိများ</span></a> အပြင် အောက်ပါလုပ်ဆောင်ချက်များပါရှိသည် ( <a class="reference internal" href="#figure-layout-scalebar"><span class="std std-numref">Fig. 21.33</span></a> ကိုကြည့်ပါ)-</p>
+<figure class="align-center" id="id1">
+<span id="figure-layout-scalebar"></span><img alt="../../../../_images/scalebar_properties.png" src="../../../../_images/scalebar_properties.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 21.33 </span><span class="caption-text">စကေးဘား Item ဂုဏ်သတ္တိများ Panel</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<section id="main-properties">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink"><span class="section-number">21.2.6.1. </span>အဓိကဂုဏ်သတ္တိများ (Main properties)</a><a class="headerlink" href="#main-properties" title="Link to this heading"></a></h2>
+<p>စကေးဘား၏ <span class="guilabel">Item Properties</span> panel မှ <span class="guilabel">Main properties</span> အုပ်စုတွင် အောက်ပါလုပ်ဆောင်ချက်များပါဝင်သည် (<a class="reference internal" href="#figure-layout-scalebar-ppt"><span class="std std-numref">Fig. 21.34</span></a> ကိုကြည့်ပါ)-</p>
+<figure class="align-center" id="id2">
+<span id="figure-layout-scalebar-ppt"></span><img alt="../../../../_images/scalebar_mainproperties.png" src="../../../../_images/scalebar_mainproperties.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 21.34 </span><span class="caption-text">စကေးဘား အဓိကဂုဏ်သတ္တိများအုပ်စု</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ol class="arabic simple">
+<li><p>ပထမဦးစွာ စကေးဘား ထည့်သွင်းလိုသည့်မြေပုံကိုရွေးချယ်ပါ။</p></li>
+<li><p>ထို့နောက် စကေးဘား၏ style ကိုရွေးချယ်ပါ။ ရရှိနိုင်သော style များမှာ-</p>
+<ul class="simple">
+<li><p>အရောင်တစ်လှည့်စီသွားသောမျဉ်းကြောင်းအကွက် တစ်ခု သို့မဟုတ် နှစ်ခုပါဝင်သော <strong>Single box</strong> နှင့် <strong>Double box</strong> style များ</p></li>
+<li><p><strong>Middle</strong>၊ <strong>Up</strong> သို့မဟုတ် <strong>Down</strong> မျဉ်းအမှတ်အသားများ</p></li>
+<li><p>စကေးဘားကို လှေကားထစ်ပုံစံမျဉ်းနှင့်သရုပ်ဖော်ပေးသည့် <strong>Stepped line</strong> style</p></li>
+<li><p>အရောင်များတစ်လှည့်စီသွားသောအပိုင်းများနှင့် ထိုတစ်လှည့်စီသွားသောအပိုင်းများကို ဖြတ်ထားသည့်အလျားလိုက်မျဉ်းများပါဝင်သော အကွက်တစ်ခုကို ဆွဲပေးသည့်  <strong>Hollow</strong> style</p></li>
+<li><p>စကေး၏အချိုးကိုပြသော <strong>Numeric</strong> (ဥပမာ- <code class="docutils literal notranslate"><span class="pre">1:50000</span></code>)</p></li>
+</ul>
+</li>
+<li><p>ဂုဏ်သတ္တိများကိုသင့်တော်သလိုချိန်ညှိပါ။</p></li>
+</ol>
+</section>
+<section id="units">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink"><span class="section-number">21.2.6.2. </span>ယူနစ်များ (Units)</a><a class="headerlink" href="#units" title="Link to this heading"></a></h2>
+<p>စကေးဘားအတွက် <span class="guilabel">Item Properties</span> panel မှ <span class="guilabel">Units</span> အုပ်စုတ္ငင် ပြသလိုသည့်ယူနစ်များနှင့် အချို့စာသားပုံစံချမှုကိုသတ်မှတ်ရန် လုပ်ဆောင်ချက်များပါရှိသည် (<a class="reference internal" href="#figure-layout-scalebar-units"><span class="std std-numref">Fig. 21.35</span></a> ကိုကြည့်ပါ)-</p>
+<figure class="align-center" id="id3">
+<span id="figure-layout-scalebar-units"></span><img alt="../../../../_images/scalebar_units.png" src="../../../../_images/scalebar_units.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 21.35 </span><span class="caption-text">စကေးဘား ယူနစ်များ အုပ်စု</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ul class="simple">
+<li><p><span class="guilabel">Scalebar units</span> ဖြင့် အသုံးပြုလိုသော ယူနစ်များကို ရွေးချယ်ပါ။ ရရှိနိုင်သော ရွေးချယ်စရာများစွာတွင်- <strong>မြေပုံယူနစ်များ</strong> (default ဖြစ်သည်)၊ <strong>မီတာများ</strong>၊ <strong>ပေများ</strong>၊ <strong>မိုင်များ</strong> သို့မဟုတ် <strong>ရေမိုင်များ</strong>… နှင့် အချို့ derivative (နောက်ဆက်တွဲဆင်းသက်လာသည့်အရာ) များပါဝင်သည်။ ယူနစ်များ ပြောင်းလဲခြင်းကို အလိုအလျောက် လုပ်ဆောင်နိုင်သည်။</p></li>
+<li><p><span class="guilabel">Label unit multiplier</span> သည် label တပ်ထားသောယူနစ်တစ်ခုစီအတွက် စကေးဘားယူနစ် မည်မျှရှိသည်ကို သတ်မှတ်ပေးသည်။ ဥပမာအားဖြင့် စကေးဘားယူနစ်များကို “မီတာများ” ဖြင့် သတ်မှတ်ထားပါက 1000 ၏ဆတိုးကိန်းတစ်ခု ဖြစ်သောရလာဒ်အား စကေးဘား lable များတွင် “ကီလိုမီတာများ” ဖြင့်ပြသမည်ဖြစ်သည်။</p></li>
+<li><p><span class="guilabel">Label for units</span> field သည် စကေးဘား၏ ယူနစ်များကိုဖော်ပြမည့်စာသားကို သတ်မှတ်ပေးသည်။ ဥပမာ- <code class="docutils literal notranslate"><span class="pre">m</span></code> သို့မဟုတ် <code class="docutils literal notranslate"><span class="pre">km</span></code>။ အထက်တွင်ဖော်ပြခဲ့သည့် ဆတိုးကိန်းနှင့်ကိုက်ညီမှုရှိရပါမည်။</p></li>
+<li><p><span class="guilabel">Number format</span> ဘေးမှ <span class="guilabel">Customize</span> ကိုနှိပ်၍ စကေးဘားထဲရှိ ဂဏန်းများအတွက် ထောင်ဂဏန်းပိုင်းခြားပေးသည့်အရာများ (thousand separators)၊ ဒဿမနေရာများ၊ သိပ္ပံဆိုင်ရာအမှတ်အသားများ အစရှိသည်တို့ပါဝင်သော format ဆိုင်ရာဂုဏ်သတ္တိများအားလုံးကို စီမံနိုင်သည်။ (နောက်ထပ် အသေးစိတ်အချက်အလက်များအတွက် <a class="reference internal" href="../../introduction/general_tools.html#number-formatting"><span class="std std-ref">ကိန်းဂဏန်း ၏ပုံစံကို ပြင်ဆင်ခြင်း (Number Formatting)</span></a> ကိုကြည့်ပါ)။ လက်ရှိ QGIS နယ်ပယ်၏ပြင်ပရှိ ပုဂ္ဂိုလ်များအတွက် မြေပုံများဖန်တီးရေးဆွဲရာတွင် သို့မဟုတ် locale default များနှင့် မတူညီသော style ကိုပြောင်းလဲအသုံးပြုလိုပါက လွန်စွာအသုံးဝင်မည်ဖြစ်သည် (ဥပမာ- locale default တွင် ထောင်ဂဏန်းပိုင်းခြားပေးသည့်အရာများ (thousand separators) ကို ဖျောက်ထားသောအခါ thousand separator များကိုပေါင်းထည့်ခြင်း)။</p></li>
+</ul>
+</section>
+<section id="segments">
+<h2><a class="toc-backref" href="#id8" role="doc-backlink"><span class="section-number">21.2.6.3. </span>မျဉ်းပိုင်းများ (Segments)</a><a class="headerlink" href="#segments" title="Link to this heading"></a></h2>
+<p>စကေးဘားအတွက် <span class="guilabel">Item Properties</span> panel ရှိ <span class="guilabel">Segments</span> အုပ်စုတွင် အပိုင်းများနှင့် အပိုင်းခွဲများ၏ အရေအတွက်နှင့် အရွယ်အစားကို သတ်မှတ်ထားရှိနိုင်မည့် လုပ်ဆောင်ချက်များပါဝင်သည် (<a class="reference internal" href="#figure-layout-scalebar-segments"><span class="std std-numref">Fig. 21.36</span></a> ကိုကြည့်ပါ)-</p>
+<figure class="align-center" id="id4">
+<span id="figure-layout-scalebar-segments"></span><img alt="../../../../_images/scalebar_segments.png" src="../../../../_images/scalebar_segments.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 21.36 </span><span class="caption-text">စကေးဘား အပိုင်းများ အုပ်စု</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ul class="simple">
+<li><p>စကေးဘားမှ <code class="docutils literal notranslate"><span class="pre">0</span></code> ၏ ဘယ်ဘက်နှင့်ညာဘက်များတွင် ရေးဆွဲမည့် <span class="guilabel">Segment</span> များ၏အရေအတွက်ကိုသတ်မှတ်နိုင်သည်-</p>
+<ul>
+<li><p><span class="guilabel">ဘယ်ဘက်</span> ရှိ သီးသန့်အပိုင်းတစ်ခု၏ အပိုင်းခွဲအရေအတွက်</p></li>
+<li><p><span class="guilabel">ညာဘက်</span> ရှိ အပိုင်းများအရေအတွက်</p></li>
+</ul>
+</li>
+<li><p>အပိုင်းတစ်ခု၏အကျယ် သို့မဟုတ် စကေးဘား၏ စုစုပေါင်းအလျားအတွက် အပိုင်းအခြားကိုသတ်မှတ်နိုင်သည်-</p></li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li><p>စကေးဘား ယူနစ်များထဲတွင် အပိုင်းတစ်ခုသည် မည်မျှရှည်မည်ကိုသတ်မှတ်နိုင်သည် (<span class="guilabel">Fixed width</span>)</p></li>
+<li><p>သို့မဟုတ် စုစုပေါင်း စကေးဘား အရွယ်အစားအား <span class="guilabel">Fit segment width</span> option သုံး၍ <code class="docutils literal notranslate"><span class="pre">mm</span></code> နှင့် ကန့်သတ်ထားနိုင်သည်။ ဒုတိယတစ်ခုတွင် မြေပုံစကေးပြောင်းလဲသွားသည့်အချိန်တိုင်း  သတ်မှတ်ထားသောအပိုင်းအခြားအကြားတွင်ဝင်ဆံ့ရန် စကေးဘားကို အရွယ်အစား ပြန်လည်သတ်မှတ်ပေးမည်ဖြစ်သည် (ထို့နောက် ၎င်း၏ label သည်လည်း အသစ်ဖြစ်သွားမည်)။</p></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><p>ဘား၏အမြင့်ကို သတ်မှတ်ရန် <span class="guilabel">Height</span> ကိုအသုံးပြုသည်။</p></li>
+<li><p><span class="guilabel">Right segment subdivisions</span> ကို စကေးဘား၏ညာဘက်ရှိအပိုင်းများတွင် ရှိနိုင်သော အပိုင်းခွဲများအရေအတွက်ကိုသတ်မှတ်ရန် အသုံးပြုသည်။ (<em>Line Ticks Down</em> ၊ <em>Line Ticks Middle</em> နှင့် <em>Line Ticks Up</em> စကေးဘား style များအတွက်)</p></li>
+<li><p>အပိုင်းခွဲ၏အမြင့်ကိုသတ်မှတ်ရန် <span class="guilabel">Subdivision height</span> ကိုအသုံးပြုသည်။</p></li>
+</ul>
+</section>
+<section id="display">
+<h2><a class="toc-backref" href="#id9" role="doc-backlink"><span class="section-number">21.2.6.4. </span>ပြသမှု (Display)</a><a class="headerlink" href="#display" title="Link to this heading"></a></h2>
+<p>စကေးဘားအတွက် <span class="guilabel">Item Properties</span> panel မှ <span class="guilabel">Display</span> အုပ်စုတွင်အောက်ပါလုပ်ဆောင်ချက်များပါဝင်သည်-</p>
+<figure class="align-center" id="id5">
+<span id="figure-layout-scalebar-display"></span><img alt="../../../../_images/scalebar_display.png" src="../../../../_images/scalebar_display.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 21.37 </span><span class="caption-text">စကေးဘား ပြသမှု အုပ်စု</span><a class="headerlink" href="#id5" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>စကေးဘားအား ၎င်း၏ frame ထဲတွင် မည်သို့ပြသလိုသည်ကို သတ်မှတ်နိုင်သည်-</p>
+<ul class="simple">
+<li><p><span class="guilabel">Box margin</span> - စာသားနှင့် frame border များအကြားအကွာအဝေး</p></li>
+<li><p><span class="guilabel">Label margin</span> - စာသားနှင့် စကေးဘား ကြား အကွာအဝေး</p></li>
+<li><p><span class="guilabel">Vertical label placement</span> -  စကေးဘား အပိုင်း ၏ အထက် သို့ အောက်တွင် ၎င်းကိုထားရှိနိုင်သည်။</p></li>
+<li><p><span class="guilabel">Horizontal label placement</span>- စကေးဘား အပိုင်း ၏ အစွန်း သို့ အလယ်ဗဟိုတွင် ထားရှိနိုင်သည်။</p></li>
+<li><p><em>Single Box</em>၊ <em>Double Box</em> နှင့် <em>Hollow</em> style များအတွက် <a class="reference internal" href="../../style_library/symbol_selector.html#vector-fill-symbols"><span class="std std-ref">အဖြည့် သင်္ကေတဂုဏ်သတ္တိများ</span></a> (အရောင်၊ အလင်းပိတ်မှု၊ ပုံစံကွက်များ၊ effect များ…) ကိုအသုံးပြု၍ စကေးဘား၏ <span class="guilabel">Primary fill</span> နှင့် <span class="guilabel">Secondary fill</span> ကိုသတ်မှတ်ပေးသည်။</p></li>
+<li><p><em>Numeric</em> style မှလွဲ၍အားလုံးအတွက် <a class="reference internal" href="../../style_library/symbol_selector.html#vector-line-symbols"><span class="std std-ref">လိုင်း သင်္ကေတဂုဏ်သတ္တိများ</span></a> (အရောင်၊ အထူ၊ ချိတ်ဆက်မှုပုံစံ၊ အဆုံးသတ်ပုံစံ၊ ပုံစံကွက်များ၊ effect များ…) ကိုအသုံးပြု၍ စကေးဘား၏ <span class="guilabel">Line style</span> ကိုသတ်မှတ်ပေးသည်။</p></li>
+<li><p><span class="guilabel">Division style</span> နှင့် <span class="guilabel">Subdivision style</span> သည် <em>Line Ticks Up</em>၊ <em>Line Ticks Middle</em> နှင့် <em>Line Ticks Down</em> စကေးဘား style များရှိ အပိုင်းနှင့်အပိုင်းခွဲအသီးသီးအတွက် <a class="reference internal" href="../../style_library/symbol_selector.html#vector-line-symbols"><span class="std std-ref">လိုင်း သင်္ကေတဂုဏ်သတ္တိများ</span></a> (အရောင်၊ အထူ၊ ချိတ်ဆက်မှုပုံစံ၊ အဆုံးသတ်ပုံစံ၊ ပုံစံကွက်များ၊ effect များ…) ကိုအသုံးပြု၍ သတ်မှတ်ပေးသည်။</p></li>
+<li><p><span class="guilabel">Alignment</span> သည် စာသားကို frame ၏ဘယ်ဘက်၊ အလယ်ဗဟို သို့မဟုတ် ညာဘက်တွင်ထားပေးသည် ( <em>Numeric</em> စကေးဘား style အတွက်သာ)။</p></li>
+<li><p><span class="guilabel">Font</span> ဖြင့် စကေးဘား label ၏ <a class="reference internal" href="../../style_library/label_settings.html#text-format"><span class="std std-ref">ဂုဏ်သတ္တိများ</span></a> (အရွယ်အစား၊ စာလုံးဖောင့်၊ အရောင်၊ စာလုံးများကြားအကွာအဝေး၊ အရိပ်၊ နောက်ခံ…)  ကိုသတ်မှတ်ပေးသည်။</p></li>
+</ul>
+<p>စကေးဘား၏ သရုပ်ဖော်ပြသမှုဆိုင်ရာ ဂုဏ်သတ္တိအများစုသည် data ဖြင့်သတ်မှတ်ထားသော (data-defined) ဂုဏ်သတ္တိများရှိသော သင်္ကေတများပေါ်တွင် မှီခိုနေသည့်အတွက် data ဖြင့်သတ်မှတ်ထားသော စကေးဘားများကို ပုံဖော်ပြသရန်ဖြစ်နိုင်ပါသည်။</p>
+<p><strong>ဥပမာ</strong>- စကေး label များ၏ bold (စာလုံးအထင်း) ဂုဏ်သတ္တိတွင်အသုံးပြုထားသော အောက်ပါ code သည် ဂဏန်းများသည် 500 ၏ ဆတိုးကိန်းဖြစ်သောအခါ ထိုဂဏန်းများကို စာလုံးမည်းဖြင့် ပြသပေးမည်ဖြစ်သည်-</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">--</span> <span class="n">returns</span> <span class="kc">True</span> <span class="p">(</span><span class="ow">or</span> <span class="mi">1</span><span class="p">)</span> <span class="k">if</span> <span class="n">the</span> <span class="n">value</span> <span class="n">displayed</span> <span class="n">on</span> <span class="n">the</span> <span class="n">bar</span>
+<span class="o">--</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">multiple</span> <span class="n">of</span> <span class="mi">500</span>
+
+<span class="nd">@scale_value</span> <span class="o">%</span> <span class="mi">500</span> <span class="o">=</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="composer_legend.html" class="btn btn-neutral float-left" title="21.2.5. မြေပုံရည်ညွှန်းချက် Item (The Legend Item)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="composer_tables.html" class="btn btn-neutral float-right" title="21.2.7. ဇယားများ (The Table Items)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2002-now, QGIS project.
+      <span class="lastupdated">Last updated on 2024 May 13, 16:23 +0700.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- Transifex follows a particular logic to build target pages:
+Expected French translation link for https://docs.qgis.org/3.28/en/docs/user_manual/print_composer/overview_composer.html
+would return https://app.transifex.com/qgis/qgis-documentation/translate/#fr/aa6d8bc653526d38b295ca94bf8eee5e
+with the md5 value of "github#qgis/QGIS-Documentation#release_3.28#locale/en/LC_MESSAGES/docs/user_manual/print_composer/overview_composer.po"-->
+<!--Make sure that mismatching language codes between Transifex and Sphinx are converted-->
+
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-info-circle"> QGIS Documentation </span>
+      v: 3.28
+      <span class="fa fa-caret-down"></span>
+    </span>
+
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Languages</dt>
+        
+          <dd><a href="https://docs.qgis.org/3.28/en/docs/user_manual/print_composer/composer_items/composer_scale_bar.html">en</a></dd>
+        
+      </dl>
+
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/user_manual/print_composer/composer_items/composer_scale_bar.html">testing</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/latest/en/docs/user_manual/print_composer/composer_items/composer_scale_bar.html">latest</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.28/en/docs/user_manual/print_composer/composer_items/composer_scale_bar.html">3.28</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.22/en/docs/user_manual/print_composer/composer_items/composer_scale_bar.html">3.22</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.16/en/docs/user_manual/print_composer/composer_items/composer_scale_bar.html">3.16</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.10/en/docs/user_manual/print_composer/composer_items/composer_scale_bar.html">3.10</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.4/en/docs/user_manual/print_composer/composer_items/composer_scale_bar.html">3.4</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/2.18/en/docs/user_manual/print_composer/composer_items/composer_scale_bar.html">2.18</a></dd>
+        
+      </dl>
+
+       
+       <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="https://docs.qgis.org/3.28/pdf">PDF</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.28/zip">HTML</a></dd>
+        
+      </dl>
+      
+
+      
+       
+      <dl>
+        <dt>Contribute to Docs</dt>
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/edit/master/docs/user_manual/print_composer/composer_items/composer_scale_bar.rst" target="_blank" rel="noopener noreferrer">Edit on GitHub</a>
+          </dd>
+          
+          
+          <dd>
+            <a href="https://app.transifex.com/qgis/qgis-documentation/translate/#en/b8bba2a7892a8311513c226802023eb4" target="_blank" rel="noopener noreferrer">Translate Page</a>
+          </dd>
+          
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/issues" target="_blank" rel="noopener noreferrer">Report Issue</a>
+          </dd>
+      </dl>
+      
+
+      <dl>
+        <dt>On QGIS Project</dt>
+          <dd>
+            <a href="https://qgis.org/en" target="_blank" rel="noopener noreferrer">Home</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/api/3.28" target="_blank" rel="noopener noreferrer">C++ API</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/pyqgis/3.28" target="_blank" rel="noopener noreferrer">PyQGIS API</a>
+          </dd>
+          <dd>
+            <a href="https://github.com/qgis/QGIS/tree/release-3_28" target="_blank" rel="noopener noreferrer">Source</a>
+          </dd>
+      </dl>
+
+    </div>
+  </div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

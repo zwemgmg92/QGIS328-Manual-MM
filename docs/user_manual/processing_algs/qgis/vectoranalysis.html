@@ -1,0 +1,2554 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>29.1.15. Vector ဆန်းစစ်လေ့လာခြင်း (Vector analysis) &mdash; QGIS Documentation  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/qgis_docs.css?v=3fdf4c33" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
+
+  
+    <link rel="shortcut icon" href="../../../../_static/qgis_logo.ico"/>
+    <link rel="canonical" href="https://docs.qgis.org/latest/en/docs/user_manual/processing_algs/qgis/vectoranalysis.html"/>
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../../../_static/copybutton.js?v=f281be69"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../../../_static/togglebutton.js?v=4a39c7ea"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="29.1.16. Vector ဖန်တီးခြင်း (Vector creation)" href="vectorcreation.html" />
+    <link rel="prev" title="29.1.14. Raster ကိရိယာများ (Raster tools)" href="rastertools.html" />
+  <meta name="description" content="QGIS 3.28 documentation: 29.1.15. Vector ဆန်းစစ်လေ့လာခြင်း (Vector analysis)">
+</head>
+
+<body class="wy-body-for-nav">
+
+  <nav class="release_status_topbar">
+  </nav>
+
+   
+
+ 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+   
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            QGIS Documentation
+              <img src="../../../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                3.28
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+   <a href= "../../../../genindex.html">Index</a>
+ 
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">အသုံးပြုသူများအတွက်</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../preamble/preamble.html">1. စကားချီး (Preamble)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preamble/foreword.html">2. အမှာစာ (Foreword)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preamble/conventions.html">3. အသုံးအနှုန်းများ (Conventions)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preamble/features.html">4. အသွင်အပြင်များ (Features)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/getting_started.html">5. စတင်အသုံးပြုခြင်း (Getting Started)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/project_files.html">6. Project Files များနှင့် အလုပ်လုပ်ခြင်း (Working with Project Files)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/qgis_gui.html">7. QGIS ၏အစိတ်အပိုင်းများ (QGIS GUI)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/browser.html">8. ဒေတာများရှာဖွေကြည့်ရှုနိုင်သည့်နေရာ (The Browser panel)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/qgis_configuration.html">9. QGIS ပြင်ဆင်သတ်မှတ်ခြင်း/အခင်းအကျင်း (QGIS Configuration)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../working_with_projections/working_with_projections.html">10. မြေပုံအရိပ်ချစနစ်များ နှင့် အလုပ်လုပ်ခြင်း (Working with Projections)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../map_views/index.html">11. မြေပုံများအား ပုံဖော်ကြည့်ရှုခြင်း (Visualizing Maps)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/general_tools.html">12. အထွေ‌ထွေ‌သုံးကိရိယာများ (General Tools)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../expressions/index.html">13. Expression များဖြင့် အဆင့်မြှင့်တင်ဆောင်ရွက်ခြင်း (Level up with Expressions)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../style_library/index.html">14. The Style Library (Style နှင့်ပတ်သက်သည်များ ထားရှိရာနေရာ)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../managing_data_source/index.html">15. ဒေတာအရင်းအမြစ်များအား စီမံခန့်ခွဲခြင်း (Managing Data Source)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../working_with_vector/index.html">16. Vector data များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../working_with_raster/index.html">17. Raster Data နှင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../working_with_mesh/mesh_properties.html">18. Working with Mesh Data (Mesh Data များနှင့် အလုပ်လုပ်ခြင်း)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../working_with_vector_tiles/vector_tiles_properties.html">19. Vector Tiles များနှင့်အလုပ်လုပ်ခြင်း (Working with Vector Tiles)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../working_with_point_clouds/point_clouds.html">20. Point Cloud များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../print_composer/index.html">21. မြေပုံအချောသပ်ပြင်ဆင်ခြင်း (Laying out the maps)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../working_with_ogc/ogc_client_support.html">22. OGC / ISO protocol များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../working_with_gps/index.html">23. GPS Data များနှင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../auth_system/auth_overview.html">24. အထောက်အထားစီစစ်ခြင်းအကြောင်းအကျဉ်း (Authentication System Overview)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../auth_system/auth_workflows.html">25. အသုံးပြုသူ အထောက်အထားစစ်ဆေးခြင်း လုပ်ငန်းအဆင့်များ (User Authentication Workflows)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../auth_system/auth_considerations.html">26. လုံခြုံရေးအတွက်စဉ်းစားရန်အချက်များ (Security Considerations)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../grass_integration/grass_integration.html">27. GRASS GIS နှင့်ပေါင်းစပ်အသုံးပြုခြင်း (GRASS GIS Integration)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../processing/index.html">28. QGIS processing framework</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">29. Processing ဆိုင်ရာ ထောက်ပံ့ပေးသူများနှင့် Algorithm များ (Processing providers and algorithms)</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">29.1. QGIS algorithm ထောက်ပံ့ပေးသူ (QGIS algorithm provider)</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="cartography.html">29.1.1. မြေပုံရေးဆွဲခြင်းအတတ်ပညာ (Cartography)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="database.html">29.1.2. Database</a></li>
+<li class="toctree-l3"><a class="reference internal" href="filetools.html">29.1.3. File ကိရိယာများ (File tools)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gps.html">29.1.4. ကမ္ဘာလုံးဆိုင်ရာတည်နေရာပြစနစ် (GPS)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="interpolation.html">29.1.5. သွယ်ဝိုက်တွက်ချက်ခြင်း (Interpolation)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="layertools.html">29.1.6. Layer ကိရိယာများ (Layer tools)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mesh.html">29.1.7. ဝါယာကွန်ယက်(Mesh)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelertools.html">29.1.8. Modeler ကိရိယာများ (Modeler tools)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="networkanalysis.html">29.1.9. လမ်းကြောင်းကွန်ယက်ဆိုင်ရာ တွက်ချက်မှု (Network analysis)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plots.html">29.1.10. Plot များ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rasteranalysis.html">29.1.11. Raster ဖြင့်ဆန်းစစ်လေ့လာခြင်း (Raster analysis)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rastercreation.html">29.1.12. Raster Creation (Raster ဖန်တီးခြင်း)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rasterterrainanalysis.html">29.1.13. Raster မြေမျက်နှာသွင်ပြင် ဆန်းစစ်လေ့လာခြင်း (Raster terrain analysis)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rastertools.html">29.1.14. Raster ကိရိယာများ (Raster tools)</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">29.1.15. Vector ဆန်းစစ်လေ့လာခြင်း (Vector analysis)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#filed-basic-statistics-for-fields">29.1.15.1. Filed များ၏ အခြေခံကိန်းဂဏန်းအချက်အလက်များ (Basic statistics for fields)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#climb-along-line">29.1.15.2. မျဉ်းတစ်လျှောက် အမြင့်ပြောင်းလဲမှုများ တွက်ချက်ခြင်း (Climb along line)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#polygon-point-count-points-in-polygon">29.1.15.3. Polygon အတွင်းရှိ point များကိုရေတွက်ခြင်း (Count points in polygon)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dbscan-dbscan-clustering">29.1.15.4. DBSCAN ဖြင့်စုဖွဲ့ခြင်း (DBSCAN clustering)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#distance-matrix">29.1.15.5. အကွာအဝေး မက်ထရစ် (Distance matrix)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#distance-to-nearest-hub-line-to-hub">29.1.15.6. ဗဟိုချက် သို့အကွာအဝေး (မျဉ်းမှ ဗဟိုချက် ဆီသို့) (Distance to nearest hub (line to hub))</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#distance-to-nearest-hub-points">29.1.15.7. ဗဟိုချက် သို့အကွာအဝေး (အမှတ်များ) (Distance to nearest hub (points))</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#join-by-lines-hub-lines">29.1.15.8. မျဉ်းများဖြင့်ဆက်ခြင်း (ဗဟိုချက်မျဉ်းများ) (Join by lines (hub lines))</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#k-means-k-means-clustering">29.1.15.9. K-means နည်းလမ်းဖြင့် စုဖွဲ့ခြင်း (K-means clustering)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#list-unique-values">29.1.15.10. သီးခြားကွဲပြားနေသောတန်ဖိုးများကို စာရင်းပြုခြင်း (List unique values)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mean-coordinate">29.1.15.11. ပျှမ်းမျှကိုဩဒိနိတ် (Mean coordinate)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nearest-neighbour-analysis">29.1.15.12. အနီးဆုံးအရာကိုလေ့လာဆန်းစစ်မှု (Nearest neighbour analysis)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#overlap-analysis">29.1.15.13. ထပ်နေမှုကို ဆန်းစစ်ခြင်း (Overlap analysis)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#feature-shortest-line-between-features">29.1.15.14. Feature များအကြားရှိ အတိုဆုံးမျဉ်း (Shortest line between features)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#st-dbscan-st-dbscan-clustering">29.1.15.15. ST-DBSCAN ဖြင့် စုဖွဲ့ခြင်း (ST-DBSCAN clustering)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#statistics-by-categories">29.1.15.16. အမျိုးအစားဆိုင်ရာ ကိန်းဂဏန်းအချက်အလက်များ (Statistics by categories)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sum-line-lengths">29.1.15.17. မျဉ်းအလျားများပေါင်းခြင်း (Sum line lengths)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="vectorcreation.html">29.1.16. Vector ဖန်တီးခြင်း (Vector creation)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vectorgeneral.html">29.1.17. Vector ဆိုင်ရာ အထွေထွေ (Vector general)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vectorgeometry.html">29.1.18. Vector ဂျီဩမေတြီ (Vector geometry)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vectoroverlay.html">29.1.19. Vector အလွှာထပ်တွက်ချက်ခြင်း (Vector overlay)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vectorselection.html">29.1.20. Vector တွင်ရွေးချယ်ခြင်း (Vector selection)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vectortable.html">29.1.21. Vector ဇယား (Vector table)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vectortiles.html">29.1.22. Vector tile များ</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../gdal/index.html">29.2. GDAL algorithm ထောက်ပံ့ပေးသူ (GDAL algorithm provider)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../otb.html">29.3. OTB application များ ထောက်ပံ့ပေးသည့်အရာ (OTB applications provider)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../plugins/plugins.html">30. QGIS Plugin များ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../plugins/core_plugins/index.html">31. QGIS ပင်မ Plugin များကို အသုံးပြုခြင်း (Using QGIS Core Plugins)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../plugins/python_console.html">32. QGIS တွင် Python code များရေးသားရန်နေရာ (QGIS Python console)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preamble/help_and_support.html">33. အကူအညီနှင့်အထောက်အပံ့ (Help and Support)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preamble/contributors.html">34. ပါဝင်အားဖြည့်သူများ (Contributors)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendices/index.html">35. နောက်ဆက်တွဲများ (Appendices)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../literature_web/literature_and_web_references.html">36. စာတမ်းများနှင့် Website ကိုးကားချက်များ (Literature and Web References)</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">QGIS Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">&lt;no title&gt;</a></li>
+          <li class="breadcrumb-item"><a href="../index.html"><span class="section-number">29. </span>Processing ဆိုင်ရာ ထောက်ပံ့ပေးသူများနှင့် Algorithm များ (Processing providers and algorithms)</a></li>
+          <li class="breadcrumb-item"><a href="index.html"><span class="section-number">29.1. </span>QGIS algorithm ထောက်ပံ့ပေးသူ (QGIS algorithm provider)</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">29.1.15. </span>Vector ဆန်းစစ်လေ့လာခြင်း (Vector analysis)</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/qgis/QGIS-Documentation/blob/master/docs/user_manual/processing_algs/qgis/vectoranalysis.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="rastertools.html" class="btn btn-neutral float-left" title="29.1.14. Raster ကိရိယာများ (Raster tools)" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="vectorcreation.html" class="btn btn-neutral float-right" title="29.1.16. Vector ဖန်တီးခြင်း (Vector creation)" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <blockquote>
+<div></div></blockquote>
+<section id="vector-vector-analysis">
+<h1><span class="section-number">29.1.15. </span>Vector ဆန်းစစ်လေ့လာခြင်း (Vector analysis)<a class="headerlink" href="#vector-vector-analysis" title="Link to this heading"></a></h1>
+<nav class="contents toc-columns local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#filed-basic-statistics-for-fields" id="id61">Filed များ၏ အခြေခံကိန်းဂဏန်းအချက်အလက်များ (Basic statistics for fields)</a></p></li>
+<li><p><a class="reference internal" href="#climb-along-line" id="id62">မျဉ်းတစ်လျှောက် အမြင့်ပြောင်းလဲမှုများ တွက်ချက်ခြင်း (Climb along line)</a></p></li>
+<li><p><a class="reference internal" href="#polygon-point-count-points-in-polygon" id="id63">Polygon အတွင်းရှိ point များကိုရေတွက်ခြင်း (Count points in polygon)</a></p></li>
+<li><p><a class="reference internal" href="#dbscan-dbscan-clustering" id="id64">DBSCAN ဖြင့်စုဖွဲ့ခြင်း (DBSCAN clustering)</a></p></li>
+<li><p><a class="reference internal" href="#distance-matrix" id="id65">အကွာအဝေး မက်ထရစ် (Distance matrix)</a></p></li>
+<li><p><a class="reference internal" href="#distance-to-nearest-hub-line-to-hub" id="id66">ဗဟိုချက် သို့အကွာအဝေး (မျဉ်းမှ ဗဟိုချက် ဆီသို့) (Distance to nearest hub (line to hub))</a></p></li>
+<li><p><a class="reference internal" href="#distance-to-nearest-hub-points" id="id67">ဗဟိုချက် သို့အကွာအဝေး (အမှတ်များ) (Distance to nearest hub (points))</a></p></li>
+<li><p><a class="reference internal" href="#join-by-lines-hub-lines" id="id68">မျဉ်းများဖြင့်ဆက်ခြင်း (ဗဟိုချက်မျဉ်းများ) (Join by lines (hub lines))</a></p></li>
+<li><p><a class="reference internal" href="#k-means-k-means-clustering" id="id69">K-means နည်းလမ်းဖြင့် စုဖွဲ့ခြင်း (K-means clustering)</a></p></li>
+<li><p><a class="reference internal" href="#list-unique-values" id="id70">သီးခြားကွဲပြားနေသောတန်ဖိုးများကို စာရင်းပြုခြင်း (List unique values)</a></p></li>
+<li><p><a class="reference internal" href="#mean-coordinate" id="id71">ပျှမ်းမျှကိုဩဒိနိတ် (Mean coordinate)</a></p></li>
+<li><p><a class="reference internal" href="#nearest-neighbour-analysis" id="id72">အနီးဆုံးအရာကိုလေ့လာဆန်းစစ်မှု (Nearest neighbour analysis)</a></p></li>
+<li><p><a class="reference internal" href="#overlap-analysis" id="id73">ထပ်နေမှုကို ဆန်းစစ်ခြင်း (Overlap analysis)</a></p></li>
+<li><p><a class="reference internal" href="#feature-shortest-line-between-features" id="id74">Feature များအကြားရှိ အတိုဆုံးမျဉ်း (Shortest line between features)</a></p></li>
+<li><p><a class="reference internal" href="#st-dbscan-st-dbscan-clustering" id="id75">ST-DBSCAN ဖြင့် စုဖွဲ့ခြင်း (ST-DBSCAN clustering)</a></p></li>
+<li><p><a class="reference internal" href="#statistics-by-categories" id="id76">အမျိုးအစားဆိုင်ရာ ကိန်းဂဏန်းအချက်အလက်များ (Statistics by categories)</a></p></li>
+<li><p><a class="reference internal" href="#sum-line-lengths" id="id77">မျဉ်းအလျားများပေါင်းခြင်း (Sum line lengths)</a></p></li>
+</ul>
+</nav>
+<section id="filed-basic-statistics-for-fields">
+<span id="qgisbasicstatisticsforfields"></span><h2><a class="toc-backref" href="#id61" role="doc-backlink"><span class="section-number">29.1.15.1. </span>Filed များ၏ အခြေခံကိန်းဂဏန်းအချက်အလက်များ (Basic statistics for fields)</a><a class="headerlink" href="#filed-basic-statistics-for-fields" title="Link to this heading"></a></h2>
+<p>Vector layer တစ်ခု၏ attribute ဇယားမှ field တစ်ခုအတွက် အခြေခံကိန်းဂဏန်းအချက်အလက်များကို ထုတ်ပေးပါသည်။</p>
+<p>ကိန်းဂဏန်း၊ ရက်စွဲ၊ အချိန်နှင့် စာသား field များကို အသုံးပြုနိုင်မည်ဖြစ်သည်။</p>
+<p>ရရှိလာသော ကိန်းဂဏန်းအချက်အလက်များသည် field အမျိုးအစားပေါ်တွင်မူတည်မည်ဖြစ်သည်။</p>
+<p>ကိန်းဂဏန်းအချက်အလက်များကို HTML ဖိုင်တစ်ခုအနေဖြင့် ထုတ်ပေးပြီး <span class="menuselection">Processing ► Results viewer</span> မှတစ်ဆင့်ကြည့်ရှုနိုင်မည်ဖြစ်သည်။</p>
+<p><strong>Default menu</strong>- <span class="menuselection">Vector ► Analysis Tools</span></p>
+<section id="parameters">
+<h3>သတ်မှတ်ချက်များ (Parameters)<a class="headerlink" href="#parameters" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Input vector</strong> <strong>(ထည့်သွင်းအသုံးပြုသော vector)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">INPUT_LAYER</span></code></p></td>
+<td><p>[vector: any]</p></td>
+<td><p>ကိန်းဂဏန်းအချက်အလက်များ တွက်ချက်ပေးမည့် vector layer</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Field to calculate statistics on</strong> <strong>(ကိန်းဂဏန်းအချက်အလက်များ တွက်ချက်ပေးရမည့် Field)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">FIELD_NAME</span></code></p></td>
+<td><p>[tablefield: any]</p></td>
+<td><p>ကိန်းဂဏန်းအချက်အလက်များ တွက်ချက်မည့် အသုံးပြုနိုင်သည့် ဇယား field တစ်ခုခု</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Statistics</strong> <strong>(ကိန်းဂဏန်းအချက်အလက်များ)</strong></p>
+<p>Optional</p>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT_HTML_FILE</span></code></p></td>
+<td><p>[html]</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">[Save</span> <span class="pre">to</span> <span class="pre">temporary</span> <span class="pre">file]</span></code></p>
+</td>
+<td><p>တွက်ချက်ထားသော ကိန်းဂဏန်းအချက်အလက်များအတွက် file အမျိုးအစား သီးခြားသတ်မှတ်ခြင်း။ အောက်ပါတို့ထဲမှ တစ်ခုခုဖြစ်ပါသည်-</p>
+<ul class="simple">
+<li><p>Output ကိုကျော်ပစ်ခြင်း</p></li>
+<li><p>ယာယီ file တစ်ခုတွင် သိမ်းဆည်းပါ</p></li>
+<li><p>File တွင်သိမ်းဆည်းပါ</p></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="outputs">
+<h3>ရလာဒ်များ (Outputs)<a class="headerlink" href="#outputs" title="Link to this heading"></a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 35.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Statistics</strong> <strong>(ကိန်းဂဏန်းအချက်အလက်များ)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT_HTML_FILE</span></code></p></td>
+<td><p>[html]</p></td>
+<td><p>တွက်ချက်ထားသော ကိန်းဂဏန်းအချက်အလက်များပါရှိသည့် HTML file</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Count</strong> <strong>(အရေအတွက်)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">COUNT</span></code></p></td>
+<td><p>[number]</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>Number of unique values</strong> <strong>(သီးခြားထင်ရှားသည့် တန်ဖိုးများ၏ အရေအတွက်)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">UNIQUE</span></code></p></td>
+<td><p>[number]</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Number of empty (null) values</strong> <strong>(ဗလာ (null) တန်ဖိုးများ၏ အရေအတွက်)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">EMPTY</span></code></p></td>
+<td><p>[number]</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>Number of non-empty values</strong> <strong>(ဗလာမဟုတ်သော တန်ဖိုးများ၏ အရေအတွက်)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">FILLED</span></code></p></td>
+<td><p>[number]</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Minimum value</strong> <strong>(အနည်းဆုံးတန်ဖိုး)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">MIN</span></code></p></td>
+<td><p>[input နှင့်အတူတူပင်ဖြစ်သည်]</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>Maximum value</strong> <strong>(အများဆုံးတန်ဖိုး)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">MAX</span></code></p></td>
+<td><p>[input နှင့်အတူတူပင်ဖြစ်သည်]</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Minimum length</strong> <strong>(အနည်းဆုံးအလျား)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">MIN_LENGTH</span></code></p></td>
+<td><p>[number]</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>Maximum length</strong> <strong>(အများဆုံးအလျား)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">MAX_LENGTH</span></code></p></td>
+<td><p>[number]</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Mean length</strong> <strong>(ပျမ်းမျှ အလျား)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">MEAN_LENGTH</span></code></p></td>
+<td><p>[number]</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>Coefficient of Variation</strong> <strong>(ပြောင်းလဲမှုပြကိန်း)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">CV</span></code></p></td>
+<td><p>[number]</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Sum</strong> <strong>(ပေါင်းလဒ်)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">SUM</span></code></p></td>
+<td><p>[number]</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>Mean value</strong> <strong>(ပျမ်းမျှတန်ဖိုး)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">MEAN</span></code></p></td>
+<td><p>[number]</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Standard deviation</strong> <strong>(စံတိမ်းချက်)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">STD_DEV</span></code></p></td>
+<td><p>[number]</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>Range</strong> <strong>(အပိုင်းအခြား)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">RANGE</span></code></p></td>
+<td><p>[number]</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Median</strong> <strong>(တစ်ဝက်ကိန်း)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">MEDIAN</span></code></p></td>
+<td><p>[number]</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>Minority (rarest occurring value)</strong> <strong>(အနည်းစု (အနည်းဆုံးတွေ့ရသည့်တန်ဖိုးများ))</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">MINORITY</span></code></p></td>
+<td><p>[input နှင့်အတူတူပင်ဖြစ်သည်]</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Majority (most frequently occurring value)</strong> <strong>(အများစု (အများဆုံးတွေ့ရသည့်တန်ိဖုးများ))</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">MAJORITY</span></code></p></td>
+<td><p>[input နှင့်အတူတူပင်ဖြစ်သည်]</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>First quartile</strong> <strong>(ဒေတာတစ်ခု၏ ပထမလေးပုံတစ်ပုံ/၂၅ ရာခိုင်နှုန်း)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">FIRSTQUARTILE</span></code></p></td>
+<td><p>[number]</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Third quartile</strong> <strong>(ဒေတာတစ်ခု၏ တတိယလေးပုံတစ်ပုံ/၇၅ ရာခိုင်နှုန်း)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">THIRDQUARTILE</span></code></p></td>
+<td><p>[number]</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>Interquartile Range (IQR)</strong> <strong>(ဒေတာ၏အလယ်တစ်ဝက်တွင် ပြန့်နှံ့မှု)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">IQR</span></code></p></td>
+<td><p>[number]</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="python-code">
+<h3>Python code<a class="headerlink" href="#python-code" title="Link to this heading"></a></h3>
+<p><strong>Algorithm ID</strong>: <code class="docutils literal notranslate"><span class="pre">qgis:basicstatisticsforfields</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">processing</span>
+<span class="n">processing</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;algorithm_id&quot;</span><span class="p">,</span> <span class="p">{</span><span class="n">parameter_dictionary</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>Processing Toolbox ထဲရှိ algorithm ပေါ်တွင် mouse ကိုတင်ထားလျှင် <em>algorithm id</em> ကိုပြသပေးပါသည်။ <em>parameter dictionary</em> သည် parameter နာမည်များနှင့် တန်ဖိုးများကို ပေးပါသည်။ Python console မှ algorithm များကို မည်သို့လုပ်ဆောင်ရမည် ဆိုသည့် အသေးစိတ်ကို သိရှိလိုလျှင် <a class="reference internal" href="../../processing/console.html#processing-console"><span class="std std-ref">Console တွင် processing algorithm များကို အသုံးပြုခြင်း</span></a> တွင်ကြည့်ပါ။</p>
+</section>
+</section>
+<section id="climb-along-line">
+<span id="qgisclimbalongline"></span><h2><a class="toc-backref" href="#id62" role="doc-backlink"><span class="section-number">29.1.15.2. </span>မျဉ်းတစ်လျှောက် အမြင့်ပြောင်းလဲမှုများ တွက်ချက်ခြင်း (Climb along line)</a><a class="headerlink" href="#climb-along-line" title="Link to this heading"></a></h2>
+<p>Line ဂျီဩမေတြီများ တစ်လျှောက်ရှိ  စုစုပေါင်း အတက် (climb) နှင့် အဆင်း (descent) ကိုတွက်ချက်ပေးပါသည်။ Input layer တွင် အမြင့်တန်ဖိုးများ (Z တန်ဖိုးများ) ရှိရပါမည်။ အကယ်၍ Z တန်ဖိုးများကိုမရနိုင်လျှင် ၎င်းတို့ကို Digital Elevation Model (DEM) layer တစ်ခုမှ ထည့်သွင်းရန် <a class="reference internal" href="vectorgeometry.html#qgissetzfromraster"><span class="std std-ref">Drape (Raster မှ အမြင့် Z တန်ဖိုးကိုသတ်မှတ်ခြင်း) (Drape(set Z value from raster)</span></a> ကို အသုံးပြုနိုင်ပါသည်။</p>
+<p>Output layer သည် line ဂျီဩမေတြီတစ်ခုစီအတွက် စုစုပေါင်းအတက် (<code class="docutils literal notranslate"><span class="pre">climb</span></code>)၊ စုစုပေါင်းအဆင်း (<code class="docutils literal notranslate"><span class="pre">descent</span></code>)၊ အနိမ့်ဆုံး အမြင့် (<code class="docutils literal notranslate"><span class="pre">minelev</span></code>)နှင့် အမြင့်ဆုံး အမြင့် (<code class="docutils literal notranslate"><span class="pre">maxelev</span></code>) တို့ပါရှိသော ထပ်ဆောင်း field များပါဝင်သည့် input layer ၏ မိတ္တူတစ်ခုဖြစ်ပါသည်။ Input layer တွင် ထိုပေါင်းထည့်သော field များနှင့် အမည်တူများပါရှိနေပါက နှစ်ခုထပ်နေခြင်းကိုရှောင်ရှားနိုင်ရန် ၎င်းတို့ကို အမည်ပြန်လည်ပေးမည်ဖြစ်သည် (field အမည်များထဲမှ ပထမဆုံး မထပ်သည့်အမည်ကိုရှာပေးမည်ဖြစ်ပြီး field အမည်များကို “name_2”၊ “name_3”၊ အစရှိသည်ဖြင့် ပြောင်းလဲလိုက်မည်ဖြစ်သည်)။</p>
+<section id="id1">
+<h3>သတ်မှတ်ချက်များ (Parameters)<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Line layer</strong> <strong>(မျဉ်း layer)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">INPUT</span></code></p></td>
+<td><p>[vector: line]</p></td>
+<td><p>အတက် (climb) ကို တွက်ချက်ရမည့် line layer။ အမြင့် Z တန်ဖိုးများရှိရမည်။</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Climb layer</strong> <strong>(Climb တွက်ချက်ထားသည့် layer)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
+<td><p>[vector: line]</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">[Create</span> <span class="pre">temporary</span> <span class="pre">layer]</span></code></p>
+</td>
+<td><p>Output (မျဉ်း) layer ၏ သီးခြားသတ်မှတ်ချက်။ အောက်ပါတို့ထဲမှ တစ်ခုဖြစ်ပါသည်-</p>
+<ul class="simple">
+<li><p>ယာယီ layer ဖန်တီးပါ (<code class="docutils literal notranslate"><span class="pre">TEMPORARY_OUTPUT</span></code>)</p></li>
+<li><p>File တွင်သိမ်းဆည်းပါ</p></li>
+<li><p>Geopackage တွင် သိမ်းဆည်းပါ</p></li>
+<li><p>Database ဇယားတွင် သိမ်းဆည်းပါ</p></li>
+</ul>
+<p>File encoding ကိုလည်းဤနေရာတွင်ပြောင်းလဲနိုင်ပါသည်။</p>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id2">
+<h3>ရလာဒ်များ (Outputs)<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Climb layer</strong> <strong>(Climb တွက်ချက်ထားသည့် layer)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
+<td><p>[vector: line]</p></td>
+<td><p>Climb တွက်ချက်ခြင်းမှရလာဒ်များဖြင့် attribute အသစ်များပါဝင်သည့် line layer</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Total climb</strong> <strong>(စုစုပေါင်း အတက်)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">TOTALCLIMB</span></code></p></td>
+<td><p>[number]</p></td>
+<td><p>Input layer ထဲရှိ line ဂျီဩမေတြီအားလုံးအတွက် စုစုပေါင်း အတက်</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Total descent</strong> <strong>(စုစုပေါင်း အဆင်း)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">TOTALDESCENT</span></code></p></td>
+<td><p>[number]</p></td>
+<td><p>Input layer ထဲရှိ line ဂျီဩမေတြီအားလုံးအတွက် စုစုပေါင်း အဆင်း</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Minimum elevation</strong> <strong>(အနိမ့်ဆုံး အမြင့်)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">MINELEVATION</span></code></p></td>
+<td><p>[number]</p></td>
+<td><p>Layer ထဲရှိ ဂျီဩမေတြီ များအတွက် အနိမ့်ဆုံး အမြင့်</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Maximum elevation</strong> <strong>(အမြင့်ဆုံး အမြင့်)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">MAXELEVATION</span></code></p></td>
+<td><p>[number]</p></td>
+<td><p>Layer ထဲရှိ ဂျီဩမေတြီ များအတွက် အမြင့်ဆုံး အမြင့်</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id3">
+<h3>Python code<a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
+<p><strong>Algorithm ID</strong>: <code class="docutils literal notranslate"><span class="pre">qgis:climbalongline</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">processing</span>
+<span class="n">processing</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;algorithm_id&quot;</span><span class="p">,</span> <span class="p">{</span><span class="n">parameter_dictionary</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>Processing Toolbox ထဲရှိ algorithm ပေါ်တွင် mouse ကိုတင်ထားလျှင် <em>algorithm id</em> ကိုပြသပေးပါသည်။ <em>parameter dictionary</em> သည် parameter နာမည်များနှင့် တန်ဖိုးများကို ပေးပါသည်။ Python console မှ algorithm များကို မည်သို့လုပ်ဆောင်ရမည် ဆိုသည့် အသေးစိတ်ကို သိရှိလိုလျှင် <a class="reference internal" href="../../processing/console.html#processing-console"><span class="std std-ref">Console တွင် processing algorithm များကို အသုံးပြုခြင်း</span></a> တွင်ကြည့်ပါ။</p>
+</section>
+</section>
+<section id="polygon-point-count-points-in-polygon">
+<span id="qgiscountpointsinpolygon"></span><h2><a class="toc-backref" href="#id63" role="doc-backlink"><span class="section-number">29.1.15.3. </span>Polygon အတွင်းရှိ point များကိုရေတွက်ခြင်း (Count points in polygon)</a><a class="headerlink" href="#polygon-point-count-points-in-polygon" title="Link to this heading"></a></h2>
+<p>Point layer တစ်ခုနှင့် polygon layer တစ်ခုကိုယူပြီး polygon layer ၏ polygon တစ်ခုချင်းစီထဲရှိသော point များ၏အ‌ရေအတွက်ကို ရေတွက်ပေးပါသည်။</p>
+<p>Input polygon layer နှင့် တူညီသော အကြောင်းအရာရှိပြီး polygon တစ်ခုစီနှင့်သက်ဆိုင်သော point အရေအတွက်များကိုပြသပေးသည့် field တစ်ခုပါရှိသော polygon layer အသစ် တစ်ခုကိုထုတ်ပေးမည်ဖြစ်ပါသည်။</p>
+<figure class="align-center" id="id56">
+<img alt="../../../../_images/count_points_polygon.png" src="../../../../_images/count_points_polygon.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 29.31 </span><span class="caption-text">Polygon များထဲရှိ အညွှန်းများသည် point အရေအတွက်ကိုပြပေးသည်။</span><a class="headerlink" href="#id56" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Point တစ်ခုစီတွင် အလေးပေးတန်ဖိုးများ (weight) ကိုသတ်မှတ်ရန် weight field တစ်ခုကိုအသုံးပြုနိုင်သည်။ တနည်းအားဖြင့် ကွဲပြားထင်ရှားသော အတန်းအစား (unique class) field တစ်ခုကိုလည်းသတ်မှတ်ထားနိုင်သည်။ အကယ်၍ option နှစ်ခုစလုံးကိုအသုံးပြုထားလျှင် point များရေတွက်ရာ၌ unique class field ထက် weight field ကိုဦးစားပေးအသုံးပြုမည်ဖြစ်သည်။</p>
+<p><a class="reference internal" href="../../../../_images/checkbox.png"><img alt="checkbox" src="../../../../_images/checkbox.png" style="width: 1.3em;" /></a> ကိုအမှန်ခြစ်ပေးထားခြင်းဖြင့် polygon feature များအတွက် <a class="reference internal" href="../../working_with_vector/editing_geometry_attributes.html#processing-inplace-edit"><span class="std std-ref">features in-place modification (နေရာတွင် feature များကို မွမ်းမံပြင်ဆင်ခြင်း)</span></a> ရွေးချယ်ခွင့်ကိုအသုံးပြုနိုင်သည်။</p>
+<p><code class="docutils literal notranslate"><span class="pre">Default</span> <span class="pre">menu</span></code>- <span class="menuselection">Vector ► Analysis Tools</span></p>
+<section id="id4">
+<h3>သတ်မှတ်ချက်များ (Parameters)<a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Polygons</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">POLYGONS</span></code></p></td>
+<td><p>[vector: polygon]</p></td>
+<td><p>၎င်းတို့ထဲပါဝင်သော point အရေအတွက်နှင့်ဆက်စပ်သော feature များပါရှိသည့် polygon layer</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Points</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">POINTS</span></code></p></td>
+<td><p>[vector: point]</p></td>
+<td><p>ရေတွက်ရမည့် feature များပါဝင်သည့် point layer</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Weight field</strong> <strong>(အလေးပေးမှု field)</strong>
+Optional</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">WEIGHT</span></code></p></td>
+<td><p>[tablefield: any]</p></td>
+<td><p>Point layer မှ field တစ်ခု။ ရရှိလာသောအရေတွက်သည် polygon အတွင်းရှိ point များအားလုံး၏ weight field စုစုပေါင်း ဖြစ်လိမ့်မည်။ အကယ်၍ weight field သည် ကိန်းဂဏန်းတန်ဖိုးမဟုတ်ပါက အရေအတွက်သည် <code class="docutils literal notranslate"><span class="pre">0</span></code> ဖြစ်ပါလိမ့်မည်။</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Class field</strong> <strong>(အတန်းအစား field)</strong></p>
+<p>Optional (မဖြစ်မနေလုပ်ဆောင်ရန်မလိုပါ)</p>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">CLASSFIELD</span></code></p></td>
+<td><p>[tablefield: any]</p></td>
+<td><p>ရွေးချယ်ထားသော attribute အပေါ် အခြေခံ၍ point များကို အတန်းအစားခွဲခြားမည်ဖြစ်ပြီး အကယ်၍ attribute တန်ဖိုးအတူတူရှိသည့် point များစွာသည် polygon အတွင်း ရှိနေပါက ၎င်းတို့ထဲမှ တစ်ခုကိုသာ ရေတွက်မည်ဖြစ်သည်။ ထို့ကြောင့် polygon တစ်ခုအတွင်းရှိ point များ၏ နောက်ဆုံး အရေအတွက်သည် ၎င်း polygon ထဲတွင်တွေ့ရသော အမျိုးမျိုးသော အတန်းအစားများ၏ အရေအတွက်ပင်ဖြစ်သည်။</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Count field name</strong> <strong>(အရေအတွက် field အနည်)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">FIELD</span></code></p></td>
+<td><p>[string]</p>
+<p>Default: ‘NUMPOINTS’</p>
+</td>
+<td><p>Point များ၏ အရေအတွက်ကို သိမ်းဆည်းမည့် field ၏အမည်</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Count</strong> <strong>(အရေအတွက်)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
+<td><p>[vector: polygon]</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">[Create</span> <span class="pre">temporary</span> <span class="pre">layer]</span></code></p>
+</td>
+<td><p>Output layer ၏ သီးခြားသတ်မှတ်ချက်။ အောက်ပါတို့ထဲမှ တစ်ခုဖြစ်ပါသည်-</p>
+<ul class="simple">
+<li><p>ယာယီ layer ဖန်တီးပါ (<code class="docutils literal notranslate"><span class="pre">TEMPORARY_OUTPUT</span></code>)</p></li>
+<li><p>File တွင်သိမ်းဆည်းပါ</p></li>
+<li><p>Geopackage တွင် သိမ်းဆည်းပါ</p></li>
+<li><p>Database ဇယားတွင် သိမ်းဆည်းပါ</p></li>
+<li><p>Layer သို့ဆက်တွဲပေါင်းထည့်ပါ (append)</p></li>
+</ul>
+<p>File encoding ကိုလည်းဤနေရာတွင်ပြောင်းလဲနိုင်ပါသည်။</p>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id5">
+<h3>ရလာဒ်များ (Outputs)<a class="headerlink" href="#id5" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Count</strong> <strong>(အရေအတွက်)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
+<td><p>[vector: polygon]</p></td>
+<td><p>Point များအရေအတွက်ကိုပြသသော column အသစ်ဖြင့် attribute ဇယား ပါရှိသည့် ရလာဒ် layer</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id6">
+<h3>Python code<a class="headerlink" href="#id6" title="Link to this heading"></a></h3>
+<p><strong>Algorithm ID</strong>: <code class="docutils literal notranslate"><span class="pre">native:countpointsinpolygon</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">processing</span>
+<span class="n">processing</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;algorithm_id&quot;</span><span class="p">,</span> <span class="p">{</span><span class="n">parameter_dictionary</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>Processing Toolbox ထဲရှိ algorithm ပေါ်တွင် mouse ကိုတင်ထားလျှင် <em>algorithm id</em> ကိုပြသပေးပါသည်။ <em>parameter dictionary</em> သည် parameter နာမည်များနှင့် တန်ဖိုးများကို ပေးပါသည်။ Python console မှ algorithm များကို မည်သို့လုပ်ဆောင်ရမည် ဆိုသည့် အသေးစိတ်ကို သိရှိလိုလျှင် <a class="reference internal" href="../../processing/console.html#processing-console"><span class="std std-ref">Console တွင် processing algorithm များကို အသုံးပြုခြင်း</span></a> တွင်ကြည့်ပါ။</p>
+</section>
+</section>
+<section id="dbscan-dbscan-clustering">
+<span id="qgisdbscanclustering"></span><h2><a class="toc-backref" href="#id64" role="doc-backlink"><span class="section-number">29.1.15.4. </span>DBSCAN ဖြင့်စုဖွဲ့ခြင်း (DBSCAN clustering)</a><a class="headerlink" href="#dbscan-dbscan-clustering" title="Link to this heading"></a></h2>
+<p>DBSCAN (Density-based spatial clustering of applications with noise) algorithm အား နှစ်ဘက်မြင် (2D) လုပ်ဆောင်မှုပေါ်အခြေခံ၍ point feature များကို cluster (စုဖွဲ့) ပြုလုပ်ပေးပါသည်။</p>
+<p>ဤ algorithm တွင် parameter နှစ်ခု ဖြစ်သော အငယ်ဆုံး စုဖွဲ့မှု အရွယ်အစား (minimum cluster size) နှင့် စုဖွဲ့ထားသော point များကြား ခွင့်ပြုနိုင်မည့် အများဆုံးအကွာအဝေး အားသတ်မှတ် ထားရှိရန်လိုအပ်သည်။</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="#qgisstdbscanclustering"><span class="std std-ref">ST-DBSCAN ဖြင့် စုဖွဲ့ခြင်း (ST-DBSCAN clustering)</span></a> ၊ <a class="reference internal" href="#qgiskmeansclustering"><span class="std std-ref">K-means နည်းလမ်းဖြင့် စုဖွဲ့ခြင်း (K-means clustering)</span></a></p>
+</div>
+<section id="id7">
+<h3>သတ်မှတ်ချက်များ (Parameters)<a class="headerlink" href="#id7" title="Link to this heading"></a></h3>
+<section id="basic-parameters">
+<h4>အခြေခံ သတ်မှတ်ချက်များ (Basic parameters)<a class="headerlink" href="#basic-parameters" title="Link to this heading"></a></h4>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Input layer</strong> <strong>(ထည့်သွင်းအသုံးပြုသော layer)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">INPUT</span></code></p></td>
+<td><p>[vector: point]</p></td>
+<td><p>ဆန်းစစ်လေ့လာမည့် Layer</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Minimum cluster size</strong> <strong>(အငယ်ဆုံး စုဖွဲ့မှု အရွယ်အစား)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">MIN_SIZE</span></code></p></td>
+<td><p>[number]</p>
+<p>Default: 5</p>
+</td>
+<td><p>Cluster တစ်ခု စုဖွဲ့ရာတွင် လိုအပ်သော အနည်းဆုံး feature များ၏အရေအတွက်</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Maximum distance between clustered points</strong> <strong>(စုဖွဲ့ထားသော point များကြား အများဆုံးအကွာအဝေး)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">EPS</span></code></p></td>
+<td><p>[number]</p>
+<p>Default: 1.0</p>
+</td>
+<td><p>ယခုသတ်မှတ်မည့်အကွာအဝေးကို ကျော်လွန်၍ feature နှစ်ခုသည် တူညီသော cluster (eps) နှင့်သက်ဆိုင်မှုမရှိစေနိုင်ပါ။</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Clusters</strong> <strong>(အစုအဖွဲ့များ)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
+<td><p>[vector: point]</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">[Create</span> <span class="pre">temporary</span> <span class="pre">layer]</span></code></p>
+</td>
+<td><p>စုဖွဲ့ခြင်းရလာဒ်အတွက် vector layer သတ်မှတ်ပါ။ အောက်ပါတို့ထဲမှ တစ်ခုဖြစ်ပါသည်-</p>
+<ul class="simple">
+<li><p>ယာယီ layer ဖန်တီးပါ (<code class="docutils literal notranslate"><span class="pre">TEMPORARY_OUTPUT</span></code>)</p></li>
+<li><p>File တွင်သိမ်းဆည်းပါ</p></li>
+<li><p>Geopackage တွင် သိမ်းဆည်းပါ</p></li>
+<li><p>Database ဇယားတွင် သိမ်းဆည်းပါ</p></li>
+</ul>
+<p>File encoding ကိုလည်းဤနေရာတွင်ပြောင်းလဲနိုင်ပါသည်။</p>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="advanced-parameters">
+<h4>အဆင့်မြင့် သတ်မှတ်ချက်များ (Advanced parameters)<a class="headerlink" href="#advanced-parameters" title="Link to this heading"></a></h4>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Treat border points as noise (DBSCAN*)</strong> <strong>(အနားသတ်ဘောင်များပေါ်ရှိ point များကို noise အဖြစ်စဉ်းစားခြင်း)</strong></p>
+<p>Optional</p>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">DBSCAN*</span></code></p></td>
+<td><p>[boolean]</p>
+<p>Default: False</p>
+</td>
+<td><p>အမှန်ခြစ်ပေးထားပါက cluster တစ်ခု၏ အနားသတ်ဘောင်များပေါ်ရှိ point များကို စုဖွဲ့ခြင်းမလုပ်ထားသော point များအဖြစ်သတ်မှတ်မည်ဖြစ်ပြီး cluster တစ်ခု၏အတွင်းရှိ point များကိုသာလျှင် စုဖွဲ့ထားသည်များအဖြစ် သတ်မှတ်မည်ဖြစ်သည်။</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Cluster field name</strong> <strong>(Cluster field ၏အမည်)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">FIELD_NAME</span></code></p></td>
+<td><p>[string]</p>
+<p>Default: ‘CLUSTER_ID’</p>
+</td>
+<td><p>သက်ဆိုင်ရာ cluster နံပါတ်ကို သိမ်းဆည်းထားပေးမည့် field ၏အမည်</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Cluster size field name</strong> <strong>(Cluster အရွယ်အစားအတွက် field ၏အမည်)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">SIZE_FIELD_NAME</span></code></p></td>
+<td><p>[string]</p>
+<p>Default: ‘CLUSTER_SIZE’</p>
+</td>
+<td><p>တူညီသော cluster ထဲရှိ feature များ၏အရေအတွက်ပါရှိသော field ၏အမည်</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="id8">
+<h3>ရလာဒ်များ (Outputs)<a class="headerlink" href="#id8" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Clusters</strong> <strong>(အစုအဖွဲ့များ)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
+<td><p>[vector: point]</p></td>
+<td><p>မူရင်း feature များအပြင် ၎င်းတို့ သက်ဆိုင်သော cluster field တစ်ခု ပါရှိသော vector layer</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Number of clusters</strong> <strong>(Cluster များ၏အရေအတွက်)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">NUM_CLUSTERS</span></code></p></td>
+<td><p>[number]</p></td>
+<td><p>တွေ့ရှိရသော cluster များအရေအတွက်</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id9">
+<h3>Python code<a class="headerlink" href="#id9" title="Link to this heading"></a></h3>
+<p><strong>Algorithm ID</strong>: <code class="docutils literal notranslate"><span class="pre">native:dbscanclustering</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">processing</span>
+<span class="n">processing</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;algorithm_id&quot;</span><span class="p">,</span> <span class="p">{</span><span class="n">parameter_dictionary</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>Processing Toolbox ထဲရှိ algorithm ပေါ်တွင် mouse ကိုတင်ထားလျှင် <em>algorithm id</em> ကိုပြသပေးပါသည်။ <em>parameter dictionary</em> သည် parameter နာမည်များနှင့် တန်ဖိုးများကို ပေးပါသည်။ Python console မှ algorithm များကို မည်သို့လုပ်ဆောင်ရမည် ဆိုသည့် အသေးစိတ်ကို သိရှိလိုလျှင် <a class="reference internal" href="../../processing/console.html#processing-console"><span class="std std-ref">Console တွင် processing algorithm များကို အသုံးပြုခြင်း</span></a> တွင်ကြည့်ပါ။</p>
+</section>
+</section>
+<section id="distance-matrix">
+<span id="qgisdistancematrix"></span><h2><a class="toc-backref" href="#id65" role="doc-backlink"><span class="section-number">29.1.15.5. </span>အကွာအဝေး မက်ထရစ် (Distance matrix)</a><a class="headerlink" href="#distance-matrix" title="Link to this heading"></a></h2>
+<p>Point feature များအတွက် တူညီသော layer ထဲရှိ သို့မဟုတ် အခြား layer ထဲရှိ ၎င်း point feature များနှင့်အနီးဆုံး feature များသို့ အကွာအဝေးကို တွက်ချက်ပေးပါသည်။</p>
+<p><strong>Default menu</strong>- <span class="menuselection">Vector ► Analysis Tools</span></p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="vectorgeneral.html#qgisjoinbynearest"><span class="std std-ref">နီးစပ်မှုဖြင့် attribute များကိုချိတ်ဆက်ခြင်း (Join attributes by nearest)</span></a></p>
+</div>
+<section id="id10">
+<h3>သတ်မှတ်ချက်များ (Parameters)<a class="headerlink" href="#id10" title="Link to this heading"></a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Input point layer</strong> <strong>(ထည့်သွင်းအသုံးပြုသော point layer)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">INPUT</span></code></p></td>
+<td><p>[vector: point]</p></td>
+<td><p>အကွာအဝေး မက်ထရစ် အားတွက်ချက်ရန်အတွက် point layer (point များ <strong>မှ</strong> )</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Input unique ID field</strong> <strong>(ထည့်သွင်းအသုံးပြုသော သိသာထူးခြားသည့် ID field)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">INPUT_FIELD</span></code></p></td>
+<td><p>[tablefield: any]</p></td>
+<td><p>Input layer ၏ feature များကို သီးသန့်ခွဲခြားသတ်မှတ်ရန် အသုံးပြုသည့် field ။ ၎င်းကို output attribute ဇယားတွင် အသုံးပြုမည်ဖြစ်သည်။</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Target point layer</strong> <strong>(ဦးတည်သော point layer)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">TARGET</span></code></p></td>
+<td><p>[vector: point]</p></td>
+<td><p>ရှာဖွေရမည့် အနီးဆုံး အမှတ် (များ) ပါဝင်သော အမှတ် layer
+(အမှတ်များ <strong>သို့</strong> )</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Target unique ID field</strong> <strong>(ဦးတည်သော သိသာထူးခြားသည့် ID field)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">TARGET_FIELD</span></code></p></td>
+<td><p>[tablefield: any]</p></td>
+<td><p>ဦးတည်ရာ (Target) layer ၏ feature များကို သီးခြားခွဲခြားသတ်မှတ်ရန် အသုံးပြုမည့် Field ။ ၎င်းကို output attribute ဇယားတွင် အသုံးပြုသည်ဖြစ်သည်။</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Output matrix type</strong> <strong>(ရလာဒ် မက်ထရစ်အမျိုးအစား)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">MATRIX_TYPE</span></code></p></td>
+<td><p>[enumeration]</p>
+<p>Default: 0</p>
+</td>
+<td><p>အကွာအဝေးကိုတွက်ချက်ရန် နည်းလမ်းအမျိုးမျိုးမှာ-</p>
+<ul class="simple">
+<li><p>0 — Linear (N * <em>k</em> x 3) အကွာအဝေး မက်ထရစ်- input point တစ်ခုစီအတွက် <em>k</em> အနီးဆုံး target point တစ်ခုချင်းစီသို့ အကွာအဝေးကိုဖော်ပြပေးသည်။ Output မက်ထရစ်တွင် input point တစ်ခုစီလျှင် <em>k</em> အရေအတွက် row များပါဝင်မည်ဖြစ်ပြီး row တစ်ခုစီတွင် <em>InputID</em> ၊ <em>TargetID</em> နှင့် <em>Distance</em> ဟူသည့် column သုံးခုပါရှိပါသည်။</p></li>
+<li><p>1 — စံသတ်မှတ်ထားသော (N x T) အကွာအဝေး မက်ထရစ်</p></li>
+<li><p>2 — အကျဉ်းချုပ် အကွာအဝေး မက်ထရစ် (mean၊ std. dev.၊ min၊
+max)- input point တစ်ခုချင်းစီအတွက် ၎င်းတို့နှင့် အနီးဆုံး target point များအကြား အကွာအဝေးဆိုင်ရာ ကိန်းဂဏန်း အချက်အလက်များကို ဖော်ပြပေးပါသည်။</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p><strong>Use only the nearest (k) target points</strong> <strong>(အနီးဆုံး (k) ဦးတည်ရာ point များကိုသာ အသုံးပြုပါ)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">NEAREST_POINTS</span></code></p></td>
+<td><p>[number]</p>
+<p>Default: 0</p>
+</td>
+<td><p>Target layer (<em>0</em>) ထဲရှိ point များအားလုံးသို့ အကွာအဝေးကို တွက်ချက်ရန် ရွေးချယ်နိုင်သလို အနီးစပ်ဆုံး feature များ၏ အရေအတွက် (<em>k</em>) သို့ ကန့်သတ်ရန် ရွေးချယ်နိုင်ပါသည်။</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Distance matrix</strong> <strong>(အကွာအဝေး မက်ထရစ်)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
+<td><p>[vector: point]</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">[Create</span> <span class="pre">temporary</span> <span class="pre">layer]</span></code></p>
+</td>
+<td><p>Output vector layer ၏ သီးခြားသတ်မှတ်ချက်။ အောက်ပါတို့ထဲမှ တစ်ခုဖြစ်ပါသည်-</p>
+<ul class="simple">
+<li><p>ယာယီ layer ဖန်တီးပါ (<code class="docutils literal notranslate"><span class="pre">TEMPORARY_OUTPUT</span></code>)</p></li>
+<li><p>File တွင်သိမ်းဆည်းပါ</p></li>
+<li><p>Geopackage တွင် သိမ်းဆည်းပါ</p></li>
+<li><p>Database ဇယားတွင် သိမ်းဆည်းပါ</p></li>
+</ul>
+<p>File encoding ကိုလည်းဤနေရာတွင်ပြောင်းလဲနိုင်ပါသည်။</p>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id11">
+<h3>ရလာဒ်များ (Outputs)<a class="headerlink" href="#id11" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Distance matrix</strong> <strong>(အကွာအဝေး မက်ထရစ်)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
+<td><p>[vector: point]</p></td>
+<td><p>Input feature တစ်ခုစီအတွက် အကွာအဝေး တွက်ချက်မှုများ ပါဝင်သော point (သို့မဟုတ်  “Linear (N * <em>k</em> x 3)” အတွက် MultiPoint) vector layer ။ ၎င်း၏ feature များနှင့် attribute ဇယားသည် ရွေးချယ်ထားသော output မက်ထရစ်အမျိုးအစားပေါ်တွင်မူတည်ပါသည်။</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id12">
+<h3>Python code<a class="headerlink" href="#id12" title="Link to this heading"></a></h3>
+<p><strong>Algorithm ID</strong>: <code class="docutils literal notranslate"><span class="pre">qgis:distancematrix</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">processing</span>
+<span class="n">processing</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;algorithm_id&quot;</span><span class="p">,</span> <span class="p">{</span><span class="n">parameter_dictionary</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>Processing Toolbox ထဲရှိ algorithm ပေါ်တွင် mouse ကိုတင်ထားလျှင် <em>algorithm id</em> ကိုပြသပေးပါသည်။ <em>parameter dictionary</em> သည် parameter နာမည်များနှင့် တန်ဖိုးများကို ပေးပါသည်။ Python console မှ algorithm များကို မည်သို့လုပ်ဆောင်ရမည် ဆိုသည့် အသေးစိတ်ကို သိရှိလိုလျှင် <a class="reference internal" href="../../processing/console.html#processing-console"><span class="std std-ref">Console တွင် processing algorithm များကို အသုံးပြုခြင်း</span></a> တွင်ကြည့်ပါ။</p>
+</section>
+</section>
+<section id="distance-to-nearest-hub-line-to-hub">
+<span id="qgisdistancetonearesthublinetohub"></span><h2><a class="toc-backref" href="#id66" role="doc-backlink"><span class="section-number">29.1.15.6. </span>ဗဟိုချက် သို့အကွာအဝေး (မျဉ်းမှ ဗဟိုချက် ဆီသို့) (Distance to nearest hub (line to hub))</a><a class="headerlink" href="#distance-to-nearest-hub-line-to-hub" title="Link to this heading"></a></h2>
+<p>Input layer တစ်ခု၏ feature တစ်ခုစီနှင့် ဦးတည်ရာ layer ထဲရှိ အနီးဆုံး feature သို့ ချိတ်ဆက်သည့် မျဉ်းများကို ဖန်တီးပေးပါသည်။ အကွာအဝေးများကို feature တစ်ခုစီ၏ <a class="reference internal" href="vectorgeometry.html#qgispointonsurface"><span class="std std-ref">center</span></a> ပေါ်တွင်အခြေခံ၍ တွက်ချက်သည်။</p>
+<figure class="align-center" id="id57">
+<img alt="../../../../_images/distance_hub.png" src="../../../../_images/distance_hub.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 29.32 </span><span class="caption-text">အနီရောင် input feature များအတွက် အနီးဆုံးသော hub ကိုပြသပေးသည်။</span><a class="headerlink" href="#id57" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="#qgisdistancetonearesthubpoints"><span class="std std-ref">ဗဟိုချက် သို့အကွာအဝေး (အမှတ်များ) (Distance to nearest hub (points))</span></a> ၊ <a class="reference internal" href="vectorgeneral.html#qgisjoinbynearest"><span class="std std-ref">နီးစပ်မှုဖြင့် attribute များကိုချိတ်ဆက်ခြင်း (Join attributes by nearest)</span></a></p>
+</div>
+<section id="id13">
+<h3>သတ်မှတ်ချက်များ (Parameters)<a class="headerlink" href="#id13" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Source points layer</strong> <strong>(ရင်းမြစ် point များ layer)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">INPUT</span></code></p></td>
+<td><p>[vector: any]</p></td>
+<td><p>အနီးဆုံး feature အားရှာဖွေရာတွင်သုံးသည့် vector layer</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Destination hubs layer</strong> <strong>(ဦးတည်ရာ ဗဟိုချက် layer)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">HUBS</span></code></p></td>
+<td><p>[vector: any]</p></td>
+<td><p>ရှာဖွေရမည့် feature များပါဝင်နေသော vector layer</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Hub layer name attribute</strong> <strong>(Hub layer အမည် attribute)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">FIELD</span></code></p></td>
+<td><p>[tablefield: any]</p></td>
+<td><p>ဦးတည်ရာ layer ရှိ feature များကို သီးခြားခွဲခြားသတ်မှတ်ရန် အသုံးပြုသည့် Field ။ ၎င်းကို output attribute ဇယားတွင် အသုံးပြုမည်ဖြစ်သည်။</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Measurement unit</strong> <strong>(အတိုင်းအတာ ယူနစ်များ)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">UNIT</span></code></p></td>
+<td><p>[enumeration]</p>
+<p>Default: 0</p>
+</td>
+<td><p>အနီးဆုံး feature နှင့် အကွာအဝေးအား ဖော်ပြရာ၌ သုံးသော ယူနစ်များ-</p>
+<ul class="simple">
+<li><p>0 — မီတာများ</p></li>
+<li><p>1 — ပေများ</p></li>
+<li><p>2 — မိုင်များ</p></li>
+<li><p>3 — ကီလိုမီတာများ</p></li>
+<li><p>4 — Layer ယူနစ်များ</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p><strong>Hub distance</strong> <strong>(Hub အကွာအဝေး)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
+<td><p>[vector: line]</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">[Create</span> <span class="pre">temporary</span> <span class="pre">layer]</span></code></p>
+</td>
+<td><p>ကိုက်ညီသော point များကို ချိတ်ဆက်နေသော output line vector layer ကိုသတ်မှတ်ပါ။ အောက်ပါတို့မှ တစ်ခုဖြစ်ပါသည်-</p>
+<ul class="simple">
+<li><p>ယာယီ layer ဖန်တီးပါ (<code class="docutils literal notranslate"><span class="pre">TEMPORARY_OUTPUT</span></code>)</p></li>
+<li><p>File တွင်သိမ်းဆည်းပါ</p></li>
+<li><p>Geopackage တွင် သိမ်းဆည်းပါ</p></li>
+<li><p>Database ဇယားတွင် သိမ်းဆည်းပါ</p></li>
+</ul>
+<p>File encoding ကိုလည်းဤနေရာတွင်ပြောင်းလဲနိုင်ပါသည်။</p>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id14">
+<h3>ရလာဒ်များ (Outputs)<a class="headerlink" href="#id14" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Hub distance</strong> <strong>(Hub အကွာအဝေး)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
+<td><p>[vector: line]</p></td>
+<td><p>Input feature များ၏ attribute များ ၊ ၎င်းတို့နှင့် အနီးဆုံး feature များ၏ identifier (ဖော်ထုတ်ပေးသည့်အရာ) နှင့် တွက်ချက်ထားသော အကွာအဝေးများ ပါဝင်သည့် line vector layer</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id15">
+<h3>Python code<a class="headerlink" href="#id15" title="Link to this heading"></a></h3>
+<p><strong>Algorithm ID</strong>: <code class="docutils literal notranslate"><span class="pre">qgis:distancetonearesthublinetohub</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">processing</span>
+<span class="n">processing</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;algorithm_id&quot;</span><span class="p">,</span> <span class="p">{</span><span class="n">parameter_dictionary</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>Processing Toolbox ထဲရှိ algorithm ပေါ်တွင် mouse ကိုတင်ထားလျှင် <em>algorithm id</em> ကိုပြသပေးပါသည်။ <em>parameter dictionary</em> သည် parameter နာမည်များနှင့် တန်ဖိုးများကို ပေးပါသည်။ Python console မှ algorithm များကို မည်သို့လုပ်ဆောင်ရမည် ဆိုသည့် အသေးစိတ်ကို သိရှိလိုလျှင် <a class="reference internal" href="../../processing/console.html#processing-console"><span class="std std-ref">Console တွင် processing algorithm များကို အသုံးပြုခြင်း</span></a> တွင်ကြည့်ပါ။</p>
+</section>
+</section>
+<section id="distance-to-nearest-hub-points">
+<span id="qgisdistancetonearesthubpoints"></span><h2><a class="toc-backref" href="#id67" role="doc-backlink"><span class="section-number">29.1.15.7. </span>ဗဟိုချက် သို့အကွာအဝေး (အမှတ်များ) (Distance to nearest hub (points))</a><a class="headerlink" href="#distance-to-nearest-hub-points" title="Link to this heading"></a></h2>
+<p>Input feature များ၏ <a class="reference internal" href="vectorgeometry.html#qgispointonsurface"><span class="std std-ref">center (အလယ်ဗဟို)</span></a> အပြင် အနီးဆုံး feature ၏ identifier (၎င်း၏ အလယ်ဗဟိုပေါ်တွင်အခြေခံသော) နှင့် point များကြား အကွာအဝေး တို့ပါဝင်သော field နှစ်ခုကို ကိုယ်စားပြုဖော်ပြပေးသည့် point layer တစ်ခုကို ဖန်တီးပေးပါသည်။</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="#qgisdistancetonearesthublinetohub"><span class="std std-ref">ဗဟိုချက် သို့အကွာအဝေး (မျဉ်းမှ ဗဟိုချက် ဆီသို့) (Distance to nearest hub (line to hub))</span></a> ၊  <a class="reference internal" href="vectorgeneral.html#qgisjoinbynearest"><span class="std std-ref">နီးစပ်မှုဖြင့် attribute များကိုချိတ်ဆက်ခြင်း (Join attributes by nearest)</span></a></p>
+</div>
+<section id="id16">
+<h3>သတ်မှတ်ချက်များ (Parameters)<a class="headerlink" href="#id16" title="Link to this heading"></a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Source points layer</strong> <strong>(ရင်းမြစ် point များ layer)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">INPUT</span></code></p></td>
+<td><p>[vector: any]</p></td>
+<td><p>အနီးဆုံး feature အားရှာဖွေရာတွင်သုံးသည့် vector layer</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Destination hubs layer</strong> <strong>(ဦးတည်ရာ ဗဟိုချက်များ layer)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">HUBS</span></code></p></td>
+<td><p>[vector: any]</p></td>
+<td><p>ရှာဖွေရမည့် feature များပါဝင်နေသော vector layer</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Hub layer name attribute</strong> <strong>(Hub layer အမည် attribute)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">FIELD</span></code></p></td>
+<td><p>[tablefield: any]</p></td>
+<td><p>ဦးတည်ရာ layer ရှိ feature များကို သီးခြားခွဲခြားသတ်မှတ်ရန် အသုံးပြုသည့် Field ။ ၎င်းကို ouput attribute ဇယားတွင် အသုံးပြုမည်ဖြစ်သည်။</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Measurement unit</strong> <strong>(အတိုင်းအတာ ယူနစ်များ)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">UNIT</span></code></p></td>
+<td><p>[enumeration]</p>
+<p>Default: 0</p>
+</td>
+<td><p>အနီးဆုံး feature သို့ အကွာအဝေးအားဖော်ပြရာ၌ သုံးသော ယူနစ်များ-</p>
+<ul class="simple">
+<li><p>0 — မီတာများ</p></li>
+<li><p>1 — ပေများ</p></li>
+<li><p>2 — မိုင်များ</p></li>
+<li><p>3 — ကီလိုမီတာများ</p></li>
+<li><p>4 — Layer ယူနစ်များ</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p><strong>Hub distance</strong> <strong>(Hub အကွာအဝေး)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
+<td><p>[vector: point]</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">[Create</span> <span class="pre">temporary</span> <span class="pre">layer]</span></code></p>
+</td>
+<td><p>အနီးဆုံး hub ပါဝင်သည့် output point vector layer အားသတ်မှတ်ပါ။ အောက်ပါတို့မှ တစ်ခုဖြစ်ပါသည်-</p>
+<ul class="simple">
+<li><p>ယာယီ layer ဖန်တီးပါ (<code class="docutils literal notranslate"><span class="pre">TEMPORARY_OUTPUT</span></code>)</p></li>
+<li><p>File တွင်သိမ်းဆည်းပါ</p></li>
+<li><p>Geopackage တွင် သိမ်းဆည်းပါ</p></li>
+<li><p>Database ဇယားတွင် သိမ်းဆည်းပါ</p></li>
+</ul>
+<p>File encoding ကိုလည်းဤနေရာတွင်ပြောင်းလဲနိုင်ပါသည်။</p>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id17">
+<h3>ရလာဒ်များ (Outputs)<a class="headerlink" href="#id17" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Hub distance</strong> <strong>(Hub အကွာအဝေး)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
+<td><p>[vector: point]</p></td>
+<td><p>ရင်းမြစ် feature ၏အလယ်ဗဟို ၊ ၎င်းတို့၏ attribute များ၊ အနီးဆုံး feature ၏ identifier နှင့် တွက်ချက်ထားသော အကွာအဝေး တို့ကိုကိုယ်စားပြုသော point vector layer</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id18">
+<h3>Python code<a class="headerlink" href="#id18" title="Link to this heading"></a></h3>
+<p><strong>Algorithm ID</strong>: <code class="docutils literal notranslate"><span class="pre">qgis:distancetonearesthubpoints</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">processing</span>
+<span class="n">processing</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;algorithm_id&quot;</span><span class="p">,</span> <span class="p">{</span><span class="n">parameter_dictionary</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>Processing Toolbox ထဲရှိ algorithm ပေါ်တွင် mouse ကိုတင်ထားလျှင် <em>algorithm id</em> ကိုပြသပေးပါသည်။ <em>parameter dictionary</em> သည် parameter နာမည်များနှင့် တန်ဖိုးများကို ပေးပါသည်။ Python console မှ algorithm များကို မည်သို့လုပ်ဆောင်ရမည် ဆိုသည့် အသေးစိတ်ကို သိရှိလိုလျှင် <a class="reference internal" href="../../processing/console.html#processing-console"><span class="std std-ref">Console တွင် processing algorithm များကို အသုံးပြုခြင်း</span></a> တွင်ကြည့်ပါ။</p>
+</section>
+</section>
+<section id="join-by-lines-hub-lines">
+<span id="qgishublines"></span><h2><a class="toc-backref" href="#id68" role="doc-backlink"><span class="section-number">29.1.15.8. </span>မျဉ်းများဖြင့်ဆက်ခြင်း (ဗဟိုချက်မျဉ်းများ) (Join by lines (hub lines))</a><a class="headerlink" href="#join-by-lines-hub-lines" title="Link to this heading"></a></h2>
+<p>Spoke (ဗဟိုချက်နှင့် ချိတ်ဆက်မည့်) layer ပေါ်ရှိ point များမှ Hub (ဗဟိုချက်) layer ထဲရှိ ကိုက်ညီသော point များသို့ line များချိတ်ဆက်ခြင်းဖြင့် hub နှင့် spoke သရုပ်ပြပုံများကို ဖန်တီးပေးပါသည်။</p>
+<p>Point တစ်ခုစီအတွက် မည်သည့် hub နှင့်ချိတ်ဆက်မည်ကို ဆုံးဖြတ်ခြင်းသည် hub point များအပေါ်ရှိ Hub ID field  နှင့် spoke point များအပေါ်ရှိ Spoke ID field တို့အကြား match (ကိုက်ညီမှု) တစ်ခုအပေါ်တွင်အခြေခံပါသည်။</p>
+<p>အကယ်၍ input layer များသည် point layer များမဟုတ်လျှင် ဂျီဩမေတြီများ၏ မျက်နှာပြင်ပေါ်ရှိ point တစ်ခုအား ချိတ်ဆက်ခြင်းတည်နေရာ အဖြစ် အသုံးပြုမည်ဖြစ်သည်။</p>
+<p>Optional အနေဖြင့် ellipsoid တစ်ခု၏ မျက်နှာပြင်ပေါ်ရှိ အတိုဆုံးလမ်းကြောင်းကိုကိုယ်စားပြုသည့် geodesic မျဉ်းများကိုလည်းဖန်တီးနိုင်သည်။ Geodesic mode ကိုအသုံးပြုသောအခါ line များကို ပိုမိုကောင်းမွန်စွာ ပုံဖော်ပြသနိုင်စေသည့် antimeridian (± 180 ဒီဂရီ လောင်ဂျီကျု) ၌ ဖန်တီးထားသော line များကို ပိုင်းခြား (split) နိုင်သည်။ ထို့အပြင် vertex များအကြား အကွာအဝေးကိုလည်း သတ်မှတ်နိုင်သည်။ ပို၍သေးငယ်သော အကွာအဝေးသည် ပို၍သိပ်သည်းပြီး ပိုမိုတိကျသော line များကိုဖြစ်ပေါ်စေသည်။</p>
+<figure class="align-center" id="id58">
+<img alt="../../../../_images/join_lines.png" src="../../../../_images/join_lines.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 29.33 </span><span class="caption-text">ဘုံတူညီသော field / attribute ပေါ်တွင် အခြေခံ၍ point များကိုချိတ်ဆက်ခြင်း</span><a class="headerlink" href="#id58" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<section id="id19">
+<h3>သတ်မှတ်ချက်များ (Parameters)<a class="headerlink" href="#id19" title="Link to this heading"></a></h3>
+<section id="id20">
+<h4>အခြေခံ သတ်မှတ်ချက်များ (Basic parameters)<a class="headerlink" href="#id20" title="Link to this heading"></a></h4>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Hub layer</strong> <strong>(ဗဟိုချက် layer)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">HUBS</span></code></p></td>
+<td><p>[vector: any]</p></td>
+<td><p>ထည့်သွင်းအသုံးပြုသော layer</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Hub ID field</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">HUB_FIELD</span></code></p></td>
+<td><p>[tablefield: any]</p></td>
+<td><p>ချိတ်ဆက်ရန် ID ပါရှိသော hub layer ၏ Field</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Hub layer fields to copy (leave empty to copy all fields)</strong> <strong>(မိတ္တူကူးယူရမည့် Hub layer field များ (field အားလုံးကို မိတ္တူကူးရန် empty အဖြစ်ထားရှိပါ))</strong></p>
+<p>Optional</p>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">HUB_FIELDS</span></code></p></td>
+<td><p>[tablefield: any] [list]</p></td>
+<td><p>မိတ္တူကူးယူရမည့် hub layer ၏ Field (များ) ။ မည်သည့် field (များ) ကိုမှ ရွေးချယ်မထားလျှင် field များအားလုံးကို ယူ၍အသုံးပြုမည်ဖြစ်သည်။</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Spoke layer</strong> <strong>(ဗဟိုချက်နှင့်ချိတ်ဆက်မည့် layer)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">SPOKES</span></code></p></td>
+<td><p>[vector: any]</p></td>
+<td><p>ထပ်ဆောင်း spoke point layer</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Spoke ID field</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">SPOKE_FIELD</span></code></p></td>
+<td><p>[tablefield: any]</p></td>
+<td><p>ချိတ်ဆက်ရန် ID ပါရှိသော spoke layer ၏ field</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Spoke layer fields to copy (leave empty to copy all fields)</strong> <strong>(မိတ္တူကူးယူရမည့် Spoke layer field များ (field အားလုံးကို မိတ္တူကူးရန် empty အဖြစ်ထားရှိပါ))</strong></p>
+<p>Optional</p>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">SPOKE_FIELDS</span></code></p></td>
+<td><p>[tablefield: any] [list]</p></td>
+<td><p>မိတ္တူကူးယူရမည့် spoke layer ၏ Field (များ) ။ မည်သည့် field (များ) ကိုမှ ရွေးချယ်မထားလျှင် field များအားလုံးကို ယူ၍အသုံးပြုမည်ဖြစ်သည်။</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Create geodesic lines</strong> <strong>(Geodesic မျဉ်းများကို ဖန်တီးခြင်း)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">GEODESIC</span></code></p></td>
+<td><p>[boolean]</p>
+<p>Default: False</p>
+</td>
+<td><p>Geodesic မျဉ်းများကိုဖန်တီးပါ (ellipsoid တစ်ခု၏ မျက်နှာပြင်ပေါ်ရှိ အတိုဆုံး လမ်းကြောင်း)</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Hub lines</strong> <strong>(Hub မျဉ်းများ)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
+<td><p>[vector: line]</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">[Create</span> <span class="pre">temporary</span> <span class="pre">layer]</span></code></p>
+</td>
+<td><p>Output hub line vector layer အားသတ်မှတ်ပါ။ အောက်ပါတို့ထဲမှ တစ်ခုဖြစ်ပါသည်-</p>
+<ul class="simple">
+<li><p>ယာယီ layer ဖန်တီးပါ (<code class="docutils literal notranslate"><span class="pre">TEMPORARY_OUTPUT</span></code>)</p></li>
+<li><p>File တွင်သိမ်းဆည်းပါ</p></li>
+<li><p>Geopackage တွင် သိမ်းဆည်းပါ</p></li>
+<li><p>Database ဇယားတွင် သိမ်းဆည်းပါ</p></li>
+</ul>
+<p>File encoding ကိုလည်းဤနေရာတွင်ပြောင်းလဲနိုင်ပါသည်။</p>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id21">
+<h4>အဆင့်မြင့် သတ်မှတ်ချက်များ (Advanced parameters)<a class="headerlink" href="#id21" title="Link to this heading"></a></h4>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Distance between vertices (geodesic lines only)</strong> <strong>(Vertex များအကြား အကွာအဝေး (geodesic မျဉ်းများသာ))</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">GEODESIC_DISTANCE</span></code></p></td>
+<td><p>[number]</p>
+<p>Default: 1000.0 (ကီလိုမီတာ)</p>
+</td>
+<td><p>ဆက်တိုက်ဖြစ်နေသော vertex များအကြား အကွာအဝေး (ကီလိုမီတာများဖြင့်)။ ပို၍သေးငယ်သော အကွာအဝေးသည် ပို၍သိပ်သည်းပြီး ပိုမိုတိကျသော line များကိုဖြစ်ပေါ်စေသည်။</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Split lines at antimeridian (±180 degrees longitude)</strong> <strong>(မျဉ်းများကို antimeridian (±180 ဒီဂရီ လောင်ဂျီကျု) ၌ ပိုင်းခြားခြင်း)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">ANTIMERIDIAN_SPLIT</span></code></p></td>
+<td><p>[boolean]</p>
+<p>Default: False</p>
+</td>
+<td><p>Line များကို ±180 ဒီဂရီ လောင်ဂျီကျုတွင် ပိုင်းခြားပါသည် (line များကို ပုံဖော်ပြသရာတွင် ပိုမိုကောင်းမွန်စေရန်)။</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="id22">
+<h3>ရလာဒ်များ (Outputs)<a class="headerlink" href="#id22" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Hub lines</strong> <strong>(Hub မျဉ်းများ)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
+<td><p>[vector: line]</p></td>
+<td><p>Input layer များထဲရှိ ကိုက်ညီသည့် point များကိုချိတ်ဆက်ပေးသော ရလာဒ် line layer</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id23">
+<h3>Python code<a class="headerlink" href="#id23" title="Link to this heading"></a></h3>
+<p><strong>Algorithm ID</strong>: <code class="docutils literal notranslate"><span class="pre">native:hublines</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">processing</span>
+<span class="n">processing</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;algorithm_id&quot;</span><span class="p">,</span> <span class="p">{</span><span class="n">parameter_dictionary</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>Processing Toolbox ထဲရှိ algorithm ပေါ်တွင် mouse ကိုတင်ထားလျှင် <em>algorithm id</em> ကိုပြသပေးပါသည်။ <em>parameter dictionary</em> သည် parameter နာမည်များနှင့် တန်ဖိုးများကို ပေးပါသည်။ Python console မှ algorithm များကို မည်သို့လုပ်ဆောင်ရမည် ဆိုသည့် အသေးစိတ်ကို သိရှိလိုလျှင် <a class="reference internal" href="../../processing/console.html#processing-console"><span class="std std-ref">Console တွင် processing algorithm များကို အသုံးပြုခြင်း</span></a> တွင်ကြည့်ပါ။</p>
+</section>
+</section>
+<section id="k-means-k-means-clustering">
+<span id="qgiskmeansclustering"></span><h2><a class="toc-backref" href="#id69" role="doc-backlink"><span class="section-number">29.1.15.9. </span>K-means နည်းလမ်းဖြင့် စုဖွဲ့ခြင်း (K-means clustering)</a><a class="headerlink" href="#k-means-k-means-clustering" title="Link to this heading"></a></h2>
+<p>Input feature တစ်ခုချင်းစီအတွက် 2D (နှစ်ဘက်မြင်) အကွာအဝေး အခြေခံသော k-means cluster နံပါတ်ကို တွက်ချက်ပေးပါသည်။</p>
+<p>K-means clustering ၏ ရည်ရွယ်ချက်သည် feature များကို k cluster များအဖြစ် ပိုင်းခြား၍ feature တစ်ခုစီသည် အနီးစပ်ဆုံးပျမ်းမျှရှိသော cluster နှင့် သက်ဆိုင်မည်ဖြစ်သည်။ Mean (ပျမ်းမျှ) point အား စုဖွဲ့ထားသော feature အားလုံး၏ အလယ်မှတ်ဖြင့် ကိုယ်စားပြုသည်။</p>
+<p>Input ဂျီဩမေတြီများသည် line များ သို့မဟုတ် polygon များဖြစ်ပါက စုဖွဲ့ခြင်း (clustering) ကို feature ၏ အလယ်ဗဟိုအပေါ်တွင် အခြေခံ၍ပြုလုပ်မည်ဖြစ်သည်။</p>
+<figure class="align-center" id="id59">
+<img alt="../../../../_images/kmeans.png" src="../../../../_images/kmeans.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 29.34 </span><span class="caption-text">အတန်းအစား ၅ မျိုးရှိသော point အစုအဖွဲ့များ</span><a class="headerlink" href="#id59" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="#qgisdbscanclustering"><span class="std std-ref">DBSCAN ဖြင့်စုဖွဲ့ခြင်း (DBSCAN clustering)</span></a> ၊ <a class="reference internal" href="#qgisstdbscanclustering"><span class="std std-ref">ST-DBSCAN ဖြင့် စုဖွဲ့ခြင်း (ST-DBSCAN clustering)</span></a></p>
+</div>
+<section id="id24">
+<h3>သတ်မှတ်ချက်များ (Parameters)<a class="headerlink" href="#id24" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Input layer</strong> <strong>(ထည့်သွင်းအသုံးပြုသော layer)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">INPUT</span></code></p></td>
+<td><p>[vector: any]</p></td>
+<td><p>လေ့လာဆန်းစစ်ရမည့် Layer</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Number of clusters</strong> <strong>(Cluster များ၏အရေအတွက်)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">CLUSTERS</span></code></p></td>
+<td><p>[number]</p>
+<p>Default: 5</p>
+</td>
+<td><p>Feature များဖြင့် ဖန်တီးရမည့် cluster များ၏အရေအတွက်</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Clusters</strong> <strong>(အစုအဖွဲ့များ)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
+<td><p>[vector: any]</p>
+<p>Default:<code class="docutils literal notranslate"><span class="pre">[Create</span> <span class="pre">temporary</span> <span class="pre">layer]</span></code></p>
+</td>
+<td><p>ဖန်တီးလိုက်သော cluster များအတွက် output vector layer ကို သတ်မှတ်ပါ။ အောက်ပါတို့ထဲမှ တစ်ခုဖြစ်ပါသည်-</p>
+<ul class="simple">
+<li><p>ယာယီ layer ဖန်တီးပါ (<code class="docutils literal notranslate"><span class="pre">TEMPORARY_OUTPUT</span></code>)</p></li>
+<li><p>File တွင်သိမ်းဆည်းပါ</p></li>
+<li><p>Geopackage တွင် သိမ်းဆည်းပါ</p></li>
+<li><p>Database ဇယားတွင် သိမ်းဆည်းပါ</p></li>
+</ul>
+<p>File encoding ကိုလည်းဤနေရာတွင်ပြောင်းလဲနိုင်ပါသည်။</p>
+</td>
+</tr>
+</tbody>
+</table>
+<section id="id25">
+<h4>အဆင့်မြင့် သတ်မှတ်ချက်များ (Advanced parameters)<a class="headerlink" href="#id25" title="Link to this heading"></a></h4>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Cluster field name</strong> <strong>(Cluster field ၏အမည်)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">FIELD_NAME</span></code></p></td>
+<td><p>[string]</p>
+<p>Default: ‘CLUSTER_ID’</p>
+</td>
+<td><p>သက်ဆိုင်ရာ အစုအဖွဲ့နံပါတ်ကို သိမ်းဆည်းထားပေးမည့်  field ၏အမည်</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Cluster size field name</strong> <strong>(Cluster အရွယ်အစား field ၏အမည်)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">SIZE_FIELD_NAME</span></code></p></td>
+<td><p>[string]</p>
+<p>Default: ‘CLUSTER_SIZE’</p>
+</td>
+<td><p>တူညီသော cluster အတွင်း feature များ၏ အရေအတွက်ပါရှိသော field ၏အမည်</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="id26">
+<h3>ရလာဒ်များ (Outputs)<a class="headerlink" href="#id26" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Clusters</strong> <strong>(အစုအဖွဲ့များ)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
+<td><p>[vector: any]</p></td>
+<td><p>မူရင်း feature များအပြင် ၎င်းတို့နှင့် သက်ဆိုင်သော cluster နှင့် cluster ထဲရှိ ၎င်းတို့၏အရေအတွက်ကို သတ်မှတ်ဖော်ပြထားသော field များပါရှိသည့် vector layer</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id27">
+<h3>Python code<a class="headerlink" href="#id27" title="Link to this heading"></a></h3>
+<p><strong>Algorithm ID</strong>: <code class="docutils literal notranslate"><span class="pre">native:kmeansclustering</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">processing</span>
+<span class="n">processing</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;algorithm_id&quot;</span><span class="p">,</span> <span class="p">{</span><span class="n">parameter_dictionary</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>Processing Toolbox ထဲရှိ algorithm ပေါ်တွင် mouse ကိုတင်ထားလျှင် <em>algorithm id</em> ကိုပြသပေးပါသည်။ <em>parameter dictionary</em> သည် parameter နာမည်များနှင့် တန်ဖိုးများကို ပေးပါသည်။ Python console မှ algorithm များကို မည်သို့လုပ်ဆောင်ရမည် ဆိုသည့် အသေးစိတ်ကို သိရှိလိုလျှင် <a class="reference internal" href="../../processing/console.html#processing-console"><span class="std std-ref">Console တွင် processing algorithm များကို အသုံးပြုခြင်း</span></a> တွင်ကြည့်ပါ။</p>
+</section>
+</section>
+<section id="list-unique-values">
+<span id="qgislistuniquevalues"></span><h2><a class="toc-backref" href="#id70" role="doc-backlink"><span class="section-number">29.1.15.10. </span>သီးခြားကွဲပြားနေသောတန်ဖိုးများကို စာရင်းပြုခြင်း (List unique values)</a><a class="headerlink" href="#list-unique-values" title="Link to this heading"></a></h2>
+<p>Attribute ဇယား field တစ်ခု၏ သီးခြားကွဲပြားနေသောတန်ဖိုးများကို စာရင်းပြုစုပေး၍  ၎င်းတို့၏အရေအတွက်ကိုဖော်ပြပေးပါသည်။</p>
+<p><strong>Default menu</strong>- <span class="menuselection">Vector ► Analysis Tools</span></p>
+<section id="id28">
+<h3>သတ်မှတ်ချက်များ (Parameters)<a class="headerlink" href="#id28" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Input layer</strong> <strong>(ထည့်သွင်းအသုံးပြုသော layer)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">INPUT</span></code></p></td>
+<td><p>[vector: any]</p></td>
+<td><p>လေ့လာဆန်းစစ်မည့် Layer</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Target field(s)</strong> <strong>(ဦးတည်ရာ field (များ))</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">FIELDS</span></code></p></td>
+<td><p>[tablefield: any]</p></td>
+<td><p>လေ့လာဆန်းစစ်မည့် Field</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Unique values</strong> <strong>(သီးခြားကွဲပြားသည့် တန်ဖိုးများ)</strong></p>
+<p>Optional (မဖြစ်မနေလုပ်ဆောင်ရန်မလိုပါ)</p>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
+<td><p>[table]</p>
+<p>Default:<code class="docutils literal notranslate"><span class="pre">[Create</span> <span class="pre">temporary</span> <span class="pre">layer]</span></code></p>
+</td>
+<td><p>သီးခြားကွဲပြားသည့် တန်ဖိုးများကိုပြသထားသည့် အကျဉ်းချုပ်ဇယား layer ကိုသတ်မှတ်ပါ။ အောက်ပါတို့ထဲမှ တစ်ခုဖြစ်ပါသည်-</p>
+<ul class="simple">
+<li><p>Output ကိုကျော်ပစ်ပါ</p></li>
+<li><p>ယာယီ layer ဖန်တီးပါ (<code class="docutils literal notranslate"><span class="pre">TEMPORARY_OUTPUT</span></code>)</p></li>
+<li><p>File တွင်သိမ်းဆည်းပါ</p></li>
+<li><p>Geopackage တွင် သိမ်းဆည်းပါ</p></li>
+<li><p>Database ဇယားတွင် သိမ်းဆည်းပါ</p></li>
+</ul>
+<p>File encoding ကိုလည်းဤနေရာတွင်ပြောင်းလဲနိုင်ပါသည်။</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p><strong>HTML report</strong> <strong>(HTML အစီရင်ခံစာ)</strong></p>
+<p>Optional (မဖြစ်မနေလုပ်ဆောင်ရန်မလိုပါ)</p>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT_HTML_FILE</span></code></p></td>
+<td><p>[html]</p>
+<p>Default:<code class="docutils literal notranslate"><span class="pre">[Save</span> <span class="pre">to</span> <span class="pre">temporary</span> <span class="pre">file]</span></code></p>
+</td>
+<td><p><span class="menuselection">Processing ► Results viewer</span> ထဲရှိ သီးခြားကွဲပြားသည့် တန်ဖိုးများ၏ HTML အစီရင်ခံစာ ။ အောက်ပါတို့ထဲမှ တစ်ခုဖြစ်ပါသည်-</p>
+<ul class="simple">
+<li><p>Output ကိုကျော်ပစ်ခြင်း</p></li>
+<li><p>ယာယီ file တစ်ခုတွင် သိမ်းဆည်းပါ</p></li>
+<li><p>File တွင်သိမ်းဆည်းပါ</p></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id29">
+<h3>ရလာဒ်များ (Outputs)<a class="headerlink" href="#id29" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Unique values</strong> <strong>(သီးခြားကွဲပြားသည့် တန်ဖိုးများ)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
+<td><p>[table]</p></td>
+<td><p>သီးခြားကွဲပြားသည့် တန်ဖိုးများကိုပြသထားသည့် အကျဉ်းချုပ်ဇယား layer</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>HTML report</strong> <strong>(HTML အစီရင်ခံစာ)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT_HTML_FILE</span></code></p></td>
+<td><p>[html]</p></td>
+<td><p>သီးခြားကွဲပြားသည့် တန်ဖိုးများ၏ HTML အစီရင်ခံစာ ။ <span class="menuselection">Processing ► Results viewer</span> မှတစ်ဆင့် ဖွင့်နိုင်သည်။</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Total unique values</strong> <strong>(သီးခြားကွဲပြားသည့် တန်ဖိုးများစုစုပေါင်း)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">TOTAL_VALUES</span></code></p></td>
+<td><p>[number]</p></td>
+<td><p>Input field ထဲရှိ သီးခြားကွဲပြားသည့် တန်ဖိုးများ၏ အရေအတွက်</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Unique values concatenated</strong> <strong>(သီးခြားကွဲပြားသည့် တန်ဖိုးများ ပေါင်းစပ်ထားသော)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">UNIQUE_VALUES</span></code></p></td>
+<td><p>[string]</p></td>
+<td><p>Input field ထဲတွင်တွေ့ရှိရသော သီးခြားကွဲပြားသည့် တန်ဖိုးများကို comma ဖြင့်ပိုင်းခြားပေးထားသည့်စာရင်းပါရှိသော စာသား (string) တစ်ခု</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id30">
+<h3>Python code<a class="headerlink" href="#id30" title="Link to this heading"></a></h3>
+<p><strong>Algorithm ID</strong>: <code class="docutils literal notranslate"><span class="pre">qgis:listuniquevalues</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">processing</span>
+<span class="n">processing</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;algorithm_id&quot;</span><span class="p">,</span> <span class="p">{</span><span class="n">parameter_dictionary</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>Processing Toolbox ထဲရှိ algorithm ပေါ်တွင် mouse ကိုတင်ထားလျှင် <em>algorithm id</em> ကိုပြသပေးပါသည်။ <em>parameter dictionary</em> သည် parameter နာမည်များနှင့် တန်ဖိုးများကို ပေးပါသည်။ Python console မှ algorithm များကို မည်သို့လုပ်ဆောင်ရမည် ဆိုသည့် အသေးစိတ်ကို သိရှိလိုလျှင် <a class="reference internal" href="../../processing/console.html#processing-console"><span class="std std-ref">Console တွင် processing algorithm များကို အသုံးပြုခြင်း</span></a> တွင်ကြည့်ပါ။</p>
+</section>
+</section>
+<section id="mean-coordinate">
+<span id="qgismeancoordinates"></span><h2><a class="toc-backref" href="#id71" role="doc-backlink"><span class="section-number">29.1.15.11. </span>ပျှမ်းမျှကိုဩဒိနိတ် (Mean coordinate)</a><a class="headerlink" href="#mean-coordinate" title="Link to this heading"></a></h2>
+<p>Input layer တစ်ခုထဲရှိ ဂျီဩမေတြီအများအပြား၏ အလယ်မှတ် ပါရှိသော point layer တစ်ခုကို တွက်ချက်ပေးပါသည်။</p>
+<p>ဂျီဩမေတြီအများအပြား၏ အလယ်မှတ် အားတွက်ချက်နေချိန်တွင် feature တစ်ခုစီပေါ်တွင် အသုံးပြုနိုင်မည့် weight (အလေးပေးမှု) များပါဝင်သော attribute တစ်ခုအားသတ်မှတ်နိုင်သည်။</p>
+<p>အကယ်၍ attribute တစ်ခုအား parameter ထဲတွင် ရွေးချယ်ထားလျှင် feature များကို ဤ field ထဲရှိ တန်ဖိုးများအတိုင်း အုပ်စုဖွဲ့မည်ဖြစ်သည်။ Layer တစ်ခုလုံး၏ အလယ်မှတ်အား point တစ်ခုတည်းဖြင့်ပြသမည့်အစား output layer တွင် အမျိုးအစားတစ်ခုစီရှိ feature များအတွက် အလယ်မှတ်တစ်ခုစီပါဝင်လာမည်ဖြစ်သည်။</p>
+<p><strong>Default menu</strong>- <span class="menuselection">Vector ► Analysis Tools</span></p>
+<section id="id31">
+<h3>သတ်မှတ်ချက်များ (Parameters)<a class="headerlink" href="#id31" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Input layer</strong> <strong>(ထည့်သွင်းအသုံးပြုသော layer)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">INPUT</span></code></p></td>
+<td><p>[vector: any]</p></td>
+<td><p>ထည့်သွင်းအသုံးပြုသော vector layer</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Weight field</strong> <strong>(အလေးပေးမှု field)</strong></p>
+<p>Optional</p>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">WEIGHT</span></code></p></td>
+<td><p>[tablefield: numeric]</p></td>
+<td><p>Weighted (အလေးပေးထားသော) mean ကို လုပ်ဆောင်လိုလျှင် အသုံးပြုရမည့် field</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Unique ID field</strong> <strong>(သီးခြားကွဲပြားသည့် ID field)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">UID</span></code></p></td>
+<td><p>[tablefield: numeric]</p></td>
+<td><p>ပျမ်းမျှတန်ဖိုးများတွက်ချက်မည့် သီးခြားကွဲပြားသည့် field</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Mean coordinates</strong> <strong>(ပျမ်းမျှ ကိုဩဒိနိတ်များ)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
+<td><p>[vector: point]</p>
+<p>Default:<code class="docutils literal notranslate"><span class="pre">[Create</span> <span class="pre">temporary</span> <span class="pre">layer]</span></code></p>
+</td>
+<td><p>ရလာဒ်အတွက် layer (point vector) ကိုသတ်မှတ်ပါ။ အောက်ပါတို့ထဲမှ တစ်ခုဖြစ်ပါသည်-</p>
+<ul class="simple">
+<li><p>ယာယီ layer ဖန်တီးပါ (<code class="docutils literal notranslate"><span class="pre">TEMPORARY_OUTPUT</span></code>)</p></li>
+<li><p>File တွင်သိမ်းဆည်းပါ</p></li>
+<li><p>Geopackage တွင် သိမ်းဆည်းပါ</p></li>
+<li><p>Database ဇယားတွင် သိမ်းဆည်းပါ</p></li>
+</ul>
+<p>File encoding ကိုလည်းဤနေရာတွင်ပြောင်းလဲနိုင်ပါသည်။</p>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id32">
+<h3>ရလာဒ်များ (Outputs)<a class="headerlink" href="#id32" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Mean coordinates</strong> <strong>(ပျမ်းမျှ ကိုဩဒိနိတ်များ)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
+<td><p>[vector: point]</p></td>
+<td><p>ရလာဒ်ရရှိလာသော point (များ) layer</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id33">
+<h3>Python code<a class="headerlink" href="#id33" title="Link to this heading"></a></h3>
+<p><strong>Algorithm ID</strong>: <code class="docutils literal notranslate"><span class="pre">native:meancoordinates</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">processing</span>
+<span class="n">processing</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;algorithm_id&quot;</span><span class="p">,</span> <span class="p">{</span><span class="n">parameter_dictionary</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>Processing Toolbox ထဲရှိ algorithm ပေါ်တွင် mouse ကိုတင်ထားလျှင် <em>algorithm id</em> ကိုပြသပေးပါသည်။ <em>parameter dictionary</em> သည် parameter နာမည်များနှင့် တန်ဖိုးများကို ပေးပါသည်။ Python console မှ algorithm များကို မည်သို့လုပ်ဆောင်ရမည် ဆိုသည့် အသေးစိတ်ကို သိရှိလိုလျှင် <a class="reference internal" href="../../processing/console.html#processing-console"><span class="std std-ref">Console တွင် processing algorithm များကို အသုံးပြုခြင်း</span></a> တွင်ကြည့်ပါ။</p>
+</section>
+</section>
+<section id="nearest-neighbour-analysis">
+<span id="qgisnearestneighbouranalysis"></span><h2><a class="toc-backref" href="#id72" role="doc-backlink"><span class="section-number">29.1.15.12. </span>အနီးဆုံးအရာကိုလေ့လာဆန်းစစ်မှု (Nearest neighbour analysis)</a><a class="headerlink" href="#nearest-neighbour-analysis" title="Link to this heading"></a></h2>
+<p>Point layer တစ်ခုအတွက် Nearest neighbour လေ့လာဆန်းစစ်ခြင်းကို ဆောင်ရွက်ပေးပါသည်။ Output သည် data များအား မည်ကဲ့သို့ ဖြန့်ကျက်ထားသည်ကို ဖော်ပြပေးပါသည် (စုဖွဲ့ထားခြင်း သို့မဟုတ် ကျပန်းဖြန့်ကျက်ခြင်း)</p>
+<p>Output အား တွက်ချက်ထားသော စာရင်းအင်းအချက်အလက်ဆိုင်ရာ တန်ဖိုးများပါဝင်သော HTML file တစ်ခုအဖြစ်ထုတ်ပေးမည်ဖြစ်သည်-</p>
+<ul>
+<li><p>တွေ့ရှိရသော ပျမ်းမျှအကွာအဝေး</p></li>
+<li><p>မျှော်မှန်းထားသော ပျမ်းမျှအကွာအဝေး</p></li>
+<li><p>Nearest neighbour အညွှန်း</p></li>
+<li><p>Point များ၏အရေအတွက်</p></li>
+<li><p>Z-Score : Z-Score အား normal distribution (ပုံမှန်ဖြန့်ကျက်ခြင်း) နှင့်နှိုင်းယှဉ်ခြင်းသည် data များအား မည်သို့ဖြန့်ကျက်ထားကြောင်း ဖော်ပြပေးပါသည်။ Z-Score တန်ဖိုးနိမ့်ခြင်းသည်  data များ ကျပန်းဖြန့်ကျက်ခြင်းမဟုတ်ကြောင်း ဆိုလိုပြီး Z-Score တန်ဖိုးမြင့်ခြင်းသည်  data များ ကျပန်းဖြန့်ကျက်ခြင်းဖြစ်ကြောင်း ဆိုလိုပါသည်။</p>
+<figure class="align-center">
+<img alt="../../../../_images/normal_distribution.png" src="../../../../_images/normal_distribution.png" />
+</figure>
+</li>
+</ul>
+<p><strong>Default menu</strong>- <span class="menuselection">Vector ► Analysis Tools</span></p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="vectorgeneral.html#qgisjoinbynearest"><span class="std std-ref">နီးစပ်မှုဖြင့် attribute များကိုချိတ်ဆက်ခြင်း (Join attributes by nearest)</span></a></p>
+</div>
+<section id="id34">
+<h3>သတ်မှတ်ချက်များ (Parameters)<a class="headerlink" href="#id34" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Input layer</strong> <strong>(ထည့်သွင်းအသုံးပြုသော layer)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">INPUT</span></code></p></td>
+<td><p>[vector: point]</p></td>
+<td><p>ကိန်းဂဏန်းအချက်အလက်များကို တွက်ချက်မည့် point vector layer</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Nearest neighbour</strong> <strong>(အနီးစပ်ဆုံး အနီးအနား)</strong></p>
+<p>Optional (မဖြစ်မနေလုပ်ဆောင်ရန်မလိုပါ)</p>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT_HTML_FILE</span></code></p></td>
+<td><p>[html]</p>
+<p>Default:<code class="docutils literal notranslate"><span class="pre">[Save</span> <span class="pre">to</span> <span class="pre">temporary</span> <span class="pre">file]</span></code></p>
+</td>
+<td><p>တွက်ချက်ထားသော ကိန်းဂဏန်းအချက်အလက်များအတွက် HTML file ၏ သီးခြားသတ်မှတ်ချက်။ အောက်ပါတို့ထဲမှ တစ်ခုဖြစ်ပါသည်-</p>
+<ul class="simple">
+<li><p>Output ကိုကျော်ပစ်ခြင်း</p></li>
+<li><p>ယာယီ file တစ်ခုတွင် သိမ်းဆည်းပါ</p></li>
+<li><p>File တွင်သိမ်းဆည်းပါ</p></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id35">
+<h3>ရလာဒ်များ (Outputs)<a class="headerlink" href="#id35" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Nearest neighbour</strong> <strong>(အနီးစပ်ဆုံး အနီးအနား)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT_HTML_FILE</span></code></p></td>
+<td><p>[html]</p></td>
+<td><p>တွက်ချက်ထားသော ကိန်းဂဏန်းအချက်အလက်များပါဝင်သည့် HTML file</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Observed mean distance</strong> <strong>(တွေ့ရှိရသော ပျမ်းမျှအကွာအဝေး)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OBSERVED_MD</span></code></p></td>
+<td><p>[number]</p></td>
+<td><p>တွေ့ရှိရသော ပျမ်းမျှအကွာအဝေး</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Expected mean distance</strong> <strong>(မျှော်မှန်းထားသော ပျမ်းမျှအကွာအဝေး)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">EXPECTED_MD</span></code></p></td>
+<td><p>[number]</p></td>
+<td><p>မျှော်မှန်းထားသော ပျမ်းမျှအကွာအဝေး</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Nearest neighbour index</strong> <strong>(အနီးစပ်ဆုံး အနီးအနား အညွှန်းကိန်း)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">NN_INDEX</span></code></p></td>
+<td><p>[number]</p></td>
+<td><p>အနီးစပ်ဆုံး အနီးအနား အညွှန်းကိန်း</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Number of points</strong> <strong>(Point များ၏အရေအတွက်)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">POINT_COUNT</span></code></p></td>
+<td><p>[number]</p></td>
+<td><p>Point များ၏အရေအတွက်</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Z-Score</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Z_SCORE</span></code></p></td>
+<td><p>[number]</p></td>
+<td><p>Z-Score</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id36">
+<h3>Python code<a class="headerlink" href="#id36" title="Link to this heading"></a></h3>
+<p><strong>Algorithm ID</strong>: <code class="docutils literal notranslate"><span class="pre">native:nearestneighbouranalysis</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">processing</span>
+<span class="n">processing</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;algorithm_id&quot;</span><span class="p">,</span> <span class="p">{</span><span class="n">parameter_dictionary</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>Processing Toolbox ထဲရှိ algorithm ပေါ်တွင် mouse ကိုတင်ထားလျှင် <em>algorithm id</em> ကိုပြသပေးပါသည်။ <em>parameter dictionary</em> သည် parameter နာမည်များနှင့် တန်ဖိုးများကို ပေးပါသည်။ Python console မှ algorithm များကို မည်သို့လုပ်ဆောင်ရမည် ဆိုသည့် အသေးစိတ်ကို သိရှိလိုလျှင် <a class="reference internal" href="../../processing/console.html#processing-console"><span class="std std-ref">Console တွင် processing algorithm များကို အသုံးပြုခြင်း</span></a> တွင်ကြည့်ပါ။</p>
+</section>
+</section>
+<section id="overlap-analysis">
+<span id="qgiscalculatevectoroverlaps"></span><h2><a class="toc-backref" href="#id73" role="doc-backlink"><span class="section-number">29.1.15.13. </span>ထပ်နေမှုကို ဆန်းစစ်ခြင်း (Overlap analysis)</a><a class="headerlink" href="#overlap-analysis" title="Link to this heading"></a></h2>
+<p>Input layer တစ်ခုမှ feature များကို overlay layer များ၏ရွေးချယ်မှုတစ်ခုထဲမှ feature များမှ ထပ်နေသော ဧရိယာနှင့် ရာခိုင်နှုန်းကို တွက်ချက်ပေးပါသည်။</p>
+<p>ရွေးချယ်ထားသော overlay layer များ၏တစ်ခုချင်းစီမှ ထပ်နေသော input feature ၏ စုစုပေါင်းဧရိယာ နှင့် ရာခိုင်နှုန်း ကိုဖော်ပြသော attribute အသစ်များကို output layer ထဲသို့ ပေါင်းထည့်ပေးမည်ဖြစ်သည်။</p>
+<section id="id37">
+<h3>သတ်မှတ်ချက်များ (Parameters)<a class="headerlink" href="#id37" title="Link to this heading"></a></h3>
+<section id="id38">
+<h4>အခြေခံ သတ်မှတ်ချက်များ (Basic parameters)<a class="headerlink" href="#id38" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Input layer</strong> <strong>(ထည့်သွင်းအသုံးပြုသော layer)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">INPUT</span></code></p></td>
+<td><p>[vector: any]</p></td>
+<td><p>ထည့်သွင်းအသုံးပြုသော layer</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Overlap layers</strong> <strong>(ထပ်နေသော layer များ)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">LAYERS</span></code></p></td>
+<td><p>[vector: any] [list]</p></td>
+<td><p>Overlay layer များ</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Overlap</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
+<td><p>[input နှင့်အတူတူဖြစ်ပါသည်]</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">[Create</span> <span class="pre">temporary</span> <span class="pre">layer]</span></code></p>
+</td>
+<td><p>Output vector layer ကိုသတ်မှတ်ပါ။ အောက်ပါတို့ထဲမှ တစ်ခုဖြစ်ပါသည်-</p>
+<ul class="simple">
+<li><p>ယာယီ layer ဖန်တီးပါ (<code class="docutils literal notranslate"><span class="pre">TEMPORARY_OUTPUT</span></code>)</p></li>
+<li><p>File တွင်သိမ်းဆည်းပါ</p></li>
+<li><p>Geopackage တွင် သိမ်းဆည်းပါ</p></li>
+<li><p>Database ဇယားတွင် သိမ်းဆည်းပါ</p></li>
+</ul>
+<p>File encoding ကိုလည်းဤနေရာတွင်ပြောင်းလဲနိုင်ပါသည်။</p>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id39">
+<h4>အဆင့်မြင့် သတ်မှတ်ချက်များ (Advanced parameters)<a class="headerlink" href="#id39" title="Link to this heading"></a></h4>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Grid size</strong> <strong>(Grid အရွယ်အစား)</strong></p>
+<p>Optional (မဖြစ်မနေလုပ်ဆောင်ရန်မလိုပါ)</p>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">GRID_SIZE</span></code></p></td>
+<td><p>[number]</p>
+<p>Default: Not set</p>
+</td>
+<td><p>Grid အရွယ်အစားကိုသတ်မှတ်ပေးထားလျှင် input ဂျီဩမေတြီများကို သတ်မှတ်ထားသော grid တစ်ခုပေါ်တွင် snap (ဆွဲကပ်) ပေးမည်ဖြစ်ပြီး ရရှိလာသော vertex များကို ထိုတူညီသော grid ပေါ်တွင် တွက်ချက်မည်ဖြစ်သည်။ ဤလုပ်ဆောင်ချက်အတွက် GEOS 3.9.0 သို့မဟုတ် ပိုမြင့်သော ဗားရှင်းကိုလိုအပ်ပါသည်။</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="id40">
+<h3>ရလာဒ်များ (Outputs)<a class="headerlink" href="#id40" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Overlap</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
+<td><p>[input နှင့်အတူတူဖြစ်ပါသည်]</p></td>
+<td><p>ရွေးချယ်ထားသော layer တစ်ခုစီမှ ထပ်နေသော input feature ၏ overlap (မြေပုံယူနစ်များနှင့် ရာခိုင်နှုန်းဖြင့်) ကို ပြသသည့် ထပ်ဆောင်း field များပါဝင်သော output layer။</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id41">
+<h3>Python code<a class="headerlink" href="#id41" title="Link to this heading"></a></h3>
+<p><strong>Algorithm ID</strong>: <code class="docutils literal notranslate"><span class="pre">native:calculatevectoroverlaps</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">processing</span>
+<span class="n">processing</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;algorithm_id&quot;</span><span class="p">,</span> <span class="p">{</span><span class="n">parameter_dictionary</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>Processing Toolbox ထဲရှိ algorithm ပေါ်တွင် mouse ကိုတင်ထားလျှင် <em>algorithm id</em> ကိုပြသပေးပါသည်။ <em>parameter dictionary</em> သည် parameter နာမည်များနှင့် တန်ဖိုးများကို ပေးပါသည်။ Python console မှ algorithm များကို မည်သို့လုပ်ဆောင်ရမည် ဆိုသည့် အသေးစိတ်ကို သိရှိလိုလျှင် <a class="reference internal" href="../../processing/console.html#processing-console"><span class="std std-ref">Console တွင် processing algorithm များကို အသုံးပြုခြင်း</span></a> တွင်ကြည့်ပါ။</p>
+</section>
+</section>
+<section id="feature-shortest-line-between-features">
+<span id="qgisshortestline"></span><h2><a class="toc-backref" href="#id74" role="doc-backlink"><span class="section-number">29.1.15.14. </span>Feature များအကြားရှိ အတိုဆုံးမျဉ်း (Shortest line between features)</a><a class="headerlink" href="#feature-shortest-line-between-features" title="Link to this heading"></a></h2>
+<p>ရင်းမြစ် layer နှင့် ဦးတည်ရာ layer အကြား အတိုဆုံး line layer တစ်ခုကို ဖန်တီးပေးပါသည်။ Default အားဖြင့် ဉီးတည်ရာ layer ၏ ပထမ အနီးဆုံး feature ကိုသာထည့်သွင်းစဉ်းစားမည်ဖြစ်သည်။ n-nearest neighboring feature များ၏ အရေအတွက်ကို သတ်မှတ်နိုင်သည်။ အကယ်၍ အများဆုံးအကွာအဝေးကိုသတ်မှတ်ထားလျှင် ဤအကွာအဝေးထက် နီးသော feature များကိုသာစဉ်းစားမည်ဖြစ်သည်။</p>
+<p>Output feature များတွင် ရင်းမြစ် layer မှ attribute များအားလုံး၊ n-nearest feature မှ attribute များအားလုံးနှင့် ထပ်ဆောင်းထည့်သွင်းထားသော အကွာအဝေးဖော်ပြသည့် field တို့ ပါဝင်မည်ဖြစ်သည်။</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>ဤ algorithm သည် အကွာအဝေး တွက်ချက်ရာတွင် Cartesian တွက်ချက်နည်းကိုသာ အသုံးပြုပြီး feature proximity (အနီးအဝေး) ကိုဆုံးဖြတ်သောအခါ geodetic (ကမ္ဘာ၏အရွယ်အစားနှင့်ဆိုင်သော) သို့မဟုတ် ellipsoid (ဘဲဥပုံစက်လုံးနှင့်ဆိုင်သော) ဂုဏ်သတ္တိများကို ထည့်သွင်းစဉ်းစားမည်မဟုတ်ပါ။ အတိုင်းအတာများနှင့် output ကိုဩဒိနိတ်စနစ်ကို  ရင်းမြစ် layer ၏ ကိုဩဒိနိတ်စနစ်ပေါ်တွင် အခြေခံထားသည်။</p>
+</div>
+<figure class="align-center" id="id60">
+<img alt="../../../../_images/shortest_line.png" src="../../../../_images/shortest_line.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 29.35 </span><span class="caption-text">Point feature များမှ line များသို့ အတိုဆုံးမျဉ်း</span><a class="headerlink" href="#id60" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<section id="id42">
+<h3>သတ်မှတ်ချက်များ (Parameters)<a class="headerlink" href="#id42" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Source layer</strong> <strong>(ရင်းမြစ် layer)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">SOURCE</span></code></p></td>
+<td><p>[vector: any]</p></td>
+<td><p>အနီးစပ်ဆုံး အနီးအနား (nearest neighbor) များကိုရှာဖွေပေးမည့် မူရင်း layer</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Destination layer</strong> <strong>(ဦးတည်ရာ layer)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">DESTINATION</span></code></p></td>
+<td><p>[vector: any]</p></td>
+<td><p>အနီးစပ်ဆုံး အနီးအနား (nearest neighbor) များကိုရှာဖွေရမည့် ဦးတည်ရာ Layer</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Method</strong> <strong>(နည်းလမ်း)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">METHOD</span></code></p></td>
+<td><p>[enumeration]</p>
+<p>Default: 0</p>
+</td>
+<td><p>အတိုဆုံးအကွာအဝေးအားတွက်ချက်သည့် နည်းလမ်း။ ဖြစ်နိုင်ချေရှိသော တန်ဖိုးများမှာ-</p>
+<ul class="simple">
+<li><p>0 — Feature ပေါ်ရှိ အနီးဆုံး point သို့ အကွာအဝေး</p></li>
+<li><p>1 — Feature centroid သို့အကွာအဝေး</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p><strong>Maximum number of neighbors</strong> <strong>(အများဆုံး အနီးအနားများအရေအတွက်)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">NEIGHBORS</span></code></p></td>
+<td><p>[number]</p>
+<p>Default: 1</p>
+</td>
+<td><p>ရှာဖွေရမည့် အများဆုံး အနီးအနားများအရေအတွက်</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Maximum distance</strong> <strong>(အများဆုံးအကွာအဝေး)</strong></p>
+<p>Optional</p>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">DISTANCE</span></code></p></td>
+<td><p>[number]</p></td>
+<td><p>ဤ အကွာအဝေးထက်ပိုနီးသည့် ဦးတည်ရာ feature များကိုသာ ထည့်သွင်းစဉ်းစားမည်ဖြစ်သည်။</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Shortest lines</strong> <strong>(အတိုဆုံးမျဉ်းများ)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
+<td><p>[vector: line]</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">[Create</span> <span class="pre">temporary</span> <span class="pre">layer]</span></code></p>
+</td>
+<td><p>Output vector layer ကိုသတ်မှတ်ပါ။ အောက်ပါတို့ထဲမှ တစ်ခုဖြစ်သည်-</p>
+<ul class="simple">
+<li><p>ယာယီ layer ဖန်တီးပါ (<code class="docutils literal notranslate"><span class="pre">TEMPORARY_OUTPUT</span></code>)</p></li>
+<li><p>File တွင်သိမ်းဆည်းပါ</p></li>
+<li><p>Geopackage တွင် သိမ်းဆည်းပါ</p></li>
+<li><p>Database ဇယားတွင် သိမ်းဆည်းပါ</p></li>
+</ul>
+<p>File encoding ကိုလည်းဤနေရာတွင်ပြောင်းလဲနိုင်ပါသည်။</p>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id43">
+<h3>ရလာဒ်များ (Outputs)<a class="headerlink" href="#id43" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Output layer</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
+<td><p>[vector: line]</p></td>
+<td><p>ရင်းမြစ် feature များအား ဦးတည်ရာ layer ထဲရှိ ၎င်းတို့နှင့် အနီးစပ်ဆုံး အနီးအနား (nearest neighbor) များနှင့် ချိတ်ဆက်ထားသော line vector layer ။ ၎င်းတွင် ရင်းမြစ် feature များနှင့် ဦးတည်ရာ feature များ နှစ်ခုစလုံးအတွက် attribute များအားလုံးနှင့် တွက်ချက်ထားသော အကွာအဝေးပါဝင်ပါသည်။</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id44">
+<h3>Python code<a class="headerlink" href="#id44" title="Link to this heading"></a></h3>
+<p><strong>Algorithm ID</strong>: <code class="docutils literal notranslate"><span class="pre">native:shortestline</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">processing</span>
+<span class="n">processing</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;algorithm_id&quot;</span><span class="p">,</span> <span class="p">{</span><span class="n">parameter_dictionary</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>Processing Toolbox ထဲရှိ algorithm ပေါ်တွင် mouse ကိုတင်ထားလျှင် <em>algorithm id</em> ကိုပြသပေးပါသည်။ <em>parameter dictionary</em> သည် parameter နာမည်များနှင့် တန်ဖိုးများကို ပေးပါသည်။ Python console မှ algorithm များကို မည်သို့လုပ်ဆောင်ရမည် ဆိုသည့် အသေးစိတ်ကို သိရှိလိုလျှင် <a class="reference internal" href="../../processing/console.html#processing-console"><span class="std std-ref">Console တွင် processing algorithm များကို အသုံးပြုခြင်း</span></a> တွင်ကြည့်ပါ။</p>
+</section>
+</section>
+<section id="st-dbscan-st-dbscan-clustering">
+<span id="qgisstdbscanclustering"></span><h2><a class="toc-backref" href="#id75" role="doc-backlink"><span class="section-number">29.1.15.15. </span>ST-DBSCAN ဖြင့် စုဖွဲ့ခြင်း (ST-DBSCAN clustering)</a><a class="headerlink" href="#st-dbscan-st-dbscan-clustering" title="Link to this heading"></a></h2>
+<p>Point feature များကို ST-DBSCAN (spatiotemporal Density-based clustering of applications with noise) algorithm ၏ 2D (နှစ်ဘက်မြင်) ဆောင်ရွက်ခြင်းကို အခြေခံ၍ စုဖွဲ့ပေးပါသည်။</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="#qgisdbscanclustering"><span class="std std-ref">DBSCAN ဖြင့်စုဖွဲ့ခြင်း (DBSCAN clustering)</span></a> ၊ <a class="reference internal" href="#qgiskmeansclustering"><span class="std std-ref">K-means နည်းလမ်းဖြင့် စုဖွဲ့ခြင်း (K-means clustering)</span></a></p>
+</div>
+<section id="id45">
+<h3>သတ်မှတ်ချက်များ (Parameters)<a class="headerlink" href="#id45" title="Link to this heading"></a></h3>
+<section id="id46">
+<h4>အခြေခံ သတ်မှတ်ချက်များ (Basic parameters)<a class="headerlink" href="#id46" title="Link to this heading"></a></h4>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Input layer</strong> <strong>(ထည့်သွင်းအသုံးပြုသော layer)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">INPUT</span></code></p></td>
+<td><p>[vector: point]</p></td>
+<td><p>လေ့လာဆန်းစစ်မည့် Layer</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Date/time field</strong> <strong>(ရက်စွဲ/အချိန် field)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">DATETIME_FIELD</span></code></p></td>
+<td><p>[tablefield: date]</p></td>
+<td><p>အချိန်ဆိုင်ရာ အချက်အလက်များ ပါဝင်သော field</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Minimum cluster size</strong> <strong>(အငယ်ဆုံး အစုအဖွဲ့ အရွယ်အစား)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">MIN_SIZE</span></code></p></td>
+<td><p>[number]</p>
+<p>Default: 5</p>
+</td>
+<td><p>Cluster တစ်စုဖန်တီးရန် လိုအပ်သည့် အနည်းဆုံး feature အရေအတွက်</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Maximum distance between clustered points</strong> <strong>(စုဖွဲ့ထားသော point များအကြား အများဆုံး အကွာအဝေး)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">EPS</span></code></p></td>
+<td><p>[number]</p>
+<p>Default: 1.0</p>
+</td>
+<td><p>ယခုသတ်မှတ်မည့် အကွာအဝေးကို ကျော်လွန်၍ feature နှစ်ခုသည် တူညီသော cluster (eps) နှင့်သက်ဆိုင်မှုမရှိစေနိုင်ပါ။</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Maximum time duration between clustered points</strong> <strong>(စုဖွဲ့ထားသော point များအကြား အများဆုံးကြာချိန်ကာလ)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">EPS2</span></code></p></td>
+<td><p>[number]</p>
+<p>Default: 0.0 (days)</p>
+</td>
+<td><p>ယခုသတ်မှတ်မည့် ကြာချိန်ကို ကျော်လွန်၍ feature နှစ်ခုသည် တူညီသော cluster (eps) နှင့်သက်ဆိုင်မှုမရှိစေနိုင်ပါ။ ရရှိနိုင်သော အချိန်ယူနစ်များမှာ မီလီစက္ကန့်များ၊ စက္ကန့်များ၊ မိနစ်များ၊ နာရီများ၊ ရက်များနှင့် ရက်သတ္တပတ်များ။</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Clusters</strong> <strong>(အစုအဖွဲ့များ)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
+<td><p>[vector: point]</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">[Create</span> <span class="pre">temporary</span> <span class="pre">layer]</span></code></p>
+</td>
+<td><p>စုဖွဲ့ခြင်း၏ ရလာဒ်များအတွက် vector layer ကိုသတ်မှတ်ပါ။ အောက်ပါတို့ထဲမှ တစ်ခုဖြစ်ပါသည်-</p>
+<ul class="simple">
+<li><p>ယာယီ layer ဖန်တီးပါ (<code class="docutils literal notranslate"><span class="pre">TEMPORARY_OUTPUT</span></code>)</p></li>
+<li><p>File တွင်သိမ်းဆည်းပါ</p></li>
+<li><p>Geopackage တွင် သိမ်းဆည်းပါ</p></li>
+<li><p>Database ဇယားတွင် သိမ်းဆည်းပါ</p></li>
+</ul>
+<p>File encoding ကိုလည်းဤနေရာတွင်ပြောင်းလဲနိုင်ပါသည်။</p>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id47">
+<h4>အဆင့်မြင့် သတ်မှတ်ချက်များ (Advanced parameters)<a class="headerlink" href="#id47" title="Link to this heading"></a></h4>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Treat border points as noise (DBSCAN*)</strong> <strong>(အနားသတ်ဘောင်များပေါ်ရှိ point များကို noise အဖြစ်စဉ်းစားခြင်း)</strong></p>
+<p>Optional (မဖြစ်မနေလုပ်ဆောင်ရန်မလိုပါ)</p>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">DBSCAN*</span></code></p></td>
+<td><p>[boolean]</p>
+<p>Default: False</p>
+</td>
+<td><p>အမှန်ခြစ်ပေးထားပါက cluster တစ်ခု၏ အနားသတ်ဘောင်များပေါ်ရှိ point များကို စုဖွဲ့ခြင်းမလုပ်ထားသော point များအဖြစ်သတ်မှတ်မည်ဖြစ်ပြီး cluster တစ်ခု၏အတွင်းရှိ point များကိုသာလျှင် စုဖွဲ့ထားသည်များအဖြစ် သတ်မှတ်မည်ဖြစ်သည်။</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Cluster field name</strong> <strong>(Cluster field ၏အမည်)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">FIELD_NAME</span></code></p></td>
+<td><p>[string]</p>
+<p>Default: ‘CLUSTER_ID’</p>
+</td>
+<td><p>သက်ဆိုင်ရာ cluster နံပါတ်ကို သိမ်းဆည်းထားပေးမည့် field ၏အမည်</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Cluster size field name</strong> <strong>(Cluster အရွယ်အစားအတွက် field ၏အမည်)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">SIZE_FIELD_NAME</span></code></p></td>
+<td><p>[string]</p>
+<p>Default: ‘CLUSTER_SIZE’</p>
+</td>
+<td><p>တူညီသော cluster ထဲရှိ feature များ၏အရေအတွက်ပါရှိသော field ၏အမည်</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="id48">
+<h3>ရလာဒ်များ (Outputs)<a class="headerlink" href="#id48" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Clusters</strong> <strong>(အစုအဖွဲ့များ)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
+<td><p>[vector: point]</p></td>
+<td><p>မူရင်း feature များအပြင် ၎င်းတို့ သက်ဆိုင်သော cluster field တစ်ခု ပါရှိသော vector layer</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Number of clusters</strong> <strong>(Cluster များ၏အရေအတွက်)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">NUM_CLUSTERS</span></code></p></td>
+<td><p>[number]</p></td>
+<td><p>တွေ့ရှိရသော cluster များ၏အရေအတွက်</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id49">
+<h3>Python code<a class="headerlink" href="#id49" title="Link to this heading"></a></h3>
+<p><strong>Algorithm ID</strong>: <code class="docutils literal notranslate"><span class="pre">native:stdbscanclustering</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">processing</span>
+<span class="n">processing</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;algorithm_id&quot;</span><span class="p">,</span> <span class="p">{</span><span class="n">parameter_dictionary</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>Processing Toolbox ထဲရှိ algorithm ပေါ်တွင် mouse ကိုတင်ထားလျှင် <em>algorithm id</em> ကိုပြသပေးပါသည်။ <em>parameter dictionary</em> သည် parameter နာမည်များနှင့် တန်ဖိုးများကို ပေးပါသည်။ Python console မှ algorithm များကို မည်သို့လုပ်ဆောင်ရမည် ဆိုသည့် အသေးစိတ်ကို သိရှိလိုလျှင် <a class="reference internal" href="../../processing/console.html#processing-console"><span class="std std-ref">Console တွင် processing algorithm များကို အသုံးပြုခြင်း</span></a> တွင်ကြည့်ပါ။</p>
+</section>
+</section>
+<section id="statistics-by-categories">
+<span id="qgisstatisticsbycategories"></span><h2><a class="toc-backref" href="#id76" role="doc-backlink"><span class="section-number">29.1.15.16. </span>အမျိုးအစားဆိုင်ရာ ကိန်းဂဏန်းအချက်အလက်များ (Statistics by categories)</a><a class="headerlink" href="#statistics-by-categories" title="Link to this heading"></a></h2>
+<p>Parent class (မူရင်းအတန်းအစား) တစ်ခုပေါ်တွင်မူတည်သော field တစ်ခု၏ ကိန်းဂဏန်းအချက်အလက်များကို တွက်ချက်ပေးပါသည်။ Parent class သည် အခြား field များမှ တန်ဖိုးများ စုပေါင်းထားမှု တစ်ခုဖြစ်သည်။</p>
+<section id="id50">
+<h3>သတ်မှတ်ချက်များ (Parameters)<a class="headerlink" href="#id50" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Input vector layer</strong> <strong>(ထည့်သွင်းအသုံးပြုသော vector layer)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">INPUT</span></code></p></td>
+<td><p>[vector: any]</p></td>
+<td><p>သီးခြားကွဲပြားသည့် အတန်းအစားများနှင့် တန်ဖိုးများပါဝင်သော input vector layer</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Field to calculate statistics on (if empty, only count is calculated)</strong> <strong>(ကိန်းဂဏန်းအချက်အလက်များတွက်ချက်မည့် Field (ဗလာဖြစ်နေလျှင် အရေအတွက်ကိုသာတွက်ချက်မည်))</strong></p>
+<p>Optional (မဖြစ်မနေလုပ်ဆောင်ရန်မလိုပါ)</p>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">VALUES_FIELD_NAME</span></code></p></td>
+<td><p>[tablefield: any]</p></td>
+<td><p>ဗလာဖြစ်နေလျှင် အရေအတွက်ကိုသာ တွက်ချက်မည်ဖြစ်သည်။</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Field(s) with categories</strong> <strong>(အမျိုးအစားများပါဝင်သော field များ)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">CATEGORIES_FIELD_NAME</span></code></p></td>
+<td><p>[vector: any] [list]</p></td>
+<td><p>အမျိုးအစားများကို သတ်မှတ်ပေးသည့် field များ</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Statistics by category</strong> <strong>(အမျိုးအစားအရ ကိန်းဂဏန်းအချက်အလက်များ)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
+<td><p>[table]</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">[Create</span> <span class="pre">temporary</span> <span class="pre">layer]</span></code></p>
+</td>
+<td><p>ထွက်ရှိလာသော ကိန်းဂဏန်းအချက်အလက်များအတွက် output ဇယားကိုသတ်မှတ်ပါ။ အောက်ပါတို့ထဲမှ တစ်ခုဖြစ်ပါသည်-</p>
+<ul class="simple">
+<li><p>ယာယီ layer ဖန်တီးပါ (<code class="docutils literal notranslate"><span class="pre">TEMPORARY_OUTPUT</span></code>)</p></li>
+<li><p>File တွင်သိမ်းဆည်းပါ</p></li>
+<li><p>Geopackage တွင် သိမ်းဆည်းပါ</p></li>
+<li><p>Database ဇယားတွင် သိမ်းဆည်းပါ</p></li>
+</ul>
+<p>File encoding ကိုလည်းဤနေရာတွင်ပြောင်းလဲနိုင်ပါသည်။</p>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id51">
+<h3>ရလာဒ်များ (Outputs)<a class="headerlink" href="#id51" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Statistics by category</strong> <strong>(အမျိုးအစားအရ ကိန်းဂဏန်းအချက်အလက်များ)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
+<td><p>[table]</p></td>
+<td><p>ကိန်းဂဏန်းအချက်အလက်များပါဝင်သော ဇယား</p></td>
+</tr>
+</tbody>
+</table>
+<p>လေ့လာဆန်းစစ်ခြင်းခံရသည့် field အမျိုးအစားပေါ်တွင်မူတည်၍ အုပ်စုဖွဲ့ထားသော တန်ဖိုးတစ်ခုစီအတွက် အောက်ပါ ကိန်းဂဏန်းအချက်အလက်များကို ပြန်ထုတ်ပေးပါသည်-</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 63.3%" />
+<col style="width: 12.2%" />
+<col style="width: 12.2%" />
+<col style="width: 12.2%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>ကိန်းဂဏန်းအချက်အလက်များ</p></th>
+<th class="head"><p>စာသား</p></th>
+<th class="head"><p>ကိန်းဂဏန်း</p></th>
+<th class="head"><p>ရက်စွဲ</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>အရေအတွက် (<code class="docutils literal notranslate"><span class="pre">COUNT</span></code>)</p></td>
+<td><p><a class="reference internal" href="../../../../_images/checkbox.png"><img alt="checkbox" src="../../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../../_images/checkbox.png"><img alt="checkbox" src="../../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../../_images/checkbox.png"><img alt="checkbox" src="../../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>သီးခြားကွဲပြားသည့်တန်ဖိုးများ (<code class="docutils literal notranslate"><span class="pre">UNIQUE</span></code>)</p></td>
+<td><p><a class="reference internal" href="../../../../_images/checkbox.png"><img alt="checkbox" src="../../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td></td>
+<td><p><a class="reference internal" href="../../../../_images/checkbox.png"><img alt="checkbox" src="../../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+</tr>
+<tr class="row-even"><td><p>ဗလာ (null) တန်ဖိုးများ (<code class="docutils literal notranslate"><span class="pre">EMPTY</span></code>)</p></td>
+<td><p><a class="reference internal" href="../../../../_images/checkbox.png"><img alt="checkbox" src="../../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td></td>
+<td><p><a class="reference internal" href="../../../../_images/checkbox.png"><img alt="checkbox" src="../../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>ဗလာမဟုတ်သော တန်ဖိုးများ (<code class="docutils literal notranslate"><span class="pre">FILLED</span></code>)</p></td>
+<td><p><a class="reference internal" href="../../../../_images/checkbox.png"><img alt="checkbox" src="../../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td></td>
+<td><p><a class="reference internal" href="../../../../_images/checkbox.png"><img alt="checkbox" src="../../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+</tr>
+<tr class="row-even"><td><p>အနည်းဆုံးတန်ဖိုး (<code class="docutils literal notranslate"><span class="pre">MIN</span></code>)</p></td>
+<td><p><a class="reference internal" href="../../../../_images/checkbox.png"><img alt="checkbox" src="../../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../../_images/checkbox.png"><img alt="checkbox" src="../../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../../_images/checkbox.png"><img alt="checkbox" src="../../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>အများဆုံးတန်ဖိုး(<code class="docutils literal notranslate"><span class="pre">MAX</span></code>)</p></td>
+<td><p><a class="reference internal" href="../../../../_images/checkbox.png"><img alt="checkbox" src="../../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../../_images/checkbox.png"><img alt="checkbox" src="../../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td><p><a class="reference internal" href="../../../../_images/checkbox.png"><img alt="checkbox" src="../../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+</tr>
+<tr class="row-even"><td><p>အပိုင်းအခြား (<code class="docutils literal notranslate"><span class="pre">RANGE</span></code>)</p></td>
+<td></td>
+<td><p><a class="reference internal" href="../../../../_images/checkbox.png"><img alt="checkbox" src="../../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>ပေါင်းလဒ် (<code class="docutils literal notranslate"><span class="pre">SUM</span></code>)</p></td>
+<td></td>
+<td><p><a class="reference internal" href="../../../../_images/checkbox.png"><img alt="checkbox" src="../../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>ပျှမ်းမျှတန်ဖိုး (<code class="docutils literal notranslate"><span class="pre">MEAN</span></code>)</p></td>
+<td></td>
+<td><p><a class="reference internal" href="../../../../_images/checkbox.png"><img alt="checkbox" src="../../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>တဝက်ကိန်းတန်ဖိုး (<code class="docutils literal notranslate"><span class="pre">MEDIAN</span></code>)</p></td>
+<td></td>
+<td><p><a class="reference internal" href="../../../../_images/checkbox.png"><img alt="checkbox" src="../../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>စံတိမ်းချက် (<code class="docutils literal notranslate"><span class="pre">STD_DEV</span></code>)</p></td>
+<td></td>
+<td><p><a class="reference internal" href="../../../../_images/checkbox.png"><img alt="checkbox" src="../../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>ပြောင်းလဲမှုပြကိန်း (<code class="docutils literal notranslate"><span class="pre">CV</span></code>)</p></td>
+<td></td>
+<td><p><a class="reference internal" href="../../../../_images/checkbox.png"><img alt="checkbox" src="../../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>အနည်းစု (အနည်းဆုံးတွေ့ရှိရသည့်တန်ဖိုး - <code class="docutils literal notranslate"><span class="pre">MINORITY</span></code>)</p></td>
+<td></td>
+<td><p><a class="reference internal" href="../../../../_images/checkbox.png"><img alt="checkbox" src="../../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>အများစု (အများဆုံးတွေ့ရှိရသည့်တန်ဖိုး - <code class="docutils literal notranslate"><span class="pre">MAJORITY</span></code>)</p></td>
+<td></td>
+<td><p><a class="reference internal" href="../../../../_images/checkbox.png"><img alt="checkbox" src="../../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>First Quartile (<code class="docutils literal notranslate"><span class="pre">FIRSTQUARTILE</span></code>)</p></td>
+<td></td>
+<td><p><a class="reference internal" href="../../../../_images/checkbox.png"><img alt="checkbox" src="../../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Third Quartile (<code class="docutils literal notranslate"><span class="pre">THIRDQUARTILE</span></code>)</p></td>
+<td></td>
+<td><p><a class="reference internal" href="../../../../_images/checkbox.png"><img alt="checkbox" src="../../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Inter Quartile Range (<code class="docutils literal notranslate"><span class="pre">IQR</span></code>)</p></td>
+<td></td>
+<td><p><a class="reference internal" href="../../../../_images/checkbox.png"><img alt="checkbox" src="../../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>အနည်းဆုံးအလျား (<code class="docutils literal notranslate"><span class="pre">MIN_LENGTH</span></code>)</p></td>
+<td><p><a class="reference internal" href="../../../../_images/checkbox.png"><img alt="checkbox" src="../../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>ပျမ်းမျှ အလျား (<code class="docutils literal notranslate"><span class="pre">MEAN_LENGTH</span></code>)</p></td>
+<td><p><a class="reference internal" href="../../../../_images/checkbox.png"><img alt="checkbox" src="../../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>အများဆုံးအလျား (<code class="docutils literal notranslate"><span class="pre">MAX_LENGTH</span></code>)</p></td>
+<td><p><a class="reference internal" href="../../../../_images/checkbox.png"><img alt="checkbox" src="../../../../_images/checkbox.png" style="width: 1.3em;" /></a></p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id52">
+<h3>Python code<a class="headerlink" href="#id52" title="Link to this heading"></a></h3>
+<p><strong>Algorithm ID</strong>: <code class="docutils literal notranslate"><span class="pre">qgis:statisticsbycategories</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">processing</span>
+<span class="n">processing</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;algorithm_id&quot;</span><span class="p">,</span> <span class="p">{</span><span class="n">parameter_dictionary</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>Processing Toolbox ထဲရှိ algorithm ပေါ်တွင် mouse ကိုတင်ထားလျှင် <em>algorithm id</em> ကိုပြသပေးပါသည်။ <em>parameter dictionary</em> သည် parameter နာမည်များနှင့် တန်ဖိုးများကို ပေးပါသည်။ Python console မှ algorithm များကို မည်သို့လုပ်ဆောင်ရမည် ဆိုသည့် အသေးစိတ်ကို သိရှိလိုလျှင် <a class="reference internal" href="../../processing/console.html#processing-console"><span class="std std-ref">Console တွင် processing algorithm များကို အသုံးပြုခြင်း</span></a> တွင်ကြည့်ပါ။</p>
+</section>
+</section>
+<section id="sum-line-lengths">
+<span id="qgissumlinelengths"></span><h2><a class="toc-backref" href="#id77" role="doc-backlink"><span class="section-number">29.1.15.17. </span>မျဉ်းအလျားများပေါင်းခြင်း (Sum line lengths)</a><a class="headerlink" href="#sum-line-lengths" title="Link to this heading"></a></h2>
+<p>Polygon layer တစ်ခု နှင့် line layer တစ်ခုကိုယူ၍ line များ၏စုစုပေါင်းအလျားနှင့် polygon တစ်ခုစီကိုဖြတ်သွားသည့် line များ၏ စုစုပေါင်းအရေအတွက်ကို တိုင်းတာပေးပါသည်။</p>
+<p>ရလာဒ် layer တွင် input layer အတိုင်း တူညီသော feature များရှိမည်ဖြစ်ပြီး polygon တစ်ခုစီကိုဖြတ်သွားသည့် line များ၏ အလျားနှင့် အရေအတွက်များပါဝင်သော ထပ်ဆောင်း  attribute နှစ်ခုပါဝင်မည်ဖြစ်သည်။</p>
+<p><a class="reference internal" href="../../../../_images/checkbox.png"><img alt="checkbox" src="../../../../_images/checkbox.png" style="width: 1.3em;" /></a> တွင်အမှန်ခြစ်ပေးခြင်းဖြင့် polygon feature များအတွက် <a class="reference internal" href="../../working_with_vector/editing_geometry_attributes.html#processing-inplace-edit"><span class="std std-ref">features in-place modification (နေရာတွင် feature များကို မွမ်းမံပြင်ဆင်ခြင်း)</span></a> ကိုအသုံးပြုနိုင်သည်။</p>
+<p><strong>Default menu</strong>- <span class="menuselection">Vector ► Analysis Tools</span></p>
+<section id="id53">
+<h3>သတ်မှတ်ချက်များ (Parameters)<a class="headerlink" href="#id53" title="Link to this heading"></a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Lines</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">LINES</span></code></p></td>
+<td><p>[vector: line]</p></td>
+<td><p>ထည့်သွင်းအသုံးပြုသော vector line layer</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Polygons</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">POLYGONS</span></code></p></td>
+<td><p>[vector: polygon]</p></td>
+<td><p>Polygon vector layer</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Lines length field name</strong> <strong>(မျဉ်းများ၏ အလျား field အမည်)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">LEN_FIELD</span></code></p></td>
+<td><p>[string]</p>
+<p>Default: ‘LENGTH’</p>
+</td>
+<td><p>မျဉ်းများ၏ အလျားကိုပြသော field ၏အမည်</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Lines count field name</strong> <strong>(မျဉ်းများ၏ အရေအတွက် field အမည်)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">COUNT_FIELD</span></code></p></td>
+<td><p>[string]</p>
+<p>Default: ‘COUNT’</p>
+</td>
+<td><p>မျဉ်းများ၏ အရေအတွက်ကိုပြသော field ၏အမည်</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Line length</strong> <strong>(မျဉ်းအလျား)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
+<td><p>[vector: polygon]</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">[Create</span> <span class="pre">temporary</span> <span class="pre">layer]</span></code></p>
+</td>
+<td><p>တွက်ထုတ်ထားသည့် ကိန်းဂဏန်းအချက်အလက်များပါရှိသည့် output polygon layer သတ်မှတ်ပါ။ အောက်ပါတို့ထဲမှ တစ်ခုဖြစ်ပါသည်-</p>
+<ul class="simple">
+<li><p>ယာယီ layer ဖန်တီးပါ (<code class="docutils literal notranslate"><span class="pre">TEMPORARY_OUTPUT</span></code>)</p></li>
+<li><p>File တွင်သိမ်းဆည်းပါ</p></li>
+<li><p>Geopackage တွင် သိမ်းဆည်းပါ</p></li>
+<li><p>Database ဇယားတွင် သိမ်းဆည်းပါ</p></li>
+</ul>
+<p>File encoding ကိုလည်းဤနေရာတွင်ပြောင်းလဲနိုင်ပါသည်။</p>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id54">
+<h3>ရလာဒ်များ (Outputs)<a class="headerlink" href="#id54" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>အညွှန်း</p></th>
+<th class="head"><p>အမည်</p></th>
+<th class="head"><p>အမျိုးအစား</p></th>
+<th class="head"><p>ရှင်းလင်းဖော်ပြချက်</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Line length</strong> <strong>(မျဉ်းအလျား)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
+<td><p>[vector: polygon]</p></td>
+<td><p>မျဉ်းများ၏ အလျားနှင့် မျဉ်းအရေအတွက်ပါဝင်သော field များပါရှိသည့် polygon output layer</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id55">
+<h3>Python code<a class="headerlink" href="#id55" title="Link to this heading"></a></h3>
+<p><strong>Algorithm ID</strong>: <code class="docutils literal notranslate"><span class="pre">native:sumlinelengths</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">processing</span>
+<span class="n">processing</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;algorithm_id&quot;</span><span class="p">,</span> <span class="p">{</span><span class="n">parameter_dictionary</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>Processing Toolbox ထဲရှိ algorithm ပေါ်တွင် mouse ကိုတင်ထားလျှင် <em>algorithm id</em> ကိုပြသပေးပါသည်။ <em>parameter dictionary</em> သည် parameter နာမည်များနှင့် တန်ဖိုးများကို ပေးပါသည်။ Python console မှ algorithm များကို မည်သို့လုပ်ဆောင်ရမည် ဆိုသည့် အသေးစိတ်ကို သိရှိလိုလျှင် <a class="reference internal" href="../../processing/console.html#processing-console"><span class="std std-ref">Console တွင် processing algorithm များကို အသုံးပြုခြင်း</span></a> တွင်ကြည့်ပါ။</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="rastertools.html" class="btn btn-neutral float-left" title="29.1.14. Raster ကိရိယာများ (Raster tools)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="vectorcreation.html" class="btn btn-neutral float-right" title="29.1.16. Vector ဖန်တီးခြင်း (Vector creation)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2002-now, QGIS project.
+      <span class="lastupdated">Last updated on 2024 May 13, 16:23 +0700.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- Transifex follows a particular logic to build target pages:
+Expected French translation link for https://docs.qgis.org/3.28/en/docs/user_manual/print_composer/overview_composer.html
+would return https://app.transifex.com/qgis/qgis-documentation/translate/#fr/aa6d8bc653526d38b295ca94bf8eee5e
+with the md5 value of "github#qgis/QGIS-Documentation#release_3.28#locale/en/LC_MESSAGES/docs/user_manual/print_composer/overview_composer.po"-->
+<!--Make sure that mismatching language codes between Transifex and Sphinx are converted-->
+
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-info-circle"> QGIS Documentation </span>
+      v: 3.28
+      <span class="fa fa-caret-down"></span>
+    </span>
+
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Languages</dt>
+        
+          <dd><a href="https://docs.qgis.org/3.28/en/docs/user_manual/processing_algs/qgis/vectoranalysis.html">en</a></dd>
+        
+      </dl>
+
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/user_manual/processing_algs/qgis/vectoranalysis.html">testing</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/latest/en/docs/user_manual/processing_algs/qgis/vectoranalysis.html">latest</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.28/en/docs/user_manual/processing_algs/qgis/vectoranalysis.html">3.28</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.22/en/docs/user_manual/processing_algs/qgis/vectoranalysis.html">3.22</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.16/en/docs/user_manual/processing_algs/qgis/vectoranalysis.html">3.16</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.10/en/docs/user_manual/processing_algs/qgis/vectoranalysis.html">3.10</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.4/en/docs/user_manual/processing_algs/qgis/vectoranalysis.html">3.4</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/2.18/en/docs/user_manual/processing_algs/qgis/vectoranalysis.html">2.18</a></dd>
+        
+      </dl>
+
+       
+       <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="https://docs.qgis.org/3.28/pdf">PDF</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.28/zip">HTML</a></dd>
+        
+      </dl>
+      
+
+      
+       
+      <dl>
+        <dt>Contribute to Docs</dt>
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/edit/master/docs/user_manual/processing_algs/qgis/vectoranalysis.rst" target="_blank" rel="noopener noreferrer">Edit on GitHub</a>
+          </dd>
+          
+          
+          <dd>
+            <a href="https://app.transifex.com/qgis/qgis-documentation/translate/#en/b7c52e48685973d68b2de27a1e2661aa" target="_blank" rel="noopener noreferrer">Translate Page</a>
+          </dd>
+          
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/issues" target="_blank" rel="noopener noreferrer">Report Issue</a>
+          </dd>
+      </dl>
+      
+
+      <dl>
+        <dt>On QGIS Project</dt>
+          <dd>
+            <a href="https://qgis.org/en" target="_blank" rel="noopener noreferrer">Home</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/api/3.28" target="_blank" rel="noopener noreferrer">C++ API</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/pyqgis/3.28" target="_blank" rel="noopener noreferrer">PyQGIS API</a>
+          </dd>
+          <dd>
+            <a href="https://github.com/qgis/QGIS/tree/release-3_28" target="_blank" rel="noopener noreferrer">Source</a>
+          </dd>
+      </dl>
+
+    </div>
+  </div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

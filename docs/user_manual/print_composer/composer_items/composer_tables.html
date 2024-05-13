@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>21.2.7. ဇယားများ (The Table Items) &mdash; QGIS Documentation  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/qgis_docs.css?v=3fdf4c33" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
+
+  
+    <link rel="shortcut icon" href="../../../../_static/qgis_logo.ico"/>
+    <link rel="canonical" href="https://docs.qgis.org/latest/en/docs/user_manual/print_composer/composer_items/composer_tables.html"/>
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../../../_static/copybutton.js?v=f281be69"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../../../_static/togglebutton.js?v=4a39c7ea"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="21.2.8. အမှတ်အသား၊ ရုပ်ပုံနှင့် မြောက်အရပ်ပြမြှား များ (The Marker, Picture and North Arrow Items)" href="composer_image.html" />
+    <link rel="prev" title="21.2.6. စကေးဘား (The Scale Bar Item)" href="composer_scale_bar.html" />
+  <meta name="description" content="QGIS 3.28 documentation: 21.2.7. ဇယားများ (The Table Items)">
+</head>
+
+<body class="wy-body-for-nav">
+
+  <nav class="release_status_topbar">
+  </nav>
+
+   
+
+ 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+   
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            QGIS Documentation
+              <img src="../../../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                3.28
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+   <a href= "../../../../genindex.html">Index</a>
+ 
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">အသုံးပြုသူများအတွက်</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../preamble/preamble.html">1. စကားချီး (Preamble)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preamble/foreword.html">2. အမှာစာ (Foreword)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preamble/conventions.html">3. အသုံးအနှုန်းများ (Conventions)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preamble/features.html">4. အသွင်အပြင်များ (Features)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/getting_started.html">5. စတင်အသုံးပြုခြင်း (Getting Started)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/project_files.html">6. Project Files များနှင့် အလုပ်လုပ်ခြင်း (Working with Project Files)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/qgis_gui.html">7. QGIS ၏အစိတ်အပိုင်းများ (QGIS GUI)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/browser.html">8. ဒေတာများရှာဖွေကြည့်ရှုနိုင်သည့်နေရာ (The Browser panel)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/qgis_configuration.html">9. QGIS ပြင်ဆင်သတ်မှတ်ခြင်း/အခင်းအကျင်း (QGIS Configuration)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../working_with_projections/working_with_projections.html">10. မြေပုံအရိပ်ချစနစ်များ နှင့် အလုပ်လုပ်ခြင်း (Working with Projections)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../map_views/index.html">11. မြေပုံများအား ပုံဖော်ကြည့်ရှုခြင်း (Visualizing Maps)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/general_tools.html">12. အထွေ‌ထွေ‌သုံးကိရိယာများ (General Tools)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../expressions/index.html">13. Expression များဖြင့် အဆင့်မြှင့်တင်ဆောင်ရွက်ခြင်း (Level up with Expressions)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../style_library/index.html">14. The Style Library (Style နှင့်ပတ်သက်သည်များ ထားရှိရာနေရာ)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../managing_data_source/index.html">15. ဒေတာအရင်းအမြစ်များအား စီမံခန့်ခွဲခြင်း (Managing Data Source)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../working_with_vector/index.html">16. Vector data များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../working_with_raster/index.html">17. Raster Data နှင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../working_with_mesh/mesh_properties.html">18. Working with Mesh Data (Mesh Data များနှင့် အလုပ်လုပ်ခြင်း)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../working_with_vector_tiles/vector_tiles_properties.html">19. Vector Tiles များနှင့်အလုပ်လုပ်ခြင်း (Working with Vector Tiles)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../working_with_point_clouds/point_clouds.html">20. Point Cloud များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">21. မြေပုံအချောသပ်ပြင်ဆင်ခြင်း (Laying out the maps)</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../overview_composer.html">21.1. ပုံထုတ်အပြင်အဆင်ဆိုင်ရာ ခြုံငုံသုံးသပ်ချက် (Overview of the Print Layout)</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">21.2. အချောထုတ်မြေပုံ၏အစိတ်အပိုင်းများ (Layout items )</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="composer_items_options.html">21.2.1. Layout Item တိုင်းတွင်ရှိသည့်ရွေးချယ်စရာများ (Layout Items Common Options)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="composer_map.html">21.2.2. မြေပုံထည့်ရန် (The Map Item)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="composer_map3d.html">21.2.3. ရုပ်ကြွမြေပုံ (The 3D Map Item)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="composer_label.html">21.2.4. အညွှန်းစာ (The Label Item)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="composer_legend.html">21.2.5. မြေပုံရည်ညွှန်းချက် Item (The Legend Item)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="composer_scale_bar.html">21.2.6. စကေးဘား (The Scale Bar Item)</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">21.2.7. ဇယားများ (The Table Items)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#the-attribute-table-item">21.2.7.1. အချက်အလက်ဇယား (The attribute table item)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#the-fixed-table-item">21.2.7.2. ပုံသေဇယား (The fixed table item)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tables-common-functionalities">21.2.7.3. ဇယားများ၏ တူညီသောလုပ်ဆောင်ချက်များ(Tables common functionalities)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="composer_image.html">21.2.8. အမှတ်အသား၊ ရုပ်ပုံနှင့် မြောက်အရပ်ပြမြှား များ (The Marker,  Picture and North Arrow Items)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="layout_elevation_profile.html">21.2.9. မြေပြင်ဖြတ်ပိုင်းပုံပြ Item (The Elevation Profile Item)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="composer_html_frame.html">21.2.10. HTML အကွက် (The HTML Frame Item)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="composer_shapes.html">21.2.11. အရာဝတ္ထုများ (The Shape Items)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../create_output.html">21.3. ရလာဒ်တစ်ခု ဖန်တီးခြင်း (Creating an Output)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../create_reports.html">21.4. အစီရင်ခံစာတစ်ခုဖန်တီးခြင်း (Creating a Report)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../working_with_ogc/ogc_client_support.html">22. OGC / ISO protocol များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../working_with_gps/index.html">23. GPS Data များနှင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../auth_system/auth_overview.html">24. အထောက်အထားစီစစ်ခြင်းအကြောင်းအကျဉ်း (Authentication System Overview)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../auth_system/auth_workflows.html">25. အသုံးပြုသူ အထောက်အထားစစ်ဆေးခြင်း လုပ်ငန်းအဆင့်များ (User Authentication Workflows)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../auth_system/auth_considerations.html">26. လုံခြုံရေးအတွက်စဉ်းစားရန်အချက်များ (Security Considerations)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../grass_integration/grass_integration.html">27. GRASS GIS နှင့်ပေါင်းစပ်အသုံးပြုခြင်း (GRASS GIS Integration)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../processing/index.html">28. QGIS processing framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../processing_algs/index.html">29. Processing ဆိုင်ရာ ထောက်ပံ့ပေးသူများနှင့် Algorithm များ (Processing providers and algorithms)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../plugins/plugins.html">30. QGIS Plugin များ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../plugins/core_plugins/index.html">31. QGIS ပင်မ Plugin များကို အသုံးပြုခြင်း (Using QGIS Core Plugins)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../plugins/python_console.html">32. QGIS တွင် Python code များရေးသားရန်နေရာ (QGIS Python console)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preamble/help_and_support.html">33. အကူအညီနှင့်အထောက်အပံ့ (Help and Support)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preamble/contributors.html">34. ပါဝင်အားဖြည့်သူများ (Contributors)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendices/index.html">35. နောက်ဆက်တွဲများ (Appendices)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../literature_web/literature_and_web_references.html">36. စာတမ်းများနှင့် Website ကိုးကားချက်များ (Literature and Web References)</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">QGIS Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">&lt;no title&gt;</a></li>
+          <li class="breadcrumb-item"><a href="../index.html"><span class="section-number">21. </span>မြေပုံအချောသပ်ပြင်ဆင်ခြင်း (Laying out the maps)</a></li>
+          <li class="breadcrumb-item"><a href="index.html"><span class="section-number">21.2. </span>အချောထုတ်မြေပုံ၏အစိတ်အပိုင်းများ (Layout items )</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">21.2.7. </span>ဇယားများ (The Table Items)</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/qgis/QGIS-Documentation/blob/master/docs/user_manual/print_composer/composer_items/composer_tables.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="composer_scale_bar.html" class="btn btn-neutral float-left" title="21.2.6. စကေးဘား (The Scale Bar Item)" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="composer_image.html" class="btn btn-neutral float-right" title="21.2.8. အမှတ်အသား၊ ရုပ်ပုံနှင့် မြောက်အရပ်ပြမြှား များ (The Marker, Picture and North Arrow Items)" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <blockquote>
+<div></div></blockquote>
+<section id="the-table-items">
+<span id="layout-table-item"></span><span id="index-0"></span><h1><span class="section-number">21.2.7. </span>ဇယားများ (The Table Items)<a class="headerlink" href="#the-table-items" title="Link to this heading"></a></h1>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#the-attribute-table-item" id="id15">အချက်အလက်ဇယား (The attribute table item)</a></p>
+<ul>
+<li><p><a class="reference internal" href="#main-properties" id="id16">အဓိကဂုဏ်သတ္တိများ (Main properties)</a></p></li>
+<li><p><a class="reference internal" href="#feature-feature-filtering" id="id17">Feature များကိုစစ်ထုတ်ခြင်း (Feature filtering)</a></p></li>
+<li><p><a class="reference internal" href="#appearance" id="id18">ပုံစံသွင်ပြင် (Appearance)</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#the-fixed-table-item" id="id19">ပုံသေဇယား (The fixed table item)</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id1" id="id20">အဓိကဂုဏ်သတ္တိများ (Main properties)</a></p></li>
+<li><p><a class="reference internal" href="#id2" id="id21">ပုံစံသွင်ပြင် (Appearance)</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#tables-common-functionalities" id="id22">ဇယားများ၏ တူညီသောလုပ်ဆောင်ချက်များ(Tables common functionalities)</a></p>
+<ul>
+<li><p><a class="reference internal" href="#grid-show-grid" id="id23">Grid ကိုဖော်ပြခြင်း (Show grid)</a></p></li>
+<li><p><a class="reference internal" href="#fonts-and-text-styling" id="id24">စာလုံးဖောင့်များ နှင့် ပုံစံပြောင်းခြင်း (Fonts and text styling)</a></p></li>
+<li><p><a class="reference internal" href="#frames" id="id25">ဘောင်များ (Frames)</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+<p>မြေပုံကို အလှဆင်ရန်နှင့် ရှင်းလင်းပြသရန် ဇယား item များကိုအသုံးပြုနိုင်သည်-</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#layout-attribute-table-item"><span class="std std-ref">Attribute table</span></a> - ကြိုတင်သတ်မှတ်ထားသော စည်းမျဉ်းများအပေါ် အခြေခံ၍ layer တစ်ခုမှ attribute များအစုတစ်ခုကို ပြပေးသည်။</p></li>
+<li><p><a class="reference internal" href="#layout-fixed-table-item"><span class="std std-ref">Fixed table</span></a> - အခြား layer များမှ သက်ရောက်မှုမပြုနိုင်သည့်အချက်အလက်များပါဝင်သော စာသားဇယားတစ်ခုကို ထည့်သွင်းပေးသည်။</p></li>
+</ul>
+<section id="the-attribute-table-item">
+<span id="layout-attribute-table-item"></span><h2><a class="toc-backref" href="#id15" role="doc-backlink"><span class="section-number">21.2.7.1. </span>အချက်အလက်ဇယား (The attribute table item)</a><a class="headerlink" href="#the-attribute-table-item" title="Link to this heading"></a></h2>
+<p>Project ရှိ မည်သည့် layer တွင်မဆို print layout (ပုံထုတ်အပြင်အဆင်) တွင် ပြသထားသည့် ၎င်း၏ attribute များ ရှိနိုင်ပါသည်။ <a class="reference internal" href="composer_items_options.html#create-layout-item"><span class="std std-ref">Item များဖန်တီးခြင်းဆိုင်ရာညွှန်ကြားချက်</span></a> ကိုလိုက်နာ၍ <a class="reference internal" href="composer_items_options.html#interact-layout-item"><span class="std std-ref">Layout item များနှင့် အပြန်အလှန်လုပ်ဆောင်ခြင်း (Interacting with layout items)</span></a> တွင်ဖော်ပြထားသည့်နည်းလမ်းအတိုင်း နောက်ပိုင်းတွင် ကိုင်တွယ်နိုင်မည့် ဇယား item အသစ်တစ်ခုကိုထည့်သွင်းရန် <a class="reference internal" href="../../../../_images/mActionAddTable.png"><img alt="addTable" src="../../../../_images/mActionAddTable.png" style="width: 1.5em;" /></a> <span class="guilabel">Add Attribute Table</span> tool ကိုအသုံးပြုပါ။</p>
+<p>Default အားဖြင့် attribute ဇယားအသစ်တစ်ခုသည် field များအားလုံးပါဝင်သော ပထမဆုံး (အက္ခရာစဉ်အလိုက်စီထားသော) layer ၏ ပထမဆုံး row (အတန်း) များကို ပြသနေမည်ဖြစ်သည်။ သို့သော်လည်း ဇယားအား ၎င်း၏ <span class="guilabel">Item Properties</span> panel မှတစ်ဆင့် စိတ်ကြိုက်ပြင်ဆင်နိုင်သည်။ ဤ feature တွင် <a class="reference internal" href="composer_items_options.html#item-common-properties"><span class="std std-ref">item များ၏ဘုံဂုဏ်သတ္တိများ</span></a> အပြင် အောက်ပါလုပ်ဆောင်ချက်များပါရှိသည် (<a class="reference internal" href="#figure-layout-table"><span class="std std-numref">Fig. 21.38</span></a> တွင်ကြည့်ပါ)-</p>
+<figure class="align-center" id="id3">
+<span id="figure-layout-table"></span><img alt="../../../../_images/attribute_properties.png" src="../../../../_images/attribute_properties.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 21.38 </span><span class="caption-text">Attribute ဇယား Item ဂုဏ်သတ္တိများ Panel</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<section id="main-properties">
+<h3><a class="toc-backref" href="#id16" role="doc-backlink">အဓိကဂုဏ်သတ္တိများ (Main properties)</a><a class="headerlink" href="#main-properties" title="Link to this heading"></a></h3>
+<p>Attribute ဇယား ၏ <span class="guilabel">Main properties</span> အုပ်စုတွင် အောက်ပါလုပ်ဆောင်ချက်များပါဝင်သည်(<a class="reference internal" href="#figure-layout-table-ppt"><span class="std std-numref">Fig. 21.39</span></a> တွင်ကြည့်ပါ)-</p>
+<figure class="align-center" id="id4">
+<span id="figure-layout-table-ppt"></span><img alt="../../../../_images/attribute_mainproperties.png" src="../../../../_images/attribute_mainproperties.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 21.39 </span><span class="caption-text">Attribute ဇယား အဓိကဂုဏ်သတ္တိများ အုပ်စု</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ul>
+<li><p><span class="guilabel">Source</span> အတွက် project ထဲတွင်ထည့်သွင်းထားသော vector layer များမှ <span class="guilabel">Layer</span> တစ်ခုကိုရွေးချယ်ခွင့်ပေးသော <strong>Layer features</strong> များကိုသာ default အားဖြင့် ရွေးချယ်နိုင်သည်။</p>
+<p>Layer စာရင်းအနီးရှိ <a class="reference internal" href="../../../../_images/mIconDataDefine.png"><img alt="dataDefine" src="../../../../_images/mIconDataDefine.png" style="width: 1.5em;" /></a> <sup>Data-defined override</sup> ခလုတ်ဖြင့်  ဇယားကိုဖြည့်ရာတွင် အသုံးပြုသော layer အား အချိန်နှင့်တစ်ပြေးညီ ပြောင်းလဲပေးနိုင်သည်၊ ဥပမာအားဖြင့် atlas စာမျက်နှာတစ်ခုစီတိုင်းတွင် attribute ဇယားကို မတူညီသော layer attribute များဖြင့် ဖြည့်နိုင်သည်။ အသုံးပြုသည့် ဇယားတည်ဆောက်မှုပုံစံ (<a class="reference internal" href="#figure-layout-table-select"><span class="std std-numref">Fig. 21.42</span></a>) သည် <span class="guilabel">Layer</span> drop-down စာရင်းထဲတွင် ပြသထားသည့် layer တစ်ခုဖြစ်ပြီး ၎င်းကိုမပြောင်းဘဲချန်လှပ်ထားခဲ့သည်ကိုသတိပြုပါ။ ဆိုလိုသည်မှာ layer တစ်ခုသို့ မတူညီသော field (များ) ဖြင့် data သတ်မှတ်ထားသော ဇယားတစ်ခုကို ချိန်ညှိသတ်မှတ်ပါက ဇယားထဲတွင် column အလွတ်(များ) ရရှိလာမည်ဖြစ်သည်။</p>
+<p><span class="guilabel">Atlas</span> panel ထဲတွင် <a class="reference internal" href="../../../../_images/checkbox.png"><img alt="checkbox" src="../../../../_images/checkbox.png" style="width: 1.3em;" /></a><span class="guilabel">Generate an atlas</span> option အားအသုံးပြုမိလျှင် (<a class="reference internal" href="../create_output.html#atlas-generation"><span class="std std-ref">Generate an Atlas (မြေပုံစီးရီးတစ်ခု ထုတ်ယူခြင်း)</span></a> ကိုကြည့်ပါ) ထပ်ဆောင်း <span class="guilabel">Source</span> နှစ်ခုဖြစ်လာနိုင်ပါသည် -</p>
+<ul class="simple">
+<li><p><strong>Current atlas feature</strong> (<a class="reference internal" href="#figure-layout-table-atlas"><span class="std std-numref">Fig. 21.40</span></a> ကိုကြည့်ပါ)- layer ရွေးချယ်ရန်အတွက် မည်သည့် ရွေးချယ်စရာကိုမျှတွေ့ရမည်မဟုတ်ဘဲ ဇယား item သည် atlas လွှမ်းခြုံသော layer ၏ လက်ရှိ feature မှ attribute များပါဝင်သော row တစ်ခုကိုသာ ပြသနေမည်ဖြစ်သည်။</p></li>
+<li><p>နှင့် <strong>Relation children</strong> (<a class="reference internal" href="#figure-layout-table-relation"><span class="std std-numref">Fig. 21.41</span></a> ကိုကြည့်ပါ)- relation (ဆက်နွယ်ချက်) အမည်များပါဝင်သော ရွေးချယ်စရာတစ်ခု ပေါ်လာပါမည်။ Atlas လွှမ်းခြုံသော layer အား parent (မူရင်း) အဖြစ်အသုံးပြု၍ <a class="reference internal" href="../../working_with_vector/attribute_table.html#vector-relations"><span class="std std-ref">relation</span></a> တစ်ခုကိုသတ်မှတ်ပြီးမှသာ ဤ feature ကို အသုံးပြုနိုင်မည်ဖြစ်ပြီး ဇယားသည် atlas လွှမ်းခြုံသော layer ၏ လက်ရှိ feature ၏ children (အခွဲ) row များကို ပြသနေမည်ဖြစ်သည်။</p></li>
+</ul>
+</li>
+<li><p>ဇယားတွင် အမှန်တကယ်ပါရှိသောအကြောင်းအရာများ ပြောင်းလဲသွားပါက <span class="guilabel">Refresh Table Data</span> ခလုတ်အားအသုံးပြု၍ ဇယားအား update လုပ်နိုင်ပါသည်။</p></li>
+</ul>
+<figure class="align-center" id="id5">
+<span id="figure-layout-table-atlas"></span><img alt="../../../../_images/attribute_mainatlas.png" src="../../../../_images/attribute_mainatlas.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 21.40 </span><span class="caption-text">‘လက်ရှိ atlas feature’ အတွက် Attribute ဇယား အဓိကဂုဏ်သတ္တိများ</span><a class="headerlink" href="#id5" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id6">
+<span id="figure-layout-table-relation"></span><img alt="../../../../_images/attribute_mainrelation.png" src="../../../../_images/attribute_mainrelation.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 21.41 </span><span class="caption-text">‘Relation children’ အတွက် Attribute ဇယား အဓိကဂုဏ်သတ္တိများ</span><a class="headerlink" href="#id6" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ul>
+<li><p><span class="guilabel">Attributes…</span> ခလုတ်ဖြင့် ဇယားတွင်မြင်ရနိုင်သည့်အကြောင်းအရာများကို ပြောင်းလဲရန်အသုံးပြုသည့် <span class="guilabel">Select Attributes</span> dialog ကိုဖွင့်နိုင်သည်(<a class="reference internal" href="#figure-layout-table-select"><span class="std std-numref">Fig. 21.42</span></a> ကိုကြည့်ပါ)။ Window ၏အပေါ်ပိုင်းသည် attribute များစာရင်းကို ပြသနေမည်ဖြစ်ပြီး အောက်ပိုင်းသည် အချက်အလက် data များကို sort (စီစဉ်) ပြုလုပ်ရာတွင် ကူညီပေးမည်ဖြစ်သည်။</p>
+<figure class="align-center" id="id7">
+<span id="figure-layout-table-select"></span><img alt="../../../../_images/attribute_select.png" src="../../../../_images/attribute_select.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 21.42 </span><span class="caption-text">Attribute ဇယား Select attributes Dialog</span><a class="headerlink" href="#id7" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><span class="guilabel">Columns</span> အပိုင်းတွင်-</p>
+<ul class="simple">
+<li><p>အတန်းများ (rows) ကိုရွေးချယ်၍ ၎င်းတို့ကိုရွေ့စေရန် <a class="reference internal" href="../../../../_images/mActionArrowUp.png"><img alt="arrowUp" src="../../../../_images/mActionArrowUp.png" style="width: 1.5em;" /></a> နှင့် <a class="reference internal" href="../../../../_images/mActionArrowDown.png"><img alt="arrowDown" src="../../../../_images/mActionArrowDown.png" style="width: 1.5em;" /></a> ခလုတ်များကို အသုံးပြုခြင်းဖြင့် attribute များကို စာရင်းထဲတွင် အပေါ် သို့မဟုတ် အောက်သို့ရွှေ့ပြောင်းနိုင်သည်။ တစ်ကြိမ်တည်းမှာပင် row မြောက်များစွာကို ရွေးချယ်နိုင်၍  ရွှေ့နိုင်ပါသည်။</p></li>
+<li><p><a class="reference internal" href="../../../../_images/symbologyAdd.png"><img alt="symbologyAdd" src="../../../../_images/symbologyAdd.png" style="width: 1.5em;" /></a> ခလုတ်အသုံးပြုခြင်းဖြင့် attribute တစ်ခုကိုထည့်သွင်းနိုင်သည်။ ထိုခလုတ်သည် ဇယား၏အောက်ခြေတွင် attribute တန်ဖိုးဖြစ်ရန် field တစ်ခုအားရွေးချယ်နိုင်မည့် သို့မဟုတ် ပုံမှန် expression တစ်ခုမှတစ်ဆင့် attribute တစ်ခုကိုဖန်တီးနိုင်မည့် row လွတ်တစ်ခုကိုထည့်သွင်းပေးသည်။</p></li>
+<li><p><a class="reference internal" href="../../../../_images/symbologyRemove.png"><img alt="symbologyRemove" src="../../../../_images/symbologyRemove.png" style="width: 1.5em;" /></a> ခလုတ်အသုံးပြုခြင်းဖြင့် attribute တစ်ခုကိုဖယ်ရှားနိုင်သည်။ တစ်ကြိမ်တည်းမှာပင်မြောက်များစွာသော row များကို ရွေးချယ်နိုင်၍ ဖယ်ရှားပစ်နိုင်သည်။</p></li>
+<li><p><span class="guilabel">Reset</span> ခလုတ်အသုံးပြုခြင်းဖြင့် attribute ဇယားအား မူလအခြေအနေသို့ပြန်လည်ရောက်ရှိစေရန် သတ်မှတ်နိုင်သည်။</p></li>
+<li><p><span class="guilabel">Clear</span> ခလုတ်အသုံးပြုခြင်းဖြင့် ဇယားအား ရှင်းလင်းနိုင်သည်။ ဤခလုတ်သည် ကြီးသောဇယားများတွင် အနည်းငယ်မျှသော attribute အရေအတွက်ကိုသာပြသလိုပါကအသုံးဝင်သည်။ Row တစ်ခုချင်းစီအား manual ဖယ်ရှားနေမည့် အစား ဇယားအားရှင်းလင်း၍ လိုအပ်သော row များကိုထည့်သွင်းပါက ပိုမိုမြန်ဆန်ပါမည်။</p></li>
+<li><p><span class="guilabel">Heading</span> column တွင်စိတ်ကြိုက်စာသားများထည့်သွင်းခြင်းဖြင့် ဇယားကွက် (cell)၏ခေါင်းစီးများကိုပြောင်းလဲနိုင်သည်။</p></li>
+<li><p>ဇယားကွက် (cell) ချိန်ညှိမှုအား ဇယားကွက် (cell) အတွင်းတွင် စာသားထားရှိလိုသည့်တည်နေရာအားသတ်မှတ်နိုင်မည့် <span class="guilabel">Alignment</span> column ဖြင့်စီမံနိုင်သည်။</p></li>
+<li><p><span class="guilabel">width</span> column တွင် စိတ်ကြိုက်တန်ဖိုးများထည့်သွင်းခြင်းဖြင့် ဇယားကွက် (cell)၏အကျယ်ကို လိုသလိုစီမံနိုင်သည်။</p></li>
+</ul>
+<p><span class="guilabel">Sorting</span> အပိုင်းတွင်-</p>
+<ul class="simple">
+<li><p>ဇယားအားအမျိုးအစားခွဲရန် attribute တစ်ခုထည့်သွင်းခြင်း- <a class="reference internal" href="../../../../_images/symbologyAdd.png"><img alt="symbologyAdd" src="../../../../_images/symbologyAdd.png" style="width: 1.5em;" /></a> ခလုတ်ကိုဖိထားလျှင် row လွတ် အသစ်တစ်ခုထပ်ထည့်ပေးပါလိမ့်မည်။ <span class="guilabel">Attribute</span> column ထဲတွင် field တစ်ခု သို့မဟုတ် expression တစ်ခုကိုထည့်သွင်း၍ <span class="guilabel">Sort order</span> အား  <strong>ငယ်စဉ်ကြီးလိုက်</strong> သို့မဟုတ် <strong>ကြီးစဉ်ငယ်လိုက်</strong> အဖြစ်စီထားနိုင်သည်။</p></li>
+<li><p>Attribute အဆင့်တွင် ဦးစားပေးရမည့် အမျိုးအစားအလိုက်စုစည်းခြင်းအတွက် စာရင်းထဲရှိ row တစ်ခုအားရွေးချယ်၍ <a class="reference internal" href="../../../../_images/mActionArrowUp.png"><img alt="arrowUp" src="../../../../_images/mActionArrowUp.png" style="width: 1.5em;" /></a> နှင့် <a class="reference internal" href="../../../../_images/mActionArrowDown.png"><img alt="arrowDown" src="../../../../_images/mActionArrowDown.png" style="width: 1.5em;" /></a> ခလုတ်များ ကိုအသုံးပြု၍ ပြောင်းလဲပါ။ <span class="guilabel">Sort Order</span> column ထဲတွင်ဇယားကွက်တစ်ခုအားရွေးလိုက်ခြင်းဖြင့် attribute field ၏ အမျိုးအစားအလိုက်စုစည်းခြင်းဝါစဉ် (sorting order) အားပြောင်းလဲနိုင်သည်။</p></li>
+<li><p>အမျိုးအစားအလိုက်စုစည်းခြင်းစာရင်းမှ attribute တစ်ခုကိုဖယ်ရှားရန် <a class="reference internal" href="../../../../_images/symbologyRemove.png"><img alt="symbologyRemove" src="../../../../_images/symbologyRemove.png" style="width: 1.5em;" /></a> ခလုတ် ကိုအသုံးပြုနိုင်သည်။</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="feature-feature-filtering">
+<h3><a class="toc-backref" href="#id17" role="doc-backlink">Feature များကိုစစ်ထုတ်ခြင်း (Feature filtering)</a><a class="headerlink" href="#feature-feature-filtering" title="Link to this heading"></a></h3>
+<p>Attribute ဇယား၏ <span class="guilabel">Feature filtering</span> အုပ်စုတွင်အောက်ပါလုပ်ဆောင်ချက်များပါရှိသည် ( <a class="reference internal" href="#figure-layout-table-filter"><span class="std std-numref">Fig. 21.43</span></a> ကိုကြည့်ပါ)-</p>
+<figure class="align-center" id="id8">
+<span id="figure-layout-table-filter"></span><img alt="../../../../_images/attribute_filter.png" src="../../../../_images/attribute_filter.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 21.43 </span><span class="caption-text">Attribute ဇယား Feature စစ်ထုတ်ခြင်းအုပ်စု</span><a class="headerlink" href="#id8" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Attribute ဇယား၏ feature များကိုစစ်ထုတ်ခြင်း အုပ်စုတွင်-</p>
+<ul>
+<li><p>ပြသမည့် <span class="guilabel">Maximum rows</span> (အများဆုံး row) အားသတ်မှတ်နိုင်ပါသည်။</p></li>
+<li><p>Unique ဖြစ်သောမှတ်တမ်းများကိုသာပြသရန် <a class="reference internal" href="../../../../_images/checkbox.png"><img alt="checkbox" src="../../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">Remove duplicate rows from table</span> အားအမှန်ခြစ်နိုင်ပါသည်။</p></li>
+<li><p><a class="reference internal" href="../../../../_images/checkbox.png"><img alt="checkbox" src="../../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">Show only visible features within a map</span> အားအမှန်ခြစ်၍ မြင်သာသော feature များ၏ attribute များကိုပြသနေမည့် သက်ဆိုင်ရာ <span class="guilabel">Linked map</span> ကို ရွေးချယ်နိုင်ပါသည်။</p></li>
+<li><p><a class="reference internal" href="../../../../_images/checkbox.png"><img alt="checkbox" src="../../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">Show only features intersecting Atlas feature</span> အားအမှန်ခြစ်နိုင်ပါသည်။ ၎င်းသည် <a class="reference internal" href="../../../../_images/checkbox.png"><img alt="checkbox" src="../../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">Generate an atlas</span> အား အမှန်ခြစ်ထားမှသာ ပေါ်နေမည်ဖြစ်မည်။ အမှန်ခြစ်ပြီးသောအခါ လက်ရှိ atlas feature နှင့် ထပ်နေသော feature များသာပါဝင်သည့် ဇယားတစ်ခုကိုပြသလိမ့်မည်။</p></li>
+<li><p><a class="reference internal" href="../../../../_images/checkbox.png"><img alt="checkbox" src="../../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">Filter with</span> အားအမှန်ခြစ်၍ input line ထဲတွင်ရိုက်ထည့်ခြင်းဖြင့် filter တစ်ခုထည့်သွင်းနိုင်သကဲ့သို့ ပေးထားသော <a class="reference internal" href="../../../../_images/mIconExpression.png"><img alt="expression" src="../../../../_images/mIconExpression.png" style="width: 1.5em;" /></a> expression ခလုတ်အားအသုံးပြုခြင်းဖြင့် ပုံမှန် expression တစ်ခုကိုထည့်သွင်းနိုင်သည်။ Sample dataset မှ airports layer (လေဆိပ် layer များ) နှင့်အလုပ်လုပ်သောအခါအသုံးပြုနိုင်သော filtering statement နမူနာအချို့မှာ -</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ELEV</span> <span class="pre">&gt;</span> <span class="pre">500</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">NAME</span> <span class="pre">=</span> <span class="pre">'ANIAK'</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">NAME</span> <span class="pre">NOT</span> <span class="pre">LIKE</span> <span class="pre">'AN%'</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">regexp_match(</span> <span class="pre">attribute(</span> <span class="pre">$currentfeature,</span> <span class="pre">'USE'</span> <span class="pre">)</span>&#160; <span class="pre">,</span> <span class="pre">'[i]')</span></code></p></li>
+</ul>
+<p>နောက်ဆုံး expression ၌ attribute field ‘USE’ တွင် စာလုံး ‘i’ ပါရှိသော airport များသာပါဝင်သည်။</p>
+</li>
+</ul>
+</section>
+<section id="appearance">
+<h3><a class="toc-backref" href="#id18" role="doc-backlink">ပုံစံသွင်ပြင် (Appearance)</a><a class="headerlink" href="#appearance" title="Link to this heading"></a></h3>
+<p>Attribute ဇယား၏ <span class="guilabel">Appearance</span> အုပ်စုတွင် အောက်ပါလုပ်ဆောင်ချက်များပါရှိသည် ( <a class="reference internal" href="#figure-layout-table-appearance"><span class="std std-numref">Fig. 21.44</span></a> ကိုကြည့်ပါ)-</p>
+<figure class="align-center" id="id9">
+<span id="figure-layout-table-appearance"></span><img alt="../../../../_images/attribute_appearance.png" src="../../../../_images/attribute_appearance.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 21.44 </span><span class="caption-text">Attribute ဇယား အသွင်အပြင်ပုံစံအုပ်စု</span><a class="headerlink" href="#id9" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ul class="simple">
+<li><p>Attribute ဇယားတွင် ဇယားကွက် (cell) အလွတ်များဖြင့်ဖြည့်သွင်းရန် <a class="reference internal" href="../../../../_images/checkbox.png"><img alt="checkbox" src="../../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">Show empty rows</span> အား click နှိပ်ပါ။ ပြသလိုသည့် ရလာဒ်တစ်ခုရှိသောအခါ နောက်ထပ် ဇယားကွက် (cell) အလွတ်များထပ်ထည့်လိုပါက ဤရွေးချယ်စရာအားအသုံးပြုနိုင်ပါသည်။</p></li>
+<li><p><span class="guilabel">Cell margins</span> ဖြင့် ဇယား၏ ဇယားကွက်တစ်ခုချင်းစီမှ စာသားပတ်လည်တွင် margin သတ်မှတ်နိုင်သည်။</p></li>
+<li><p><span class="guilabel">Display header</span> ဖြင့် စာရင်းတစ်ခုရှိ ‘On first frame’ ၊ ‘On all frames’ (default ရွေးချယ်စရာ) သို့မဟုတ် ‘No header’ တို့ထဲမှတစ်ခုကိုရွေးချယ်နိုင်သည်။</p></li>
+<li><p>ရလာဒ်ရွေးချယ်သည့်နေရာတွင် အလွတ်ဖြစ်နေပါက <span class="guilabel">Empty table</span> ဖြင့်မည်သည့်ရလာဒ်ကိုပြသလိုသည်ကို ထိန်းချုပ်နိုင်သည်။</p>
+<ul>
+<li><p><strong>Draw headers only</strong> သည် <span class="guilabel">Display header</span> အတွက် ‘No header’ ကိုမရွေးချယ်ထားမှသာ ခေါင်းစီးကို ပြပေးသည်။</p></li>
+<li><p><strong>Hide entire table</strong> သည် ဇယား၏နောက်ခံကိုသာပြပေးသည်။ <span class="guilabel">Frames</span> ထဲရှိ <a class="reference internal" href="../../../../_images/checkbox.png"><img alt="checkbox" src="../../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">Don’t draw background if frame is empty</span> အားအမှန်ခြစ်ပေးခြင်းဖြင့် ဇယားကိုလုံးဝဖျောက်ပစ်နိုင်သည်။</p></li>
+<li><p><strong>Show set message</strong> သည် ခေါင်းစီးတစ်ခုနှင့် column များအားလုံးကိုခြုံငုံသည့် ဇယားကွက်တစ်ခုအား ထည့်သွင်းပေးကာ <span class="guilabel">Message to display</span> option ထဲတွင်ထည့်သွင်းထားနိုင်သည့် ‘No result’ ကဲ့သို့သောစာတိုတစ်ခုအားပြသပေးသည်။</p></li>
+</ul>
+</li>
+<li><p><span class="guilabel">Empty table</span> အတွက် <strong>Show set message</strong> အားရွေးချယ်ပြီးမှသာ <span class="guilabel">Message to display</span> သည်အသက်ဝင်မည်ဖြစ်သည်။ ရလာဒ်သည် ဇယားအလွတ် ဖြစ်နေသောအခါ ဇယား၏ပထမ row တွင် သတိပေး စာတိုပေါ်လာပါမည်။</p></li>
+<li><p><a class="reference internal" href="../../introduction/general_tools.html#color-selector"><span class="std std-ref">အရောင်ရွေးချယ်ပေးသည့်အရာ</span></a> widget အားအသုံးပြု၍ <span class="guilabel">Background color</span> ဖြင့် ဇယား၏နောက်ခံအရောင်ကိုသတ်မှတ်နိုင်သည်။ <span class="guilabel">Advanced customization</span> ဖြင့် ဇယားကွက်တစ်ခုချင်းစီအတွက် မတူညီသော နောက်ခံ အရောင်များကိုသတ်မှတ်နိုင်သည် (<a class="reference internal" href="#figure-layout-table-background"><span class="std std-numref">Fig. 21.45</span></a> ကိုကြည့်ပါ)။</p></li>
+</ul>
+<figure class="align-center" id="id10">
+<span id="figure-layout-table-background"></span><img alt="../../../../_images/attribute_background.png" src="../../../../_images/attribute_background.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 21.45 </span><span class="caption-text">Attribute ဇယား အဆင့်မြင့်နောက်ခံအရောင်ထည့်သွင်းခြင်း Dialog</span><a class="headerlink" href="#id10" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ul class="simple">
+<li><p><a class="reference internal" href="../../../../_images/checkbox.png"><img alt="checkbox" src="../../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">Apply layer conditional styling colors</span> - Layer ထဲတွင်ရှိသော <a class="reference internal" href="../../working_with_vector/attribute_table.html#conditional-formatting"><span class="std std-ref">conditional table formatting</span></a> (နောက်ခံအရောင်၊ စာလုံးအထင်း၊ စာလုံးအစောင်း ၊ စာသားကိုဖြတ်၍မျဉ်းဆွဲခြင်း ၊ စာသားအောက်မျဉ်းသားခြင်း ၊ အရောင် …အစရှိသော စာလုံးဖောင့်များနှင့် ဂုဏ်သတ္တိများ) ကို layout attribute ဇယားအတွင်းတွင် အသုံးပြုပါသည်။ Conditional formatting (အခြေအနေပေါ်မူတည်၍ format ပြင်ဆင်ခြင်း) စည်းမျဉ်းများသည် အခြား layout ဇယား formatting setting များထက် ဦးစားပေးခံရပါသည်၊ ဥပမာ- row အရောင်များကိုပြောင်းလဲခြင်းကဲ့သို့သော အခြားသော ဇယားကွက်၏ နောက်ခံအရောင် setting များကို အစားထိုးလုပ်ဆောင်ပါလိမ့်မည်။</p></li>
+<li><p><span class="guilabel">Wrap text on</span> option ဖြင့် character တစ်ခုကို သတ်မှတ်နိုင်ပြီး ၎င်း character ကိုတွေ့ရှိသည့်အခါတိုင်းတွင် ဇယားရှိအကြောင်းအရာများကို wrap (ခြုံငုံ၍မြင်ရနိုင်စေရန် စာကြောင်းများစွာဖြင့်ပြသ) လုပ်ပေးမည်ဖြစ်သည်။</p></li>
+<li><p>ဇယားရှိ column တစ်ခုအတွက် သတ်မှတ်ထားသောအကျယ်သည် ၎င်းတွင်ပါဝင်သော အကြောင်းအရာများ၏အလျားထက် တိုနေလျှင် <span class="guilabel">Oversized text</span> ဖြင့် စာသား၏အထားအသိုပုံစံကိုသတ်မှတ်နိုင်သည်။ ၎င်းသည် <strong>Wrap text</strong> သို့မဟုတ် <strong>Truncate text (စာသားဖြတ်ခြင်း)</strong> ဖြစ်နိုင်သည်။</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Attribute ဇယား item ၏ အခြား ဂုဏ်သတ္တိများအား <a class="reference internal" href="#tables-common-properties"><span class="std std-ref">ဇယားများ၏ တူညီသောလုပ်ဆောင်ချက်များ(Tables common functionalities)</span></a> section တွင် ဖော်ပြထားပါသည်။</p>
+</div>
+</section>
+</section>
+<section id="the-fixed-table-item">
+<span id="layout-fixed-table-item"></span><h2><a class="toc-backref" href="#id19" role="doc-backlink"><span class="section-number">21.2.7.2. </span>ပုံသေဇယား (The fixed table item)</a><a class="headerlink" href="#the-fixed-table-item" title="Link to this heading"></a></h2>
+<p>မြေပုံနှင့်ပတ်သက်၍နောက်ဆက်တွဲအချက်အလက်များကို <a class="reference internal" href="../../../../_images/mActionAddManualTable.png"><img alt="addManualTable" src="../../../../_images/mActionAddManualTable.png" style="width: 1.5em;" /></a> <span class="guilabel">Add Fixed Table</span> အားရွေးချယ်ခြင်းဖြင့် ဇယားတစ်ခုအတွင်းသို့ ထည့်သွင်းနိုင်ပြီး <a class="reference internal" href="composer_items_options.html#interact-layout-item"><span class="std std-ref">Layout item များနှင့် အပြန်အလှန်လုပ်ဆောင်ခြင်း (Interacting with layout items)</span></a> တွင်ဖော်ပြထားသည့်နည်းလမ်းအတိုင်း ကိုင်တွယ်နိုင်မည့် ဇယားအသစ်တစ်ခုကိုထည့်သွင်းရန် <a class="reference internal" href="composer_items_options.html#create-layout-item"><span class="std std-ref">item များဖန်တီးခြင်းဆိုင်ရာညွှန်ကြားချက်များ</span></a> အားလိုက်နာနိုင်ပါသည်။</p>
+<p>Default အားဖြင့် ချုံ့ထားသော column နှစ်ခု row နှစ်ခုပါဝင်သော ဇယားအလွတ်တစ်ခုသည် မြေပုံ layout ထဲတွင်ပေါ်နေမည်ဖြစ်သည်။ ဇယားကို <span class="guilabel">Item Properties</span> panel ထဲတွင် စိတ်ကြိုက်ပြင်ဆင်ရမည်ဖြစ်သည်။ ဤ feature တွင် <a class="reference internal" href="composer_items_options.html#item-common-properties"><span class="std std-ref">item များ၏ဘုံဂုဏ်သတ္တိများ</span></a> အပြင် အောက်ပါလုပ်ဆောင်ချက်များပါရှိသည်-</p>
+<section id="id1">
+<h3><a class="toc-backref" href="#id20" role="doc-backlink">အဓိကဂုဏ်သတ္တိများ (Main properties)</a><a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
+<figure class="align-center" id="id11">
+<span id="figure-table-designer-fixed-table"></span><img alt="../../../../_images/fixedtable_table_designer.png" src="../../../../_images/fixedtable_table_designer.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 21.46 </span><span class="caption-text">Table designer ဖြင့် ပုံသေသတ်မှတ်ထားသော ဇယား Item ဂုဏ်သတ္တိများ Panel</span><a class="headerlink" href="#id11" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><span class="guilabel">Main properties</span> ထဲတွင် <span class="guilabel">Edit table …</span> ကို click နှိပ်ပြီးလျှင် <span class="guilabel">Table designer</span> နှင့်အလုပ်လုပ်နိုင်ပြီဖြစ်သည်-</p>
+<ul class="simple">
+<li><p>ဇယားထဲတွင် click နှိပ်ဝင်ရောက်၍ စာသားများကို ကိုယ်တိုင်ထည့်သွင်းနိုင်ပါသည်။</p></li>
+<li><p>အပေါ်ရှိ menu များမှတစ်ဆင့် အောက်ပါတို့ကို လုပ်ဆောင်နိုင်ပါသည်-</p>
+<ul>
+<li><p><span class="guilabel">File</span> သို့သွား၍ <span class="guilabel">Import Content From Clipboard</span> (Clipboard မှ အကြောင်းအရာများထည့်သွင်းခြင်း) (၎င်းသည် ပေးထားသော input များကို အစားထိုးလုပ်ဆောင်သွားမည်ဖြစ်သည်)</p></li>
+<li><p><span class="guilabel">Edit</span> သို့သွားခြင်းဖြင့် row များနှင့် column များအတွက် ရွေးချယ်ခြင်းဆိုင်ရာ လုပ်ဆောင်ချက်များဖြင့် အလုပ်လုပ်နိုင်သည်။</p></li>
+<li><p><span class="guilabel">Insert rows</span> ၊ <span class="guilabel">Insert columns</span> ၊ <span class="guilabel">Delete Rows</span> ၊ <span class="guilabel">Delete Columns</span> များအပြင် <a class="reference internal" href="../../../../_images/checkbox.png"><img alt="checkbox" src="../../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">Include Header Row</span> (ခေါင်းစီး row ပါဝင်စေခြင်း) option ကို အသုံးပြုခြင်း။</p></li>
+</ul>
+</li>
+<li><p>ညာဘက်ရှိ <span class="guilabel">Cell Contents</span> အပိုင်းဖြင့် အလုပ်လုပ်နိုင်သည့်အပြင်-</p>
+<ul>
+<li><p><span class="guilabel">Formatting</span> ထဲတွင် ရွေးချယ်ထားသောဇယားကွက်များ၏ စာသား format အား သတ်မှတ်နိုင်သည်-</p>
+<ul>
+<li><p>ပေးထားသော <a class="reference internal" href="../../../../_images/mIconExpression.png"><img alt="expression" src="../../../../_images/mIconExpression.png" style="width: 1.5em;" /></a> expression ခလုတ်ပေါ်တွင် click နှိပ်ခြင်းနှင့်  ဇယားကွက်တွင်ထည့်သွင်းရန် ပုံမှန် expression တစ်ခုကိုအသုံးပြုခြင်းဖြင့်၊</p></li>
+<li><p><span class="guilabel">Text format</span> အားရွေးချယ်ခြင်းဖြင့်၊</p></li>
+<li><p><a class="reference internal" href="../../../../_images/checkbox.png"><img alt="checkbox" src="../../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">Format as number</span> ဖြင့် (များစွာသော format များဖြင့်ရရှိနိုင်သည်)</p></li>
+<li><p><span class="guilabel">Horizontal alignment</span> (ရေပြင်ညီတန်းညှိခြင်း) နှင့် <span class="guilabel">Vertical alignment</span> (ဒေါင်လိုက်တန်းညှိခြင်း) အားသတ်မှတ်ခြင်းဖြင့်၊</p></li>
+<li><p><span class="guilabel">Background color</span> တစ်ခုအားရွေးချယ်ခြင်းဖြင့်၊</p></li>
+</ul>
+</li>
+<li><p><span class="guilabel">Row height</span> နှင့် <span class="guilabel">Column width</span> တို့ဖြင့် <span class="guilabel">Cell Size</span> ကိုသတ်မှတ်နိုင်သည်။</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="id2">
+<h3><a class="toc-backref" href="#id21" role="doc-backlink">ပုံစံသွင်ပြင် (Appearance)</a><a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+<p>ပုံသေသတ်မှတ်ထားသောဇယား၏ <span class="guilabel">Appearance</span> အုပ်စုတွင် အောက်ပါလုပ်ဆောင်ချက်များပါဝင်သည်-</p>
+<ul class="simple">
+<li><p>ဇယားကွက်အလွတ်များဖြင့် attribute ဇယားအားဖြည့်ရန် <a class="reference internal" href="../../../../_images/checkbox.png"><img alt="checkbox" src="../../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">Show empty rows</span> အား click နှိပ်ပါ။</p></li>
+<li><p><span class="guilabel">Cell margins</span> ဖြင့် ဇယားမှ ဇယားကွက်တစ်ခုချင်းစီရှိ စာသား၏ပတ်လည်တွင် margin သတ်မှတ်နိုင်သည်။</p></li>
+<li><p><span class="guilabel">Display header</span> ဖြင့် စာရင်းတစ်ခုရှိ  ‘On first frame’ ၊ ‘On all frames’ (default ရွေးချယ်စရာ) သို့မဟုတ် ‘No header’ တို့ထဲမှတစ်ခုကိုရွေးချယ်နိုင်သည်။</p></li>
+<li><p><a class="reference internal" href="../../introduction/general_tools.html#color-selector"><span class="std std-ref">အရောင်ရွေးချယ်ပေးသည့်အရာ</span></a> widget အားအသုံးပြု၍ ဇယား၏နောက်ခံအရောင်ကို <span class="guilabel">Background color</span> ဖြင့် သတ်မှတ်နိုင်သည်။ <span class="guilabel">Advanced customization</span> ကိုရွေးချယ်ခြင်းဖြင့် ဇယားကွက်တစ်ခုချင်းစီအတွက် မတူညီသောနောက်ခံအရောင်များ သတ်မှတ်နိုင်မည်ဖြစ်သည်။</p></li>
+<li><p>ဇယားရှိ column တစ်ခုအတွက် သတ်မှတ်ထားသော အကျယ်သည် ၎င်းတွင်ပါဝင်သောအကြောင်းအရာ၏ အလျားထက် တိုနေလျှင် <span class="guilabel">Oversized text</span> ဖြင့် စာ၏အထားအသိုကိုသတ်မှတ်နိုင်သည်။ ၎င်းသည် <strong>Wrap text</strong> သို့မဟုတ် <strong>Truncate text</strong> ဖြစ်နိုင်သည်။</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>ပုံသေသတ်မှတ်ထားသော ဇယား item ၏ အခြားဂုဏ်သတ္တိများကို  <a class="reference internal" href="#tables-common-properties"><span class="std std-ref">ဇယားများ၏ တူညီသောလုပ်ဆောင်ချက်များ(Tables common functionalities)</span></a> အပိုင်းတွင်ဖော်ပြထားပါသည်။</p>
+</div>
+</section>
+</section>
+<section id="tables-common-functionalities">
+<span id="tables-common-properties"></span><h2><a class="toc-backref" href="#id22" role="doc-backlink"><span class="section-number">21.2.7.3. </span>ဇယားများ၏ တူညီသောလုပ်ဆောင်ချက်များ(Tables common functionalities)</a><a class="headerlink" href="#tables-common-functionalities" title="Link to this heading"></a></h2>
+<section id="grid-show-grid">
+<h3><a class="toc-backref" href="#id23" role="doc-backlink">Grid ကိုဖော်ပြခြင်း (Show grid)</a><a class="headerlink" href="#grid-show-grid" title="Link to this heading"></a></h3>
+<p>ဇယား item များ၏ <span class="guilabel">Show grid</span> အုပ်စုတွင် အောက်ပါလုပ်ဆောင်ချက်များပါဝင်သည် (<a class="reference internal" href="#figure-layout-table-grid"><span class="std std-numref">Fig. 21.47</span></a> ကိုကြည့်ပါ)-</p>
+<figure class="align-center" id="id12">
+<span id="figure-layout-table-grid"></span><img alt="../../../../_images/attribute_grid.png" src="../../../../_images/attribute_grid.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 21.47 </span><span class="caption-text">Attribute ဇယား၏ grid ကိုပြသပေးခြင်းအုပ်စု</span><a class="headerlink" href="#id12" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ul class="simple">
+<li><p>ဇယားကွက်များ၏ ဘောင်များဖြစ်သည့် grid အား ပြသလိုသည့်အခါ <a class="reference internal" href="../../../../_images/checkbox.png"><img alt="checkbox" src="../../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">Show grid</span> ကို အမှန်ခြစ်ပါ။ <span class="guilabel">Draw horizontal lines</span> ကို ဖြစ်စေ <span class="guilabel">Draw vertical lines</span> ကို ဖြစ်စေ နှစ်ခုစလုံးကို ဖြစ်စေရွေးချယ်နိုင်သည်။</p></li>
+<li><p><span class="guilabel">Line width</span> ဖြင့် grid တွင် အသုံးပြုသော မျဉ်းများ၏ အထူကိုသတ်မှတ်နိုင်သည်။</p></li>
+<li><p>အရောင်ရွေးချယ်ခြင်းဆိုင်ရာ widget ကိုအသုံးပြုခြင်းဖြင့် grid ၏ <span class="guilabel">Color</span> (အရောင်) ကိုသတ်မှတ်နိုင်သည်။</p></li>
+</ul>
+</section>
+<section id="fonts-and-text-styling">
+<h3><a class="toc-backref" href="#id24" role="doc-backlink">စာလုံးဖောင့်များ နှင့် ပုံစံပြောင်းခြင်း (Fonts and text styling)</a><a class="headerlink" href="#fonts-and-text-styling" title="Link to this heading"></a></h3>
+<p>ဇယား item များ၏ <span class="guilabel">Fonts and text styling</span> အုပ်စုတွင်အောက်ပါလုပ်ဆောင်ချက်များပါဝင်ပါသည် (<a class="reference internal" href="#figure-layout-table-fonts"><span class="std std-numref">Fig. 21.48</span></a> ကိုကြည့်ပါ)-</p>
+<figure class="align-center" id="id13">
+<span id="figure-layout-table-fonts"></span><img alt="../../../../_images/attribute_fonts.png" src="../../../../_images/attribute_fonts.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 21.48 </span><span class="caption-text">Attribute ဇယား စာလုံးဖောင့်များနှင့် စာသားသင်္ကေတပုံစံ အုပ်စု</span><a class="headerlink" href="#id13" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ul class="simple">
+<li><p><span class="guilabel">Table heading</span> (ဇယားခေါင်းစီး) နှင့် <span class="guilabel">Table contents</span> (ဇယားအကြောင်းအရာ) များအတွက် အဆင့်မြင့် <a class="reference internal" href="../../style_library/label_settings.html#text-format"><span class="std std-ref">text settings</span></a> widget (buffer ၊ အရိပ် ၊ အရောင်ချယ်သခြင်း effect များ ၊ ဖောက်ထွင်းမြင်နိုင်မှု၊ နောက်ခံ၊ အရောင်ထည့်သွင်းခြင်း…စသည်တို့) ကိုအသုံးပြုခြင်းဖြင့် <span class="guilabel">Font</span> ဂုဏ်သတ္တိများကိုသတ်မှတ်နိုင်သည်။ <span class="guilabel">Appearance</span> အပိုင်းမှဖြစ်စေ <span class="guilabel">Table Designer</span> dialog မှဖြစ်စေ ဤသို့ပြောင်းလဲလိုက်မှုများသည် စိတ်ကြိုက်စာလုံးဖောင့်များ ပြုပြင်ထည့်သွင်းထားသည့် ဇယားကွက်များသို့ သက်ရောက်မှုရှိမည်မဟုတ်သည်ကို သတိပြုပါ။ Default ပုံဖော်ပြသခြင်း (rendering) ရှိသော ဇယားကွက်များအပေါ်တွင်သာ သက်ရောက်မှုရှိမည်ဖြစ်သည်။</p></li>
+<li><p><span class="guilabel">Table heading</span> အတွက် <span class="guilabel">Alignment</span> အား <code class="docutils literal notranslate"><span class="pre">Follow</span> <span class="pre">column</span> <span class="pre">alignment</span></code> အဖြစ် ထပ်မံသတ်မှတ်နိုင်သည် သို့မဟုတ် <code class="docutils literal notranslate"><span class="pre">Left</span></code> ၊ <code class="docutils literal notranslate"><span class="pre">Center</span></code> သို့မဟုတ်  <code class="docutils literal notranslate"><span class="pre">Right</span></code> အားရွေးချယ်ခြင်းဖြင့် ဤ setting အား အစားထိုးလုပ်ဆောင်နိုင်သည်။ <span class="guilabel">Select Attributes</span> dialog အားအသုံးပြုခြင်းဖြင့် column alignment အားသတ်မှတ်ပေးပါသည် (<a class="reference internal" href="#figure-layout-table-select"><span class="std std-numref">Fig. 21.42</span></a> ကိုကြည့်ပါ)။</p></li>
+</ul>
+</section>
+<section id="frames">
+<h3><a class="toc-backref" href="#id25" role="doc-backlink">ဘောင်များ (Frames)</a><a class="headerlink" href="#frames" title="Link to this heading"></a></h3>
+<p>ဇယား item ဂုဏ်သတ္တိများ၏ <span class="guilabel">Frames</span> အုပ်စုတွင်အောက်ပါလုပ်ဆောင်ချက်များပါဝင်သည် (<a class="reference internal" href="#figure-layout-table-frames"><span class="std std-numref">Fig. 21.49</span></a> ကိုကြည့်ပါ)-</p>
+<figure class="align-center" id="id14">
+<span id="figure-layout-table-frames"></span><img alt="../../../../_images/attribute_frame.png" src="../../../../_images/attribute_frame.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 21.49 </span><span class="caption-text">Attribute ဇယား ဘောင်များဆိုင်ရာ အုပ်စု</span><a class="headerlink" href="#id14" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ul class="simple">
+<li><p><span class="guilabel">Resize mode</span> ဖြင့် attribute ဇယားမှအကြောင်းအရာများကို မည်သို့ ပုံဖော်ပြသမည်ကိုရွေးချယ်နိုင်သည်-</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">Use</span> <span class="pre">existing</span> <span class="pre">frames</span></code> သည် ပထမဆုံး frame နှင့် ထည့်သွင်းထားသော frame များတွင်သာ ရလာဒ်ကိုပြသပေးသည်။</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Extend</span> <span class="pre">to</span> <span class="pre">next</span> <span class="pre">page</span></code> သည် attribute ဇယား၏ အပြည့်အဝရွေးမှတ်ထားမှုအားပြသနိုင်ရန်အတွက် frame များ (ပြီးလျှင် သက်ဆိုင်ရာ စာမျက်နှာများ) ကို လိုသလောက်များများ ဖန်တီးပေးမည်ဖြစ်သည်။ Frame တစ်ခုချင်းစီအား layout ပေါ်တွင် ရွှေ့နိုင်ပါသည်။ Frame တစ်ခု၏အရွယ်အစားအား ပြန်လည်သတ်မှတ်လျှင် ရရှိလာသောဇယားသည် အခြား frame များကြားတွင် နှစ်ပိုင်းကွဲသွားမည်ဖြစ်ပြီး နောက်ဆုံး frame အား ဇယားနှင့်ဝင်ဆန့်စေရန် ဖြတ်ထုတ်လိုက်မည်ဖြစ်သည်။</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Repeat</span> <span class="pre">until</span> <span class="pre">finished</span></code> သည် <cite>Extend to next page</cite> option ကဲ့သို့ frame များစွာဖန်တီးပေးမည်ဖြစ်သော်လည်း frame များအားလုံးတွင်တူညီသောအရွယ်အစားရှိမည်ဖြစ်သည်။</p></li>
+</ul>
+</li>
+<li><p>ရွေးချယ်ထားသော frame ကဲ့သို့ အရွယ်အစားတူသည့် နောက် frame အားထည့်သွင်းရန် <span class="guilabel">Add Frame</span> ခလုတ်အား အသုံးပြုပါ။ Resize mode (အရွယ်အစားပြန်သတ်မှတ်ခြင်းနည်းလမ်း) <code class="docutils literal notranslate"><span class="pre">Use</span> <span class="pre">existing</span> <span class="pre">frames</span></code> အားအသုံးပြုသည့်အခါ ပထမဆုံး frame ထဲတွင် မဆန့်သည့် ဇယားမှရလာဒ်များသည် နောက် frame ထဲတွင် ဆက်သွားမည်ဖြစ်သည်။</p></li>
+<li><p>ဇယား frame တွင်အကြောင်းအရာများမပါရှိသောစာမျက်နှာကို export လုပ်ခြင်းမှကာကွယ်ထားလိုပါက <a class="reference internal" href="../../../../_images/checkbox.png"><img alt="checkbox" src="../../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">Don’t export page if frame is empty</span> ကိုအမှန်ခြစ်ထားပါ။ ဆိုလိုသည်မှာ အခြား layout item များအားလုံး၊ မြေပုံများ၊ စကေးဘားများ နှင့် ရည်ညွှန်းချက်များ အစရှိသည်တို့ကို ရလာဒ်ထဲတွင် မြင်ရမည်မဟုတ်ပါ။</p></li>
+<li><p>ဇယား frame တွင်အကြောင်းအရာများမပါရှိပါက နောက်ခံပေါ်တွင်မြေပုံရေးဆွဲခြင်းအား ကာကွယ်ထားရန် <a class="reference internal" href="../../../../_images/checkbox.png"><img alt="checkbox" src="../../../../_images/checkbox.png" style="width: 1.3em;" /></a> <span class="guilabel">Don’t draw background if frame is empty</span> ကိုအမှန်ခြစ်ထားပါ။</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="composer_scale_bar.html" class="btn btn-neutral float-left" title="21.2.6. စကေးဘား (The Scale Bar Item)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="composer_image.html" class="btn btn-neutral float-right" title="21.2.8. အမှတ်အသား၊ ရုပ်ပုံနှင့် မြောက်အရပ်ပြမြှား များ (The Marker, Picture and North Arrow Items)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2002-now, QGIS project.
+      <span class="lastupdated">Last updated on 2024 May 13, 16:23 +0700.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- Transifex follows a particular logic to build target pages:
+Expected French translation link for https://docs.qgis.org/3.28/en/docs/user_manual/print_composer/overview_composer.html
+would return https://app.transifex.com/qgis/qgis-documentation/translate/#fr/aa6d8bc653526d38b295ca94bf8eee5e
+with the md5 value of "github#qgis/QGIS-Documentation#release_3.28#locale/en/LC_MESSAGES/docs/user_manual/print_composer/overview_composer.po"-->
+<!--Make sure that mismatching language codes between Transifex and Sphinx are converted-->
+
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-info-circle"> QGIS Documentation </span>
+      v: 3.28
+      <span class="fa fa-caret-down"></span>
+    </span>
+
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Languages</dt>
+        
+          <dd><a href="https://docs.qgis.org/3.28/en/docs/user_manual/print_composer/composer_items/composer_tables.html">en</a></dd>
+        
+      </dl>
+
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="https://docs.qgis.org/testing/en/docs/user_manual/print_composer/composer_items/composer_tables.html">testing</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/latest/en/docs/user_manual/print_composer/composer_items/composer_tables.html">latest</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.28/en/docs/user_manual/print_composer/composer_items/composer_tables.html">3.28</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.22/en/docs/user_manual/print_composer/composer_items/composer_tables.html">3.22</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.16/en/docs/user_manual/print_composer/composer_items/composer_tables.html">3.16</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.10/en/docs/user_manual/print_composer/composer_items/composer_tables.html">3.10</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.4/en/docs/user_manual/print_composer/composer_items/composer_tables.html">3.4</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/2.18/en/docs/user_manual/print_composer/composer_items/composer_tables.html">2.18</a></dd>
+        
+      </dl>
+
+       
+       <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="https://docs.qgis.org/3.28/pdf">PDF</a></dd>
+        
+          <dd><a href="https://docs.qgis.org/3.28/zip">HTML</a></dd>
+        
+      </dl>
+      
+
+      
+       
+      <dl>
+        <dt>Contribute to Docs</dt>
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/edit/master/docs/user_manual/print_composer/composer_items/composer_tables.rst" target="_blank" rel="noopener noreferrer">Edit on GitHub</a>
+          </dd>
+          
+          
+          <dd>
+            <a href="https://app.transifex.com/qgis/qgis-documentation/translate/#en/c8137f014555fe3060d1775add086422" target="_blank" rel="noopener noreferrer">Translate Page</a>
+          </dd>
+          
+          <dd>
+            <a href="https://github.com/qgis/QGIS-Documentation/issues" target="_blank" rel="noopener noreferrer">Report Issue</a>
+          </dd>
+      </dl>
+      
+
+      <dl>
+        <dt>On QGIS Project</dt>
+          <dd>
+            <a href="https://qgis.org/en" target="_blank" rel="noopener noreferrer">Home</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/api/3.28" target="_blank" rel="noopener noreferrer">C++ API</a>
+          </dd>
+          <dd>
+            <a href="https://qgis.org/pyqgis/3.28" target="_blank" rel="noopener noreferrer">PyQGIS API</a>
+          </dd>
+          <dd>
+            <a href="https://github.com/qgis/QGIS/tree/release-3_28" target="_blank" rel="noopener noreferrer">Source</a>
+          </dd>
+      </dl>
+
+    </div>
+  </div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
