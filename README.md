@@ -11,6 +11,7 @@
 
 ### QGIS Desktop Setting တွင်ပြင်ဆင်ခြင်း
 (၁) Setting menu > (၂) option ကိုဖွင့်ပါ။ (၃) System tab ကိုနှိပ်ပါ
+
 ![open option](/_images/zz_qgis_option_sys_path_1.png)
 
 (၄) Documentation Paths တွင် + နှိပ်ပြီး အသစ်ထဲ့ပါမည်
@@ -18,13 +19,23 @@
 ![system option](/_images/zz_qgis_option_sys_path_2.png)
 (၅) ဝင်လာသော HELP_LOCATION စာသားကို click/double click နှိပ်ပါ
 
-(၆) https://seepuuyar.github.io/QGIS328-Manual-MM/docs/user_manual ကို ကော်ပီယူပြီး ထည့်ပါ
+(၆) **https://seepuuyar.github.io/QGIS328-Manual-MM/docs/user_manual** ကို ကော်ပီယူပြီး ထည့်ပါ
+
 ![add path](/_images/zz_qgis_option_sys_path_3.png)
 
 (၇) path ကိုထိပ်ဆုံးတင်ရန် up key ဖြင့်ရွှေ့ပါ
+
 ![up path](/_images/zz_qgis_option_sys_path_4.png)
 
 (၈) Toolbaox တစ်ခုကိုဖွင့်ပြီး help ကိုနှိပ်ကြည့်ပါ။ ထိုအခါ မြန်မာ user manual သည် ထို toolbox နှင့်ဆိုင်သော စာမျက်နှာကိုပြပေးမည်ဖြစ်ပါသည်
+
+အောက်တွင် နမူနာ toolbox တစ်ခုကိုဖွင့်ပြီးစမ်းပြထားပါသည်
+
+![algorithm](/_images/zz_qgis_option_test.png)
+
+Help button ကိုနှိပ်လိုက်ချိန်တွင် မြန်မာ user manual ပွင့်လာပုံ
+
+![algorithm_help](/_images/zz_qgis_option_help.png)
 
 ## အမှားအယွင်းများ နှင့် အကြံပြုချက်များ ပေးပို့ရန်
  နည်းပညာ လက်စွဲ ကိုဘာသာပြန်ရာ တွင် အခက်အခဲများမှာ အဓိကအားဖြင့် မြန်မာဘာသာဖြင့် နည်းပညာဆိုင်ရာ စကားလုံးများ ရှားပါးသည့်အတွက် ရှည်လျားစွာဘာသာပြန်ရခြင်းဖြစ်သည်။ ဘာသာပြန်အဖွဲ့များ၏ နည်းပညာဆိုင်ရာ နားလည်မှု အတိမ်အနက်အပေါ်မူတည်၍လည်း ဘာသာပြန်အရည်အသွေး ကွာခြားမှုရှိသည်။ ကြီးကြပ်သူမှ အတတ်နိုင်ဆုံး ဘာသာပြန်စကားစုများကို တစ်ပြေးညီဖြစ်အောင်ပြန်လည်ညှိခြင်းမျိုး လုပ်ဆောင်ခဲ့သော်လည်း သတိမထားမိလိုက်သည့် အမှာများလည်းပါရှိနိုင်ပါသည်။
