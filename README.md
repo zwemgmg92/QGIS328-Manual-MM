@@ -14,8 +14,9 @@
 ![open option](/_images/zz_qgis_option_sys_path_1.png)
 
 (၄) Documentation Paths တွင် + နှိပ်ပြီး အသစ်ထဲ့ပါမည်
-(၅) ဝင်လာသော HELP_LOCATION စာသားကို click/double click နှိပ်ပါ
+
 ![system option](/_images/zz_qgis_option_sys_path_2.png)
+(၅) ဝင်လာသော HELP_LOCATION စာသားကို click/double click နှိပ်ပါ
 
 (၆) https://seepuuyar.github.io/QGIS328-Manual-MM/docs/user_manual ကို ကော်ပီယူပြီး ထည့်ပါ
 ![add path](/_images/zz_qgis_option_sys_path_3.png)
