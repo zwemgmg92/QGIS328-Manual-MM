@@ -46,16 +46,21 @@ Help button ကိုနှိပ်လိုက်ချိန်တွင် �
 
 ## အမှားအယွင်းများနှင့် အကြုံပြုချက်များ ပေးပို့နည်း
 (၁) SeePuuYar/QGIS328-Manual-MM repository ထဲရှိ အပေါ်ဘက် ရွေးချယ်စရာများထဲမှ **Issues** ကိုနှိပ်ပါ။
+
 ![open option](/_images/zz_issue_reporting_1.png)
 
 (၂) **New Issue** ကိုနှိပ်ပါ။
+
 ![open option](/_images/zz_issue_reporting_2.png)
 
 (၃) ပြင်ဆင်ရန်အကြံပြုလိုသည့် အကြောင်းအရာခေါင်းစဉ်ကို **Add a title** တွင်ရေးသားပါ။ **Add a description** ထဲတွင် ပြင်ဆင်ရမည့်အကြောင်းအရာ၏ html လင့်ခ်၊ ပြင်ဆင်ရမည့် စာကြောင်း သို့မဟုတ် စာသား၊ သင်၏အကြံပြုချက် စာသားတို့ကို ရေးသားပါ။ **Submit new issue** ကိုနှိပ်ပါ။
+
 ![open option](/_images/zz_issue_reporting_3.png)
 
 (၄) ပေးပို့လာသော အကြုံပြုချက်သည် SeePuuYar GitHub ထဲတွင် ရောက်ရှိလာပြီဖြစ်ပါသည်။
+
 ![open option](/_images/zz_issue_reporting_4.png)
 
 (၅) SeePuuYar ၏ Collaborator မှ ပေးပို့လာသော အကြံပြုချက်အားဖွင့်ဖတ်ကြည့်ပြီး သွားရောက်စစ်ဆေးပြင်ဆင်နိုင်မည်ဖြစ်ပါသည်။
+
 ![open option](/_images/zz_issue_reporting_5.png)
