@@ -308,7 +308,7 @@ Laye များကို အခြား CRS သို့ အရိပ်ခ�
 * :guilabel:`Format`
 
    * WKT (အသုံးပြုရန်အကြံပြုပါသည်)
-   * Proj String (Legacy - အသုံးမပြုရန် အကြံမပြုပါ)
+   * Proj String (ရှေးနည်း - အသုံးပြုရန် အကြံမပြုပါ)
 
 * :guilabel:`Parameters`
 
