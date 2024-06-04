@@ -73,116 +73,60 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">အသုံးပြုသူများအတွက်</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../preamble/preamble.html">1. စကားချီး (Preamble)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../preamble/foreword.html">2. အမှာစာ (Foreword)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../preamble/conventions.html">3. အသုံးအနှုန်းများ (Conventions)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../preamble/features.html">4. အသွင်အပြင်များ (Features)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../introduction/getting_started.html">5. စတင်အသုံးပြုခြင်း (Getting Started)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../introduction/project_files.html">6. Project Files များနှင့် အလုပ်လုပ်ခြင်း (Working with Project Files)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../introduction/qgis_gui.html">7. QGIS ၏အစိတ်အပိုင်းများ (QGIS GUI)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../introduction/browser.html">8. ဒေတာများရှာဖွေကြည့်ရှုနိုင်သည့်နေရာ (The Browser panel)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../introduction/qgis_configuration.html">9. QGIS ပြင်ဆင်သတ်မှတ်ခြင်း/အခင်းအကျင်း (QGIS Configuration)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../working_with_projections/working_with_projections.html">10. မြေပုံအရိပ်ချစနစ်များ နှင့် အလုပ်လုပ်ခြင်း (Working with Projections)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../map_views/index.html">11. မြေပုံများအား ပုံဖော်ကြည့်ရှုခြင်း (Visualizing Maps)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../introduction/general_tools.html">12. အထွေ‌ထွေ‌သုံးကိရိယာများ (General Tools)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../expressions/index.html">13. Expression များဖြင့် အဆင့်မြှင့်တင်ဆောင်ရွက်ခြင်း (Level up with Expressions)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../style_library/index.html">14. The Style Library (Style နှင့်ပတ်သက်သည်များ ထားရှိရာနေရာ)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../managing_data_source/index.html">15. ဒေတာအရင်းအမြစ်များအား စီမံခန့်ခွဲခြင်း (Managing Data Source)</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">16. Vector data များဖြင့် အလုပ်လုပ်ခြင်း</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="vector_properties.html">16.1. Vector ၏ ဂုဏ်သတ္တိများပြ dialog (The Vector Properties Dialog)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="attribute_table.html">16.2. အချက်အလက်ပြဇယား နှင့် အလုပ်လုပ်ခြင်း (Working with the Attribute Table)</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">16.3. တည်းဖြတ်ပြင်ဆင်ခြင်း (Editing)</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#setting-the-snapping-tolerance-and-search-radius">16.3.1. ဆွဲကပ်ခြင်းနိုင်သည့်အကွာအဝေး နှင့် ရှာဖွေမည့်အချင်းဝက် သတ်မှတ်ခြင်း (Setting the snapping tolerance and search radius)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#snapping-digitizing-snapping-and-digitizing-options">16.3.2. Snapping နှင့် Digitizing ရွေးချယ်စရာများ (Snapping and Digitizing Options)</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#snapping-snapping-properties">16.3.2.1. Snapping ဆိုင်ရာဂုဏ်သတ္တိများ (Snapping properties)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#snapping-enable-snapping-on-intersections">16.3.2.2. မျဉ်းနှစ်ခုဖြတ်မှတ်/ဆုံမှတ်များတွင် Snapping ဆောင်ရွက်နိုင်စေခြင်း(Enable snapping on intersections)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#limit-snapping-to-a-scale-range">16.3.2.3. စကေးအပိုင်းအခြားတစ်ခုအတွင်းမှာသာ ဆွဲကပ်စေခြင်း (Limit snapping to a scale range)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#snapping-self-snapping">16.3.2.4. ကိုယ့်ကိုယ်ကို Snapping ပြုလုပ်ခြင်း (Self-snapping)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#grid-snapping-snapping-on-custom-grid">16.3.2.5. ကိုယ်ပိုင်စနစ် grid ပေါ်တွင် Snapping ပြုလုပ်ခြင်း (Snapping on custom grid)</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#topological-editing">16.3.3. ဆက်စပ်တည်ရှိမှုကိုတည်းဖြတ်ပြင်ဆင်ခြင်း (Topological editing)</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#topology-enable-topological-editing">16.3.3.1. Topology ဆိုင်ရာ တည်းဖြတ်ပြင်ဆင်ခြင်းကို ဖွင့်ပေးခြင်း (Enable topological editing)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#overlapping-control">16.3.3.2. ထပ်ခွင့်ကို ထိန်းချုပ်ခြင်း (Overlapping control)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#automatic-tracing">16.3.3.3. အလိုအလျောက် ခြေရာခံရေးဆွဲခြင်း (Automatic Tracing)</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#layer-digitizing-an-existing-layer">16.3.4. layer တစ်ခုအတွင်း ဆွဲသားခြင်း (Digitizing an existing layer)</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#geometry-editing-techniques">16.3.4.1. ဂျီဩမေတြီ တည်းဖြတ်ပြင်ဆင်နည်းများ (Geometry editing techniques)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#feature-adding-features">16.3.4.2. Feature များကို ‌ပေါင်းထည့်ခြင်း (Adding Features)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#vertex-tool">16.3.4.3. Vertex tool</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#z-m-rules-of-z-coordinate-or-m-value-assignment">16.3.4.4. Z ကိုဩဒိနိတ် သို့မဟုတ် M တန်ဖိုး သတ်မှတ်ခြင်းဆိုင်ရာ စည်းမျဥ်းများ (Rules of Z coordinate or M value assignment)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#cutting-copying-and-pasting-features-feature-cut-copy-paste">16.3.4.5. Cutting, Copying and Pasting Features (Feature များကို cut (ဖယ်ရွှေ့) ၊ copy (ကူးယူ) နှင့် paste (ကူးချ) ပြုလုပ်ခြင်း)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#feature-deleting-selected-features">16.3.4.6. ရွေးထားသော feature များကို ဖျက်ခြင်း (Deleting Selected Features)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#undo-and-redo">16.3.4.7. ရှေနှင့်နောက်အဆင့်တွင်လုပ်ဆောင်ခဲ့သည့် အနေအထားသို့ ပြန်သွားခြင်း (Undo and Redo)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#layer-saving-edited-layers">16.3.4.8. တည်းဖြတ်ပြင်ဆင်ထားသည့် layer များကို သိမ်းဆည်းခြင်း (Saving Edited Layers)</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#digitize-advanced-digitizing">16.3.5. အဆင့်မြင့် digitize ပြုလုပ်ခြင်း (Advanced digitizing)</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#feature-move-feature-s">16.3.5.1. Feature များ‌ရွှေ့ခြင်း  (Move Feature(s))</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#feature-rotate-feature-s">16.3.5.2. Feature(များ) ကို လှည့်ခြင်း (Rotate Feature(s))</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#feature-scale-feature">16.3.5.3. Feature ကို အရွယ်ချံ့/ချဲ့ခြင်း (Scale Feature)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#feature-simplify-feature">16.3.5.4. Feature ကိုပေါ့ပါးအောင်ပြုလုပ်ခြင်း (Simplify Feature)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#add-part">16.3.5.5. အစိတ်အပိုင်းများ ထပ်ထည့်ခြင်း (Add Part)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#delete-part">16.3.5.6. အစိတ်အပိုင်းများကို ဖျက်ခြင်း (Delete Part)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#add-ring">16.3.5.7. အပေါက်ဖောက်ခြင်း (Add Ring)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#fill-ring">16.3.5.8. အပေါက်ဖြည့်ခြင်း (Fill Ring)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#delete-ring">16.3.5.9. ကွင်းကို ဖျက်ခြင်း (Delete Ring)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#feature-reshape-features">16.3.5.10. Feature များ၏ ပုံသဏ္ဍာန်ကို ပြန်ပြင်ရေးဆွဲခြင်း (Reshape Features)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#offset-curves">16.3.5.11. အပြိုင် မျဉ်းကွေးများ (Offset Curves)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#line-reverse-line">16.3.5.12. line ဦးတည်ရာကိုပြောင်းပြန်လှည့်ခြင်း (Reverse line)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#feature-split-features">16.3.5.13. Feature များကိုပိုင်းဖြတ်ခြင်း (Split Features)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#split-parts">16.3.5.14. အစိတ်အပိုင်းများကို ခဲထုတ်ခြင်း (Split parts)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#feature-merge-selected-features">16.3.5.15. ရွေးထားသော feature များကို ပေါင်းခြင်း (Merge selected features)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#feature-attribue-merge-attributes-of-selected-features">16.3.5.16. ရွေးထားသော feature များ၏ attribue များကို ပေါင်းခြင်း (Merge attributes of selected features)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#rotate-point-symbols">16.3.5.17. အမှတ်ပြ သင်္ကေတများကိုလှည့်ခြင်း (Rotate Point Symbols)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#offset-point-symbols">16.3.5.18. နေရာလွဲပြ အမှတ်သင်္ကေတများ (Offset Point Symbols)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#feature-trim-extend-feature">16.3.5.19. Feature များကို တိခြင်း/ဆန့်ထုတ်ခြင်း (Trim/Extend Feature)</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#digitize-shape-digitizing">16.3.6. ပုံသဏ္ဍာန်ကို digitize ပြုလုပ်ခြင်း (Shape digitizing)</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#circular-string-by-radius">16.3.6.1. အချင်းဝက်ဖြင့် စက်ဝန်းမျဉ်းရေးဆွဲခြင်း (Circular string by radius)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#draw-circles">16.3.6.2. စက်ဝိုင်းများရေးဆွဲခြင်း (Draw Circles)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#draw-ellipses">16.3.6.3. ဘဲဥပုံစံများ ရေးဆွဲခြင်း (Draw Ellipses)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#draw-rectangles">16.3.6.4. ထောင့်မှန်စတုဂံပုံစံများ ရေးဆွဲခြင်း (Draw Rectangles)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#polygon-draw-regular-polygons-regular">16.3.6.5. အနားညီ polygon များ ရေးဆွဲခြင်း (Draw Regular Polygons (Regular)</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#digitize-the-advanced-digitizing-panel">16.3.7. အဆင့်မြင့် Digitize ပြုလုပ်ရာနေရာ (The Advanced Digitizing panel)</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#the-toolbar">16.3.7.1. The Toolbar</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#keyboard-shortcuts">16.3.7.2. ကီးဘုတ်ခလုပ်အတွဲများ (Keyboard shortcuts)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#digitize-absolute-reference-digitizing">16.3.7.3. ကိုဩဒီနိတ်အတိအကျဖြင့် Digitize ပြုလုပ်ခြင်း (Absolute reference digitizing)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#digitize-relative-reference-digitizing">16.3.7.4. နှိုင်းရအညွှန်းဖြင့် Digitize ပြုလုပ်ခြင်း (Relative reference digitizing)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#lock-continuous-lock">16.3.7.5. ဆက်တိုက် lock ချခြင်း (Continuous lock)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#parallel-and-perpendicular-lines">16.3.7.6. အပြိုင်နှင့်ထောင့်မှန်ကျမျဥ်းများ (Parallel and perpendicular lines)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#construction-mode">16.3.7.7. ပုံဆွဲရန် အကူအညီယူခြင်း (Construction mode)</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#layer-the-processing-in-place-layer-modifier">16.3.8. Layer အတွင်းပြင်ဆင်မှုလုပ်ဆောင်ခြင်း (The Processing in-place layer modifier)</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">QGIS Desktop အသုံးပြုသူလမ်းညွှန်/လက်စွဲ (QGIS 3.28)</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../preamble/preamble.html">1. စကားချီး (Preamble)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../preamble/foreword.html">2. အမှာစာ (Foreword)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../preamble/conventions.html">3. အသုံးအနှုန်းများ (Conventions)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../preamble/features.html">4. အသွင်အပြင်များ (Features)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/getting_started.html">5. စတင်အသုံးပြုခြင်း (Getting Started)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/project_files.html">6. Project Files များနှင့် အလုပ်လုပ်ခြင်း (Working with Project Files)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/qgis_gui.html">7. QGIS ၏အစိတ်အပိုင်းများ (QGIS GUI)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/browser.html">8. ဒေတာများရှာဖွေကြည့်ရှုနိုင်သည့်နေရာ (The Browser panel)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/qgis_configuration.html">9. QGIS ပြင်ဆင်သတ်မှတ်ခြင်း/အခင်းအကျင်း (QGIS Configuration)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../working_with_projections/working_with_projections.html">10. မြေပုံအရိပ်ချစနစ်များ နှင့် အလုပ်လုပ်ခြင်း (Working with Projections)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../map_views/index.html">11. မြေပုံများအား ပုံဖော်ကြည့်ရှုခြင်း (Visualizing Maps)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/general_tools.html">12. အထွေ‌ထွေ‌သုံးကိရိယာများ (General Tools)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../expressions/index.html">13. Expression များဖြင့် အဆင့်မြှင့်တင်ဆောင်ရွက်ခြင်း (Level up with Expressions)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../style_library/index.html">14. The Style Library (Style နှင့်ပတ်သက်သည်များ ထားရှိရာနေရာ)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../managing_data_source/index.html">15. ဒေတာအရင်းအမြစ်များအား စီမံခန့်ခွဲခြင်း (Managing Data Source)</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">16. Vector data များဖြင့် အလုပ်လုပ်ခြင်း</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="vector_properties.html">16.1. Vector ၏ ဂုဏ်သတ္တိများပြ dialog (The Vector Properties Dialog)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="attribute_table.html">16.2. အချက်အလက်ပြဇယား နှင့် အလုပ်လုပ်ခြင်း (Working with the Attribute Table)</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">16.3. တည်းဖြတ်ပြင်ဆင်ခြင်း (Editing)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#setting-the-snapping-tolerance-and-search-radius">16.3.1. ဆွဲကပ်ခြင်းနိုင်သည့်အကွာအဝေး နှင့် ရှာဖွေမည့်အချင်းဝက် သတ်မှတ်ခြင်း (Setting the snapping tolerance and search radius)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#snapping-digitizing-snapping-and-digitizing-options">16.3.2. Snapping နှင့် Digitizing ရွေးချယ်စရာများ (Snapping and Digitizing Options)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#topological-editing">16.3.3. ဆက်စပ်တည်ရှိမှုကိုတည်းဖြတ်ပြင်ဆင်ခြင်း (Topological editing)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#layer-digitizing-an-existing-layer">16.3.4. layer တစ်ခုအတွင်း ဆွဲသားခြင်း (Digitizing an existing layer)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#digitize-advanced-digitizing">16.3.5. အဆင့်မြင့် digitize ပြုလုပ်ခြင်း (Advanced digitizing)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#digitize-shape-digitizing">16.3.6. ပုံသဏ္ဍာန်ကို digitize ပြုလုပ်ခြင်း (Shape digitizing)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#digitize-the-advanced-digitizing-panel">16.3.7. အဆင့်မြင့် Digitize ပြုလုပ်ရာနေရာ (The Advanced Digitizing panel)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#layer-the-processing-in-place-layer-modifier">16.3.8. Layer အတွင်းပြင်ဆင်မှုလုပ်ဆောင်ခြင်း (The Processing in-place layer modifier)</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../working_with_raster/index.html">17. Raster Data နှင့် အလုပ်လုပ်ခြင်း</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../working_with_mesh/mesh_properties.html">18. Working with Mesh Data (Mesh Data များနှင့် အလုပ်လုပ်ခြင်း)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../working_with_vector_tiles/vector_tiles_properties.html">19. Vector Tiles များနှင့်အလုပ်လုပ်ခြင်း (Working with Vector Tiles)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../working_with_point_clouds/point_clouds.html">20. Point Cloud များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../print_composer/index.html">21. မြေပုံအချောသပ်ပြင်ဆင်ခြင်း (Laying out the maps)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../working_with_ogc/ogc_client_support.html">22. OGC / ISO protocol များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../working_with_gps/index.html">23. GPS Data များနှင့် အလုပ်လုပ်ခြင်း</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../auth_system/auth_overview.html">24. အထောက်အထားစီစစ်ခြင်းအကြောင်းအကျဉ်း (Authentication System Overview)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../auth_system/auth_workflows.html">25. အသုံးပြုသူ အထောက်အထားစစ်ဆေးခြင်း လုပ်ငန်းအဆင့်များ (User Authentication Workflows)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../auth_system/auth_considerations.html">26. လုံခြုံရေးအတွက်စဉ်းစားရန်အချက်များ (Security Considerations)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../grass_integration/grass_integration.html">27. GRASS GIS နှင့်ပေါင်းစပ်အသုံးပြုခြင်း (GRASS GIS Integration)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../processing/index.html">28. QGIS processing framework</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../processing_algs/index.html">29. Processing ဆိုင်ရာ ထောက်ပံ့ပေးသူများနှင့် Algorithm များ (Processing providers and algorithms)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../plugins/plugins.html">30. QGIS Plugin များ</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../plugins/core_plugins/index.html">31. QGIS ပင်မ Plugin များကို အသုံးပြုခြင်း (Using QGIS Core Plugins)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../plugins/python_console.html">32. QGIS တွင် Python code များရေးသားရန်နေရာ (QGIS Python console)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../preamble/help_and_support.html">33. အကူအညီနှင့်အထောက်အပံ့ (Help and Support)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../preamble/contributors.html">34. ပါဝင်အားဖြည့်သူများ (Contributors)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../appendices/index.html">35. နောက်ဆက်တွဲများ (Appendices)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../literature_web/literature_and_web_references.html">36. စာတမ်းများနှင့် Website ကိုးကားချက်များ (Literature and Web References)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../working_with_raster/index.html">17. Raster Data နှင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../working_with_mesh/mesh_properties.html">18. Working with Mesh Data (Mesh Data များနှင့် အလုပ်လုပ်ခြင်း)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../working_with_vector_tiles/vector_tiles_properties.html">19. Vector Tiles များနှင့်အလုပ်လုပ်ခြင်း (Working with Vector Tiles)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../working_with_point_clouds/point_clouds.html">20. Point Cloud များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../print_composer/index.html">21. မြေပုံအချောသပ်ပြင်ဆင်ခြင်း (Laying out the maps)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../working_with_ogc/ogc_client_support.html">22. OGC / ISO protocol များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../working_with_gps/index.html">23. GPS Data များနှင့် အလုပ်လုပ်ခြင်း</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../auth_system/auth_overview.html">24. အထောက်အထားစီစစ်ခြင်းအကြောင်းအကျဉ်း (Authentication System Overview)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../auth_system/auth_workflows.html">25. အသုံးပြုသူ အထောက်အထားစစ်ဆေးခြင်း လုပ်ငန်းအဆင့်များ (User Authentication Workflows)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../auth_system/auth_considerations.html">26. လုံခြုံရေးအတွက်စဉ်းစားရန်အချက်များ (Security Considerations)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../grass_integration/grass_integration.html">27. GRASS GIS နှင့်ပေါင်းစပ်အသုံးပြုခြင်း (GRASS GIS Integration)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../processing/index.html">28. QGIS processing framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../processing_algs/index.html">29. Processing ဆိုင်ရာ ထောက်ပံ့ပေးသူများနှင့် Algorithm များ (Processing providers and algorithms)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugins/plugins.html">30. QGIS Plugin များ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugins/core_plugins/index.html">31. QGIS ပင်မ Plugin များကို အသုံးပြုခြင်း (Using QGIS Core Plugins)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugins/python_console.html">32. QGIS တွင် Python code များရေးသားရန်နေရာ (QGIS Python console)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../preamble/help_and_support.html">33. အကူအညီနှင့်အထောက်အပံ့ (Help and Support)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../preamble/contributors.html">34. ပါဝင်အားဖြည့်သူများ (Contributors)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendices/index.html">35. နောက်ဆက်တွဲများ (Appendices)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../literature_web/literature_and_web_references.html">36. စာတမ်းများနှင့် Website ကိုးကားချက်များ (Literature and Web References)</a></li>
+</ul>
+</li>
 </ul>
 
         </div>
@@ -199,7 +143,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="../index.html">&lt;no title&gt;</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">QGIS အသုံးပြုသူလမ်းညွှန်</a></li>
           <li class="breadcrumb-item"><a href="index.html"><span class="section-number">16. </span>Vector data များဖြင့် အလုပ်လုပ်ခြင်း</a></li>
       <li class="breadcrumb-item active"><span class="section-number">16.3. </span>တည်းဖြတ်ပြင်ဆင်ခြင်း (Editing)</li>
       <li class="wy-breadcrumbs-aside">
@@ -351,15 +295,15 @@
 <caption><span class="caption-number">Table 16.2 </span><span class="caption-text">Snapping icons</span><a class="headerlink" href="#id11" title="Link to this table"></a></caption>
 <tbody>
 <tr class="row-odd"><td><figure class="align-default">
-<img alt="../../../_images/snap_vertex_icon.png" src="../../../_images/snap_vertex_icon.png" />
+<img alt="docs/user_manual/working_with_vector/img/snap_vertex_icon.png" src="docs/user_manual/working_with_vector/img/snap_vertex_icon.png" />
 </figure>
 </td>
 <td><figure class="align-default">
-<img alt="../../../_images/snap_segment_icon.png" src="../../../_images/snap_segment_icon.png" />
+<img alt="docs/user_manual/working_with_vector/img/snap_segment_icon.png" src="docs/user_manual/working_with_vector/img/snap_segment_icon.png" />
 </figure>
 </td>
 <td><figure class="align-default">
-<img alt="../../../_images/snap_intersection_icon.png" src="../../../_images/snap_intersection_icon.png" />
+<img alt="docs/user_manual/working_with_vector/img/snap_intersection_icon.png" src="docs/user_manual/working_with_vector/img/snap_intersection_icon.png" />
 </figure>
 </td>
 </tr>
@@ -372,7 +316,7 @@
 <p>Global setting များ၏ <span class="guilabel">Digitizing</span> အပိုင်းတွင် အဆိုပါ icon များ၏ အရောင်ကို ပြောင်းလဲနိုင်ပါသည်။</p>
 <p>Tolerance တန်ဖိုးများကို project ၏ <code class="docutils literal notranslate"><span class="pre">map</span> <span class="pre">units</span> <span class="pre">(မြေပုံယူနစ်များ)</span></code> သို့မဟုတ် <code class="docutils literal notranslate"><span class="pre">pixels</span></code> တစ်ခုမဟုတ်တစ်ခုဖြင့် သတ်မှတ်နိုင်ပါသည်။ <code class="docutils literal notranslate"><span class="pre">pixels</span></code> ကို ရွေးချယ်ခြင်း၏ အားသာချက်သည် မြေပုံစကေးအမျိုးမျိုးတွင် snapping ကို တသတ်မှတ်တည်းဖြစ်စေပါသည်။ 10 မှ 12 pixel သည် ပုံမှန်အားဖြင့် ကောင်းမွန်သောတန်ဖိုးတစ်ခုဖြစ်ပါသည်။ သို့သော် ၎င်းတန်ဖိုးသည် မိမိ screen (ကွန်ပျူတာမျက်နှာပြင်) ၏ DPI (dots per inch) ပေါ်တွင် မူတည်ပါသည်။ Map unit များအသုံးပြုခြင်းသည် tolerance တန်ဖိုး ကို အစစ်အမှန်မြေပြင်အကွာအ‌ဝေးများနှင့် ဆက်စပ်စေပါသည်။ ဥပမာအားဖြင့် element များအကြား အနည်းဆုံးအကွာအဝေးတစ်ခုရှိလျှင် အဆိုပါ option သည် vertex များ တစ်ခုနှင့်တစ်ခု အလွန်နီးကပ်စွာထည့်သွင်းခြင်းကို‌ရှောင်ရှားနိုင်ပါသည်။</p>
 <figure class="align-center" id="id12">
-<span id="figure-edit-snapping"></span><img alt="../../../_images/editProjectSnapping.png" src="../../../_images/editProjectSnapping.png" />
+<span id="figure-edit-snapping"></span><img alt="docs/user_manual/working_with_vector/img/editProjectSnapping.png" src="docs/user_manual/working_with_vector/img/editProjectSnapping.png" />
 <figcaption>
 <p><span class="caption-number">Fig. 16.88 </span><span class="caption-text">Snapping ရွေးချယ်စရာများ (အဆင့်မြင့်ပြင်ဆင်သတ်မှတ်ခြင်းနည်းလမ်း)</span><a class="headerlink" href="#id12" title="Link to this image"></a></p>
 </figcaption>
@@ -407,7 +351,7 @@
 <span id="self-snapping"></span><h3><a class="toc-backref" href="#id43" role="doc-backlink"><span class="section-number">16.3.2.4. </span>ကိုယ့်ကိုယ်ကို Snapping ပြုလုပ်ခြင်း (Self-snapping)</a><a class="headerlink" href="#snapping-self-snapping" title="Link to this heading"></a></h3>
 <p><a class="reference internal" href="../../../_images/mIconSnappingSelf.png"><img alt="snappingSelf" src="../../../_images/mIconSnappingSelf.png" style="width: 1.5em;" /></a> <sup>Self-snapping</sup> option သည် တည်းဖြတ်ပြင်ဆင်ခြင်းခံနေရသည့် ဂျီဩမေတြီကို snapping ပြုလုပ်နိုင်သည်။ <a class="reference internal" href="#advanced-digitizing-panel"><span class="std std-ref">Advanced digitizing panel</span></a> နှင့် ပေါင်းစပ်ပြီး ယခင်ကရှိသည့် edges (အစွန်းများ) သို့မဟုတ် vertex များနှင့် ဆက်စပ်နေသည့် edge အသစ်များကို digitize ပြုလုပ်နိုင်ရန် အဆင်ပြေသောနည်းလမ်းတစ်ခုဖြစ်သည်။ Self-snapping ဆောင်ရွက်ခြင်းသည် မမှန်ကန်သော ဂျီဩမေတြီများ ဖြစ်ပေါ်စေနိုင်ပြီး သတိထား၍ အသုံးပြုစေလိုပါသည်။</p>
 <figure class="align-center" id="id13">
-<span id="figure-self-snapping"></span><img alt="../../../_images/self_snapping.gif" src="../../../_images/self_snapping.gif" />
+<span id="figure-self-snapping"></span><img alt="docs/user_manual/working_with_vector/img/self_snapping.gif" src="docs/user_manual/working_with_vector/img/self_snapping.gif" />
 <figcaption>
 <p><span class="caption-number">Fig. 16.89 </span><span class="caption-text">Self-snapping ဖြင့် feature များရေးဆွဲခြင်း</span><a class="headerlink" href="#id13" title="Link to this image"></a></p>
 </figcaption>
@@ -616,7 +560,7 @@
 </li>
 </ol>
 <figure class="align-center" id="id15">
-<span id="figure-edit-values"></span><img alt="../../../_images/editDigitizing.png" src="../../../_images/editDigitizing.png" />
+<span id="figure-edit-values"></span><img alt="docs/user_manual/working_with_vector/img/editDigitizing.png" src="docs/user_manual/working_with_vector/img/editDigitizing.png" />
 <figcaption>
 <p><span class="caption-number">Fig. 16.90 </span><span class="caption-text">Vector feature အသစ်တစ်ခုကို digitize လုပ်ပြီးနောက် Attribute Values Dialog တွင်ထည့်သွင်းခြင်း</span><a class="headerlink" href="#id15" title="Link to this image"></a></p>
 </figcaption>
@@ -656,7 +600,7 @@
 </li>
 <li><p><strong>Batch vertex selection mode</strong> (အစုလိုက် vertex ရွေးချယ်ခြင်း ပုံစံ) - အစုလိုက်ရွေးချယ်ခြင်းပုံစံကို ကီးဘုတ်ရှိ <kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">Shift</kbd>+<kbd class="kbd docutils literal notranslate">R</kbd></kbd> ကို နှိပ်ခြင်းဖြင့် အသုံးပြုနိုင်သည်။ ပထမဆုံး node တစ်ခုကို click တစ်ချက်ဖြင့်‌ ရွေးချယ်ပါ၊ ထို့နောက် အခြား vertex ပေါ်တွင် <strong>click မနှိပ်ပဲ</strong> မောက်စ် cursor တင်ထားပါ။ ထိုအရာသည် အတိုဆုံးလမ်းကြောင်း (polygon အတွက်) ကိုအသုံးပြု၍ ကြားထဲရှိ node များအားလုံးကို အလိုအလျောက်ရွေးချယ်ပေးမည်ဖြစ်သည်။</p>
 <figure class="align-center" id="id16">
-<span id="figure-batch-select-vertex"></span><img alt="../../../_images/vertex_batch_selection_mode.png" src="../../../_images/vertex_batch_selection_mode.png" />
+<span id="figure-batch-select-vertex"></span><img alt="docs/user_manual/working_with_vector/img/vertex_batch_selection_mode.png" src="docs/user_manual/working_with_vector/img/vertex_batch_selection_mode.png" />
 <figcaption>
 <p><span class="caption-number">Fig. 16.91 </span><span class="caption-text">ကီးဘုတ်ရှိ <kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">Shift</kbd>+<kbd class="kbd docutils literal notranslate">R</kbd></kbd> အသုံးပြုပြီး အစုလိုက် vertex ရွေးချယ်ခြင်း</span><a class="headerlink" href="#id16" title="Link to this image"></a></p>
 </figcaption>
@@ -666,7 +610,7 @@
 <li><p><strong>Adding vertices</strong> (Vertex များထည့်သွင်းခြင်း) - Line သို့မဟုတ် Polygon ဂျီဩမေတြီတစ်ခုတွင် Vertex တစ်ခုပေါင်းထည့်ရန် ကီးဘုတ်ရှိ <kbd class="kbd docutils literal notranslate">Shift</kbd> ခလုတ်ကို ဖိထားပြီး segment ပေါ်ရှိ နေရာတစ်ခုကို click နှစ်ချက်နှိပ်ပါ။</p>
 <p>Segment တစ်ခုပေါ်တွင် မောက်စ် cursor တင်ထားသည့်အခါ virtual (အစစ်မဟုတ်သော) node အသစ်တစ်ခုသည် အလယ်တွင် ပေါ်လာမည်ဖြစ်သည်။ ထိုအရာပေါ်တွင် click နှိပ်ပါ၊ vertex အသစ်တစ်ခု ပေါင်းထည့်ရန် cursor ကို နေရာအသစ်တစ်ခုသို့ ရွှေ့၍ click ထပ်နှိပ်ပါ။ Line များအတွက် virtual node တစ်ခုသည် အစွန်းနှစ်ဘက်စလုံးတွင် ပေါ်လာမည်ဖြစ်သည်၊ ထိုအရာပေါ်တွင် click နှိပ်ပါ၊ ဆက်တိုက် click များပြုလုပ်ပါ၊ ညာဘက် click တစ်ချက်နှိပ်ပြီး အဆုံးသတ်ပါ။ ထိုသို့ပြုလုပ်ခြင်းသည် လက်ရှိတည်ရှိနေသည့် line တစ်ခုကို လွယ်ကူစွာ တိုးချဲ့နိုင်စေမည်ဖြစ်သည်။</p>
 <figure class="align-center" id="id17">
-<span id="figure-vertex-add-node"></span><img alt="../../../_images/vertex_add_node.png" src="../../../_images/vertex_add_node.png" />
+<span id="figure-vertex-add-node"></span><img alt="docs/user_manual/working_with_vector/img/vertex_add_node.png" src="docs/user_manual/working_with_vector/img/vertex_add_node.png" />
 <figcaption>
 <p><span class="caption-number">Fig. 16.92 </span><span class="caption-text">Vertex များ ပေါင်းထည့်ခြင်းအတွက် Virtual node များ</span><a class="headerlink" href="#id17" title="Link to this image"></a></p>
 </figcaption>
@@ -676,7 +620,7 @@
 <li><p><strong>Moving vertices</strong> (Vertex များကိုရွှေ့ခြင်း) - ရွှေ့လိုသော vertex အားလုံးကို ရွေးချယ်ပါ။ ရွေးချယ်ထားသော vertex သို့မဟုတ် အစွန်း (edge) ပေါ်တွင် click နှိပ်ပြီး ‌ရွှေ့လိုသော နေရာအသစ်ပေါ်တွင် click နှိပ်ပါ။ ဒုတိယ click မနှိပ်မီတွင် အကွာအဝေးများ၊ ထောင့်များ၊ X နှင့် Y တည်နေရာအတိအကျများအတွက် <a class="reference internal" href="#snapping-options"><span class="std std-ref">snapping to feature capabilities (Feature ကို snapping ပြုလုပ်ခြင်းစွမ်းဆောင်ရည်များ)</span></a> နှင့် <a class="reference internal" href="#advanced-digitizing-panel"><span class="std std-ref">Advanced Digitizing Panel</span></a> ကို အသုံးပြုနိုင်ပါသည်။ ထိုသို့ပြုလုပ်ခြင်းဖြင့် ရွေးချယ်ထားသော vertex များအားလုံးကို နေရာပြောင်းရွှေ့ပေးသွားမည်ဖြစ်ပါသည်။</p>
 <p>သို့သော်လည်း <a class="reference internal" href="vector_properties.html#snap-to-grid"><span class="std std-ref">snap-to-grid</span></a> option ကို လုပ်ဆောင်ထားပါက ရွေးချယ်ထားသော vertex များသည် ၎င်းတို့၏ နေရာပြောင်းရွှေ့ထားသောတည်နေရာနှင့် အနီးကပ်ဆုံးဖြစ်သော grid ဆုံမှတ်တွင် snapping ပြုလုပ်သွားမည်ဖြစ်သည်။ မရွေးချယ်ထားသော vertex များသည်လည်း ၎င်းတို့နှင့်အနီးကပ်ဆုံး grid ဆုံမှတ်သို့ ရွေ့သွားမည်ဖြစ်သည်။ ဤတွင် ရိုးရှင်းသော နေရာပြောင်းရွှေ့မှုတစ်စုံတစ်ရာ မရှိပါ။</p>
 <figure class="align-center" id="id18">
-<span id="figure-vertex-snap-to-grid"></span><img alt="../../../_images/vertex_snap_to_grid.png" src="../../../_images/vertex_snap_to_grid.png" />
+<span id="figure-vertex-snap-to-grid"></span><img alt="docs/user_manual/working_with_vector/img/vertex_snap_to_grid.png" src="docs/user_manual/working_with_vector/img/vertex_snap_to_grid.png" />
 <figcaption>
 <p><span class="caption-number">Fig. 16.93 </span><span class="caption-text">ထိပ်ဆုံး vertex ကို ရွှေ့ခြင်းသည် vertex များအားလုံးကို grid တွင် snapping ပြုလုပ်သွားပါသည်</span><a class="headerlink" href="#id18" title="Link to this image"></a></p>
 </figcaption>
@@ -684,7 +628,7 @@
 </li>
 <li><p><strong>Converting adjacent segments to/from curve</strong> (ကပ်လျက် segment များကို မျဉ်းကွေး သို့/မှ ပြောင်းလဲခြင်း) - ပြောင်းလဲလိုသော segment ၏ အလယ်ဗဟို vertex ကိုရွေးချယ်ပြီး ကီးဘုတ်ရှိ <kbd class="kbd docutils literal notranslate">O</kbd> စာလုံးကို နှိပ်ပါ။ Vertex သည် မျဉ်းကွေးတစ်ခုထဲတွင်ရှိပါက မျဉ်းကွေးသည် မျဉ်းဖြောင့်အဖြစ် ပြောင်းလဲသွားမည်ဖြစ်သည်။ Vertex သည် မျဉ်းဖြောင့်နှစ်ခုကြားတွင်ရှိပါက ၎င်းမျဉ်းဖြောင့်များသည် မျဉ်းကွေးတစ်ခုအဖြစ်သို့ ပြောင်းလဲသွားမည်ဖြစ်သည်။ မျဉ်းကြောင်းတစ်ကြောင်း၏ ပထမဆုံး သို့မဟုတ် နောက်ဆုံး vertex တစ်ခုကို အလယ်ဗဟိုကျသော vertex မျဉ်းကွေးတစ်ခုအဖြစ်သို့ ပြောင်းလဲ၍မရနိုင်ပါ။ Layer သည် မျဉ်းကွေး ဂျီဩမေတြီအမျိုးအစားနှင့် ကိုက်ညီမှုရှိရပါမည်။</p>
 <figure class="align-center" id="id19">
-<span id="figure-vertex-convert-curve"></span><img alt="../../../_images/vertex_convert_curve.png" src="../../../_images/vertex_convert_curve.png" />
+<span id="figure-vertex-convert-curve"></span><img alt="docs/user_manual/working_with_vector/img/vertex_convert_curve.png" src="docs/user_manual/working_with_vector/img/vertex_convert_curve.png" />
 <figcaption>
 <p><span class="caption-number">Fig. 16.94 </span><span class="caption-text">ကီးဘုတ်မှ <kbd class="kbd docutils literal notranslate">O</kbd> စာလုံးဖြင့် မျဉ်းကွေးမှ မျဉ်းဖြောင့်သို့ပြောင်းလဲခြင်း</span><a class="headerlink" href="#id19" title="Link to this image"></a></p>
 </figcaption>
@@ -706,7 +650,7 @@
 </ul>
 <p>Vertex tool များဖြင့် အပြန်အလှန်ဆောင်ရွက်သည့် အချိန်တိုင်း <span class="guilabel">Vertex Editor</span> panel ကို ချက်ခြင်းမပြသစေလိုပါက (အခြား panel များကို ဖုံးကွယ်ခြင်း သို့မဟုတ် panel နေရာချထားမှုကိုအနှောင့်အယှက်မဖြစ်စေလိုပါ) panel ၏ ထိပ်ဆုံးတွင်ရှိသော <a class="reference internal" href="../../../_images/mIconHamburgerMenu.png"><img alt="hamburgerMenu" src="../../../_images/mIconHamburgerMenu.png" style="width: 1.5em;" /></a> <sup>Options</sup> menu ထဲရှိ <span class="guilabel">Auto-open table (အလိုအလျောက်ဇယားကိုဖွင့်ပါ)</span> entry ကို အမှန်ခြစ်ဖြုတ်ပါ။ ထို့နောက် panel ကိုလည်း ပိတ်နိုင်ပါသည်။ Panel ကို ပြန်ဖွင့်ရန်အတွက် panel သို့မဟုတ် toolbar ပေါ်တွင် ညာဘက် click နှိပ်ရန် လိုအပ်ပြီး စာရင်းထဲတွင် ၎င်းကိုရွေးချယ်ပေးပါ သို့မဟုတ် <span class="guilabel">Digitizing toolbar (Digitizing ဆိုင်ရာ toolbar)</span> ထဲရှိ <span class="guilabel">Show vertex editor (Vertex editor ကို ပြသခြင်း)</span> entry တွင် အမှန်ခြစ်ခြစ်ပါ။</p>
 <figure class="align-center" id="id20">
-<span id="figure-edit-vertex"></span><img alt="../../../_images/vertex_editor_panel.png" src="../../../_images/vertex_editor_panel.png" />
+<span id="figure-edit-vertex"></span><img alt="docs/user_manual/working_with_vector/img/vertex_editor_panel.png" src="docs/user_manual/working_with_vector/img/vertex_editor_panel.png" />
 <figcaption>
 <p><span class="caption-number">Fig. 16.95 </span><span class="caption-text">ရွေးချယ်ထားသည့် node များကို ပြသနေသည့် Vertex editor panel</span><a class="headerlink" href="#id20" title="Link to this image"></a></p>
 </figcaption>
@@ -767,7 +711,7 @@
 <span id="undoredo-edits"></span><span id="index-19"></span><h3><a class="toc-backref" href="#id58" role="doc-backlink"><span class="section-number">16.3.4.7. </span>ရှေနှင့်နောက်အဆင့်တွင်လုပ်ဆောင်ခဲ့သည့် အနေအထားသို့ ပြန်သွားခြင်း (Undo and Redo)</a><a class="headerlink" href="#undo-and-redo" title="Link to this heading"></a></h3>
 <p><a class="reference internal" href="../../../_images/mActionUndo.png"><img alt="undo" src="../../../_images/mActionUndo.png" style="width: 1.5em;" /></a> <sup>Undo</sup> နှင့် <a class="reference internal" href="../../../_images/mActionRedo.png"><img alt="redo" src="../../../_images/mActionRedo.png" style="width: 1.5em;" /></a> <sup>Redo</sup> tool များသည် vector တည်းဖြတ်ခြင်းဆိုင်ရာ လုပ်ဆောင်ချက်များကို undo သို့မဟုတ် redo ပြုလုပ်နိုင်သည်။ Undo/redo မှတ်တမ်းရှိ လုပ်ဆောင်ချက်အားလုံးကို ပြသသည့် widget တစ်ခုလည်းရှိပါသည် (<a class="reference internal" href="#figure-edit-undo"><span class="std std-numref">Fig. 16.96</span></a> တွင် ကြည့်ပါ)။ ဤ widget သည် default အားဖြင့် ပြသမည်မဟုတ်ပါ- Toolbar ပေါ်တွင် ညာဘက် click နှိပ်ပြီး <span class="guilabel">Undo/Redo Panel</span> checkbox ကို activate လုပ်ခြင်းအားဖြင့် ပေါ်လာမည်ဖြစ်သည်။ Widget ကို မပြသထားသော်လည်း Undo/Redo လုပ်ဆောင်မှုများသည် active ဖြစ်နေပါလိမ့်မည်။</p>
 <figure class="align-center" id="id21">
-<span id="figure-edit-undo"></span><img alt="../../../_images/redo_undo.png" src="../../../_images/redo_undo.png" />
+<span id="figure-edit-undo"></span><img alt="docs/user_manual/working_with_vector/img/redo_undo.png" src="docs/user_manual/working_with_vector/img/redo_undo.png" />
 <figcaption>
 <p><span class="caption-number">Fig. 16.96 </span><span class="caption-text">Digitize ပြုလုပ်ခြင်းတွင် Redo နှင့် Undo အဆင့်များ</span><a class="headerlink" href="#id21" title="Link to this image"></a></p>
 </figcaption>
@@ -964,7 +908,7 @@
 <span id="reshape-feature"></span><span id="index-30"></span><h3><a class="toc-backref" href="#id71" role="doc-backlink"><span class="section-number">16.3.5.10. </span>Feature များ၏ ပုံသဏ္ဍာန်ကို ပြန်ပြင်ရေးဆွဲခြင်း (Reshape Features)</a><a class="headerlink" href="#feature-reshape-features" title="Link to this heading"></a></h3>
 <p>Toolbar ပေါ်ရှိ <a class="reference internal" href="../../../_images/mActionReshape.png"><img alt="reshape" src="../../../_images/mActionReshape.png" style="width: 1.5em;" /></a><sup>Reshape Features</sup> tool ကိုအသုံးပြု၍ line နှင့် polygon feature များ၏ ပုံသဏ္ဍာန်ကို ပြန်ပြင်ရေးဆွဲနိုင်သည်။ Line များအတွက်ဆိုလျှင် ၎င်းသည် ပထမမျဉ်းမှ နောက်ဆုံးမျဉ်းအထိ ဖြတ်မှတ်နေရာများ၌ မူလမျဉ်းကို မျဉ်းအပိုင်းဖြင့် အစားထိုးပေးပါသည်။</p>
 <figure class="align-center" id="id23">
-<span id="figure-reshape-line"></span><img alt="../../../_images/reshape_lines.png" src="../../../_images/reshape_lines.png" />
+<span id="figure-reshape-line"></span><img alt="docs/user_manual/working_with_vector/img/reshape_lines.png" src="docs/user_manual/working_with_vector/img/reshape_lines.png" />
 <figcaption>
 <p><span class="caption-number">Fig. 16.97 </span><span class="caption-text">Line ပုံသဏ္ဍာန်ကို ပြန်ပြင်ရေးဆွဲခြင်း (Reshape)</span><a class="headerlink" href="#id23" title="Link to this image"></a></p>
 </figcaption>
@@ -976,7 +920,7 @@
 </div>
 <p>Polygon များအတွက်ဆိုလျှင် ထိုအရာသည် polygon ၏ နယ်နိမိတ်ကို ပုံသဏ္ဍာန်ပြန်ပြင်ရေးဆွဲမည်ဖြစ်သည်။ ၎င်းကိုလုပ်ဆောင်ရန်အတွက်၊ reshape tool ၏ line သည် polygon ၏ နယ်နိမိတ်ကို အနည်းဆုံးနှစ်ကြိမ် ဖြတ်ရမည်ဖြစ်သည်။ Line ကိုရေးဆွဲရာတွင် vertex များပေါင်းထည့်ရန် မြေပုံ canvas ‌ပေါ်တွင် click နှိပ်ပါ။ ၎င်းကို အပြီးသတ်ရန် ညာဖက် click ကိုနှိပ်ပါ။ Line များကို reshape ပြုလုပ်ခြင်းကဲ့သို့ပင် ပထမနှင့် နောက်ဆုံး ဖြတ်မှတ်များကြားရှိ segment ကိုသာ ထည့်သွင်းစဉ်းစားပါသည်။ Polygon အတွင်းပိုင်းတွင်ရှိသော reshape line ၏ segment များသည် polygon ကို clip (ဖြတ်တောက်) လုပ်မည်ဖြစ်ပြီး polygon အပြင်ဘက်ရှိ segment များသည် polygon ကို ချဲ့ပေးမည်ဖြစ်သည်။</p>
 <figure class="align-center" id="id24">
-<span id="figure-reshape-polygon"></span><img alt="../../../_images/reshape_polygon.png" src="../../../_images/reshape_polygon.png" />
+<span id="figure-reshape-polygon"></span><img alt="docs/user_manual/working_with_vector/img/reshape_polygon.png" src="docs/user_manual/working_with_vector/img/reshape_polygon.png" />
 <figcaption>
 <p><span class="caption-number">Fig. 16.98 </span><span class="caption-text">Polygon ပုံသဏ္ဍာန်ကို ပြန်ပြင်ရေးဆွဲခြင်း (Reshape)</span><a class="headerlink" href="#id24" title="Link to this image"></a></p>
 </figcaption>
@@ -1070,7 +1014,7 @@
 <p>Symbol Tree (သင်္ကေတဖွဲ့စည်းပုံ) ၏ ထိပ်ဆုံးအဆင့်ရှိ data-defined rotation field (data ဖြင့်သတ်မှတ်ထားသော လှည့်ခြင်း field) ကို သတ်မှတ်ခြင်းသည် သင်္ကေတ layer များအားလုံးသို့ အလိုအလျောက်ပြန့်ပွားသက်ရောက်စေမည်ဖြစ်သည်။ <span class="guilabel">Rotate Point Symbols (Point သင်္ကေတများကို လှည့်ခြင်း)</span> tool ဖြင့် ရုပ်ပြ (graphic) ဆိုင်ရာ သင်္ကေတလှည့်ခြင်းကို ဆောင်ရွက်ရန် ကြိုတင်လုပ်ဆောင်ရမည့်အရာတစ်ခုဖြစ်သည်။ အမှန်တကယ်တော့ သင်္ကေတ layer တစ်ခုတွင် ၎င်း၏လှည့်ခြင်းဆိုင်ရာ property များနှင့် ချိတ်ဆက်ထားသော တူညီသည့် field မရှိပါက၊ tool သည် အလုပ်လုပ်မည်မဟုတ်ပါ။</p>
 </div>
 <figure class="align-center" id="id25">
-<span id="figure-rotate-point"></span><img alt="../../../_images/rotatepointsymbol.png" src="../../../_images/rotatepointsymbol.png" />
+<span id="figure-rotate-point"></span><img alt="docs/user_manual/working_with_vector/img/rotatepointsymbol.png" src="docs/user_manual/working_with_vector/img/rotatepointsymbol.png" />
 <figcaption>
 <p><span class="caption-number">Fig. 16.99 </span><span class="caption-text">Point သင်္ကေတတစ်ခုကို လှည့်ခြင်း</span><a class="headerlink" href="#id25" title="Link to this image"></a></p>
 </figcaption>
@@ -1173,7 +1117,7 @@
 <li><p><a class="reference internal" href="../../../_images/mActionRectangle3PointsDistance.png"><img alt="rectangle3PointsDistance" src="../../../_images/mActionRectangle3PointsDistance.png" style="width: 1.5em;" /></a> <sup>Rectangle from 3 points (distance) ` (Point သုံးခု (အကွာအဝေး)မှ ထောင့်မှန်စတုဂံရေးဆွဲခြင်း) - Point သုံးခုမှ လိုက်လျောညီထွေဖြစ်သော ထောင့်မှန်စတုဂံတစ်ခုကို ရေးဆွဲပေးပါသည်။ ပထမနှင့် ဒုတိယ point များသည် ပထမအစွန်း (edge) ၏ အလျားနှင့် ထောင့်ကို သတ်မှတ်ပေးပါသည်။ တတိယ point သည် အခြားအစွန်း၏ အလျားကို သတ်မှတ်ပေးပါသည်။ အစွန်းများ၏ အလျားကို သတ်မှတ်ပြင်ဆင်ရန်အတွက် :ref:`advanced_digitizing_panel</sup> ကို အသုံးပြုနိုင်ပါသည်။ (ဘယ်ဘက် click ၊ ဘယ်ဘက် click ၊ ညာဘက် click)</p></li>
 <li><p><a class="reference internal" href="../../../_images/mActionRectangle3PointsProjected.png"><img alt="rectangle3PointsProjected" src="../../../_images/mActionRectangle3PointsProjected.png" style="width: 1.5em;" /></a> <sup>Rectangle from 3 points (projected)</sup> (Point သုံးခု (projection ပြုလုပ်ထားသည့်) မှ ထောင့်မှန်စတုဂံ ရေးဆွဲခြင်း) - အရှေ့တွင် အသုံးပြုသည့် tool ကဲ့သို့ပင် ဖြစ်သော်လည်း ဒုတိယအစွန်း၏ အလျားကို ပထမအစွန်းပေါ်ရှိ တတိယ point ၏ projection မှ တွက်ချက်ခြင်း ဖြစ်သည်။ (ဘယ်ဘက် click ၊ ဘယ်ဘက် click ၊ ညာဘက် click)</p>
 <figure class="align-center" id="id26">
-<span id="figure-draw-rectangles-3-points"></span><img alt="../../../_images/draw_rectangles_3_points.png" src="../../../_images/draw_rectangles_3_points.png" />
+<span id="figure-draw-rectangles-3-points"></span><img alt="docs/user_manual/working_with_vector/img/draw_rectangles_3_points.png" src="docs/user_manual/working_with_vector/img/draw_rectangles_3_points.png" />
 <figcaption>
 <p><span class="caption-number">Fig. 16.100 </span><span class="caption-text">Distance (လက်ယာဘက်) နှင့် projection (လက်ဝဲဘက်) တို့ကို အသုံးပြု၍ point သုံးခုမှ ထောင့်မှန်စတုဂံရေးဆွဲခြင်း</span><a class="headerlink" href="#id26" title="Link to this image"></a></p>
 </figcaption>
@@ -1196,7 +1140,7 @@
 <span id="advanced-digitizing-panel"></span><span id="index-44"></span><h2><a class="toc-backref" href="#id87" role="doc-backlink"><span class="section-number">16.3.7. </span>အဆင့်မြင့် Digitize ပြုလုပ်ရာနေရာ (The Advanced Digitizing panel)</a><a class="headerlink" href="#digitize-the-advanced-digitizing-panel" title="Link to this heading"></a></h2>
 <p>အသစ် သို့မဟုတ် ရှိပြီးသား ဂျီသြမေတြီများကို capture (ဖမ်းယူ) ပြုလုပ်ခြင်း၊ reshape (ပုံသဏ္ဍာန်ပြန်ပြင်ခြင်း) ပြုလုပ်ခြင်း၊ split (ပိုင်းဖြတ်) ပြုလုပ်ခြင်းများ ပြုလုပ်သည့်အခါတွင် အဆင့်မြင့် Digitize ပြုလုပ်ခြင်း Panel ကို အသုံးပြုနိုင်ပါသည်။ Line များကို သီးခြားထောင့်တစ်ခုနှင့် အပြိုင် (parallel) သို့မဟုတ် ထောင့်မှန် (perpendicular) အတိအကျ digitize ပြုလုပ်နိုင်သည်၊ သို့မဟုတ် သတ်မှတ်ထောင့်များဖြင့် line များကို lock ပြုလုပ်နိုင်သည်။ ထို့အပြင် X နှင့် Y ကိုသြဒိနိတ်များသာမက 3D feature များအတွက် Z တန်ဖိုးများ သို့မဟုတ် M တန်ဖိုးများကို ထည့်သွင်းခြင်းဖြင့် ဂျီသြမေတြီအသစ်၏ တိကျသော အဓိပ္ပါယ်ဖွင့်ဆိုချက်တစ်ခုကိုပြုလုပ်နိုင်သည်။</p>
 <figure class="align-center" id="id27">
-<span id="figure-advanced-digitizing"></span><img alt="../../../_images/advanced_digitizing.png" src="../../../_images/advanced_digitizing.png" />
+<span id="figure-advanced-digitizing"></span><img alt="docs/user_manual/working_with_vector/img/advanced_digitizing.png" src="docs/user_manual/working_with_vector/img/advanced_digitizing.png" />
 <figcaption>
 <p><span class="caption-number">Fig. 16.101 </span><span class="caption-text">အဆင့်မြင့် Digitize ပြုလုပ်ခြင်း Panel</span><a class="headerlink" href="#id27" title="Link to this image"></a></p>
 </figcaption>
@@ -1328,7 +1272,7 @@
 </li>
 <li><p>အပြာရောင် အစက်ချမျဥ်းနှစ်ကြောင်းနှင့် အစိမ်းရောင် ကြက်ခြေခတ်တစ်ခုသည် ထည့်သွင်းလိုက်သော ကိုသြဒိနိတ်အတိအကျကို ဖော်ထုတ်ပြသပေးပါသည်။ အစိမ်းရောင် ကြက်ခြေခတ်နေရာတွင် vertex တစ်ခုကို ထပ်ပေါင်းထည့်ရန် မြေပုံ canvas ပေါ်တွင် click နှိပ်ပါ။</p>
 <figure class="align-center" id="id29">
-<img alt="../../../_images/advanced_digitizing_coordinates.png" src="../../../_images/advanced_digitizing_coordinates.png" />
+<img alt="docs/user_manual/working_with_vector/img/advanced_digitizing_coordinates.png" src="docs/user_manual/working_with_vector/img/advanced_digitizing_coordinates.png" />
 <figcaption>
 <p><span class="caption-number">Fig. 16.102 </span><span class="caption-text">ပေးထားသော ကိုသြဒိနိတ်များတွင် စတင်ရေးဆွဲခြင်း</span><a class="headerlink" href="#id29" title="Link to this image"></a></p>
 </figcaption>
@@ -1342,7 +1286,7 @@
 <li><p><kbd class="kbd docutils literal notranslate">Enter</kbd> ကိုနှိပ်ပါ သို့မဟုတ် မြေပုံ canvas ထဲတွင် မောက်စ် ကို segment ၏အရှည်အတိုင်း lock ချရန် ညာဘက်ရှိ <a class="reference internal" href="../../../_images/locked.png"><img alt="locked" src="../../../_images/locked.png" style="width: 1.5em;" /></a> ခလုတ်ကိုနှိပ်ပါ။ မြေပုံ canvas တွင် အကွာအဝေး text box ၌ ထည့်ထားသော အချင်းဝက်တန်ဖိုးဖြင့် စက်ဝိုင်းတစ်ခုသည် နောက်ဆုံး vertex ကို ဝိုင်းရံထားမည်ဖြစ်သည်။ Click နှိပ်လျှင် စက်ဝိုင်းပေါ်ရှိ ကြက်ခြေခတ်တစ်ခုသည် နောက်ထပ် vertex ၏ တည်နေရာကို ပြသပါသည်။</p></li>
 </ol>
 <figure class="align-center" id="id30">
-<img alt="../../../_images/advanced_digitizing_distance.png" src="../../../_images/advanced_digitizing_distance.png" />
+<img alt="docs/user_manual/working_with_vector/img/advanced_digitizing_distance.png" src="docs/user_manual/working_with_vector/img/advanced_digitizing_distance.png" />
 <figcaption>
 <p><span class="caption-number">Fig. 16.103 </span><span class="caption-text">ပုံသေသတ်မှတ်ထားသော Segment ၏အရှည်</span><a class="headerlink" href="#id30" title="Link to this image"></a></p>
 </figcaption>
@@ -1355,7 +1299,7 @@
 <li><p><kbd class="kbd docutils literal notranslate">Enter</kbd> ကိုနှိပ်ပါ သို့မဟုတ် lock ချရန် ညာဘက်ရှိ <a class="reference internal" href="../../../_images/locked.png"><img alt="locked" src="../../../_images/locked.png" style="width: 1.5em;" /></a> ခလုတ်ကိုနှိပ်ပါ။ နောက်ဆုံး vertex ကိုဖြတ်သွားကာ သတ်မှတ်ထောင့်အပေါ်အခြေခံ၍ လှည့်ထားသောမျဉ်းတစ်ကြောင်းသည် မြေပုံ canvas ထဲတွင် ပေါ်လာပြီး click နှိပ်လျှင် ၎င်းပေါ်ရှိ ကြက်ခြေခတ်တစ်ခုသည် နောက်ထပ် vertex ၏ တည်နေရာကို ပြသပါသည်။</p></li>
 </ol>
 <figure class="align-center" id="id31">
-<img alt="../../../_images/advanced_digitizing_angle.png" src="../../../_images/advanced_digitizing_angle.png" />
+<img alt="docs/user_manual/working_with_vector/img/advanced_digitizing_angle.png" src="docs/user_manual/working_with_vector/img/advanced_digitizing_angle.png" />
 <figcaption>
 <p><span class="caption-number">Fig. 16.104 </span><span class="caption-text">ပုံသေသတ်မှတ်ထားသော Segment ၏ထောင့်</span><a class="headerlink" href="#id31" title="Link to this image"></a></p>
 </figcaption>
@@ -1388,14 +1332,14 @@
 <li><p>ယခင် vertex ကို ဖြတ်၍ Segment ကို ထောင့်မှန်ကျနေသော virtual အစက်ချမျဥ်းတစ်ကြောင်း ပေါ်လာမည်ဖြစ်သည်။ ထောင့်ဂုဏ်သတ္တိကို lock ချ၍ ထိုမျဉ်းပေါ်ရှိ နောက်ထပ် vertex ကို ကန့်သတ်ထားနိုင်ပြီး ကြက်ခြေခတ်တစ်ခုသည် မျဥ်းပေါ်ရှိ cursor ၏ တည်နေရာကို ခန့်မှန်းညွှန်ပြပေးပါသည်။ Vertex အသစ်ကို နေရာချရန် click နှိပ်ပါ။</p></li>
 </ol>
 <figure class="align-center" id="id32">
-<img alt="../../../_images/advanced_digitizing_perpendicular.png" src="../../../_images/advanced_digitizing_perpendicular.png" />
+<img alt="docs/user_manual/working_with_vector/img/advanced_digitizing_perpendicular.png" src="docs/user_manual/working_with_vector/img/advanced_digitizing_perpendicular.png" />
 <figcaption>
 <p><span class="caption-number">Fig. 16.105 </span><span class="caption-text">ထောင့်မှန်ကျ Digitize ပြုလုပ်ခြင်း</span><a class="headerlink" href="#id32" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <p>မျဥ်းပြိုင် segment တစ်ခုရေးဆွဲရန် <a class="reference internal" href="../../../_images/cad_parallel.png"><img alt="cadParallel" src="../../../_images/cad_parallel.png" style="width: 1.5em;" /></a> <sup>Parallel</sup> icon (ကီးဘုတ် shortcut အနေဖြင့် <kbd class="kbd docutils literal notranslate">P</kbd> ကိုနှစ်ခါ နှိပ်ပါ) ကို နှိပ်သည်မှလွဲ၍ ကျန်အဆင့်များသည် အထက်ဖော်ပြပါ အဆင့်များနှင့်တူညီပါသည်။</p>
 <figure class="align-center" id="id33">
-<img alt="../../../_images/advanced_digitizing_parallel.png" src="../../../_images/advanced_digitizing_parallel.png" />
+<img alt="docs/user_manual/working_with_vector/img/advanced_digitizing_parallel.png" src="docs/user_manual/working_with_vector/img/advanced_digitizing_parallel.png" />
 <figcaption>
 <p><span class="caption-number">Fig. 16.106 </span><span class="caption-text">မျဥ်းပြိုင် Digitize ပြုလုပ်ခြင်း</span><a class="headerlink" href="#id33" title="Link to this image"></a></p>
 </figcaption>
@@ -1409,7 +1353,7 @@
 <p>မြေပုံ canvas ထဲရှိ ရှိပြီးသား point တစ်ခု နှင့် snapping mode ကို မှန်မှန်ကန်ကန်ဖွင့်ထားခြင်းဖြင့် ရှိပြီးသား point မှ သတ်မှတ်ထားသော အကွာအဝေးများနှင့် ထောင့်များဖြင့် အခြား point များကို အလွယ်တကူ ရေးဆွဲနိုင်ပါသည်။ <a class="reference internal" href="../../../_images/cad.png"><img alt="cad" src="../../../_images/cad.png" style="width: 1.5em;" /></a> ခလုတ်အပြင် <a class="reference internal" href="../../../_images/cad_construction.png"><img alt="cadConstruction" src="../../../_images/cad_construction.png" style="width: 1.5em;" /></a> <sup>Construction mode</sup> icon သို့မဟုတ် <kbd class="kbd docutils literal notranslate">C</kbd> ကီးဘုတ် shortcut ကို နှိပ်ခြင်းဖြင့် <em>construction mode</em> ကို activate ပြုလုပ်ရပါမည်။</p>
 <p>အကွာအဝေးကို တွက်ချက်လိုသော point ကို click နှိပ်ပြီး <span class="guilabel">d</span> box (<kbd class="kbd docutils literal notranslate">D</kbd> shortcut) ကို နှိပ်၍ လိုချင်သော အကွာအဝေးကို ရိုက်ထည့်ပြီး မြေပုံ canvas တွင် မောက်စ် တည်နေရာကို lock ချရန် <kbd class="kbd docutils literal notranslate">Enter</kbd> ကို နှိပ်ပါ-</p>
 <figure class="align-center" id="id34">
-<img alt="../../../_images/advanced_digitizing_distance_point.png" src="../../../_images/advanced_digitizing_distance_point.png" />
+<img alt="docs/user_manual/working_with_vector/img/advanced_digitizing_distance_point.png" src="docs/user_manual/working_with_vector/img/advanced_digitizing_distance_point.png" />
 <figcaption>
 <p><span class="caption-number">Fig. 16.107 </span><span class="caption-text">Point မှ အကွာအဝေး</span><a class="headerlink" href="#id34" title="Link to this image"></a></p>
 </figcaption>
@@ -1417,14 +1361,14 @@
 <p>အမှတ်အသစ်တစ်ခု ထပ်ပေါင်းမထည့်မီ construction mode မှထွက်ရန် <kbd class="kbd docutils literal notranslate">C</kbd> ကိုနှိပ်ပါ။ ထို့နောက် မြေပုံ canvas ပေါ်တွင် click နှိပ်နိုင်ပြီး ထည့်သွင်းထားသောသတ်မှတ်အကွာအဝေး၌ point ကို နေရာချပေးမည်ဖြစ်သည်။</p>
 <p>ထောင့်ကန့်သတ်ချက်ကိုလည်း အသုံးပြုနိုင်သည်၊ ဥပမာအားဖြင့် မူရင်း point တစ်ခုမှ တူညီသောအကွာအဝေး၌ အခြား point တစ်ခုကို ဖန်တီးရန် အသုံးပြုနိုင်သော်လည်း အသစ်ပေါင်းထည့်ထားသော point မှ သီးခြားထောင့်တစ်ခုသာတွင်ဖြစ်သည်။ Construction mode သို့ဝင်ရောက်ရန်  <a class="reference internal" href="../../../_images/cad_construction.png"><img alt="cadConstruction" src="../../../_images/cad_construction.png" style="width: 1.5em;" /></a> <sup>Construction mode</sup> icon သို့မဟုတ် <kbd class="kbd docutils literal notranslate">C</kbd> ကီးဘုတ် shortcut ကို နှိပ်ပါ။ မကြာသေးမီက ပေါင်းထည့်ထားသည့် point ကို နှိပ်ပါ ထို့နောက် လားရာ segment တစ်ခုကို သတ်မှတ်ရန် အခြားတစ်ခုကို နှိပ်ပါ။ ထို့နောက် <span class="guilabel">d</span> text box (<kbd class="kbd docutils literal notranslate">D</kbd> shortcut) ကိုနှိပ်၍ လိုချင်သော အကွာအဝေးကို ရိုက်ထည့်ပြီး <kbd class="kbd docutils literal notranslate">Enter</kbd> ကို နှိပ်ပါ။ <span class="guilabel">a</span> text box (<kbd class="kbd docutils literal notranslate">A</kbd> shortcut) ကိုနှိပ်၍ လိုချင်သော ထောင့်ကိုရိုက်ထည့်ပြီး <kbd class="kbd docutils literal notranslate">Enter</kbd> ကိုနှိပ်ပါ။ မောက်စ် တည်နေရာကို အကွာအဝေးနှင့် ထောင့်နှစ်ခုစလုံးတွင် lock ချမည်ဖြစ်သည်။</p>
 <figure class="align-center" id="id35">
-<img alt="../../../_images/advanced_digitizing_distance_angle_point.png" src="../../../_images/advanced_digitizing_distance_angle_point.png" />
+<img alt="docs/user_manual/working_with_vector/img/advanced_digitizing_distance_angle_point.png" src="docs/user_manual/working_with_vector/img/advanced_digitizing_distance_angle_point.png" />
 <figcaption>
 <p><span class="caption-number">Fig. 16.108 </span><span class="caption-text">Point များမှ အကွာအဝေးနှင့် ထောင့်</span><a class="headerlink" href="#id35" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <p>အမှတ်အသစ်တစ်ခု ထပ်ပေါင်းမထည့်မီ construction mode မှထွက်ရန် <kbd class="kbd docutils literal notranslate">C</kbd> ကိုနှိပ်ပါ။ ထို့နောက် မြေပုံ canvas ကိုနှိပ်နိုင်ပြီး ထည့်သွင်းထားသောသတ်မှတ်အကွာအဝေးနှင့်ထောင့် နေရာ၌ point ကိုနေရာချထားပေးမည်ဖြစ်သည်။ လုပ်ငန်းစဥ်ကို ထပ်ခါထပ်ခါပြုလုပ်၍ point များစွာကို ထပ်မံပေါင်းထည့်နိုင်ပါသည်။</p>
 <figure class="align-center" id="id36">
-<img alt="../../../_images/advanced_digitizing_distance_point_final.png" src="../../../_images/advanced_digitizing_distance_point_final.png" />
+<img alt="docs/user_manual/working_with_vector/img/advanced_digitizing_distance_point_final.png" src="docs/user_manual/working_with_vector/img/advanced_digitizing_distance_point_final.png" />
 <figcaption>
 <p><span class="caption-number">Fig. 16.109 </span><span class="caption-text">ပေးထားသည့် အကွာအဝေးနှင့် ထောင့်နေရာရှိ Point များ</span><a class="headerlink" href="#id36" title="Link to this image"></a></p>
 </figcaption>
@@ -1445,7 +1389,7 @@
 <li><p>၎င်းတို့သည် ဂျီသြမေတြီ အမျိုးအစားကို မပြောင်းလဲပါ၊ ဥပမာ- Line မှ Point Layer။</p></li>
 </ul>
 <figure class="align-center" id="id37">
-<img alt="../../../_images/edit_inplace_algorithms.png" src="../../../_images/edit_inplace_algorithms.png" />
+<img alt="docs/user_manual/working_with_vector/img/edit_inplace_algorithms.png" src="docs/user_manual/working_with_vector/img/edit_inplace_algorithms.png" />
 <figcaption>
 <p><span class="caption-number">Fig. 16.110 </span><span class="caption-text">Processing algorithm များ - အားလုံး (ဘယ်ဘက်) နှင့် polygon in-place editors (ညာဘက်)</span><a class="headerlink" href="#id37" title="Link to this image"></a></p>
 </figcaption>
@@ -1479,7 +1423,7 @@
 
   <div role="contentinfo">
     <p>&#169; Copyright 2002-now, QGIS project.
-      <span class="lastupdated">Last updated on 2024 May 13, 16:23 +0700.
+      <span class="lastupdated">Last updated on 2024 Jun 04, 13:34 +0630.
       </span></p>
   </div>
 
