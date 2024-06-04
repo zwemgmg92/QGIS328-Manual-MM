@@ -8,6 +8,8 @@
 
  ဤ လက်စွဲကို webpage အဖြစ် ထုတ်လွှင့်ထးပါသည် [https://seepuuyar.github.io/QGIS328-Manual-MM/docs/](https://seepuuyar.github.io/QGIS328-Manual-MM/docs/) ဖြင့်ဖတ်ရှုနိုင်ပါသည်။
 
+ ![qgis manual](/_images/zz_qgis_manual.png)
+
 ## QGIS Desktop Help တွင်အသုံးပြုခြင်း
 ဤ လက်စွဲကို QGIS Desktop Application တွင်လည်းချိတ်ဆက်အသုံးပြုနိုင်ပါသည်။ QGIS Dialog box တစ်ခုခု ၏ Help button ကို နှိပ်လိုက်ချိန်တွင် သက်ဆိုင်ရာ စာမျက်နှာကို ဖော်ပြပေးနိုင်ပါသည်။
 
