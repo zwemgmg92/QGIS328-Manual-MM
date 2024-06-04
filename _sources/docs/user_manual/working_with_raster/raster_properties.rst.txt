@@ -508,7 +508,7 @@ Histogram ၏ အောက်ခြေတွင် drop-down menu မှတဆ�
 အချိန်ကာလဆိုင်ရာ ဂုဏ်သတ္တိများ (Temporal Properties)
 =====================================================
 
-|temporal| :guilabel:`Temporal` tab ကိုအသုံးပြုပြီး layer ၏ rendering ကို အချိန်နှင့်အမျှ ထိန်းချုပ်ခြင်းများလုပ်ဆောင်နိုင်ပါသည်။ 
+|temporal| :guilabel:`Temporal` tab ကိုအသုံးပြုပြီး layer ၏ rendering ကို အချိန်ဖြင့် ထိန်းချုပ်ခြင်းများလုပ်ဆောင်နိုင်ပါသည်။ 
 ထိုသို့သော dynamic rendering မျိုးကို map canvas ပေါ်တွင်ရရှိနိုင်စေရန် :ref:`temporal navigation <maptimecontrol>` ကိုလိုအပ်မည်ဖြစ်ပါသည်။
 
 .. _figure_raster_temporal:
