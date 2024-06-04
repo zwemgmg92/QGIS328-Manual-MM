@@ -1,6 +1,6 @@
 ![qgis logo](https://github.com/qgis/QGIS/blob/master/images/README-md/main_logo.png)
 
-# QGIS3.28-မြန်မာဘာသာ လက်စွဲ
+# [QGIS3.28-မြန်မာဘာသာ လက်စွဲ](https://seepuuyar.github.io/QGIS328-Manual-MM/docs/)
 ရက်စွဲ - ၁ ဇွန် ၂၀၂၄
 
 ဤ လက်စွဲသည် [QGIS](https://qgis.org/en/site/) အဖွဲ့အစည်းမှ [GitHub](https://github.com/qgis) တွင် တရားဝင်တင်ထားသော အင်္ဂလိပ်ဘာသာဖြင့် ရေးသားထားသည့် [**"QGIS User Manual - အသုံးပြုသူ လက်စွဲ"**](https://github.com/qgis/QGIS-Documentation) 
