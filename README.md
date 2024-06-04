@@ -67,6 +67,6 @@ Help button ကိုနှိပ်လိုက်ချိန်တွင် �
 
 ![open option](/_images/zz_issue_reporting_4.png)
 
-(၅) SeePuuYar ၏ Collaborator မှ ပေးပို့လာသော အကြံပြုချက်အားဖွင့်ဖတ်ကြည့်ပြီး သွားရောက်စစ်ဆေးပြင်ဆင်နိုင်မည်ဖြစ်ပါသည်။
+(၅) ပေးပို့လာသောအကြံပြုချက်အား SeePuuYar ၏ Collaborator မှ ဖွင့်ဖတ်ကြည့်ပြီး သွားရောက်စစ်ဆေးပြင်ဆင်နိုင်မည်ဖြစ်ပါသည်။
 
 ![open option](/_images/zz_issue_reporting_5.png)
