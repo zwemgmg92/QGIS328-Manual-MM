@@ -176,7 +176,7 @@ CSVT file ဖြင့် field format ပြုလုပ်ခြင်း (Usi
 CSV files များကို ထည့်သွင်းရာတွင် အခြားတစ်ခုအဖြစ်မဖော်ပြပါက GDAL driver သည် fields အားလုံးကို string (ဥပမာ- စာသား) များဟု ယူဆပါသည်။ မတူညီသော column များ၏ data အမျိုးအစားကို GDAL (နှင့် QGIS) အား ဖော်ပြရန် CSVT file တစ်ခုကို ဖန်တီးနိုင်ပါသည်- 
 
 .. csv-table::
-    :header: "Type"(အမျိုးအစား), "Name"(အမည်), "Example"(နမူနာ)
+    :header: "Type (အမျိုးအစား)", "Name (အမည်)", "Example (နမူနာ)"
 
     "Whole number", "Integer", 4
     "Boolean", "Integer(Boolean)", true
