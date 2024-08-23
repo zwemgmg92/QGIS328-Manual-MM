@@ -72,7 +72,31 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">အသုံးပြုသူများအတွက်</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="user_manual/index.html">QGIS Desktop အသုံးပြုသူလမ်းညွှန်/လက်စွဲ (QGIS 3.28)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user_manual/index.html">QGIS3.28 Desktop အသုံးပြုသူလမ်းညွှန်/လက်စွဲ</a></li>
+<li class="toctree-l1"><a id=myLink1 href="">QGIS3.34 GIS သင်တန်း လက်စွဲ</a></li>
+<li class="toctree-l1"><a id=myLink2 href="">QGIS3.34 GIS မိတ်ဆက်</a></li>
+<script>
+	function dynamicLinks(){
+		var currentDomain = window.location.hostname;
+
+		// Select the link element you want to change
+		var linkElement1 = document.getElementById('myLink1');
+		var linkElement2 = document.getElementById('myLink2');
+
+		// Check the domain and switch the href accordingly
+		if (currentDomain === 'seepuuyar.github.io') {
+			linkElement1.href = 'https://seepuuyar.github.io/QGIS334-Training-Manual-MM/docs/training_manual/index.html';
+			linkElement2.href = 'https://seepuuyar.github.io/QGIS334-Gentle-GIS-Introduction-MM/docs/gentle_gis_introduction/index.html';
+		} else if (currentDomain === 'seepuuyar.com') {
+			linkElement1.href = 'https://seepuuyar.com/QGIS334_Training_Manual_MM/docs/training_manual/index.html';
+			linkElement2.href = 'https://seepuuyar.com/QGIS334_Gentle_GIS_Introduction_MM/docs/gentle_gis_introduction/index.html';
+		} else {
+			linkElement1.href = '../../QGIS328_Manual_MM/docs/user_manual/index.html';
+			linkElement2.href = '../../QGIS334_Training_Manual_MM/docs/training_manual/index.html';
+		}
+	};
+    dynamicLinks() 
+</script>
 </ul>
 
         </div>
