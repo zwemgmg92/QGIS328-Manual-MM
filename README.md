@@ -9,8 +9,8 @@
  QGIS3.28 Manual Myanmar Version ဟုအမည်ပေးထားသော်လည်း ပါဝင်သော အကြောင်းအရာများမှာ 3.28 ထက်ကျော်လွန်သည့် ဗားရှင်းဖြစ်သည်။ မြန်မာဘာသာသို့ပြန်ဆိုရန် GitHub မှ rst ဖိုင်များကို ရယူချိန်သည် QGIS 3.28 ထွက်ချိန်ထက် အတော်နောက်ကျနေပြီဖြစ်သည့်အတွက် 3.28 version ထက်နောက်ကျသော version  ဟုဆိုနိုင်ပါသည် ။ သို့သော်လည်း ထို rst ဖိုင်များကို မိတ္တူယူပြီးနောက်ပိုင်း မူလ repository တွင် ဝင်‌ရောက်နေသော ဖြည့်စွက်ချက်အသစ်များ နှင့် ပြင်ဆင်ချက်အသစ်များ မပါနိင်တော့သည့်အတွက် 3.34 version ဟုလည်းမသတ်မှတ်ဘဲ လွယ်ကူစေရန် 3.28 version အဖြစ်သာ အမည်ပေးထားပါသည်။
 
  ဤ လက်စွဲကို webpage အဖြစ် ထုတ်လွှင့်ထားပါသည် 
- - [https://www.seepuuyar.com/qgis328_manual_mm/docs/](https://www.seepuuyar.com/qgis328_manual_mm/docs/) နှင့်နှင့်
- - [https://seepuuyar.github.io/QGIS328-Manual-MM/docs/](https://seepuuyar.github.io/QGIS328-Manual-MM/docs/) တွင်ဖတ်ရှုနိုင်ပါသည်။
+ - [https://www.seepuuyar.com/qgis328_manual_mm/docs/](https://www.seepuuyar.com/qgis328_manual_mm/docs/) နှင့်
+ - [https://seepuuyar.github.io/QGIS328-Manual-MM/docs/](https://seepuuyar.github.io/QGIS328-Manual-MM/docs/) နေရာများတွင်ဖတ်ရှုနိုင်ပါသည်။
 
  ![qgis manual](/_images/zz_qgis_manual.png)
 
