@@ -12,6 +12,8 @@
  - [https://www.seepuuyar.com/qgis328_manual_mm/docs/](https://www.seepuuyar.com/qgis328_manual_mm/docs/) နှင့်
  - [https://seepuuyar.github.io/QGIS328-Manual-MM/docs/](https://seepuuyar.github.io/QGIS328-Manual-MM/docs/) နေရာများတွင်ဖတ်ရှုနိုင်ပါသည်။
 
+Desktop တွင် **offline version** အဖြစ်သုံးလိုပါက ယခုစာမျက်နာအပေါ်ဖက်ရှိ '< > Code' dropdown အောက်တွင် zip ဖြင့်ရယူနိုင်ပါသည်။မိမိစက်ထဲတွင် zip ဖြည်ပြီးနောက် docs folder အောက်ရှိ index.html ကိုနှိပ်ပြီးစတင်ဖတ်ရှုနိုင်ပါသည်။
+
  ![qgis manual](/_images/zz_qgis_manual.png)
 
 ## QGIS Desktop Help တွင်အသုံးပြုခြင်း
@@ -27,7 +29,7 @@
 ![system option](/_images/zz_qgis_option_sys_path_2.png)
 (၅) ဝင်လာသော HELP_LOCATION စာသားကို click/double click နှိပ်ပါ
 
-(၆) ဤ မှတမ်းရှိရာ ဝက်လင့် ကိုထည့်ပါ
+(၆) ဤ မှတမ်းရှိရာ ဝက်လင့်များ ကိုထည့်ပါ
 - **https://www.seepuuyar.com/qgis328_manual_mm/docs/user_manual** ကို ကော်ပီယူပြီး ထည့်ပါ
 - **https://seepuuyar.github.io/QGIS328-Manual-MM/docs/user_manual** ကို ကော်ပီယူပြီး ထည့်ပါ (တစ်ခုမရ လျင် တစ်ခုရနိုင် စေရန်ဖြစ်ပါသည်)
 
